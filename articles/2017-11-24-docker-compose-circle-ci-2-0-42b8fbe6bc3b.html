@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width">
+  <title>docker-compose を利用して開発しているアプリを Circle CI 2.0 でテストする</title>
+  <link href="/articles/2017-11-24-docker-compose-circle-ci-2-0-42b8fbe6bc3b" rel="canonical">
+  <link rel="stylesheet" href="/css/main.css">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="docker-compose を利用して開発しているアプリを Circle CI 2.0 でテストする">
+  <meta property="og:url" content="https://r7kamura.com&#x2F;articles&#x2F;2017-11-24-docker-compose-circle-ci-2-0-42b8fbe6bc3b">
+  <meta property="twitter:card" content="summary">
+  <meta property="twitter:title" content="docker-compose を利用して開発しているアプリを Circle CI 2.0 でテストする">
+</head>
+<body>
+  <header>
+    <nav>
+      <a href="/">トップページ</a>
+      <ul>
+        <li>
+          <a href="/articles">記事</a>
+        </li>
+        <li>
+          <a href="https://google.com/search?q=site:r7kamura.com">検索</a>
+        </li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <article>
+  <h1>docker-compose を利用して開発しているアプリを Circle CI 2.0 でテストする</h1>
+  <footer>
+    <p>
+      <time datetime="2017-11-24T00:00:00+09:00">2017年11月24日</time>
+    </p>
+  </footer>
+  <div>
+    <p>普段から docker-compose を利用して開発しているアプリケーションを、Circle CI 2.0 に対応させる作業を行ったので、今回必要になった設定をまとめておきます。</p>
+<h2 id="アプリケーションの概要">アプリケーションの概要</h2>
+<p>このアプリケーションでは、フロントエンドに Node.js を利用しており、バックエンドに Ruby on Rails を利用しています。それぞれ docker-compose で Node.js と Ruby のサービスを動かしており、Circle CI でも docker-compose を利用してテストすることにしました。</p>
+<h2 id="設定内容">設定内容</h2>
+<p>設定と言っても、以下のようなファイルを用意するだけです。Circle CI では docker-compose を利用できるので、普段から docker-composeを使っているのであれば、ほとんど余分な設定無しにテストを実行できます。</p>
+<p>まず Git リポジトリを checkout してきた後、node サービスで yarn run test、ruby サービスで bundle exec rake を実行しています。必要なタイミングで、勝手に Docker イメージが build あるいは pull されます。</p>
+<h2 id="docker-compose-v2">docker-compose v2</h2>
+<p>罠として、執筆時点では docker-compose v3 が利用できますが、Circle CI 2.0 は今のところ docker-compose v2.0 までにしか対応していませんでした。そのため、自分のプロジェクトでは v2.0 を利用するように変更することになりました。</p>
+<p>docker-compose v2.1 未満では、healthcheck の機能がありません。そのため、MySQL が起動して通信できるようになるまで Rails プロセスの起動を待つ、というようなことが単純に実現できません。上例で ./scripts/wait-for-mysql.sh としているところが、この処理に対応しています。(追記: 現代ならば Dockerize を使って対応するのが妥当だと思います)</p>
+<h2 id="キャッシュ">キャッシュ</h2>
+<p>さて、毎度最初から Docker イメージを作り直していては時間が掛かるので、Circle CI のキャッシュ機能を積極的に活用していきましょう。</p>
+<p>Circle CI 2.0 の Docker イメージは、課金しない限り中間レイヤーをキャッシュしてくれないため、課金具合に依存せずにキャッシュされるようにするには、自分でキャッシュを管理する必要があります。今回のアプリケーションでは、gems と node modules をインストールし終えるところまではキャッシュさせておきたかったので、Gemfile.lock と yarn.lock の checksum をキーにして、Docker イメージの先頭レイヤーをキャッシュしておく作戦を取りました。</p>
+<h2 id="雑感">雑感</h2>
+<p>Docker を利用していないアプリケーションの CI を 1.0 から 2.0 に移行するときには苦労するものの、元々 Docker を利用している場合は非常に楽。しかし高速化などの最適化を考えようとすると、やはり相応の時間が必要になってしまいますね…。</p>
+<h2 id="追記">追記</h2>
+<p>これまで記載していた docker images -q を使う方法では、リポジトリ名やタグ名が保存されなかったり、docker load -i ~/caches/images.tar | true にしていると一部のイメージが復元できなかったりと問題があったので、上記のコードを修正して更新しました (2017-11-27 16:43)。</p>
+
+  </div>
+</article>
+
+  </main>
+</body>
+</html>

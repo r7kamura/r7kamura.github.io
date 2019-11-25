@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width">
+  <title>任意のサブドメインを利用するRailsアプリをHerokuで</title>
+  <link href="/articles/2014-11-28-1-q" rel="canonical">
+  <link rel="stylesheet" href="/css/main.css">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="任意のサブドメインを利用するRailsアプリをHerokuで">
+  <meta property="og:url" content="https://r7kamura.com&#x2F;articles&#x2F;2014-11-28-1-q">
+  <meta property="twitter:card" content="summary">
+  <meta property="twitter:title" content="任意のサブドメインを利用するRailsアプリをHerokuで">
+</head>
+<body>
+  <header>
+    <nav>
+      <a href="/">トップページ</a>
+      <ul>
+        <li>
+          <a href="/articles">記事</a>
+        </li>
+        <li>
+          <a href="https://google.com/search?q=site:r7kamura.com">検索</a>
+        </li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <article>
+  <h1>任意のサブドメインを利用するRailsアプリをHerokuで</h1>
+  <footer>
+    <p>
+      <time datetime="2014-11-28T00:00:00+09:00">2014年11月28日</time>
+    </p>
+  </footer>
+  <div>
+    <p>r7kamura.hatenablog.com や r7kamura.tumblr.com のように任意のサブドメインを利用するアプリをRailsで開発しているときに、Herokuにデプロイして独自ドメインを設定することなく何としてでも *.herokuapp.com ドメイン下で動作させるという、極めてニッチな情報について説明します。</p>
+<h2 id="背景">背景</h2>
+<h3 id="herokuappcom-は使えない">*.*.herokuapp.com は使えない</h3>
+<p>まず前提として、Herokuで利用する *.herokuapp.com のドメイン下では、r7kamura.myapp.herokuapp.com のようにサブドメインを2つ重ねるような利用方法は許可されていません。そのため、独自ドメインを設定するなど、何らかの対策を講じる必要があります。</p>
+<h3 id="雑な検証環境としてherokuを利用したい">雑な検証環境としてHerokuを利用したい</h3>
+<p>本番環境では流石に独自ドメインを設定して運用すると思いますが、検証用の環境についても独自ドメインを設定するとなると、少し面倒になってくると思います。プロトタイプ段階やリリース前の段階では、本番環境の用意やドメイン取得より前に検証環境が必要になることもあるだろうし、そういう場合に独自ドメインを設定せずともHerokuを利用して簡単に環境を用意できると便利な訳です。</p>
+<h3 id="逐一独自ドメインを設定するのはだるい">逐一独自ドメインを設定するのはだるい</h3>
+<p>また、検証環境でも一度くらいなら独自ドメインを設定する手間を掛けても良いかもしれませんが、Pull Requestを作成するたびに新しいアプリを作成するような無駄に豪華な使い方をするようになると、その度に独自ドメインを割り当てたりする訳にもいかなくなってきます。</p>
+<h3 id="本番用のドメインを使い回すのも面倒">本番用のドメインを使い回すのも面倒</h3>
+<p>検証環境用に別途ドメインを取得したりするのは勿体無いので、大抵の場合は本番環境用のドメインに staging. のようなサブドメインを付けて済ませたりするものですが、前述の通りサブドメインを利用するアプリであるという性質上この部分が衝突して面倒なことになるため、やはりサブドメインを設定せずに何とかしてアプリを動かす方法があると嬉しい訳です。</p>
+<h2 id="対策">対策</h2>
+<p>要点としては以下の通りで、サブドメイン相当の情報をURLクエリに付与させてアプリに認識させるという方法が取れます。</p>
+<ol>
+<li>サブドメインの代わりにURLクエリでも認識できるようにする</li>
+<li>サブドメインの付いたURLを生成する代わりにクエリの付いたURLを生成する</li>
+<li>cookieのドメインを変更する</li>
+</ol>
+<h3 id="サブドメインの認識">サブドメインの認識</h3>
+<p>Herokuで動かす場合はHerokuのアプリ名がサブドメインの末尾に付与されるため、アプリ上ではこれを取り除いたものを本来のサブドメインだと認識する必要があります。request.subdomainをwrapしたメソッドをつくり、アプリ上でサブドメインを参照したいときは必ずこのメソッド経由で参照するようにします。</p>
+<pre><code class="language-rb">class ApplicationController &lt; ActionController::BAse
+  def subdomain
+    if heroku?
+      request.subdomain.split(&quot;.&quot;)[1..-1].join(&quot;.&quot;)
+    else
+      request.subdomain
+    end
+  end
+end</code></pre>
+<h3 id="url生成">URL生成</h3>
+<p>polymorphic_urlとurl_forをoverrideして、subdomainオプションが指定されていたときはURLクエリを付け、また相対パス指定だった場合にはURLクエリを引き継ぐようにします。以下の例ではサブドメインの代わりに ?username=r7kamura のようなクエリが使われるようにしています。注意点として、users_pathのようにnamed route由来のメソッドを利用しているとここでoverrideしたメソッドが利用されないので、<code>url_for(:users)</code> や <code>link_to [:login, subdomain: nil] do</code> のようにsymbol等を利用する方法で統一しておく必要があります。下記のmoduleをcontrollerとviewにincludeしておけば、URL生成部分の対応は完了です。</p>
+<pre><code class="language-rb">module SubdomainUrlHelper
+  if heroku?
+    def polymorphic_path(*args)
+      override_subdomain!(args.last)
+      super
+    end
+
+    def polymorphic_url(*args)
+      override_subdomain!(args.last)
+      super
+    end
+
+    def url_for(*args)
+      override_subdomain!(args.last)
+      super
+    end
+
+    private
+
+    def override_subdomain!(options)
+      case options
+      when Hash
+        case
+        when options.has_key?(:subdomain)
+          if options[:subdomain].nil?
+            options.delete(:subdomain)
+          else
+            options[:username] = options.delete(:subdomain)
+          end
+        when options[:only_path] != false &amp;&amp; current_blog
+          options[:username] = current_blog.username
+        end
+      end
+    end
+  end
+end
+
+class ApplicationController &lt; ActionController::Base
+  include SubdomainUrlHelper
+end</code></pre>
+<h3 id="cookie">cookie</h3>
+<p>任意のサブドメインを利用するアプリでsessionを保存するのにcookieを利用している場合、大抵の場合はdomainオプションとして:allが指定されることになると思います。これにより、cookieに .example.com のようなドメインが指定されることになります。しかしHerokuでこれをやると、cookieに指定されるドメインが .herokuapp.com になってしまうため、ドメインを指定しておく必要があります。</p>
+<pre><code class="language-rb">Rails.application.config.session_store :cookie_store, key: &#39;_myapp_all_domain_session&#39;, domain: &quot;.myapp.herokuapp.com&quot;</code></pre>
+<h3 id="注釈">注釈</h3>
+<p>上記のサンプルコードでは <code>heroku?</code> と適当に書いて条件分岐させましたが、実際には環境変数とSettingslogicを併用する等して条件分岐させるのが良いと思います (デフォルトでは普通にサブドメインを利用するが、特定の環境変数が指定されていた場合はURLクエリを利用するモードに切り替える)。</p>
+<h2 id="おわり">おわり</h2>
+<p>Herokuでは100個までアプリが作れるので無数の検証環境を作っていきましょう。</p>
+
+  </div>
+</article>
+
+  </main>
+</body>
+</html>

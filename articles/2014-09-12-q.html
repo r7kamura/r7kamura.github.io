@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width">
+  <title>RailsでCustom validatorをテストする</title>
+  <link href="/articles/2014-09-12-q" rel="canonical">
+  <link rel="stylesheet" href="/css/main.css">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="RailsでCustom validatorをテストする">
+  <meta property="og:url" content="https://r7kamura.com&#x2F;articles&#x2F;2014-09-12-q">
+  <meta property="twitter:card" content="summary">
+  <meta property="twitter:title" content="RailsでCustom validatorをテストする">
+</head>
+<body>
+  <header>
+    <nav>
+      <a href="/">トップページ</a>
+      <ul>
+        <li>
+          <a href="/articles">記事</a>
+        </li>
+        <li>
+          <a href="https://google.com/search?q=site:r7kamura.com">検索</a>
+        </li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <article>
+  <h1>RailsでCustom validatorをテストする</h1>
+  <footer>
+    <p>
+      <time datetime="2014-09-12T00:00:00+09:00">2014年09月12日</time>
+    </p>
+  </footer>
+  <div>
+    <p>TL;DR <code>ActiveModel::Validations</code>をincludeした適当なクラスをつくれば良い。</p>
+<h2 id="custom-validatorはこういうやつ">Custom validatorはこういうやつ</h2>
+<p>例えば、DBのentriesテーブルのデータを扱うEntryモデルをつくっているとする。Entryモデルにはurlという属性が存在するが、urlにはHTTPかHTTPSでかつホスト名が存在するようなURLしか入れたくない。EntryモデルはActiveRecordを利用して実装されているが、標準で利用できるValidationだけではこの要求を実現できないと考える。</p>
+<p>そこでCustom validatorと呼ばれる機能を利用し、独自のValidationのルールをつくる。独自でこれを行うには、モデルクラスに簡単なメソッドを定義して呼び出してもらう方法や、<code>#validate</code>メソッドを実装したクラスを用意する方法、<code>#validate_each</code>メソッドを実装したクラスを用意する方法などがある。ここでは最後のものを利用する。ActiveModel::EachValidatorというのを継承すれば良いとのこと。</p>
+<p>できたのが以下のもの。<code>.validates</code>メソッドの引数に渡している<code>:full_http_url</code>と上例で新たに定義したクラスの名前が一致しているので、勝手に呼び出してくれる。</p>
+<pre><code class="language-rb"># Public: Validates if given value is valid and full HTTP URL.
+#
+# Examples
+#
+#   class Entry &lt; ActiveRecord::Base
+#     validates :url, full_http_url: true
+#   end
+#
+class FullHttpUrlValidator &lt; ActiveModel::EachValidator
+  def validate_each(record, attribute, value)
+    begin
+      uri = URI.parse(value)
+    rescue URI::InvalidURIError
+      uri = nil
+    end
+    if uri.nil? || uri.host.nil? || !uri.is_a?(URI::HTTP)
+      record.errors.add(attribute, :invalid_url)
+    end
+  end
+end</code></pre>
+<h2 id="custom-validatorのテストを書く">Custom validatorのテストを書く</h2>
+<p>それで表題の通りテストを書きたい訳だけれど、Entryクラスをそのままテストに利用してしまうのはあまり良い方針とは言えない。そこで、テスト用にダミーのモデルクラスをつくってテストすることにする。</p>
+<p>ダミーのモデルクラスではEntryクラスと同じように<code>.validates</code>を呼び出せるようなものにする必要がある。これには、クラス名が存在し(定数に挿入されているか<code>.name</code>が呼び出せればOK)、かつ<code>ActiveModel::Validations</code>がincludeされているクラスを用意すれば良い。テストのためにグローバルな名前空間にクラスを定義してしまうのは良くないから、適当にクラスオブジェクトをつくって変数か何かで扱う。クラスをつくるには<code>Class.new</code>を使ってもいいけれど、外部からテスト用にURLを与える機能も実装したいので、丁度良さそうなStruct.newを使う。最終的にできたのが以下のコード。</p>
+<pre><code class="language-rb">require &#39;spec_helper&#39;
+
+describe FullHttpUrlValidator do
+  let(:model_class) do
+    Struct.new(:url) do
+      include ActiveModel::Validations
+
+      def self.name
+        &#39;DummyModel&#39;
+      end
+
+      validates :url, full_http_url: true
+    end
+  end
+
+  describe &#39;#validate&#39; do
+    subject do
+      model_class.new(url)
+    end
+
+    context &#39;with empty string&#39; do
+      let(:url) do
+        &#39;&#39;
+      end
+      it { should_not be_valid }
+    end
+
+    context &#39;with nil&#39; do
+      let(:url) do
+        nil
+      end
+      it { should_not be_valid }
+    end
+
+    context &#39;without host&#39; do
+      let(:url) do
+        &#39;http:///about&#39;
+      end
+      it { should_not be_valid }
+    end
+
+    context &#39;without http(s) scheme&#39; do
+      let(:url) do
+        &#39;ftp://example.com&#39;
+      end
+      it { should_not be_valid }
+    end
+
+    context &#39;with https&#39; do
+      let(:url) do
+        &#39;https://example.com&#39;
+      end
+      it { should be_valid }
+    end
+
+    context &#39;with full HTTP URL&#39; do
+      let(:url) do
+        &#39;http://example.com&#39;
+      end
+      it { should be_valid }
+    end
+  end
+end</code></pre>
+<pre><code>FullHttpUrlValidator
+  #validate
+    with empty string
+      should not be valid
+    with nil
+      should not be valid
+    without host
+      should not be valid
+    without http(s) scheme
+      should not be valid
+    with https
+      should be valid
+    with full HTTP URL
+      should be valid</code></pre>
+  </div>
+</article>
+
+  </main>
+</body>
+</html>

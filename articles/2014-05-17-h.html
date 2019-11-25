@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width">
+  <title>チャットからPull Request &amp;amp; Merge</title>
+  <link href="/articles/2014-05-17-h" rel="canonical">
+  <link rel="stylesheet" href="/css/main.css">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="チャットからPull Request &amp;amp; Merge">
+  <meta property="og:url" content="https://r7kamura.com&#x2F;articles&#x2F;2014-05-17-h">
+  <meta property="twitter:card" content="summary">
+  <meta property="twitter:title" content="チャットからPull Request &amp;amp; Merge">
+</head>
+<body>
+  <header>
+    <nav>
+      <a href="/">トップページ</a>
+      <ul>
+        <li>
+          <a href="/articles">記事</a>
+        </li>
+        <li>
+          <a href="https://google.com/search?q=site:r7kamura.com">検索</a>
+        </li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <article>
+  <h1>チャットからPull Request &amp;amp; Merge</h1>
+  <footer>
+    <p>
+      <time datetime="2014-05-17T00:00:00+09:00">2014年05月17日</time>
+    </p>
+  </footer>
+  <div>
+    <p><a href="https://github.com/r7kamura/ellen-github">Ellen::GitHub</a>という、
+ChatterBotフレームワークのEllenに、チャット経由でGitHubを操作できる機能を加えるためのプラグインをつくった。
+今のところこういう機能がある。</p>
+
+<ul>
+<li>Access Tokenを登録する</li>
+<li>Issueを作成する</li>
+<li>IssueをCloseする</li>
+<li>Pull Requestを作成する</li>
+<li>Pull RequestをMergeする</li>
+</ul>
+
+
+<h3>Access Token</h3>
+
+<p>GitHub上で操作を行うにはアクセストークンが必要。
+Ellenは命令を発した発言主によって別々のアクセストークンを利用するようになっている。
+「@ellen remember my github token XXX」と発言すれば、発言主のアクセストークンを覚えておいてくれる。
+アクセストークンは <a href="https://github.com/settings/applications">https://github.com/settings/applications</a> からGenerate new tokenをクリックすると作成できる。
+みんなが見ているチャットでアクセストークンを発言するのはリスクが高いので、Ellenと1対1チャットを開いて教えるのが良いだろう。
+Ellenの記憶は標準ではメモリ上に載っているだけなので友達との思い出のように揮発してしまうが、
+<a href="https://github.com/r7kamura/ellen-redis">Ellen::Redis</a>を使えばRedisに永続化しておいてくれる。</p>
+
+<h3>Pull Request</h3>
+
+<p>「@ellen pull request "Support Windows" from r7kamura/ellen:windows to r7kamura/ellen:master」
+と発言すれば、r7kamura/ellenレポジトリのwindowsブランチからmasterブランチに対してPull Requestが作成される。
+加えて「@ellen merge r7kamura/ellen#20」と発言すれば、20番のPull RequestをMergeできる。</p>
+
+<h3>様子</h3>
+
+<p><a href="http://dl.dropboxusercontent.com//u/5978869/image/20140517_203537.png"><img src="http://dl.dropboxusercontent.com//u/5978869/image/20140517_203537.png" alt=""></a></p>
+
+
+  </div>
+</article>
+
+  </main>
+</body>
+</html>

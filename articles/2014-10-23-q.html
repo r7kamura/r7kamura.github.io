@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Ruby製HubotクローンのRubotyをSlackで動かす</title>
+  <link href="/articles/2014-10-23-q" rel="canonical">
+  <link rel="stylesheet" href="/css/main.css">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Ruby製HubotクローンのRubotyをSlackで動かす">
+  <meta property="og:url" content="https://r7kamura.com&#x2F;articles&#x2F;2014-10-23-q">
+  <meta property="twitter:card" content="summary">
+  <meta property="twitter:title" content="Ruby製HubotクローンのRubotyをSlackで動かす">
+</head>
+<body>
+  <header>
+    <nav>
+      <a href="/">トップページ</a>
+      <ul>
+        <li>
+          <a href="/articles">記事</a>
+        </li>
+        <li>
+          <a href="https://google.com/search?q=site:r7kamura.com">検索</a>
+        </li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <article>
+  <h1>Ruby製HubotクローンのRubotyをSlackで動かす</h1>
+  <footer>
+    <p>
+      <time datetime="2014-10-23T00:00:00+09:00">2014年10月23日</time>
+    </p>
+  </footer>
+  <div>
+    <p><a href="https://heroku.com/deploy?template=https://github.com/r7kamura/ruboty-template"><img src="https://www.herokucdn.com/deploy/button.png" alt="Deploy"></a> を押して、Ruby製Hubotクローンの<a href="https://github.com/r7kamura/ruboty">Ruboty</a>を動かす方法を説明します。</p>
+<h2 id="slackを設定">Slackを設定</h2>
+<p>まず、利用するSlackのチームでXMPP Gatewayを有効化しましょう。この設定はTeam Ownerが<a href="https://my.slack.com/admin/settings">設定画面</a>から有効化する必要があります。その後、Ruboty用のSlackアカウントを作成し、利用するSlackチームに招待しましょう。Slackの提供するHubot Integrationではアカウントをつくる必要はありませんでしたが、3rd Party製のBOTをまともに利用する場合にはアカウントが必要になります。Rubotyを管理しそうな人のGmailアドレスに +ruboty とか付けて登録すると良いんじゃないでしょうか。</p>
+<h2 id="herokuにデプロイ">Herokuにデプロイ</h2>
+<p>次に、RubotyをHerokuにデプロイしましょう。Herokuアカウントを持っていれば、記事先頭に載せたデプロイボタンを押せば設定画面に進めます。作成したRuboty用のアカウントの名前と、XMPP Gateway用パスワード (<a href="https://my.slack.com/account/settings">プロフィール画面</a>から自分のXMPP用のパスワードを閲覧できます)、Slackのチーム名をそれぞれ入力すれば、Herokuにデプロイできます。</p>
+<p><img src="https://raw.githubusercontent.com/r7kamura/ruboty-template/master/images/deploy.gif" alt=""></p>
+<h2 id="dynoを追加">Dynoを追加</h2>
+<p>Herokuのデプロイボタンではプロセスを自動的に起動できないので、最後に<a href="https://dashboard-next.heroku.com/apps">ダッシュボード</a>からDynoを0個から1個に変更します。(ところで最近デフォルトで追加されるDynoがβ版のcedarに変わった影響でOpenSSLのエラーが出る場合があります。その場合は <code>heroku stack:set cedar</code> 等で非β版のcedarに戻した後で再度デプロイしましょう)</p>
+<p><img src="https://raw.githubusercontent.com/r7kamura/ruboty-template/master/images/add-dyno.gif" alt=""></p>
+<h2 id="slackで確認">Slackで確認</h2>
+<p>これでデプロイは完了です。Slackの #general チャンネルで <code>@ruboty ping</code> と入力して反応が返ってきたらデプロイ成功です (名前をqiitanにしてたら <code>@qiitan ping</code> です)。1vs1チャットでも試せます。</p>
+<p><img src="https://qiita-image-store.s3.amazonaws.com/0/4365/9fb6d5fc-42e0-e153-f4a2-db8a5242a7b8.gif" alt="ping.gif"></p>
+<h2 id="デバッグ">デバッグ</h2>
+<p>何か失敗していそうだったらログを見て確認しましょう。Web UIからはログが見られないので、herokuコマンドから確認します。herokuコマンドを入れていない場合は<a href="https://toolbelt.heroku.com/">ここ</a>から入れておきましょう。よくある間違いとして、パスワードやチーム名、ユーザ名を間違えていてエラーを出しているというものがあります。間違っていたらダッシュボードからアプリを削除してやり直すのが楽かもしれません。</p>
+<pre><code class="language-sh:ログを確認">heroku logs --app your-app-name</code></pre>
+<h2 id="カスタマイズ">カスタマイズ</h2>
+<p>初期状態では最低限のプラグインしか含まれていませんが、<a href="https://github.com/r7kamura/ruboty-template">ruboty-template</a>をforkすれば自分の好きなプラグインを追加できます。いま住んでるシェアハウス用のSlackでは、<a href="https://github.com/r7kamura/ruboty-cron">ruboty-cron</a>と<a href="https://github.com/r7kamura/ruboty-syoboi_calendar">ruboty-syoboi_calendar</a>を組み合わせて、毎日21時に今日都内で放送予定のアニメを発言させたりしています。</p>
+<p><img src="https://qiita-image-store.s3.amazonaws.com/0/4365/517f488a-5508-f503-d365-7d414bc72d9c.png" alt="例"></p>
+<p>Forkする場合は、Fork後のレポジトリ内で <code>heroku git:remote</code> というコマンドを使うと簡単にpush先を追加できます。変更後の初回のgit-pushでは、恐らく--forceオプションが必要になります。</p>
+<pre><code>heroku git:remote --app your-app-name
+git push heroku master -f</code></pre><h2 id="コラボレーション">コラボレーション</h2>
+<p>Herokuを使っていると、他の開発者が変更を行うたびにデプロイを依頼する必要があって大変です。Travis CIを利用してmasterに変更がpushされたらHerokuにデプロイされるようにし、Pull Requestベースで変更を入れるようにしておくと便利です。</p>
+<pre><code>gem install travis
+travis init
+travis setup heroku
+git add .travis.yml
+git commit -m &quot;Add .travis.yml&quot;
+git push origin master</code></pre><h2 id="おわりに-bow">おわりに :bow:</h2>
+<p>Ruby製HubotクローンのRubotyをSlackで動かす方法について紹介しました。ボタン1発でデプロイできるHerokuのデプロイボタンは革命的ですね。Herokuは1アカウントあたり100アプリまで作成できるので、1人100体までRubotyを従えることができます。Hubotと比べるとRubotyは酷い出来ですが、いやーでもプラグインとかRubyで書きたいしNodeよく分からんのだよねという人の助けになれば幸いです。</p>
+<h2 id="参考">参考</h2>
+<ul>
+<li><a href="https://github.com/r7kamura/ruboty">r7kamura/ruboty</a></li>
+<li><a href="http://r7kamura.hatenablog.com/entry/2014/05/31/190240">Ruby + Bot = Ruboty</a></li>
+<li><a href="http://r7kamura.hatenablog.com/entry/2014/06/30/145617">自己言及野郎はSlackを使おう</a></li>
+<li><a href="http://r7kamura.hatenablog.com/entry/2014/05/14/041123">XMPP界</a></li>
+</ul>
+
+  </div>
+</article>
+
+  </main>
+</body>
+</html>

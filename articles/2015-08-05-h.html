@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width">
+  <title>SwaggerをAPI Gatewayに反映させるやつ</title>
+  <link href="/articles/2015-08-05-h" rel="canonical">
+  <link rel="stylesheet" href="/css/main.css">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="SwaggerをAPI Gatewayに反映させるやつ">
+  <meta property="og:url" content="https://r7kamura.com&#x2F;articles&#x2F;2015-08-05-h">
+  <meta property="twitter:card" content="summary">
+  <meta property="twitter:title" content="SwaggerをAPI Gatewayに反映させるやつ">
+</head>
+<body>
+  <header>
+    <nav>
+      <a href="/">トップページ</a>
+      <ul>
+        <li>
+          <a href="/articles">記事</a>
+        </li>
+        <li>
+          <a href="https://google.com/search?q=site:r7kamura.com">検索</a>
+        </li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <article>
+  <h1>SwaggerをAPI Gatewayに反映させるやつ</h1>
+  <footer>
+    <p>
+      <time datetime="2015-08-05T00:00:00+09:00">2015年08月05日</time>
+    </p>
+  </footer>
+  <div>
+    <p><a href="https://github.com/r7kamura/api-composer">https://github.com/r7kamura/api-composer</a></p>
+
+<p>Swaggerの形式に則って記述されたエンドポイントのインターフェース定義をもとにAmazon API Gatewayにエンドポイントを生やす、というのをやるためのツール群をつくっていて、<a href="https://github.com/r7kamura/api-composer">https://github.com/r7kamura/api-composer</a> という形でライブラリに切り出すことにした。SwaggerのファイルパスとAWSのAPIを利用するための認証情報などを渡すと勝手に反映してくれるという風にしようと思っている。加えて、Swaggerのvendor extensionの仕組みを利用して、エンドポイントにAmazon Lambdaに関数としてアップロードしたいプロジェクトのパスを指定しておくと、それを適当にパッケージングしつつアップロードしてAPI Gatewayのエンドポイントと紐付けてくれる、というのも同時にやるつもり。この辺が自動化出来ると今度は手元での開発時にAPI Gateway + Lambdaを模倣するようなWebアプリが欲しいようになるだろうと思うので、その辺も対応したい。</p>
+
+<p>似ているプロジェクトは幾つか存在していて、SwaggerとAmazon API Gatewayを連携させるツールとして、Javaで書かれた <a href="https://github.com/awslabs/aws-apigateway-swagger-importer">awslabs/aws-apigateway-swagger-importer</a> がある。また、エンドポイントの (独自形式の) インターフェース定義をもとに手元でNode.jsのサーバを動作させるツールとして、<a href="https://github.com/TechnologyAdvice/glambda">TechnologyAdvice/glambda</a> がある。</p>
+
+
+  </div>
+</article>
+
+  </main>
+</body>
+</html>

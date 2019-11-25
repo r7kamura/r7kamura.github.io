@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width">
+  <title>ActiveRecordでPolymorphicにPreloadする</title>
+  <link href="/articles/2015-02-22-q" rel="canonical">
+  <link rel="stylesheet" href="/css/main.css">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="ActiveRecordでPolymorphicにPreloadする">
+  <meta property="og:url" content="https://r7kamura.com&#x2F;articles&#x2F;2015-02-22-q">
+  <meta property="twitter:card" content="summary">
+  <meta property="twitter:title" content="ActiveRecordでPolymorphicにPreloadする">
+</head>
+<body>
+  <header>
+    <nav>
+      <a href="/">トップページ</a>
+      <ul>
+        <li>
+          <a href="/articles">記事</a>
+        </li>
+        <li>
+          <a href="https://google.com/search?q=site:r7kamura.com">検索</a>
+        </li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <article>
+  <h1>ActiveRecordでPolymorphicにPreloadする</h1>
+  <footer>
+    <p>
+      <time datetime="2015-02-22T00:00:00+09:00">2015年02月22日</time>
+    </p>
+  </footer>
+  <div>
+    <p>Ruby用のObject-Relational MapperであるActiveRecordを使っているときに、Polymorphicな関連先に対して更にPreloadする方法について触れます。</p>
+<h2 id="文脈">文脈</h2>
+<p>例えば、<a href="https://twitter.com/i/notifications">Twitterの通知一覧画面</a>のような機能を開発しているとします。このとき、Model、Controller、Viewをそれぞれ以下のようなコードにしてみます。</p>
+<h3 id="model">Model</h3>
+<pre><code class="language-rb"># SVO = Subject + Verb + Object
+class Notification &lt; ActiveRecord::Base
+  belongs_to :object, polymorphic: true
+  belongs_to :subject, class_name: &quot;User&quot;
+end
+
+class FavoriteNotification &lt; Notification
+end
+
+class MentionNotification &lt; Notification
+end
+
+class Mention &lt; ActiveRecord::Base
+  belongs_to :mentioned_tweet, class_name: &quot;Tweet&quot;
+  belongs_to :tweet
+end
+
+class Favorite &lt; ActiveRecord::Base
+  belongs_to :tweet
+end
+
+class Tweet &lt; ActiveRecord::Base
+end
+
+class User &lt; ActiveRecord::Base
+  has_many :notifications
+end</code></pre>
+<h3 id="controller">Controller</h3>
+<pre><code class="language-rb">class NotificationsController &lt; ApplicationController
+  def index
+    @notifications = current_user.notifications.order(created_at: :desc)
+  end
+end</code></pre>
+<h3 id="view">View</h3>
+<pre><code class="language-slim">ul
+  - @notifications.each do |notification|
+    li
+      = link_to notification.subject do
+        = notification.subject.name
+      | が
+      - case notification
+      - when FavoriteNotification
+        = link_to notification.object.tweet do
+          = notification.object.tweet.title
+        | をお気に入りに登録しました
+      - when MentionNotification
+        = link_to notification.object.mentioned_tweet do
+          = notification.object.mentioned_tweet.title
+        | に
+        = link_to notification.object.tweet
+          | 返信しました</code></pre>
+<h2 id="問題">問題</h2>
+<p>上記のコードでは<a href="http://guides.rubyonrails.org/active_record_querying.html#eager-loading-associations">N+1クエリ問題</a>、すなわちNotification 1件ごとに個別にSELECTクエリが発行されてしまうため、関連するレコードをPreloadすることを考えます。</p>
+<pre><code class="language-rb">class NotificationController &lt; ApplicationController
+  def index
+    @notification = Notification.order(created_at: :desc).preload(
+      :subject,
+      object: [
+        :mentioned_tweet,
+        :tweet,
+      ],
+    )
+  end
+end</code></pre>
+<p>しかし、このコードではエラーが発生します。Mentionはmentioned_tweetに紐付いているものの、Favoriteがmentioned_tweetに紐付いていないためです。</p>
+<pre><code>ActiveRecord::AssociationNotFoundError:
+  Association named &#39;mentioned_tweet&#39; was not found on Favorite</code></pre><h2 id="対策">対策</h2>
+<h3 id="model-1">Model</h3>
+<p>まず <code>Notification.belongs_to(:object)</code> の関連を取り除き、二つの別の名前の関連に分けます。次に、<a href="https://github.com/r7kamura/activerecord-belongs_to_if">activerecord-belongs_to_if</a> を利用してそれぞれの関連が成り立つための条件を与えます。この条件を与えることで、例えば <code>notifications.preload(:favorite)</code> としたときに、条件に一致するnotificationだけfavoriteをpreloadするようになります。</p>
+<pre><code class="language-rb">class Notification &lt; ActiveRecord::Base
+  #belongs_to :object, polymorphic: true
+  belongs_to :favorite, foreign_key: :object_id, if: -&gt; { is_a?(FavoriteNotification) }
+  belongs_to :mention, foreign_key: :object_id, if: -&gt; { is_a?(MentionNotification) }
+  belongs_to :subject, class_name: &quot;User&quot;
+end</code></pre>
+<h3 id="controller-1">Controller</h3>
+<p>Controllerでは、Preloadする対象をobjectから変更します。favoriteについては関連するtweetを、mentionについては関連するmentioned_tweetとtweetをそれぞれPreloadさせます。</p>
+<pre><code class="language-rb">class NotificationController &lt; ApplicationController
+  def index
+    @notification = Notification.order(created_at: :desc).preload(
+      :subject,
+      favorite: :tweet,
+      mention: [
+        :mentioned_tweet,
+        :tweet,
+      ],
+    )
+  end
+end</code></pre>
+<h3 id="view-1">View</h3>
+<p>Viewも、notification.objectではなく、notification.favoriteやnotification.mentionを参照するように変更しておきます。</p>
+<pre><code class="language-slim">ul
+  - @notifications.each do |notification|
+    li
+      = link_to notification.subject do
+        = notification.subject.name
+      | が
+      - case notification
+      - when FavoriteNotification
+        = link_to notification.favorite.tweet do
+          = notification.favorite.tweet.title
+        | をお気に入りに登録しました
+      - when MentionNotification
+        = link_to notification.mention.mentioned_tweet do
+          = notification.mention.mentioned_tweet.title
+        | に
+        = link_to notification.mention.tweet
+          | 返信しました</code></pre>
+<h3 id="結果">結果</h3>
+<p>これで、以下のようにN+1クエリ問題が少し緩和されます。</p>
+<pre><code class="language-sql">SELECT notifications.* FROM notifications WHERE notifications.receiver_id = 1 ORDER BY notifications.created_at DESC
+SELECT users.* FROM users WHERE users.id IN (2)
+SELECT favorites.* FROM favorites WHERE favorites.id IN (4, 127, 128, 133, 134)
+SELECT tweets.* FROM tweets WHERE tweets.id IN (10, 25, 26, 20, 3)
+SELECT mentions.* FROM mentions WHERE mentions.id IN (6)
+SELECT tweets.* FROM tweets WHERE tweets.id IN (27)
+SELECT tweets.* FROM tweets WHERE tweets.id IN (25)</code></pre>
+<h3 id="課題">課題</h3>
+<p>FavoriteとMentionのそれぞれについて別々にTweetを問い合わせているところが、少し無駄と言えるかもしれません。まあ何も対策しないよりは幾分マシでしょう。これらをまとめて取得させるには、<code>Notification.belongs_to(:object)</code>は残しておいて、<code>Favorite.belongs_to(:mentioned_tweet, if: -&gt; { false })</code>のようにすれば、<code>notification.preload(object: [:mentioned_tweet, :tweet])</code> と出来るかもしれません。</p>
+
+  </div>
+</article>
+
+  </main>
+</body>
+</html>

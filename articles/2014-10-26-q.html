@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width">
+  <title>チャット経由でデプロイする</title>
+  <link href="/articles/2014-10-26-q" rel="canonical">
+  <link rel="stylesheet" href="/css/main.css">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="チャット経由でデプロイする">
+  <meta property="og:url" content="https://r7kamura.com&#x2F;articles&#x2F;2014-10-26-q">
+  <meta property="twitter:card" content="summary">
+  <meta property="twitter:title" content="チャット経由でデプロイする">
+</head>
+<body>
+  <header>
+    <nav>
+      <a href="/">トップページ</a>
+      <ul>
+        <li>
+          <a href="/articles">記事</a>
+        </li>
+        <li>
+          <a href="https://google.com/search?q=site:r7kamura.com">検索</a>
+        </li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <article>
+  <h1>チャット経由でデプロイする</h1>
+  <footer>
+    <p>
+      <time datetime="2014-10-26T00:00:00+09:00">2014年10月26日</time>
+    </p>
+  </footer>
+  <div>
+    <p>最近開発で利用している、デプロイをチャット経由で行うフローについて説明します。</p>
+<h2 id="要点">要点</h2>
+<ol>
+<li>開発者はmasterブランチで開発する</li>
+<li>開発者はデプロイしたいときにBotにお願いする</li>
+<li>Botはmasterブランチからproductionブランチに対してPull Requestをつくる</li>
+<li>開発者はPull Requestを確認してmergeする</li>
+<li>CIはproductionブランチが変更されるとサーバにデプロイする</li>
+</ol>
+<h2 id="chatops">ChatOps</h2>
+<p>masterブランチからproductionブランチにPull Requestを出す作業は面倒なので、チャット経由で行っています。<a href="http://qiita.com/r7kamura/items/8d1b98e28154de6030b9">Heroku上で動かしたRuboty</a>に<a href="https://github.com/r7kamura/ruboty-github">ruboty-github</a>と<a href="https://github.com/r7kamura/ruboty-alias">ruboty-alias</a>というプラグインを入れて、「デプロイしたい」と発言するとPull Requestを作成するように設定しています。チャット経由で物事を行うようにすると、周知や教育としての効果も少し期待できます。</p>
+<p><img src="https://qiita-image-store.s3.amazonaws.com/0/4365/43a1bddf-f09f-0265-abac-da5c293e74f5.png" alt=""></p>
+<p><img src="https://qiita-image-store.s3.amazonaws.com/1/4365/0765be7e-dd38-625b-7217-977ed7c47661.png" alt=""></p>
+<h2 id="pull-request">Pull Request</h2>
+<p>Pull Requestベースでデプロイを行うと、Pull Request上で差分やCIの状況を確認できたり、コミュニケーションを行えたり、記録が残ったりという利点があります。デプロイ用のPull Requestにラベルを付けて管理しておいたり、Pull Requestのmergeをチャットに通知するようにしていれば、開発の進捗が俯瞰しやすくなるかもしれません。</p>
+<h2 id="ブランチ戦略">ブランチ戦略</h2>
+<p>これまでGitHub Flowを利用していたため、現状はこれにproductionブランチを加えた構成になっています。しかしmasterブランチの開発速度が非常に速い状況下では、これからデプロイされるコードへのテストと確認が容易ではなくなります (masterをテスト・確認しようとしたら次の変更がmasterに追加され、また最初から確認し直す必要があるなど)。</p>
+<p>この場合は、Git-Flowに代表されるようなリリースブランチをつくり、リリースブランチからproductionブランチにPull Requestを送る方が、より厳格な開発フローになると思います。チャット経由ならこの辺りの複雑な処理は隠蔽できるので、モバイルアプリの開発フローと足並みを揃えるにはこちらのフローの方が良いかもしれません。規模・コスト・習熟度によって適切な運用方法は異なるものになるため、より単純なフローから試していくというのが良いと思います。</p>
+<h2 id="ci">CI</h2>
+<p>デプロイはCI上で <code>cap production deploy</code> を実行しています。Pull Request同様、過去のデプロイやデプロイ失敗時のログが残るので、問題解決に役立ちます。Herokuを使っている場合は、CIでデプロイする代わりにGitHub Syncの機能を有効化しても良いでしょう。また開発者の手元でデプロイする場合に比べ、個々人の環境に依存した問題が起きにくくなります。一方、CI用のサービスが落ちたときにデプロイ出来なくなっては困るので、ローカル環境からデプロイ出来る状態にしておくことも大切です。</p>
+<h2 id="障害">障害</h2>
+<p>もし外部のサービスを利用する場合は「このサービスが落ちるとこれが出来なくなる」という情報は予め整理し、対策を用意すると共にどの程度諦めるかを考慮しておいた方が良いでしょう。例えば、もしHeroku、Slack、GitHub、CircleCIが落ちた場合、Botも反応せず、チャットにも繋がらず、Pull Requestも作れず、CI経由でのデプロイもできず、コードの取得もできませんが、Capistranoのデプロイ方法をrsync経由に変更し、手元で <code>cap production deploy</code> を実行すればデプロイは可能です。</p>
+<h2 id="おわり">おわり</h2>
+<p>デプロイをチャット経由で行うフローについて説明しました。余談ですが、Botは擬人化するよりゆるキャラ化する方が良い文化を育みやすいと思っています。そのうち、開発もレビューもデプロイも全部Botがやってくれるようになると良いですね。</p>
+<h2 id="リンク">リンク</h2>
+<ul>
+<li><a href="http://d.hatena.ne.jp/naoya/20140502/1399027655">GitHub 時代のデプロイ戦略</a></li>
+<li><a href="https://gist.github.com/Gab-km/3705015">GitHub Flow</a></li>
+<li><a href="https://speakerdeck.com/gfx/mobile-first-development-at-cookpad-number-deploygate">Mobile First Development at COOKPAD #deploygate // Speaker Deck</a></li>
+<li><a href="http://techlife.cookpad.com/entry/2014/10/07/161206">アプリ開発の品質底上げ施策をWebhooksでBotが支援する世界</a></li>
+<li><a href="http://qiita.com/r7kamura/items/8d1b98e28154de6030b9">Ruby製HubotクローンのRubotyをSlackで動かす</a></li>
+</ul>
+
+  </div>
+</article>
+
+  </main>
+</body>
+</html>

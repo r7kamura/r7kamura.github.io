@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width">
+  <title>APIクライアントを自動生成するやつ</title>
+  <link href="/articles/2014-06-05-h" rel="canonical">
+  <link rel="stylesheet" href="/css/main.css">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="APIクライアントを自動生成するやつ">
+  <meta property="og:url" content="https://r7kamura.com&#x2F;articles&#x2F;2014-06-05-h">
+  <meta property="twitter:card" content="summary">
+  <meta property="twitter:title" content="APIクライアントを自動生成するやつ">
+</head>
+<body>
+  <header>
+    <nav>
+      <a href="/">トップページ</a>
+      <ul>
+        <li>
+          <a href="/articles">記事</a>
+        </li>
+        <li>
+          <a href="https://google.com/search?q=site:r7kamura.com">検索</a>
+        </li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <article>
+  <h1>APIクライアントを自動生成するやつ</h1>
+  <footer>
+    <p>
+      <time datetime="2014-06-05T00:00:00+09:00">2014年06月05日</time>
+    </p>
+  </footer>
+  <div>
+    <p><a href="https://github.com/interagent/heroics">Heroics</a>という、JSON Schemaを元にAPIクライアントのコードを自動生成するやつを見た。
+Heroicsにはbin/heroics-generateというコマンドラインツールが付いていて、JSON Schemaを解析したあと、
+client.erbというERBのテンプレートに解析結果のオブジェクトを渡した結果、client.rbという雑なファイルを生成する。</p>
+
+<pre class="code" data-unlink>$ gem install heroics
+$ heroics-generate SuperAwesomeClient schema.json https://api.example.com &gt; client.rb</pre>
+
+
+<h3>Heroicsから生成されるもの</h3>
+
+<p>JSON Schemaからこんな感じで使えるやつを生成してくれる。</p>
+
+<pre class="code" data-unlink># client.rb
+client = SuperAwesomeClient.connect(api_key)
+client.recipe.create("title")
+client.recipe.list #=&gt; [...]
+client.recipe.show(123)</pre>
+
+
+<h3>JSON Schema</h3>
+
+<p>普通JSONで書くけど紙面の都合上ちょっと読みにくいのでYAML形式で記述しときます。</p>
+
+<pre class="code" data-unlink></pre>
+  </div>
+</article>
+
+  </main>
+</body>
+</html>

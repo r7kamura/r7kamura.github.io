@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width">
+  <title>fluctでAPI GatewayからHTMLを返せるようになった</title>
+  <link href="/articles/2015-08-11-1-h" rel="canonical">
+  <link rel="stylesheet" href="/css/main.css">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="fluctでAPI GatewayからHTMLを返せるようになった">
+  <meta property="og:url" content="https://r7kamura.com&#x2F;articles&#x2F;2015-08-11-1-h">
+  <meta property="twitter:card" content="summary">
+  <meta property="twitter:title" content="fluctでAPI GatewayからHTMLを返せるようになった">
+</head>
+<body>
+  <header>
+    <nav>
+      <a href="/">トップページ</a>
+      <ul>
+        <li>
+          <a href="/articles">記事</a>
+        </li>
+        <li>
+          <a href="https://google.com/search?q=site:r7kamura.com">検索</a>
+        </li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <article>
+  <h1>fluctでAPI GatewayからHTMLを返せるようになった</h1>
+  <footer>
+    <p>
+      <time datetime="2015-08-11T00:00:00+09:00">2015年08月11日</time>
+    </p>
+  </footer>
+  <div>
+    <p><a href="https://github.com/r7kamura/fluct">https://github.com/r7kamura/fluct</a> でHTMLを返すようなエンドポイントを簡単に作成できるようになった。index.jsにコードを書いてデプロイコマンドを叩くだけで適当に動くので、正直簡単なページであればHerokuとかにデプロイするより楽。デフォルトで生成される雛形もHTMLを返すようなものになっている。Amazon API Gatewayの用途はどちらかと言うとJSONを返すREST APIをつくるための用途として期待されているように見えるけれど、HTMLを返すようなエンドポイントを提供することもできる。</p>
+
+<pre class="code" data-lang="" data-unlink>$ fluct new myapp
+$ cd myapp
+$ vi package.json
+$ fluct generate action show_dummy_page
+$ fluct deploy</pre>
+
+
+<p>myappをつくって、package.jsonでRoleを設定して (※ まだ自動化できていないので手で編集する必要がある)、show_dummy_pageという名前でactionをつくって、デプロイする。これで <code>GET /dummy</code> から "Hello, world!" を <code>Content-Type: text/html</code> で返すようなエンドポイントを公開できる。適当なテンプレートエンジンをつかってまともなWebページを返すようなデモがあるといいかも。</p>
+
+
+  </div>
+</article>
+
+  </main>
+</body>
+</html>

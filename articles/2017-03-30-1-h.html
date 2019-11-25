@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width">
+  <title>rapa v0.5.4 の変更点</title>
+  <link href="/articles/2017-03-30-1-h" rel="canonical">
+  <link rel="stylesheet" href="/css/main.css">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="rapa v0.5.4 の変更点">
+  <meta property="og:url" content="https://r7kamura.com&#x2F;articles&#x2F;2017-03-30-1-h">
+  <meta property="twitter:card" content="summary">
+  <meta property="twitter:title" content="rapa v0.5.4 の変更点">
+</head>
+<body>
+  <header>
+    <nav>
+      <a href="/">トップページ</a>
+      <ul>
+        <li>
+          <a href="/articles">記事</a>
+        </li>
+        <li>
+          <a href="https://google.com/search?q=site:r7kamura.com">検索</a>
+        </li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <article>
+  <h1>rapa v0.5.4 の変更点</h1>
+  <footer>
+    <p>
+      <time datetime="2017-03-30T00:00:00+09:00">2017年03月30日</time>
+    </p>
+  </footer>
+  <div>
+    <h2>新たな日付の形式のサポート</h2>
+
+<p>Amazon の商品の発売日および出版日の表記方法として、これまで以下のようなパターンがあることが確認されていた。</p>
+
+<ul>
+<li>2017-03-30</li>
+<li>2017-03</li>
+</ul>
+
+
+<p>今回、amakan の取得済み商品データを確認することで、以下のようなパターンが新たに発見された。</p>
+
+<ul>
+<li>2017</li>
+</ul>
+
+
+<p>該当するのは、例えば以下の商品。</p>
+
+<ul>
+<li><a href="https://www.amazon.co.jp/dp/B01LWNZASZ">https://www.amazon.co.jp/dp/B01LWNZASZ</a></li>
+</ul>
+
+
+<p>これに合わせて rapa の日付解析部分のコードが以下のように変更された。今後想定外のパターンが来た場合はすべて nil を返すようにも変更している。</p>
+
+<ul>
+<li><a href="https://github.com/r7kamura/rapa/commit/6b37095c1f4e11f3fd175a95115534a0bb03ce1b">https://github.com/r7kamura/rapa/commit/6b37095c1f4e11f3fd175a95115534a0bb03ce1b</a></li>
+</ul>
+
+
+<h2>雑記</h2>
+
+<p>なんでも記事にしておく期に入ったので、細かい変更についても気が向いたら記事を書いている。</p>
+
+
+  </div>
+</article>
+
+  </main>
+</body>
+</html>

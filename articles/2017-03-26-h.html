@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width">
+  <title>RubyのUnitテスト系フレームワーク用のテストファイル名のパターンには test&#x2F;test*.rb を使うのが良さそう</title>
+  <link href="/articles/2017-03-26-h" rel="canonical">
+  <link rel="stylesheet" href="/css/main.css">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="RubyのUnitテスト系フレームワーク用のテストファイル名のパターンには test&#x2F;test*.rb を使うのが良さそう">
+  <meta property="og:url" content="https://r7kamura.com&#x2F;articles&#x2F;2017-03-26-h">
+  <meta property="twitter:card" content="summary">
+  <meta property="twitter:title" content="RubyのUnitテスト系フレームワーク用のテストファイル名のパターンには test&#x2F;test*.rb を使うのが良さそう">
+</head>
+<body>
+  <header>
+    <nav>
+      <a href="/">トップページ</a>
+      <ul>
+        <li>
+          <a href="/articles">記事</a>
+        </li>
+        <li>
+          <a href="https://google.com/search?q=site:r7kamura.com">検索</a>
+        </li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <article>
+  <h1>RubyのUnitテスト系フレームワーク用のテストファイル名のパターンには test&#x2F;test*.rb を使うのが良さそう</h1>
+  <footer>
+    <p>
+      <time datetime="2017-03-26T00:00:00+09:00">2017年03月26日</time>
+    </p>
+  </footer>
+  <div>
+    <h2>Rake::TestTask</h2>
+
+<p><code>Rake::TestTask</code> がデフォルトでこのパターンなので、これに則っておくことで設定を省略できて良さそう。今まで雰囲気で従っていた慣習に納得の行く理由が新しく発見できて良かった。「RubyのUnitテスト系フレームワーク」と呼んだけれど、正確には「Rubyのスクリプトとしてテストを実行するようなインターフェースを提供しているテストフレームワーク」と呼んだ方が良いかもしれない。</p>
+
+<p><a href="https://github.com/ruby/rake/blob/af15762f972a3f8322a9b5904d56fe2ff3dd8352/lib/rake/testtask.rb">https://github.com/ruby/rake/blob/af15762f972a3f8322a9b5904d56fe2ff3dd8352/lib/rake/testtask.rb</a></p>
+
+<p>例えば <a href="https://github.com/petitest/petitest">Petitest</a> で <code>Rake::TestTask</code> を使って <code>rake test</code> で全てのテストが実行されるようにするには、例えば Rakefile に以下のような定義を行う。</p>
+
+<pre class="code lang-ruby" data-lang="ruby" data-unlink><span class="synPreProc">require</span> <span class="synSpecial">"</span><span class="synConstant">rake/testtask</span><span class="synSpecial">"</span>
+<span class="synType">Rake</span>::<span class="synType">TestTask</span>.new
+</pre>
+
+
+<p>実行する。</p>
+
+<pre class="code" data-lang="" data-unlink>rake test</pre>
+
+
+<p>標準出力の出力結果。</p>
+
+<pre class="code" data-lang="" data-unlink>TestRunner
+  #test_description
+  #test_full_description
+TestSimple
+  #test_one_plus_one_to_be_two
+TestTest
+  #test_assertion_with_truthy_block_to_pass
+  #test_assertion_with_truthy_value_to_pass
+
+
+Counts:
+
+  5 tests
+  5 passes
+  0 failures
+  0 skips
+
+Times:
+
+  Started:  2017-03-26T15:02:46.401250+09:00
+  Finished: 2017-03-26T15:02:46.404074+09:00
+  Total:    0.002824s</pre>
+
+
+<h2>テストのファイルパスとクラス名</h2>
+
+<p>RSpec is a testing DSL, Minitest is Ruby (seattlerb/minitestより) という言葉があるように 、こういうテスト用途で定義されるクラスも定数としてグローバルに参照できるように定義される訳なので、テストファイルも Ruby の他のプログラムと変わらないよという世界観の上では、当然クラス名の命名規則も普段 Ruby でコードを書くときと同じように統一しておくほうが良いと思う。上例では、以下のようなパターンの対応関係でテストのファイルパスとクラス名を割り当てることにしている。</p>
+
+<ul>
+<li>test/test_runner.rb -&gt; <code>::TestRunner</code>
+</li>
+<li>test/test_simple.rb -&gt; <code>::TestTest</code>
+</li>
+<li>test/test_test.rb -&gt; <code>::TestTest</code>
+</li>
+</ul>
+
+
+
+  </div>
+</article>
+
+  </main>
+</body>
+</html>

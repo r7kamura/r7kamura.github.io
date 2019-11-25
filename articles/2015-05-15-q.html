@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width">
+  <title>SitespecでRackアプリから静的サイトをつくる</title>
+  <link href="/articles/2015-05-15-q" rel="canonical">
+  <link rel="stylesheet" href="/css/main.css">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="SitespecでRackアプリから静的サイトをつくる">
+  <meta property="og:url" content="https://r7kamura.com&#x2F;articles&#x2F;2015-05-15-q">
+  <meta property="twitter:card" content="summary">
+  <meta property="twitter:title" content="SitespecでRackアプリから静的サイトをつくる">
+</head>
+<body>
+  <header>
+    <nav>
+      <a href="/">トップページ</a>
+      <ul>
+        <li>
+          <a href="/articles">記事</a>
+        </li>
+        <li>
+          <a href="https://google.com/search?q=site:r7kamura.com">検索</a>
+        </li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <article>
+  <h1>SitespecでRackアプリから静的サイトをつくる</h1>
+  <footer>
+    <p>
+      <time datetime="2015-05-15T00:00:00+09:00">2015年05月15日</time>
+    </p>
+  </footer>
+  <div>
+    <p><a href="https://github.com/r7kamura/sitespec">Sitespec</a> というGemを利用して、Rackアプリから静的サイト用のファイル群を生成する方法について説明します。</p>
+<h2 id="sitespecとは">Sitespecとは</h2>
+<p>Sitespecは、Rackアプリとrequest-specを利用して静的ファイルを生成するためのGemです。ここで言うrequest-specとは、RSpecでRackアプリに対してHTTPリクエストを送信し、アプリの振る舞いやレスポンスの内容を確かめるテストのことを指しています。Sitespecは、request-specで利用されたリクエストとレスポンスを元に、buildディレクトリの中に静的ファイルを生成します。GitHub Pagesなどを利用すれば、ここで生成された静的ファイル群をWebサイトとして公開できます。</p>
+<h2 id="よいところ">よいところ</h2>
+<h3 id="rackアプリの知見や道具を再利用できる">Rackアプリの知見や道具を再利用できる</h3>
+<p>Rackアプリを書けば静的サイトを構築できるため、これまで利用していたRackアプリを再利用できます。HerokuからGitHub Pagesに移行する場合などには、直接的に恩恵を受けられるでしょう。また、RackアプリのためのGemや知見を再利用できます。例えば、SinatraやPadrino、Railsなどを利用したことがある場合、それらのプラグインや開発ノウハウが活かせるでしょう。逆に言えば、静的サイトをつくるために新しいフレームワークを学習するコストを削減できると言えます。</p>
+<h3 id="動的サイトと静的サイトを両方生成できる">動的サイトと静的サイトを両方生成できる</h3>
+<p>開発中はRackアプリとして動作させてローカルで利用することもできるので、ファイルの変更を自動で適用する機能など、開発用の便利ツールを簡単に利用できます。</p>
+<h3 id="テストとドキュメントの代わりになる">テストとドキュメントの代わりになる</h3>
+<p>RSpecで記述したテストを通して静的ファイルを生成するため、実際に動作するテストが用意され、またそれらが簡単なドキュメントの代わりにもなります。テストが通ったエンドポイントのファイルだけが生成されるため、Travis CIなどのサービスでビルドすることにすると相性が良いと思います。</p>
+<h2 id="使い方">使い方</h2>
+<p>簡単な例でSitespecの使い方を説明します。</p>
+<h3 id="1-sitespecをgemfileに追加する">1. sitespecをGemfileに追加する</h3>
+<pre><code class="language-rb:Gemfile">gem &quot;sitespec&quot;</code></pre>
+<h3 id="2-テスト内で-sitespecrspec-を読み込む">2. テスト内で sitespec/rspec を読み込む</h3>
+<p>これを読み込むことで、特定の条件下でテストが成功したときに静的ファイルを生成するフックが設定されます。</p>
+<pre><code class="language-rb:spec/spec_helper.rb">require &quot;sitespec/rspec&quot;</code></pre>
+<h3 id="3-sitespec-というメタデータを持ったテストケースを書く">3. <code>:sitespec</code> というメタデータを持ったテストケースを書く</h3>
+<p>Sitespecは、RSpecで <code>:sitespec</code> というメタデータを持ったテストケースを実行したときに静的ファイルを生成します。このメタデータが設定されたテストケース内では、<a href="https://github.com/brynary/rack-test">rack-test</a> が利用できるように設定されています。<code>:sitespec</code> を設定し、rack-testを利用して1つのテストケースで1つのリクエストを検証するようなテストを書くことが、Sitespecを利用する上で守らなければならない制約です。</p>
+<pre><code class="language-rb:spec/site_spec.rb">describe &quot;Sitespec&quot; do
+  let(:app) do
+    MyRackApp
+  end
+
+  %w[
+    /
+    /2000/01/01/hello
+    /stylesheets/all.css
+  ].each do |path|
+    describe &quot;GET #{path}&quot;, :sitespec do
+      it &quot;returns 200&quot; do
+        expect(get(path).status).to eq 200
+      end
+    end
+  end
+end</code></pre>
+<h3 id="4-テストを実行する">4. テストを実行する</h3>
+<p>テストを実行すると、成功したテストケースに対してそれぞれ静的ファイルが生成されます。生成されるファイルは、build/index.html、build/2001/01/01/hello.html、build/stylesheets/all.css のように、URLのパスに応じた位置に配置されます。</p>
+<pre><code>$ bundle exec rspec --format documentation
+
+Example application
+  GET /
+    returns 200
+  GET /2000/01/01/hello
+    returns 200
+  GET /stylesheets/all.css
+    returns 200
+
+Sitespec generated 3 files into build directory.
+
+Finished in 0.08302 seconds (files took 0.79161 seconds to load)
+3 examples, 0 failures</code></pre><h2 id="細かい設定">細かい設定</h2>
+<p><code>Sitespec.configuration.build_path = &quot;artifacts&quot;</code> のように設定すれば、出力先のディレクトリを変更できます。他に、<code>Sitespec.configuration.auto_complete_html_path = false</code> を設定すると、レスポンスヘッダのContent-Typeが text/html だった場合に <code>.html</code> や <code>index.html</code> を生成するファイル名に自動で付ける機能を無効化できます。他に、<code>Sitespec.configuration.disable</code> を呼ぶと、<code>:sitespec</code> のメタデータの有無に関係なく、Sitespecによるファイルの生成を無効化できます。環境変数の有無など、何かの条件に応じて動的に切り替えたい場合に有用でしょう。</p>
+<h2 id="github-pagesで使う">GitHub Pagesで使う</h2>
+<p>GitHub Pagesと利用する方法について説明しておきます。<a href="https://github.com/r7kamura/r7kamura.com">r7kamura/r7kamura.com</a> ではSitespecとTravis CIを利用してGitHub PagesでWebサイトを公開しているので、このレポジトリを直接参考にするのが手っ取り早いのですが、大事そうな点について補足しておきます。</p>
+<h3 id="githubのアクセストークンを利用した認証">GitHubのアクセストークンを利用した認証</h3>
+<p><a href="https://github.com/r7kamura/r7kamura.com">r7kamura/r7kamura.com</a>ではビルドとデプロイのためにTravis CIを利用していますが、テストを実行して生成された静的ファイルをGitHubにgit-pushするには、少し工夫する必要があります。まず、Travis CIからGitHubのレポジトリにgit-pushするためには、GitHubに対して認証する必要があります。SSH経由での認証、あるいはHTTPSとGitHubのアクセストークンを利用した認証が利用できますが、後者の方法を取るのが手軽です。使い方としては、<code>https://$GITHUB_ACCESS_TOKEN@github.com/r7kamura/r7kamura.com.git</code> のように、HTTPS用のGitレポジトリのURL内に、ユーザ名としてアクセストークンを埋め込む形になります。GitHubのアクセストークンは、<a href="https://github.com/settings/tokens/new">https://github.com/settings/tokens/new</a> から発行できます。</p>
+<h3 id="アクセストークンの暗号化">アクセストークンの暗号化</h3>
+<p>.travis.yml にアクセストークンを書き込むことになるため、暗号化して書き込んでおきましょう。travisというGemに付いてくる <code>travis encrypt</code> というコマンドを使えば、与えた値を暗号化しながら環境変数として利用できるように設定ファイルを更新してくれます。</p>
+<pre><code>$ gem install travis
+$ travis init
+$ travis encrypt GITHUB_ACCESS_TOKEN=&quot;...&quot; --add</code></pre><h3 id="ブランチ">ブランチ</h3>
+<p>今回は、sourceブランチに静的ファイル生成用のソースコードを置き、masterブランチに生成した静的ファイルを置くようにしました。<code>:user/:user.github.io</code> というレポジトリでは、masterブランチがGitHub Pages用のブランチとして扱われるためです。GitHubの設定で、デフォルトブランチをsourceブランチに変更しておくと便利です。他のレポジトリでは、普段通りソースコードはmasterブランチに配置し、gh-pagesブランチを静的ファイル配置用のブランチとして運用することになります。</p>
+<h3 id="travisyml">.travis.yml</h3>
+<p>Travis CI上でgit-commitを利用するには、Gitのcommiterとauthorの設定が必須ですが、これらは環境変数で指定できます。あとは、テストが全て成功したときにgit-pushを実行するようなスクリプトを追加すれば完成です。実際に利用している .travis.yml の内容がこれです。</p>
+<pre><code class="language-yaml:.travis.yml">language: ruby
+env:
+  global:
+    - GIT_COMMITTER_NAME: &quot;r7kamura&quot;
+    - GIT_COMMITTER_EMAIL: &quot;r7kamura@gmail.com&quot;
+    - GIT_AUTHOR_NAME: &quot;r7kamura&quot;
+    - GIT_AUTHOR_EMAIL: &quot;r7kamura@gmail.com&quot;
+    - secure: &quot;caVcOKNB8nhLbR25WFpzm9nOvWOPuLc+VF8OsdPrSrMEVvK5k2t4d/RGSzVzOnr54kQNJs5ttcaKVXwkyl1dnKrxzwxE7Z3QEF4XjqaOMuJeJ6qatNe4hco9w2DEqPzIfOzt/zjwPa58ZYfAgolP9kF5m5iwN/jaNYRjKt40dUI=&quot;
+script:
+    - bundle exec rspec
+after_success:
+    - cd build
+    - echo &quot;task :default&quot; &gt; Rakefile
+    - git init
+    - git add --all
+    - git commit -m &quot;Update from Travis CI&quot;
+    - &#39;git push --quiet https://$GITHUB_TOKEN@github.com/r7kamura/r7kamura.com.git master -f 2&gt; /dev/null&#39;
+
+branches:
+  only:
+    - source</code></pre>
+<h2 id="背景">背景</h2>
+<p>Sitespecは2年ほど前につくったものなんですが、今回Herokuの無料プランが変更になるということで、GitHub Pagesへの引っ越しのために利用しました。その際に、当時最新だったRSpec 2にしか対応していないなど幾つか不便な点があったので、改善を加え、ついでに説明記事を書いてみたという背景です。</p>
+
+  </div>
+</article>
+
+  </main>
+</body>
+</html>

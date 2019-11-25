@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Amazon API Gatewayに自動で定義するやつ</title>
+  <link href="/articles/2015-08-03-h" rel="canonical">
+  <link rel="stylesheet" href="/css/main.css">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Amazon API Gatewayに自動で定義するやつ">
+  <meta property="og:url" content="https://r7kamura.com&#x2F;articles&#x2F;2015-08-03-h">
+  <meta property="twitter:card" content="summary">
+  <meta property="twitter:title" content="Amazon API Gatewayに自動で定義するやつ">
+</head>
+<body>
+  <header>
+    <nav>
+      <a href="/">トップページ</a>
+      <ul>
+        <li>
+          <a href="/articles">記事</a>
+        </li>
+        <li>
+          <a href="https://google.com/search?q=site:r7kamura.com">検索</a>
+        </li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <article>
+  <h1>Amazon API Gatewayに自動で定義するやつ</h1>
+  <footer>
+    <p>
+      <time datetime="2015-08-03T00:00:00+09:00">2015年08月03日</time>
+    </p>
+  </footer>
+  <div>
+    <p><a href="https://github.com/r7kamura/amazon-api-gateway-client">https://github.com/r7kamura/amazon-api-gateway-client</a> をつかって、適当にエンドポイント生やしてデプロイするところまでを上から下に書き殴ったところ意外と動いたのでコードを貼っておく。使ってそうなnpmのパッケージを入れてnodeで実行すると、GET /recipes と GET /articles というエンドポイントが生える。どちらも中身は GET <a href="https://api.github.com/users/r7kamura">https://api.github.com/users/r7kamura</a> にアクセスしてレスポンスをプロキシするだけという内容になってる。</p>
+
+<script src="https://gist.github.com/r7kamura/3d60c3efed22801868ff.js"></script>
+
+
+
+  </div>
+</article>
+
+  </main>
+</body>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width">
+  <title>■</title>
+  <link href="/articles/2012-02-02-h" rel="canonical">
+  <link rel="stylesheet" href="/css/main.css">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="■">
+  <meta property="og:url" content="https://r7kamura.com&#x2F;articles&#x2F;2012-02-02-h">
+  <meta property="twitter:card" content="summary">
+  <meta property="twitter:title" content="■">
+</head>
+<body>
+  <header>
+    <nav>
+      <a href="/">トップページ</a>
+      <ul>
+        <li>
+          <a href="/articles">記事</a>
+        </li>
+        <li>
+          <a href="https://google.com/search?q=site:r7kamura.com">検索</a>
+        </li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <article>
+  <h1>■</h1>
+  <footer>
+    <p>
+      <time datetime="2012-02-02T00:00:00+09:00">2012年02月02日</time>
+    </p>
+  </footer>
+  <div>
+    <div class="section">
+    <h3>風呂でPC試した</h3>
+    <p>最近風呂でiPadで本読んだりインターネットしたりしてたけど、iPadだと入力がとにかくしづらくてほとどReadOnlyな感じだった。前にどこかでmasuidriveさんが風呂でPC使ってるみたいな話を見て、家に余ってるMacbookProあったので風呂で使ってみたけど結構良い。湿度結構問題になるのかと思ったけど、浴室で窓開けて10分ぐらいするとほとんど湿度無くなるので普通に使えそう。ひと通りインターネットしたあとTerminalに切り替えると裸体が写ってわりと吐きそうになったので背景透明にして壁紙青にした。</p>
+
+</div>
+<div class="section">
+    <h3>期末試験</h3>
+    <p>今日願わくば最後の期末試験だった。これ落ちたら留年で暗い人生ありえる。前日新年会で酒飲んで帰って寝て、翌日購買で買ったシャーペン1本だけ持ってテストに臨むという酷さだったけど、大丈夫、きっと大丈夫。信じようよ。</p>
+
+</div>
+<div class="section">
+    <h3>開発</h3>
+    <p>大学行くのに往復4時間くらいあるので、電車で起きている気力があれば開発してる。今日はazucatの開発進めて、twitterのstreamingAPIをブラウザに流すみたいな機能付けた。明日はIRCクライアント機能付けてブラウザに流すみたいな機能付けたい。そのうち何でも流れてくるようになりそう。</p>
+<p>大学の先輩とRubyのクラスインスタンス変数(=Classクラスのインスタンス変数みたいな概念)について話して、早速利用できたので良かった。クラスインスタンス変数はそのクラス内のスコープでしか利用できない、つまりクラスで内部的にしか使えない値なのだけど、特異クラスにアクセサを定義すれば外部に公開できる。何を言っているか分からないと思うけど、こういう感じ。</p>
+
+<pre><code>&lt;pre class=&quot;code lang-txt&quot; data-lang=&quot;txt&quot;&gt;class Person</code></pre><p>  @age = 20 # クラスインスタンス変数を定義</p>
+<p>  class &lt;&lt; self       # ここから特異クラス
+    attr_reader :age  # @ageのアクセサを定義
+  end                 # ここまで特異クラス</p>
+<p>  def self.get_age    # 普通はこう書きそう
+    @age              # selfがPersonの状況では@ageにアクセスできる
+  end
+end</p>
+<p>Person.age     #=&gt; 20
+Person.get_age #=&gt; 20</pre></p>
+<p>使い道と意図が少し分かりにくいけど、rubygems.rbとかで使われてるっぽい。今回は、Azucat.channelでWebSocketに流すためのチャンネルにアクセスできるようにしよう、という意図で使ったりした。クラス定義時に1度だけ定義すれば良い値、かつそのクラスに対して1つだけ存在すれば良い値というのがあったら、使ってみても良さそう。JavaScriptでクロージャとか使って値を関数の外側に隠したりするけど、そういう風な使い方とも少し仲が良いかもしれない。</p>
+
+</div>
+
+  </div>
+</article>
+
+  </main>
+</body>
+</html>

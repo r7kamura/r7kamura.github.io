@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Markdownを変換したHTML同士の差分を生成する</title>
+  <link href="/articles/2015-12-22-q" rel="canonical">
+  <link rel="stylesheet" href="/css/main.css">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Markdownを変換したHTML同士の差分を生成する">
+  <meta property="og:url" content="https://r7kamura.com&#x2F;articles&#x2F;2015-12-22-q">
+  <meta property="twitter:card" content="summary">
+  <meta property="twitter:title" content="Markdownを変換したHTML同士の差分を生成する">
+</head>
+<body>
+  <header>
+    <nav>
+      <a href="/">トップページ</a>
+      <ul>
+        <li>
+          <a href="/articles">記事</a>
+        </li>
+        <li>
+          <a href="https://google.com/search?q=site:r7kamura.com">検索</a>
+        </li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <article>
+  <h1>Markdownを変換したHTML同士の差分を生成する</h1>
+  <footer>
+    <p>
+      <time datetime="2015-12-22T00:00:00+09:00">2015年12月22日</time>
+    </p>
+  </footer>
+  <div>
+    <p><a href="http://blog.qiita.com/post/135631147364/rich-diff">編集履歴が見やすくなりました - Qiita Blog</a> で紹介したように、編集履歴の差分をより分かりやすく表示できるようにしました。この記事では、この差分表示の実装方法について説明します。</p>
+<p><img src="https://qiita-image-store.s3.amazonaws.com/0/4365/1d1b12de-0cb2-b65f-8c7e-3b8bd1103029.png" alt=""></p>
+<h2 id="markdiff">Markdiff</h2>
+<p>差分表示のための実装は、<a href="https://github.com/r7kamura/markdiff/">r7kamura/markdiff</a> というライブラリの形で公開しています。Markdiffという名前には、Markdownのdiffという意味を込めています。Markdownへの変換は <a href="https://github.com/increments/qiita-markdown">increments/qiita-markdown</a> が行ってくれるので、変換後のHTMLを2つ渡すと、差分を表示するためのHTMLを返してくれるという仕組みです。差分表示において、このライブラリがCSSによる装飾以外のほぼ全ての仕事を担っています。</p>
+<h2 id="使用例">使用例</h2>
+<p>簡単な例で使い方を説明します。以下のように、まず <code>Markdiff::Differ</code> のインスタンスをつくり、<code>Markdiff::Differ#render</code> に変更前と変更後のHTMLの文字列を渡すと、<code>Nokogiri::XML::Node</code> のインスタンスが返ってきます。</p>
+<pre><code class="language-rb">require &quot;markdiff&quot;
+
+differ = Markdiff::Differ.new
+node = differ.render(&quot;&lt;p&gt;x x x&lt;/p&gt;&quot;, &quot;&lt;p&gt;x y x&lt;/p&gt;&quot;)
+node.to_html #=&gt; &#39;&lt;div class=&quot;changed&quot;&gt;&lt;p&gt;x &lt;del class=&quot;del&quot;&gt;x&lt;/del&gt;&lt;ins&gt;y&lt;/ins&gt; x&lt;/p&gt;&lt;/div&gt;&#39;</code></pre>
+<h2 id="出力形式">出力形式</h2>
+<p>削除された部分はdel要素で囲まれ、追加された部分はins要素で囲まれて挿入されます。これは赤色背景の打ち消し線の部分と、緑色背景の部分を表示するための処理です。また、変更を含む段落はdiv要素で囲まれます。これは、変更を含む箇所の左側に黄色い縦線を引くためです。</p>
+<pre><code class="language-html">&lt;div class=&quot;changed&quot;&gt;
+  &lt;p&gt;x &lt;del class=&quot;del&quot;&gt;x&lt;/del&gt;&lt;ins&gt;y&lt;/ins&gt; x&lt;/p&gt;
+&lt;/div&gt;</code></pre>
+<h2 id="仕組み">仕組み</h2>
+<p>2つのHTMLから差分として <code>Nokogiri::XML::Node</code> を出力するための仕組みを説明します。大枠としては、以下の2つの手順を踏みます。これは、<a href="https://facebook.github.io/react/">React</a> などのVirtual DOMの実装を参考にしました。</p>
+<ol>
+<li>変更前と変更後のHTMLを比較して適用すべきパッチを取り出す</li>
+<li>変更前のHTMLにパッチを適用する</li>
+</ol>
+<h2 id="パッチの抽出">パッチの抽出</h2>
+<p><code>Markdiff::Operations::Base</code> というクラスがあり、この配列がパッチとして抽出されます。変更前のノードと変更後のノードが渡されたとき、ノード同士とノードの子要素同士で比較操作を行う、という処理を再帰的に行うことで、HTMLツリー内を探索しながらパッチを抽出していきます。</p>
+<ol>
+<li>ノード同士を文字列化して比較し、もし完全に一致していればパッチとして空配列を返して処理を終える</li>
+<li>子ノード同士を比較し、同一なノードを記録する</li>
+<li>要素名だけが同じで子要素が異なるノードがあれば、それらを再帰的に比較してパッチを抽出する</li>
+<li>記録と照合し、変更前にしか存在しないものがあればパッチに削除命令を追加する</li>
+<li>記録と照合し、変更後にしか存在しないものがあればパッチに挿入命令を追加する</li>
+</ol>
+<p>先ほどと同じくここでもVirtual DOMを参考にしており、同じ親を持つノード同士しか比較しないようにサボることで、計算コストを下げています。Markdownでは「ある要素が変更されて何らかの要素に囲まれた」というようなケースは起こりにくいため、この方法を取りました。<a href="http://calendar.perfplanet.com/2013/diff/">Performance Calendar » React’s diff algorithm</a> が参考になります。</p>
+<h2 id="最長共通部分列">最長共通部分列</h2>
+<p>差分のパッチをつくるだけで良ければ、変更前の全てのノードを削除する命令と、変更後の全てのノードを追加する命令をそれぞれまとめたものをパッチとして用意すれば良いということになります。しかしながら、できるだけ少なく小さな処理の組み合わせで表現できるほうが、より分かりやすい差分になると推測できます。そのためには、先述した手順で子ノード同士を比較するとき、できるかぎり多く共通しているノードを見つけ出す必要があります。そこで、最長共通部分列と呼ばれる考え方を適用することにしました。</p>
+<p>最長共通部分列については、<a href="http://gihyo.jp/dev/column/01/prog/2011/diff_sd200906">diffの動作原理を知る～どのようにして差分を導き出すのか｜gihyo.jp … 技術評論社</a> が参考になります。要するに、何らかの比較可能な要素の配列同士を与えて、2つの要素列の中で共通する部分で最も長い列を取り出す、というものです。Rubyでは <a href="https://github.com/halostatue/diff-lcs">halostatue/diff-lcs</a> という実装があるため、これを利用しました。このライブラリはRSpecでのテスト結果の差分表示などに利用されています。</p>
+<h2 id="パッチの適用">パッチの適用</h2>
+<p>パッチを抽出したら、今度は変更前のHTMLに対してパッチを適用し、最終的な結果を生成します。パッチは命令の配列になっており、ある命令は基本的には以下の情報を含んでいます。</p>
+<ul>
+<li>命令の種類</li>
+<li>操作対象のノード</li>
+<li>新たに挿入あるいは置換されるノード</li>
+</ul>
+<p>現在のところ、以下の6種類の命令があります。</p>
+<ul>
+<li>add_child_operation</li>
+<li>add_data_before_href_operation</li>
+<li>add_data_before_tag_name_operation</li>
+<li>add_previous_sibling_operation</li>
+<li>remove_operation</li>
+<li>text_diff_operation</li>
+</ul>
+<p>命令にはノードへの参照が含まれているため、例えばある命令を適用するときに参照先のノードを取り除いたり置換したりしてしまうと、次の命令で参照先のノードが既に存在しなくなってしまっていた、などということが起こりえます。そのため、命令の適用順序に気を付ける必要があります。今回は、まず最初にノードの追加を行う命令を全て処理し、次にノードを削除あるいは置換する命令を処理する、という順序にしました。</p>
+<p>なお、優先順位が同じ命令間の順序は保存しておかなければ、適用結果がおかしくなってしまいます。例えば、Rubyの <code>Enumerable#sort_by</code> は安定ソートではないため、優先順位だけで雑にソートしてしまうと不具合が生じてしまうので、注意しましょう。</p>
+<h2 id="おわり">おわり</h2>
+<p>差分表示の実装方法について、重要そうなところを説明しました。コード自体は大した分量ではないので、更に詳しく知りたい人は <a href="https://github.com/r7kamura/markdiff/">r7kamura/markdiff</a> の実装を読んでみてください。</p>
+
+  </div>
+</article>
+
+  </main>
+</body>
+</html>

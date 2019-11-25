@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Amazon Lambdaにまとめてアップロードするやつ</title>
+  <link href="/articles/2015-08-04-h" rel="canonical">
+  <link rel="stylesheet" href="/css/main.css">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Amazon Lambdaにまとめてアップロードするやつ">
+  <meta property="og:url" content="https://r7kamura.com&#x2F;articles&#x2F;2015-08-04-h">
+  <meta property="twitter:card" content="summary">
+  <meta property="twitter:title" content="Amazon Lambdaにまとめてアップロードするやつ">
+</head>
+<body>
+  <header>
+    <nav>
+      <a href="/">トップページ</a>
+      <ul>
+        <li>
+          <a href="/articles">記事</a>
+        </li>
+        <li>
+          <a href="https://google.com/search?q=site:r7kamura.com">検索</a>
+        </li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <article>
+  <h1>Amazon Lambdaにまとめてアップロードするやつ</h1>
+  <footer>
+    <p>
+      <time datetime="2015-08-04T00:00:00+09:00">2015年08月04日</time>
+    </p>
+  </footer>
+  <div>
+    <p><a href="https://github.com/r7kamura/api-gateway-lambda-example">https://github.com/r7kamura/api-gateway-lambda-example</a></p>
+
+<p>Amazon API GatewayとAmazon Lambdaを一緒に管理できるようなツールをつくろうとしてて、とりあえずサンプルアプリをつくりながら徐々にツールに切り出していこうという方針でやってみている。</p>
+
+<pre class="code" data-lang="" data-unlink>.
+|-- README.md
+|-- functions
+|   |-- function1
+|   |   |-- package.json
+|   |   `-- src
+|   |       `-- index.js
+|   `-- function2
+|       |-- package.json
+|       `-- src
+|           `-- index.js
+|-- gulpfile.js
+`-- package.json</pre>
+
+
+<p>サンプルアプリは手短に言うと上のようなファイル構成になっていて、作成したいAmazon Lambdaの関数ごとにfunctionsディレクトリ内に更にディレクトリをつくっていくルールにしてある。<code>npm run &lt;command&gt;</code> で実行できるコマンドが幾つか定義されている。</p>
+
+<pre class="code" data-lang="" data-unlink>$ npm run
+Scripts available in api-gateway-lambda-example via `npm run-script`:
+  bundle
+    gulp bundle
+  compile
+    gulp compile
+  upload
+    gulp upload
+  zip
+    gulp zip</pre>
+
+
+<p>個々のfunctionごとにpackage.jsonが用意されていて、<code>npm run bundle</code> を使うと必要なnode_modulesがそれぞれインストールされる。<code>npm run compile</code> を使うと、個々のfunctionのsrcディレクトリ内のJavaScriptがコンパイルされて、それぞれのdistディレクトリにまとめられる。<code>npm run zip</code> を使うと、distディレクトリの内容がdist.zipに圧縮される。Amazon LambdaにコードをアップロードするためにZIPにしている。<code>npm run upload</code> を使うと、個々のdist.zipをAmazon Lambdaにアップロードしてくれるようになっている。諸々のタスクを実行するとこういうのが出来上がる。</p>
+
+<p><img src="https://qiita-image-store.s3.amazonaws.com/0/4365/5d685090-a6d3-b610-a0ae-8ec25e6feebf.png" alt="image"></p>
+
+<p>この辺の記事の内容と組み合わせると、まず必要なLambdaの関数をまとめてつくったあと、API Gatewayのエンドポイントをスキーマファイルか何かを元に定義しつつ、各エンドポイントとLambdaの関数と紐付ける、というのが自動化できそう。</p>
+
+<ul>
+<li><a href="http://r7kamura.hatenablog.com/entry/2015/07/30/023001">Node.jsの練習にHTTPクライアントつくった - ✘╹◡╹✘</a></li>
+<li><a href="http://r7kamura.hatenablog.com/entry/2015/07/31/024304">Node.jsでAWSのAPIで認証するやつ書いた - ✘╹◡╹✘</a></li>
+<li><a href="http://r7kamura.hatenablog.com/entry/2015/08/02/052043">Node.jsでAmazon API Gatewayのクライアント書いた - ✘╹◡╹✘</a></li>
+<li><a href="http://r7kamura.hatenablog.com/entry/2015/08/03/102704">Amazon API Gatewayに自動で定義するやつ - ✘╹◡╹✘</a></li>
+</ul>
+
+
+
+  </div>
+</article>
+
+  </main>
+</body>
+</html>

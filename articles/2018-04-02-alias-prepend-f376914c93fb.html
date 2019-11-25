@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width">
+  <title>同じメソッドの上書きを狙ってaliasとprependを併用すると無限ループに陥る可能性がある</title>
+  <link href="/articles/2018-04-02-alias-prepend-f376914c93fb" rel="canonical">
+  <link rel="stylesheet" href="/css/main.css">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="同じメソッドの上書きを狙ってaliasとprependを併用すると無限ループに陥る可能性がある">
+  <meta property="og:url" content="https://r7kamura.com&#x2F;articles&#x2F;2018-04-02-alias-prepend-f376914c93fb">
+  <meta property="twitter:card" content="summary">
+  <meta property="twitter:title" content="同じメソッドの上書きを狙ってaliasとprependを併用すると無限ループに陥る可能性がある">
+</head>
+<body>
+  <header>
+    <nav>
+      <a href="/">トップページ</a>
+      <ul>
+        <li>
+          <a href="/articles">記事</a>
+        </li>
+        <li>
+          <a href="https://google.com/search?q=site:r7kamura.com">検索</a>
+        </li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <article>
+  <h1>同じメソッドの上書きを狙ってaliasとprependを併用すると無限ループに陥る可能性がある</h1>
+  <footer>
+    <p>
+      <time datetime="2018-04-02T00:00:00+09:00">2018年04月02日</time>
+    </p>
+  </footer>
+  <div>
+    <p>タイトルの通りなので、Rails 5 への移行時には特に気を付けましょう。</p>
+<h2 id="変更は独立させて小さく適用していきたい">変更は独立させて小さく適用していきたい</h2>
+<p>自分はフリーランスとして働いており、Rails のバージョンアップや設計改善の仕事を探してよく請けているのですが、その中でも最近は Rails 4 から 5 へのバージョンアップの仕事を担当する機会が多くあります。</p>
+<p>Rails のバージョンアップ時の作戦として、まずはアプリケーション側のコードを現在のバージョンでも次の移行先のバージョンでも動くような実装に変更し、問題がないことを確認し、その上で次のバージョンに移行するという作戦を取ることがよくあります。実際には前者の変更を更に細かく分け、少しずつ本番環境に適用していくことが多いです。1つ1つの変更を小さく分割することで、確認を行いやすくし、問題発生時のリスクを最小限に抑えるためです。</p>
+<h2 id="alias_method_chain-は非推奨になった">alias_method_chain は非推奨になった</h2>
+<p>さて、Rails 4 から Rails 5 の間の大きな変更の1つとして、ActiveSupport::CoreExtensions::Module#alias_method_chain が非推奨になり、代わりに Module#prepend を利用する実装に置き換えることが推奨されるようになりました。このことを受けて、例えばこれまで alias_method_chain を利用していたライブラリの多くは、prepend を利用する実装に置き換えられていっています。</p>
+<h2 id="prepend-と-alias-を併用しないように気を付けよう">prepend と alias を併用しないように気を付けよう</h2>
+<p>これに対応して、Rails を利用するアプリケーション側でも、利用しているライブラリのバージョンを少しずつアップデートしていく必要があるのですが、このときこの記事のタイトルに掲げた内容が問題になります。すなわち、同じメソッドを alias_method_chain で上書きするライブラリが2つ存在する場合、片方だけ prepend で実装するように変更してしまうと、その実行順序によっては問題が起こり、無限ループに陥ってしまう可能性があるということです。詳細としては、以下のページ内での説明が分かりやすいかもしれません。</p>
+<p><a href="https://bugs.ruby-lang.org/issues/11120" title="https://bugs.ruby-lang.org/issues/11120"><strong>Bug #11120: Unexpected behavior when mixing Module#prepend with method aliasing - Ruby trunk - Ruby…</strong><br>_Redmine_bugs.ruby-lang.org</a><a href="https://bugs.ruby-lang.org/issues/11120"></a></p>
+<p>例えば、私見ですが、ActiveRecord のためのライブラリの実装などは、この手の方法で上書きされていることが多いように思います。先に述べたように細かく変更を加えていきたいにも関わらず、これが理由で同時に加えなければならない変更が発生してしまうため、結果的に1つの変更がどうしても大きくなってしまいます。特に効果的な対策を説明できる訳ではありませんが、気を付けましょうという内容でした。</p>
+<h2 id="prepend-と-alias-を併用して-fizzbuzz-を動かそう">prepend と alias を併用して FizzBuzz を動かそう</h2>
+<p>さて、prepend と alias を併用すると意図せず無限ループが発生する可能性があることを利用し、ここでは FizzBuzz を書いてみることにしました。</p>
+<p>prepend と alias を利用した fizzbuzz</p>
+<p>上記のコードでは、</p>
+<ul>
+<li>3 で割り切れるかどうか判定する</li>
+<li>5 で割り切れるかどうか判定する</li>
+<li>結果を標準出力する</li>
+<li>内部状態をリセットする</li>
+</ul>
+<p>という処理をそれぞれ module に分割し、責務の分割を狙っています (そういうストーリーでいきます)。prepend を利用することで、以下のような継承ツリーが生まれます。</p>
+<pre><code>Object|`-FizzBuzz  |  `-Printable    |    `-Buzz      |      `-Fizz        |        `--Clearable</code></pre><p>super で根方向に1つ遷移し、alias されたメソッド呼び出しで葉に遷移するというように考えることで、連続するメソッド呼び出しを状態遷移のように捉え、1ループで1つの数に対応するような設計にできました。</p>
+<p>START<br>|  
+v<br>Clearable#call &lt;-.<br>|                |<br>(super)          |<br>|                |<br>v                |<br>Fizz#call        |<br>|                |<br>(super)          |<br>|                |<br>v                |<br>Buzz#call        |<br>|                |<br>(super)          |<br>|                |<br>v                |<br>Printable#call   |<br>|                |<br>(super)          |<br>|        (aliased from #step)<br>v                |<br>FizzBuzz#call ---&#39;<br>|  
+v<br>END</p>
+<p>以上です。prepend と alias とは仲良くやっていきましょう。</p>
+
+  </div>
+</article>
+
+  </main>
+</body>
+</html>

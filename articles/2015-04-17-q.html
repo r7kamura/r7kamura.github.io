@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Rubotyに定期的に何かしてもらう</title>
+  <link href="/articles/2015-04-17-q" rel="canonical">
+  <link rel="stylesheet" href="/css/main.css">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Rubotyに定期的に何かしてもらう">
+  <meta property="og:url" content="https://r7kamura.com&#x2F;articles&#x2F;2015-04-17-q">
+  <meta property="twitter:card" content="summary">
+  <meta property="twitter:title" content="Rubotyに定期的に何かしてもらう">
+</head>
+<body>
+  <header>
+    <nav>
+      <a href="/">トップページ</a>
+      <ul>
+        <li>
+          <a href="/articles">記事</a>
+        </li>
+        <li>
+          <a href="https://google.com/search?q=site:r7kamura.com">検索</a>
+        </li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <article>
+  <h1>Rubotyに定期的に何かしてもらう</h1>
+  <footer>
+    <p>
+      <time datetime="2015-04-17T00:00:00+09:00">2015年04月17日</time>
+    </p>
+  </footer>
+  <div>
+    <p><a href="https://github.com/r7kamura/ruboty-cron">ruboty-cron</a>を利用して、Rubotyに定期的に何かしてもらう方法について説明します。例えば、毎朝ミーティングの時間に通知してもらったり、今日の予定をGoogle Calendarから教えてもらったり、twitterでエゴサーチした結果を発言してもらったり、定期的にサーバの疎通確認をしたり、という用途が考えられます。</p>
+<h2 id="ruboty-cron">ruboty-cron</h2>
+<p>ruboty-cronは、予め登録しておいたメッセージを定期的に受け取っているように認識してもらうためのプラグインです。日時は<a href="http://ja.wikipedia.org/wiki/Crontab">Crontab形式</a>で指定できます。対応しているCrontab形式は具体的には以下のような書式で、<code>*</code> <code>,</code> <code>-</code> <code>/</code> などの拡張形式にも対応しています。<a href="crond%E3%81%A7%E3%81%AF%E5%87%A6%E7%90%86%E3%81%AE%E9%81%85%E5%BB%B6%E3%81%B8%E3%81%AE%E5%AF%BE%E5%BF%9C%E3%81%8C%E8%80%83%E6%85%AE%E3%81%95%E3%82%8C%E3%81%A6%E3%81%84%E3%81%BE%E3%81%99%E3%81%8C%E3%80%81ruboty-cron%E3%81%A7%E3%81%AF%E3%81%9D%E3%81%93%E3%81%BE%E3%81%A7%E5%8E%B3%E5%AF%86%E3%81%AA%E5%AF%BE%E5%BF%9C%E3%81%8C%E8%80%83%E6%85%AE%E3%81%95%E3%82%8C%E3%81%A6%E3%81%84%E3%81%AA%E3%81%84%E3%81%93%E3%81%A8%E3%81%AB%E6%B3%A8%E6%84%8F%E3%81%97%E3%81%A6%E3%81%8F%E3%81%A0%E3%81%95%E3%81%84%E3%80%82%E5%AE%9A%E6%9C%9F%E7%9A%84%E3%81%AB%E5%87%A6%E7%90%86%E3%82%92%E8%A1%8C%E3%81%86%E5%A0%B4%E5%90%88%E3%81%AE%E3%82%B9%E3%82%B1%E3%82%B8%E3%83%A5%E3%83%BC%E3%83%AB%E3%81%AE%E6%9B%B8%E5%BC%8F%E3%81%A8%E3%81%97%E3%81%A6%E3%80%81crontab%E3%81%AE%E6%9B%B8%E5%BC%8F%E3%82%92%E5%88%A9%E7%94%A8%E3%81%97%E3%81%A6%E3%81%84%E3%82%8B%E3%80%81%E3%81%A8%E3%81%84%E3%81%86%E8%A1%A8%E7%8F%BE%E3%81%8C%E3%82%88%E3%82%8A%E6%AD%A3%E3%81%97%E3%81%84%E3%82%82%E3%81%AE%E3%81%A8%E8%A8%80%E3%81%88%E3%81%BE%E3%81%99%E3%80%82">^1</a></p>
+<pre><code>* * * * *
+T T T T T
+| | | | `- wday --- 0 ..  6 (0 = Sunday)
+| | | `--- month -- 1 .. 12
+| | `----- day ---- 1 .. 31
+| `------- hour --- 0 .. 23
+`--------- minute - 0 .. 59</code></pre><p>試しに、毎分ごとに <code>@ruboty ping</code> というメッセージを受け取ったものとして認識してもらいましょう。</p>
+<pre><code>$ ruboty
+Type `exit` or `quit` to end the session.
+&gt; @ruboty add job &quot;* * * * *&quot; @ruboty ping
+Job 3114 created
+pong
+pong
+pong
+pong
+pong</code></pre><h2 id="ruboty-echoとの組み合わせ">ruboty-echoとの組み合わせ</h2>
+<p><a href="https://github.com/taiki45/ruboty-echo">ruboty-echo</a> と組み合わせると、定期的に任意のメッセージを発言してもらえます。</p>
+<p><img src="https://qiita-image-store.s3.amazonaws.com/0/4365/64d46f18-33bc-a731-75f5-dc75b6912394.png" alt="image"></p>
+<p><img src="https://qiita-image-store.s3.amazonaws.com/0/4365/444cb4f3-14ea-ad47-244e-72af244c3f49.png" alt="image"></p>
+<h2 id="おわり">おわり</h2>
+<p>簡単なリマインド機能として使ったり、定期的に何かしてもらったり、他のプラグインとの相乗効果をねらってうまく活用してみてください。<a href="http://qiita.com/r7kamura/items/f99d8bd5e6bc2af995ff">Botにtwitterを監視してもらう - Qiita</a> という記事にもruboty-cronを利用する内容を書いてみたので、よければ参考にしてください。</p>
+<h2 id="おまけ-ruboty-cronの内部実装">おまけ: ruboty-cronの内部実装</h2>
+<p>ruboty-cronの内部実装について説明します。<code>@ruboty add job &quot;* * * * *&quot; @ruboty echo foo</code> というメッセージを受け取ったとき、ruboty-cronは <code>Chrono::Trigger.new(&quot;* * * * *&quot;) { ... }.run</code> というコードを実行します。<a href="https://github.com/r7kamura/ruboty-cron/blob/cec18236930b3c40aeb53c2665faa415aba524eb/lib/ruboty/cron/job.rb#L11-L20">lib/ruboty/cron/job.rb</a> の部分がそれです。Chrono::Triggerというのは<a href="https://github.com/r7kamura/chrono">chrono</a>というGemで実装されているクラスです。</p>
+<p>Rubyでは、特定の日時を表すのであればTimeやDateTimeが利用できます。しかし、これらのクラスでは「定期的な実行のためのスケジュール」を表すことができません。書式として単純な日時ではなくCrontabの書式を選んだのは、まさにそれが理由です。他の候補としては、<a href="http://en.wikipedia.org/wiki/ISO_8601">ISO 8601</a> で規定された繰り返しの表現を利用することも考えましたが、あまり馴染みが無いだろうと思い採用しませんでした。ISO 8601を採用しているシステムとしては、分散システムとして有名な<a href="http://mesos.apache.org/">Apache Mesos</a> があります。ジョブスケジューリング機能にAirbnbの <a href="http://airbnb.github.io/chronos/">Chronos</a> というライブラリが採用されていますが、ここではISO 8601の書式で定期的に処理を実行させられます。</p>
+<p>さて、話を戻すと、Chronoではイテレータとしてスケジュールを表現することにしました。具体的には「未来の全ての瞬間の中で、指定したパターンに一致する最も近い時を返す」というオブジェクトでスケジュールを表現しています。以下がその例です。nextを呼ぶと次のTimeオブジェクトを返すという使い方になっています。</p>
+<pre><code class="language-rb">iterator = Chrono::Iterator.new(&quot;* * * * *&quot;)
+iterator.next #=&gt; 2015-04-17 14:40:00 +0900
+iterator.next #=&gt; 2015-04-17 14:41:00 +0900
+iterator.next #=&gt; 2015-04-17 14:42:00 +0900</code></pre>
+<p><code>Chrono::Trigger#run</code> では、上記のイテレータを利用して、指定した時刻に与えたブロックを実行しています。具体的には、まずnextで次の時刻を算出して、そこまでsleepで眠りにつき、それから目覚めて実行する、という流れになります。それを更にラップしたのがruboty-cronで、Rubotyに眠ってもらってはこまるので、別のThreadでその処理を担当してもらったり、またスケジュールを脳に記憶しておいて、再起動時にスケジュールを読み込んで正しくセットする、などの処理を担当しています。</p>
+
+  </div>
+</article>
+
+  </main>
+</body>
+</html>

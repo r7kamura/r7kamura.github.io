@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width">
+  <title>IRCの話</title>
+  <link href="/articles/2012-02-03-h" rel="canonical">
+  <link rel="stylesheet" href="/css/main.css">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="IRCの話">
+  <meta property="og:url" content="https://r7kamura.com&#x2F;articles&#x2F;2012-02-03-h">
+  <meta property="twitter:card" content="summary">
+  <meta property="twitter:title" content="IRCの話">
+</head>
+<body>
+  <header>
+    <nav>
+      <a href="/">トップページ</a>
+      <ul>
+        <li>
+          <a href="/articles">記事</a>
+        </li>
+        <li>
+          <a href="https://google.com/search?q=site:r7kamura.com">検索</a>
+        </li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <article>
+  <h1>IRCの話</h1>
+  <footer>
+    <p>
+      <time datetime="2012-02-03T00:00:00+09:00">2012年02月03日</time>
+    </p>
+  </footer>
+  <div>
+    <p>IRCクライアント作りたいと思ってIRCの仕様調べ始めた。IRCは半年以上使ってるのに全然使い方わかってなくて、サーバとチャンネルがあってPRIVMSGとJOINのコマンドがあることくらいしか知らなかった。limechatは面倒なので、ブラウザで動くようなやつをRubyとJSで作って良い感じのデザインにして普段使いしたい。</p>
+
+<div class="section">
+    <h3>こんな感じ</h3>
+    <p><img src="http://dl.dropbox.com/u/5978869/image/20120203_195120.png" class="frame"></p>
+
+</div>
+<div class="section">
+    <h3>実装の話</h3>
+    <p>Rubyの実装でこういう感じにしてみてるけど絶対あとで気持ち悪がられそう。</p>
+
+<pre><code>&lt;pre class=&quot;code lang-txt&quot; data-lang=&quot;txt&quot;&gt;%w[</code></pre><p>  ADMIN   KICK    MOTD     QUIT     VERSION
+  AWAY    KNOCK   NAMES    RULES    VHOST
+  CREDITS LICENSE NICK     SETNAME  WATCH
+  CYCLE   LINKS   NOTICE   SILENCE  WHO
+  DALINFO LIST    PART     STATS    WHOIS
+  INVITE  LUSERS  PING     TIME     WHOWAS
+  ISON    MAP     PONG     TOPIC    PASS
+  JOIN    MODE    USERHOST USER     PRIVMSG
+].each do |name|
+  define_method(name.downcase) do |*params|
+    command [name, params].flatten.join(&quot; &quot;)
+  end
+end</p>
+<p>def command(msg)
+  @socket.write(msg + &quot;\r\n&quot;)
+end</pre></p>
+</div>
+
+  </div>
+</article>
+
+  </main>
+</body>
+</html>

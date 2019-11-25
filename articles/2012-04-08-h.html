@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width">
+  <title>カバレッジ測ってみた</title>
+  <link href="/articles/2012-04-08-h" rel="canonical">
+  <link rel="stylesheet" href="/css/main.css">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="カバレッジ測ってみた">
+  <meta property="og:url" content="https://r7kamura.com&#x2F;articles&#x2F;2012-04-08-h">
+  <meta property="twitter:card" content="summary">
+  <meta property="twitter:title" content="カバレッジ測ってみた">
+</head>
+<body>
+  <header>
+    <nav>
+      <a href="/">トップページ</a>
+      <ul>
+        <li>
+          <a href="/articles">記事</a>
+        </li>
+        <li>
+          <a href="https://google.com/search?q=site:r7kamura.com">検索</a>
+        </li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <article>
+  <h1>カバレッジ測ってみた</h1>
+  <footer>
+    <p>
+      <time datetime="2012-04-08T00:00:00+09:00">2012年04月08日</time>
+    </p>
+  </footer>
+  <div>
+    <p><img src="http://dl.dropbox.com/u/5978869/image/20120408_232402.png" alt="" class="frame"></p><p>最近つくっているプロジェクト(<a href="http://r7kamura.hatenablog.com/entry/2012/04/08/040900">WeatherHacker</a>)で、カバレッジを取り始めたら結構捗った。個人で進めているプロジェクトでは特に、どこまで進めば良いか・どこまで進んだのかが見えづらいので、指標化すること自体で単純に捗ると思う。位置がわからなかったら速度感わからないし、位置がわかれば速度や加速度がわかって、いろんな予想が付きやすくなりそう。何より、これだけやったみたいなモチベーションが湧いて良い。</p>
+
+<div class="section">
+    <h3>simplecov</h3>
+    <p>これまでカバレッジ測定とか個人でしたことなくて、Rubyでカバレッジ測定するやつを聞いたら@aerealさんがSimpleCovというのを教えてくれて、調べて導入してみたら、かなり簡単にカバレッジを取ることができた。まとめると、こういう感じで導入できる。</p>
+
+<pre><code>&lt;pre class=&quot;code&quot; data-unlink&gt;$ echo &#39;gem &quot;simplecov&quot;, :require =&amp;gt; false&#39; &amp;gt;&amp;gt; Gemfile</code></pre><p>$ bundle install
+$ vim spec/spec_helper.rb
+$ cat spec/spec_helper.rb</p>
+<p>$LOAD_PATH.unshift File.expand_path(&quot;../&quot;, <strong>FILE</strong>)
+$LOAD_PATH.unshift File.expand_path(&quot;../../lib&quot;, <strong>FILE</strong>)
+require &quot;simplecov&quot;
+require &quot;weather_hacker&quot;</p>
+<p>$ echo &quot;SimpleCov.start&quot; &gt;&gt; .simplecov
+$ echo &quot;.simplecov&quot; &gt;&gt; .git/info/excludes
+$ bundle exec rspec
+$ open coverage/index.html</pre></p>
+</div>
+<div class="section">
+    <h3>simplecov-vim</h3>
+    <p><img src="http://dl.dropbox.com/u/5978869/image/20120408_164636.png" alt=""></p>
+<p>simplecov-vimを使うと、カバレッジの有無をVimのマーカーで表示してくれて便利。</p>
+
+<pre><code>&lt;pre class=&quot;code&quot; data-unlink&gt;$ echo &#39;gem &quot;simplecov-vim&quot;, :require =&amp;gt; false&#39; &amp;gt;&amp;gt; Gemfile</code></pre><p>$ bundle install
+$ vim .simplecov
+$ cat .simplecov</p>
+<p>require &quot;simplecov-vim/formatter&quot;
+class SimpleCov::Formatter::MergedFormatter
+  def format(result)
+    SimpleCov::Formatter::HTMLFormatter.new.format(result)
+    SimpleCov::Formatter::VimFormatter.new.format(result)
+  end
+end
+SimpleCov.start do
+  formatter SimpleCov::Formatter::MergedFormatter
+end</p>
+<p>$ bundle exec rspec
+$ echo &quot;coverage.vim&quot; &gt;&gt; .git/info/excludes
+$ vim lib/weather_hacker.rb
+  :so /path/to/coverage.vim でマーカーが表示されれば成功</pre></p>
+</div>
+<div class="section">
+    <h3>こうしたいとか</h3>
+    <p>検証する(カバレッジを見る) =&gt; 考える =&gt; 変更する =&gt; 検証する(カバレッジを見る)、の回転をもっと速くしたいので、カバレッジはリアルタイムで更新されてほしい。@makimotoさんが<a href="http://makimoto.hatenablog.com/entry/2012/04/08/120632">寿司じゃないブログ</a>でGuardを紹介されていたので、Guard導入してみたいと思う。iPhoneとかにリアルタイム更新されるように可愛く表示して、カバレッジ60..70..80%..!?とかやりたい。</p>
+<p>Coverage 100%, Do it.</p>
+
+</div>
+
+  </div>
+</article>
+
+  </main>
+</body>
+</html>

@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width">
+  <title>チャットで不在時に発言されたメッセージの扱い方</title>
+  <link href="/articles/2014-06-08-h" rel="canonical">
+  <link rel="stylesheet" href="/css/main.css">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="チャットで不在時に発言されたメッセージの扱い方">
+  <meta property="og:url" content="https://r7kamura.com&#x2F;articles&#x2F;2014-06-08-h">
+  <meta property="twitter:card" content="summary">
+  <meta property="twitter:title" content="チャットで不在時に発言されたメッセージの扱い方">
+</head>
+<body>
+  <header>
+    <nav>
+      <a href="/">トップページ</a>
+      <ul>
+        <li>
+          <a href="/articles">記事</a>
+        </li>
+        <li>
+          <a href="https://google.com/search?q=site:r7kamura.com">検索</a>
+        </li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <article>
+  <h1>チャットで不在時に発言されたメッセージの扱い方</h1>
+  <footer>
+    <p>
+      <time datetime="2014-06-08T00:00:00+09:00">2014年06月08日</time>
+    </p>
+  </footer>
+  <div>
+    <p>HipChatやSlackで使われているXMPPにおける不在時に発言されたメッセージの扱われ方、
+というきわめてニッチでゴキゲンな話題をお届けします。</p>
+
+<h3>Delayed Delivery</h3>
+
+<p><a href="http://xmpp.org/extensions/xep-0203.html">XEP-0203</a>という拡張仕様があり、
+リアルタイムではなくあとから遅れてメッセージが送られる場合の仕様が定義されている。
+あるユーザにメッセージを送ったが宛先のユーザがオフラインだった場合にサーバ側でメッセージを保存しておき、
+ユーザがログインしたときに再送するという用途がある。また、チャットルームでの発言履歴機能などにも関係している。
+例を見たほうが早そう。</p>
+
+<pre class="code" data-unlink>&lt;message from='romeo@montague.net/orchard' to='juliet@capulet.com' type='chat'&gt;
+  &lt;body&gt;
+    Goodbye, cruel world
+  &lt;/body&gt;
+&lt;/message&gt;</pre>
+
+
+<p>宛先のユーザがログイン状態であれば通常こういう形式で届くメッセージが、ログアウト状態だった場合には次のような形式になる。
+message要素の中にdelay要素が追加され、この要素がDelayed Deliveryのためのものであること(xmlns属性)や、
+このメッセージ遅延させて送ってきた送り元(from属性)、
+そしてこのメッセージが発言された元々の時刻(stamp属性)が含まれている。</p>
+
+<pre class="code" data-unlink>&lt;message from='romeo@montague.net/orchard' to='juliet@capulet.com' type='chat'&gt;
+  &lt;body&gt;
+    Goodbye, cruel world
+  &lt;/body&gt;
+  &lt;delay xmlns='urn:xmpp:delay' from='capulet.com' stamp='2002-09-10T23:08:25Z'&gt;
+    Offline Storage
+  &lt;/delay&gt;
+&lt;/message&gt;</pre>
+
+
+<h3>XMPPの拡張仕様の仕組み</h3>
+
+<p>XMPPはXMLベースでメッセージをやりとりする仕組みで、RFC3920とRFC3921に中核部分の仕様が定義されている。
+更にXEP (XMPP Extension Protocol)という仕様が幾つかあって、ここで拡張仕様が定義されている。
+受け取ったXMLに知らない要素が含まれていても基本的に無視しておくという性質を持たせておき、
+XEPにおいて「この要素が含まれている場合はこういう挙動をする」という拡張仕様を定義することで、
+拡張仕様に対応している場合にのみ何かを行うという挙動を実現している。</p>
+
+<h3>Delayed Deliveryによって問題になること</h3>
+
+<p>よく問題になるのはXMPP上でBOTを運用する場合。
+通常のユースケースではあまり問題になることはなく、
+寧ろチャットルームにログインしたときに自分が不在だった間に発言された過去の履歴が取得できて嬉しいことの方が多いと思う。
+BOTはある命令に反応してある処理を行うというものが多いので、
+例えばBOT用のプログラムに問題があって再起動した場合、
+再起動中に発言された過去の発言全てに対して起動時に反応していちいち全ての処理を行ってしまう場合がある。
+(例えば、BOTがたまたま停止していて「アレ反応しない...」とか言って何度もデプロイの命令を送ってしまうと、
+このあとめちゃくちゃデプロイされるなど)</p>
+
+<h3>ライブラリ側での対応</h3>
+
+<p>「BOTは過去の発言を無視する」というポリシーを実装してこの問題に対処することにした。
+ウチのBOTは<a href="https://github.com/r7kamura/ruboty">Ruboty</a>というBOTフレームワークで動いていて、
+チャットサービスとしてXMPPベースのSlackを使っている。
+RubotyとSlackを繋ぐための<a href="https://github.com/r7kamura/ruboty-slack">ruboty-slack</a>というアダプタがあるので、
+このアダプタ内でメッセージを受け取ったときの処理に条件分岐を入れて過去の発言を無視するようにした。</p>
+
+<pre class="code" data-unlink>class Ruboty::Adapters::Slack
+  def on_message(message)
+    unless message.delayed?
+      robot.receive(
+        body: message.body,
+        from: message.from,
+        from_name: username_of(message),
+        to: message.to,
+        type: message.type,
+      )
+    end
+  end
+end</pre>
+
+
+<p><code>message.delayed?</code> の実体は <code>Xrc::Message#delayed?</code> というRuby用のXMPPライブラリ
+<a href="https://github.com/r7kamura/xrc">Xrc</a> の中で実装されている。
+このメソッドも昨日までは無くて、今回の対応のために<a href="https://github.com/r7kamura/xrc/commit/a3fb0f946934dff68c949239cf11db64ba7095ff">雑に追加した</a>。
+delay要素があるかどうかしか判断できないけど、他の情報はまだ使うこともないのであるかどうかわかればまあ良いという判断。
+これでBOTがSlackに接続したときに送られてくる過去のメッセージは無視されるようになった。</p>
+
+<h3>HipChatでの対応</h3>
+
+<p>もしHipChatを利用している場合は、HipChatのXMPPサーバの便利機能を使える。
+HipChatのサポートサイトの<a href="http://help.hipchat.com/knowledgebase/articles/64377-xmpp-jabber-support-details">XMPP/Jabber support details</a>ってところに1行「もし接続してきたアカウントのJabber IDのResourceの名前が"bot"だった場合は過去の履歴を送信しない」
+とある (Resourceについては<a href="http://r7kamura.hatenablog.com/entry/2014/05/14/041123">XMPP界 - ✘╹◡╹✘</a>を参照のこと)。
+よってBOT用に"foo bar/bot"のようなJabber IDを設定するだけで特にライブラリ側で対応する必要がなくなる。
+Ruboty用のHipChatアダプタ ruboty-hipchatでは、<a href="https://github.com/r7kamura/ruboty-hipchat/blob/master/lib/ruboty/adapters/hipchat.rb#L42-L46">BOTのJabber IDを自動的に"bot"にする対応</a>をしている。</p>
+
+<h3>対応の背景</h3>
+
+<p>この発言を見てアー対応しないとなーと思って対応した。積極的なユーザがいると良くなっていく。
+<a href="https://twitter.com/negipo/status/475245731591122945">https://twitter.com/negipo/status/475245731591122945</a></p>
+
+<p>あと自分もたまにおかしな挙動してBOTが勝手に自分自身をデプロイしたりして日本人形みたいで恐いなあとは思ってた。
+ドッグフーディング便利。
+<a href="https://twitter.com/r7kamura/status/474890626027110401">https://twitter.com/r7kamura/status/474890626027110401</a></p>
+
+
+  </div>
+</article>
+
+  </main>
+</body>
+</html>

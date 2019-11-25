@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width">
+  <title>ServerkitでMacの環境構築を自動化する</title>
+  <link href="/articles/2015-04-11-q" rel="canonical">
+  <link rel="stylesheet" href="/css/main.css">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="ServerkitでMacの環境構築を自動化する">
+  <meta property="og:url" content="https://r7kamura.com&#x2F;articles&#x2F;2015-04-11-q">
+  <meta property="twitter:card" content="summary">
+  <meta property="twitter:title" content="ServerkitでMacの環境構築を自動化する">
+</head>
+<body>
+  <header>
+    <nav>
+      <a href="/">トップページ</a>
+      <ul>
+        <li>
+          <a href="/articles">記事</a>
+        </li>
+        <li>
+          <a href="https://google.com/search?q=site:r7kamura.com">検索</a>
+        </li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <article>
+  <h1>ServerkitでMacの環境構築を自動化する</h1>
+  <footer>
+    <p>
+      <time datetime="2015-04-11T00:00:00+09:00">2015年04月11日</time>
+    </p>
+  </footer>
+  <div>
+    <p><a href="https://github.com/r7kamura/serverkit">Serverkit</a> という構成管理ツールのチュートリアルとして、Macの環境構築を自動化する方法について説明します。</p>
+<h2 id="完成形">完成形</h2>
+<p>以下の手順で環境構築が完了できる状態にすることが目標です。</p>
+<ol>
+<li>クリーンインストールしたばかりのMacを起動する</li>
+<li>Terminal.appを開く</li>
+<li>コマンドを1行入力する</li>
+<li>パスワードを入力する</li>
+<li>各種アプリケーションがインストールされ設定が完了する</li>
+</ol>
+<p><a href="https://github.com/r7kamura/dotfiles">r7kamura/dotfiles</a> に動作するサンプルを用意したので、先に動作の様子を紹介しておきます。以下のコマンドでシェルスクリプトをダウンロードして実行すると、各種アプリケーションのインストールや設定の変更が行われます。<a href="%E5%88%9D%E5%9B%9E%E5%AE%9F%E8%A1%8C%E6%99%82%E3%81%AB%E3%82%AD%E3%83%A3%E3%83%97%E3%83%81%E3%83%A3%E6%92%AE%E3%82%8B%E3%81%AE%E3%82%92%E5%BF%98%E3%82%8C%E3%81%9F%E3%81%AE%E3%81%A7%E3%80%812%E5%9B%9E%E7%9B%AE%E3%81%AB%E5%AE%9F%E8%A1%8C%E3%81%97%E3%81%A6%E5%85%A8%E3%81%A6%E3%82%B9%E3%82%AD%E3%83%83%E3%83%97%E3%81%95%E3%82%8C%E3%82%8B%E6%A7%98%E5%AD%90%E3%82%92%E3%81%8A%E5%B1%8A%E3%81%91%E3%81%97%E3%81%BE%E3%81%99%E2%80%A6">^1</a></p>
+<pre><code>$ curl -LSfs https://raw.githubusercontent.com/r7kamura/dotfiles/master/install.sh | sh</code></pre><p><img src="https://qiita-image-store.s3.amazonaws.com/0/4365/41e0757e-abef-68c8-ccd2-eac9f5af737e.gif" alt="install.gif"></p>
+<h2 id="serverkitとは">Serverkitとは</h2>
+<p>上記のスクリプトの実現には、<a href="https://github.com/r7kamura/serverkit">Serverkit</a> というツールが利用されています。Serverkitは、サーバの理想の状態を定義したレシピと呼ばれるファイルを読み込み、理想と現状の乖離を埋める処理を行います。ChefやAnsible、Puppetのようなツールだと捉えておいて問題ありません。レシピはJSONやYAMLで記述できるので、Ansibleがより近い存在と言えます。</p>
+<h2 id="serverkitのインストール">Serverkitのインストール</h2>
+<p>serverkitはRubyで記述されており、Gemとして rubygems.org でホスティングされています。Ruby 2.0.0 以上がインストールされているマシンであれば、以下のコマンドでインストールできます。</p>
+<pre><code>$ gem install serverkit</code></pre><h2 id="レシピの記述">レシピの記述</h2>
+<p>試しにYAMLで簡単なレシピを書いてみましょう。以下の例は、Mac OS Xでhomebrewを利用してMySQLとRedisがインストールされているという状態を表現したレシピです。レシピは、resourcesプロパティをもったHashとして表現できます。resourcesプロパティの値はHashの配列であり、これらの要素のことをリソースと呼びます。それぞれのリソースは必ずtypeプロパティを持ち、typeプロパティの内容により追加で幾つかのプロパティを持ちます。packageリソースでは、どのパッケージをインストールするかを表すためにnameプロパティが必要です。</p>
+<pre><code class="language-yaml:recipe.yml">resources:
+  - type: package
+    name: mysql
+  - type: package
+    name: redis</code></pre>
+<h2 id="レシピの適用">レシピの適用</h2>
+<p>serverkitがインストールされていれば、<code>serverkit</code>  という実行ファイルが利用できるようになっています。以下のコマンドを実行すると、先ほど記述したレシピが読み込まれ、手元の環境にMySQLとRedisがインストールされます。<a href="homebrew%E8%87%AA%E4%BD%93%E3%81%AE%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB%E3%81%AF%E4%BA%88%E3%82%81%E6%B8%88%E3%81%BE%E3%81%9B%E3%81%A6%E3%81%8A%E3%81%8F%E5%BF%85%E8%A6%81%E3%81%8C%E3%81%82%E3%82%8A%E3%81%BE%E3%81%99%E3%80%82">^2</a></p>
+<pre><code>$ serverkit apply recipe.yml
+[DONE] package mysql on localhost
+[DONE] package redis on localhost</code></pre><h2 id="テンプレートの利用">テンプレートの利用</h2>
+<p>homebrewでインストールしたいパッケージの数が増えてくると、いちいちリソースを記述するのが面倒に感じられるかもしれません。serverkitでは、レシピにERBテンプレートを利用でき、またERBテンプレートで利用できる変数を記述した別のファイルを与えることもできます。これを利用すると、レシピの記述を少し簡略化できます。Serverkitでは、与えられたファイルの拡張子が .erb だった場合、そのファイルをERBテンプレートとして解釈します。以下の例では、variables.yml というファイルでパッケージ名の配列を定義し、recipe.yml.erb でその配列を元に複数のリソースを定義しています。</p>
+<pre><code class="language-yaml:variables.yml">homebrew_package_names:
+  - cmake
+  - mysql
+  - node
+  - rbenv
+  - readline
+  - redis
+  - ruby-build</code></pre>
+<pre><code class="language-yaml:recipe.yml.erb">resources:
+  &lt;%- homebrew_package_names.each do |homebrew_package_name| -%&gt;
+  - type: package
+    name: &lt;%= homebrew_package_name %&gt;
+  &lt;%- end -%&gt;</code></pre>
+<p>実行時に <code>--variables=</code> というコマンドラインオプションを与えれば、変数を定義したファイルを指定できます。</p>
+<pre><code>$ serverkit apply recipe.yml.erb --variables=variables.yml
+[DONE] package cmake on localhost
+[DONE] package mysql on localhost
+[DONE] package node on localhost
+[DONE] package rbenv on localhost
+[DONE] package readline on localhost
+[DONE] package redis on localhost
+[DONE] package ruby-build on localhost</code></pre><h2 id="適用されるレシピの確認">適用されるレシピの確認</h2>
+<p>上記の例ではERBテンプレートと変数を利用しましたが、レシピの規模が大きくなってくると、実際に何が適用されるのかわかりづらくなってきます。そのような場合には、serverkit inspectというコマンドを利用すると、ERBテンプレートを全て展開したあとのレシピの内容をJSON形式で表示できます。</p>
+<pre><code>$ serverkit inspect recipe.yml.erb --variables=variables.yml
+{
+  &quot;resources&quot;: [
+    {
+      &quot;type&quot;: &quot;package&quot;,
+      &quot;name&quot;: &quot;cmake&quot;
+    },
+    {
+      &quot;type&quot;: &quot;package&quot;,
+      &quot;name&quot;: &quot;mysql&quot;
+    },
+    {
+      &quot;type&quot;: &quot;package&quot;,
+      &quot;name&quot;: &quot;node&quot;
+    },
+    {
+      &quot;type&quot;: &quot;package&quot;,
+      &quot;name&quot;: &quot;rbenv&quot;
+    },
+    {
+      &quot;type&quot;: &quot;package&quot;,
+      &quot;name&quot;: &quot;readline&quot;
+    },
+    {
+      &quot;type&quot;: &quot;package&quot;,
+      &quot;name&quot;: &quot;redis&quot;
+    },
+    {
+      &quot;type&quot;: &quot;package&quot;,
+      &quot;name&quot;: &quot;ruby-build&quot;
+    }
+  ]
+}</code></pre><h2 id="差分の確認">差分の確認</h2>
+<p>serverkit applyを実行すると変更をすぐさま適用することができますが、適用前に、現在のサーバの状態が理想の状態とどう乖離しているのかを確認したいという場合もあると思います。そのような場合には、serverkit checkというコマンドが利用できます。変更の不要なリソースにはOKが、変更が必要なリソースにはNGが表示されます。</p>
+<pre><code>$ serverkit check recipe.yml.erb --variables=variables.yml
+[ NG ] package cmake on localhost
+[ OK ] package mysql on localhost
+[ NG ] package node on localhost
+[ NG ] package rbenv on localhost
+[ NG ] package readline on localhost
+[ OK ] package redis on localhost
+[ NG ] package ruby-build on localhost</code></pre><h2 id="さまざまなリソース">さまざまなリソース</h2>
+<p>上記の例ではtypeプロパティに <code>&quot;package&quot;</code> が指定されたリソースしか利用していませんでしたが、他にも symlink や git、command など、いろいろな種類のリソースが用意されています。symlinkは、指定したパスから他に指定したパスに対してシンボリックリンクを作成するリソース、gitは、指定したレポジトリを git-clone してくるのリソース、commandは、指定したシェルスクリプトを実行するリソースです。例えば以下のレシピを適用すると、<a href="https://github.com/r7kamura/dotfiles">r7kamura/dotfiles</a> からレポジトリがgit-cloneされ、.zshrc に対してシンボリックリンクが作成され、ログインシェルが /bin/zsh に設定されていなければ chsh を利用して変更されます。</p>
+<pre><code class="language-yaml:recipe.yml">resources:
+  - type: git
+    repository: git@github.com:r7kamura/dotfiles.git
+    path: /Users/r7kamura/src/github.com/r7kamura/dotfiles
+  - type: symlink
+    source: /Users/r7kamura/.zshrc
+    destination: /Users/r7kamura/src/github.com/r7kamura/dotfiles/linked/.zshrc
+  - type: command
+    check_script: &quot;finger -l | grep -E &#39;Shell: /bin/zsh$&#39;&quot;
+    script: sudo chsh -s /bin/zsh r7kamura</code></pre>
+<h2 id="プラグインの利用">プラグインの利用</h2>
+<p>Serverkitは外部のプラグインを読み込むための特殊な機能は備えていませんが、手元にGemfileがあれば、実行時にGemfileに定義されたGemを読み込むようになっています。そのため、任意のGemを作成して読み込ませることで、Serverkitの機能を拡張することができます。例えば、serverkit-defaultsを読み込むとdefaultsというリソースが使えるようになり、defaults(1) を利用した設定の管理が可能になります。以下の例では、defaultsリソースを利用してスクリーンキャプチャの出力する画像形式をpngに変更しています。</p>
+<pre><code class="language-rb:Gemfile">gem &quot;serverkit&quot;
+gem &quot;serverkit-defaults&quot;</code></pre>
+<pre><code class="language-yaml:recipe.yml">resources:
+  - type: defaults
+    domain: com.apple.screencapture
+    key: type
+    value: png</code></pre>
+<pre><code>$ bundle install
+$ bundle exec serverkit apply recipe.yml.erb --variables=variables.yml</code></pre><ul>
+<li><a href="https://github.com/r7kamura/serverkit-defaults">serverkit-defaults</a></li>
+<li><a href="https://github.com/r7kamura/serverkit-karabiner">serverkit-karabiner</a></li>
+<li><a href="https://github.com/r7kamura/serverkit-rbenv">serverkit-rbenv</a></li>
+</ul>
+<h2 id="実行用シェルスクリプト">実行用シェルスクリプト</h2>
+<p>コマンド1行で完遂させたいという目標があったので、今回はserverkitを使うところまでの面倒を見るためのシェルスクリプトを用意しました。Xcodeやhomebrewのインストールを担当するリソースを用意すれば、もう少し便利にできるかもしれません。</p>
+<pre><code>$ curl -LSfs https://raw.githubusercontent.com/r7kamura/dotfiles/master/install.sh | sh</code></pre><pre><code class="language-sh">#!/usr/bin/env bash
+set -eo pipefail
+
+tempfile=/tmp/dotfiles.zip
+workspace=/tmp/dotfiles
+
+# GitHubからdotfiles.zipをダウンロードしてくる (まだGitが入っていないかもしれないので)
+curl -LSfs -o ${tempfile} https://github.com/r7kamura/dotfiles/archive/master.zip
+
+# /tmp/dotfiles に解凍
+unzip -oq ${tempfile} -d ${workspace}
+
+# bundle install を実行したいとか諸々の都合で　/tmp/dotfiles に移動する。
+# 後で一応元のパスに戻りたいので pushd と popd を使う
+pushd ${workspace}/dotfiles-master &gt; /dev/null
+
+# コマンドラインツールをインストールするためにポップアップを出す。
+# GUIで入れるのでCUI側では入るまで待つ
+xcode-select -p &gt; /dev/null
+if [ &quot;$?&quot; -ne 0 ]; then
+  xcode-select --install
+  while :
+  do
+    xcode-select -p
+    if [ &quot;$?&quot; -eq 0 ]; then
+      break
+    fi
+    sleep 5
+  done
+fi
+
+# homebrewを入れる
+which brew &gt; /dev/null
+if [ &quot;$?&quot; -ne 0 ]; then
+  ruby -e &quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)&quot;
+fi
+
+# serverkitを入れる
+sudo gem install bundler &gt; /dev/null
+sudo bundle install &gt; /dev/null
+
+# serverkit applyを実行
+sudo bundle exec serverkit apply recipe.yml.erb --variables=variables.yml
+
+# 元のパスに戻る
+popd &gt; /dev/null
+
+# 一時的に使ったファイルとディレクトリを片付ける
+rm -rf ${tempfile} ${workspace}</code></pre>
+<h2 id="まとめ">まとめ</h2>
+<p>いろいろ説明しましたが、基本的には recipe.yml を適当に書いて実行すればOKで、ERBテンプレートを使うなら variables.yml を、プラグインを使うなら Gemfileを用意すればOKです。<a href="https://github.com/r7kamura/dotfiles">r7kamura/dotfiles</a>に動作するサンプルが用意されているので、これを参考にしながら各位自分用のレシピをつくっていってもらえればと思います。Serverkitはまだつくられて間もないツールですが、そこまで学習に時間をかけずに使えることを目的としてつくられているので、興味が湧いたときに使ってみてもらえると幸いです。</p>
+<h2 id="おまけ-独自リソースの定義">おまけ: 独自リソースの定義</h2>
+<p>自分でレシピを書いていると、commandリソースでシェルスクリプトを利用する部分の見通しがどうしても悪くなりがちです。そういう場合には、独自リソースを定義することを検討しましょう。Serverkitに読み込ませるためにGemとして妥当な形式にする必要がありますが、rubygems.org  に登録せずGitHubに置いたものを参照することもできますし、もっと簡単にやるなら<a href="http://qiita.com/r7kamura/items/5e7d082d8e0d0471d71d">GistでGemを公開する</a> こともできます。</p>
+<p>リソースのtypeプロパティの値は、<code>Serverkit::Resources</code> の名前空間から対応するクラスを発見するのに利用されます。例えば、symlinkであれば <code>Serverkit::Resources::Symlink</code> が利用されます。つまり、<code>Serverkit::Resources</code> の名前空間下に適当なクラスを用意すると、任意の名前のリソースを定義できます。リソース用クラスの定義は、<a href="https://github.com/r7kamura/serverkit/tree/master/lib/serverkit/resources">標準で用意されているリソースの実装</a>を真似しがら実装するのが良いでしょう。リソース用クラスの実装における要点は以下の通りです。</p>
+<ul>
+<li><code>Serverkit::Resources::Base</code> を継承しなければならない</li>
+<li><code>#apply</code> と <code>#check</code> を実装しなければならない</li>
+<li><code>#check</code> は true または false を返さなければならない</li>
+<li><code>#apply</code> は <code>#check</code> がfalseを返したときに実行される</li>
+<li><code>#check</code> は <code>#apply</code> を実行するかどうか、また <code>#apply</code> の後に処理が成功したかを調べるのに利用される</li>
+<li><code>#recheck</code> を実装すると、<code>#apply</code> の後に <code>#check</code> の代わりにこれが利用される</li>
+<li><code>#default_id</code> を実装すると、ログの一部にその返り値が表示される</li>
+<li><code>#run_command</code> や <code>#check_command</code> を利用すると、サーバ上でシェルスクリプトを実行して結果を受け取れる</li>
+<li><code>.attribute</code> を利用して、リソースで利用可能なattributeとそのvalidationルールを指定できる</li>
+</ul>
+<h2 id="リンク">リンク</h2>
+<ul>
+<li><a href="http://r7kamura.hatenablog.com/entry/2015/04/06/161104">Serverkitつくった - ✘╹◡╹✘</a></li>
+<li><a href="http://r7kamura.hatenablog.com/entry/2015/04/10/032834">Serverkitの進捗 - ✘╹◡╹✘</a></li>
+</ul>
+
+  </div>
+</article>
+
+  </main>
+</body>
+</html>

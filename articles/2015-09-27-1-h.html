@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Reactのバケツリレーに疲れたら</title>
+  <link href="/articles/2015-09-27-1-h" rel="canonical">
+  <link rel="stylesheet" href="/css/main.css">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Reactのバケツリレーに疲れたら">
+  <meta property="og:url" content="https://r7kamura.com&#x2F;articles&#x2F;2015-09-27-1-h">
+  <meta property="twitter:card" content="summary">
+  <meta property="twitter:title" content="Reactのバケツリレーに疲れたら">
+</head>
+<body>
+  <header>
+    <nav>
+      <a href="/">トップページ</a>
+      <ul>
+        <li>
+          <a href="/articles">記事</a>
+        </li>
+        <li>
+          <a href="https://google.com/search?q=site:r7kamura.com">検索</a>
+        </li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <article>
+  <h1>Reactのバケツリレーに疲れたら</h1>
+  <footer>
+    <p>
+      <time datetime="2015-09-27T00:00:00+09:00">2015年09月27日</time>
+    </p>
+  </footer>
+  <div>
+    <p>理性捨ててprops全部渡すぞ</p>
+
+<pre class="code" data-lang="" data-unlink>import Footer from './footer'
+import Header from './header'
+import Main from './main'
+import React, { Component } from 'react'
+
+export default class Root extends Component {
+  render() {
+    return(
+      &lt;div className="root"&gt;
+        &lt;Header {...this.props} /&gt;
+        &lt;Main {...this.props} /&gt;
+        &lt;Footer {...this.props} /&gt;
+      &lt;/div&gt;
+    );
+  }
+}
+</pre>
+
+
+
+  </div>
+</article>
+
+  </main>
+</body>
+</html>
