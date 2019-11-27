@@ -706,6 +706,11 @@ https://r7kamura.com/articles/2018-12-07-7c3306274682
 https://r7kamura.com/articles/2018-12-11-rspec-request-describer
 https://r7kamura.com/articles/2018-12-12-183636f56152
 https://r7kamura.com/articles/2018-12-16-keyboards
+https://r7kamura.com/articles/2018-12-17-ltsv-gem-frozen-string
+https://r7kamura.com/articles/2018-12-20-testing-params-nil
+https://r7kamura.com/articles/2018-12-21-shell-aliases
+https://r7kamura.com/articles/2018-12-23-nes-emulator-typescript
+https://r7kamura.com/articles/2019-01-01-amakan-ending-background
 https://r7kamura.com/articles/2019-01-14-2018-12-f8a1c3e5ec8b
 https://r7kamura.com/articles/2019-02-02-don-t-starve-together-f83a283db81a
 https://r7kamura.com/articles/2019-05-04-dota-auto-chess-7e9c61a9187e
