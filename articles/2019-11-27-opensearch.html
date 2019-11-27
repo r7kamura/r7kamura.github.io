@@ -36,8 +36,14 @@
     </p>
   </footer>
   <div>
-    <p>ブラウザのロケーションバーに r7kamura.com + 半角スペース、と入力したときに、ウェブサイト内を検索できるようになった。</p>
-<p>実装方法はは<a href="https://developer.mozilla.org/en-US/docs/Web/OpenSearch">ドキュメント</a>を読めば分かる。変更内容は<a href="https://github.com/r7kamura/r7kamura.com/commit/2b0889d9e8b6427dc841d627cec52d800009ac91">このcommit</a>にまとまっているので、良ければ参考にどうぞ。</p>
+    <p>OpenSearchに対応したので、ブラウザのロケーションバーで、</p>
+<ul>
+<li>r7kamura.com + 半角スペース、と入力する</li>
+<li>r7... で補完候補に r7kamura.com を選んだ状態でTabキーを押す</li>
+</ul>
+<p>のどちらかをやることで、ウェブサイト内を検索できるようになった。まあ実際はGoogle検索に飛ばしてるだけなんだけど。補完で検索できるのは結構便利。</p>
+<p>変更内容は<a href="https://github.com/r7kamura/r7kamura.com/commit/2b0889d9e8b6427dc841d627cec52d800009ac91">このcommit</a>にまとまっている。実装方法の詳細については<a href="https://developer.mozilla.org/en-US/docs/Web/OpenSearch">ドキュメント</a>を読めば分かる。</p>
+<p>現状Googleがこのウェブサイトのほとんどのページをインデックスから除外してしまっているので、検索に一致するページが少なくて悲しい。</p>
 
   </div>
 </article>
