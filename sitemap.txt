@@ -685,6 +685,7 @@ https://r7kamura.com/articles/2018-07-10-magic-scroll-tactics-ba34b856b39b
 https://r7kamura.com/articles/2018-10-18-oxygen-not-included-d8dbe2d0f911
 https://r7kamura.com/articles/2018-10-31-iphone-xs-max-cb840d595fae
 https://r7kamura.com/articles/2018-11-08-rubocop-style-regexp-literal
+https://r7kamura.com/articles/2018-11-09-ruby-nes-emulator
 https://r7kamura.com/articles/2018-11-23-b34683bbffca
 https://r7kamura.com/articles/2018-11-26-429907aea54a
 https://r7kamura.com/articles/2018-11-26-subscriptions-2018
