@@ -699,6 +699,7 @@ https://r7kamura.com/articles/2018-11-26-429907aea54a
 https://r7kamura.com/articles/2018-11-26-subscriptions-2018
 https://r7kamura.com/articles/2018-11-27-danger-suggester-cautions
 https://r7kamura.com/articles/2018-11-29-patreon-smartphone-view
+https://r7kamura.com/articles/2018-12-03-try-typescript
 https://r7kamura.com/articles/2018-12-07-7c3306274682
 https://r7kamura.com/articles/2018-12-12-183636f56152
 https://r7kamura.com/articles/2019-01-14-2018-12-f8a1c3e5ec8b
@@ -728,6 +729,5 @@ https://r7kamura.com/articles/2019-11-23-migrate-to-project-page
 https://r7kamura.com/articles/2019-11-25-moving
 https://r7kamura.com/articles/2019-11-26-capture-board
 https://r7kamura.com/articles/2019-11-26-muji-week
-https://r7kamura.com/articles/2019-12-03-try-typescript
 https://r7kamura.com/
 https://r7kamura.com/articles
