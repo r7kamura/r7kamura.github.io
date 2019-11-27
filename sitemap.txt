@@ -688,6 +688,7 @@ https://r7kamura.com/articles/2018-11-08-rubocop-style-regexp-literal
 https://r7kamura.com/articles/2018-11-09-ruby-nes-emulator
 https://r7kamura.com/articles/2018-11-11-rurema-whitespace
 https://r7kamura.com/articles/2018-11-12-rnes-progress
+https://r7kamura.com/articles/2018-11-13-rubocop-style-lambda
 https://r7kamura.com/articles/2018-11-23-b34683bbffca
 https://r7kamura.com/articles/2018-11-26-429907aea54a
 https://r7kamura.com/articles/2018-11-26-subscriptions-2018
