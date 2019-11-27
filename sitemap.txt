@@ -721,6 +721,14 @@ https://r7kamura.com/articles/2019-02-01-rails-6-0-0-beta1
 https://r7kamura.com/articles/2019-02-02-don-t-starve-together-f83a283db81a
 https://r7kamura.com/articles/2019-02-11-activerecord-inverse-of-behavior
 https://r7kamura.com/articles/2019-02-16-validate-config
+https://r7kamura.com/articles/2019-03-05-bash-zsh-globstar
+https://r7kamura.com/articles/2019-03-09-actiondispatch-response-charset
+https://r7kamura.com/articles/2019-03-16-github-issues-labeling
+https://r7kamura.com/articles/2019-03-28-rails-dm-2019
+https://r7kamura.com/articles/2019-04-02-rubocop-rails-link-to-blank
+https://r7kamura.com/articles/2019-04-06-rubocop-junit-formatter
+https://r7kamura.com/articles/2019-04-11-rails-6
+https://r7kamura.com/articles/2019-04-23-activesupport-safe-buffer
 https://r7kamura.com/articles/2019-05-04-dota-auto-chess-7e9c61a9187e
 https://r7kamura.com/articles/2019-05-12-dota-auto-chess-de2c84d1155f
 https://r7kamura.com/articles/2019-05-20-h

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width">
+  <title>bashとzshとglobstar</title>
+  <link href="/articles/2019-03-05-bash-zsh-globstar" rel="canonical">
+  <link rel="stylesheet" href="/css/main.css">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="bashとzshとglobstar">
+  <meta property="og:url" content="https://r7kamura.com&#x2F;articles&#x2F;2019-03-05-bash-zsh-globstar">
+  <meta property="twitter:card" content="summary">
+  <meta property="twitter:title" content="bashとzshとglobstar">
+</head>
+<body>
+  <header>
+    <nav>
+      <a href="/">トップページ</a>
+      <ul>
+        <li>
+          <a href="/articles">記事</a>
+        </li>
+        <li>
+          <a href="https://google.com/search?q=site:r7kamura.com">検索</a>
+        </li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <article>
+  <h1>bashとzshとglobstar</h1>
+  <footer>
+    <p>
+      <time datetime="2019-03-05T00:00:00+09:00">2019年03月05日</time>
+    </p>
+  </footer>
+  <div>
+    <p>久方ぶりの投稿となります。2月初旬に Apex Legends というバトルロイヤル形式のゲームが公開されて以来、どっぷりはまって気付けば3月になっていました。ひさしぶりに見たら Patreon のフォントが若干大きめに変更されていますね。</p>
+<p><a href="https://www.ea.com/ja-jp/games/apex-legends">https://www.ea.com/ja-jp/games/apex-legends</a></p>
+<p>さて、あまり大した話ではないんですが、昨日 CircleCI でシェルの globstar を利用しようとしてはまったのでその件について。というのも、<code>erblint app/views/**/*.erb</code> というコマンドを CircleCI で実行していたのですが、手元の環境と展開結果が異なるという問題にはまっていました。</p>
+<h2 id="globstar">globstar</h2>
+<p><code>**</code> だと検索しづらく、&quot;globstar&quot; という単語を見出すのに &quot;shell double asterisk&quot; 等で検索して苦労しました。</p>
+<p>CircleCI では bash が利用されており、bash では明示的に shopt -s globstar が設定されていない限り、デフォルトでは <code>**</code> は <code>*</code> 相当に展開されます。一方自分の手元の環境では zsh が利用されており、デフォルトで <code>**</code> が0個以上のディレクトリに展開されます。結果、<code>app/views/**/*.erb</code> の展開結果に差異があり、erblint の対象にならないファイルが存在してしまっていた、という訳です。</p>
+<h2 id="circleci-tests-glob">circleci tests glob</h2>
+<p>幸い、CircleCI では便利なユーティリティが提供されており、前述のコマンドを <code>erblint $(circleci tests glob &quot;app/views/**/*.erb&quot;)</code> というコマンドで置き換えることで対応できました。</p>
+<p>よく考えたら CircleCI のこのコマンドは、コンテナごとにテストを分割するときに使ったことがありました。</p>
+<pre><code>circleci tests glob &quot;spec/**/*_spec.rb&quot; | circleci tests split --split-by=timings</code></pre><p>のように使っています。ここで circleci tests glob が必要になっている理由を考えると、そのままではシェルで <code>**</code> が動かないことはほぼ自明ですね…。</p>
+
+  </div>
+</article>
+
+  </main>
+</body>
+</html>
