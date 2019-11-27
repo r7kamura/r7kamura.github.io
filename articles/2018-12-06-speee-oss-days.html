@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width">
+  <title>SpeeeのOSS Daysに参加した</title>
+  <link href="/articles/2018-12-06-speee-oss-days" rel="canonical">
+  <link rel="stylesheet" href="/css/main.css">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="SpeeeのOSS Daysに参加した">
+  <meta property="og:url" content="https://r7kamura.com&#x2F;articles&#x2F;2018-12-06-speee-oss-days">
+  <meta property="twitter:card" content="summary">
+  <meta property="twitter:title" content="SpeeeのOSS Daysに参加した">
+</head>
+<body>
+  <header>
+    <nav>
+      <a href="/">トップページ</a>
+      <ul>
+        <li>
+          <a href="/articles">記事</a>
+        </li>
+        <li>
+          <a href="https://google.com/search?q=site:r7kamura.com">検索</a>
+        </li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <article>
+  <h1>SpeeeのOSS Daysに参加した</h1>
+  <footer>
+    <p>
+      <time datetime="2018-12-06T00:00:00+09:00">2018年12月06日</time>
+    </p>
+  </footer>
+  <div>
+    <p>Speee 社のラウンジに行って活動してきたという話です。</p>
+<h2 id="speee-oss-days">Speee OSS Days</h2>
+<p>Speee では毎週火曜に OSS Days という活動をやっているという噂を聞いており、Public に参加できると聞いて少し気になっていたので参加してきました。これらについては以下の記事が詳しいです。</p>
+<ul>
+<li><a href="https://tech.speee.jp/entry/2018/08/06/123000">https://tech.speee.jp/entry/2018/08/06/123000</a></li>
+<li><a href="https://tech.speee.jp/entry/2018/10/09/140500">https://tech.speee.jp/entry/2018/10/09/140500</a></li>
+</ul>
+<h1 id="やったこと">やったこと</h1>
+<p>スーパーマリオブラザーズ™ がターミナル上で動くところまでつくった r7kamura/rnes という NES  エミュレータの実装があり、これは Ruby で書いたのですが、別言語での書き味や速度をゆるく比較したいなと思っていたので、TypeScript への移植作業を進めました。以下の Pull Request にその作業内容が含まれています。</p>
+<p><a href="https://github.com/r7kamura/nes8/pull/6">https://github.com/r7kamura/nes8/pull/6</a></p>
+<p>元々 CPU までは実装できていたので、その日は GPU の実装を進めました。語弊を恐れずめちゃくちゃざっくり言うと、NES では 256 × 240 px の映像を出力することになるので、CPU が VRAM に入れてくれた情報を読み取りながら、基本的には1サイクルごとに1ピクセルのデータを用意していくような部分の処理を、TypeScript で実装していきました。</p>
+<p>図で言うとこういう感じで、このタイプの絵は2枚あるレイヤーの内の背景レイヤーに描画しているんですが、背景は 8 × 8 px のタイルから構成されていて、それを左から右へ、上から下へと描画していくような処理を実装していきました。</p>
+<p>あと <a href="https://www.patreon.com/posts/typescriptnoshen-23135935">https://www.patreon.com/posts/typescriptnoshen-23135935</a> で言っていた Microsoft/TypeScript に出した Pull Request を少し手直しする作業も進めました。ごはん食べて走って帰って一眠りしている間に merge されていました。</p>
+<h2 id="ruby-から-typescript-への移植についての雑感">Ruby から TypeScript への移植についての雑感</h2>
+<p>他言語に移植しやすいよう、Ruby で書いたときから素朴な実装を意識して書いていましたが、数値の表現方法、ビットや配列操作用の機能、演算子の優先順位、その他文法的なところは細かく異なってきますし、その言語ならではの表現力を活かしたコードを書きたいという気持ちもあるので、別言語からの移植と言えど一筋縄では行かないものだなと感じました。</p>
+<p>特に自分が Ruby で書いていたときは、「もし静的型検査があればこう書いた方が良いかもしれない」という可能性を探索するコストをすべて枝刈りすることで、不具合が発生する確率が上がることを犠牲にしながら思考回路を単純化している節があったため、今回 TypeScript で実装するにあたって、後回しにされていたその分の探索コストを回収していっているような感覚があります。</p>
+<p>Ruby で実装したときは「メソッド呼び出しコストを無視できると仮定して実装を行う」という方針で書いていましたが、これによって移植時にコードの意図がかなり分かりやすくなっているなと感じたので、この段階ではこの方針で書いておいて良かったなと思います。</p>
+<h2 id="余談">余談</h2>
+<p>振り返ってみると、Speee 社のラウンジに行くのは3回目でした。</p>
+<ul>
+<li>2017年5月 Speee Cafe Meetup #7</li>
+<li>2017年5月 Tokyo Server Side Swift #7</li>
+<li>2018年12月 Speee OSS Days #NaN</li>
+</ul>
+<p>2017年5月頃はまだ京都に住んでいましたが、たしか出張で1週間ほど東京に来ていたので、それでミートアップでも行こうと参加していたような記憶があります。Speee Cafe Meetup に参加していたことについては Medium に記録していたので、思い出すことに成功しました。このときも TypeScript の話をしていて、Flow と TypeScript の比較みたいなことを話題にしていますね。</p>
+<p><a href="/articles/2017-05-24-speee-cafe-meetup-07-1ac10067d22b">Speee Cafe Meetup #07 に参加した</a></p>
+<p>最近は健康のために毎日なんらかの運動をしようとしていて、ウォーキングあるいはジョギングをしていることが多いのですが、Speee 社はいま住んでいるところから 4km 程度なので十分走っていける距離で、ふらっと行って雑談しながら OSS 関係で進捗できたのでとても良い会でした。また機を見つけて参加できればと思っています。</p>
+
+  </div>
+</article>
+
+  </main>
+</body>
+</html>
