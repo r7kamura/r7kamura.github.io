@@ -711,8 +711,16 @@ https://r7kamura.com/articles/2018-12-20-testing-params-nil
 https://r7kamura.com/articles/2018-12-21-shell-aliases
 https://r7kamura.com/articles/2018-12-23-nes-emulator-typescript
 https://r7kamura.com/articles/2019-01-01-amakan-ending-background
+https://r7kamura.com/articles/2019-01-09-cirlceci-docker-executor
 https://r7kamura.com/articles/2019-01-14-2018-12-f8a1c3e5ec8b
+https://r7kamura.com/articles/2019-01-18-nes-emulator-ppu
+https://r7kamura.com/articles/2019-01-21-rubocop-rails-validation
+https://r7kamura.com/articles/2019-01-25-migration-from-sprockets-to-webpack
+https://r7kamura.com/articles/2019-01-26-docker-bundler-2-0
+https://r7kamura.com/articles/2019-02-01-rails-6-0-0-beta1
 https://r7kamura.com/articles/2019-02-02-don-t-starve-together-f83a283db81a
+https://r7kamura.com/articles/2019-02-11-activerecord-inverse-of-behavior
+https://r7kamura.com/articles/2019-02-16-validate-config
 https://r7kamura.com/articles/2019-05-04-dota-auto-chess-7e9c61a9187e
 https://r7kamura.com/articles/2019-05-12-dota-auto-chess-de2c84d1155f
 https://r7kamura.com/articles/2019-05-20-h

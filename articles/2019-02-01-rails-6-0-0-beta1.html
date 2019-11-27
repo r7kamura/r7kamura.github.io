@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Rails 6.0.0.beta1を試した</title>
+  <link href="/articles/2019-02-01-rails-6-0-0-beta1" rel="canonical">
+  <link rel="stylesheet" href="/css/main.css">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Rails 6.0.0.beta1を試した">
+  <meta property="og:url" content="https://r7kamura.com&#x2F;articles&#x2F;2019-02-01-rails-6-0-0-beta1">
+  <meta property="twitter:card" content="summary">
+  <meta property="twitter:title" content="Rails 6.0.0.beta1を試した">
+</head>
+<body>
+  <header>
+    <nav>
+      <a href="/">トップページ</a>
+      <ul>
+        <li>
+          <a href="/articles">記事</a>
+        </li>
+        <li>
+          <a href="https://google.com/search?q=site:r7kamura.com">検索</a>
+        </li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <article>
+  <h1>Rails 6.0.0.beta1を試した</h1>
+  <footer>
+    <p>
+      <time datetime="2019-02-01T00:00:00+09:00">2019年02月01日</time>
+    </p>
+  </footer>
+  <div>
+    <p>開発に携わっているアプリケーションを Rails 5.2.2 から 6.0.0.beta1 に移行する作業を加えたので、対応した諸問題について書きます。</p>
+<h2 id="bullet-gem">bullet gem</h2>
+<p>ORM で非効率な SQL が組み立てられていることを検知してくれる bullet という gem ですが、まだ最新版でも Rails 5.2.2 で動かすと例外が出て動かない状態でした。これに対して、 <a href="https://github.com/flyerhzm/bullet/pull/439">https://github.com/flyerhzm/bullet/pull/439</a> のように Rails 6 に対応してみたという Pull Request が出ています。</p>
+<h2 id="newrelic_rpm-gem">newrelic_rpm gem</h2>
+<p>NewRelic の Ruby 用 Agent ですが、使っていたバージョン 5.x だと Rails 6 で動かしたときに例外が発生する状態でした。6.0.0 で Rails 6 に対応したようなので、これは最新版にアップグレードするだけで対応できます。</p>
+<h2 id="paranoia-gem">paranoia gem</h2>
+<p>ActiveRecord で論理削除を行うための paranoia gem ですが、現時点で最新版のものだと dependency が Rails 4.0 以上 5.3 未満に制限されている状態でした。Rails 6 に対応しようという Pull Request <a href="https://github.com/rubysherpas/paranoia/pull/456">https://github.com/rubysherpas/paranoia/pull/456</a> が出ています。</p>
+<h2 id="should-matchers-gem">should-matchers gem</h2>
+<p>Rails に特化したテスト用の matcher などを提供してくれる shoulda-matchers gem を利用しているプロジェクトだったんですが、Rails 6 で動かすとこれが例外を発生させるようでした。<a href="https://github.com/thoughtbot/shoulda-matchers/pull/1117">https://github.com/thoughtbot/shoulda-matchers/pull/1117</a> に対応する Pull Request が出ています。</p>
+<h2 id="annotate-gem">annotate gem</h2>
+<p>正規化された DB スキーマやルーティング情報をコメントとして自動で残してくれる annotate gem ですが、リリースされている最新版では Rails 6 未満でしか利用できなかったものの、<a href="https://github.com/ctran/annotate_models/pull/595">https://github.com/ctran/annotate_models/pull/595</a> が merge されて Rails 7 未満で使えるようになっていたので、新しいバージョンがリリースされれば上手くいくようになると思います。</p>
+<h2 id="redirect_to">redirect_to</h2>
+<p><a href="https://github.com/rails/rails/pull/34412">https://github.com/rails/rails/pull/34412</a> が merge され、redirect_to に外部ホストのものらしき URL を指定すると例外が発生するようになり、これが Rails 6.0.0.beta1 に入っているんですが、対応として少しまずかったということで <a href="https://github.com/rails/rails/pull/35018">https://github.com/rails/rails/pull/35018</a> で revert されています。</p>
+<h2 id="activerecord">activerecord</h2>
+<p>has-many-through の関係性を持つレコードを validation するとき、5.2.2 と 6.0.0.beta1 で validation 順序か保存順序が変わったのか、上手くいかなくなるケースが出てきました。とりあえず再現するためのコードを <a href="https://gist.github.com/r7kamura/73633bd30ffc1647f61c97f3a4de8d67%E3%81%AB%E7%94%A8%E6%84%8F%E3%81%97%E3%81%9F%E3%82%93%E3%81%A7%E3%81%99%E3%81%8C%E3%80%81%E5%8E%9F%E5%9B%A0%E3%81%AE%E7%9B%B4%E3%81%97%E6%96%B9%E3%81%AF%E5%88%86%E3%81%8B%E3%82%89%E3%81%9A%E8%AA%BF%E6%9F%BB%E3%81%97%E3%81%A6%E3%81%84%E3%81%9F%E3%81%A8%E3%81%93%E3%82%8D%E3%80%81kamipo">https://gist.github.com/r7kamura/73633bd30ffc1647f61c97f3a4de8d67に用意したんですが、原因の直し方は分からず調査していたところ、kamipo</a> さんが直してくれました。<a href="https://github.com/rails/rails/pull/35116">https://github.com/rails/rails/pull/35116</a></p>
+
+  </div>
+</article>
+
+  </main>
+</body>
+</html>
