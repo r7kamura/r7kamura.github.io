@@ -4,17 +4,28 @@
   <link href="https://r7kamura.com"/>
   <link rel="self" type="application/atom+xml" href="https://r7kamura.com/feed.xml"/>
   <link rel="alternate" type="text/html" href="https://r7kamura.com/"/>
-  <updated>2019-12-01T16:29:03.709Z</updated>
+  <updated>2019-12-01T16:46:10.210Z</updated>
   <author>
     <name>Ryo Nakamura</name>
   </author>
   <id>tag:r7kamura.com,2019:/</id>
     <entry>
+      <title>Atomフィードを配信</title>
+      <link rel="alternate" type="text/html" href="https:&#x2F;&#x2F;r7kamura.com&#x2F;articles&#x2F;2019-12-02-atom-feed"/>
+      <id>tag:r7kamura.com,2019:&#x2F;articles&#x2F;2019-12-02-atom-feed</id>
+      <published>2019-12-02T00:00:00+09:00</published>
+      <updated>2019-12-01T16:45:46.149Z</updated>
+      <content type="html"><![CDATA[<p><a href="https://r7kamura.com/feed.xml">https://r7kamura.com/feed.xml</a> から、Atom 1.0形式で直近20件の記事の情報を配信するようにした。</p>
+<p>実装は、<a href="https://tools.ietf.org/html/rfc4287">RFC 4287</a>を読みながら一通り実装して、W3Cの<a href="https://validator.w3.org/feed/check.cgi">Feed Validation Service</a>で最終確認した感じ。泥臭い作業を雑にこなしただけで、大したことはやってない。</p>
+<p>これに併せて、ドッグフーディングしようと思ってMacとiPhoneで<a href="https://feedly.com/">Feedly</a>を使い始めた。Feedly上でそのフィードが何人に購読されているか、みたいなソーシャルな部分も少しあって楽しい。自分のはてなブログを800人ぐらい購読している人が居て驚いた。このウェブサイトは既に10人に購読されていた。</p>
+]]></content>
+    </entry>
+    <entry>
       <title>ActiveStorageを使うテストを1つのファイルで書く</title>
       <link rel="alternate" type="text/html" href="https:&#x2F;&#x2F;r7kamura.com&#x2F;articles&#x2F;2019-12-01-activestorage-test"/>
       <id>tag:r7kamura.com,2019:&#x2F;articles&#x2F;2019-12-01-activestorage-test</id>
       <published>2019-12-01T00:00:00+09:00</published>
-      <updated>2019-12-01T16:28:43.468Z</updated>
+      <updated>2019-12-01T16:45:46.149Z</updated>
       <content type="html"><![CDATA[<p>ActiveStorageを使ったテストを書きたいときに、わざわざRailsアプリを1つ用意するのは手間が掛かるので、単一ファイルで完結するような書き方を模索してみた。</p>
 <p><a href="https://gist.github.com/r7kamura/7ee56572693fcd07a17219cd0ee6a4ca">https://gist.github.com/r7kamura/7ee56572693fcd07a17219cd0ee6a4ca</a> に動くコードがある。Rubyスクリプトとして実行すれば動く。ちなみにこのファイルは <a href="https://github.com/rails/rails/issues/37836">https://github.com/rails/rails/issues/37836</a> の調査用に用意した。</p>
 <p>以下は奇妙なところについての説明。</p>
@@ -34,7 +45,7 @@
       <link rel="alternate" type="text/html" href="https:&#x2F;&#x2F;r7kamura.com&#x2F;articles&#x2F;2019-11-30-cabling"/>
       <id>tag:r7kamura.com,2019:&#x2F;articles&#x2F;2019-11-30-cabling</id>
       <published>2019-11-30T00:00:00+09:00</published>
-      <updated>2019-12-01T16:28:43.468Z</updated>
+      <updated>2019-12-01T16:45:46.149Z</updated>
       <content type="html"><![CDATA[<p>棚が完成してゲーム機器類をデスク付近にまとめられるようになったので、あわせてAmazonでいろいろと発注した。</p>
 <h2 id="8mのオーディオケーブル">8mのオーディオケーブル</h2>
 <p><a href="https://www.amazon.co.jp/gp/product/B07VJNPQBG">https://www.amazon.co.jp/gp/product/B07VJNPQBG</a></p>
@@ -63,7 +74,7 @@
       <link rel="alternate" type="text/html" href="https:&#x2F;&#x2F;r7kamura.com&#x2F;articles&#x2F;2019-11-29-infra-payments"/>
       <id>tag:r7kamura.com,2019:&#x2F;articles&#x2F;2019-11-29-infra-payments</id>
       <published>2019-11-29T00:00:00+09:00</published>
-      <updated>2019-12-01T16:28:43.468Z</updated>
+      <updated>2019-12-01T16:45:46.149Z</updated>
       <content type="html"><![CDATA[<p>個人事業で以下のサービスの利用料を按分しているので、経理を楽に済ませられるように、それらを事業用口座から請求するように変更しようとしている。</p>
 <ul>
 <li>家賃 (エポスカード)</li>
@@ -87,7 +98,7 @@
       <link rel="alternate" type="text/html" href="https:&#x2F;&#x2F;r7kamura.com&#x2F;articles&#x2F;2019-11-29-freelance-moving"/>
       <id>tag:r7kamura.com,2019:&#x2F;articles&#x2F;2019-11-29-freelance-moving</id>
       <published>2019-11-29T00:00:00+09:00</published>
-      <updated>2019-12-01T16:28:43.468Z</updated>
+      <updated>2019-12-01T16:45:46.145Z</updated>
       <content type="html"><![CDATA[<p>2019年11月29日時点の、自分の状況に対しての情報をまとめておく。</p>
 <ul>
 <li><a href="https://www.nta.go.jp/taxes/tetsuzuki/shinsei/annai/shinkoku/annai/06.htm">https://www.nta.go.jp/taxes/tetsuzuki/shinsei/annai/shinkoku/annai/06.htm</a></li>
@@ -126,7 +137,7 @@
       <link rel="alternate" type="text/html" href="https:&#x2F;&#x2F;r7kamura.com&#x2F;articles&#x2F;2019-11-29-diary"/>
       <id>tag:r7kamura.com,2019:&#x2F;articles&#x2F;2019-11-29-diary</id>
       <published>2019-11-29T00:00:00+09:00</published>
-      <updated>2019-12-01T16:28:43.468Z</updated>
+      <updated>2019-12-01T16:45:46.145Z</updated>
       <content type="html"><![CDATA[<p>IDEEのビーズクッションのカバーがへたってきたので、落ち着いた色のやつに買い替えた。サメも喜んでいます。</p>
 <p><img src="/images/2019-11-29-1.jpg" alt=""></p>
 <hr>
@@ -163,7 +174,7 @@
       <link rel="alternate" type="text/html" href="https:&#x2F;&#x2F;r7kamura.com&#x2F;articles&#x2F;2019-11-28-break-word"/>
       <id>tag:r7kamura.com,2019:&#x2F;articles&#x2F;2019-11-28-break-word</id>
       <published>2019-11-28T00:00:00+09:00</published>
-      <updated>2019-12-01T16:28:43.468Z</updated>
+      <updated>2019-12-01T16:45:46.145Z</updated>
       <content type="html"><![CDATA[<p>自分がよく使う書き方はこう。</p>
 <pre><code class="language-css">body {
   word-wrap: break-word;
@@ -195,7 +206,7 @@
       <link rel="alternate" type="text/html" href="https:&#x2F;&#x2F;r7kamura.com&#x2F;articles&#x2F;2019-11-27-opensearch"/>
       <id>tag:r7kamura.com,2019:&#x2F;articles&#x2F;2019-11-27-opensearch</id>
       <published>2019-11-27T00:00:00+09:00</published>
-      <updated>2019-12-01T16:28:43.468Z</updated>
+      <updated>2019-12-01T16:45:46.145Z</updated>
       <content type="html"><![CDATA[<p>OpenSearchに対応したので、ブラウザのロケーションバーで、</p>
 <ul>
 <li>r7kamura.com + 半角スペース、と入力する</li>
@@ -211,7 +222,7 @@
       <link rel="alternate" type="text/html" href="https:&#x2F;&#x2F;r7kamura.com&#x2F;articles&#x2F;2019-11-27-goodbye-patreon"/>
       <id>tag:r7kamura.com,2019:&#x2F;articles&#x2F;2019-11-27-goodbye-patreon</id>
       <published>2019-11-27T00:00:00+09:00</published>
-      <updated>2019-12-01T16:28:43.468Z</updated>
+      <updated>2019-12-01T16:45:46.145Z</updated>
       <content type="html"><![CDATA[<p><a href="https://patreon.com/r7kamura">https://patreon.com/r7kamura</a> からこのウェブサイトに文章を移動させた。他のサービスと違い、Patreonにはエクスポート機能が無く、すべて手作業で移動させたので大仕事だった。一応記事は残してあって、それぞれ移動先にリンクを貼ってある。これですべてのテキストの引っ越しが完了したことになる。</p>
 <p>長い段落を書くことはできる限り避けたいので、このウェブサイトでは、1行あたりに表示される文字数を抑えてある。インポートしてきたプログラミング関係の記事は、そういう環境を考慮して書かれていないので、ちょっと読みづらいかもしれない。</p>
 ]]></content>
@@ -221,7 +232,7 @@
       <link rel="alternate" type="text/html" href="https:&#x2F;&#x2F;r7kamura.com&#x2F;articles&#x2F;2019-11-26-muji-week"/>
       <id>tag:r7kamura.com,2019:&#x2F;articles&#x2F;2019-11-26-muji-week</id>
       <published>2019-11-26T00:00:00+09:00</published>
-      <updated>2019-12-01T16:28:43.468Z</updated>
+      <updated>2019-12-01T16:45:46.145Z</updated>
       <content type="html"><![CDATA[<h2 id="タオル">タオル</h2>
 <p>家のフェイスタオルを無印良品のもので統一した。中厚手でライトグレーのやつだけど、店頭で適当に4枚買ったので綿パイルなのかオーガニックコットン混なのか失念した。中厚手は正解。バスタオルも買いたい。</p>
 <h2 id="入浴と雑貨">入浴と雑貨</h2>
@@ -236,7 +247,7 @@
       <link rel="alternate" type="text/html" href="https:&#x2F;&#x2F;r7kamura.com&#x2F;articles&#x2F;2019-11-26-capture-board"/>
       <id>tag:r7kamura.com,2019:&#x2F;articles&#x2F;2019-11-26-capture-board</id>
       <published>2019-11-26T00:00:00+09:00</published>
-      <updated>2019-12-01T16:28:43.468Z</updated>
+      <updated>2019-12-01T16:45:46.145Z</updated>
       <content type="html"><![CDATA[<p>SwitchとPS4の配信用途で、<a href="https://www.amazon.co.jp/dp/B07C2ZYHF5">AVT-C878 PLUS</a>を注文した。</p>
 <p><img src="https://images-na.ssl-images-amazon.com/images/I/71Oj65360WL._SL1500_.jpg" alt=""></p>
 <p>基本的な部分での性能が良い<a href="https://www.amazon.co.jp/dp/B07DFR38WG">GC550 PLUS</a>と迷ったものの、Macでも動くという利点を考慮して、最終的にAVT-C878 PLUSを選択した。現状Macで動くキャプチャーボードの選択肢や動作報告が少なく、Macで動かしたいならこの製品が安牌だろうと思ってる。ゲーム用途のWindows機も持ってるんだけど、あくまでゲーム用途のサブという感じで使い慣れてもいないし、できればMacで完結すると嬉しい。マイクも普段はMacに繋がってるのでその方が楽。</p>
@@ -247,7 +258,7 @@
       <link rel="alternate" type="text/html" href="https:&#x2F;&#x2F;r7kamura.com&#x2F;articles&#x2F;2019-11-25-moving"/>
       <id>tag:r7kamura.com,2019:&#x2F;articles&#x2F;2019-11-25-moving</id>
       <published>2019-11-25T00:00:00+09:00</published>
-      <updated>2019-12-01T16:28:43.468Z</updated>
+      <updated>2019-12-01T16:45:46.145Z</updated>
       <content type="html"><![CDATA[<p>便利そうな立地と内装の賃貸物件を見つけたので、それまで住んでいた渋谷区の物件を解約して、港区に引っ越した。生活のリセットも兼ねて2年に1度程度は引っ越すようにしてて、今回もそのタイミングでの引っ越し。</p>
 <p><img src="/images/2019-11-25-moving-2.jpg" alt=""></p>
 <p><img src="/images/2019-11-25-moving-1.jpg" alt=""></p>
@@ -269,7 +280,7 @@
       <link rel="alternate" type="text/html" href="https:&#x2F;&#x2F;r7kamura.com&#x2F;articles&#x2F;2019-11-23-migrate-to-project-page"/>
       <id>tag:r7kamura.com,2019:&#x2F;articles&#x2F;2019-11-23-migrate-to-project-page</id>
       <published>2019-11-23T00:00:00+09:00</published>
-      <updated>2019-12-01T16:28:43.468Z</updated>
+      <updated>2019-12-01T16:45:46.145Z</updated>
       <content type="html"><![CDATA[<p>リポジトリ名を変更した。</p>
 <ul>
 <li>変更前は r7kamura/r7kamura.github.io</li>
@@ -294,7 +305,7 @@
       <link rel="alternate" type="text/html" href="https:&#x2F;&#x2F;r7kamura.com&#x2F;articles&#x2F;2019-11-19-domain-r7kamura-com"/>
       <id>tag:r7kamura.com,2019:&#x2F;articles&#x2F;2019-11-19-domain-r7kamura-com</id>
       <published>2019-11-19T00:00:00+09:00</published>
-      <updated>2019-12-01T16:28:43.468Z</updated>
+      <updated>2019-12-01T16:45:46.145Z</updated>
       <content type="html"><![CDATA[<p>このウェブサイトのドメインを、r7kamura.github.ioからr7kamura.comに変えた。Amazon Route53で年額$12。他のリポジトリのコンテンツが混ざらなくなったので、サイト内検索やGoogle Search Consoleの管理がやりやすくなった。</p>
 ]]></content>
     </entry>
@@ -303,7 +314,7 @@
       <link rel="alternate" type="text/html" href="https:&#x2F;&#x2F;r7kamura.com&#x2F;articles&#x2F;2019-11-18-phillips-hue"/>
       <id>tag:r7kamura.com,2019:&#x2F;articles&#x2F;2019-11-18-phillips-hue</id>
       <published>2019-11-18T00:00:00+09:00</published>
-      <updated>2019-12-01T16:28:43.468Z</updated>
+      <updated>2019-12-01T16:45:46.145Z</updated>
       <content type="html"><![CDATA[<p>Hueの照明を数年間使った。寝る前に消して、起きたら付ける。プロジェクタを使う前に消して、使い終わったら付ける。その繰り返し。</p>
 <p>個人的にはこの手の無線操作できる照明はもはや必須。iOSのHomeとの連携はかなり便利。フルカラーじゃなくて単色で十分。ライトテープは電源のモスキート音がうるさすぎて使い物にならない。</p>
 <p>もし以下の要件を全て満たすものがあれば、買い替えを検討したい。</p>
@@ -319,7 +330,7 @@
       <link rel="alternate" type="text/html" href="https:&#x2F;&#x2F;r7kamura.com&#x2F;articles&#x2F;2019-11-18-diary"/>
       <id>tag:r7kamura.com,2019:&#x2F;articles&#x2F;2019-11-18-diary</id>
       <published>2019-11-18T00:00:00+09:00</published>
-      <updated>2019-12-01T16:28:43.468Z</updated>
+      <updated>2019-12-01T16:45:46.145Z</updated>
       <content type="html"><![CDATA[<p>ようやく荷造りを終えた。プロジェクタのリモコンを紛失したので、荷解きして出てこなかったら<a href="https://www.amazon.co.jp/dp/B07GDCYDLL">買い替える</a>。これまで持ち物を精査したことがなかったので、荷解きをさっさと済ませたら物を買い換える作業もやる。</p>
 <hr>
 <p>作業用デスクの隣の壁に、180cm x 90cm ぐらいの有孔ボードを取り付けようと考えている。電子機器の配線と引っ掛け用。壁美人でいけそうなら壁美人、無理そうならディアウォールで取り付ける。</p>
@@ -332,7 +343,7 @@
       <link rel="alternate" type="text/html" href="https:&#x2F;&#x2F;r7kamura.com&#x2F;articles&#x2F;2019-11-17-documents"/>
       <id>tag:r7kamura.com,2019:&#x2F;articles&#x2F;2019-11-17-documents</id>
       <published>2019-11-17T00:00:00+09:00</published>
-      <updated>2019-12-01T16:28:43.468Z</updated>
+      <updated>2019-12-01T16:45:46.145Z</updated>
       <content type="html"><![CDATA[<h2 id="定期的に発生するもの">定期的に発生するもの</h2>
 <ul>
 <li>水道・光熱<ul>
@@ -388,7 +399,7 @@
       <link rel="alternate" type="text/html" href="https:&#x2F;&#x2F;r7kamura.com&#x2F;articles&#x2F;2019-11-17-diary"/>
       <id>tag:r7kamura.com,2019:&#x2F;articles&#x2F;2019-11-17-diary</id>
       <published>2019-11-17T00:00:00+09:00</published>
-      <updated>2019-12-01T16:28:43.468Z</updated>
+      <updated>2019-12-01T16:45:46.145Z</updated>
       <content type="html"><![CDATA[<p>荷造り中、衣類の運用について考えていた。インナーをもっと統一しようと考えている。現状、トップスと冬用靴下は同じものを複数持つ運用で体験が良いので、下着と靴下、あと服じゃないけどタオルも統一したい。</p>
 <p>仕舞う場所 = 使う場所という法則に従うと、衣類は脱衣洗面所に収納した方が、どう考えても効率が良い。それに他に人が居るときでも気兼ねなく着替えられるし。</p>
 <p>このウェブサイトのCSSについて。リンクには必ず下線が付いている、というルールが一貫しているところが最も気に入っている。</p>
@@ -399,7 +410,7 @@
       <link rel="alternate" type="text/html" href="https:&#x2F;&#x2F;r7kamura.com&#x2F;articles&#x2F;2019-11-17-credit-card"/>
       <id>tag:r7kamura.com,2019:&#x2F;articles&#x2F;2019-11-17-credit-card</id>
       <published>2019-11-17T00:00:00+09:00</published>
-      <updated>2019-12-01T16:28:43.468Z</updated>
+      <updated>2019-12-01T16:45:46.145Z</updated>
       <content type="html"><![CDATA[<p>クレジットカードを整理して、こういう状態にした。</p>
 <ul>
 <li>MasterCardとVISAをそれぞれ1枚ずつ持つ</li>
@@ -416,55 +427,6 @@
 </ul>
 <p>ゆうちょダイレクトがそこそこまともに使えるようになってきたので、基本的にゆうちょ銀行にまとめていくつもり。</p>
 <p>ゆうちょ銀行だとクレジットカードの口座切り替えがインターネットから行えない、というのが不満点。3年後ぐらいには解決されていそうな気がする。</p>
-]]></content>
-    </entry>
-    <entry>
-      <title>2019年に使った有料購読サービス</title>
-      <link rel="alternate" type="text/html" href="https:&#x2F;&#x2F;r7kamura.com&#x2F;articles&#x2F;2019-11-16-subscriptions-2019"/>
-      <id>tag:r7kamura.com,2019:&#x2F;articles&#x2F;2019-11-16-subscriptions-2019</id>
-      <published>2019-11-16T00:00:00+09:00</published>
-      <updated>2019-12-01T16:28:43.468Z</updated>
-      <content type="html"><![CDATA[<p>月額課金や年額課金型のサービスで2018年に利用したものについて。</p>
-<p><a href="/articles/2018-11-26-subscriptions-2018">2018年版はこちら</a>。</p>
-<h2 id="新しく追加したもの">新しく追加したもの</h2>
-<h3 id="nintendo-switch-online">Nintendo Switch Online</h3>
-<p>月額306円(税込)。2019年は9月から12月までの4ヶ月間だけ課金された。ファイアーエムブレム風花雪月のために支払った形。今Switchのゲームはやってないけど、ポケモンとリングフィットアドベンチャーをやる予定なので、支払いは継続すると思う。</p>
-<h3 id="discord-nitro">Discord Nitro</h3>
-<p>月額$9.99(税込)。サーバ内配信の画質が向上するというのと、単に面白そうだったからという理由で試しているところ。執筆時点でまだ1ヶ月しか試していないけど、無くても困らないかも。GIFアニメの絵文字が使えるのはちょっと嬉しい。</p>
-<h3 id="アクアクララ-ウォーターサーバ">アクアクララ (ウォーターサーバ)</h3>
-<p>月額2160円(税込)。しかし数ヶ月試して、自分の生活にはオーバースペックだったので解約した。水よりコーラ飲みたいし、コーヒーメーカーにも契約前は魅力を感じていたけど、実際に使ってみるとそこまで良さを感じなかった。</p>
-<h2 id="継続しているもの">継続しているもの</h2>
-<h3 id="youtube-premium">YouTube Premium</h3>
-<p>月額1180円(税込)。広告が表示されない機能のためだけに支払っている。オフライン再生機能も少しだけ使う機会があったけど、無くても別に困らない。</p>
-<h3 id="netflix">Netflix</h3>
-<p>月額1200円(税抜)。PS4からプロジェクタで映画やアニメを見るのに使っている。インターネットに接続されている状態のPS4とPCからしか使わないし、4K画質で見る機会も無いので、月額1800円(税抜)のプレミアムプランにする旨味は無い。</p>
-<h3 id="freee">Freee</h3>
-<p>月額980円(税抜)。確定申告用。フリーランスとして働いていて、青色申告を自分でやっている。確定申告の作業のために費やす時間は年間5時間ぐらいだと思う。</p>
-<h3 id="amazon-mastercard-gold">Amazon Mastercard Gold</h3>
-<p>年額11000円(税込)。年額4900円のAmazonプライム会費が無料になる。Amazonからの買い物で2.5%、Amazon以外からの買い物で1%、それぞれAmazonのポイントが付く。クレジットカードは3枚持っているけれど、実際はこのカードしか利用していない。</p>
-<h3 id="iij-mio">IIJ mio</h3>
-<p>月額1600円(税抜)。内訳は、基本料金900円 + 電話とSMSに700円。自宅で働いていてあまり外に出ないので、通信量は多くない。</p>
-<h3 id="ntt-光回線">NTT (光回線)</h3>
-<p>月額3980円(税抜)。もう少し回線速度が速い別業者に切り替えたいと思わなくもないけど、引越し頻度が高いので、すぐに回線を用意できるという理由でNTTを使っている。</p>
-<h3 id="interlink-プロバイダ">Interlink (プロバイダ)</h3>
-<p>月額2200円(税抜)。内訳は、ZOOT NATIVEに1000円、ZOOT NEXTに1200円。もしかしたらZOOT NATIVEの利用をやめられるかもしれないけど、面倒で試していない。来週引越すので、引越しが終わったら試したい。使いやすさと機能の点で、プロバイダの中ではInterlinkを最も信頼している。</p>
-<h2 id="解除したもの">解除したもの</h2>
-<h3 id="github">GitHub</h3>
-<p>無料プランでプライベートリポジトリを無制限に利用できるようになったので、月額$7のプランから移行。</p>
-<h3 id="aws">AWS</h3>
-<p>個人でサービスを動かさなくなったので無料化。たまに仕事で使う技術を実験するために一時的に使うことはある。</p>
-<h3 id="heroku">Heroku</h3>
-<p>同じく、個人でサービスを動かさなくなったので無料化。</p>
-<h2 id="総評">総評</h2>
-<p>年額にして税抜で143,616円。内訳は、以下のような感じ。</p>
-<ul>
-<li>7万: 固定回線</li>
-<li>2万: 携帯端末用回線</li>
-<li>1万: 仕事用サービス</li>
-<li>4万: 便利なサービス</li>
-</ul>
-<p>去年は個人でウェブサービスを動かすのに年間20万円掛かっていたので、それが無くなったのは財政的に大きい変化。</p>
-<p>こうしてまとめておくと、なんとなく経済状況が管理できている実感があってとても安心する。意外と支払先が少なかったことにも安心した。1年後もまたまとめたい。</p>
 ]]></content>
     </entry>
 </feed>
