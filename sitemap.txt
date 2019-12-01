@@ -761,5 +761,6 @@ https://r7kamura.com/articles/2019-11-29-diary
 https://r7kamura.com/articles/2019-11-29-freelance-moving
 https://r7kamura.com/articles/2019-11-29-infra-payments
 https://r7kamura.com/articles/2019-11-30-cabling
+https://r7kamura.com/articles/2019-12-01-activestorage-test
 https://r7kamura.com/
 https://r7kamura.com/articles
