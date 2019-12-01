@@ -4,17 +4,17 @@
   <link href="https://r7kamura.com"/>
   <link rel="self" type="application/atom+xml" href="https://r7kamura.com/feed.xml"/>
   <link rel="alternate" type="text/html" href="https://r7kamura.com/"/>
-  <updated>2019-12-01T16:54:49.007Z</updated>
+  <updated>2019-12-01T16:58:17.853Z</updated>
   <author>
     <name>Ryo Nakamura</name>
   </author>
   <id>tag:r7kamura.com,2019:/</id>
     <entry>
-      <title>Atomフィードを配信</title>
+      <title>Atomフィードを配信開始</title>
       <link rel="alternate" type="text/html" href="https:&#x2F;&#x2F;r7kamura.com&#x2F;articles&#x2F;2019-12-02-atom-feed"/>
       <id>tag:r7kamura.com,2019:&#x2F;articles&#x2F;2019-12-02-atom-feed</id>
       <published>2019-12-02T00:00:00+09:00</published>
-      <updated>2019-12-01T16:54:27.445Z</updated>
+      <updated>2019-12-01T16:57:58.097Z</updated>
       <content type="html"><![CDATA[<p><a href="https://r7kamura.com/feed.xml">https://r7kamura.com/feed.xml</a> から、Atom 1.0形式で直近20件の記事の情報を配信するようにした。</p>
 <h2 id="実装にあたって">実装にあたって</h2>
 <p><a href="https://tools.ietf.org/html/rfc4287">RFC 4287</a>を読みながら一通り実装して、W3Cの<a href="https://validator.w3.org/feed/check.cgi">Feed Validation Service</a>で最終確認した。</p>
@@ -29,7 +29,7 @@
       <link rel="alternate" type="text/html" href="https:&#x2F;&#x2F;r7kamura.com&#x2F;articles&#x2F;2019-12-01-activestorage-test"/>
       <id>tag:r7kamura.com,2019:&#x2F;articles&#x2F;2019-12-01-activestorage-test</id>
       <published>2019-12-01T00:00:00+09:00</published>
-      <updated>2019-12-01T16:54:27.445Z</updated>
+      <updated>2019-12-01T16:57:58.097Z</updated>
       <content type="html"><![CDATA[<p>ActiveStorageを使ったテストを書きたいときに、わざわざRailsアプリを1つ用意するのは手間が掛かるので、単一ファイルで完結するような書き方を模索してみた。</p>
 <p><a href="https://gist.github.com/r7kamura/7ee56572693fcd07a17219cd0ee6a4ca">https://gist.github.com/r7kamura/7ee56572693fcd07a17219cd0ee6a4ca</a> に動くコードがある。Rubyスクリプトとして実行すれば動く。ちなみにこのファイルは <a href="https://github.com/rails/rails/issues/37836">https://github.com/rails/rails/issues/37836</a> の調査用に用意した。</p>
 <p>以下は奇妙なところについての説明。</p>
@@ -49,7 +49,7 @@
       <link rel="alternate" type="text/html" href="https:&#x2F;&#x2F;r7kamura.com&#x2F;articles&#x2F;2019-11-30-cabling"/>
       <id>tag:r7kamura.com,2019:&#x2F;articles&#x2F;2019-11-30-cabling</id>
       <published>2019-11-30T00:00:00+09:00</published>
-      <updated>2019-12-01T16:54:27.445Z</updated>
+      <updated>2019-12-01T16:57:58.097Z</updated>
       <content type="html"><![CDATA[<p>棚が完成してゲーム機器類をデスク付近にまとめられるようになったので、あわせてAmazonでいろいろと発注した。</p>
 <h2 id="8mのオーディオケーブル">8mのオーディオケーブル</h2>
 <p><a href="https://www.amazon.co.jp/gp/product/B07VJNPQBG">https://www.amazon.co.jp/gp/product/B07VJNPQBG</a></p>
@@ -78,7 +78,7 @@
       <link rel="alternate" type="text/html" href="https:&#x2F;&#x2F;r7kamura.com&#x2F;articles&#x2F;2019-11-29-infra-payments"/>
       <id>tag:r7kamura.com,2019:&#x2F;articles&#x2F;2019-11-29-infra-payments</id>
       <published>2019-11-29T00:00:00+09:00</published>
-      <updated>2019-12-01T16:54:27.445Z</updated>
+      <updated>2019-12-01T16:57:58.097Z</updated>
       <content type="html"><![CDATA[<p>個人事業で以下のサービスの利用料を按分しているので、経理を楽に済ませられるように、それらを事業用口座から請求するように変更しようとしている。</p>
 <ul>
 <li>家賃 (エポスカード)</li>
@@ -102,7 +102,7 @@
       <link rel="alternate" type="text/html" href="https:&#x2F;&#x2F;r7kamura.com&#x2F;articles&#x2F;2019-11-29-freelance-moving"/>
       <id>tag:r7kamura.com,2019:&#x2F;articles&#x2F;2019-11-29-freelance-moving</id>
       <published>2019-11-29T00:00:00+09:00</published>
-      <updated>2019-12-01T16:54:27.445Z</updated>
+      <updated>2019-12-01T16:57:58.097Z</updated>
       <content type="html"><![CDATA[<p>2019年11月29日時点の、自分の状況に対しての情報をまとめておく。</p>
 <ul>
 <li><a href="https://www.nta.go.jp/taxes/tetsuzuki/shinsei/annai/shinkoku/annai/06.htm">https://www.nta.go.jp/taxes/tetsuzuki/shinsei/annai/shinkoku/annai/06.htm</a></li>
@@ -141,7 +141,7 @@
       <link rel="alternate" type="text/html" href="https:&#x2F;&#x2F;r7kamura.com&#x2F;articles&#x2F;2019-11-29-diary"/>
       <id>tag:r7kamura.com,2019:&#x2F;articles&#x2F;2019-11-29-diary</id>
       <published>2019-11-29T00:00:00+09:00</published>
-      <updated>2019-12-01T16:54:27.445Z</updated>
+      <updated>2019-12-01T16:57:58.097Z</updated>
       <content type="html"><![CDATA[<p>IDEEのビーズクッションのカバーがへたってきたので、落ち着いた色のやつに買い替えた。サメも喜んでいます。</p>
 <p><img src="/images/2019-11-29-1.jpg" alt=""></p>
 <hr>
@@ -178,7 +178,7 @@
       <link rel="alternate" type="text/html" href="https:&#x2F;&#x2F;r7kamura.com&#x2F;articles&#x2F;2019-11-28-break-word"/>
       <id>tag:r7kamura.com,2019:&#x2F;articles&#x2F;2019-11-28-break-word</id>
       <published>2019-11-28T00:00:00+09:00</published>
-      <updated>2019-12-01T16:54:27.445Z</updated>
+      <updated>2019-12-01T16:57:58.097Z</updated>
       <content type="html"><![CDATA[<p>自分がよく使う書き方はこう。</p>
 <pre><code class="language-css">body {
   word-wrap: break-word;
@@ -210,7 +210,7 @@
       <link rel="alternate" type="text/html" href="https:&#x2F;&#x2F;r7kamura.com&#x2F;articles&#x2F;2019-11-27-opensearch"/>
       <id>tag:r7kamura.com,2019:&#x2F;articles&#x2F;2019-11-27-opensearch</id>
       <published>2019-11-27T00:00:00+09:00</published>
-      <updated>2019-12-01T16:54:27.445Z</updated>
+      <updated>2019-12-01T16:57:58.097Z</updated>
       <content type="html"><![CDATA[<p>OpenSearchに対応したので、ブラウザのロケーションバーで、</p>
 <ul>
 <li>r7kamura.com + 半角スペース、と入力する</li>
@@ -226,7 +226,7 @@
       <link rel="alternate" type="text/html" href="https:&#x2F;&#x2F;r7kamura.com&#x2F;articles&#x2F;2019-11-27-goodbye-patreon"/>
       <id>tag:r7kamura.com,2019:&#x2F;articles&#x2F;2019-11-27-goodbye-patreon</id>
       <published>2019-11-27T00:00:00+09:00</published>
-      <updated>2019-12-01T16:54:27.445Z</updated>
+      <updated>2019-12-01T16:57:58.097Z</updated>
       <content type="html"><![CDATA[<p><a href="https://patreon.com/r7kamura">https://patreon.com/r7kamura</a> からこのウェブサイトに文章を移動させた。他のサービスと違い、Patreonにはエクスポート機能が無く、すべて手作業で移動させたので大仕事だった。一応記事は残してあって、それぞれ移動先にリンクを貼ってある。これですべてのテキストの引っ越しが完了したことになる。</p>
 <p>長い段落を書くことはできる限り避けたいので、このウェブサイトでは、1行あたりに表示される文字数を抑えてある。インポートしてきたプログラミング関係の記事は、そういう環境を考慮して書かれていないので、ちょっと読みづらいかもしれない。</p>
 ]]></content>
@@ -236,7 +236,7 @@
       <link rel="alternate" type="text/html" href="https:&#x2F;&#x2F;r7kamura.com&#x2F;articles&#x2F;2019-11-26-muji-week"/>
       <id>tag:r7kamura.com,2019:&#x2F;articles&#x2F;2019-11-26-muji-week</id>
       <published>2019-11-26T00:00:00+09:00</published>
-      <updated>2019-12-01T16:54:27.445Z</updated>
+      <updated>2019-12-01T16:57:58.097Z</updated>
       <content type="html"><![CDATA[<h2 id="タオル">タオル</h2>
 <p>家のフェイスタオルを無印良品のもので統一した。中厚手でライトグレーのやつだけど、店頭で適当に4枚買ったので綿パイルなのかオーガニックコットン混なのか失念した。中厚手は正解。バスタオルも買いたい。</p>
 <h2 id="入浴と雑貨">入浴と雑貨</h2>
@@ -251,7 +251,7 @@
       <link rel="alternate" type="text/html" href="https:&#x2F;&#x2F;r7kamura.com&#x2F;articles&#x2F;2019-11-26-capture-board"/>
       <id>tag:r7kamura.com,2019:&#x2F;articles&#x2F;2019-11-26-capture-board</id>
       <published>2019-11-26T00:00:00+09:00</published>
-      <updated>2019-12-01T16:54:27.445Z</updated>
+      <updated>2019-12-01T16:57:58.097Z</updated>
       <content type="html"><![CDATA[<p>SwitchとPS4の配信用途で、<a href="https://www.amazon.co.jp/dp/B07C2ZYHF5">AVT-C878 PLUS</a>を注文した。</p>
 <p><img src="https://images-na.ssl-images-amazon.com/images/I/71Oj65360WL._SL1500_.jpg" alt=""></p>
 <p>基本的な部分での性能が良い<a href="https://www.amazon.co.jp/dp/B07DFR38WG">GC550 PLUS</a>と迷ったものの、Macでも動くという利点を考慮して、最終的にAVT-C878 PLUSを選択した。現状Macで動くキャプチャーボードの選択肢や動作報告が少なく、Macで動かしたいならこの製品が安牌だろうと思ってる。ゲーム用途のWindows機も持ってるんだけど、あくまでゲーム用途のサブという感じで使い慣れてもいないし、できればMacで完結すると嬉しい。マイクも普段はMacに繋がってるのでその方が楽。</p>
@@ -262,7 +262,7 @@
       <link rel="alternate" type="text/html" href="https:&#x2F;&#x2F;r7kamura.com&#x2F;articles&#x2F;2019-11-25-moving"/>
       <id>tag:r7kamura.com,2019:&#x2F;articles&#x2F;2019-11-25-moving</id>
       <published>2019-11-25T00:00:00+09:00</published>
-      <updated>2019-12-01T16:54:27.445Z</updated>
+      <updated>2019-12-01T16:57:58.097Z</updated>
       <content type="html"><![CDATA[<p>便利そうな立地と内装の賃貸物件を見つけたので、それまで住んでいた渋谷区の物件を解約して、港区に引っ越した。生活のリセットも兼ねて2年に1度程度は引っ越すようにしてて、今回もそのタイミングでの引っ越し。</p>
 <p><img src="/images/2019-11-25-moving-2.jpg" alt=""></p>
 <p><img src="/images/2019-11-25-moving-1.jpg" alt=""></p>
@@ -284,7 +284,7 @@
       <link rel="alternate" type="text/html" href="https:&#x2F;&#x2F;r7kamura.com&#x2F;articles&#x2F;2019-11-23-migrate-to-project-page"/>
       <id>tag:r7kamura.com,2019:&#x2F;articles&#x2F;2019-11-23-migrate-to-project-page</id>
       <published>2019-11-23T00:00:00+09:00</published>
-      <updated>2019-12-01T16:54:27.445Z</updated>
+      <updated>2019-12-01T16:57:58.097Z</updated>
       <content type="html"><![CDATA[<p>リポジトリ名を変更した。</p>
 <ul>
 <li>変更前は r7kamura/r7kamura.github.io</li>
@@ -309,7 +309,7 @@
       <link rel="alternate" type="text/html" href="https:&#x2F;&#x2F;r7kamura.com&#x2F;articles&#x2F;2019-11-19-domain-r7kamura-com"/>
       <id>tag:r7kamura.com,2019:&#x2F;articles&#x2F;2019-11-19-domain-r7kamura-com</id>
       <published>2019-11-19T00:00:00+09:00</published>
-      <updated>2019-12-01T16:54:27.445Z</updated>
+      <updated>2019-12-01T16:57:58.097Z</updated>
       <content type="html"><![CDATA[<p>このウェブサイトのドメインを、r7kamura.github.ioからr7kamura.comに変えた。Amazon Route53で年額$12。他のリポジトリのコンテンツが混ざらなくなったので、サイト内検索やGoogle Search Consoleの管理がやりやすくなった。</p>
 ]]></content>
     </entry>
@@ -318,7 +318,7 @@
       <link rel="alternate" type="text/html" href="https:&#x2F;&#x2F;r7kamura.com&#x2F;articles&#x2F;2019-11-18-phillips-hue"/>
       <id>tag:r7kamura.com,2019:&#x2F;articles&#x2F;2019-11-18-phillips-hue</id>
       <published>2019-11-18T00:00:00+09:00</published>
-      <updated>2019-12-01T16:54:27.445Z</updated>
+      <updated>2019-12-01T16:57:58.097Z</updated>
       <content type="html"><![CDATA[<p>Hueの照明を数年間使った。寝る前に消して、起きたら付ける。プロジェクタを使う前に消して、使い終わったら付ける。その繰り返し。</p>
 <p>個人的にはこの手の無線操作できる照明はもはや必須。iOSのHomeとの連携はかなり便利。フルカラーじゃなくて単色で十分。ライトテープは電源のモスキート音がうるさすぎて使い物にならない。</p>
 <p>もし以下の要件を全て満たすものがあれば、買い替えを検討したい。</p>
@@ -334,7 +334,7 @@
       <link rel="alternate" type="text/html" href="https:&#x2F;&#x2F;r7kamura.com&#x2F;articles&#x2F;2019-11-18-diary"/>
       <id>tag:r7kamura.com,2019:&#x2F;articles&#x2F;2019-11-18-diary</id>
       <published>2019-11-18T00:00:00+09:00</published>
-      <updated>2019-12-01T16:54:27.445Z</updated>
+      <updated>2019-12-01T16:57:58.097Z</updated>
       <content type="html"><![CDATA[<p>ようやく荷造りを終えた。プロジェクタのリモコンを紛失したので、荷解きして出てこなかったら<a href="https://www.amazon.co.jp/dp/B07GDCYDLL">買い替える</a>。これまで持ち物を精査したことがなかったので、荷解きをさっさと済ませたら物を買い換える作業もやる。</p>
 <hr>
 <p>作業用デスクの隣の壁に、180cm x 90cm ぐらいの有孔ボードを取り付けようと考えている。電子機器の配線と引っ掛け用。壁美人でいけそうなら壁美人、無理そうならディアウォールで取り付ける。</p>
@@ -347,7 +347,7 @@
       <link rel="alternate" type="text/html" href="https:&#x2F;&#x2F;r7kamura.com&#x2F;articles&#x2F;2019-11-17-documents"/>
       <id>tag:r7kamura.com,2019:&#x2F;articles&#x2F;2019-11-17-documents</id>
       <published>2019-11-17T00:00:00+09:00</published>
-      <updated>2019-12-01T16:54:27.445Z</updated>
+      <updated>2019-12-01T16:57:58.097Z</updated>
       <content type="html"><![CDATA[<h2 id="定期的に発生するもの">定期的に発生するもの</h2>
 <ul>
 <li>水道・光熱<ul>
@@ -403,7 +403,7 @@
       <link rel="alternate" type="text/html" href="https:&#x2F;&#x2F;r7kamura.com&#x2F;articles&#x2F;2019-11-17-diary"/>
       <id>tag:r7kamura.com,2019:&#x2F;articles&#x2F;2019-11-17-diary</id>
       <published>2019-11-17T00:00:00+09:00</published>
-      <updated>2019-12-01T16:54:27.445Z</updated>
+      <updated>2019-12-01T16:57:58.097Z</updated>
       <content type="html"><![CDATA[<p>荷造り中、衣類の運用について考えていた。インナーをもっと統一しようと考えている。現状、トップスと冬用靴下は同じものを複数持つ運用で体験が良いので、下着と靴下、あと服じゃないけどタオルも統一したい。</p>
 <p>仕舞う場所 = 使う場所という法則に従うと、衣類は脱衣洗面所に収納した方が、どう考えても効率が良い。それに他に人が居るときでも気兼ねなく着替えられるし。</p>
 <p>このウェブサイトのCSSについて。リンクには必ず下線が付いている、というルールが一貫しているところが最も気に入っている。</p>
@@ -414,7 +414,7 @@
       <link rel="alternate" type="text/html" href="https:&#x2F;&#x2F;r7kamura.com&#x2F;articles&#x2F;2019-11-17-credit-card"/>
       <id>tag:r7kamura.com,2019:&#x2F;articles&#x2F;2019-11-17-credit-card</id>
       <published>2019-11-17T00:00:00+09:00</published>
-      <updated>2019-12-01T16:54:27.445Z</updated>
+      <updated>2019-12-01T16:57:58.097Z</updated>
       <content type="html"><![CDATA[<p>クレジットカードを整理して、こういう状態にした。</p>
 <ul>
 <li>MasterCardとVISAをそれぞれ1枚ずつ持つ</li>
