@@ -4,7 +4,7 @@
   <link href="https://r7kamura.com"/>
   <link rel="self" type="application/atom+xml" href="https://r7kamura.com/feed.xml"/>
   <link rel="alternate" type="text/html" href="https://r7kamura.com/"/>
-  <updated>2019-12-01T16:58:17.853Z</updated>
+  <updated>2019-12-01T17:27:58.005Z</updated>
   <author>
     <name>Ryo Nakamura</name>
   </author>
@@ -14,423 +14,423 @@
       <link rel="alternate" type="text/html" href="https:&#x2F;&#x2F;r7kamura.com&#x2F;articles&#x2F;2019-12-02-atom-feed"/>
       <id>tag:r7kamura.com,2019:&#x2F;articles&#x2F;2019-12-02-atom-feed</id>
       <published>2019-12-02T00:00:00+09:00</published>
-      <updated>2019-12-01T16:57:58.097Z</updated>
-      <content type="html"><![CDATA[<p><a href="https://r7kamura.com/feed.xml">https://r7kamura.com/feed.xml</a> から、Atom 1.0形式で直近20件の記事の情報を配信するようにした。</p>
-<h2 id="実装にあたって">実装にあたって</h2>
-<p><a href="https://tools.ietf.org/html/rfc4287">RFC 4287</a>を読みながら一通り実装して、W3Cの<a href="https://validator.w3.org/feed/check.cgi">Feed Validation Service</a>で最終確認した。</p>
-<p>泥臭い作業を雑にこなしただけで、大したことはやってない。RFCも全てに目を通した訳ではなくて、冒頭のサンプルを真似してXMLテンプレートを埋めて、足りない要素や気になる要素について個別に読んでいっただけ。Feed Validation Serviceはたいへん便利でした。</p>
-<h2 id="feedlyを試用">Feedlyを試用</h2>
-<p>フィードの実装に併せて、ドッグフーディングしようと思ってMacとiPhoneで<a href="https://feedly.com/">Feedly</a>を使い始めた。</p>
-<p>Feedly上でそのフィードが何人に購読されているか、みたいなソーシャルな部分も少しあって楽しい。このウェブサイトは既に10人に購読されていた。そんなことあるんだ。</p>
-]]></content>
+      <updated>2019-12-01T17:27:37.248Z</updated>
+      <content type="html">&lt;p&gt;&lt;a href&#x3D;&quot;https:&#x2F;&#x2F;r7kamura.com&#x2F;feed.xml&quot;&gt;https:&#x2F;&#x2F;r7kamura.com&#x2F;feed.xml&lt;&#x2F;a&gt; から、Atom 1.0形式で直近20件の記事の情報を配信するようにした。&lt;&#x2F;p&gt;
+&lt;h2 id&#x3D;&quot;実装にあたって&quot;&gt;実装にあたって&lt;&#x2F;h2&gt;
+&lt;p&gt;&lt;a href&#x3D;&quot;https:&#x2F;&#x2F;tools.ietf.org&#x2F;html&#x2F;rfc4287&quot;&gt;RFC 4287&lt;&#x2F;a&gt;を読みながら一通り実装して、W3Cの&lt;a href&#x3D;&quot;https:&#x2F;&#x2F;validator.w3.org&#x2F;feed&#x2F;&quot;&gt;Feed Validation Service&lt;&#x2F;a&gt;で最終確認した。&lt;&#x2F;p&gt;
+&lt;p&gt;泥臭い作業を雑にこなしただけで、大したことはやってない。RFCも全てに目を通した訳ではなくて、冒頭のサンプルを真似してXMLテンプレートを埋めて、足りない要素や気になる要素について個別に読んでいっただけ。Feed Validation Serviceはたいへん便利でした。&lt;&#x2F;p&gt;
+&lt;h2 id&#x3D;&quot;feedlyを試用&quot;&gt;Feedlyを試用&lt;&#x2F;h2&gt;
+&lt;p&gt;フィードの実装に併せて、ドッグフーディングしようと思ってMacとiPhoneで&lt;a href&#x3D;&quot;https:&#x2F;&#x2F;feedly.com&#x2F;&quot;&gt;Feedly&lt;&#x2F;a&gt;を使い始めた。&lt;&#x2F;p&gt;
+&lt;p&gt;Feedly上でそのフィードが何人に購読されているか、みたいなソーシャルな部分も少しあって楽しい。このウェブサイトは既に10人に購読されていた。そんなことあるんだ。&lt;&#x2F;p&gt;
+</content>
     </entry>
     <entry>
       <title>ActiveStorageを使うテストを1つのファイルで書く</title>
       <link rel="alternate" type="text/html" href="https:&#x2F;&#x2F;r7kamura.com&#x2F;articles&#x2F;2019-12-01-activestorage-test"/>
       <id>tag:r7kamura.com,2019:&#x2F;articles&#x2F;2019-12-01-activestorage-test</id>
       <published>2019-12-01T00:00:00+09:00</published>
-      <updated>2019-12-01T16:57:58.097Z</updated>
-      <content type="html"><![CDATA[<p>ActiveStorageを使ったテストを書きたいときに、わざわざRailsアプリを1つ用意するのは手間が掛かるので、単一ファイルで完結するような書き方を模索してみた。</p>
-<p><a href="https://gist.github.com/r7kamura/7ee56572693fcd07a17219cd0ee6a4ca">https://gist.github.com/r7kamura/7ee56572693fcd07a17219cd0ee6a4ca</a> に動くコードがある。Rubyスクリプトとして実行すれば動く。ちなみにこのファイルは <a href="https://github.com/rails/rails/issues/37836">https://github.com/rails/rails/issues/37836</a> の調査用に用意した。</p>
-<p>以下は奇妙なところについての説明。</p>
-<h2 id="railsapplicationinitialize">Rails.application.initialize!</h2>
-<p>ActiveStorageはRails Engineとして実装されていて、アプリケーションの初期化フェーズで色々な準備が行われる。<code>Rails.application.initialize!</code>を呼んでいないと、例えば、<code>has_one_attached</code> メソッドがActiveRecord::Baseを継承したクラスの特異メソッドとして呼び出せない。</p>
-<h2 id="database_url">DATABASE_URL</h2>
-<p>以下の背景でゴニョゴニョしている。</p>
-<ul>
-<li><code>ENV[&#39;DATABASE_URL&#39;]</code> が無いと、config/database.yml を読みに行ってしまう</li>
-<li><code>establish_connection(...)</code> を呼んでないと、DBに接続できない</li>
-</ul>
-<p>この辺理解が浅くて、とりあえず動く形にしてしまっている。同じ処理を二度別の形で書いてしまっているので、もっと良いやり方があるかもしれない。</p>
-]]></content>
+      <updated>2019-12-01T17:27:37.248Z</updated>
+      <content type="html">&lt;p&gt;ActiveStorageを使ったテストを書きたいときに、わざわざRailsアプリを1つ用意するのは手間が掛かるので、単一ファイルで完結するような書き方を模索してみた。&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;a href&#x3D;&quot;https:&#x2F;&#x2F;gist.github.com&#x2F;r7kamura&#x2F;7ee56572693fcd07a17219cd0ee6a4ca&quot;&gt;https:&#x2F;&#x2F;gist.github.com&#x2F;r7kamura&#x2F;7ee56572693fcd07a17219cd0ee6a4ca&lt;&#x2F;a&gt; に動くコードがある。Rubyスクリプトとして実行すれば動く。ちなみにこのファイルは &lt;a href&#x3D;&quot;https:&#x2F;&#x2F;github.com&#x2F;rails&#x2F;rails&#x2F;issues&#x2F;37836&quot;&gt;https:&#x2F;&#x2F;github.com&#x2F;rails&#x2F;rails&#x2F;issues&#x2F;37836&lt;&#x2F;a&gt; の調査用に用意した。&lt;&#x2F;p&gt;
+&lt;p&gt;以下は奇妙なところについての説明。&lt;&#x2F;p&gt;
+&lt;h2 id&#x3D;&quot;railsapplicationinitialize&quot;&gt;Rails.application.initialize!&lt;&#x2F;h2&gt;
+&lt;p&gt;ActiveStorageはRails Engineとして実装されていて、アプリケーションの初期化フェーズで色々な準備が行われる。&lt;code&gt;Rails.application.initialize!&lt;&#x2F;code&gt;を呼んでいないと、例えば、&lt;code&gt;has_one_attached&lt;&#x2F;code&gt; メソッドがActiveRecord::Baseを継承したクラスの特異メソッドとして呼び出せない。&lt;&#x2F;p&gt;
+&lt;h2 id&#x3D;&quot;database_url&quot;&gt;DATABASE_URL&lt;&#x2F;h2&gt;
+&lt;p&gt;以下の背景でゴニョゴニョしている。&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;ENV[&amp;#39;DATABASE_URL&amp;#39;]&lt;&#x2F;code&gt; が無いと、config&#x2F;database.yml を読みに行ってしまう&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;code&gt;establish_connection(...)&lt;&#x2F;code&gt; を呼んでないと、DBに接続できない&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;この辺理解が浅くて、とりあえず動く形にしてしまっている。同じ処理を二度別の形で書いてしまっているので、もっと良いやり方があるかもしれない。&lt;&#x2F;p&gt;
+</content>
     </entry>
     <entry>
       <title>配線機器を色々購入</title>
       <link rel="alternate" type="text/html" href="https:&#x2F;&#x2F;r7kamura.com&#x2F;articles&#x2F;2019-11-30-cabling"/>
       <id>tag:r7kamura.com,2019:&#x2F;articles&#x2F;2019-11-30-cabling</id>
       <published>2019-11-30T00:00:00+09:00</published>
-      <updated>2019-12-01T16:57:58.097Z</updated>
-      <content type="html"><![CDATA[<p>棚が完成してゲーム機器類をデスク付近にまとめられるようになったので、あわせてAmazonでいろいろと発注した。</p>
-<h2 id="8mのオーディオケーブル">8mのオーディオケーブル</h2>
-<p><a href="https://www.amazon.co.jp/gp/product/B07VJNPQBG">https://www.amazon.co.jp/gp/product/B07VJNPQBG</a></p>
-<p>スピーカーとAV機器間の接続用に購入。</p>
-<p>うちではほぼすべての電子機器はデスク付近の棚に配置されていて、一方プロジェクター利用時に使うスピーカーは、投影面から音が出てほしい関係上、デスクからかなり離れた位置に配置されることになる。なので、音声は長いケーブルで配線するしかない。</p>
-<h2 id="マグネットタイプのusbケーブル">マグネットタイプのUSBケーブル</h2>
-<p><a href="https://www.amazon.co.jp/gp/product/B07XSNVPSW">https://www.amazon.co.jp/gp/product/B07XSNVPSW</a></p>
-<p>以下の充電用。</p>
-<ul>
-<li>iPad</li>
-<li>無線ヘッドホン</li>
-<li>PS4のコントローラー</li>
-</ul>
-<p>iPhoneはQiで充電できて、ベッド脇にスタンドタイプのものを用意してるので考慮しなくて良い。</p>
-<h2 id="ankerの充電器">Ankerの充電器</h2>
-<p><a href="https://www.amazon.co.jp/gp/product/B072KBG9W4">https://www.amazon.co.jp/gp/product/B072KBG9W4</a></p>
-<p>充電対象が増えてきたので購入。</p>
-<p>その辺に余ってるUSB充電アダプタを使うと、PS4のコントローラーを充電できなくて困った経験が何度かあったので、まともなものをこの機会に購入した。</p>
-<h2 id="hdmiセレクタ">HDMIセレクタ</h2>
-<p><a href="https://www.amazon.co.jp/gp/product/B07WTZFLH4">https://www.amazon.co.jp/gp/product/B07WTZFLH4</a></p>
-<p>PS4とSwitchをプロジェクタに接続するために購入。NetflixやAmazonプライムビデオをPS4で見ていて、リングフィットアドベンチャーをSwitchでやるので。</p>
-]]></content>
+      <updated>2019-12-01T17:27:37.248Z</updated>
+      <content type="html">&lt;p&gt;棚が完成してゲーム機器類をデスク付近にまとめられるようになったので、あわせてAmazonでいろいろと発注した。&lt;&#x2F;p&gt;
+&lt;h2 id&#x3D;&quot;8mのオーディオケーブル&quot;&gt;8mのオーディオケーブル&lt;&#x2F;h2&gt;
+&lt;p&gt;&lt;a href&#x3D;&quot;https:&#x2F;&#x2F;www.amazon.co.jp&#x2F;gp&#x2F;product&#x2F;B07VJNPQBG&quot;&gt;https:&#x2F;&#x2F;www.amazon.co.jp&#x2F;gp&#x2F;product&#x2F;B07VJNPQBG&lt;&#x2F;a&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;スピーカーとAV機器間の接続用に購入。&lt;&#x2F;p&gt;
+&lt;p&gt;うちではほぼすべての電子機器はデスク付近の棚に配置されていて、一方プロジェクター利用時に使うスピーカーは、投影面から音が出てほしい関係上、デスクからかなり離れた位置に配置されることになる。なので、音声は長いケーブルで配線するしかない。&lt;&#x2F;p&gt;
+&lt;h2 id&#x3D;&quot;マグネットタイプのusbケーブル&quot;&gt;マグネットタイプのUSBケーブル&lt;&#x2F;h2&gt;
+&lt;p&gt;&lt;a href&#x3D;&quot;https:&#x2F;&#x2F;www.amazon.co.jp&#x2F;gp&#x2F;product&#x2F;B07XSNVPSW&quot;&gt;https:&#x2F;&#x2F;www.amazon.co.jp&#x2F;gp&#x2F;product&#x2F;B07XSNVPSW&lt;&#x2F;a&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;以下の充電用。&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;iPad&lt;&#x2F;li&gt;
+&lt;li&gt;無線ヘッドホン&lt;&#x2F;li&gt;
+&lt;li&gt;PS4のコントローラー&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;iPhoneはQiで充電できて、ベッド脇にスタンドタイプのものを用意してるので考慮しなくて良い。&lt;&#x2F;p&gt;
+&lt;h2 id&#x3D;&quot;ankerの充電器&quot;&gt;Ankerの充電器&lt;&#x2F;h2&gt;
+&lt;p&gt;&lt;a href&#x3D;&quot;https:&#x2F;&#x2F;www.amazon.co.jp&#x2F;gp&#x2F;product&#x2F;B072KBG9W4&quot;&gt;https:&#x2F;&#x2F;www.amazon.co.jp&#x2F;gp&#x2F;product&#x2F;B072KBG9W4&lt;&#x2F;a&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;充電対象が増えてきたので購入。&lt;&#x2F;p&gt;
+&lt;p&gt;その辺に余ってるUSB充電アダプタを使うと、PS4のコントローラーを充電できなくて困った経験が何度かあったので、まともなものをこの機会に購入した。&lt;&#x2F;p&gt;
+&lt;h2 id&#x3D;&quot;hdmiセレクタ&quot;&gt;HDMIセレクタ&lt;&#x2F;h2&gt;
+&lt;p&gt;&lt;a href&#x3D;&quot;https:&#x2F;&#x2F;www.amazon.co.jp&#x2F;gp&#x2F;product&#x2F;B07WTZFLH4&quot;&gt;https:&#x2F;&#x2F;www.amazon.co.jp&#x2F;gp&#x2F;product&#x2F;B07WTZFLH4&lt;&#x2F;a&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;PS4とSwitchをプロジェクタに接続するために購入。NetflixやAmazonプライムビデオをPS4で見ていて、リングフィットアドベンチャーをSwitchでやるので。&lt;&#x2F;p&gt;
+</content>
     </entry>
     <entry>
       <title>按分するサービス料金の支払い</title>
       <link rel="alternate" type="text/html" href="https:&#x2F;&#x2F;r7kamura.com&#x2F;articles&#x2F;2019-11-29-infra-payments"/>
       <id>tag:r7kamura.com,2019:&#x2F;articles&#x2F;2019-11-29-infra-payments</id>
       <published>2019-11-29T00:00:00+09:00</published>
-      <updated>2019-12-01T16:57:58.097Z</updated>
-      <content type="html"><![CDATA[<p>個人事業で以下のサービスの利用料を按分しているので、経理を楽に済ませられるように、それらを事業用口座から請求するように変更しようとしている。</p>
-<ul>
-<li>家賃 (エポスカード)</li>
-<li><del>水道代 (東京水道局)</del></li>
-<li><del>電気代 (東京電力)</del></li>
-<li><del>ガス代 (東京電力)</del></li>
-<li>プロバイダ代 (インターリンク)</li>
-<li>フレッツ光利用料 (NTT)</li>
-</ul>
-<p>エポスカードは、賃貸物件の管理会社から賃料支払い用の方法として指定されたサービスなのだけど、インターネットから簡単に振替用口座を登録できた。素晴らしい。</p>
-<p>東京水道局は、口座振替もクレジットカード払いもインターネットで登録できる窓口が無いので、申込用紙を郵送してもらうことに。</p>
-<p>東京電力とNTTは、クレジットカード払いであればインターネットから申し込めるので、事業用口座から発行されるVISAデビットカードを利用して変更完了。ガス代を東京電力にまとめておいて良かった。</p>
-<p>インターリンクは、クレジットカード払いにこのVISAデビットカードが登録できなかったので、口座振替の申込用紙を印刷して郵送手続き中。</p>
-<hr>
-<p>後日、水道代とガス代を事業用の経費にするのは一般的には厳しいという話が浮かんだ。たしかに料理のレシピに関係する仕事をしているとはいえ判断が面倒そうなので、水道代とガス代、それからガス代とまとめられてしまう電気代は経費から外すことにして、結果的に、按分する経費は家賃と通信費のみに。</p>
-<p>ちなみに按分の割合なのだけど、現状週6日9時間ずつ働いていて、1週間のうち32%の時間働いているので、端数を切り捨てて30%を経費に按分するという基準を適用している。</p>
-]]></content>
+      <updated>2019-12-01T17:27:37.248Z</updated>
+      <content type="html">&lt;p&gt;個人事業で以下のサービスの利用料を按分しているので、経理を楽に済ませられるように、それらを事業用口座から請求するように変更しようとしている。&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;家賃 (エポスカード)&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;del&gt;水道代 (東京水道局)&lt;&#x2F;del&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;del&gt;電気代 (東京電力)&lt;&#x2F;del&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;del&gt;ガス代 (東京電力)&lt;&#x2F;del&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;プロバイダ代 (インターリンク)&lt;&#x2F;li&gt;
+&lt;li&gt;フレッツ光利用料 (NTT)&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;エポスカードは、賃貸物件の管理会社から賃料支払い用の方法として指定されたサービスなのだけど、インターネットから簡単に振替用口座を登録できた。素晴らしい。&lt;&#x2F;p&gt;
+&lt;p&gt;東京水道局は、口座振替もクレジットカード払いもインターネットで登録できる窓口が無いので、申込用紙を郵送してもらうことに。&lt;&#x2F;p&gt;
+&lt;p&gt;東京電力とNTTは、クレジットカード払いであればインターネットから申し込めるので、事業用口座から発行されるVISAデビットカードを利用して変更完了。ガス代を東京電力にまとめておいて良かった。&lt;&#x2F;p&gt;
+&lt;p&gt;インターリンクは、クレジットカード払いにこのVISAデビットカードが登録できなかったので、口座振替の申込用紙を印刷して郵送手続き中。&lt;&#x2F;p&gt;
+&lt;hr&gt;
+&lt;p&gt;後日、水道代とガス代を事業用の経費にするのは一般的には厳しいという話が浮かんだ。たしかに料理のレシピに関係する仕事をしているとはいえ判断が面倒そうなので、水道代とガス代、それからガス代とまとめられてしまう電気代は経費から外すことにして、結果的に、按分する経費は家賃と通信費のみに。&lt;&#x2F;p&gt;
+&lt;p&gt;ちなみに按分の割合なのだけど、現状週6日9時間ずつ働いていて、1週間のうち32%の時間働いているので、端数を切り捨てて30%を経費に按分するという基準を適用している。&lt;&#x2F;p&gt;
+</content>
     </entry>
     <entry>
       <title>個人事業主で転居したときに出す書類</title>
       <link rel="alternate" type="text/html" href="https:&#x2F;&#x2F;r7kamura.com&#x2F;articles&#x2F;2019-11-29-freelance-moving"/>
       <id>tag:r7kamura.com,2019:&#x2F;articles&#x2F;2019-11-29-freelance-moving</id>
       <published>2019-11-29T00:00:00+09:00</published>
-      <updated>2019-12-01T16:57:58.097Z</updated>
-      <content type="html"><![CDATA[<p>2019年11月29日時点の、自分の状況に対しての情報をまとめておく。</p>
-<ul>
-<li><a href="https://www.nta.go.jp/taxes/tetsuzuki/shinsei/annai/shinkoku/annai/06.htm">https://www.nta.go.jp/taxes/tetsuzuki/shinsei/annai/shinkoku/annai/06.htm</a></li>
-<li><a href="https://www.nta.go.jp/taxes/tetsuzuki/mynumberinfo/zeimusho_shinseisho.htm">https://www.nta.go.jp/taxes/tetsuzuki/mynumberinfo/zeimusho_shinseisho.htm</a></li>
-</ul>
-<p>上記の国税庁のウェブサイトから、以下のPDFをダウンロードして印刷する。</p>
-<ul>
-<li>所得税・消費税の納税地の異動に関する届出書</li>
-<li>本人確認書類（写）添付台紙</li>
-</ul>
-<p>また、以下のデータもスキャンして印刷する。</p>
-<ul>
-<li>運転免許証</li>
-<li>個人番号通知カード</li>
-</ul>
-<p>届出書と控えに情報を記入し、必要な書類を添付台紙に糊付けし、切手を付けて宛先を書いた返信用の封筒を同封し、<strong>変更前の</strong> 納税地の管轄税務署に郵送する。</p>
-<p>以下細かな注意点。</p>
-<ul>
-<li>「納税地」は変更前の住所</li>
-<li>「職業」は「フリーランス」<ul>
-<li>freeeで生成した開業届の値がそれだったため</li>
-</ul>
-</li>
-<li>切手は84円切手</li>
-<li>控えの返信は変更届を出して受け取られたという証明のために必要</li>
-<li>宛先の住所は管轄税務署</li>
-<li>宛先の名前は○○税務署御中<ul>
-<li>例: 「渋谷税務署御中」</li>
-</ul>
-</li>
-</ul>
-]]></content>
+      <updated>2019-12-01T17:27:37.248Z</updated>
+      <content type="html">&lt;p&gt;2019年11月29日時点の、自分の状況に対しての情報をまとめておく。&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href&#x3D;&quot;https:&#x2F;&#x2F;www.nta.go.jp&#x2F;taxes&#x2F;tetsuzuki&#x2F;shinsei&#x2F;annai&#x2F;shinkoku&#x2F;annai&#x2F;06.htm&quot;&gt;https:&#x2F;&#x2F;www.nta.go.jp&#x2F;taxes&#x2F;tetsuzuki&#x2F;shinsei&#x2F;annai&#x2F;shinkoku&#x2F;annai&#x2F;06.htm&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a href&#x3D;&quot;https:&#x2F;&#x2F;www.nta.go.jp&#x2F;taxes&#x2F;tetsuzuki&#x2F;mynumberinfo&#x2F;zeimusho_shinseisho.htm&quot;&gt;https:&#x2F;&#x2F;www.nta.go.jp&#x2F;taxes&#x2F;tetsuzuki&#x2F;mynumberinfo&#x2F;zeimusho_shinseisho.htm&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;上記の国税庁のウェブサイトから、以下のPDFをダウンロードして印刷する。&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;所得税・消費税の納税地の異動に関する届出書&lt;&#x2F;li&gt;
+&lt;li&gt;本人確認書類（写）添付台紙&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;また、以下のデータもスキャンして印刷する。&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;運転免許証&lt;&#x2F;li&gt;
+&lt;li&gt;個人番号通知カード&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;届出書と控えに情報を記入し、必要な書類を添付台紙に糊付けし、切手を付けて宛先を書いた返信用の封筒を同封し、&lt;strong&gt;変更前の&lt;&#x2F;strong&gt; 納税地の管轄税務署に郵送する。&lt;&#x2F;p&gt;
+&lt;p&gt;以下細かな注意点。&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;「納税地」は変更前の住所&lt;&#x2F;li&gt;
+&lt;li&gt;「職業」は「フリーランス」&lt;ul&gt;
+&lt;li&gt;freeeで生成した開業届の値がそれだったため&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;切手は84円切手&lt;&#x2F;li&gt;
+&lt;li&gt;控えの返信は変更届を出して受け取られたという証明のために必要&lt;&#x2F;li&gt;
+&lt;li&gt;宛先の住所は管轄税務署&lt;&#x2F;li&gt;
+&lt;li&gt;宛先の名前は○○税務署御中&lt;ul&gt;
+&lt;li&gt;例: 「渋谷税務署御中」&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+</content>
     </entry>
     <entry>
       <title>クッション、パスタ、ActiveStorage</title>
       <link rel="alternate" type="text/html" href="https:&#x2F;&#x2F;r7kamura.com&#x2F;articles&#x2F;2019-11-29-diary"/>
       <id>tag:r7kamura.com,2019:&#x2F;articles&#x2F;2019-11-29-diary</id>
       <published>2019-11-29T00:00:00+09:00</published>
-      <updated>2019-12-01T16:57:58.097Z</updated>
-      <content type="html"><![CDATA[<p>IDEEのビーズクッションのカバーがへたってきたので、落ち着いた色のやつに買い替えた。サメも喜んでいます。</p>
-<p><img src="/images/2019-11-29-1.jpg" alt=""></p>
-<hr>
-<p>最近、昼食にペペロンチーノをよくつくってる。材料はこう。昼食は忙しい仕事の合間に1人で食べるので、あまり時間を掛けたくなく、加工済みのものを選んでとにかく手間を減らしてる。</p>
-<ul>
-<li>マ・マーの100gずつまとめられたパスタ</li>
-<li>冷凍洋風野菜ミックス</li>
-<li>冷凍シーフードミックス</li>
-<li>乾燥輪切り唐辛子</li>
-<li>オリーブオイル</li>
-<li>にんにくチューブ</li>
-<li>塩</li>
-</ul>
-<p>使う道具はこう。鍋1つで済むし、無精してそのまま鍋で食べてるので洗い物も少ない。ざるはちょっと洗いにくい。</p>
-<ul>
-<li>小鍋</li>
-<li>トング</li>
-<li>ざる</li>
-<li>フォーク</li>
-</ul>
-<p>冷凍食材便利だから活用していこうと思ってる。今度このへん試してみようかな、と思ってほしいものリストに入れた。</p>
-<ul>
-<li><a href="https://www.amazon.co.jp/dp/B00JTMY3EY">Amazon: 食の達人森源商店 業務用 シーフードミックス</a></li>
-<li><a href="https://www.amazon.co.jp/dp/B007NQ2OTO">Amazon: トロピカルマリア　アボカドダイス</a></li>
-<li><a href="https://www.amazon.co.jp/hz/wishlist/ls/31WJYTS73D19K">Amazon: @r7kamuraのほしい物リスト</a></li>
-</ul>
-<hr>
-<p>Rails 5.2から6.0へのアップグレードで、ActiveStorageを使っているプロジェクトで失敗することがあって、その調査をしてる。今日ようやく再現可能なコードが用意できたので、Issueを投稿した。</p>
-<p><a href="https://github.com/rails/rails/issues/37836">https://github.com/rails/rails/issues/37836</a></p>
-]]></content>
+      <updated>2019-12-01T17:27:37.248Z</updated>
+      <content type="html">&lt;p&gt;IDEEのビーズクッションのカバーがへたってきたので、落ち着いた色のやつに買い替えた。サメも喜んでいます。&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;img src&#x3D;&quot;&#x2F;images&#x2F;2019-11-29-1.jpg&quot; alt&#x3D;&quot;&quot;&gt;&lt;&#x2F;p&gt;
+&lt;hr&gt;
+&lt;p&gt;最近、昼食にペペロンチーノをよくつくってる。材料はこう。昼食は忙しい仕事の合間に1人で食べるので、あまり時間を掛けたくなく、加工済みのものを選んでとにかく手間を減らしてる。&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;マ・マーの100gずつまとめられたパスタ&lt;&#x2F;li&gt;
+&lt;li&gt;冷凍洋風野菜ミックス&lt;&#x2F;li&gt;
+&lt;li&gt;冷凍シーフードミックス&lt;&#x2F;li&gt;
+&lt;li&gt;乾燥輪切り唐辛子&lt;&#x2F;li&gt;
+&lt;li&gt;オリーブオイル&lt;&#x2F;li&gt;
+&lt;li&gt;にんにくチューブ&lt;&#x2F;li&gt;
+&lt;li&gt;塩&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;使う道具はこう。鍋1つで済むし、無精してそのまま鍋で食べてるので洗い物も少ない。ざるはちょっと洗いにくい。&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;小鍋&lt;&#x2F;li&gt;
+&lt;li&gt;トング&lt;&#x2F;li&gt;
+&lt;li&gt;ざる&lt;&#x2F;li&gt;
+&lt;li&gt;フォーク&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;冷凍食材便利だから活用していこうと思ってる。今度このへん試してみようかな、と思ってほしいものリストに入れた。&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href&#x3D;&quot;https:&#x2F;&#x2F;www.amazon.co.jp&#x2F;dp&#x2F;B00JTMY3EY&quot;&gt;Amazon: 食の達人森源商店 業務用 シーフードミックス&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a href&#x3D;&quot;https:&#x2F;&#x2F;www.amazon.co.jp&#x2F;dp&#x2F;B007NQ2OTO&quot;&gt;Amazon: トロピカルマリア　アボカドダイス&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a href&#x3D;&quot;https:&#x2F;&#x2F;www.amazon.co.jp&#x2F;hz&#x2F;wishlist&#x2F;ls&#x2F;31WJYTS73D19K&quot;&gt;Amazon: @r7kamuraのほしい物リスト&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;hr&gt;
+&lt;p&gt;Rails 5.2から6.0へのアップグレードで、ActiveStorageを使っているプロジェクトで失敗することがあって、その調査をしてる。今日ようやく再現可能なコードが用意できたので、Issueを投稿した。&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;a href&#x3D;&quot;https:&#x2F;&#x2F;github.com&#x2F;rails&#x2F;rails&#x2F;issues&#x2F;37836&quot;&gt;https:&#x2F;&#x2F;github.com&#x2F;rails&#x2F;rails&#x2F;issues&#x2F;37836&lt;&#x2F;a&gt;&lt;&#x2F;p&gt;
+</content>
     </entry>
     <entry>
       <title>break-wordの指定方法の整理</title>
       <link rel="alternate" type="text/html" href="https:&#x2F;&#x2F;r7kamura.com&#x2F;articles&#x2F;2019-11-28-break-word"/>
       <id>tag:r7kamura.com,2019:&#x2F;articles&#x2F;2019-11-28-break-word</id>
       <published>2019-11-28T00:00:00+09:00</published>
-      <updated>2019-12-01T16:57:58.097Z</updated>
-      <content type="html"><![CDATA[<p>自分がよく使う書き方はこう。</p>
-<pre><code class="language-css">body {
+      <updated>2019-12-01T17:27:37.248Z</updated>
+      <content type="html">&lt;p&gt;自分がよく使う書き方はこう。&lt;&#x2F;p&gt;
+&lt;pre&gt;&lt;code class&#x3D;&quot;language-css&quot;&gt;body {
   word-wrap: break-word;
-}</code></pre>
-<p>全てのブラウザに対応しており、記述量が短い。</p>
-<h2 id="継承">継承</h2>
-<p>以下のすべてのプロパティは子孫要素に継承する。</p>
-<ul>
-<li>overflow-wrap</li>
-<li>word-break</li>
-<li>word-wrap</li>
-</ul>
-<p>よって、デフォルトの挙動を一括変更したい場合は、body要素に指定するのが良い。</p>
-<h2 id="word-wrap-break-word">word-wrap: break-word</h2>
-<p>今のところどこでも動く。元々Microsoftの拡張としてword-wrapというプロパティが存在し、各ブラウザもword-wrapという名前で実装していたが、後にoverflow-wrapという名前に変更された。</p>
-<p><a href="https://caniuse.com/#feat=mdn-css_properties_word-wrap">https://caniuse.com/#feat=mdn-css_properties_word-wrap</a></p>
-<h2 id="overflow-wrap-break-word">overflow-wrap: break-word</h2>
-<p>IE11等で動かない。word-wrapの新しい名前。</p>
-<p><a href="https://caniuse.com/#feat=mdn-css_properties_overflow-wrap">https://caniuse.com/#feat=mdn-css_properties_overflow-wrap</a></p>
-<h2 id="word-break-break-word">word-break: break-word</h2>
-<p><code>word-wrap: break-word</code>と同じことが、このプロパティでも実現できる。IEやEdge等で動かない。</p>
-<p><a href="https://caniuse.com/#feat=mdn-css_properties_word-break_break-word">https://caniuse.com/#feat=mdn-css_properties_word-break_break-word</a></p>
-<h2 id="break-all">break-all</h2>
-<p>word-breakプロパティを使うと、break-allという値も指定できる。これを指定すると、CJK (中国語、台湾語、日本語、韓国語) 以外のテキストにおいて、単語中などでの文字の改行に関する禁則処理を解除し、どの文字の間でも改行するようになる。</p>
-]]></content>
+}&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;全てのブラウザに対応しており、記述量が短い。&lt;&#x2F;p&gt;
+&lt;h2 id&#x3D;&quot;継承&quot;&gt;継承&lt;&#x2F;h2&gt;
+&lt;p&gt;以下のすべてのプロパティは子孫要素に継承する。&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;overflow-wrap&lt;&#x2F;li&gt;
+&lt;li&gt;word-break&lt;&#x2F;li&gt;
+&lt;li&gt;word-wrap&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;よって、デフォルトの挙動を一括変更したい場合は、body要素に指定するのが良い。&lt;&#x2F;p&gt;
+&lt;h2 id&#x3D;&quot;word-wrap-break-word&quot;&gt;word-wrap: break-word&lt;&#x2F;h2&gt;
+&lt;p&gt;今のところどこでも動く。元々Microsoftの拡張としてword-wrapというプロパティが存在し、各ブラウザもword-wrapという名前で実装していたが、後にoverflow-wrapという名前に変更された。&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;a href&#x3D;&quot;https:&#x2F;&#x2F;caniuse.com&#x2F;#feat&#x3D;mdn-css_properties_word-wrap&quot;&gt;https:&#x2F;&#x2F;caniuse.com&#x2F;#feat&#x3D;mdn-css_properties_word-wrap&lt;&#x2F;a&gt;&lt;&#x2F;p&gt;
+&lt;h2 id&#x3D;&quot;overflow-wrap-break-word&quot;&gt;overflow-wrap: break-word&lt;&#x2F;h2&gt;
+&lt;p&gt;IE11等で動かない。word-wrapの新しい名前。&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;a href&#x3D;&quot;https:&#x2F;&#x2F;caniuse.com&#x2F;#feat&#x3D;mdn-css_properties_overflow-wrap&quot;&gt;https:&#x2F;&#x2F;caniuse.com&#x2F;#feat&#x3D;mdn-css_properties_overflow-wrap&lt;&#x2F;a&gt;&lt;&#x2F;p&gt;
+&lt;h2 id&#x3D;&quot;word-break-break-word&quot;&gt;word-break: break-word&lt;&#x2F;h2&gt;
+&lt;p&gt;&lt;code&gt;word-wrap: break-word&lt;&#x2F;code&gt;と同じことが、このプロパティでも実現できる。IEやEdge等で動かない。&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;a href&#x3D;&quot;https:&#x2F;&#x2F;caniuse.com&#x2F;#feat&#x3D;mdn-css_properties_word-break_break-word&quot;&gt;https:&#x2F;&#x2F;caniuse.com&#x2F;#feat&#x3D;mdn-css_properties_word-break_break-word&lt;&#x2F;a&gt;&lt;&#x2F;p&gt;
+&lt;h2 id&#x3D;&quot;break-all&quot;&gt;break-all&lt;&#x2F;h2&gt;
+&lt;p&gt;word-breakプロパティを使うと、break-allという値も指定できる。これを指定すると、CJK (中国語、台湾語、日本語、韓国語) 以外のテキストにおいて、単語中などでの文字の改行に関する禁則処理を解除し、どの文字の間でも改行するようになる。&lt;&#x2F;p&gt;
+</content>
     </entry>
     <entry>
       <title>OpenSearchに対応</title>
       <link rel="alternate" type="text/html" href="https:&#x2F;&#x2F;r7kamura.com&#x2F;articles&#x2F;2019-11-27-opensearch"/>
       <id>tag:r7kamura.com,2019:&#x2F;articles&#x2F;2019-11-27-opensearch</id>
       <published>2019-11-27T00:00:00+09:00</published>
-      <updated>2019-12-01T16:57:58.097Z</updated>
-      <content type="html"><![CDATA[<p>OpenSearchに対応したので、ブラウザのロケーションバーで、</p>
-<ul>
-<li>r7kamura.com + 半角スペース、と入力する</li>
-<li>r7... で補完候補に r7kamura.com を選んだ状態でTabキーを押す</li>
-</ul>
-<p>のどちらかをやることで、ウェブサイト内を検索できるようになった。まあ実際はGoogle検索に飛ばしてるだけなんだけど。補完で検索できるのは結構便利。</p>
-<p>変更内容は<a href="https://github.com/r7kamura/r7kamura.com/commit/2b0889d9e8b6427dc841d627cec52d800009ac91">このcommit</a>にまとまっている。実装方法の詳細については<a href="https://developer.mozilla.org/en-US/docs/Web/OpenSearch">ドキュメント</a>を読めば分かる。</p>
-<p>現状Googleがこのウェブサイトのほとんどのページをインデックスから除外してしまっているので、検索に一致するページが少なくて悲しい。</p>
-]]></content>
+      <updated>2019-12-01T17:27:37.248Z</updated>
+      <content type="html">&lt;p&gt;OpenSearchに対応したので、ブラウザのロケーションバーで、&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;r7kamura.com + 半角スペース、と入力する&lt;&#x2F;li&gt;
+&lt;li&gt;r7... で補完候補に r7kamura.com を選んだ状態でTabキーを押す&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;のどちらかをやることで、ウェブサイト内を検索できるようになった。まあ実際はGoogle検索に飛ばしてるだけなんだけど。補完で検索できるのは結構便利。&lt;&#x2F;p&gt;
+&lt;p&gt;変更内容は&lt;a href&#x3D;&quot;https:&#x2F;&#x2F;github.com&#x2F;r7kamura&#x2F;r7kamura.com&#x2F;commit&#x2F;2b0889d9e8b6427dc841d627cec52d800009ac91&quot;&gt;このcommit&lt;&#x2F;a&gt;にまとまっている。実装方法の詳細については&lt;a href&#x3D;&quot;https:&#x2F;&#x2F;developer.mozilla.org&#x2F;en-US&#x2F;docs&#x2F;Web&#x2F;OpenSearch&quot;&gt;ドキュメント&lt;&#x2F;a&gt;を読めば分かる。&lt;&#x2F;p&gt;
+&lt;p&gt;現状Googleがこのウェブサイトのほとんどのページをインデックスから除外してしまっているので、検索に一致するページが少なくて悲しい。&lt;&#x2F;p&gt;
+</content>
     </entry>
     <entry>
       <title>Patreonから引っ越し</title>
       <link rel="alternate" type="text/html" href="https:&#x2F;&#x2F;r7kamura.com&#x2F;articles&#x2F;2019-11-27-goodbye-patreon"/>
       <id>tag:r7kamura.com,2019:&#x2F;articles&#x2F;2019-11-27-goodbye-patreon</id>
       <published>2019-11-27T00:00:00+09:00</published>
-      <updated>2019-12-01T16:57:58.097Z</updated>
-      <content type="html"><![CDATA[<p><a href="https://patreon.com/r7kamura">https://patreon.com/r7kamura</a> からこのウェブサイトに文章を移動させた。他のサービスと違い、Patreonにはエクスポート機能が無く、すべて手作業で移動させたので大仕事だった。一応記事は残してあって、それぞれ移動先にリンクを貼ってある。これですべてのテキストの引っ越しが完了したことになる。</p>
-<p>長い段落を書くことはできる限り避けたいので、このウェブサイトでは、1行あたりに表示される文字数を抑えてある。インポートしてきたプログラミング関係の記事は、そういう環境を考慮して書かれていないので、ちょっと読みづらいかもしれない。</p>
-]]></content>
+      <updated>2019-12-01T17:27:37.248Z</updated>
+      <content type="html">&lt;p&gt;&lt;a href&#x3D;&quot;https:&#x2F;&#x2F;patreon.com&#x2F;r7kamura&quot;&gt;https:&#x2F;&#x2F;patreon.com&#x2F;r7kamura&lt;&#x2F;a&gt; からこのウェブサイトに文章を移動させた。他のサービスと違い、Patreonにはエクスポート機能が無く、すべて手作業で移動させたので大仕事だった。一応記事は残してあって、それぞれ移動先にリンクを貼ってある。これですべてのテキストの引っ越しが完了したことになる。&lt;&#x2F;p&gt;
+&lt;p&gt;長い段落を書くことはできる限り避けたいので、このウェブサイトでは、1行あたりに表示される文字数を抑えてある。インポートしてきたプログラミング関係の記事は、そういう環境を考慮して書かれていないので、ちょっと読みづらいかもしれない。&lt;&#x2F;p&gt;
+</content>
     </entry>
     <entry>
       <title>無印良品週間</title>
       <link rel="alternate" type="text/html" href="https:&#x2F;&#x2F;r7kamura.com&#x2F;articles&#x2F;2019-11-26-muji-week"/>
       <id>tag:r7kamura.com,2019:&#x2F;articles&#x2F;2019-11-26-muji-week</id>
       <published>2019-11-26T00:00:00+09:00</published>
-      <updated>2019-12-01T16:57:58.097Z</updated>
-      <content type="html"><![CDATA[<h2 id="タオル">タオル</h2>
-<p>家のフェイスタオルを無印良品のもので統一した。中厚手でライトグレーのやつだけど、店頭で適当に4枚買ったので綿パイルなのかオーガニックコットン混なのか失念した。中厚手は正解。バスタオルも買いたい。</p>
-<h2 id="入浴と雑貨">入浴と雑貨</h2>
-<p>化粧水、シャンプー、ボディソープ、ボディスポンジとか諸々も買った。ステンレスひっかけるワイヤークリップが結構便利で、キッチンでふきん掛けるのとか、変わりどころだと洗面所でカミソリ引っ掛けるのとかに使って重宝してる。</p>
-<p><img src="/images/2019-11-26-muji-hanger-clip.jpg" alt=""></p>
-<h2 id="ユニットシェルフ">ユニットシェルフ</h2>
-<p>配線と書類の整理に悩んでたので、色々考えた結果、ユニットシェルフを買ってみることにした。引っ越しのときにも分解して運べるところが嬉しい。届くのは月末頃だと思う。</p>
-]]></content>
+      <updated>2019-12-01T17:27:37.248Z</updated>
+      <content type="html">&lt;h2 id&#x3D;&quot;タオル&quot;&gt;タオル&lt;&#x2F;h2&gt;
+&lt;p&gt;家のフェイスタオルを無印良品のもので統一した。中厚手でライトグレーのやつだけど、店頭で適当に4枚買ったので綿パイルなのかオーガニックコットン混なのか失念した。中厚手は正解。バスタオルも買いたい。&lt;&#x2F;p&gt;
+&lt;h2 id&#x3D;&quot;入浴と雑貨&quot;&gt;入浴と雑貨&lt;&#x2F;h2&gt;
+&lt;p&gt;化粧水、シャンプー、ボディソープ、ボディスポンジとか諸々も買った。ステンレスひっかけるワイヤークリップが結構便利で、キッチンでふきん掛けるのとか、変わりどころだと洗面所でカミソリ引っ掛けるのとかに使って重宝してる。&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;img src&#x3D;&quot;&#x2F;images&#x2F;2019-11-26-muji-hanger-clip.jpg&quot; alt&#x3D;&quot;&quot;&gt;&lt;&#x2F;p&gt;
+&lt;h2 id&#x3D;&quot;ユニットシェルフ&quot;&gt;ユニットシェルフ&lt;&#x2F;h2&gt;
+&lt;p&gt;配線と書類の整理に悩んでたので、色々考えた結果、ユニットシェルフを買ってみることにした。引っ越しのときにも分解して運べるところが嬉しい。届くのは月末頃だと思う。&lt;&#x2F;p&gt;
+</content>
     </entry>
     <entry>
       <title>AVT-C878 PLUSを買った</title>
       <link rel="alternate" type="text/html" href="https:&#x2F;&#x2F;r7kamura.com&#x2F;articles&#x2F;2019-11-26-capture-board"/>
       <id>tag:r7kamura.com,2019:&#x2F;articles&#x2F;2019-11-26-capture-board</id>
       <published>2019-11-26T00:00:00+09:00</published>
-      <updated>2019-12-01T16:57:58.097Z</updated>
-      <content type="html"><![CDATA[<p>SwitchとPS4の配信用途で、<a href="https://www.amazon.co.jp/dp/B07C2ZYHF5">AVT-C878 PLUS</a>を注文した。</p>
-<p><img src="https://images-na.ssl-images-amazon.com/images/I/71Oj65360WL._SL1500_.jpg" alt=""></p>
-<p>基本的な部分での性能が良い<a href="https://www.amazon.co.jp/dp/B07DFR38WG">GC550 PLUS</a>と迷ったものの、Macでも動くという利点を考慮して、最終的にAVT-C878 PLUSを選択した。現状Macで動くキャプチャーボードの選択肢や動作報告が少なく、Macで動かしたいならこの製品が安牌だろうと思ってる。ゲーム用途のWindows機も持ってるんだけど、あくまでゲーム用途のサブという感じで使い慣れてもいないし、できればMacで完結すると嬉しい。マイクも普段はMacに繋がってるのでその方が楽。</p>
-]]></content>
+      <updated>2019-12-01T17:27:37.248Z</updated>
+      <content type="html">&lt;p&gt;SwitchとPS4の配信用途で、&lt;a href&#x3D;&quot;https:&#x2F;&#x2F;www.amazon.co.jp&#x2F;dp&#x2F;B07C2ZYHF5&quot;&gt;AVT-C878 PLUS&lt;&#x2F;a&gt;を注文した。&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;img src&#x3D;&quot;https:&#x2F;&#x2F;images-na.ssl-images-amazon.com&#x2F;images&#x2F;I&#x2F;71Oj65360WL._SL1500_.jpg&quot; alt&#x3D;&quot;&quot;&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;基本的な部分での性能が良い&lt;a href&#x3D;&quot;https:&#x2F;&#x2F;www.amazon.co.jp&#x2F;dp&#x2F;B07DFR38WG&quot;&gt;GC550 PLUS&lt;&#x2F;a&gt;と迷ったものの、Macでも動くという利点を考慮して、最終的にAVT-C878 PLUSを選択した。現状Macで動くキャプチャーボードの選択肢や動作報告が少なく、Macで動かしたいならこの製品が安牌だろうと思ってる。ゲーム用途のWindows機も持ってるんだけど、あくまでゲーム用途のサブという感じで使い慣れてもいないし、できればMacで完結すると嬉しい。マイクも普段はMacに繋がってるのでその方が楽。&lt;&#x2F;p&gt;
+</content>
     </entry>
     <entry>
       <title>渋谷区から港区に引っ越した</title>
       <link rel="alternate" type="text/html" href="https:&#x2F;&#x2F;r7kamura.com&#x2F;articles&#x2F;2019-11-25-moving"/>
       <id>tag:r7kamura.com,2019:&#x2F;articles&#x2F;2019-11-25-moving</id>
       <published>2019-11-25T00:00:00+09:00</published>
-      <updated>2019-12-01T16:57:58.097Z</updated>
-      <content type="html"><![CDATA[<p>便利そうな立地と内装の賃貸物件を見つけたので、それまで住んでいた渋谷区の物件を解約して、港区に引っ越した。生活のリセットも兼ねて2年に1度程度は引っ越すようにしてて、今回もそのタイミングでの引っ越し。</p>
-<p><img src="/images/2019-11-25-moving-2.jpg" alt=""></p>
-<p><img src="/images/2019-11-25-moving-1.jpg" alt=""></p>
-<p><img src="/images/2019-11-25-moving-3.jpg" alt=""></p>
-<p>今回の物件では、掃除をこまめにやるとか、物をしまう場所をそれぞれつくってあげるとか、生活をちゃんとやっていくのを目標にしたい。</p>
-<h2 id="過去の引っ越し">過去の引っ越し</h2>
-<p>これまでの引っ越しの履歴はこちら。</p>
-<ul>
-<li><a href="/articles/2012-03-27-1-h">東京に引っ越した</a></li>
-<li><a href="/articles/2013-07-02-h">卓球ハウスに引っ越した</a></li>
-<li><a href="/articles/2015-12-14-h">京都に引っ越した</a></li>
-<li><a href="/articles/2016-12-01-h">京都市内で引っ越した</a></li>
-<li><a href="/articles/2018-12-07-7c3306274682">京都から渋谷に引っ越した</a></li>
-</ul>
-]]></content>
+      <updated>2019-12-01T17:27:37.248Z</updated>
+      <content type="html">&lt;p&gt;便利そうな立地と内装の賃貸物件を見つけたので、それまで住んでいた渋谷区の物件を解約して、港区に引っ越した。生活のリセットも兼ねて2年に1度程度は引っ越すようにしてて、今回もそのタイミングでの引っ越し。&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;img src&#x3D;&quot;&#x2F;images&#x2F;2019-11-25-moving-2.jpg&quot; alt&#x3D;&quot;&quot;&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;img src&#x3D;&quot;&#x2F;images&#x2F;2019-11-25-moving-1.jpg&quot; alt&#x3D;&quot;&quot;&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;img src&#x3D;&quot;&#x2F;images&#x2F;2019-11-25-moving-3.jpg&quot; alt&#x3D;&quot;&quot;&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;今回の物件では、掃除をこまめにやるとか、物をしまう場所をそれぞれつくってあげるとか、生活をちゃんとやっていくのを目標にしたい。&lt;&#x2F;p&gt;
+&lt;h2 id&#x3D;&quot;過去の引っ越し&quot;&gt;過去の引っ越し&lt;&#x2F;h2&gt;
+&lt;p&gt;これまでの引っ越しの履歴はこちら。&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href&#x3D;&quot;&#x2F;articles&#x2F;2012-03-27-1-h&quot;&gt;東京に引っ越した&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a href&#x3D;&quot;&#x2F;articles&#x2F;2013-07-02-h&quot;&gt;卓球ハウスに引っ越した&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a href&#x3D;&quot;&#x2F;articles&#x2F;2015-12-14-h&quot;&gt;京都に引っ越した&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a href&#x3D;&quot;&#x2F;articles&#x2F;2016-12-01-h&quot;&gt;京都市内で引っ越した&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a href&#x3D;&quot;&#x2F;articles&#x2F;2018-12-07-7c3306274682&quot;&gt;京都から渋谷に引っ越した&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+</content>
     </entry>
     <entry>
       <title>カスタムドメイン用にリポジトリ名を変更した</title>
       <link rel="alternate" type="text/html" href="https:&#x2F;&#x2F;r7kamura.com&#x2F;articles&#x2F;2019-11-23-migrate-to-project-page"/>
       <id>tag:r7kamura.com,2019:&#x2F;articles&#x2F;2019-11-23-migrate-to-project-page</id>
       <published>2019-11-23T00:00:00+09:00</published>
-      <updated>2019-12-01T16:57:58.097Z</updated>
-      <content type="html"><![CDATA[<p>リポジトリ名を変更した。</p>
-<ul>
-<li>変更前は r7kamura/r7kamura.github.io</li>
-<li>変更後は r7kamura/r7kamura.com</li>
-</ul>
-<p>GitHub Pagesでは、ユーザページにカスタムドメインを設定すると、そのユーザの全てのプロジェクトページのドメインも切り替わってしまう。今回はこのウェブサイトだけカスタムドメインに切り替わってほしかったので、リポジトリ名を変更してユーザページからプロジェクトページに変更した。</p>
-<p>同時に、これまで</p>
-<ul>
-<li>develop: ソースコード</li>
-<li>master: 成果物</li>
-</ul>
-<p>というブランチ運用だったのを、</p>
-<ul>
-<li>master: ソースコード</li>
-<li>gh-pages: 成果物</li>
-</ul>
-<p>というブランチ運用に変更した。</p>
-]]></content>
+      <updated>2019-12-01T17:27:37.248Z</updated>
+      <content type="html">&lt;p&gt;リポジトリ名を変更した。&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;変更前は r7kamura&#x2F;r7kamura.github.io&lt;&#x2F;li&gt;
+&lt;li&gt;変更後は r7kamura&#x2F;r7kamura.com&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;GitHub Pagesでは、ユーザページにカスタムドメインを設定すると、そのユーザの全てのプロジェクトページのドメインも切り替わってしまう。今回はこのウェブサイトだけカスタムドメインに切り替わってほしかったので、リポジトリ名を変更してユーザページからプロジェクトページに変更した。&lt;&#x2F;p&gt;
+&lt;p&gt;同時に、これまで&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;develop: ソースコード&lt;&#x2F;li&gt;
+&lt;li&gt;master: 成果物&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;というブランチ運用だったのを、&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;master: ソースコード&lt;&#x2F;li&gt;
+&lt;li&gt;gh-pages: 成果物&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;というブランチ運用に変更した。&lt;&#x2F;p&gt;
+</content>
     </entry>
     <entry>
       <title>ドメインを変えた</title>
       <link rel="alternate" type="text/html" href="https:&#x2F;&#x2F;r7kamura.com&#x2F;articles&#x2F;2019-11-19-domain-r7kamura-com"/>
       <id>tag:r7kamura.com,2019:&#x2F;articles&#x2F;2019-11-19-domain-r7kamura-com</id>
       <published>2019-11-19T00:00:00+09:00</published>
-      <updated>2019-12-01T16:57:58.097Z</updated>
-      <content type="html"><![CDATA[<p>このウェブサイトのドメインを、r7kamura.github.ioからr7kamura.comに変えた。Amazon Route53で年額$12。他のリポジトリのコンテンツが混ざらなくなったので、サイト内検索やGoogle Search Consoleの管理がやりやすくなった。</p>
-]]></content>
+      <updated>2019-12-01T17:27:37.248Z</updated>
+      <content type="html">&lt;p&gt;このウェブサイトのドメインを、r7kamura.github.ioからr7kamura.comに変えた。Amazon Route53で年額$12。他のリポジトリのコンテンツが混ざらなくなったので、サイト内検索やGoogle Search Consoleの管理がやりやすくなった。&lt;&#x2F;p&gt;
+</content>
     </entry>
     <entry>
       <title>Philips Hueの感想</title>
       <link rel="alternate" type="text/html" href="https:&#x2F;&#x2F;r7kamura.com&#x2F;articles&#x2F;2019-11-18-phillips-hue"/>
       <id>tag:r7kamura.com,2019:&#x2F;articles&#x2F;2019-11-18-phillips-hue</id>
       <published>2019-11-18T00:00:00+09:00</published>
-      <updated>2019-12-01T16:57:58.097Z</updated>
-      <content type="html"><![CDATA[<p>Hueの照明を数年間使った。寝る前に消して、起きたら付ける。プロジェクタを使う前に消して、使い終わったら付ける。その繰り返し。</p>
-<p>個人的にはこの手の無線操作できる照明はもはや必須。iOSのHomeとの連携はかなり便利。フルカラーじゃなくて単色で十分。ライトテープは電源のモスキート音がうるさすぎて使い物にならない。</p>
-<p>もし以下の要件を全て満たすものがあれば、買い替えを検討したい。</p>
-<ul>
-<li>ハブ無しで動作する</li>
-<li>iOSのHomeと連携できる</li>
-<li>E26口金以外のサイズにも対応している</li>
-</ul>
-]]></content>
+      <updated>2019-12-01T17:27:37.248Z</updated>
+      <content type="html">&lt;p&gt;Hueの照明を数年間使った。寝る前に消して、起きたら付ける。プロジェクタを使う前に消して、使い終わったら付ける。その繰り返し。&lt;&#x2F;p&gt;
+&lt;p&gt;個人的にはこの手の無線操作できる照明はもはや必須。iOSのHomeとの連携はかなり便利。フルカラーじゃなくて単色で十分。ライトテープは電源のモスキート音がうるさすぎて使い物にならない。&lt;&#x2F;p&gt;
+&lt;p&gt;もし以下の要件を全て満たすものがあれば、買い替えを検討したい。&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;ハブ無しで動作する&lt;&#x2F;li&gt;
+&lt;li&gt;iOSのHomeと連携できる&lt;&#x2F;li&gt;
+&lt;li&gt;E26口金以外のサイズにも対応している&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+</content>
     </entry>
     <entry>
       <title>荷造り、有孔ボード、ポケモン</title>
       <link rel="alternate" type="text/html" href="https:&#x2F;&#x2F;r7kamura.com&#x2F;articles&#x2F;2019-11-18-diary"/>
       <id>tag:r7kamura.com,2019:&#x2F;articles&#x2F;2019-11-18-diary</id>
       <published>2019-11-18T00:00:00+09:00</published>
-      <updated>2019-12-01T16:57:58.097Z</updated>
-      <content type="html"><![CDATA[<p>ようやく荷造りを終えた。プロジェクタのリモコンを紛失したので、荷解きして出てこなかったら<a href="https://www.amazon.co.jp/dp/B07GDCYDLL">買い替える</a>。これまで持ち物を精査したことがなかったので、荷解きをさっさと済ませたら物を買い換える作業もやる。</p>
-<hr>
-<p>作業用デスクの隣の壁に、180cm x 90cm ぐらいの有孔ボードを取り付けようと考えている。電子機器の配線と引っ掛け用。壁美人でいけそうなら壁美人、無理そうならディアウォールで取り付ける。</p>
-<hr>
-<p>勢いで買ったポケモンが楽しい。主人公はできすぎてるぐらい可愛いんだけど、底が見えなくて少し怖いところがある。普段他人と接するときは取って付けたように表情を変化させる一方で、ポケモンを捕まえようとするときだけ本気で笑ってると思う。</p>
-]]></content>
+      <updated>2019-12-01T17:27:37.248Z</updated>
+      <content type="html">&lt;p&gt;ようやく荷造りを終えた。プロジェクタのリモコンを紛失したので、荷解きして出てこなかったら&lt;a href&#x3D;&quot;https:&#x2F;&#x2F;www.amazon.co.jp&#x2F;dp&#x2F;B07GDCYDLL&quot;&gt;買い替える&lt;&#x2F;a&gt;。これまで持ち物を精査したことがなかったので、荷解きをさっさと済ませたら物を買い換える作業もやる。&lt;&#x2F;p&gt;
+&lt;hr&gt;
+&lt;p&gt;作業用デスクの隣の壁に、180cm x 90cm ぐらいの有孔ボードを取り付けようと考えている。電子機器の配線と引っ掛け用。壁美人でいけそうなら壁美人、無理そうならディアウォールで取り付ける。&lt;&#x2F;p&gt;
+&lt;hr&gt;
+&lt;p&gt;勢いで買ったポケモンが楽しい。主人公はできすぎてるぐらい可愛いんだけど、底が見えなくて少し怖いところがある。普段他人と接するときは取って付けたように表情を変化させる一方で、ポケモンを捕まえようとするときだけ本気で笑ってると思う。&lt;&#x2F;p&gt;
+</content>
     </entry>
     <entry>
       <title>書類の分類ルールメモ</title>
       <link rel="alternate" type="text/html" href="https:&#x2F;&#x2F;r7kamura.com&#x2F;articles&#x2F;2019-11-17-documents"/>
       <id>tag:r7kamura.com,2019:&#x2F;articles&#x2F;2019-11-17-documents</id>
       <published>2019-11-17T00:00:00+09:00</published>
-      <updated>2019-12-01T16:57:58.097Z</updated>
-      <content type="html"><![CDATA[<h2 id="定期的に発生するもの">定期的に発生するもの</h2>
-<ul>
-<li>水道・光熱<ul>
-<li>水道代</li>
-<li>電気代</li>
-<li>ガス代</li>
-</ul>
-</li>
-<li>通信<ul>
-<li>固定回線</li>
-<li>携帯端末用回線</li>
-<li>プロバイダ</li>
-</ul>
-</li>
-<li>金融<ul>
-<li>クレジットカード</li>
-<li>銀行口座</li>
-</ul>
-</li>
-<li>保険<ul>
-<li>国民健康保険</li>
-<li>国民年金</li>
-</ul>
-</li>
-<li>税<ul>
-<li>所得税</li>
-<li>住民税</li>
-<li>個人事業税</li>
-</ul>
-</li>
-<li>確定申告</li>
-<li>その他</li>
-</ul>
-<h2 id="不定期に発生するもの">不定期に発生するもの</h2>
-<ul>
-<li>賃貸<ul>
-<li>物件ごと</li>
-</ul>
-</li>
-<li>契約書<ul>
-<li>会社ごと</li>
-</ul>
-</li>
-<li>説明書<ul>
-<li>容量制限ごと</li>
-</ul>
-</li>
-</ul>
-]]></content>
+      <updated>2019-12-01T17:27:37.248Z</updated>
+      <content type="html">&lt;h2 id&#x3D;&quot;定期的に発生するもの&quot;&gt;定期的に発生するもの&lt;&#x2F;h2&gt;
+&lt;ul&gt;
+&lt;li&gt;水道・光熱&lt;ul&gt;
+&lt;li&gt;水道代&lt;&#x2F;li&gt;
+&lt;li&gt;電気代&lt;&#x2F;li&gt;
+&lt;li&gt;ガス代&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;通信&lt;ul&gt;
+&lt;li&gt;固定回線&lt;&#x2F;li&gt;
+&lt;li&gt;携帯端末用回線&lt;&#x2F;li&gt;
+&lt;li&gt;プロバイダ&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;金融&lt;ul&gt;
+&lt;li&gt;クレジットカード&lt;&#x2F;li&gt;
+&lt;li&gt;銀行口座&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;保険&lt;ul&gt;
+&lt;li&gt;国民健康保険&lt;&#x2F;li&gt;
+&lt;li&gt;国民年金&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;税&lt;ul&gt;
+&lt;li&gt;所得税&lt;&#x2F;li&gt;
+&lt;li&gt;住民税&lt;&#x2F;li&gt;
+&lt;li&gt;個人事業税&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;確定申告&lt;&#x2F;li&gt;
+&lt;li&gt;その他&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;h2 id&#x3D;&quot;不定期に発生するもの&quot;&gt;不定期に発生するもの&lt;&#x2F;h2&gt;
+&lt;ul&gt;
+&lt;li&gt;賃貸&lt;ul&gt;
+&lt;li&gt;物件ごと&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;契約書&lt;ul&gt;
+&lt;li&gt;会社ごと&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;説明書&lt;ul&gt;
+&lt;li&gt;容量制限ごと&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+</content>
     </entry>
     <entry>
       <title>日記、衣類とCSS</title>
       <link rel="alternate" type="text/html" href="https:&#x2F;&#x2F;r7kamura.com&#x2F;articles&#x2F;2019-11-17-diary"/>
       <id>tag:r7kamura.com,2019:&#x2F;articles&#x2F;2019-11-17-diary</id>
       <published>2019-11-17T00:00:00+09:00</published>
-      <updated>2019-12-01T16:57:58.097Z</updated>
-      <content type="html"><![CDATA[<p>荷造り中、衣類の運用について考えていた。インナーをもっと統一しようと考えている。現状、トップスと冬用靴下は同じものを複数持つ運用で体験が良いので、下着と靴下、あと服じゃないけどタオルも統一したい。</p>
-<p>仕舞う場所 = 使う場所という法則に従うと、衣類は脱衣洗面所に収納した方が、どう考えても効率が良い。それに他に人が居るときでも気兼ねなく着替えられるし。</p>
-<p>このウェブサイトのCSSについて。リンクには必ず下線が付いている、というルールが一貫しているところが最も気に入っている。</p>
-]]></content>
+      <updated>2019-12-01T17:27:37.248Z</updated>
+      <content type="html">&lt;p&gt;荷造り中、衣類の運用について考えていた。インナーをもっと統一しようと考えている。現状、トップスと冬用靴下は同じものを複数持つ運用で体験が良いので、下着と靴下、あと服じゃないけどタオルも統一したい。&lt;&#x2F;p&gt;
+&lt;p&gt;仕舞う場所 &#x3D; 使う場所という法則に従うと、衣類は脱衣洗面所に収納した方が、どう考えても効率が良い。それに他に人が居るときでも気兼ねなく着替えられるし。&lt;&#x2F;p&gt;
+&lt;p&gt;このウェブサイトのCSSについて。リンクには必ず下線が付いている、というルールが一貫しているところが最も気に入っている。&lt;&#x2F;p&gt;
+</content>
     </entry>
     <entry>
       <title>クレジットカードを整理した</title>
       <link rel="alternate" type="text/html" href="https:&#x2F;&#x2F;r7kamura.com&#x2F;articles&#x2F;2019-11-17-credit-card"/>
       <id>tag:r7kamura.com,2019:&#x2F;articles&#x2F;2019-11-17-credit-card</id>
       <published>2019-11-17T00:00:00+09:00</published>
-      <updated>2019-12-01T16:57:58.097Z</updated>
-      <content type="html"><![CDATA[<p>クレジットカードを整理して、こういう状態にした。</p>
-<ul>
-<li>MasterCardとVISAをそれぞれ1枚ずつ持つ</li>
-<li>緊急時以外はメインのカードで支払う</li>
-<li>1Passwordで情報を検索できる</li>
-</ul>
-<p>さようなら楽天カード、さようならエポスカード。</p>
-<hr>
-<p>勢いで銀行口座も整理している。現状はこう。</p>
-<ul>
-<li>ゆうちょ銀行 (メイン)</li>
-<li>住信SBI銀行 (サブ)</li>
-<li>ソニー銀行 (事業用)</li>
-</ul>
-<p>ゆうちょダイレクトがそこそこまともに使えるようになってきたので、基本的にゆうちょ銀行にまとめていくつもり。</p>
-<p>ゆうちょ銀行だとクレジットカードの口座切り替えがインターネットから行えない、というのが不満点。3年後ぐらいには解決されていそうな気がする。</p>
-]]></content>
+      <updated>2019-12-01T17:27:37.248Z</updated>
+      <content type="html">&lt;p&gt;クレジットカードを整理して、こういう状態にした。&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;MasterCardとVISAをそれぞれ1枚ずつ持つ&lt;&#x2F;li&gt;
+&lt;li&gt;緊急時以外はメインのカードで支払う&lt;&#x2F;li&gt;
+&lt;li&gt;1Passwordで情報を検索できる&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;さようなら楽天カード、さようならエポスカード。&lt;&#x2F;p&gt;
+&lt;hr&gt;
+&lt;p&gt;勢いで銀行口座も整理している。現状はこう。&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;ゆうちょ銀行 (メイン)&lt;&#x2F;li&gt;
+&lt;li&gt;住信SBI銀行 (サブ)&lt;&#x2F;li&gt;
+&lt;li&gt;ソニー銀行 (事業用)&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;ゆうちょダイレクトがそこそこまともに使えるようになってきたので、基本的にゆうちょ銀行にまとめていくつもり。&lt;&#x2F;p&gt;
+&lt;p&gt;ゆうちょ銀行だとクレジットカードの口座切り替えがインターネットから行えない、というのが不満点。3年後ぐらいには解決されていそうな気がする。&lt;&#x2F;p&gt;
+</content>
     </entry>
 </feed>
