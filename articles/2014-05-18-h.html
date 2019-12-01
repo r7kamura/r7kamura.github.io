@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width">
+  <title>チャットからデプロイする</title>
+  <link href="/articles/2014-05-18-h" rel="canonical">
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="search" type="application/opensearchdescription+xml" title="r7kamura.com" href="/opensearch.xml">
+  <link rel="alternate" type="application/rss+xml" href="/feed.xml">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="チャットからデプロイする">
+  <meta property="og:url" content="https://r7kamura.com&#x2F;articles&#x2F;2014-05-18-h">
+  <meta property="twitter:card" content="summary">
+  <meta property="twitter:title" content="チャットからデプロイする">
+</head>
+<body>
+  <header>
+    <nav>
+      <a href="/">トップページ</a>
+      <ul>
+        <li>
+          <a href="/articles">記事</a>
+        </li>
+        <li>
+          <a href="https://google.com/search?q=site:r7kamura.com">検索</a>
+        </li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <article>
+  <h1>チャットからデプロイする</h1>
+  <footer>
+    <p>
+      <time datetime="2014-05-18T00:00:00+09:00">2014年05月18日</time>
+    </p>
+  </footer>
+  <div>
+    <p>CIに「stagingブランチに変更がpushされたら検証環境にデプロイする」という設定をしておけば、
+チャットからPull Requestを介して簡単にデプロイできるようになる。
+<a href="http://r7kamura.hatenablog.com/entry/2014/05/17/204310">前述の通り</a>の方法で
+チャットでmasterからstagingに対してPull RequestをつくってMergeすれば、勝手に検証環境にデプロイされる。</p>
+
+<pre class="code" data-unlink>deploy:
+  provider: heroku
+  app: tqbot
+  on:
+    branch: staging</pre>
+
+
+<h3>Pull Requestをつくる</h3>
+
+<p>「@ellen pull request "Deploy to staging" from r7kamura/tqbot:master to r7kamura/tqbot:staging」とやればデプロイできるんだけど、
+おっさんに長いコマンドを打たせるのは正直つらかろうと思ったので、
+<a href="https://github.com/r7kamura/ellen-alias">Ellen::Alias</a>というプラグインを用意してみた。
+これを利用してデプロイ用のaliasをつくっておけば「@ellen deploy staging」だけでPull Requestをつくれるようになる。
+(実際にはMergeするまではデプロイされないんで、意味的にはprepare deploy stagingという感じですね)</p>
+
+<p><img src="http://dl.dropboxusercontent.com//u/5978869/image/20140518_153656.png" alt=""></p>
+
+<h3>Pull Requestを確認する</h3>
+
+<p>Pull Requestがつくられたので、Diffを見たりして変更点を確認する。
+まあ何か言いたいことがあればコメント書いといたり、適当にお洒落なラベルとか付けたりすると良いんじゃないでしょうか。</p>
+
+<p><img src="http://dl.dropboxusercontent.com//u/5978869/image/20140518_151547.png" alt=""></p>
+
+<h3>Build Status</h3>
+
+<p>Travis CIを使っているとPull Requestに対してBuildを実行してくれるので、ここでテストが通るかどうかも確認できる。
+検証環境とかだったら確認しなくてもいい。</p>
+
+<p><img src="http://dl.dropboxusercontent.com//u/5978869/image/20140518_151655.png" alt=""></p>
+
+<h3>Mergeする</h3>
+
+<p>ボタンを押しても良いし、チャットからMergeしても良い。
+検証環境の場合はdeploy stagingって命令したらPR即Mergeでもいいかもしれない。</p>
+
+<p><img src="http://dl.dropboxusercontent.com//u/5978869/image/20140518_154925.png" alt=""></p>
+
+<h3>川の様子</h3>
+
+<p>Slackとかで上手くGitHubやHerokuやTravisCIと統合しとくと、チャットでデプロイのフローが全て見通せて便利。
+機械が告知するための部屋と、人間 &amp; BOTが会話するための部屋は何となく分けてる。
+普段機械がCIの様子を告知し続けているだけで問題が起こったときだけちょっと人間が喋るみたいな様子だと、
+会話が起こらなくて寂しいから。</p>
+
+<p><img src="http://dl.dropboxusercontent.com//u/5978869/image/20140518_155503.png" alt=""></p>
+
+
+  </div>
+</article>
+
+  </main>
+</body>
+</html>

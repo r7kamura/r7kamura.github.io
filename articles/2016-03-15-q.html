@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width">
+  <title>ActiveRecordであるカラムとあるカラムが同じ値になるのを防ぐようなValidationを定義する</title>
+  <link href="/articles/2016-03-15-q" rel="canonical">
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="search" type="application/opensearchdescription+xml" title="r7kamura.com" href="/opensearch.xml">
+  <link rel="alternate" type="application/rss+xml" href="/feed.xml">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="ActiveRecordであるカラムとあるカラムが同じ値になるのを防ぐようなValidationを定義する">
+  <meta property="og:url" content="https://r7kamura.com&#x2F;articles&#x2F;2016-03-15-q">
+  <meta property="twitter:card" content="summary">
+  <meta property="twitter:title" content="ActiveRecordであるカラムとあるカラムが同じ値になるのを防ぐようなValidationを定義する">
+</head>
+<body>
+  <header>
+    <nav>
+      <a href="/">トップページ</a>
+      <ul>
+        <li>
+          <a href="/articles">記事</a>
+        </li>
+        <li>
+          <a href="https://google.com/search?q=site:r7kamura.com">検索</a>
+        </li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <article>
+  <h1>ActiveRecordであるカラムとあるカラムが同じ値になるのを防ぐようなValidationを定義する</h1>
+  <footer>
+    <p>
+      <time datetime="2016-03-15T00:00:00+09:00">2016年03月15日</time>
+    </p>
+  </footer>
+  <div>
+    <p>例えば、GitHubの通知やTwitterの通知、あるいはQiitaの通知のような機能を実現するためにActiveRecordを利用する例を考えます。このとき「通知元のユーザと通知先のユーザは被ってほしくないなあ」という制約を実現するめに、<a href="http://edgeguides.rubyonrails.org/active_record_validations.html#exclusion">ExclusionValidator</a> が利用できます。<code>exclusion: { in: :xxx }</code> のように <code>:in</code> オプションにSymbolを与えると、その名前のインスタンスメソッドの実行結果に対して重複していないかどうか検査してくれるので、これを利用します。下の例では <code>#invalid_receivers</code> というインスタンスメソッドを定義しています。</p>
+<pre><code class="language-rb">class Notification &lt; Activerecord::Base
+  belongs_to :receiver # 通知先のユーザ
+  belongs_to :sender   # 通知元のユーザ
+
+  validates :receiver, exclusion: { in: :invalid_receivers }
+
+  private
+
+  # @return [Array&lt;User&gt;]
+  def invalid_receivers
+    [sender]
+  end
+end</code></pre>
+<p>以上です。</p>
+
+  </div>
+</article>
+
+  </main>
+</body>
+</html>

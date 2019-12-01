@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Vimで挿入モードから抜ける時に英数入力に切り替える</title>
+  <link href="/articles/2011-02-17-h" rel="canonical">
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="search" type="application/opensearchdescription+xml" title="r7kamura.com" href="/opensearch.xml">
+  <link rel="alternate" type="application/rss+xml" href="/feed.xml">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Vimで挿入モードから抜ける時に英数入力に切り替える">
+  <meta property="og:url" content="https://r7kamura.com&#x2F;articles&#x2F;2011-02-17-h">
+  <meta property="twitter:card" content="summary">
+  <meta property="twitter:title" content="Vimで挿入モードから抜ける時に英数入力に切り替える">
+</head>
+<body>
+  <header>
+    <nav>
+      <a href="/">トップページ</a>
+      <ul>
+        <li>
+          <a href="/articles">記事</a>
+        </li>
+        <li>
+          <a href="https://google.com/search?q=site:r7kamura.com">検索</a>
+        </li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <article>
+  <h1>Vimで挿入モードから抜ける時に英数入力に切り替える</h1>
+  <footer>
+    <p>
+      <time datetime="2011-02-17T00:00:00+09:00">2011年02月17日</time>
+    </p>
+  </footer>
+  <div>
+    <p>昨日からHHKBを使い始めたついでに、キー設定を色々入れ替えるため<a href="http://pqrs.org/macosx/keyremap4macbook/index.html.ja">KeyRemap4MacBook</a>というアプリを使い始めました。『Vimで挿入モードから抜ける時に英数入力に切り替える』というのが前からやりたくて、KaoriYaさんのMacVimだとそういう設定がvimrcで出来たんですが、CUIのvimではIMを操作する良い方法が分からずに設定できていませんでした。このアプリで無理やり実現出来たので快適です。</p><p></p>
+
+<div class="section">
+    <h4>設定方法</h4>
+    <p>KeyRemap4MacBookは独自でXMLを書いて、あるキーを特定のキーと結び付けることが出来ます。またその設定が有効になるアプリも選択できます。今回の場合は、Terminal上でEscキーをEscキー+英数キーという設定にすればOKですね。Ctrl+Cも使うので同時に設定しておきます。</p>
+<br>
+<p>まずKeyRemap4MacBook Preference Paneからprivate.xmlを開いて編集します。<br>
+<img src="http://gyazo.com/8de082a21dcfa348d7a68d9bf6fd5ca1.png" alt=""></p>
+<br>
+<p>autogenのKeyToKeyに、変換前キー(, Ctrl等の修飾キー), 変換後キー1, 変換後キー2, ... という感じでキーを渡します。 </p>
+<pre class="code lang-sh" data-lang="sh" data-unlink><span class="synStatement">&lt;</span>?xml <span class="synIdentifier">version</span>=<span class="synStatement">"</span><span class="synConstant">1.0</span><span class="synStatement">"</span>?<span class="synStatement">&gt;</span>
+<span class="synStatement">&lt;</span>root<span class="synStatement">&gt;</span>
+  <span class="synStatement">&lt;</span>list<span class="synStatement">&gt;</span>
+    <span class="synStatement">&lt;</span>item<span class="synStatement">&gt;</span>
+      <span class="synStatement">&lt;</span>name<span class="synStatement">&gt;</span>LeaveInsMode with EISUU<span class="synStatement">(</span>Terminal<span class="synStatement">)&lt;</span>/name<span class="synStatement">&gt;</span>
+      <span class="synStatement">&lt;</span>identifier<span class="synStatement">&gt;</span>private.app_terminal_esc_with_eisuu<span class="synStatement">&lt;</span>/identifier<span class="synStatement">&gt;</span>
+      <span class="synStatement">&lt;</span>only<span class="synStatement">&gt;</span>TERMINAL<span class="synStatement">&lt;</span>/only<span class="synStatement">&gt;</span>
+      <span class="synStatement">&lt;</span>autogen<span class="synStatement">&gt;</span>--KeyToKey-- KeyCode::ESCAPE, KeyCode::ESCAPE, KeyCode::JIS_EISUU<span class="synStatement">&lt;</span>/autogen<span class="synStatement">&gt;</span>
+      <span class="synStatement">&lt;</span>autogen<span class="synStatement">&gt;</span>--KeyToKey-- KeyCode::C, VK_CONTROL, KeyCode::C, VK_CONTROL, KeyCode::JIS_EISUU<span class="synStatement">&lt;</span>/autogen<span class="synStatement">&gt;</span>
+    <span class="synStatement">&lt;</span>/item<span class="synStatement">&gt;</span>
+  <span class="synStatement">&lt;</span>/list<span class="synStatement">&gt;</span>
+<span class="synStatement">&lt;</span>/root<span class="synStatement">&gt;</span>
+</pre>
+<p><br>
+あとはReloadXMLを押せば作成した設定が表示されるので有効化します。<br>
+<img src="http://gyazo.com/65f09955d4d7607f2fa1be820bc9a83b.png" alt=""></p>
+<br>
+<p><img src="http://gyazo.com/d29f860b295c9d2634af945a31f07d74.png" alt=""></p>
+<br>
+<p></p>
+
+</div>
+<div class="section">
+    <h4>参考</h4>
+
+<ul>
+<li><a href="http://pqrs.org/macosx/keyremap4macbook/index.html.ja">KeyRemap4MacBook</a></li>
+<li><a href="http://hg.pqrs.org/KeyRemap4MacBook/index.cgi/file/tip/src/core/bridge/keycode/data/KeyCode.data">KeyRemap4MacBook: キーコード対応一覧</a></li>
+</ul>
+</div>
+
+  </div>
+</article>
+
+  </main>
+</body>
+</html>

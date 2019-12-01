@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width">
+  <title>最近のAPI活動</title>
+  <link href="/articles/2015-08-15-h" rel="canonical">
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="search" type="application/opensearchdescription+xml" title="r7kamura.com" href="/opensearch.xml">
+  <link rel="alternate" type="application/rss+xml" href="/feed.xml">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="最近のAPI活動">
+  <meta property="og:url" content="https://r7kamura.com&#x2F;articles&#x2F;2015-08-15-h">
+  <meta property="twitter:card" content="summary">
+  <meta property="twitter:title" content="最近のAPI活動">
+</head>
+<body>
+  <header>
+    <nav>
+      <a href="/">トップページ</a>
+      <ul>
+        <li>
+          <a href="/articles">記事</a>
+        </li>
+        <li>
+          <a href="https://google.com/search?q=site:r7kamura.com">検索</a>
+        </li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <article>
+  <h1>最近のAPI活動</h1>
+  <footer>
+    <p>
+      <time datetime="2015-08-15T00:00:00+09:00">2015年08月15日</time>
+    </p>
+  </footer>
+  <div>
+    <h2>進捗</h2>
+
+<ul>
+<li>2015-07-27 <a href="http://r7kamura.hatenablog.com/entry/2015/07/27/011614">API Gateway用にRubyでSwagger触るやつ書いた</a>
+</li>
+<li>2015-07-30 <a href="http://r7kamura.hatenablog.com/entry/2015/07/30/023001">Node.jsの練習にHTTPクライアントつくった</a>
+</li>
+<li>2015-07-31 <a href="http://r7kamura.hatenablog.com/entry/2015/07/31/024304">Node.jsでAWSのAPIで認証するやつ書いた</a>
+</li>
+<li>2015-08-02 <a href="http://r7kamura.hatenablog.com/entry/2015/08/02/052043">Node.jsでAmazon API Gatewayのクライアント書いた</a>
+</li>
+<li>2015-08-03 <a href="http://r7kamura.hatenablog.com/entry/2015/08/03/102704">Amazon API Gatewayに自動で定義するやつ</a>
+</li>
+<li>2015-08-04 <a href="http://r7kamura.hatenablog.com/entry/2015/08/04/015315">Amazon Lambdaにまとめてアップロードするやつ</a>
+</li>
+<li>2015-08-05 <a href="http://r7kamura.hatenablog.com/entry/2015/08/05/033656">SwaggerをAPI Gatewayに反映させるやつ</a>
+</li>
+<li>2015-08-06 <a href="http://r7kamura.hatenablog.com/entry/2015/08/06/025547">LambdaとAPI Gatewayまとめて管理するやつ</a>
+</li>
+<li>2015-08-07 <a href="http://r7kamura.hatenablog.com/entry/2015/08/07/033421">LambdaとAPI Gateway用のWAF</a>
+</li>
+<li>2015-08-08 <a href="http://r7kamura.hatenablog.com/entry/2015/08/08/233055">fluctでAPI GatewayやLambdaと仲良くやる</a>
+</li>
+<li>2015-08-11 <a href="http://r7kamura.hatenablog.com/entry/2015/08/11/031300">fluctでAPI GatewayからHTMLを返せるようになった</a>
+</li>
+<li>2015-08-14 <a href="http://r7kamura.hatenablog.com/entry/2015/08/14/043134">今日もAmazon API Gatewayを撫でた</a>
+</li>
+</ul>
+
+
+<h2>Lambdaって何ですか</h2>
+
+<ul>
+<li>何かのイベントをトリガーに独自のコードを動かせられるサービス</li>
+<li>独自のコードはNode.jsかJavaで書ける</li>
+<li>ログは何もしなくてもCloudWatchに記録される</li>
+</ul>
+
+
+<h2>Lambdaどうですか</h2>
+
+<ul>
+<li>勝手にスケールするし使われたぶんだけしかお金を払わなくて良い</li>
+<li>自分でアクセスに備えてEC2インスタンスを増やしたりしなくていい</li>
+<li>そういう見積りを誤って無駄に課金されてしまう恐れがない</li>
+<li>24時間365日EC2インスタンスを起動させておいて同じことをするのと比べるとまあそりゃあ安い</li>
+<li>無料枠が十分にあるので遊びで試しやすい</li>
+<li>制約は多い</li>
+<li>八方塞がりではないし組み合わせで上手くやれる場合も多い</li>
+<li>組み合わせて解決する面白さがちょっとある</li>
+<li>そんなに情報が揃ってない</li>
+<li>経験値無い状態でいきなり本番環境用途に使うのは怖そう</li>
+<li>最初は開発環境を便利にするツールとかの用途のほうが良さそう</li>
+<li>CloudWatchのアラートと組み合わせるとか</li>
+<li>API Gatewayと組み合わせてGitHubやSlackのWebhookで何かするとか</li>
+</ul>
+
+
+<h2>Node.jsどうですか</h2>
+
+<ul>
+<li>同じコードでいろんなユースケースの人の役に立つのが便利</li>
+<li>サーバサイド、クライアントサイド、デスクトップアプリなど</li>
+<li>まだ自分の中でブレがあって書き方が一意に定まらないのがストレス</li>
+<li>getterの書き方がどうとか関数型寄りな手法をどこまで取り入れるかとか細かい話</li>
+<li>ライブラリを提供するときに便利関数をexportすべきかClassとしての関数をexportすべきかとか</li>
+</ul>
+
+
+<h2>API Gatewayどうですか</h2>
+
+<ul>
+<li>夢がある</li>
+<li>知見は無い</li>
+<li>近年の若者は疲弊しがちなので夢は貴重</li>
+<li>変わったことしてないCRUDなWebアプリは論理的にはこれでつくれるはず</li>
+<li>Fluctみたいな管理ツールが無いとだるすぎてまともに開発できないと思う</li>
+<li>意外と「適当にJavaScript書いて雑にWebアプリ公開したい」みたいな人にもいいかも</li>
+</ul>
+
+
+
+  </div>
+</article>
+
+  </main>
+</body>
+</html>

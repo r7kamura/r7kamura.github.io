@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width">
+  <title>coffee-script導入したけど捨てた</title>
+  <link href="/articles/2012-02-19-h" rel="canonical">
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="search" type="application/opensearchdescription+xml" title="r7kamura.com" href="/opensearch.xml">
+  <link rel="alternate" type="application/rss+xml" href="/feed.xml">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="coffee-script導入したけど捨てた">
+  <meta property="og:url" content="https://r7kamura.com&#x2F;articles&#x2F;2012-02-19-h">
+  <meta property="twitter:card" content="summary">
+  <meta property="twitter:title" content="coffee-script導入したけど捨てた">
+</head>
+<body>
+  <header>
+    <nav>
+      <a href="/">トップページ</a>
+      <ul>
+        <li>
+          <a href="/articles">記事</a>
+        </li>
+        <li>
+          <a href="https://google.com/search?q=site:r7kamura.com">検索</a>
+        </li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <article>
+  <h1>coffee-script導入したけど捨てた</h1>
+  <footer>
+    <p>
+      <time datetime="2012-02-19T00:00:00+09:00">2012年02月19日</time>
+    </p>
+  </footer>
+  <div>
+    <div class="section">
+    <h3>node + npm + coffee 導入</h3>
+
+<pre><code>&lt;pre class=&quot;code lang-txt&quot; data-lang=&quot;txt&quot; data-unlink&gt;$ brew install node</code></pre><p>$ brew install npm</p>
+<p>Error: No available formula for npm
+npm can be installed thusly by following the instructions at
+  <a href="http://npmjs.org/">http://npmjs.org/</a>
+To do it in one line, use this command:
+  curl <a href="http://npmjs.org/install.sh">http://npmjs.org/install.sh</a> | sh</p>
+<p>$ curl <a href="http://npmjs.org/install.sh">http://npmjs.org/install.sh</a> | sh
+$ npm search coffee-script
+$ npm view !$
+$ npm install -g !$
+$ coffee -v</pre></p>
+</div>
+<div class="section">
+    <h3>coffee 練習</h3>
+
+<pre><code>&lt;pre class=&quot;code lang-txt&quot; data-lang=&quot;txt&quot; data-unlink&gt;$ coffee</code></pre><p>coffee&gt; console.log &quot;Hello, world&quot;
+Hello, world
+undefined</p>
+<p>$ coffee -e &quot;console.log &#39;Hello, World&#39;&quot;
+Hello, World</p>
+<p>$ echo &quot;console.log &#39;Hello, World&#39;&quot; &gt; hello.coffee
+$ coffee -c hello
+$ ls
+hello.coffee hello.js</p>
+<p>$ node hello
+Hello, World</p>
+<p>$ cat hello.js
+(function() {</p>
+<p>  console.log(&quot;Hello, World!&quot;);</p>
+<p>}).call(this);</pre></p>
+</div>
+<div class="section">
+    <h3>Vim向け</h3>
+
+<pre><code>&lt;pre class=&quot;code lang-txt&quot; data-lang=&quot;txt&quot; data-unlink&gt;# シンタックスとか</code></pre><p>$ git clone git://github.com/kchmck/vim-coffee-script.git .vim/bundle/vim-coffee-script</p>
+<h1 id="leader--r-でコンパイル結果を表示する設定">&lt;leader&gt; + r でコンパイル結果を表示する設定</h1>
+<p>$ git clone git://github.com/thinca/vim-quickrun.git .vim/bundle/vim-quickrun
+$ vim .vimrc
+$ tail -n 3 .vimrc
+let g:quickrun_config = {}
+let g:quickrun_config[&#39;coffee&#39;] = {&#39;command&#39; : &#39;coffee&#39;, &#39;exec&#39; : [&#39;%c -cbp %s&#39;]}</pre></p>
+</div>
+<div class="section">
+    <h3>Sinatra向け</h3>
+
+<pre><code>&lt;pre class=&quot;code lang-txt&quot; data-lang=&quot;txt&quot; data-unlink&gt;require &quot;coffee-script&quot;</code></pre><p>class App &lt; ::Sinatra::Base
+  get &quot;/&quot; do
+    &quot;Hello&quot;
+  end</p>
+<p>  get &quot;/js/*.coffee&quot; do |name|
+    coffee name.to_sym
+  end
+end</pre></p>
+</div>
+<div class="section">
+    <h3>書き直し支援</h3>
+
+<ul>
+<li><a href="http://js2coffee.org/">Js2coffee convert JavaScript code to CoffeeScript</a></li>
+<li><a href="http://coffeescript.org/">CoffeeScript</a></li>
+</ul>
+</div>
+<div class="section">
+    <h3>感想</h3>
+
+<ul>
+<li>チョコ食べながらjsからcoffeeに書き直してる途中で吐きそうになった</li>
+<li>リテラルやりすぎ感ある</li>
+<li>Rubyでも$:とか書くより$LOAD_PATHって書いたほうが良いとかある</li>
+<li>適応できない自分が時代に淘汰されていく恐ろしさだけが残った</li>
+</ul>
+</div>
+
+  </div>
+</article>
+
+  </main>
+</body>
+</html>

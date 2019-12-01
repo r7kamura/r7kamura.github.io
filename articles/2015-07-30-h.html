@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Node.jsの練習にHTTPクライアントつくった</title>
+  <link href="/articles/2015-07-30-h" rel="canonical">
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="search" type="application/opensearchdescription+xml" title="r7kamura.com" href="/opensearch.xml">
+  <link rel="alternate" type="application/rss+xml" href="/feed.xml">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Node.jsの練習にHTTPクライアントつくった">
+  <meta property="og:url" content="https://r7kamura.com&#x2F;articles&#x2F;2015-07-30-h">
+  <meta property="twitter:card" content="summary">
+  <meta property="twitter:title" content="Node.jsの練習にHTTPクライアントつくった">
+</head>
+<body>
+  <header>
+    <nav>
+      <a href="/">トップページ</a>
+      <ul>
+        <li>
+          <a href="/articles">記事</a>
+        </li>
+        <li>
+          <a href="https://google.com/search?q=site:r7kamura.com">検索</a>
+        </li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <article>
+  <h1>Node.jsの練習にHTTPクライアントつくった</h1>
+  <footer>
+    <p>
+      <time datetime="2015-07-30T00:00:00+09:00">2015年07月30日</time>
+    </p>
+  </footer>
+  <div>
+    <h2>経緯</h2>
+
+<ol>
+<li>お金掛けずに簡単にスケールするWebアプリつくりたい</li>
+<li>現実的じゃなくてもいいので面白いほうがいい</li>
+<li>API GatewayとLambda試したい</li>
+<li>AWS Consoleポチポチやるのつらい</li>
+<li>構成管理ツールほしい</li>
+<li>API GatewayのAPI叩きたい</li>
+<li>Lambda触るならNode.jsの方が望ましい</li>
+<li>Node.js用のAPI GatewayのSDKほしい</li>
+<li>Node.js用のHTTPクライアントほしい</li>
+<li>Node.js真面目に触ったことない</li>
+</ol>
+
+
+<p>という経緯でのたうちまわりながら <a href="https://github.com/r7kamura/stackable-fetcher">r7kamura/stackable-fetcher</a> というのを書いた。</p>
+
+<h2>雑感</h2>
+
+<ul>
+<li>要件: Promiseを返す &amp; RubyのFaradayみたいにmiddlewareで拡張できる</li>
+<li>期待: すべての処理をmiddlewareに任せられるので各位の創意工夫に期待できる</li>
+<li>類似ライブラリ: <a href="https://github.com/visionmedia/superagent">superagent</a> や <a href="https://github.com/typicode/fetchival">fetchival</a>
+</li>
+<li>ドキュメンテーション: yuidocやesdocを見たけど、枯れてるjsdocを使った</li>
+<li>jsdoc雑感: そんなに良くもないけど悪くもないので次もjsdoc使うと思う</li>
+<li>Node.js雑感: 関数などに一意な名前が無いのでファイル構成とかが曖昧で少し困る</li>
+<li>ほか: READMEに目次つくるのに <a href="https://github.com/thlorenz/doctoc">doctoc</a> 使って便利だった</li>
+</ul>
+
+
+
+  </div>
+</article>
+
+  </main>
+</body>
+</html>

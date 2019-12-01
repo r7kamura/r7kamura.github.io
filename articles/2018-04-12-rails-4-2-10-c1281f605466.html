@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Rails 4.2.10 の変更点</title>
+  <link href="/articles/2018-04-12-rails-4-2-10-c1281f605466" rel="canonical">
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="search" type="application/opensearchdescription+xml" title="r7kamura.com" href="/opensearch.xml">
+  <link rel="alternate" type="application/rss+xml" href="/feed.xml">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Rails 4.2.10 の変更点">
+  <meta property="og:url" content="https://r7kamura.com&#x2F;articles&#x2F;2018-04-12-rails-4-2-10-c1281f605466">
+  <meta property="twitter:card" content="summary">
+  <meta property="twitter:title" content="Rails 4.2.10 の変更点">
+</head>
+<body>
+  <header>
+    <nav>
+      <a href="/">トップページ</a>
+      <ul>
+        <li>
+          <a href="/articles">記事</a>
+        </li>
+        <li>
+          <a href="https://google.com/search?q=site:r7kamura.com">検索</a>
+        </li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <article>
+  <h1>Rails 4.2.10 の変更点</h1>
+  <footer>
+    <p>
+      <time datetime="2018-04-12T00:00:00+09:00">2018年04月12日</time>
+    </p>
+  </footer>
+  <div>
+    <p>Rails 4.2.9 から 4.2.10 にかけての変更点をまとめます。</p>
+<p><a href="https://github.com/rails/rails/compare/v4.2.9...v4.2.10" title="https://github.com/rails/rails/compare/v4.2.9...v4.2.10"><strong>rails/rails</strong><br>_rails - Ruby on Rails_github.com</a><a href="https://github.com/rails/rails/compare/v4.2.9...v4.2.10"></a></p>
+<p><a href="https://medium.com/@r7kamura/rails-4-2-9-d391597ab04" title="https://medium.com/@r7kamura/rails-4-2-9-d391597ab04"><strong>Rails 4.2.9 の変更点</strong><br>_Rails 4.2.8 から 4.2.9 の変更点について、前回に引き続き、自分用にまとめておくことにしました。_medium.com</a><a href="https://medium.com/@r7kamura/rails-4-2-9-d391597ab04"></a></p>
+<h3 id="actionpack">actionpack</h3>
+<h2 id="パスを処理する中でエンコーディングを保持するための変更が差し戻され、更に常に-utf-8-で扱われるようになった">パスを処理する中でエンコーディングを保持するための変更が差し戻され、更に常に UTF-8 で扱われるようになった</h2>
+<p>パスを処理する中でエンコーディングが変わってしまうという問題があり、これについて Rails 4.2.9 で修正が加えられました。しかし、これは加えるべき変更ではなかったとして今回差し戻されました。</p>
+<p>更に、Ruby 2.0.0 では文字列リテラルの先頭以外で ASCII-compatible で ASCII-8BIT エンコーディングな文字列を展開した際 (例: “foo #{‘bar’.b}”) に文字列全体のエンコーディングが UTF-8 ではなく ASCII-8IT になるという違いがあり、バージョン間の挙動を統一するために、ここでは常に UTF-8 エンコーディングの文字列が返されるように変更されました。</p>
+<p><a href="https://github.com/rails/rails/commit/a7d49ef78c36df2d1ca876451f30915ada1079a5" title="https://github.com/rails/rails/commit/a7d49ef78c36df2d1ca876451f30915ada1079a5"><strong>Restore previous behavior of normalize_path · rails/rails@a7d49ef</strong><br>_While this is going to break what we were trying to fix in GitHub code, ultimately this returns Rails 4.2 to it&#39;s…_github.com</a><a href="https://github.com/rails/rails/commit/a7d49ef78c36df2d1ca876451f30915ada1079a5"></a></p>
+<h3 id="activerecord">activerecord</h3>
+<h2 id="joins-が引数の-scope-の状態に左右されなくなった-但し-unscoped-を除く">joins が引数の scope の状態に左右されなくなった (但し unscoped を除く)</h2>
+<p>activerecord 4.2.8 で、unscoped が joins にきちんと影響するように変更が加えられましたが、この変更が原因で scope の状態が全て joins に影響するようになってしまいました。scope の joins への影響の是非はともかくとして、Rails 4.2 で挙動の変更が加えられるのは避けるべきだとして修正が加えられ、unscoped を除く scope の状態は joins に影響しなくなりました。</p>
+<p><a href="https://github.com/rails/rails/commit/5e7fc65e4c3d4ef6f3584362376fc5f9ccbf39ff" title="https://github.com/rails/rails/commit/5e7fc65e4c3d4ef6f3584362376fc5f9ccbf39ff"><strong>Post.joins(:users) should not be affected by `User.current_scope` · rails/rails@5e7fc65</strong><br>_This change was introduced by #18109. The intent of that change was to specifically apply `unscoped`, not to allow all…_github.com</a><a href="https://github.com/rails/rails/commit/5e7fc65e4c3d4ef6f3584362376fc5f9ccbf39ff"></a></p>
+<h2 id="mysql-adapter-で-precision-付きの-datetime-型を正しく扱えるようになった">mysql adapter で precision 付きの datetime 型を正しく扱えるようになった</h2>
+<p>表題の通りで、mysql2 adapter に加えて mysql adapter でも、precision (精度) 付きの datetime 型のフィールドを正しく扱えるようになりました。Rails 5 では mysql adapter は廃止されます。</p>
+<p><a href="https://github.com/rails/rails/pull/30651" title="https://github.com/rails/rails/pull/30651"><strong>4-2-stable: Fix datetime with precision for mysql adapter by kamipo · Pull Request #30651 ·…</strong><br>_It will pass isolated test (test per file), but somehow created t.datetime :written_on, precision: 6 causes any side…_github.com</a><a href="https://github.com/rails/rails/pull/30651"></a></p>
+
+  </div>
+</article>
+
+  </main>
+</body>
+</html>

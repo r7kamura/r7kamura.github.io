@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width">
+  <title>HTML5のValidationでsubmitボタンの状態を変更する</title>
+  <link href="/articles/2014-11-03-q" rel="canonical">
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="search" type="application/opensearchdescription+xml" title="r7kamura.com" href="/opensearch.xml">
+  <link rel="alternate" type="application/rss+xml" href="/feed.xml">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="HTML5のValidationでsubmitボタンの状態を変更する">
+  <meta property="og:url" content="https://r7kamura.com&#x2F;articles&#x2F;2014-11-03-q">
+  <meta property="twitter:card" content="summary">
+  <meta property="twitter:title" content="HTML5のValidationでsubmitボタンの状態を変更する">
+</head>
+<body>
+  <header>
+    <nav>
+      <a href="/">トップページ</a>
+      <ul>
+        <li>
+          <a href="/articles">記事</a>
+        </li>
+        <li>
+          <a href="https://google.com/search?q=site:r7kamura.com">検索</a>
+        </li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <article>
+  <h1>HTML5のValidationでsubmitボタンの状態を変更する</h1>
+  <footer>
+    <p>
+      <time datetime="2014-11-03T00:00:00+09:00">2014年11月03日</time>
+    </p>
+  </footer>
+  <div>
+    <p>HTML5のvalidationを使い、<code>form.checkValidity()</code> の結果を見てsubmitボタンの状態を変更します。</p>
+<h2 id="サンプルコード">サンプルコード</h2>
+<p>title用のinput要素にrequired属性を付けています。これでtitleが未入力の場合は <code>form.checkValidity()</code> がfalseを返すようになるため、入力があるたびにこの結果を確認し、未入力の場合はsubmitボタンを押せないようにします。</p>
+<pre><code class="language-html">&lt;form action=&quot;/posts&quot; method=&quot;post&quot; data-validate&gt;
+  &lt;input name=&quot;title&quot; type=&quot;text&quot; required&gt;
+  &lt;textarea name=&quot;body&quot;&gt;&lt;/textarea&gt;
+  &lt;input name=&quot;commit&quot; type=&quot;submit&quot; value=&quot;OK&quot; disabled&gt;
+&lt;/form&gt;
+
+&lt;script&gt;
+  jQuery(function ($) {
+    $(&#39;form[data-validate]&#39;).on(&#39;input&#39;, function () {
+      $(this).find(&#39;:submit&#39;).attr(&#39;disabled&#39;, !this.checkValidity());
+    });
+  });
+&lt;/script&gt;</code></pre>
+<h2 id="デモ">デモ</h2>
+<p>デモ用にGitHubっぽい見た目のやつを作ってみました。GIFにしたら減色処理が結構酷いですね…</p>
+<p><img src="https://qiita-image-store.s3.amazonaws.com/0/4365/1bbeb393-aca7-e905-3b68-400e91abd9f9.gif" alt="demo.gif"></p>
+<h2 id="説明">説明</h2>
+<h3 id="checkvalidity">checkValidity()</h3>
+<p>HTML5では、フォームの各要素に <code>required</code> などのvalidationが定義できるようになりました。同時に、form・input・textarea・selectの要素に <code>checkValidity()</code> というプロパティが定義されています。この関数は、input・textarea・selectではその要素がvalidかどうかによってtrue/falseを返し、formでは含まれる全ての要素がvalidかどうかによってtrue/falseを返します。</p>
+<h3 id="input-event">input event</h3>
+<p>input・textareaなどの要素に変更があった場合、HTML5では<a href="https://developer.mozilla.org/en-US/docs/Web/Events/input">inputイベント</a>が発生します。モバイルデバイスなどへの対応を考えると、今回の目的ではkeyupなどのイベントよりはinputイベントを利用する方が良いでしょう。</p>
+<h2 id="参考-link">参考 :link:</h2>
+<ul>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/Events/input">input - Event reference | MDN</a></li>
+<li><a href="http://www.html5rocks.com/ja/tutorials/forms/html5forms/">HTML5 で優れたフォームを作成する - HTML5 Rocks</a></li>
+</ul>
+
+  </div>
+</article>
+
+  </main>
+</body>
+</html>

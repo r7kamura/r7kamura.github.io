@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width">
+  <title>権限管理を実装するときの地味な話</title>
+  <link href="/articles/2014-12-08-1-h" rel="canonical">
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="search" type="application/opensearchdescription+xml" title="r7kamura.com" href="/opensearch.xml">
+  <link rel="alternate" type="application/rss+xml" href="/feed.xml">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="権限管理を実装するときの地味な話">
+  <meta property="og:url" content="https://r7kamura.com&#x2F;articles&#x2F;2014-12-08-1-h">
+  <meta property="twitter:card" content="summary">
+  <meta property="twitter:title" content="権限管理を実装するときの地味な話">
+</head>
+<body>
+  <header>
+    <nav>
+      <a href="/">トップページ</a>
+      <ul>
+        <li>
+          <a href="/articles">記事</a>
+        </li>
+        <li>
+          <a href="https://google.com/search?q=site:r7kamura.com">検索</a>
+        </li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <article>
+  <h1>権限管理を実装するときの地味な話</h1>
+  <footer>
+    <p>
+      <time datetime="2014-12-08T00:00:00+09:00">2014年12月08日</time>
+    </p>
+  </footer>
+  <div>
+    <p>「あるユーザがXをYできるかどうか」というメソッドを定義したいとき、Userに実装するよりも、Xに実装した方がうまくいくことが多かった。例えば「ユーザが投稿を編集できるか」という、ブログの共同編集のような機能で使うやつで考える。つまり、User#can_edit?(entry) みたいなやつにするか Entry#editable_by?(user) みたいなやつにするかという話になる。</p>
+
+<p>後者の方でうまくいった理由は、Webアプリだとログイン中のユーザが存在しない場合というのがあるが、後者ではuserがnilの場合でも対応できたというのと、Userクラスが長大にならなかったという点 (Abilityクラスとかを全ての場所で統一して使えている場合はそれで良いので各自適当にやっていってほしい)。あとメソッドの命名規則の問題があって、名詞形 (例:User#name) か、xxx?で終わるメソッド名のときは subject is xxx または subject has xxx と書けるやつ (例:User#admin?, User#has_any_entry?) か、動詞形 (例:User#create_entry) というパターンしか許していないのだけど、can_xxx? みたいなパターンは許可しにくい。able_to_xxx? か has_grant_to_xxx? だとこのパターンに収められるが、何かおかしい気がするので、entry is editable by user みたいに書ける方が良かったというのもある。User#can_create?(:entry) のように、Entryの実体がまだ存在しない場合もあるのでその場合はUserクラスに実装するしかないが、大抵は何らかの母体 (Blogクラスとか) が存在していることも多いので、そこに生やすのも手。</p>
+
+
+  </div>
+</article>
+
+  </main>
+</body>
+</html>

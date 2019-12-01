@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width">
+  <title>2018年によく利用したalias</title>
+  <link href="/articles/2018-12-21-shell-aliases" rel="canonical">
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="search" type="application/opensearchdescription+xml" title="r7kamura.com" href="/opensearch.xml">
+  <link rel="alternate" type="application/rss+xml" href="/feed.xml">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="2018年によく利用したalias">
+  <meta property="og:url" content="https://r7kamura.com&#x2F;articles&#x2F;2018-12-21-shell-aliases">
+  <meta property="twitter:card" content="summary">
+  <meta property="twitter:title" content="2018年によく利用したalias">
+</head>
+<body>
+  <header>
+    <nav>
+      <a href="/">トップページ</a>
+      <ul>
+        <li>
+          <a href="/articles">記事</a>
+        </li>
+        <li>
+          <a href="https://google.com/search?q=site:r7kamura.com">検索</a>
+        </li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <article>
+  <h1>2018年によく利用したalias</h1>
+  <footer>
+    <p>
+      <time datetime="2018-12-21T00:00:00+09:00">2018年12月21日</time>
+    </p>
+  </footer>
+  <div>
+    <p>シェルの alias で登録しているコマンドの中で、2018年によく利用したものを振り返っておきます。</p>
+<pre><code>alias pr=&#39;hub browse -- pull/$(git rev-parse --abbrev-ref HEAD)&#39;</code></pre><p>この alias は、例えば r7kamura/foo リポジトリの bar ブランチで作業しているときに、<a href="https://github.com/r7kamura/foo/pull/bar">https://github.com/r7kamura/foo/pull/bar</a> をデフォルトの Web ブラウザで開く、というものです。この URL は、foo という名前のリモートブランチからそのリポジトリに Pull Request がつくられているときは Pull Request のページを開き、まだつくられていなければ Pull Request 作成画面を開く、という振る舞いをします。これから Pull Request をつくるときと、作業中の Pull Request のページを開くときに使っています。5年ぐらい利用していますが、今年もこれが一番役に立っている気がします。</p>
+<p>但し、fork したブランチで作業しているときは fork 先のリポジトリの URL を開いてしまうので、これから Pull Request をつくるときは良いんですが、作業中の Pull Request を開きたいときは compare ページに飛ばされてしまうという若干の使いづらさがあります。compare ページには既にそのブランチからつくられている Pull Request へのリンクが表示されているので、それをクリックすると良いんですが、少し手間がかかるので若干面倒ですね。hub browse コマンドではどのリポジトリを開くかを指定することもできるので、fork 元のリポジトリを計算するコマンドがあれば、それを利用して改善することができるかもしれません。</p>
+<p>ここ数年間 GitHub Enterprise を利用していないため、GitHub のことだけ考慮してコマンドを用意すれば良いので管理が随分楽になりました。</p>
+<pre><code>alias f=&#39;ghq get -p $@&#39;</code></pre><p>これは ghq を利用して GitHub のリポジトリを clone してくるためのショートカットです。-p は clone してくるときの URL の形式として SSH 形式を利用するものです。</p>
+<pre><code>alias e=&#39;cd $(ghq root)/$(ghq list | peco)&#39;</code></pre><p>これは ghq で clone してきたリポジトリに移動するためのショートカットです。peco で絞り込んでいます。</p>
+<pre><code>alias xl=&#39;tmux list-session&#39;
+alias xa=&#39;tmux a -t&#39;
+alias xn=&#39;tmux new -s&#39;</code></pre><p>この辺りは tumx を使うためのショートカットです。xl は存在しているセッション一覧、xa はセッションへのアタッチ（セッション名の先頭部分数文字を引数として指定します）、xn はセッションの作成（セッション名を引数として指定します）に使っています。</p>
+<h2 id="その他">その他</h2>
+<p>あとは他愛もない1文字や2文字のショートカットや、操作対象を peco で絞り込んでから実後するもの、Git の操作を少し楽にするための alias などをよく利用しました。他に、これは alias ではなく function として実装していますが、git grep と sed と xargs で指定した文字列を特定の文字列に書き換える function が今年は重宝しました。</p>
+<p>alias と関係ないものの話で言うと、GitHub の Pull Request 周りの URL は便利で、例えば複数件の Pull Request で並行して作業しているときに、<a href="https://github.com/foo/bar/pulls/r7kamura">https://github.com/foo/bar/pulls/r7kamura</a> を開くと is:open is:pr author:r7kamura で foo/bar を検索した結果が出てくるのでよく見ています。</p>
+<h2 id="振り返り">振り返り</h2>
+<p>今年も新しい alias の追加は無くて、使っていないものを消す一方でした。数年前までは便利なものをどんどん取り入れていましたが、最近はそういう傾向が自分の中で徐々に減ってきて、どちらかというとストリクトにコマンドを入力していこうという気持ちになりつつあります。あとは Docker を利用するプロジェクトが増えたため、ホスト OS 上で直接何かを処理するコマンドを利用できる機会が減ってきていることも、alias の減少傾向に関係している気もしています。</p>
+
+  </div>
+</article>
+
+  </main>
+</body>
+</html>

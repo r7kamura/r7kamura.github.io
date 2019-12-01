@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width">
+  <title>改行どこに入れるか</title>
+  <link href="/articles/2012-01-18-1-h" rel="canonical">
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="search" type="application/opensearchdescription+xml" title="r7kamura.com" href="/opensearch.xml">
+  <link rel="alternate" type="application/rss+xml" href="/feed.xml">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="改行どこに入れるか">
+  <meta property="og:url" content="https://r7kamura.com&#x2F;articles&#x2F;2012-01-18-1-h">
+  <meta property="twitter:card" content="summary">
+  <meta property="twitter:title" content="改行どこに入れるか">
+</head>
+<body>
+  <header>
+    <nav>
+      <a href="/">トップページ</a>
+      <ul>
+        <li>
+          <a href="/articles">記事</a>
+        </li>
+        <li>
+          <a href="https://google.com/search?q=site:r7kamura.com">検索</a>
+        </li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <article>
+  <h1>改行どこに入れるか</h1>
+  <footer>
+    <p>
+      <time datetime="2012-01-18T00:00:00+09:00">2012年01月18日</time>
+    </p>
+  </footer>
+  <div>
+    <div class="section">
+    <h3>書くとき</h3>
+    <p>エディタで文章を書くときは、句読点ごとに改行を入れることが多い。文章が部分的に切り貼りしやすくなる。行単位で切り貼りするのは視覚的にも操作的にもすごく楽。あと、文章におかしいところがないかよく見えるということもある。長すぎる行が可視化されて書きにくくなるし、ダメなことはやりにくくするという方針に従ってる。Gitでバージョン管理するような文章を書くときでも、変更が行単位で行われるほうが履歴が読みやすいという利点がある。</p>
+
+</div>
+<div class="section">
+    <h3>読むとき</h3>
+    <p>ブログに投稿するときは、句読点ごとの改行を取り除いて段落用の改行だけ残す。閲覧環境によって幅が可変するので、中途半端な場所で改行が入る可能性があるということや、文字が箱型に配置されている方が全体を捉えたときに見栄えが良い気がする。</p>
+<p>1行ごとに改行が入った文章を読むのはあんまり好きじゃない。画面幅による改行と自分の入れた改行が同時に登場したときに、中途半端なところで改行が発生してしまうのがあんまり良くない。画面幅が狭いと、例え最高の文章だとしても、下記のような感じでガタガタして読みづらい。</p>
+<p></p>
+<div style="width:300px">
+
+<pre><code>&lt;pre class=&quot;code lang-txt&quot; data-lang=&quot;txt&quot;&gt;彼がたどり着いた結果は感謝であった。</code></pre><p>自分自身を育ててくれた武道への限りなく大きな恩。
+自分なりに少しでも返そうと思い立ったのが、一日一万回　感謝の正拳突き！！
+気を整え、拝み、祈り、構えて、突く。
+一連の動作を一回こなすのに当初は５～６秒、一万回突き終えるまでに初日は１８時間以上を費やした。
+突き終えれば倒れる様に寝る。
+起きてはまた突くを繰り返す日々。</pre></p>
+<p></p>
+</div>
+
+</div>
+<div class="section">
+    <h3>TeXの改行ルールは気に入ってる</h3>
+    <p>TeXの組版では下記のように変換される。</p>
+
+<ul>
+<li>1つの改行(\n)が無視される</li>
+<li>2つの改行(\n\n)が段落区切りとして認識される</li>
+</ul>
+    <pre class="code lang-txt" data-lang="txt"># 変換前
+左右につけている黒い“×”の形の髪留めがトレードマーク。
+宮子からは「ゆのっち」と呼ばれることが多い。
+敬称で呼ばれる場合は言い難いためか、大家以外からは「ちゃん」付けではなく、「さん」付けで呼ばれている。
+
+<p>素直で優しく、何事にも一生懸命。
+可愛いものに目がない。
+天然な面を持ち、あらゆることを世間一般の認識と違う意味に勘違いする。
+普段は寛容な性格だが、小さなこだわりを譲らない一面もある。
+寝起きや酒が入ってしまった時など、意識が不安定な状態になると、
+自分の小さなこだわりについて延々と語り始める癖がある。</pre></p>
+<pre><code>&lt;pre class=&quot;code lang-txt&quot; data-lang=&quot;txt&quot;&gt;# 変換後</code></pre><p>　左右につけている黒い“×”の形の髪留めがトレードマーク。宮子からは「ゆのっち」と呼ばれることが多い。敬称で呼ばれる場合は言い難いためか、大家以外からは「ちゃん」付けではなく、「さん」付けで呼ばれている。</p>
+<p>　素直で優しく、何事にも一生懸命。可愛いものに目がない。天然な面を持ち、あらゆることを世間一般の認識と違う意味に勘違いする。普段は寛容な性格だが、小さなこだわりを譲らない一面もある。寝起きや酒が入ってしまった時など、意識が不安定な状態になると、自分の小さなこだわりについて延々と語り始める癖がある。</pre></p>
+</div>
+<div class="section">
+    <h3>まとめ</h3>
+
+<ul>
+<li>改行が気になる</li>
+<li>句読点単位で改行
+<ul>
+<li>書きやすい</li>
+<li>Gitしやすい</li>
+</ul>
+</li>
+<li>段落単位だけで改行
+<ul>
+<li>読みやすい</li>
+</ul>
+</li>
+</ul>
+</div>
+
+  </div>
+</article>
+
+  </main>
+</body>
+</html>

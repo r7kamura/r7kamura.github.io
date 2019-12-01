@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width">
+  <title>config.assets.pathsの中に含まれる全てのapplication.{js,css}がprecompile対象に含まれてしまう問題に対処する</title>
+  <link href="/articles/2015-10-21-q" rel="canonical">
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="search" type="application/opensearchdescription+xml" title="r7kamura.com" href="/opensearch.xml">
+  <link rel="alternate" type="application/rss+xml" href="/feed.xml">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="config.assets.pathsの中に含まれる全てのapplication.{js,css}がprecompile対象に含まれてしまう問題に対処する">
+  <meta property="og:url" content="https://r7kamura.com&#x2F;articles&#x2F;2015-10-21-q">
+  <meta property="twitter:card" content="summary">
+  <meta property="twitter:title" content="config.assets.pathsの中に含まれる全てのapplication.{js,css}がprecompile対象に含まれてしまう問題に対処する">
+</head>
+<body>
+  <header>
+    <nav>
+      <a href="/">トップページ</a>
+      <ul>
+        <li>
+          <a href="/articles">記事</a>
+        </li>
+        <li>
+          <a href="https://google.com/search?q=site:r7kamura.com">検索</a>
+        </li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <article>
+  <h1>config.assets.pathsの中に含まれる全てのapplication.{js,css}がprecompile対象に含まれてしまう問題に対処する</h1>
+  <footer>
+    <p>
+      <time datetime="2015-10-21T00:00:00+09:00">2015年10月21日</time>
+    </p>
+  </footer>
+  <div>
+    <p>bowerやnpm経由で外部のパッケージに含まれるCSSやJavaScriptを利用したいときに、Rails.configuration.assets.pathsを変更し、Sprocketsを経由してこれを読み込むことがあります。</p>
+<pre><code class="language-rb">config.assets.paths &lt;&lt; &quot;node_modules&quot;</code></pre>
+<pre><code class="language-scss">@import &quot;bootstrap-sass/assets/stylesheets/bootstrap&quot;;</code></pre>
+<h2 id="なにが困るか">なにが困るか</h2>
+<p>このとき、node_modules内に <code>application.css.ejs.scss</code> のようなファイルが含まれると、rake assets:precompileの対象に含まれてしまう場合があります。bootstrap-sassの例で言えば、node_modules/bootstrap-sass/test/dummy_node_mincer/application.css.ejs.scss が存在するため、これをprecompileしようとして、Sass::SyntaxErrorが発生してしまいます。</p>
+<p>なお、この問題は <a href="https://github.com/rails/sprockets-rails/issues/218">all application.(js,css) files pulled in · Issue #218 · rails/sprockets-rails</a> で報告されていて、次のメジャーバージョンでは修正されるようです。</p>
+<h2 id="なぜ起こるか">なぜ起こるか</h2>
+<p>sprockets-railsでは、<a href="https://github.com/rails/sprockets-rails/blob/93a45b1c463a063ec7cf4d160107b67aa3db7a1a/lib/sprockets/railtie.rb#L80">lib/sprockets/railtie.rb</a> で最初から <code>/(?:\/|\\|\A)application\.(css|js)$/</code> に一致するものをprecompile対象にしています。app/assets/javascripts/application.js や、他のGemに含まれるそういったファイルなどが対象ですね。</p>
+<p><code>application\.(css|js)$</code> なので application.css.ejs.scss には一致しないだろうと思いきや、<a href="https://github.com/sstephenson/sprockets/blob/v2.12.3/lib/sprockets/asset_attributes.rb#L49">sprockets/asset_attributes.rb at v2.12.3 · sstephenson/sprockets</a> を見ると分かるように、実際には <code>logical_path</code> という、engine_extensionsから取り出せる幾つかの拡張子を取り除いたパスに対してチェックを行います。</p>
+<pre><code class="language-rb">[1] pry(main)&gt; Sprockets::Environment.new.engine_extensions
+=&gt; [&quot;.coffee&quot;, &quot;.jst&quot;, &quot;.eco&quot;, &quot;.ejs&quot;, &quot;.less&quot;, &quot;.sass&quot;, &quot;.scss&quot;, &quot;.erb&quot;, &quot;.str&quot;]</code></pre>
+<p>このように、.ejs や .scss が登録されているため、/path/to/application.css.ejs.scss のlogical_pathは /path/to/application.css となり、先述した <code>/(?:\/|\\|\A)application\.(css|js)$/</code> の正規表現に一致することになります。</p>
+<h2 id="回避策">回避策</h2>
+<p><code>/(?:\/|\\|\A)application\.(css|js)$/</code> を必要としていない場合は、これを取り除きます。::Sprockets::Railtie::LOOSE_APP_ASSETS を忘れるとapp/assets以下のフォントファイルなどがコンパイルされなくなってしまうので、必要な場合は忘れないようにしましょう。</p>
+<pre><code class="language-rb">config.assets.precompile = [
+  ::Sprockets::Railtie::LOOSE_APP_ASSETS,
+  &#39;application.css&#39;,
+  &#39;application.js&#39;,
+]</code></pre>
+
+  </div>
+</article>
+
+  </main>
+</body>
+</html>

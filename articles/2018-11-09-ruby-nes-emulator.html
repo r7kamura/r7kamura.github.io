@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width">
+  <title>RubyでNESエミュレータをつくりはじめた話</title>
+  <link href="/articles/2018-11-09-ruby-nes-emulator" rel="canonical">
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="search" type="application/opensearchdescription+xml" title="r7kamura.com" href="/opensearch.xml">
+  <link rel="alternate" type="application/rss+xml" href="/feed.xml">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="RubyでNESエミュレータをつくりはじめた話">
+  <meta property="og:url" content="https://r7kamura.com&#x2F;articles&#x2F;2018-11-09-ruby-nes-emulator">
+  <meta property="twitter:card" content="summary">
+  <meta property="twitter:title" content="RubyでNESエミュレータをつくりはじめた話">
+</head>
+<body>
+  <header>
+    <nav>
+      <a href="/">トップページ</a>
+      <ul>
+        <li>
+          <a href="/articles">記事</a>
+        </li>
+        <li>
+          <a href="https://google.com/search?q=site:r7kamura.com">検索</a>
+        </li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <article>
+  <h1>RubyでNESエミュレータをつくりはじめた話</h1>
+  <footer>
+    <p>
+      <time datetime="2018-11-09T00:00:00+09:00">2018年11月09日</time>
+    </p>
+  </footer>
+  <div>
+    <p>先週末からつくっている NES エミュレータ <a href="https://github.com/r7kamura/rnes">r7kamura/rnes</a> の話。</p>
+<p><img src="/images/2018-11-09-ruby-nes-emulator-1.png" alt=""></p>
+<h2 id="nes-エミュレータ">NES エミュレータ</h2>
+<p>そもそも NES って何？という話。 NES というのは、<a href="https://ja.wikipedia.org/wiki/Nintendo_Entertainment_System">Nintendo Entertainment System</a> の略称で、日本で販売されていたファミコンを海外向けに若干カスタマイズして販売したやつの名称です。NES エミュレータっていうのは、その NES と互換性のあるソフトを PC などで動かせるようなプログラム。但し NES エミュレータと呼ぶ場合、ファミコンと NES の差異が意識されていることはほぼなくて、NES エミュレータとファミコンエミュレータを総称して NES エミュレータと呼ばれていることがほとんどだと思われる。</p>
+<h2 id="なぜ-nes-エミュレータを？">なぜ NES エミュレータを？</h2>
+<p>自分が NES エミュレータをつくっているのは、コンピューターの仕組みとプログラミング言語の勉強を楽しく学ぶためです。そもそもよく出来た NES エミュレータって世の中に沢山あるので、それを置き換えようという話ではなくて。NES と互換性のある、つまり NES エミュレータで動かすためのフリーソフトって同人界隈とかでつくられたりもしているので、そういうのを動かしたりしながら楽しく学べたらなと。</p>
+<p>NES エミュレータを実装するための工程って、小さな CPU レジスタを実装して、NES のハードウェアに組み込まれている CPU のベースになっている MOS 6502 という CPU に実装されている命令群を実装して、CPU が作業するためのメモリを実装して、CPU がメモリ内に用意してくれたデータを使って 256 × 240 ピクセルの画面を描画する GPU を実装して、カセットに書き込まれているバイト列のパーサを書いて、という感じの工程になる。なので、コンピュータの仕組みを学ぶにはとても良い教材だと思っている。</p>
+<h2 id="なぜ-ruby-で？">なぜ Ruby で？</h2>
+<p>以前 JavaScript で Hello, World! を出すくらいまでは少しだけ実装したことがあったんだけど、JavaScript って良くも悪くも、いや悪いか、書いたコードのスタイルが数年後に古くて良くないものだとみなされやすくなる傾向が比較的強い。「去年 JavaScript で書いたときに使ったツールチェインってあれとあれで、ビルドもあれでやっているので、今だったら当然これとこれを使うだろうけど、書き直すの面倒だな」ということになりやすいので、それがモチベーションを削ぐことを一番恐れている。モチベーションは貴重なので…。</p>
+<p>あと関数型的スタイルと OOP 的スタイルの思想が混在していることもあって、書き方が自分の中でも他人との間でもブレやすい。なので、よくわからないまま試行錯誤したり、数ヶ月おきに飽きたり思い出したりしてたまに書いたりする趣味のコードだったら、自分が普段よく使う Ruby で書いた方が良いかなと思い直してしまった。但し GUI やハードウェアとの連携、音声周りなんかの言語を動かす環境は Web ブラウザなどの上で動かせる JavaScript の方が便利なので、動くものがつくりたい場合には JavaScript でつくったあと WebAssembly との相性の良い言語に移植して遊んだりするのが楽しいと思う。</p>
+<p>Ruby で実装すると他のスクリプト言語で実装した場合に比べて今のところ少し遅いので (Ruby 製の NES エミュレータ Optcarrot でも 60fps 出すのはそこそこ難しいらしいと音に聞いている)、何がこれを遅くしてるのかなというところにも少し興味がある。普段 Web アプリを実装するときのようにオブジェクト生成していると遅そうなので、逆方向に全振りして、今回の NES エミュレータも普段 Web アプリを実装するときのようにオブジェクト生成するような実装にしています。それで動くようになったあとで内部を解析して、うわ遅ッてなりながらマッチポンプ感のある高速化をしようかなと。</p>
+<h2 id="進捗">進捗</h2>
+<p>進捗ほんとうにダメで、まだ有志の作成した簡単な作業テスト用 ROM しか動かせていない状況です。いろいろ動くようになって敗北を知りたい状況になったら、メルカリで ROM 吸出し機買って実家にあるスーパーマリオブロス動かしてみよかなと思ってるんだけど、まだ全然その域に達していなくて悲しい。</p>
+<p><img src="/images/2018-11-09-ruby-nes-emulator-2.png" alt=""></p>
+<p>上の画像は初めて『ｷﾞｺ猫でもわかるファミコンプログラミング』の最も簡単な ROM が動いたときの様子。まだ高級な GUI を実装できていないので、ターミナルで8点点字を利用して描画している。</p>
+<p>一応キーパッドも実装していて、WASD で猫が動くんだけど、改行無しで標準入力に受け付けてもらうために端末の raw モードを有効化すると、標準出力が改行できなくなってしまうためにこれを有効化できず、現状 W + Enter とか A + Enter みたいな入力が必要になってしまっている。</p>
+<p><img src="/images/2018-11-09-ruby-nes-emulator-3.png" alt=""></p>
+<p>上の画像は『NES 研究室』のシューティングゲームの ROM を動かしてみた様子。上端と右端がかなりずれていることが分かる。</p>
+<p><img src="/images/2018-11-09-ruby-nes-emulator-4.png" alt=""></p>
+<p>上の画像はスクロールを実装したあとで動かしてみたレースゲームの様子。</p>
+
+  </div>
+</article>
+
+  </main>
+</body>
+</html>

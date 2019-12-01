@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Macのフォルダ名の英語化</title>
+  <link href="/articles/2012-01-15-h" rel="canonical">
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="search" type="application/opensearchdescription+xml" title="r7kamura.com" href="/opensearch.xml">
+  <link rel="alternate" type="application/rss+xml" href="/feed.xml">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Macのフォルダ名の英語化">
+  <meta property="og:url" content="https://r7kamura.com&#x2F;articles&#x2F;2012-01-15-h">
+  <meta property="twitter:card" content="summary">
+  <meta property="twitter:title" content="Macのフォルダ名の英語化">
+</head>
+<body>
+  <header>
+    <nav>
+      <a href="/">トップページ</a>
+      <ul>
+        <li>
+          <a href="/articles">記事</a>
+        </li>
+        <li>
+          <a href="https://google.com/search?q=site:r7kamura.com">検索</a>
+        </li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <article>
+  <h1>Macのフォルダ名の英語化</h1>
+  <footer>
+    <p>
+      <time datetime="2012-01-15T00:00:00+09:00">2012年01月15日</time>
+    </p>
+  </footer>
+  <div>
+    <p>日本語だとフォルダ名の先頭文字列をキーで入力して移動するのができなくて不便だったので、ようやく英語に変えた。ソートとかの関係もあるし便利。 /System/Library/CoreServices/SystemFolderLocalizations/ に各言語の対訳表が入ってる。日本語で使ってたやつをバックアップを取って英語に差し替えれば良いだけだった。cp -r は再帰的にコピー。cp -p は権限や時刻を保持したままコピー。</p>
+
+<pre><code>&lt;pre class=&quot;code lang-txt&quot; data-lang=&quot;txt&quot;&gt;$ cd /System/Library/CoreServices/SystemFolderLocalizations/</code></pre><p>$ sudo mv Japanese.lproj Japanese.lproj.bak
+$ sudo cp -pr en.lproj Japanese.lproj</pre></p>
+
+  </div>
+</article>
+
+  </main>
+</body>
+</html>

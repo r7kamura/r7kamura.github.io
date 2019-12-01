@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Terminalで新しいタブを現在のディレクトリで開く</title>
+  <link href="/articles/2011-02-21-h" rel="canonical">
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="search" type="application/opensearchdescription+xml" title="r7kamura.com" href="/opensearch.xml">
+  <link rel="alternate" type="application/rss+xml" href="/feed.xml">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Terminalで新しいタブを現在のディレクトリで開く">
+  <meta property="og:url" content="https://r7kamura.com&#x2F;articles&#x2F;2011-02-21-h">
+  <meta property="twitter:card" content="summary">
+  <meta property="twitter:title" content="Terminalで新しいタブを現在のディレクトリで開く">
+</head>
+<body>
+  <header>
+    <nav>
+      <a href="/">トップページ</a>
+      <ul>
+        <li>
+          <a href="/articles">記事</a>
+        </li>
+        <li>
+          <a href="https://google.com/search?q=site:r7kamura.com">検索</a>
+        </li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <article>
+  <h1>Terminalで新しいタブを現在のディレクトリで開く</h1>
+  <footer>
+    <p>
+      <time datetime="2011-02-21T00:00:00+09:00">2011年02月21日</time>
+    </p>
+  </footer>
+  <div>
+    <p>TerminalではCommand+Tで新しいタブを開くことが出来ますが、新規タブはホームディレクトリで開かれてしまい、Screenのように現在のディレクトリで開いてくれません。ほとんどの場合はカレントディレクトリで開いてくれる方が便利なので、それを実現する方法を模索しました。</p><br>
+<p>結果から先に言うと「"pwd"で出力するフルパスを覚えておいてCommand+Tと押した後に"cd"コマンドでそれを入力する」というAppleScriptを書いてTerminalからコマンドで呼び出すようにしました。この方法に決定した理由は以下の通りです。</p>
+
+<ol>
+<li>TerminalなのでAppleScriptが動く環境</li>
+<li>AppleScriptの動作は速い</li>
+<li>AppleScriptは書いたことないけど便利そうなので勉強しとくと今後貢献してくれそう</li>
+<li>スクリプトをコマンドで呼び出すだけ、というのが理解しやすくて安心</li>
+</ol>
+<div class="section">
+    <h4>AppleScriptの記述と配置</h4>
+    <p>TerminalでAppleScriptを呼び出すには、osascript(/usr/bin/osascript)コマンドを利用します。<br>
+なお、2011/02/21現在のSnowLeopard(10.6)ではosascript実行時にAdobe関係のライブラリが警告を出力する場合があるため、実行時にAdobeっぽい警告が出るなーやだなーという人はAdobeからパッチをダウンロードしてください。</p>
+<br>
+<p>下記のようなスクリプトを書いて実行権限を与えます。"chmod +x hoge.applescript"とかですね。AppleScriptは初経験でしたが雰囲気Rubyっぽい構文ですね。</p>
+<pre class="code lang-applescript" data-lang="applescript" data-unlink>#!<span class="synStatement">/</span>usr<span class="synStatement">/</span>bin<span class="synStatement">/</span>osascript
+
+<h1 id="createtabatcurrentdirectoryapplescript">createTabAtCurrentDirectory.applescript</h1>
+<h1 id="input-span-classsynconstantcommand--tspan-span-classsynstatementthenspan-cd-span-classsynstatementtospan-current-directory-span-classsynstatementinspan-mac-osx-terminalapp">input <span class="synConstant">&quot;Command + T&quot;</span> <span class="synStatement">then</span> cd <span class="synStatement">to</span> current directory <span class="synStatement">in</span> Mac OSX Terminal.app</h1>
+<p><span class="synStatement">on</span> <span class="synStatement">run</span> argv
+  <span class="synStatement">set</span> cmd <span class="synStatement">to</span> <span class="synConstant">&quot;cd&quot;</span> <span class="synStatement">&amp;</span> <span class="synConstant">&quot; &quot;</span> <span class="synStatement">&amp;</span> do shell <span class="synStatement">script</span> <span class="synConstant">&quot;pwd&quot;</span>
+  <span class="synStatement">tell</span> <span class="synStatement">application</span> <span class="synConstant">&quot;Terminal&quot;</span>
+    <span class="synStatement">activate</span>
+    <span class="synStatement">tell</span> <span class="synStatement">application</span> <span class="synConstant">&quot;System Events&quot;</span>
+      <span class="synStatement">tell</span> process <span class="synConstant">&quot;Terminal&quot;</span> <span class="synStatement">to</span> keystroke <span class="synConstant">&quot;t&quot;</span> using command down
+    <span class="synStatement">end</span> <span class="synStatement">tell</span>
+    <span class="synStatement">do script</span> <span class="synStatement">with</span> command cmd <span class="synStatement">in</span> selected <span class="synConstant">tab</span> <span class="synStatement">of</span> <span class="synStatement">the</span> <span class="synStatement">front</span> window</p>
+<pre><code># erase scroll buffer (Command &lt;span class=&quot;synStatement&quot;&gt;+&lt;/span&gt; K &lt;span class=&quot;synStatement&quot;&gt;in&lt;/span&gt; Terminal.app)
+&lt;span class=&quot;synStatement&quot;&gt;tell&lt;/span&gt; &lt;span class=&quot;synStatement&quot;&gt;application&lt;/span&gt; &lt;span class=&quot;synConstant&quot;&gt;&quot;System Events&quot;&lt;/span&gt;
+  &lt;span class=&quot;synStatement&quot;&gt;tell&lt;/span&gt; process &lt;span class=&quot;synConstant&quot;&gt;&quot;Terminal&quot;&lt;/span&gt; &lt;span class=&quot;synStatement&quot;&gt;to&lt;/span&gt; keystroke &lt;span class=&quot;synConstant&quot;&gt;&quot;k&quot;&lt;/span&gt; using command down
+&lt;span class=&quot;synStatement&quot;&gt;end&lt;/span&gt; &lt;span class=&quot;synStatement&quot;&gt;tell&lt;/span&gt;
+
+&lt;span class=&quot;synStatement&quot;&gt;return&lt;/span&gt;</code></pre><p>  <span class="synStatement">end</span> <span class="synStatement">tell</span>
+<span class="synStatement">end</span> <span class="synStatement">run</span>
+</pre></p>
+<p><br>
+あとはコマンドから"osascript hoge.applescript"とか呼び出すだけですね。ちなみに自分の場合は~/Dropbox/Script/というディレクトリに便利系スクリプトを置いて管理しているので、~/.bashrcに以下のようにaliasを記述してコマンド"t"で呼び出せるようにしています。</p>
+<pre class="code lang-sh" data-lang="sh" data-unlink><span class="synStatement">alias </span><span class="synIdentifier">t</span><span class="synStatement">='</span><span class="synConstant">~/Dropbox/Script/createTabAtCurrentDirectory.applescript</span><span class="synStatement">'</span>
+</pre>
+</div>
+<div class="section">
+    <h4>その他</h4>
+    <p>前回KeyRemap4MacBookという奴を使ったのでそれを利用して「TerminalでCommand+Kを入力すると"pwd | pbcopy"→Command+T→"pbpaste | cd"を入力」みたいなキー設定にしようかななんて考えていたのですが、シェルスクリプトとかである程度省略しても気持ち悪すぎるかなと思って途中で止めました。ちなみにその時に書いて.bashrcの一部があって別の用途で使えるかもしれないので載せておきます。</p>
+<pre class="code lang-sh" data-lang="sh" data-unlink><span class="synStatement">alias </span><span class="synIdentifier">g</span><span class="synStatement">='</span><span class="synConstant">growl -H localhost -m</span><span class="synStatement">'</span>        <span class="synComment"> # "g"に文字列を渡すとGrowlで通知します。ruby-growlが必要です</span>
+<span class="synStatement">alias </span><span class="synIdentifier">pp</span><span class="synStatement">='</span><span class="synConstant">pwd | pbcopy ; pbpaste | g</span><span class="synStatement">'</span>  <span class="synComment"> # "pp"でカレントディレクトリ名をコピーしてgrowlでも通知します</span>
+<span class="synStatement">alias </span><span class="synIdentifier">cdp</span><span class="synStatement">='</span><span class="synConstant">cd `pbpaste`</span><span class="synStatement">'</span>               <span class="synComment"> # "cdp"でコピーしたディレクトリへ移動できます。新しいタブを開いた後などにどうぞ</span>
+                                       <span class="synComment"> # Finderでフォルダを選択してコピーした後とかにもどうぞどうぞ</span>
+</pre>
+</div>
+
+  </div>
+</article>
+
+  </main>
+</body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width">
+  <title>ActionDispatch::Response#charsetの改善を試みた</title>
+  <link href="/articles/2019-03-09-actiondispatch-response-charset" rel="canonical">
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="search" type="application/opensearchdescription+xml" title="r7kamura.com" href="/opensearch.xml">
+  <link rel="alternate" type="application/rss+xml" href="/feed.xml">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="ActionDispatch::Response#charsetの改善を試みた">
+  <meta property="og:url" content="https://r7kamura.com&#x2F;articles&#x2F;2019-03-09-actiondispatch-response-charset">
+  <meta property="twitter:card" content="summary">
+  <meta property="twitter:title" content="ActionDispatch::Response#charsetの改善を試みた">
+</head>
+<body>
+  <header>
+    <nav>
+      <a href="/">トップページ</a>
+      <ul>
+        <li>
+          <a href="/articles">記事</a>
+        </li>
+        <li>
+          <a href="https://google.com/search?q=site:r7kamura.com">検索</a>
+        </li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <article>
+  <h1>ActionDispatch::Response#charsetの改善を試みた</h1>
+  <footer>
+    <p>
+      <time datetime="2019-03-09T00:00:00+09:00">2019年03月09日</time>
+    </p>
+  </footer>
+  <div>
+    <p><a href="https://github.com/rails/rails/pull/35549">https://github.com/rails/rails/pull/35549</a> を出したという話です。</p>
+<h2 id="content-type">Content-Type</h2>
+<p>HTTP レスポンスでは、Content-Type ヘッダを利用して MIME-Type を示せますが、このときMIME-Type 以外にも幾つかの情報を含められます。</p>
+<p>書式としては Content-Type: mime/type; foo=bar; bar=baz みたいな感じです。</p>
+<h2 id="actiondispatchresponse">ActionDispatch::Response</h2>
+<p>ActionDispatch::Response というのは、主に Rails で HTTP レスポンスを表すために使われているクラスです。ActionDispatch::Response クラスには、上述した Content-Type の charset で指定されている値を返すメソッドとして #charset が定義されています。</p>
+<h2 id="textcsv">text/csv</h2>
+<p>HTTP レスポンスで CSV を返すときは、Content-Type に text/csv という MIME-Type を指定することでそれを表現できます。
+このとき、text/csv について述べた RFC7111 によると、他に charset と header というパラメータを任意で含められます。header というのは、その CSV のヘッダー行の有無を示すためのパラメータで、present または absent のいずれかの値を取れます。</p>
+<p>例を挙げると、Content-Type に text/csv; charset=sjis; header=present のように指定できます。</p>
+<h2 id="railsrails35549">rails/rails#35549</h2>
+<p>先述した Content-Type を持つ HTTP レスポンスで ActionDispatch::Response#charset を呼び出したとき、&quot;sjis&quot; が返ってきてほしいところですが、現時点で最新版の rails/rails で試すと &quot;sjis; header=present&quot; という値が返されることが分かりました。どうやら ;charset= 以降の部分を全て charset の値として扱う実装になっているようです。</p>
+<p>そういう訳で、この問題に対して修正を加えたのが <a href="https://github.com/rails/rails/pull/35549">https://github.com/rails/rails/pull/35549</a> です。; と = で区切られている一連のパラメータを真面目に Hash として組み立てた上で、charset パラメータの値を調べるようにしています。</p>
+<p>なお、HTTP のヘッダ部分の書式の仕様が示されている RFC 7231 によると、このパラメータの値部分はクォートすることも出来るようだと知人に教えてもらいましたが、クォートへの対応はこの Pull Request の主旨からは外れると思うので、とりあえずこの Pull Request では対応しませんでした。この Pull Request が merge されたら、また別途 Pull Request を出そうと思います。</p>
+<ul>
+<li><a href="https://tools.ietf.org/html/rfc7111">https://tools.ietf.org/html/rfc7111</a></li>
+<li><a href="https://tools.ietf.org/html/rfc7231">https://tools.ietf.org/html/rfc7231</a></li>
+</ul>
+<h2 id="追記">追記</h2>
+<p>正規表現でのパースを提案され、そうするのであればクォート対応も同じ Pull Request に入れてしまおうということで全部入りの Pull Request に変更して、後日 merge されました。めでたしめでたし。恐らく Rails 6.0.0.beta3 辺りに組み込まれることでしょう。</p>
+
+  </div>
+</article>
+
+  </main>
+</body>
+</html>

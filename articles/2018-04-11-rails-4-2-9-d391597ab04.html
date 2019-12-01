@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Rails 4.2.9 の変更点</title>
+  <link href="/articles/2018-04-11-rails-4-2-9-d391597ab04" rel="canonical">
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="search" type="application/opensearchdescription+xml" title="r7kamura.com" href="/opensearch.xml">
+  <link rel="alternate" type="application/rss+xml" href="/feed.xml">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Rails 4.2.9 の変更点">
+  <meta property="og:url" content="https://r7kamura.com&#x2F;articles&#x2F;2018-04-11-rails-4-2-9-d391597ab04">
+  <meta property="twitter:card" content="summary">
+  <meta property="twitter:title" content="Rails 4.2.9 の変更点">
+</head>
+<body>
+  <header>
+    <nav>
+      <a href="/">トップページ</a>
+      <ul>
+        <li>
+          <a href="/articles">記事</a>
+        </li>
+        <li>
+          <a href="https://google.com/search?q=site:r7kamura.com">検索</a>
+        </li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <article>
+  <h1>Rails 4.2.9 の変更点</h1>
+  <footer>
+    <p>
+      <time datetime="2018-04-11T00:00:00+09:00">2018年04月11日</time>
+    </p>
+  </footer>
+  <div>
+    <p>Rails 4.2.8 から 4.2.9 にかけての変更点をまとめます。</p>
+<p><a href="https://github.com/rails/rails/compare/v4.2.8...v4.2.9" title="https://github.com/rails/rails/compare/v4.2.8...v4.2.9"><strong>rails/rails</strong><br>_rails - Ruby on Rails_github.com</a><a href="https://github.com/rails/rails/compare/v4.2.8...v4.2.9"></a></p>
+<p><a href="https://medium.com/@r7kamura/rails-4-2-8-%E3%81%AE%E5%A4%89%E6%9B%B4%E7%82%B9-37df96e43f80" title="https://medium.com/@r7kamura/rails-4-2-8-%E3%81%AE%E5%A4%89%E6%9B%B4%E7%82%B9-37df96e43f80"><strong>Rails 4.2.8 の変更点</strong><br>_Rails 4.2.7.1 から 4.2.8 の変更点について、CHANGELOG に変更内容が記述されているものを対象に、自分用に日本語であらためてまとめておくことにしました。_medium.com</a><a href="https://medium.com/@r7kamura/rails-4-2-8-%E3%81%AE%E5%A4%89%E6%9B%B4%E7%82%B9-37df96e43f80"></a></p>
+<h3 id="actionpack">actionpack</h3>
+<h2 id="ルーティングパスに自動的に-format-を付けるかどうかの判定がより厳密になった">ルーティングパスに自動的に (.:format) を付けるかどうかの判定がより厳密になった</h2>
+<p>Rails アプリでルーティングを定義すると、それぞれのパスパターンの末尾に自動的に (.:format) が付与され、拡張子ライクなパスによってフォーマットを指定できるようになります。もし既に :format がパターンの中で利用されていた場合は二重に定義されてしまうことになるので、これを回避するように仕向けられていましたが、この判定方法に問題があったため、より厳密に判定されるように変更されました。</p>
+<p><a href="https://github.com/rails/rails/commit/ea11acd17a4c5dcbaa736a7caeee950c2a73c801" title="https://github.com/rails/rails/commit/ea11acd17a4c5dcbaa736a7caeee950c2a73c801"><strong>Use more specific check for :format in route path · rails/rails@ea11acd</strong><br>_The current check for whether to add an optional format to the path is very lax and will match things like `:format_id`…_github.com</a><a href="https://github.com/rails/rails/commit/ea11acd17a4c5dcbaa736a7caeee950c2a73c801"></a></p>
+<h2 id="パスを処理する中でエンコーディングが変わってしまう問題が修正された">パスを処理する中でエンコーディングが変わってしまう問題が修正された</h2>
+<p>ActionDispatch::Journey::Router::Utils.normalize_path の実装内で、引数として渡されたパスのエンコーディングが何であれ、戻り値のパスのエンコーディングが UTF-8 に変換されてしまうという問題があり、これが修正されました。ただ、Ruby のバージョンによって文字列リテラル内の先頭以外で ASCII 互換の ASCII-8BIT 文字列を展開した場合の挙動に違いがあり、この変更は Rails 4.2.10 で差し戻されることになります。</p>
+<p>副次的な変更点として、これまで引数には #to_s を実装したオブジェクトを渡すことができていましたが、この変更で String#encoding を呼び出すように変更されたため、 String しか渡せなくなっています。これは後に Rails 5.2.0 で修正されることになります。</p>
+<p><a href="https://github.com/rails/rails/pull/29062" title="https://github.com/rails/rails/pull/29062"><strong>Maintain original encoding from path by eileencodes · Pull Request #29062 · rails/rails</strong><br>_When the path info is read from the socket it&#39;s encoded as ASCII 8BIT. The unescape method changes the encoding to UTF8…_github.com</a><a href="https://github.com/rails/rails/pull/29062"></a></p>
+<h3 id="activerecord">activerecord</h3>
+<h2 id="railslogger-が-activerecord-のログを二重に出力してしまう問題が修正された">Rails.logger が ActiveRecord のログを二重に出力してしまう問題が修正された</h2>
+<p>ActiveSupport::Logger.broadcast というメソッドによって、ActiveRecord のログは Rails.logger に加えて標準エラー出力にも同時に出力されるような仕組みになっていました。ところが、Rails.logger が標準出力あるいは標準エラー出力を向いている場合、画面に同じ内容が複数出力されてしまうことになります。</p>
+<p>この問題が修正され、Logger の出力先を (非公式なやり方で) 調べ、もしLogger が標準出力あるいは標準エラー出力を向いている場合は broadcast の処理を行わないようになりました。この件に付随して、Logger の出力先を参照するための API が Ruby に要望されているようです。</p>
+<p><a href="https://github.com/rails/rails/pull/25284" title="https://github.com/rails/rails/pull/25284"><strong>Backport to fix duplicate console logging in Rails 4-2-stable by bmulvihill · Pull Request #25284 ·…</strong><br>_Summary Backport to prevent duplicate logging to the console in Rails 4 branch Based on this PR which fixed the issue…_github.com</a><a href="https://github.com/rails/rails/pull/25284"></a></p>
+<h2 id="table_name-を実行したときにステートメントキャッシュが上手く消えるようになった">#table_name= を実行したときにステートメントキャッシュが上手く消えるようになった</h2>
+<p>find や find_by を実行するときには、 もし特定の条件にあてはまれば、Prepared Statement を利用した SQL に相当する Arel オブジェクトが内部で生成され、メモリ上にキャッシュされます。二度目以降の呼び出しでこのキャッシュを利用することで、Relation や Arel::Node などの内部表現を生成するコストを抑えられます。このキャッシュのことを、ここではステートメントキャッシュと呼びます。</p>
+<p>このキャッシュが生成されたあとに table_name が変更された場合、これまではキャッシュが消去されず、以降もそのまま利用されてしまう状態でした。つまり、テーブル名を変更したあとで find や find_by を利用した場合、過去のテーブル名を利用した SQL が生成されてしまう場合があったということです。これが修正され、table_name を変更した際に上手くキャッシュが消されるようになりました。</p>
+<p><a href="https://github.com/rails/rails/pull/27953" title="https://github.com/rails/rails/pull/27953"><strong>Make `table_name=` reset current statement cache by namusyaka · Pull Request #27953 · rails/rails</strong><br>_Summary In our project some exceptional, we have the function of dynamically swapping table names. It hasn&#39;t been…_github.com</a><a href="https://github.com/rails/rails/pull/27953"></a></p>
+<h2 id="wait_timeout-が-database_url-から問題無く指定できるようになった">wait_timeout が DATABASE_URL から問題無く指定できるようになった</h2>
+<p>MySQL には wait_timeout という設定値があり、これは非対話型の接続において、アイドル状態がこの秒数だけ続いた場合に切断されるという値です。</p>
+<p>ActiveRecord のデータベースに対する設定では、wait_timeout というキーでこの値を設定することができるようになっていましたが、Integer で値が指定されている場合にしか設定が受け付けられない状態でした。URL 形式で設定する場合は全ての値が String になるため、つまり URL 形式では wait_timeout を設定できない状態でした。これが修正され、URL 形式でも wait_timeout を設定できるようになりました。</p>
+<p><a href="https://github.com/rails/rails/pull/26559" title="https://github.com/rails/rails/pull/26559"><strong>Fix `wait_timeout` to configurable for mysql2 adapter by kamipo · Pull Request #26559 · rails/rails</strong><br>_Fixes #26556._github.com</a><a href="https://github.com/rails/rails/pull/26559"></a></p>
+<h2 id="group-by-を使う問い合わせにおいて、select-で付けた名前を-having-の中で参照できない問題が修正された">GROUP BY を使う問い合わせにおいて、SELECT で付けた名前を HAVING の中で参照できない問題が修正された</h2>
+<p>GROUP BY を利用する問い合わせにおいて、幾つかのリレーショナルデータベースエンジンでは、SELECT で付けた名前を HAVING の中で参照することができます。過去の変更で、誤って動かない状態に変更されてしまっていましたが、今回これが修正されました。</p>
+<p><a href="https://github.com/rails/rails/pull/28183" title="https://github.com/rails/rails/pull/28183"><strong>Include selects in group query with having clause by eugeneius · Pull Request #28183 · rails/rails</strong><br>_When a grouped calculation contains a having clause that references a selected value, we need to include that selected…_github.com</a><a href="https://github.com/rails/rails/pull/28183"></a></p>
+<h2 id="dbmigratestatus-と-dbschemaload-がサブディレクトリに対応した">db:migrate:status と db:schema:load がサブディレクトリに対応した</h2>
+<p>migration のファイルは db/migrate/2015/20150601010101_create_users.rb のようにサブディレクトリに入れられるようになっているはずでしたが、db:migrate:status と db:schema:load の実装がこれに対応していなかったため、修正されました。</p>
+<p><a href="https://github.com/rails/rails/commit/612edc27db6a71ee75567f08f22642e282bc2732" title="https://github.com/rails/rails/commit/612edc27db6a71ee75567f08f22642e282bc2732"><strong>Fix `rake db:migrate:status` with subdirectories · rails/rails@612edc2</strong><br>_db:migrate` supports subdirectories and have a test…_github.com</a><a href="https://github.com/rails/rails/commit/612edc27db6a71ee75567f08f22642e282bc2732"></a></p>
+<p><a href="https://github.com/rails/rails/commit/a627483bb8628a7ca714ad1c0f174688a9e5727a" title="https://github.com/rails/rails/commit/a627483bb8628a7ca714ad1c0f174688a9e5727a"><strong>Fix `rake db:schema:load` with subdirectories · rails/rails@a627483</strong><br>_Related #25174. `db:schema:load` doesn&#39;t work with subdirectories like previous `db:migrate:status`…_github.com</a><a href="https://github.com/rails/rails/commit/a627483bb8628a7ca714ad1c0f174688a9e5727a"></a></p>
+<h2 id="ruby-24-で-decimal-型のカラムに-invalid-な-string-を割り当てようとしたときに例外が発生しなくなった">Ruby 2.4 で Decimal 型のカラムに invalid な String を割り当てようとしたときに例外が発生しなくなった</h2>
+<p>BigDecimal(“”) のように invalid な String を与えたときの挙動が、Ruby 2.4 から変更された影響で、Decimal 型のカラムに同様の String を格納しようとしたとき、意図せず例外が発生するようになってしまいました。これを承け、このような状況では 0.0 相当の値が割り当てられるように変更されました。</p>
+<p><a href="https://github.com/rails/rails/commit/3aa729c2121b1e5a813afda52b2435dfcf7d4a74" title="https://github.com/rails/rails/commit/3aa729c2121b1e5a813afda52b2435dfcf7d4a74"><strong>Merge branch &#39;jhawthorn-ruby_2_4_bigdecimal_casting&#39; · rails/rails@3aa729c</strong><br>_Closes #27429 Closes #28553 [Rafael Mendonça França + Tomohiro Hashidate]_github.com</a><a href="https://github.com/rails/rails/commit/3aa729c2121b1e5a813afda52b2435dfcf7d4a74"></a></p>
+<h2 id="環境変数-version-が空文字列なときに、誤って-migration-が実行されないようになった">環境変数 VERSION が空文字列なときに、誤って migration が実行されないようになった</h2>
+<p>String#to_i によって空文字列の VERSION が 0 として評価されてしまわないよう、まず空文字列かどうかを確認するようになりました。</p>
+<p><a href="https://github.com/rails/rails/pull/28485" title="https://github.com/rails/rails/pull/28485"><strong>fix migrate with empty version by quantumlicht · Pull Request #28485 · rails/rails</strong><br>_Fixes #28359 Add stronger assertions to rake migration tasks to make sure the user is providing a numeric VERSION An…_github.com</a><a href="https://github.com/rails/rails/pull/28485"></a></p>
+<h2 id="collection_singular_ids-に重複する値を渡した場合に発生してしまう例外が修正された">collection_singular_ids= に重複する値を渡した場合に発生してしまう例外が修正された</h2>
+<p>has_many によって、model.book_ids = [1, 2] のように呼び出し可能なメソッドが定義されます。このとき、既に book_ids に 1 や 2 が含まれる状態でこのようにメソッドを呼び出すと、意図せず例外が発生してしまう状態でしたが、この問題が修正されました。</p>
+<p><a href="https://github.com/rails/rails/pull/28898" title="https://github.com/rails/rails/pull/28898"><strong>Fix regression caused by collection_singular_ids= ignoring different ... by npezza93 · Pull Request…</strong><br>_primary key on relationship There was a regression caused by my commit here #27566. Callingmodel.association_ids += [1…_github.com</a><a href="https://github.com/rails/rails/pull/28898"></a></p>
+<h3 id="activesupport">activesupport</h3>
+<h2 id="freeze-された-activesupporttimewithzone-に対して-to_datetime-を呼ぶと発生していた例外が修正された">freeze された ActiveSupport::TimeWithZone に対して #to_datetime を呼ぶと発生していた例外が修正された</h2>
+<p>freeze されているオブジェクトのインスタンス変数を変更しようとすると RuntimeError が発生します。ActiveSupport::TimeWithZone#to_datetime は、一度目の呼び出し結果をインスタンス変数に格納して memoize しておくような実装だったため、freeze されているインスタンスに対して #to_datetime を呼び出すと例外が発生する状態になっていました。</p>
+<p>同様の実装手段が取られている #period, #utc, #time については、#freeze の呼び出し時に評価しておくことで問題が回避されていました。#to_datetime もこの方法に従うことで、この問題が修正されました。なお #to_time にも同様の問題がありますが、これは後に修正されることになります。</p>
+<p><a href="https://github.com/rails/rails/pull/28104" title="https://github.com/rails/rails/pull/28104"><strong>Preload to_datetime before freezing a TimeWithZone instance by HashNotAdam · Pull Request #28104 ·…</strong><br>_Fixes #28101: after freezing an ActiveSupport::TimeWithZone instance, it is not possible to call to_datetime because…_github.com</a><a href="https://github.com/rails/rails/pull/28104"></a></p>
+<h2 id="activesupporthashwithindifferentaccesscompact-が-activesupporthashwithindifferentaccess-を返すようになった">ActiveSupport::HashWithIndifferentAccess#compact が ActiveSupport::HashWithIndifferentAccess を返すようになった</h2>
+<p>Ruby が Hash#compact を実装するようになったことを承け、Hash を継承していた ActiveSupport::HashWithIndifferentAccess では、独自で実装していた #compact を取り除くことになりました。しかし Hash#compact の実装と以前の実装とでは、戻り値のクラスが異なっていました。</p>
+<p>どちらのクラスのインスタンスを返すべきかという議論はありますが、これまでの挙動を残すべきという考えから、あらためて #compact が用意され、ActiveSupport::HashWithIndifferentAccess のインスタンスが返るようになりました。</p>
+<p><a href="https://github.com/rails/rails/pull/27392" title="https://github.com/rails/rails/pull/27392"><strong>ensure `#compact` of HWIDA to return HWIDA by y-yagi · Pull Request #27392 · rails/rails</strong><br>_Hash#compact of Ruby native returns new hash. Therefore, in order to return HWIDA as in the past version, need to…_github.com</a><a href="https://github.com/rails/rails/pull/27392"></a></p>
+<h2 id="上書きしていた-marshalload-が第二引数に対応した">上書きしていた Marshal.load が第二引数に対応した</h2>
+<p>ActiveSupport では、読み込み中に autoload を試行する機能を拡張するために Marshal.load を Override していますが、元々の Marshal.load が第二引数を受け付けるにも関わらず、第一引数しか受け取らないように Override されていたため、これが修正されました。</p>
+<p><a href="https://github.com/rails/rails/pull/28006" title="https://github.com/rails/rails/pull/28006"><strong>Allow ActiveSupport::MarshalWithAutoloading#load to take a Proc by fareastside · Pull Request…</strong><br>_Summary From my entry in the ActiveSupport changelog: In Core Extensions, make MarshalWithAutoloading#load pass through…_github.com</a><a href="https://github.com/rails/rails/pull/28006"></a></p>
+<h2 id="datetimeutc-が-time-ではなく-datetime-を返すように戻った">DateTime#utc が Time ではなく DateTime を返すように戻った</h2>
+<p>4.2.8 では、Ruby 2.4 の #to_time への対応の一環として、 DateTime#localtime との一貫性を考慮し、DateTime#utc の戻り値が DateTime から Time に変更されていました。しかし後方互換性を考慮して、やはりこれまでの挙動を残すように変更が差し戻されることになりました。</p>
+<p><a href="https://github.com/rails/rails/commit/fccc031cb61d98b3fc401d8a323e71da222362ca" title="https://github.com/rails/rails/commit/fccc031cb61d98b3fc401d8a323e71da222362ca"><strong>Restore the return type of `DateTime#utc` · rails/rails@fccc031</strong><br>_In Rails 5.0 the return type of `DateTime#utc` was changed to `Time` to be consistent with the new `DateTime#localtime`…_github.com</a><a href="https://github.com/rails/rails/commit/fccc031cb61d98b3fc401d8a323e71da222362ca"></a></p>
+<h2 id="freeze-された-time-や-timewithzone-に対して-to_time-を呼べるようになった">freeze された Time や TimeWithZone に対して #to_time を呼べるようになった</h2>
+<p>Ruby 2.4 の #to_time に対応するため、#to_time を共通して上書きするための module が 4.2.8 で導入されました。しかし、DateTime、Time、TimeWithZone の実装では、#to_time が呼び出されたときにどう振る舞うべきかが異なることが分かりました。</p>
+<p>これに対応するため、module で上書きするのではなく、個々のクラスで #to_time を適切に上書きするように変更されました。結果、Time#to_time では Ruby 2.4 方式の挙動の場合に self を返すようになったため、freeze されたインスタンスに対しても呼び出し可能になりました。</p>
+<p>また TimeWithZone についても、#freeze が呼び出されたタイミングで予め #to_time を呼び出して memoize を行うように変更された結果、freeze されたインスタンスに対しても #to_time が呼び出し可能になりました。</p>
+<p><a href="https://github.com/rails/rails/pull/28147" title="https://github.com/rails/rails/pull/28147"><strong>Allow Time#to_time on frozen objects. Return frozen time rather than &quot;RuntimeError: can&#39;t modify…</strong><br>_Problem In 29f211f memoization was added to DateAndTime::Compatibility#to_time for performance reasons. Unfortunately…_github.com</a><a href="https://github.com/rails/rails/pull/28147"></a></p>
+<h2 id="hashfrom_xml-に-freeze-された-string-を渡されるようになった">Hash.from_xml に freeze された String を渡されるようになった</h2>
+<p>Hash.from_xml の内部実装で利用されている XML パーサでは、データを末尾まで読み込んだかどうかの判定処理において、データを変更するような操作が行われていました。これが修正された結果、freeze された String を Hash.from_xml に渡せるようになりました。</p>
+<p><a href="https://github.com/rails/rails/pull/28815" title="https://github.com/rails/rails/pull/28815"><strong>Fixes Hash.from_xml with frozen strings for all engines by joshnuss · Pull Request #28815 ·…</strong><br>_Using frozen strings with Hash.from_xml results in an error due to use of IO#ungetc (which is a mutating function)…_github.com</a><a href="https://github.com/rails/rails/pull/28815"></a></p>
+<h3 id="railties">railties</h3>
+<h2 id="rails-server-が二重にログを出力してしまう問題が修正された">rails server が二重にログを出力してしまう問題が修正された</h2>
+<p>前述した activerecord が二重にログを出力してしまう問題が rails server にも存在しており、同様に修正されました。</p>
+<p><a href="https://github.com/rails/rails/pull/28493" title="https://github.com/rails/rails/pull/28493"><strong>Backport fix duplicate rails server logging output in Rails 4-2-stable by jmgarnier · Pull Request…</strong><br>_This is a follow up of PR #25284 which backported @schneems&#39; fix in #22933 but only fixed rails console. This PR fixes…_github.com</a><a href="https://github.com/rails/rails/pull/28493"></a></p>
+
+  </div>
+</article>
+
+  </main>
+</body>
+</html>

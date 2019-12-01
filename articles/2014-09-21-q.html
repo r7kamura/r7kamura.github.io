@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width">
+  <title>REST APIクライアントのメソッド名のガイドラインの一例</title>
+  <link href="/articles/2014-09-21-q" rel="canonical">
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="search" type="application/opensearchdescription+xml" title="r7kamura.com" href="/opensearch.xml">
+  <link rel="alternate" type="application/rss+xml" href="/feed.xml">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="REST APIクライアントのメソッド名のガイドラインの一例">
+  <meta property="og:url" content="https://r7kamura.com&#x2F;articles&#x2F;2014-09-21-q">
+  <meta property="twitter:card" content="summary">
+  <meta property="twitter:title" content="REST APIクライアントのメソッド名のガイドラインの一例">
+</head>
+<body>
+  <header>
+    <nav>
+      <a href="/">トップページ</a>
+      <ul>
+        <li>
+          <a href="/articles">記事</a>
+        </li>
+        <li>
+          <a href="https://google.com/search?q=site:r7kamura.com">検索</a>
+        </li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <article>
+  <h1>REST APIクライアントのメソッド名のガイドラインの一例</h1>
+  <footer>
+    <p>
+      <time datetime="2014-09-21T00:00:00+09:00">2014年09月21日</time>
+    </p>
+  </footer>
+  <div>
+    <p>ClientクラスにHTTPリクエストを送るインスタンスメソッドを定義するとして、このメソッドにどういう名前を付けるかという話。</p>
+<h2 id="メソッド名には動詞を利用する">メソッド名には動詞を利用する</h2>
+<p>メソッド名を動詞から始めるべきか、名詞から始めるべきか。ここにはメソッドの呼び出しをクエリと捉えるか、コマンドと捉えるか、という判断がある。メソッド名を名詞から始める場合はよりクエリ寄り、動詞から始める場合はコマンド寄りに捉えていると言える。ここではコマンド寄りに捉えて動詞を利用することにする (注釈: 厳密にはコマンドは値を返さないことが多いのでコマンド&quot;寄り&quot;と呼んだ)。</p>
+<h2 id="httpリクエストのメソッドごとに異なる動詞を使う">HTTPリクエストのメソッドごとに異なる動詞を使う</h2>
+<p>メソッド名を動詞から始めるとして、どの動詞を使うべきか。全てのメソッドは何らかのHTTPリクエストを送る訳だから、そのメソッドを実行することで発行されるHTTPリクエストのメソッドを動詞の選択材料に利用することにする。一例として、GETならget、POSTならpost、PATCHならupdate、PUTならput、DELETEならdeleteという動詞を利用するというルールが考えられる。</p>
+<h2 id="問い合わせるリソースの単複で異なる動詞を使う">問い合わせるリソースの単複で異なる動詞を使う</h2>
+<p>GETリクエストとして提供されているAPIを、複数のリソースを問い合わせるものと、単一のリソースを問い合わせる、というパターンで分ける。一例として、複数のリソースを返すものにlist、単一のリソースを返すものにgetを使うというルールが考えられる。</p>
+<h2 id="対象リソース名を目的語に含む">対象リソース名を目的語に含む</h2>
+<p>対象とするリソース名を目的語としてメソッド名に利用する。例えば GET /usersにはlist_users、DELETE /users/:idにはdelete_userを利用する。</p>
+<h2 id="ネストしたリソースの名前は目的語のprefixにする">ネストしたリソースの名前は目的語のprefixにする</h2>
+<p>GET /users/:user_id/gists というネストしたURLを GET /gists をどう区別するかという問題がある。同じ list_gistsで引数によってリクエスト先を変更するという仕様にもできるが、1つのエンドポイントには1つのメソッドが対応する、というルールを守った方が理解しやすいと考える。この場合、GET /users/:user_id/gistsにはlist_user_gists、GET /gistsにはlist_gistsを対応させる。</p>
+<h2 id="onoffのスイッチを操作する場合は別の動詞を用意する">on/offのスイッチを操作する場合は別の動詞を用意する</h2>
+<p>リクエストボディを送らずレスポンスも受け取らないパターンのAPIがある。例えばGitHubの提供しているGistにスターを付けたり外したりするAPIは、(PUT|DELETE) /gists/:id というエンドポイントになっている。スターというリソースを考えて「put_gist_star」「delete_gist_star」という風にしても良いが、ここでは (un)starという動詞を考えて「star_gist」「unstar_gist」という風に扱う。</p>
+
+  </div>
+</article>
+
+  </main>
+</body>
+</html>

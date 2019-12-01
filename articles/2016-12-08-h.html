@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width">
+  <title>amakanでyarnを使うようにした</title>
+  <link href="/articles/2016-12-08-h" rel="canonical">
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="search" type="application/opensearchdescription+xml" title="r7kamura.com" href="/opensearch.xml">
+  <link rel="alternate" type="application/rss+xml" href="/feed.xml">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="amakanでyarnを使うようにした">
+  <meta property="og:url" content="https://r7kamura.com&#x2F;articles&#x2F;2016-12-08-h">
+  <meta property="twitter:card" content="summary">
+  <meta property="twitter:title" content="amakanでyarnを使うようにした">
+</head>
+<body>
+  <header>
+    <nav>
+      <a href="/">トップページ</a>
+      <ul>
+        <li>
+          <a href="/articles">記事</a>
+        </li>
+        <li>
+          <a href="https://google.com/search?q=site:r7kamura.com">検索</a>
+        </li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <article>
+  <h1>amakanでyarnを使うようにした</h1>
+  <footer>
+    <p>
+      <time datetime="2016-12-08T00:00:00+09:00">2016年12月08日</time>
+    </p>
+  </footer>
+  <div>
+    <p><a href="http://r7kamura.hatenablog.com/entry/2016/12/08/001413">amakanをUnicornからPumaに移行した - ✘╹◡╹✘</a> に引き続き、小さい改善を加えた。</p>
+
+<hr>
+
+<h2>変更の概要</h2>
+
+<p><a href="https://amakan.net/">https://amakan.net/</a> への今後の変更に備えて、テストやデプロイに掛かる時間を短くする恩恵が良いだろうと思い、node_modulesの管理に使うツールとしてyarnを使うことにした。結果的に、テスト用ビルドの所要時間が130秒から70秒に、デプロイ用ビルドの所要時間が300秒から200秒になった。</p>
+
+<h2>CircleCIの設定変更</h2>
+
+<p>継続的なテストとデプロイ作業の実行のために、amakanではCircle CIを利用している。Circle CIを使っている理由は、仕事でも使っている上にPrivateでも無料だから。</p>
+
+<p>yarnを利用するためにCircle CIに追加する必要があった設定は、以下の通り。</p>
+
+<ul>
+<li>指定したバージョンのyarnが入っていない場合はインストールする</li>
+<li>グローバルにインストールしたyarn自体をCircle CIにキャッシュしてもらう</li>
+<li>yarnがキャッシュに使うディレクトリをCircle CIにキャッシュしてもらう</li>
+<li>テストの実行前に依存パッケージをインストールする</li>
+</ul>
+
+
+<p>結果的にcircle.ymlはこういうコードに。</p>
+
+<pre class="code" data-lang="" data-unlink>machine:
+  environment:
+    YARN_VERSION: 0.18.0
+  node:
+    version: 6.9.1
+  post:
+    - if [[ $(yarn --version 2&gt;/dev/null) != "${YARN_VERSION}" ]]; then curl -o- -L https://yarnpkg.com/install.sh | bash -s -- --version $YARN_VERSION; fi
+dependencies:
+  cache_directories:
+    - "~/.cache/yarn"
+    - /home/ubuntu/nvm/versions/node/v6.9.1/bin
+    - /home/ubuntu/nvm/versions/node/v6.9.1/lib/node_modules
+  override:
+    - bundle install --jobs 4 --path vendor/bundle
+    - yarn install --prefer-offline
+deployment:
+  production:
+    branch: production
+    commands:
+      - bundle exec cap production deploy
+test:
+  override:
+    - yarn run test</pre>
+
+
+<p>必要なときだけyarnをインストールする、という設定に少し手こずった。</p>
+
+<h2>デプロイスクリプトの設定変更</h2>
+
+<p>amakanではデプロイにCapistranoを利用している。SassやBabelを利用してWebブラウザ用のコードを実装している都合から、デプロイ時にWebpackなどを使ってCSSやJavaScriptのファイルを生成してあげる必要があり、これは現状、デプロイ時に対象のサーバ内で実行しているので、結果としてデプロイ対象のサーバにもnode_modulesが入っている必要がある。つまり、デプロイ時に <code>yarn install</code> を実行してもらう必要がある。</p>
+
+<p>このために <a href="https://github.com/j-arnaiz/capistrano-yarn">https://github.com/j-arnaiz/capistrano-yarn</a> を使った。これは元々 capistrano-npm を利用していたので、ほとんどそのGemを入れ替えるだけで済んだ。amakanで手を加えたところとして、<code>:app</code> と <code>:resque</code> の2種類のデプロイ対象のサーバがあるので、node_modulesが必要な <code>:app</code> でだけ <code>yarn install</code> を実行するようにしたこと。それから、高速化のために <code>--prefer-offline</code> のオプションを追加した。</p>
+
+<pre class="code" data-lang="" data-unlink># config/deploy.rb
+set :yarn_flags, "--prefer-offline --production"
+set :yarn_roles, :app</pre>
+
+
+<h2>yarnに移行した感想</h2>
+
+<p>設定を調べるのは面倒だったが、依存解決部分がとても速くなったので良かった。--prefer-offline を付けると特に。Chrome拡張やNode.js用のライブラリなどの管理では既にYarnを利用してはいたものの、Railsアプリで利用するようにしたのは初めてだったので、Capistrano周りの事情も考慮しながら設定する方法を勉強できたのも良かった。</p>
+
+<p>本筋とは逸れるけど、yarnを見直したついでにwebpackやpackage.jsonの設定、本番環境で利用するNode.jsのバージョンなども整理した。変更のついでに触れた箇所を綺麗にしておくというのも大事だし、そういうことが起きるように能動的に小さい変更を発生させるようにしておくというのも、精神的な部分での飽きを防ぐという意味も含めて、小さなアプリケーションの改善のエコシステムとして効果的かもしれない。</p>
+
+
+  </div>
+</article>
+
+  </main>
+</body>
+</html>

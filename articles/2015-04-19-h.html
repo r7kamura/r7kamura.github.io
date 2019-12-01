@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width">
+  <title>最近のServerkitの様子</title>
+  <link href="/articles/2015-04-19-h" rel="canonical">
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="search" type="application/opensearchdescription+xml" title="r7kamura.com" href="/opensearch.xml">
+  <link rel="alternate" type="application/rss+xml" href="/feed.xml">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="最近のServerkitの様子">
+  <meta property="og:url" content="https://r7kamura.com&#x2F;articles&#x2F;2015-04-19-h">
+  <meta property="twitter:card" content="summary">
+  <meta property="twitter:title" content="最近のServerkitの様子">
+</head>
+<body>
+  <header>
+    <nav>
+      <a href="/">トップページ</a>
+      <ul>
+        <li>
+          <a href="/articles">記事</a>
+        </li>
+        <li>
+          <a href="https://google.com/search?q=site:r7kamura.com">検索</a>
+        </li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <article>
+  <h1>最近のServerkitの様子</h1>
+  <footer>
+    <p>
+      <time datetime="2015-04-19T00:00:00+09:00">2015年04月19日</time>
+    </p>
+  </footer>
+  <div>
+    <p>最近のServerkit界隈の変更についてまとめておきます。</p>
+
+<h2>vagrant-serverkit</h2>
+
+<p><a href="https://github.com/r7kamura/vagrant-serverkit">vagrant-serverkit</a> というのをつくりました。これでVagrantで仮想マシンを立ち上げるときに、自動的にServerkitでプロビジョニングを行えます。プラグインの管理をうまくやるためにVagrantのコードを追ったり、~/.ssh/config を書き換えなくても動作するように色々苦労しましたが、期待通り動くものができたと言えます。使い方はこういう感じ。プラグインをインストールするとserverkitという名前のprovisionerが定義されて、適切な設定を与えると動作します。</p>
+
+<pre class="code" data-lang="" data-unlink># Vagrantfile
+Vagrant.configure("2") do |config|
+  config.vm.box = "ubuntu/trusty64"
+
+  config.vm.provision :serverkit do |serverkit_config|
+    serverkit_config.recipe_path = "recipe.yml.erb"
+    serverkit_config.variables_path = "variables.yml"
+  end
+end</pre>
+
+
+
+
+<pre class="code" data-lang="" data-unlink>$ vagrant plugin install vagrant-serverkit
+$ vagrant up</pre>
+
+
+<h2>vagrant-multiplug</h2>
+
+<p>Serverkitで利用するプラグインをVagrantの環境上でも利用できるようにするため、<a href="https://github.com/r7kamura/vagrant-multiplug">vagrant-multiplug</a> というのもつくりました。Vagrantfileの中に利用するプラグイン (というか実体はGem) の名前を書いておくと、そのプラグインがまだVagrantに同梱されているRuby環境にインストールされていない場合に勝手にインストールしてくれるというものです。この辺りの話については、<a href="http://qiita.com/r7kamura/items/4221035fe23c549c288f">Vagrantfileで使うプラグインを定義する - Qiita</a> という記事にまとめました。使い方としてはこんな感じで、vagrant-serverkitやserverkit-rbenvなどのGemを利用するという旨をVagrantfileに書く感じです。</p>
+
+<pre class="code" data-lang="" data-unlink># Vagrantfile
+Vagrant.configure("2") do |config|
+  config.vm.box = "ubuntu/trusty64"
+
+  config.plugin.add_dependency "vagrant-serverkit"
+  config.plugin.add_dependency "serverkit-rbenv", "0.0.2"
+
+  config.vm.provision :serverkit do |config|
+    config.recipe_path = "recipe.yml"
+  end
+end</pre>
+
+
+
+
+<pre class="code" data-lang="" data-unlink>$ vagrant plugin install vagrant-multiplug
+$ vagrant up</pre>
+
+
+<h2>dotfiles</h2>
+
+<p><a href="https://github.com/r7kamura/dotfiles">r7kamura/dotfiles</a> というMacの環境構築用に利用していた半手動のシェルスクリプトを、Serverkitベースのものに置き換えてみました。また、<a href="https://travis-ci.org/r7kamura/dotfiles">r7kamura/dotfiles - Travis CI</a> でOS Xの環境を用意してテストを走らせてみています。このCIは結構不具合が検出できるので重宝してます。ServerkitをMacの構成管理に使う方法については <a href="http://qiita.com/r7kamura/items/ebfe5809a41fa21b01e0">Serverkitを利用してVagrantの構成管理を行う - Qiita</a> にも書きました。</p>
+
+<p><img src="https://raw.githubusercontent.com/r7kamura/dotfiles/master/images/install.gif" alt=""></p>
+
+<h2>serverkit-atom</h2>
+
+<p>Atom.appのプラグインを管理するために、<a href="https://github.com/r7kamura/serverkit-atom">serverkit-atom</a> というServerkit用のプラグインをつくってみました。 Atomに同梱されているapmを利用しています。こういう感じでレシピを書いて適用すると、そのプラグインが入った状態になります。</p>
+
+<pre class="code" data-lang="" data-unlink># recipe.yml
+resources:
+  - type: atom_package
+    name: sort-lines
+  - type: atom_package
+    name: vim-mode
+    version: 0.43.0</pre>
+
+
+<h2>serverkit-homebrew</h2>
+
+<p>homebrewやhomebrew cask関係のリソースを <a href="https://github.com/r7kamura/serverkit-homebrew">serverkit-homebrew</a> といプラグインに分けました。同じコマンド体系を使っているのでlinuxbrewなどでも動くようです。使い方はこういう感じ。</p>
+
+<pre class="code" data-lang="" data-unlink>resources:
+  - type: homebrew_package
+    name: zsh
+  - type: homebrew_package
+    name: rbenv
+    options: --HEAD</pre>
+
+
+<h2>--log-level</h2>
+
+<p>Serverkitの実行時にどの程度までログを表示するか選べるようにしました。Serverkitは標準では成功と失敗という簡単な出力しか表示しませんが、--log-level=DEBUG とやるとサーバ上で実行される全てのコマンドやその結果も表示されるようになります。エスケープシーケンスを利用した着色を標準的に利用していこうと思っているので、--no-color オプションも提供してます。</p>
+
+<p><img src="https://pbs.twimg.com/media/CC5slhVUsAEgqoN.png:large" alt=""></p>
+
+<h2>リソース</h2>
+
+<p>その他、幾つかのリソースが追加されたり、リソースに色々な属性を持たせられるようになりました。</p>
+
+<ul>
+<li><a href="https://github.com/r7kamura/serverkit/blob/master/lib/serverkit/resources/command.rb">command</a></li>
+<li><a href="https://github.com/r7kamura/serverkit/blob/master/lib/serverkit/resources/directory.rb">directory</a></li>
+<li><a href="https://github.com/r7kamura/serverkit/blob/master/lib/serverkit/resources/file.rb">file</a></li>
+<li><a href="https://github.com/r7kamura/serverkit/blob/master/lib/serverkit/resources/git.rb">git</a></li>
+<li><a href="https://github.com/r7kamura/serverkit/blob/master/lib/serverkit/resources/nothing.rb">nothing</a></li>
+<li><a href="https://github.com/r7kamura/serverkit/blob/master/lib/serverkit/resources/package.rb">package</a></li>
+<li><a href="https://github.com/r7kamura/serverkit/blob/master/lib/serverkit/resources/recipe.rb">recipe</a></li>
+<li><a href="https://github.com/r7kamura/serverkit/blob/master/lib/serverkit/resources/remote_file.rb">remote_file</a></li>
+<li><a href="https://github.com/r7kamura/serverkit/blob/master/lib/serverkit/resources/service.rb">service</a></li>
+<li><a href="https://github.com/r7kamura/serverkit/blob/master/lib/serverkit/resources/symlink.rb">symlink</a></li>
+<li><a href="https://github.com/r7kamura/serverkit/blob/master/lib/serverkit/resources/user.rb">user</a></li>
+</ul>
+
+
+
+  </div>
+</article>
+
+  </main>
+</body>
+</html>

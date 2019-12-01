@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Ruby 製の DMM Web サービス用のライブラリをつくりはじめた</title>
+  <link href="/articles/2017-02-08-h" rel="canonical">
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="search" type="application/opensearchdescription+xml" title="r7kamura.com" href="/opensearch.xml">
+  <link rel="alternate" type="application/rss+xml" href="/feed.xml">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Ruby 製の DMM Web サービス用のライブラリをつくりはじめた">
+  <meta property="og:url" content="https://r7kamura.com&#x2F;articles&#x2F;2017-02-08-h">
+  <meta property="twitter:card" content="summary">
+  <meta property="twitter:title" content="Ruby 製の DMM Web サービス用のライブラリをつくりはじめた">
+</head>
+<body>
+  <header>
+    <nav>
+      <a href="/">トップページ</a>
+      <ul>
+        <li>
+          <a href="/articles">記事</a>
+        </li>
+        <li>
+          <a href="https://google.com/search?q=site:r7kamura.com">検索</a>
+        </li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <article>
+  <h1>Ruby 製の DMM Web サービス用のライブラリをつくりはじめた</h1>
+  <footer>
+    <p>
+      <time datetime="2017-02-08T00:00:00+09:00">2017年02月08日</time>
+    </p>
+  </footer>
+  <div>
+    <h2>DMM Web サービスとは</h2>
+
+<p><a href="https://affiliate.dmm.com/api/">https://affiliate.dmm.com/api/</a> に公式の情報があります。下手な説明はできないので、こちらを読んでください。</p>
+
+<h2>ホスティング</h2>
+
+<p>今回つくりはじめたライブラリ rdmm のソースコードは、GitHub にホスティングされています。最低限の使い方も README に（自分が忘れたときに思い出せる程度には）記述してあります。</p>
+
+<p><a href="https://github.com/r7kamura/rdmm">https://github.com/r7kamura/rdmm</a></p>
+
+<p>利用時は rubygems.org から Gem として取得できます。執筆時点でのバージョンは 0.0.3。</p>
+
+<p><a href="https://rubygems.org/gems/rdmm">https://rubygems.org/gems/rdmm</a></p>
+
+<h2>rdmm の機能</h2>
+
+<p>現時点では以下の2つのエンドポイントに対応しています。</p>
+
+<ul>
+<li>商品情報検索 API</li>
+<li>シリーズ検索 API</li>
+</ul>
+
+
+<p>商品情報検索 API は、名前の通り DMM の扱っている商品を検索できる API です。例えば自分の用途ではアニメの動画を検索するのに利用していて、「幼女戦記 1話」「幼女戦記 2話」「けものフレンズ 1話」のような単位で検索ができます。「検索」といってもキーワードを与えて検索する機能だけではなくて、沢山あるデータを様々な条件で絞り込めるというイメージです。floor というカテゴリのような単位があり、DMM.com のアニメを表す floor で絞り込んで検索できたりするので、これを利用しています。</p>
+
+<p>シリーズ検索 API は、特定の商品群をまとめるシリーズという単位を検索できる API で、例えば前述した例で言えば「幼女戦記」「けものフレンズ」という単位で検索できます。これも floor を利用して検索できるので、DMM の扱っているアニメのシリーズを検索する、といった使い方ができます。</p>
+
+<h2>余計な変換をする</h2>
+
+<p>例えば日時データなんかは JSON で表現しようとすると文字列や整数として表現することが多いですが、各言語ごとに日時を表すための適切なクラスが存在しているはずで、Web API のクライアントライブラリではその辺りの変換を行ってくれると便利そうなので実装しています。</p>
+
+<p>そんな勝手な変換は要らないというのであれば、汎用的な HTTP クライアントライブラリを利用すればいいはずで、特定の Web API に特化したライブラリを選択しているということは、つまりその辺りの特別な計らいが求めているのだという考えでやっていっています。</p>
+
+<p>余計な変換という点で言えば、名前の変換というのもそうで、分かりづらい略語を利用した名前のパラメータは、ライブラリのレベルでは分かりやすい名前のパラメータとして扱うとか（例: cid → content_id）、データの型に適した名前でアクセスできるようにするとか、(例: actor → actors)、その辺りの変換もある程度好き勝手にやることにしています。</p>
+
+<h2>そのままのデータを保存できるようにする</h2>
+
+<p>Web API から商品情報を表す何らかのデータ（例: XMLの要素の集合）が返ってきたとして、そのデータを解釈するロジックがクライアントライブラリ側に実装される訳ですが、クライアントライブラリの機能改善に伴ってロジックが徐々に変更されていくことも、珍しくはありません。</p>
+
+<p>しかしライブラリがバージョンアップされたからといって、データの再取得が必要になっては困ります。例えばこれは別のサービスの例ですが、Amazon の商品情報を扱う Web API は、1度に最大10件しかデータを取得できないし、毎秒1リクエスト程度しか許されていないので、再取得しようとするとかなりの時間が必要になります。</p>
+
+<p>今回クライアントライブラリを実装するときにも、出来るだけ Web API から得たそのままのデータを取り出して DB などに保存できるように、また保存したデータを取り出して再度解釈できるように、ということに気を付けています。</p>
+
+<h2>追記</h2>
+
+<p>商品情報検索 API、シリーズ検索 API 以外のエンドポイントにも対応しました。</p>
+
+
+  </div>
+</article>
+
+  </main>
+</body>
+</html>

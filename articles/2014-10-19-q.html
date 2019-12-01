@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width">
+  <title>自動検出と自動修正でCSSを保守する</title>
+  <link href="/articles/2014-10-19-q" rel="canonical">
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="search" type="application/opensearchdescription+xml" title="r7kamura.com" href="/opensearch.xml">
+  <link rel="alternate" type="application/rss+xml" href="/feed.xml">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="自動検出と自動修正でCSSを保守する">
+  <meta property="og:url" content="https://r7kamura.com&#x2F;articles&#x2F;2014-10-19-q">
+  <meta property="twitter:card" content="summary">
+  <meta property="twitter:title" content="自動検出と自動修正でCSSを保守する">
+</head>
+<body>
+  <header>
+    <nav>
+      <a href="/">トップページ</a>
+      <ul>
+        <li>
+          <a href="/articles">記事</a>
+        </li>
+        <li>
+          <a href="https://google.com/search?q=site:r7kamura.com">検索</a>
+        </li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <article>
+  <h1>自動検出と自動修正でCSSを保守する</h1>
+  <footer>
+    <p>
+      <time datetime="2014-10-19T00:00:00+09:00">2014年10月19日</time>
+    </p>
+  </footer>
+  <div>
+    <p>CSSの保守に便利なcsscombとscss-lintについて説明します。</p>
+<h2 id="scss-lint-hocho">scss-lint :hocho:</h2>
+<p><a href="https://github.com/causes/scss-lint">scss-lint</a>は、SCSSのコードから与えた設定に違反している箇所を報告してくれるツールです。jslintやrubocopのSCSS版のようなものです。これをCI等で定期的に実行しておくことで、ルールに違反したコードの蔓延を防ぎます。</p>
+<pre><code>gem install scss-lint
+scss-lint app/assets/stylesheets/**/*.scss</code></pre><h2 id="csscomb-hammer">csscomb :hammer:</h2>
+<p><a href="http://csscomb.com/">csscomb</a>はNode製のツールで、CSSのコードを与えた設定に従って自動で変換してくれるものです。scss-lintを初めて導入するときに利用すれば、大半の警告を自動で修正してくれるでしょう。但しCSSの文法しか解釈できないため、SCSSに適用すると失敗する場合があります。SCSSで書かれたファイルに対して適用してみたところ、<code>@include</code>などの文法は受理されるものの、<code>@if</code>などの文法を受理できないようです。しかしながら問題となるケースがそこまで多くないため、SCSSが対象でも十分実用に足るかと思います。csscombは <code>.csscomb.json</code> に記述された設定を元に動作しますが、 この設定内容は<a href="http://csscomb.com/config">公式サイト</a>で生成できます。</p>
+<pre><code>npm install csscomb -g
+vi .csscomb.json
+csscomb app/assets/stylesheets/**/*.scss</code></pre><h2 id="導入-beginner">導入 :beginner:</h2>
+<p>既存のプロジェクトに導入する場合、大枠としては次のような流れになるでしょう。最初の目標はscss-lintから警告が出ないようにすることですから、最初はscss-lintで検閲する項目を極力減らしてCIが通るようにし、そこから徐々にscss-lintのルールを増やしつつ、漸近的に改善していくと良いでしょう。</p>
+<ol>
+<li>csscombで修正する</li>
+<li>scss-lintが警告を出さないようにする</li>
+<li>scss-lintをCIで動かす</li>
+</ol>
+<h2 id="体験-speech_balloon">体験 :speech_balloon:</h2>
+<p>最後に、Qiitaにcsscombとscss-lintを導入したときの話をしましょう。Qiitaでは最初、scss-lintを動かすと1,540件の警告が出ましたが、csscombを実行することで警告の数は数十件に減り、小一時間手作業で修正することで警告が出なくなったため、その段階でCIでscss-lintを走らせるように設定しました。csscombで修正できず手作業で直した警告内容は、ネストが深すぎるというものだけでした。また、csscombが受理できないSCSSの文法に出会したときにも次のファイルに進んでほしかったので、今回は雑にこういうコマンドを実行しました。</p>
+<pre><code>rails runner &#39;Dir.glob(&quot;app/assets/stylesheets/**/*.scss&quot;).each {|path| `scss-lint #{path}` }&#39;</code></pre><p>scss-lintにはRakeタスクが付属しているので、特にCIではこれを利用するのが良いでしょう。.scss-lint.ymlに<code>scss_files</code>という設定があれば、<code>rake scss_lint</code> を実行することでscss-lintを実行できます。シェルのグロブの機能を利用できないCI等で役に立つかもしれません。なお、このRakeタスクは現在最新のv0.29.0では未だ満足に動作しないので、利用する場合はGitHub上のmasterブランチなどを利用しましょう。</p>
+<pre><code class="language-rb:Rakefile"># Define `rake scss_lint`
+require &#39;scss_lint/rake_task&#39;
+SCSSLint::RakeTask.new</code></pre>
+<h2 id="終わりに-bow">終わりに :bow:</h2>
+<p>CSSの保守に便利なcsscombとscss-lintについて説明しました。導入してみたところ思ったより良かったのでチームへの共有も兼ねて投稿しましたが、荒れ果てたCSSを持て余している方の参考になれば幸いです。</p>
+
+  </div>
+</article>
+
+  </main>
+</body>
+</html>

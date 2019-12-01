@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width">
+  <title>HerokuのOAuth as Single Sign On読んだ</title>
+  <link href="/articles/2014-06-20-h" rel="canonical">
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="search" type="application/opensearchdescription+xml" title="r7kamura.com" href="/opensearch.xml">
+  <link rel="alternate" type="application/rss+xml" href="/feed.xml">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="HerokuのOAuth as Single Sign On読んだ">
+  <meta property="og:url" content="https://r7kamura.com&#x2F;articles&#x2F;2014-06-20-h">
+  <meta property="twitter:card" content="summary">
+  <meta property="twitter:title" content="HerokuのOAuth as Single Sign On読んだ">
+</head>
+<body>
+  <header>
+    <nav>
+      <a href="/">トップページ</a>
+      <ul>
+        <li>
+          <a href="/articles">記事</a>
+        </li>
+        <li>
+          <a href="https://google.com/search?q=site:r7kamura.com">検索</a>
+        </li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <article>
+  <h1>HerokuのOAuth as Single Sign On読んだ</h1>
+  <footer>
+    <p>
+      <time datetime="2014-06-20T00:00:00+09:00">2014年06月20日</time>
+    </p>
+  </footer>
+  <div>
+    <p><a href="https://blog.heroku.com/archives/2013/11/14/oauth-sso">Heroku | OAuth as Single Sign On</a>を読んだ。</p>
+
+<h3>つまり</h3>
+
+<ul>
+<li>Herokuでは色々なリソースの操作が内部のAPIサーバ経由で行われる</li>
+<li>dashboard.heroku.com 等のサービスがユーザにUIを提供し内部でAPIサーバと通信している</li>
+<li>APIサーバを利用するにはまずアクセストークンを発行する必要がある</li>
+<li>ログイン用のUIをid.heroku.comで提供している</li>
+<li>ログイン時に内部でAPIサーバからアクセストークンを発行してこれをcookieに入れておく</li>
+<li>各サービスではcookieに含まれているアクセストークンを利用してAPIサーバと通信する</li>
+</ul>
+
+
+<h3>アクセストークンについて</h3>
+
+<ul>
+<li>リフレッシュトークンは捨てることにしてるので有効期間が切れると使えなくなる</li>
+<li>とはいえ有効期間は30日間に設定されているので30日の間はログインし続けられる</li>
+<li>あとアクセストークンと一緒に時刻も保存してて6時間でcookieを無効化するようにしてる(?)</li>
+</ul>
+
+
+<h3>ログアウトについて</h3>
+
+<ul>
+<li>addons.heroku.comからログアウトしたらdashboard.heroku.comからもログアウトしたい</li>
+<li>APIサーバにトークン送ったら関連するトークン全部revokeするようにした</li>
+<li>例えば次にdashboard.heroku.comからAPIサーバと通信したとき分かるのでログアウトできる</li>
+</ul>
+
+
+<h3>つらい</h3>
+
+<ul>
+<li>APIサーバと通信しない限り見た目上ずっとログイン状態のままである</li>
+<li>アプリ一覧画面とかキャッシュされてて通信しないからログインしたままでつらい</li>
+<li>*.heroku.com用のcookie使って他のサービスでログアウトしたかどうか分かるようにした</li>
+</ul>
+
+
+<h3>更につらい</h3>
+
+<ul>
+<li>昔のHerokuのアプリはhoge.heroku.comとか使えるようにしてた</li>
+<li>*.heroku.com用のcookie使うことにしたらそこから操作されるかもしれんやばい</li>
+<li>リスク見積もったけどまあ大丈夫そうやしええやろという判断になった</li>
+</ul>
+
+
+
+  </div>
+</article>
+
+  </main>
+</body>
+</html>
