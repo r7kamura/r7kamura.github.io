@@ -764,5 +764,6 @@ https://r7kamura.com/articles/2019-11-30-cabling
 https://r7kamura.com/articles/2019-12-01-activestorage-test
 https://r7kamura.com/articles/2019-12-02-atom-feed
 https://r7kamura.com/articles/2019-12-02-bookmark
+https://r7kamura.com/articles/2019-12-02-write-on-github
 https://r7kamura.com/
 https://r7kamura.com/articles
