@@ -46,7 +46,7 @@
 <p>ActiveRecord用、ActiveJob用、ActionController用などがあるのだけど、ActiveStorage用のものがこれまで存在していなかったので、今回 <a href="https://github.com/rails/rails/issues/37836">rails/rails#37836</a> で追加した。</p>
 <p><a href="https://guides.rubyonrails.org/contributing_to_ruby_on_rails.html">Railsガイド</a>からもこのテンプレートに対してリンクされていて、<a href="https://edgeguides.rubyonrails.org/contributing_to_ruby_on_rails.html">edge版のRailsガイド</a>では既に反映されているけど、本家のほうにはまだ反映されていない。</p>
 <h2 id="これまでの報告方法">これまでの報告方法</h2>
-<p>過去のActiveStorageに関するIssueを読んでみると、丁寧な人は問題を再現させるための専用のサンプルRailsアプリをPublicリポジトリに用意して、そのURLを貼ったりしている。でも大半の人は、自分のアプリから抜き出してきたコード片をコードブロックでdescriptionに貼り付けているだけだったりして、ちょっと微妙だなとは思っていた。</p>
+<p>過去のActiveStorageに関するIssueを読んでみると、丁寧な人は問題を再現させるための専用のサンプルRailsアプリをPublicリポジトリに用意して、そのURLを貼ったりしている。でも大半の人は、自分のアプリから抜き出してきたコード片を貼り付けているだけだったりして、ちょっと微妙だなとは思っていた。</p>
 <p>そのためだけにサンプルのRailsアプリ用意するのが面倒だというのは理解できて、実際自分も <a href="https://github.com/rails/rails/issues/37836">https://github.com/rails/rails/issues/37836</a> でActiveStorageのIssueをつくるにあたって、アプリをつくるのをかなり躊躇した。結局つくったけど。</p>
 <p>その際になんとかして1ファイルで済ませられないかと試行錯誤して出来たスクリプトを、少し手直しして出来た副産物が、今回の不具合報告用のテンプレート、ということになる。</p>
 <p>これで今後はActiveStorageのIssueや不具合調査を行いやすくなるし、Issueの品質もより良くなって、ActiveStorageの開発が捗るようになることを期待してる。</p>
