@@ -4,17 +4,28 @@
   <link href="https://r7kamura.com"/>
   <link rel="self" type="application/atom+xml" href="https://r7kamura.com/feed.xml"/>
   <link rel="alternate" type="text/html" href="https://r7kamura.com/"/>
-  <updated>2019-12-05T16:51:09.541Z</updated>
+  <updated>2019-12-06T12:28:30.708Z</updated>
   <author>
     <name>Ryo Nakamura</name>
   </author>
   <id>tag:r7kamura.com,2019:/</id>
     <entry>
+      <title>Switchの左コンが壊れて買い直した</title>
+      <link rel="alternate" type="text/html" href="https:&#x2F;&#x2F;r7kamura.com&#x2F;articles&#x2F;2019-12-06-joycon"/>
+      <id>tag:r7kamura.com,2019:&#x2F;articles&#x2F;2019-12-06-joycon</id>
+      <published>2019-12-06T00:00:00+09:00</published>
+      <updated>2019-12-06T12:28:12.741Z</updated>
+      <content type="html">&lt;p&gt;&lt;img src&#x3D;&quot;&#x2F;images&#x2F;2019-12-06-joycon.jpg&quot; alt&#x3D;&quot;&quot;&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;リングフィット アドベンチャーが順調に続いている。今日で10日目くらい？順調に身体の節々が痛い。&lt;&#x2F;p&gt;
+&lt;p&gt;左のジョイコンとの通信が頻繁に途切れて使い物にならなくなったので、新しく買い直した。左コンはよくこういう状態になるらしい。左コンだけ公式でバラ売りしてるのは助かる。期待を込めて☆3つです。&lt;&#x2F;p&gt;
+</content>
+    </entry>
+    <entry>
       <title>折り畳める踏み台を購入</title>
       <link rel="alternate" type="text/html" href="https:&#x2F;&#x2F;r7kamura.com&#x2F;articles&#x2F;2019-12-05-stepladder"/>
       <id>tag:r7kamura.com,2019:&#x2F;articles&#x2F;2019-12-05-stepladder</id>
       <published>2019-12-05T00:00:00+09:00</published>
-      <updated>2019-12-05T16:50:51.186Z</updated>
+      <updated>2019-12-06T12:28:12.741Z</updated>
       <content type="html">&lt;p&gt;天井照明とプロジェクタをメンテナンスするために、折り畳める小さな踏み台を買った。&lt;&#x2F;p&gt;
 &lt;p&gt;&lt;img src&#x3D;&quot;&#x2F;images&#x2F;2019-12-05-stepladder-1.jpg&quot; alt&#x3D;&quot;&quot;&gt;&lt;&#x2F;p&gt;
 &lt;p&gt;普段は玄関周りに置いておいて、靴の脱ぎ履きのときに荷物を置いたり座ったりするのに使う。&lt;&#x2F;p&gt;
@@ -27,7 +38,7 @@
       <link rel="alternate" type="text/html" href="https:&#x2F;&#x2F;r7kamura.com&#x2F;articles&#x2F;2019-12-05-active-storage-template"/>
       <id>tag:r7kamura.com,2019:&#x2F;articles&#x2F;2019-12-05-active-storage-template</id>
       <published>2019-12-05T00:00:00+09:00</published>
-      <updated>2019-12-05T16:50:51.186Z</updated>
+      <updated>2019-12-06T12:28:12.741Z</updated>
       <content type="html">&lt;p&gt;&lt;a href&#x3D;&quot;https:&#x2F;&#x2F;github.com&#x2F;rails&#x2F;rails&#x2F;pull&#x2F;37888&quot;&gt;Add bug report templates for Active Storage by r7kamura · Pull Request #37888 · rails&#x2F;rails&lt;&#x2F;a&gt; 出したらmergeされたよって話。&lt;&#x2F;p&gt;
 &lt;h2 id&#x3D;&quot;スポンサーで浮かれてossをやる&quot;&gt;スポンサーで浮かれてOSSをやる&lt;&#x2F;h2&gt;
 &lt;p&gt;GitHubスポンサーの審査を通過した旨をTwitterでつぶやいたところ、何人かにすぐにスポンサーになってもらえてモチベートされたので、Railsで最近気になっていたところについてPull Requestを送ってみることにした。&lt;&#x2F;p&gt;
@@ -47,7 +58,7 @@
       <link rel="alternate" type="text/html" href="https:&#x2F;&#x2F;r7kamura.com&#x2F;articles&#x2F;2019-12-03-unit-shelf"/>
       <id>tag:r7kamura.com,2019:&#x2F;articles&#x2F;2019-12-03-unit-shelf</id>
       <published>2019-12-03T00:00:00+09:00</published>
-      <updated>2019-12-05T16:50:51.186Z</updated>
+      <updated>2019-12-06T12:28:12.741Z</updated>
       <content type="html">&lt;p&gt;&lt;img src&#x3D;&quot;&#x2F;images&#x2F;2019-12-03-unit-shelf.jpg&quot; alt&#x3D;&quot;&quot;&gt;&lt;&#x2F;p&gt;
 &lt;p&gt;先週末に友達が手伝ってくれて、無印良品週間のときに買っておいたユニットシェルフが完成した。書類と機器と配線の整理に役に立ってる。&lt;&#x2F;p&gt;
 &lt;p&gt;ユニットシェルフを買うのは結構難しい。迷ったら&lt;a href&#x3D;&quot;https:&#x2F;&#x2F;www.muji.net&#x2F;store&#x2F;cmdty&#x2F;detail&#x2F;4550182141535&quot;&gt;カウンターセット&lt;&#x2F;a&gt;がおすすめ。組み立てに工具は不要だけど、結構重いので2人以上じゃないと厳しい。&lt;&#x2F;p&gt;
@@ -77,7 +88,7 @@
       <link rel="alternate" type="text/html" href="https:&#x2F;&#x2F;r7kamura.com&#x2F;articles&#x2F;2019-12-03-discord-go-live-capture"/>
       <id>tag:r7kamura.com,2019:&#x2F;articles&#x2F;2019-12-03-discord-go-live-capture</id>
       <published>2019-12-03T00:00:00+09:00</published>
-      <updated>2019-12-05T16:50:51.186Z</updated>
+      <updated>2019-12-06T12:28:12.741Z</updated>
       <content type="html">&lt;p&gt;キャプチャボードで取り込んだSwitchやPS4なんかの音声と映像を、DiscordのGo Live機能で配信する方法について。&lt;&#x2F;p&gt;
 &lt;h2 id&#x3D;&quot;映像と音声を入力&quot;&gt;映像と音声を入力&lt;&#x2F;h2&gt;
 &lt;p&gt;&lt;a href&#x3D;&quot;https:&#x2F;&#x2F;obsproject.com&#x2F;ja&quot;&gt;OBS&lt;&#x2F;a&gt;を使う。OBSに以下のソースをそれぞれ追加して、デバイスとしてキャプチャボードを指定する。これで、OBSが映像と音声を参照できるようになる。&lt;&#x2F;p&gt;
@@ -105,7 +116,7 @@
       <link rel="alternate" type="text/html" href="https:&#x2F;&#x2F;r7kamura.com&#x2F;articles&#x2F;2019-12-02-write-on-github"/>
       <id>tag:r7kamura.com,2019:&#x2F;articles&#x2F;2019-12-02-write-on-github</id>
       <published>2019-12-02T00:00:00+09:00</published>
-      <updated>2019-12-05T16:50:51.186Z</updated>
+      <updated>2019-12-06T12:28:12.741Z</updated>
       <content type="html">&lt;p&gt;GitHubのファイル作成画面から日本語の文章を書いてみたところ、意外と体験が良かった。&lt;&#x2F;p&gt;
 &lt;p&gt;&lt;img src&#x3D;&quot;&#x2F;images&#x2F;2019-12-02-github-screenshot.png&quot; alt&#x3D;&quot;&quot;&gt;&lt;&#x2F;p&gt;
 &lt;p&gt;IMEや折り返しの挙動には今のところ困ってないし、Markdownのプレビュー機能やリッチな差分表示もあるし、URLが固定なのでアクセスもしやすく、画像のアップロードもできる。&lt;&#x2F;p&gt;
@@ -118,7 +129,7 @@
       <link rel="alternate" type="text/html" href="https:&#x2F;&#x2F;r7kamura.com&#x2F;articles&#x2F;2019-12-02-magnet-usb"/>
       <id>tag:r7kamura.com,2019:&#x2F;articles&#x2F;2019-12-02-magnet-usb</id>
       <published>2019-12-02T00:00:00+09:00</published>
-      <updated>2019-12-05T16:50:51.186Z</updated>
+      <updated>2019-12-06T12:28:12.741Z</updated>
       <content type="html">&lt;p&gt;&lt;img src&#x3D;&quot;&#x2F;images&#x2F;2019-12-02-magnet-usb.jpg&quot; alt&#x3D;&quot;&quot;&gt;&lt;&#x2F;p&gt;
 &lt;p&gt;&lt;a href&#x3D;&quot;https:&#x2F;&#x2F;www.amazon.co.jp&#x2F;gp&#x2F;product&#x2F;B07XSNVPSW&quot;&gt;https:&#x2F;&#x2F;www.amazon.co.jp&#x2F;gp&#x2F;product&#x2F;B07XSNVPSW&lt;&#x2F;a&gt;&lt;&#x2F;p&gt;
 &lt;p&gt;これらの充電目的で試しに購入してみた。恐らくどれも中華製だろうけど、似た商品が沢山あるので選ぶのは大変。&lt;&#x2F;p&gt;
@@ -137,7 +148,7 @@
       <link rel="alternate" type="text/html" href="https:&#x2F;&#x2F;r7kamura.com&#x2F;articles&#x2F;2019-12-02-bookmark"/>
       <id>tag:r7kamura.com,2019:&#x2F;articles&#x2F;2019-12-02-bookmark</id>
       <published>2019-12-02T00:00:00+09:00</published>
-      <updated>2019-12-05T16:50:51.186Z</updated>
+      <updated>2019-12-06T12:28:12.741Z</updated>
       <content type="html">&lt;p&gt;ウェブページのブックマークの運用方法を見直し、ソーシャルブックマークサービスの利用をやめ、Google Chromeのブックマークだけ使うようになった。&lt;&#x2F;p&gt;
 &lt;p&gt;ブックマークには頻繁にアクセスするページだけ登録して、&lt;a href&#x3D;&quot;https:&#x2F;&#x2F;chrome.google.com&#x2F;webstore&#x2F;detail&#x2F;holmes&#x2F;gokficnebmomagijbakglkcmhdbchbhn&quot;&gt;Holmes&lt;&#x2F;a&gt;からアクセスする。なのでインクリメンタル検索しやすい名前で登録しておくのが吉。&lt;&#x2F;p&gt;
 &lt;p&gt;他人に共有したいページや気になるページについては、Twitterとかで言及しておけば十分、ということにした。&lt;&#x2F;p&gt;
@@ -148,7 +159,7 @@
       <link rel="alternate" type="text/html" href="https:&#x2F;&#x2F;r7kamura.com&#x2F;articles&#x2F;2019-12-02-atom-feed"/>
       <id>tag:r7kamura.com,2019:&#x2F;articles&#x2F;2019-12-02-atom-feed</id>
       <published>2019-12-02T00:00:00+09:00</published>
-      <updated>2019-12-05T16:50:51.186Z</updated>
+      <updated>2019-12-06T12:28:12.741Z</updated>
       <content type="html">&lt;p&gt;&lt;a href&#x3D;&quot;https:&#x2F;&#x2F;r7kamura.com&#x2F;feed.xml&quot;&gt;https:&#x2F;&#x2F;r7kamura.com&#x2F;feed.xml&lt;&#x2F;a&gt; から、Atom 1.0形式で直近20件の記事の情報を配信するようにした。&lt;&#x2F;p&gt;
 &lt;h2 id&#x3D;&quot;実装にあたって&quot;&gt;実装にあたって&lt;&#x2F;h2&gt;
 &lt;p&gt;&lt;a href&#x3D;&quot;https:&#x2F;&#x2F;tools.ietf.org&#x2F;html&#x2F;rfc4287&quot;&gt;RFC 4287&lt;&#x2F;a&gt;を読みながら一通り実装して、W3Cの&lt;a href&#x3D;&quot;https:&#x2F;&#x2F;validator.w3.org&#x2F;feed&#x2F;&quot;&gt;Feed Validation Service&lt;&#x2F;a&gt;で最終確認した。&lt;&#x2F;p&gt;
@@ -163,7 +174,7 @@
       <link rel="alternate" type="text/html" href="https:&#x2F;&#x2F;r7kamura.com&#x2F;articles&#x2F;2019-12-01-activestorage-test"/>
       <id>tag:r7kamura.com,2019:&#x2F;articles&#x2F;2019-12-01-activestorage-test</id>
       <published>2019-12-01T00:00:00+09:00</published>
-      <updated>2019-12-05T16:50:51.186Z</updated>
+      <updated>2019-12-06T12:28:12.741Z</updated>
       <content type="html">&lt;p&gt;ActiveStorageを使ったテストを書きたいときに、わざわざRailsアプリを1つ用意するのは手間が掛かるので、単一ファイルで完結するような書き方を模索してみた。&lt;&#x2F;p&gt;
 &lt;p&gt;&lt;a href&#x3D;&quot;https:&#x2F;&#x2F;gist.github.com&#x2F;r7kamura&#x2F;7ee56572693fcd07a17219cd0ee6a4ca&quot;&gt;https:&#x2F;&#x2F;gist.github.com&#x2F;r7kamura&#x2F;7ee56572693fcd07a17219cd0ee6a4ca&lt;&#x2F;a&gt; に動くコードがある。Rubyスクリプトとして実行すれば動く。ちなみにこのファイルは &lt;a href&#x3D;&quot;https:&#x2F;&#x2F;github.com&#x2F;rails&#x2F;rails&#x2F;issues&#x2F;37836&quot;&gt;https:&#x2F;&#x2F;github.com&#x2F;rails&#x2F;rails&#x2F;issues&#x2F;37836&lt;&#x2F;a&gt; の調査用に用意した。&lt;&#x2F;p&gt;
 &lt;p&gt;以下は奇妙なところについての説明。&lt;&#x2F;p&gt;
@@ -186,7 +197,7 @@
       <link rel="alternate" type="text/html" href="https:&#x2F;&#x2F;r7kamura.com&#x2F;articles&#x2F;2019-11-30-cabling"/>
       <id>tag:r7kamura.com,2019:&#x2F;articles&#x2F;2019-11-30-cabling</id>
       <published>2019-11-30T00:00:00+09:00</published>
-      <updated>2019-12-05T16:50:51.186Z</updated>
+      <updated>2019-12-06T12:28:12.741Z</updated>
       <content type="html">&lt;p&gt;棚が完成してゲーム機器類をデスク付近にまとめられるようになったので、あわせてAmazonでいろいろと発注した。&lt;&#x2F;p&gt;
 &lt;h2 id&#x3D;&quot;8mのオーディオケーブル&quot;&gt;8mのオーディオケーブル&lt;&#x2F;h2&gt;
 &lt;p&gt;&lt;a href&#x3D;&quot;https:&#x2F;&#x2F;www.amazon.co.jp&#x2F;gp&#x2F;product&#x2F;B07VJNPQBG&quot;&gt;https:&#x2F;&#x2F;www.amazon.co.jp&#x2F;gp&#x2F;product&#x2F;B07VJNPQBG&lt;&#x2F;a&gt;&lt;&#x2F;p&gt;
@@ -215,7 +226,7 @@
       <link rel="alternate" type="text/html" href="https:&#x2F;&#x2F;r7kamura.com&#x2F;articles&#x2F;2019-11-29-infra-payments"/>
       <id>tag:r7kamura.com,2019:&#x2F;articles&#x2F;2019-11-29-infra-payments</id>
       <published>2019-11-29T00:00:00+09:00</published>
-      <updated>2019-12-05T16:50:51.186Z</updated>
+      <updated>2019-12-06T12:28:12.741Z</updated>
       <content type="html">&lt;p&gt;個人事業で以下のサービスの利用料を按分しているので、経理を楽に済ませられるように、それらを事業用口座から請求するように変更しようとしている。&lt;&#x2F;p&gt;
 &lt;ul&gt;
 &lt;li&gt;家賃 (エポスカード)&lt;&#x2F;li&gt;
@@ -239,7 +250,7 @@
       <link rel="alternate" type="text/html" href="https:&#x2F;&#x2F;r7kamura.com&#x2F;articles&#x2F;2019-11-29-freelance-moving"/>
       <id>tag:r7kamura.com,2019:&#x2F;articles&#x2F;2019-11-29-freelance-moving</id>
       <published>2019-11-29T00:00:00+09:00</published>
-      <updated>2019-12-05T16:50:51.186Z</updated>
+      <updated>2019-12-06T12:28:12.741Z</updated>
       <content type="html">&lt;p&gt;2019年11月29日時点の、自分の状況に対しての情報をまとめておく。&lt;&#x2F;p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href&#x3D;&quot;https:&#x2F;&#x2F;www.nta.go.jp&#x2F;taxes&#x2F;tetsuzuki&#x2F;shinsei&#x2F;annai&#x2F;shinkoku&#x2F;annai&#x2F;06.htm&quot;&gt;https:&#x2F;&#x2F;www.nta.go.jp&#x2F;taxes&#x2F;tetsuzuki&#x2F;shinsei&#x2F;annai&#x2F;shinkoku&#x2F;annai&#x2F;06.htm&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
@@ -278,7 +289,7 @@
       <link rel="alternate" type="text/html" href="https:&#x2F;&#x2F;r7kamura.com&#x2F;articles&#x2F;2019-11-29-diary"/>
       <id>tag:r7kamura.com,2019:&#x2F;articles&#x2F;2019-11-29-diary</id>
       <published>2019-11-29T00:00:00+09:00</published>
-      <updated>2019-12-05T16:50:51.186Z</updated>
+      <updated>2019-12-06T12:28:12.741Z</updated>
       <content type="html">&lt;p&gt;IDEEのビーズクッションのカバーがへたってきたので、落ち着いた色のやつに買い替えた。サメも喜んでいます。&lt;&#x2F;p&gt;
 &lt;p&gt;&lt;img src&#x3D;&quot;&#x2F;images&#x2F;2019-11-29-1.jpg&quot; alt&#x3D;&quot;&quot;&gt;&lt;&#x2F;p&gt;
 &lt;hr&gt;
@@ -315,7 +326,7 @@
       <link rel="alternate" type="text/html" href="https:&#x2F;&#x2F;r7kamura.com&#x2F;articles&#x2F;2019-11-28-break-word"/>
       <id>tag:r7kamura.com,2019:&#x2F;articles&#x2F;2019-11-28-break-word</id>
       <published>2019-11-28T00:00:00+09:00</published>
-      <updated>2019-12-05T16:50:51.186Z</updated>
+      <updated>2019-12-06T12:28:12.741Z</updated>
       <content type="html">&lt;p&gt;自分がよく使う書き方はこう。&lt;&#x2F;p&gt;
 &lt;pre&gt;&lt;code class&#x3D;&quot;language-css&quot;&gt;body {
   word-wrap: break-word;
@@ -347,7 +358,7 @@
       <link rel="alternate" type="text/html" href="https:&#x2F;&#x2F;r7kamura.com&#x2F;articles&#x2F;2019-11-27-opensearch"/>
       <id>tag:r7kamura.com,2019:&#x2F;articles&#x2F;2019-11-27-opensearch</id>
       <published>2019-11-27T00:00:00+09:00</published>
-      <updated>2019-12-05T16:50:51.186Z</updated>
+      <updated>2019-12-06T12:28:12.741Z</updated>
       <content type="html">&lt;p&gt;OpenSearchに対応したので、ブラウザのロケーションバーで、&lt;&#x2F;p&gt;
 &lt;ul&gt;
 &lt;li&gt;r7kamura.com + 半角スペース、と入力する&lt;&#x2F;li&gt;
@@ -363,7 +374,7 @@
       <link rel="alternate" type="text/html" href="https:&#x2F;&#x2F;r7kamura.com&#x2F;articles&#x2F;2019-11-27-goodbye-patreon"/>
       <id>tag:r7kamura.com,2019:&#x2F;articles&#x2F;2019-11-27-goodbye-patreon</id>
       <published>2019-11-27T00:00:00+09:00</published>
-      <updated>2019-12-05T16:50:51.186Z</updated>
+      <updated>2019-12-06T12:28:12.741Z</updated>
       <content type="html">&lt;p&gt;&lt;a href&#x3D;&quot;https:&#x2F;&#x2F;patreon.com&#x2F;r7kamura&quot;&gt;https:&#x2F;&#x2F;patreon.com&#x2F;r7kamura&lt;&#x2F;a&gt; からこのウェブサイトに文章を移動させた。他のサービスと違い、Patreonにはエクスポート機能が無く、すべて手作業で移動させたので大仕事だった。一応記事は残してあって、それぞれ移動先にリンクを貼ってある。これですべてのテキストの引っ越しが完了したことになる。&lt;&#x2F;p&gt;
 &lt;p&gt;長い段落を書くことはできる限り避けたいので、このウェブサイトでは、1行あたりに表示される文字数を抑えてある。インポートしてきたプログラミング関係の記事は、そういう環境を考慮して書かれていないので、ちょっと読みづらいかもしれない。&lt;&#x2F;p&gt;
 </content>
@@ -373,7 +384,7 @@
       <link rel="alternate" type="text/html" href="https:&#x2F;&#x2F;r7kamura.com&#x2F;articles&#x2F;2019-11-26-muji-week"/>
       <id>tag:r7kamura.com,2019:&#x2F;articles&#x2F;2019-11-26-muji-week</id>
       <published>2019-11-26T00:00:00+09:00</published>
-      <updated>2019-12-05T16:50:51.186Z</updated>
+      <updated>2019-12-06T12:28:12.741Z</updated>
       <content type="html">&lt;h2 id&#x3D;&quot;タオル&quot;&gt;タオル&lt;&#x2F;h2&gt;
 &lt;p&gt;家のフェイスタオルを無印良品のもので統一した。中厚手でライトグレーのやつだけど、店頭で適当に4枚買ったので綿パイルなのかオーガニックコットン混なのか失念した。中厚手は正解。バスタオルも買いたい。&lt;&#x2F;p&gt;
 &lt;h2 id&#x3D;&quot;入浴と雑貨&quot;&gt;入浴と雑貨&lt;&#x2F;h2&gt;
@@ -388,32 +399,10 @@
       <link rel="alternate" type="text/html" href="https:&#x2F;&#x2F;r7kamura.com&#x2F;articles&#x2F;2019-11-26-capture-board"/>
       <id>tag:r7kamura.com,2019:&#x2F;articles&#x2F;2019-11-26-capture-board</id>
       <published>2019-11-26T00:00:00+09:00</published>
-      <updated>2019-12-05T16:50:51.186Z</updated>
+      <updated>2019-12-06T12:28:12.741Z</updated>
       <content type="html">&lt;p&gt;SwitchとPS4の配信用途で、&lt;a href&#x3D;&quot;https:&#x2F;&#x2F;www.amazon.co.jp&#x2F;dp&#x2F;B07C2ZYHF5&quot;&gt;AVT-C878 PLUS&lt;&#x2F;a&gt;を注文した。&lt;&#x2F;p&gt;
 &lt;p&gt;&lt;img src&#x3D;&quot;https:&#x2F;&#x2F;images-na.ssl-images-amazon.com&#x2F;images&#x2F;I&#x2F;71Oj65360WL._SL1500_.jpg&quot; alt&#x3D;&quot;&quot;&gt;&lt;&#x2F;p&gt;
 &lt;p&gt;基本的な部分での性能が良い&lt;a href&#x3D;&quot;https:&#x2F;&#x2F;www.amazon.co.jp&#x2F;dp&#x2F;B07DFR38WG&quot;&gt;GC550 PLUS&lt;&#x2F;a&gt;と迷ったものの、Macでも動くという利点を考慮して、最終的にAVT-C878 PLUSを選択した。現状Macで動くキャプチャーボードの選択肢や動作報告が少なく、Macで動かしたいならこの製品が安牌だろうと思ってる。ゲーム用途のWindows機も持ってるんだけど、あくまでゲーム用途のサブという感じで使い慣れてもいないし、できればMacで完結すると嬉しい。マイクも普段はMacに繋がってるのでその方が楽。&lt;&#x2F;p&gt;
-</content>
-    </entry>
-    <entry>
-      <title>渋谷区から港区に引っ越した</title>
-      <link rel="alternate" type="text/html" href="https:&#x2F;&#x2F;r7kamura.com&#x2F;articles&#x2F;2019-11-25-moving"/>
-      <id>tag:r7kamura.com,2019:&#x2F;articles&#x2F;2019-11-25-moving</id>
-      <published>2019-11-25T00:00:00+09:00</published>
-      <updated>2019-12-05T16:50:51.186Z</updated>
-      <content type="html">&lt;p&gt;便利そうな立地と内装の賃貸物件を見つけたので、それまで住んでいた渋谷区の物件を解約して、港区に引っ越した。生活のリセットも兼ねて2年に1度程度は引っ越すようにしてて、今回もそのタイミングでの引っ越し。&lt;&#x2F;p&gt;
-&lt;p&gt;&lt;img src&#x3D;&quot;&#x2F;images&#x2F;2019-11-25-moving-2.jpg&quot; alt&#x3D;&quot;&quot;&gt;&lt;&#x2F;p&gt;
-&lt;p&gt;&lt;img src&#x3D;&quot;&#x2F;images&#x2F;2019-11-25-moving-1.jpg&quot; alt&#x3D;&quot;&quot;&gt;&lt;&#x2F;p&gt;
-&lt;p&gt;&lt;img src&#x3D;&quot;&#x2F;images&#x2F;2019-11-25-moving-3.jpg&quot; alt&#x3D;&quot;&quot;&gt;&lt;&#x2F;p&gt;
-&lt;p&gt;今回の物件では、掃除をこまめにやるとか、物をしまう場所をそれぞれつくってあげるとか、生活をちゃんとやっていくのを目標にしたい。&lt;&#x2F;p&gt;
-&lt;h2 id&#x3D;&quot;過去の引っ越し&quot;&gt;過去の引っ越し&lt;&#x2F;h2&gt;
-&lt;p&gt;これまでの引っ越しの履歴はこちら。&lt;&#x2F;p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href&#x3D;&quot;&#x2F;articles&#x2F;2012-03-27-1-h&quot;&gt;東京に引っ越した&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
-&lt;li&gt;&lt;a href&#x3D;&quot;&#x2F;articles&#x2F;2013-07-02-h&quot;&gt;卓球ハウスに引っ越した&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
-&lt;li&gt;&lt;a href&#x3D;&quot;&#x2F;articles&#x2F;2015-12-14-h&quot;&gt;京都に引っ越した&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
-&lt;li&gt;&lt;a href&#x3D;&quot;&#x2F;articles&#x2F;2016-12-01-h&quot;&gt;京都市内で引っ越した&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
-&lt;li&gt;&lt;a href&#x3D;&quot;&#x2F;articles&#x2F;2018-12-07-7c3306274682&quot;&gt;京都から渋谷に引っ越した&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
-&lt;&#x2F;ul&gt;
 </content>
     </entry>
 </feed>
