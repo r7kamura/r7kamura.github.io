@@ -4,7 +4,7 @@
   <link href="https://r7kamura.com"/>
   <link rel="self" type="application/atom+xml" href="https://r7kamura.com/feed.xml"/>
   <link rel="alternate" type="text/html" href="https://r7kamura.com/"/>
-  <updated>2019-12-18T07:47:04.679Z</updated>
+  <updated>2019-12-18T08:07:07.573Z</updated>
   <author>
     <name>Ryo Nakamura</name>
   </author>
@@ -14,13 +14,13 @@
       <link rel="alternate" type="text/html" href="https:&#x2F;&#x2F;r7kamura.com&#x2F;articles&#x2F;2019-12-17-qrio-lock"/>
       <id>tag:r7kamura.com,2019:&#x2F;articles&#x2F;2019-12-17-qrio-lock</id>
       <published>2019-12-17T00:00:00+09:00</published>
-      <updated>2019-12-18T07:46:51.834Z</updated>
+      <updated>2019-12-18T08:06:50.946Z</updated>
       <content type="html">&lt;p&gt;&lt;img src&#x3D;&quot;&#x2F;images&#x2F;2019-12-17-qrio-lock-2.jpg&quot; alt&#x3D;&quot;&quot;&gt;&lt;&#x2F;p&gt;
 &lt;p&gt;玄関の鍵にQrio Lockを取り付けた。&lt;&#x2F;p&gt;
 &lt;p&gt;&lt;a href&#x3D;&quot;https:&#x2F;&#x2F;qrio.me&#x2F;smartlock&#x2F;&quot;&gt;https:&#x2F;&#x2F;qrio.me&#x2F;smartlock&#x2F;&lt;&#x2F;a&gt;&lt;&#x2F;p&gt;
 &lt;p&gt;うちの玄関ドアには錠が二つ付いている。一つは円柱状のドアノブ内に錠が埋め込まれているタイプで、これはQrio Lockに対応していなかった。もう一つの錠には対応していたので、Qrio Lockの設置以降はこちらの鍵をメインで使うようになった。&lt;&#x2F;p&gt;
 &lt;p&gt;&lt;img src&#x3D;&quot;&#x2F;images&#x2F;2019-12-17-qrio-lock-1.jpg&quot; alt&#x3D;&quot;&quot;&gt;&lt;&#x2F;p&gt;
-&lt;p&gt;忘れて締め出されるのはちょっと怖いけど、オートロックは入室時の手間が一工程減って便利。遠くまで外出したときに、ジオフェンスで検知して勝手に開く機能も良い。但し、ゴミを捨てに行ったり近場のコンビニに行く程度の近距離だと、外出扱いにならないことがあるので、玄関の前でスマホを操作することになるのが惜しいところだと思う。&lt;&#x2F;p&gt;
+&lt;p&gt;忘れて締め出されるのはちょっと怖いけど、オートロックは入退室時の手間が一工程減って便利。遠くまで外出したときに、ジオフェンスで検知して勝手に開く機能も良い。但し、ゴミを捨てに行ったり近場のコンビニに行く程度の近距離だと、外出扱いにならないことがあるので、玄関の前でスマホを操作することになるのが惜しいところだと思う。&lt;&#x2F;p&gt;
 </content>
     </entry>
     <entry>
@@ -28,7 +28,7 @@
       <link rel="alternate" type="text/html" href="https:&#x2F;&#x2F;r7kamura.com&#x2F;articles&#x2F;2019-12-16-top-page-link-title"/>
       <id>tag:r7kamura.com,2019:&#x2F;articles&#x2F;2019-12-16-top-page-link-title</id>
       <published>2019-12-16T00:00:00+09:00</published>
-      <updated>2019-12-18T07:46:51.834Z</updated>
+      <updated>2019-12-18T08:06:50.946Z</updated>
       <content type="html">&lt;p&gt;&lt;img src&#x3D;&quot;&#x2F;images&#x2F;2019-12-16-top-page-link-title.png&quot; alt&#x3D;&quot;&quot;&gt;&lt;&#x2F;p&gt;
 &lt;p&gt;トップページへのリンクのテキストを「トップページ」から「r7kamura」に変えた。&lt;&#x2F;p&gt;
 &lt;p&gt;どうやらGoogleは、トップページへのリンクをそのウェブサイトのサイト名だと認識するようだ。トップページへのリンクのタイトルを「トップページ」としていると、上に貼った画像のように、検索結果に「{{記事名}} - トップページ」のようなページタイトルが表示されることになる。&lt;&#x2F;p&gt;
@@ -40,7 +40,7 @@
       <link rel="alternate" type="text/html" href="https:&#x2F;&#x2F;r7kamura.com&#x2F;articles&#x2F;2019-12-16-audio-selector"/>
       <id>tag:r7kamura.com,2019:&#x2F;articles&#x2F;2019-12-16-audio-selector</id>
       <published>2019-12-16T00:00:00+09:00</published>
-      <updated>2019-12-18T07:46:51.834Z</updated>
+      <updated>2019-12-18T08:06:50.946Z</updated>
       <content type="html">&lt;p&gt;&lt;img src&#x3D;&quot;&#x2F;images&#x2F;2019-12-16-audio-selector.jpg&quot; alt&#x3D;&quot;&quot;&gt;&lt;&#x2F;p&gt;
 &lt;p&gt;安いオーディオセレクタをAmazonで買い、全ての機器の音声出力を無線ヘッドホンと接続した。&lt;&#x2F;p&gt;
 &lt;p&gt;&lt;a href&#x3D;&quot;https:&#x2F;&#x2F;www.amazon.co.jp&#x2F;gp&#x2F;product&#x2F;B01CWAND36&quot;&gt;https:&#x2F;&#x2F;www.amazon.co.jp&#x2F;gp&#x2F;product&#x2F;B01CWAND36&lt;&#x2F;a&gt;&lt;&#x2F;p&gt;
@@ -53,7 +53,7 @@
       <link rel="alternate" type="text/html" href="https:&#x2F;&#x2F;r7kamura.com&#x2F;articles&#x2F;2019-12-14-penguin-highway"/>
       <id>tag:r7kamura.com,2019:&#x2F;articles&#x2F;2019-12-14-penguin-highway</id>
       <published>2019-12-14T00:00:00+09:00</published>
-      <updated>2019-12-18T07:46:51.834Z</updated>
+      <updated>2019-12-18T08:06:50.946Z</updated>
       <content type="html">&lt;p&gt;&lt;img src&#x3D;&quot;&#x2F;images&#x2F;2019-12-14-penguin-highway.jpg&quot; alt&#x3D;&quot;&quot;&gt;&lt;&#x2F;p&gt;
 &lt;p&gt;Amazonプライム・ビデオで『ペンギン・ハイウェイ』が配信されてたので観た。&lt;&#x2F;p&gt;
 &lt;p&gt;&lt;a href&#x3D;&quot;https:&#x2F;&#x2F;www.amazon.co.jp&#x2F;dp&#x2F;B0821ZHVZ4&quot;&gt;https:&#x2F;&#x2F;www.amazon.co.jp&#x2F;dp&#x2F;B0821ZHVZ4&lt;&#x2F;a&gt;&lt;&#x2F;p&gt;
@@ -68,7 +68,7 @@
       <link rel="alternate" type="text/html" href="https:&#x2F;&#x2F;r7kamura.com&#x2F;articles&#x2F;2019-12-14-hdmi-selector"/>
       <id>tag:r7kamura.com,2019:&#x2F;articles&#x2F;2019-12-14-hdmi-selector</id>
       <published>2019-12-14T00:00:00+09:00</published>
-      <updated>2019-12-18T07:46:51.834Z</updated>
+      <updated>2019-12-18T08:06:50.946Z</updated>
       <content type="html">&lt;p&gt;&lt;img src&#x3D;&quot;&#x2F;images&#x2F;2019-12-14-hdmi-selector.jpg&quot; alt&#x3D;&quot;&quot;&gt;&lt;&#x2F;p&gt;
 &lt;p&gt;HDMIセレクタを先月買って以来、たいへん重宝している。&lt;&#x2F;p&gt;
 &lt;p&gt;&lt;a href&#x3D;&quot;https:&#x2F;&#x2F;www.amazon.co.jp&#x2F;gp&#x2F;product&#x2F;B07WTZFLH4&quot;&gt;https:&#x2F;&#x2F;www.amazon.co.jp&#x2F;gp&#x2F;product&#x2F;B07WTZFLH4&lt;&#x2F;a&gt;&lt;&#x2F;p&gt;
@@ -81,7 +81,7 @@
       <link rel="alternate" type="text/html" href="https:&#x2F;&#x2F;r7kamura.com&#x2F;articles&#x2F;2019-12-13-ring-fit-adventure"/>
       <id>tag:r7kamura.com,2019:&#x2F;articles&#x2F;2019-12-13-ring-fit-adventure</id>
       <published>2019-12-13T00:00:00+09:00</published>
-      <updated>2019-12-18T07:46:51.834Z</updated>
+      <updated>2019-12-18T08:06:50.946Z</updated>
       <content type="html">&lt;p&gt;2019年11月26日にリングフィットアドベンチャーを購入して以来、18日間中15日間やった。風邪で休んだ日が1日と、睡眠不足で休んだ日が2日。&lt;&#x2F;p&gt;
 &lt;p&gt;朝にやるのがようやく習慣化してきたと思う。大体朝6時から8時の間にやってる。&lt;&#x2F;p&gt;
 &lt;p&gt;適度に運動するようになったおかげで、この辺りの利点を感じてる。&lt;&#x2F;p&gt;
@@ -109,7 +109,7 @@
       <link rel="alternate" type="text/html" href="https:&#x2F;&#x2F;r7kamura.com&#x2F;articles&#x2F;2019-12-11-routine"/>
       <id>tag:r7kamura.com,2019:&#x2F;articles&#x2F;2019-12-11-routine</id>
       <published>2019-12-11T00:00:00+09:00</published>
-      <updated>2019-12-18T07:46:51.834Z</updated>
+      <updated>2019-12-18T08:06:50.946Z</updated>
       <content type="html">&lt;p&gt;&lt;img src&#x3D;&quot;&#x2F;images&#x2F;2019-12-11-routine.jpg&quot; alt&#x3D;&quot;&quot;&gt;&lt;&#x2F;p&gt;
 &lt;p&gt;ここ最近、運動と掃除を毎日やってる。&lt;&#x2F;p&gt;
 &lt;p&gt;「数日おき」や「毎週」より、「毎日」の方が継続しやすい。&lt;&#x2F;p&gt;
@@ -133,7 +133,7 @@
       <link rel="alternate" type="text/html" href="https:&#x2F;&#x2F;r7kamura.com&#x2F;articles&#x2F;2019-12-09-og-information"/>
       <id>tag:r7kamura.com,2019:&#x2F;articles&#x2F;2019-12-09-og-information</id>
       <published>2019-12-09T00:00:00+09:00</published>
-      <updated>2019-12-18T07:46:51.834Z</updated>
+      <updated>2019-12-18T08:06:50.946Z</updated>
       <content type="html">&lt;p&gt;&lt;img src&#x3D;&quot;&#x2F;images&#x2F;2019-12-09-og-information.png&quot; alt&#x3D;&quot;&quot;&gt;&lt;&#x2F;p&gt;
 &lt;p&gt;meta要素を見直して、これまで用意されていなかったdescriptionとog:imageを適切に用意するようにした。&lt;&#x2F;p&gt;
 &lt;p&gt;トップページと記事一覧ページでは、og:imageにはウェブサイト用のデフォルトの画像を利用する。descriptionにはページ内に含まれる文言の一部を利用する。&lt;&#x2F;p&gt;
@@ -146,7 +146,7 @@
       <link rel="alternate" type="text/html" href="https:&#x2F;&#x2F;r7kamura.com&#x2F;articles&#x2F;2019-12-08-rurema-breadcrumb"/>
       <id>tag:r7kamura.com,2019:&#x2F;articles&#x2F;2019-12-08-rurema-breadcrumb</id>
       <published>2019-12-08T00:00:00+09:00</published>
-      <updated>2019-12-18T07:46:51.834Z</updated>
+      <updated>2019-12-18T08:06:50.946Z</updated>
       <content type="html">&lt;p&gt;&lt;img src&#x3D;&quot;&#x2F;images&#x2F;2019-12-08-rurema-breadcrumb.png&quot; alt&#x3D;&quot;&quot;&gt;&lt;&#x2F;p&gt;
 &lt;p&gt;るりま (※) のパンくずリストのマークアップ方法について、これまでほぼプレーンテキストとして表現されていたのを、順序付きリストで表現するようにし、ついでにheader要素とnav要素で囲んでナビゲーションであることを表現するように変更した。&lt;&#x2F;p&gt;
 &lt;p&gt;&lt;a href&#x3D;&quot;https:&#x2F;&#x2F;github.com&#x2F;rurema&#x2F;bitclust&#x2F;pull&#x2F;86&quot;&gt;https:&#x2F;&#x2F;github.com&#x2F;rurema&#x2F;bitclust&#x2F;pull&#x2F;86&lt;&#x2F;a&gt;&lt;&#x2F;p&gt;
@@ -175,7 +175,7 @@
       <link rel="alternate" type="text/html" href="https:&#x2F;&#x2F;r7kamura.com&#x2F;articles&#x2F;2019-12-07-manget-usb"/>
       <id>tag:r7kamura.com,2019:&#x2F;articles&#x2F;2019-12-07-manget-usb</id>
       <published>2019-12-07T00:00:00+09:00</published>
-      <updated>2019-12-18T07:46:51.834Z</updated>
+      <updated>2019-12-18T08:06:50.946Z</updated>
       <content type="html">&lt;p&gt;&lt;img src&#x3D;&quot;&#x2F;images&#x2F;2019-12-07-magnet-usb.jpg&quot; alt&#x3D;&quot;&quot;&gt;&lt;&#x2F;p&gt;
 &lt;p&gt;一般的なマグネット式USBアダプタは、自分の持ってるiPad Pro 12.9 inch (2018年に出たやつ) を充電できないものがほとんどなのだけど、このiPadにも対応しているものをようやく見つけた。&lt;&#x2F;p&gt;
 &lt;p&gt;&lt;a href&#x3D;&quot;https:&#x2F;&#x2F;www.amazon.co.jp&#x2F;gp&#x2F;product&#x2F;B07GGCSV45&quot;&gt;https:&#x2F;&#x2F;www.amazon.co.jp&#x2F;gp&#x2F;product&#x2F;B07GGCSV45&lt;&#x2F;a&gt;&lt;&#x2F;p&gt;
@@ -189,7 +189,7 @@
       <link rel="alternate" type="text/html" href="https:&#x2F;&#x2F;r7kamura.com&#x2F;articles&#x2F;2019-12-07-inner-clothes"/>
       <id>tag:r7kamura.com,2019:&#x2F;articles&#x2F;2019-12-07-inner-clothes</id>
       <published>2019-12-07T00:00:00+09:00</published>
-      <updated>2019-12-18T07:46:51.834Z</updated>
+      <updated>2019-12-18T08:06:50.946Z</updated>
       <content type="html">&lt;p&gt;&lt;img src&#x3D;&quot;&#x2F;images&#x2F;2019-12-07-inner-clothes.jpg&quot; alt&#x3D;&quot;&quot;&gt;&lt;&#x2F;p&gt;
 &lt;p&gt;下着や靴下みたいなインナー類は、脱衣所の洗濯機の上のスペースに収納してる。ここの前で脱いで洗って着るので、ここにあるとかなり捗る。&lt;&#x2F;p&gt;
 &lt;p&gt;折り畳んで重ねると取るとき引っ掛かったりしてあまり取り回しが良くないので、二段階ほど折り畳んだあと丸めて円柱状にして放り込んでおくのが良いとされている。&lt;&#x2F;p&gt;
@@ -201,7 +201,7 @@
       <link rel="alternate" type="text/html" href="https:&#x2F;&#x2F;r7kamura.com&#x2F;articles&#x2F;2019-12-06-joycon"/>
       <id>tag:r7kamura.com,2019:&#x2F;articles&#x2F;2019-12-06-joycon</id>
       <published>2019-12-06T00:00:00+09:00</published>
-      <updated>2019-12-18T07:46:51.834Z</updated>
+      <updated>2019-12-18T08:06:50.946Z</updated>
       <content type="html">&lt;p&gt;&lt;img src&#x3D;&quot;&#x2F;images&#x2F;2019-12-06-joycon.jpg&quot; alt&#x3D;&quot;&quot;&gt;&lt;&#x2F;p&gt;
 &lt;p&gt;リングフィット アドベンチャーが順調に続いている。今日で10日目くらい？順調に身体の節々が痛い。&lt;&#x2F;p&gt;
 &lt;p&gt;左のジョイコンとの通信が頻繁に途切れて使い物にならなくなったので、新しく買い直した。左コンはよくこういう状態になるらしい。左コンだけ公式でバラ売りしてるのは助かる。期待を込めて☆3つです。&lt;&#x2F;p&gt;
@@ -212,7 +212,7 @@
       <link rel="alternate" type="text/html" href="https:&#x2F;&#x2F;r7kamura.com&#x2F;articles&#x2F;2019-12-05-stepladder"/>
       <id>tag:r7kamura.com,2019:&#x2F;articles&#x2F;2019-12-05-stepladder</id>
       <published>2019-12-05T00:00:00+09:00</published>
-      <updated>2019-12-18T07:46:51.834Z</updated>
+      <updated>2019-12-18T08:06:50.946Z</updated>
       <content type="html">&lt;p&gt;天井照明とプロジェクタをメンテナンスするために、折り畳める小さな踏み台を買った。&lt;&#x2F;p&gt;
 &lt;p&gt;&lt;img src&#x3D;&quot;&#x2F;images&#x2F;2019-12-05-stepladder-1.jpg&quot; alt&#x3D;&quot;&quot;&gt;&lt;&#x2F;p&gt;
 &lt;p&gt;普段は玄関周りに置いておいて、靴の脱ぎ履きのときに荷物を置いたり座ったりするのに使う。&lt;&#x2F;p&gt;
@@ -225,7 +225,7 @@
       <link rel="alternate" type="text/html" href="https:&#x2F;&#x2F;r7kamura.com&#x2F;articles&#x2F;2019-12-05-active-storage-template"/>
       <id>tag:r7kamura.com,2019:&#x2F;articles&#x2F;2019-12-05-active-storage-template</id>
       <published>2019-12-05T00:00:00+09:00</published>
-      <updated>2019-12-18T07:46:51.834Z</updated>
+      <updated>2019-12-18T08:06:50.946Z</updated>
       <content type="html">&lt;p&gt;&lt;a href&#x3D;&quot;https:&#x2F;&#x2F;github.com&#x2F;rails&#x2F;rails&#x2F;pull&#x2F;37888&quot;&gt;Add bug report templates for Active Storage by r7kamura · Pull Request #37888 · rails&#x2F;rails&lt;&#x2F;a&gt; 出したらmergeされたよって話。&lt;&#x2F;p&gt;
 &lt;h2 id&#x3D;&quot;スポンサーで浮かれてossをやる&quot;&gt;スポンサーで浮かれてOSSをやる&lt;&#x2F;h2&gt;
 &lt;p&gt;GitHubスポンサーの審査を通過した旨をTwitterでつぶやいたところ、何人かにすぐにスポンサーになってもらえてモチベートされたので、Railsで最近気になっていたところについてPull Requestを送ってみることにした。&lt;&#x2F;p&gt;
@@ -245,7 +245,7 @@
       <link rel="alternate" type="text/html" href="https:&#x2F;&#x2F;r7kamura.com&#x2F;articles&#x2F;2019-12-03-unit-shelf"/>
       <id>tag:r7kamura.com,2019:&#x2F;articles&#x2F;2019-12-03-unit-shelf</id>
       <published>2019-12-03T00:00:00+09:00</published>
-      <updated>2019-12-18T07:46:51.834Z</updated>
+      <updated>2019-12-18T08:06:50.946Z</updated>
       <content type="html">&lt;p&gt;&lt;img src&#x3D;&quot;&#x2F;images&#x2F;2019-12-03-unit-shelf.jpg&quot; alt&#x3D;&quot;&quot;&gt;&lt;&#x2F;p&gt;
 &lt;p&gt;先週末に友達が手伝ってくれて、無印良品週間のときに買っておいたユニットシェルフが完成した。書類と機器と配線の整理に役に立ってる。&lt;&#x2F;p&gt;
 &lt;p&gt;ユニットシェルフを買うのは結構難しい。迷ったら&lt;a href&#x3D;&quot;https:&#x2F;&#x2F;www.muji.net&#x2F;store&#x2F;cmdty&#x2F;detail&#x2F;4550182141535&quot;&gt;カウンターセット&lt;&#x2F;a&gt;がおすすめ。組み立てに工具は不要だけど、結構重いので2人以上じゃないと厳しい。&lt;&#x2F;p&gt;
@@ -275,7 +275,7 @@
       <link rel="alternate" type="text/html" href="https:&#x2F;&#x2F;r7kamura.com&#x2F;articles&#x2F;2019-12-03-discord-go-live-capture"/>
       <id>tag:r7kamura.com,2019:&#x2F;articles&#x2F;2019-12-03-discord-go-live-capture</id>
       <published>2019-12-03T00:00:00+09:00</published>
-      <updated>2019-12-18T07:46:51.834Z</updated>
+      <updated>2019-12-18T08:06:50.946Z</updated>
       <content type="html">&lt;p&gt;キャプチャボードで取り込んだSwitchやPS4なんかの音声と映像を、DiscordのGo Live機能で配信する方法について。&lt;&#x2F;p&gt;
 &lt;h2 id&#x3D;&quot;映像と音声を入力&quot;&gt;映像と音声を入力&lt;&#x2F;h2&gt;
 &lt;p&gt;&lt;a href&#x3D;&quot;https:&#x2F;&#x2F;obsproject.com&#x2F;ja&quot;&gt;OBS&lt;&#x2F;a&gt;を使う。OBSに以下のソースをそれぞれ追加して、デバイスとしてキャプチャボードを指定する。これで、OBSが映像と音声を参照できるようになる。&lt;&#x2F;p&gt;
@@ -303,7 +303,7 @@
       <link rel="alternate" type="text/html" href="https:&#x2F;&#x2F;r7kamura.com&#x2F;articles&#x2F;2019-12-02-write-on-github"/>
       <id>tag:r7kamura.com,2019:&#x2F;articles&#x2F;2019-12-02-write-on-github</id>
       <published>2019-12-02T00:00:00+09:00</published>
-      <updated>2019-12-18T07:46:51.834Z</updated>
+      <updated>2019-12-18T08:06:50.946Z</updated>
       <content type="html">&lt;p&gt;GitHubのファイル作成画面から日本語の文章を書いてみたところ、意外と体験が良かった。&lt;&#x2F;p&gt;
 &lt;p&gt;&lt;img src&#x3D;&quot;&#x2F;images&#x2F;2019-12-02-github-screenshot.png&quot; alt&#x3D;&quot;&quot;&gt;&lt;&#x2F;p&gt;
 &lt;p&gt;IMEや折り返しの挙動には今のところ困ってないし、Markdownのプレビュー機能やリッチな差分表示もあるし、URLが固定なのでアクセスもしやすく、画像のアップロードもできる。&lt;&#x2F;p&gt;
@@ -316,7 +316,7 @@
       <link rel="alternate" type="text/html" href="https:&#x2F;&#x2F;r7kamura.com&#x2F;articles&#x2F;2019-12-02-magnet-usb"/>
       <id>tag:r7kamura.com,2019:&#x2F;articles&#x2F;2019-12-02-magnet-usb</id>
       <published>2019-12-02T00:00:00+09:00</published>
-      <updated>2019-12-18T07:46:51.834Z</updated>
+      <updated>2019-12-18T08:06:50.946Z</updated>
       <content type="html">&lt;p&gt;&lt;img src&#x3D;&quot;&#x2F;images&#x2F;2019-12-02-magnet-usb.jpg&quot; alt&#x3D;&quot;&quot;&gt;&lt;&#x2F;p&gt;
 &lt;p&gt;&lt;a href&#x3D;&quot;https:&#x2F;&#x2F;www.amazon.co.jp&#x2F;gp&#x2F;product&#x2F;B07XSNVPSW&quot;&gt;https:&#x2F;&#x2F;www.amazon.co.jp&#x2F;gp&#x2F;product&#x2F;B07XSNVPSW&lt;&#x2F;a&gt;&lt;&#x2F;p&gt;
 &lt;p&gt;これらの充電目的で試しに購入してみた。恐らくどれも中華製だろうけど、似た商品が沢山あるので選ぶのは大変。&lt;&#x2F;p&gt;
@@ -335,7 +335,7 @@
       <link rel="alternate" type="text/html" href="https:&#x2F;&#x2F;r7kamura.com&#x2F;articles&#x2F;2019-12-02-bookmark"/>
       <id>tag:r7kamura.com,2019:&#x2F;articles&#x2F;2019-12-02-bookmark</id>
       <published>2019-12-02T00:00:00+09:00</published>
-      <updated>2019-12-18T07:46:51.834Z</updated>
+      <updated>2019-12-18T08:06:50.946Z</updated>
       <content type="html">&lt;p&gt;ウェブページのブックマークの運用方法を見直し、ソーシャルブックマークサービスの利用をやめ、Google Chromeのブックマークだけ使うようになった。&lt;&#x2F;p&gt;
 &lt;p&gt;ブックマークには頻繁にアクセスするページだけ登録して、&lt;a href&#x3D;&quot;https:&#x2F;&#x2F;chrome.google.com&#x2F;webstore&#x2F;detail&#x2F;holmes&#x2F;gokficnebmomagijbakglkcmhdbchbhn&quot;&gt;Holmes&lt;&#x2F;a&gt;からアクセスする。なのでインクリメンタル検索しやすい名前で登録しておくのが吉。&lt;&#x2F;p&gt;
 &lt;p&gt;他人に共有したいページや気になるページについては、Twitterとかで言及しておけば十分、ということにした。&lt;&#x2F;p&gt;
