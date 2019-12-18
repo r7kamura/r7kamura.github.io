@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width">
+  <title>FactoryBotのfactoryへの期待</title>
+  <link href="/articles/2019-12-18-factory-bot" rel="canonical">
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="search" type="application/opensearchdescription+xml" title="r7kamura.com" href="/opensearch.xml">
+  <link rel="alternate" type="application/rss+xml" href="/feed.xml">
+  <meta property="description" content="FactoryBotのfactoryの定義について、自分が期待していることをまとめておこうと思う。">
+  <meta property="og:description" content="FactoryBotのfactoryの定義について、自分が期待していることをまとめておこうと思う。">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="FactoryBotのfactoryへの期待">
+  <meta property="og:url" content="https://r7kamura.com/articles/2019-12-18-factory-bot">
+  <meta property="og:image" content="https://r7kamura.com/default_og_image.jpg">
+  <meta property="twitter:card" content="summary">
+</head>
+<body>
+  <header>
+    <nav>
+      <a href="/">r7kamura</a>
+      <ul>
+        <li>
+          <a href="/articles">記事</a>
+        </li>
+        <li>
+          <a href="https://google.com/search?q=site:r7kamura.com">検索</a>
+        </li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <article>
+  <h1>FactoryBotのfactoryへの期待</h1>
+  <footer>
+    <p>
+      <time datetime="2019-12-18T00:00:00+09:00">2019年12月18日</time>
+    </p>
+  </footer>
+  <div>
+    <p><a href="https://github.com/thoughtbot/factory_bot">FactoryBot</a>のfactoryの定義について、自分が期待していることをまとめておこうと思う。</p>
+<h2 id="must">MUST</h2>
+<p>最低限の基準として、attributesを与えなくてもレコードの保存に成功するように定義されていてほしい。</p>
+<p>つまり、全ての（少なくともtraitを用いない場合の）factoryの定義について、以下のように呼び出せるように定義されていてほしい。</p>
+<pre><code class="language-ruby">FactoryBot.create(:user)</code></pre>
+<p>例えば、以下のように呼び出さなければならないのであれば、使いづらく、良くない定義だと考えている。</p>
+<pre><code class="language-ruby">FactoryBot.create(:user, name: &#39;alice&#39;)</code></pre>
+<h2 id="should">SHOULD</h2>
+<p>次の段階の基準として、2つ以上のレコードを作成してもエラーにならないように定義されていてほしい。</p>
+<p>つまり、以下のように呼び出せるように定義されていてほしい。</p>
+<pre><code class="language-ruby">FactoryBot.create(:user)
+FactoryBot.create(:user)</code></pre>
+<p>例えば、name属性にUniquenessValidatorが定義されていて、name属性の内容が決め打ちだったりすると、こういうコードは失敗する。factoryの定義で <code>sequence</code> 等の機能を利用して回避するのが望ましい。</p>
+
+  </div>
+</article>
+
+  </main>
+</body>
+</html>
