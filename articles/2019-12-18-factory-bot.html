@@ -44,7 +44,7 @@
 <p>最低限の基準として、attributesを与えなくてもレコードの保存に成功するように定義されていてほしい。</p>
 <p>つまり、全ての（少なくともtraitを用いない場合の）factoryの定義について、以下のように呼び出せるように定義されていてほしい。</p>
 <pre><code class="language-ruby">FactoryBot.create(:user)</code></pre>
-<p>例えば、以下のように呼び出さなければならないのであれば、使いづらく、良くない定義だと考えている。</p>
+<p>例えば、以下のように呼び出さ<strong>なければならない</strong>のであれば、使いづらく、良くない定義だと考えている。</p>
 <pre><code class="language-ruby">FactoryBot.create(:user, name: &#39;alice&#39;)</code></pre>
 <p>もちろん例外的な状況は存在するので、そういう場合には守らなくて良い。</p>
 <h2 id="第二段階">第二段階</h2>
