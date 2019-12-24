@@ -4,17 +4,29 @@
   <link href="https://r7kamura.com"/>
   <link rel="self" type="application/atom+xml" href="https://r7kamura.com/feed.xml"/>
   <link rel="alternate" type="text/html" href="https://r7kamura.com/"/>
-  <updated>2019-12-22T23:19:40.728Z</updated>
+  <updated>2019-12-24T15:01:28.486Z</updated>
   <author>
     <name>Ryo Nakamura</name>
   </author>
   <id>tag:r7kamura.com,2019:/</id>
     <entry>
+      <title>『APE OUT』をやった</title>
+      <link rel="alternate" type="text/html" href="https:&#x2F;&#x2F;r7kamura.com&#x2F;articles&#x2F;2019-12-24-ape-out"/>
+      <id>tag:r7kamura.com,2019:&#x2F;articles&#x2F;2019-12-24-ape-out</id>
+      <published>2019-12-24T00:00:00+09:00</published>
+      <updated>2019-12-24T15:01:11.040Z</updated>
+      <content type="html">&lt;p&gt;&lt;img src&#x3D;&quot;&#x2F;images&#x2F;2019-12-24-ape-out-1.jpg&quot; alt&#x3D;&quot;&quot;&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;Epic Gamesのホリデーセールで無料だったので、ゴリラ脱出アクションゲーム『APE OUT』をやった。&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;a href&#x3D;&quot;https:&#x2F;&#x2F;www.epicgames.com&#x2F;store&#x2F;ja&#x2F;product&#x2F;ape-out&#x2F;home&quot;&gt;https:&#x2F;&#x2F;www.epicgames.com&#x2F;store&#x2F;ja&#x2F;product&#x2F;ape-out&#x2F;home&lt;&#x2F;a&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;クリアまで合計2時間ほどのあっさりしたボリュームながら、見下ろし型で独特な絵柄、ジャズをベースにしたインタラクティブな音楽など、全体的な仕上がりがなかなか良く、クリアした頃には大きな満足感に包まれた。さくっとプレイできるおすすめのゲームです。&lt;&#x2F;p&gt;
+</content>
+    </entry>
+    <entry>
       <title>ホットクックを買った</title>
       <link rel="alternate" type="text/html" href="https:&#x2F;&#x2F;r7kamura.com&#x2F;articles&#x2F;2019-12-22-hot-cook"/>
       <id>tag:r7kamura.com,2019:&#x2F;articles&#x2F;2019-12-22-hot-cook</id>
       <published>2019-12-22T00:00:00+09:00</published>
-      <updated>2019-12-22T23:19:27.804Z</updated>
+      <updated>2019-12-24T15:01:11.040Z</updated>
       <content type="html">&lt;p&gt;&lt;img src&#x3D;&quot;&#x2F;images&#x2F;2019-12-22-hot-cook-1.jpg&quot; alt&#x3D;&quot;&quot;&gt;&lt;&#x2F;p&gt;
 &lt;p&gt;&lt;a href&#x3D;&quot;https:&#x2F;&#x2F;www.amazon.co.jp&#x2F;gp&#x2F;product&#x2F;B07TWPRHHJ&quot;&gt;2019年モデルの1.6L版ホットクック&lt;&#x2F;a&gt;を買った。噂には聞いていたけれど、とにかくよくしゃべる。&lt;&#x2F;p&gt;
 &lt;p&gt;&lt;img src&#x3D;&quot;&#x2F;images&#x2F;2019-12-22-hot-cook-2.jpg&quot; alt&#x3D;&quot;&quot;&gt;&lt;&#x2F;p&gt;
@@ -28,7 +40,7 @@
       <link rel="alternate" type="text/html" href="https:&#x2F;&#x2F;r7kamura.com&#x2F;articles&#x2F;2019-12-20-frozen-banana"/>
       <id>tag:r7kamura.com,2019:&#x2F;articles&#x2F;2019-12-20-frozen-banana</id>
       <published>2019-12-20T00:00:00+09:00</published>
-      <updated>2019-12-22T23:19:27.804Z</updated>
+      <updated>2019-12-24T15:01:11.040Z</updated>
       <content type="html">&lt;p&gt;起きて運動してから朝食を撮ることにしているのだけど、少し食べてから運動した方が運動効率が良さそうなので、スムージーを飲むことにした。&lt;&#x2F;p&gt;
 &lt;p&gt;長期保存できる材料でスムージーをつくろうと思い、近所で売っていた1房72円のバナナを冷凍保存しておき、調整豆乳で割って飲むことにした。&lt;&#x2F;p&gt;
 &lt;p&gt;&lt;img src&#x3D;&quot;&#x2F;images&#x2F;2019-12-20-frozen-banana-1.jpg&quot; alt&#x3D;&quot;&quot;&gt;&lt;&#x2F;p&gt;
@@ -47,7 +59,7 @@
       <link rel="alternate" type="text/html" href="https:&#x2F;&#x2F;r7kamura.com&#x2F;articles&#x2F;2019-12-18-factory-bot"/>
       <id>tag:r7kamura.com,2019:&#x2F;articles&#x2F;2019-12-18-factory-bot</id>
       <published>2019-12-18T00:00:00+09:00</published>
-      <updated>2019-12-22T23:19:27.804Z</updated>
+      <updated>2019-12-24T15:01:11.040Z</updated>
       <content type="html">&lt;p&gt;&lt;a href&#x3D;&quot;https:&#x2F;&#x2F;github.com&#x2F;thoughtbot&#x2F;factory_bot&quot;&gt;FactoryBot&lt;&#x2F;a&gt;のfactoryはこう書かれていてほしい、という期待をまとめておこうと思う。&lt;&#x2F;p&gt;
 &lt;h2 id&#x3D;&quot;第一段階&quot;&gt;第一段階&lt;&#x2F;h2&gt;
 &lt;p&gt;最低限の基準として、attributesを与えなくてもレコードの保存に成功するように定義されていてほしい。&lt;&#x2F;p&gt;
@@ -71,7 +83,7 @@ FactoryBot.create(:user)&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
       <link rel="alternate" type="text/html" href="https:&#x2F;&#x2F;r7kamura.com&#x2F;articles&#x2F;2019-12-17-qrio-lock"/>
       <id>tag:r7kamura.com,2019:&#x2F;articles&#x2F;2019-12-17-qrio-lock</id>
       <published>2019-12-17T00:00:00+09:00</published>
-      <updated>2019-12-22T23:19:27.804Z</updated>
+      <updated>2019-12-24T15:01:11.040Z</updated>
       <content type="html">&lt;p&gt;&lt;img src&#x3D;&quot;&#x2F;images&#x2F;2019-12-17-qrio-lock-2.jpg&quot; alt&#x3D;&quot;&quot;&gt;&lt;&#x2F;p&gt;
 &lt;p&gt;玄関の鍵にQrio Lockを取り付けた。&lt;&#x2F;p&gt;
 &lt;p&gt;&lt;a href&#x3D;&quot;https:&#x2F;&#x2F;qrio.me&#x2F;smartlock&#x2F;&quot;&gt;https:&#x2F;&#x2F;qrio.me&#x2F;smartlock&#x2F;&lt;&#x2F;a&gt;&lt;&#x2F;p&gt;
@@ -85,7 +97,7 @@ FactoryBot.create(:user)&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
       <link rel="alternate" type="text/html" href="https:&#x2F;&#x2F;r7kamura.com&#x2F;articles&#x2F;2019-12-16-top-page-link-title"/>
       <id>tag:r7kamura.com,2019:&#x2F;articles&#x2F;2019-12-16-top-page-link-title</id>
       <published>2019-12-16T00:00:00+09:00</published>
-      <updated>2019-12-22T23:19:27.804Z</updated>
+      <updated>2019-12-24T15:01:11.040Z</updated>
       <content type="html">&lt;p&gt;&lt;img src&#x3D;&quot;&#x2F;images&#x2F;2019-12-16-top-page-link-title.png&quot; alt&#x3D;&quot;&quot;&gt;&lt;&#x2F;p&gt;
 &lt;p&gt;トップページへのリンクのテキストを「トップページ」から「r7kamura」に変えた。&lt;&#x2F;p&gt;
 &lt;p&gt;どうやらGoogleは、トップページへのリンクをそのウェブサイトのサイト名だと認識するようだ。トップページへのリンクのタイトルを「トップページ」としていると、上に貼った画像のように、検索結果に「{{記事名}} - トップページ」のようなページタイトルが表示されることになる。&lt;&#x2F;p&gt;
@@ -97,7 +109,7 @@ FactoryBot.create(:user)&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
       <link rel="alternate" type="text/html" href="https:&#x2F;&#x2F;r7kamura.com&#x2F;articles&#x2F;2019-12-16-audio-selector"/>
       <id>tag:r7kamura.com,2019:&#x2F;articles&#x2F;2019-12-16-audio-selector</id>
       <published>2019-12-16T00:00:00+09:00</published>
-      <updated>2019-12-22T23:19:27.804Z</updated>
+      <updated>2019-12-24T15:01:11.036Z</updated>
       <content type="html">&lt;p&gt;&lt;img src&#x3D;&quot;&#x2F;images&#x2F;2019-12-16-audio-selector.jpg&quot; alt&#x3D;&quot;&quot;&gt;&lt;&#x2F;p&gt;
 &lt;p&gt;安いオーディオセレクタをAmazonで買い、全ての機器の音声出力を無線ヘッドホンと接続した。&lt;&#x2F;p&gt;
 &lt;p&gt;&lt;a href&#x3D;&quot;https:&#x2F;&#x2F;www.amazon.co.jp&#x2F;gp&#x2F;product&#x2F;B01CWAND36&quot;&gt;https:&#x2F;&#x2F;www.amazon.co.jp&#x2F;gp&#x2F;product&#x2F;B01CWAND36&lt;&#x2F;a&gt;&lt;&#x2F;p&gt;
@@ -110,7 +122,7 @@ FactoryBot.create(:user)&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
       <link rel="alternate" type="text/html" href="https:&#x2F;&#x2F;r7kamura.com&#x2F;articles&#x2F;2019-12-14-penguin-highway"/>
       <id>tag:r7kamura.com,2019:&#x2F;articles&#x2F;2019-12-14-penguin-highway</id>
       <published>2019-12-14T00:00:00+09:00</published>
-      <updated>2019-12-22T23:19:27.804Z</updated>
+      <updated>2019-12-24T15:01:11.036Z</updated>
       <content type="html">&lt;p&gt;&lt;img src&#x3D;&quot;&#x2F;images&#x2F;2019-12-14-penguin-highway.jpg&quot; alt&#x3D;&quot;&quot;&gt;&lt;&#x2F;p&gt;
 &lt;p&gt;Amazonプライム・ビデオで『ペンギン・ハイウェイ』が配信されてたので観た。&lt;&#x2F;p&gt;
 &lt;p&gt;&lt;a href&#x3D;&quot;https:&#x2F;&#x2F;www.amazon.co.jp&#x2F;dp&#x2F;B0821ZHVZ4&quot;&gt;https:&#x2F;&#x2F;www.amazon.co.jp&#x2F;dp&#x2F;B0821ZHVZ4&lt;&#x2F;a&gt;&lt;&#x2F;p&gt;
@@ -125,7 +137,7 @@ FactoryBot.create(:user)&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
       <link rel="alternate" type="text/html" href="https:&#x2F;&#x2F;r7kamura.com&#x2F;articles&#x2F;2019-12-14-hdmi-selector"/>
       <id>tag:r7kamura.com,2019:&#x2F;articles&#x2F;2019-12-14-hdmi-selector</id>
       <published>2019-12-14T00:00:00+09:00</published>
-      <updated>2019-12-22T23:19:27.804Z</updated>
+      <updated>2019-12-24T15:01:11.036Z</updated>
       <content type="html">&lt;p&gt;&lt;img src&#x3D;&quot;&#x2F;images&#x2F;2019-12-14-hdmi-selector.jpg&quot; alt&#x3D;&quot;&quot;&gt;&lt;&#x2F;p&gt;
 &lt;p&gt;HDMIセレクタを先月買って以来、たいへん重宝している。&lt;&#x2F;p&gt;
 &lt;p&gt;&lt;a href&#x3D;&quot;https:&#x2F;&#x2F;www.amazon.co.jp&#x2F;gp&#x2F;product&#x2F;B07WTZFLH4&quot;&gt;https:&#x2F;&#x2F;www.amazon.co.jp&#x2F;gp&#x2F;product&#x2F;B07WTZFLH4&lt;&#x2F;a&gt;&lt;&#x2F;p&gt;
@@ -138,7 +150,7 @@ FactoryBot.create(:user)&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
       <link rel="alternate" type="text/html" href="https:&#x2F;&#x2F;r7kamura.com&#x2F;articles&#x2F;2019-12-13-ring-fit-adventure"/>
       <id>tag:r7kamura.com,2019:&#x2F;articles&#x2F;2019-12-13-ring-fit-adventure</id>
       <published>2019-12-13T00:00:00+09:00</published>
-      <updated>2019-12-22T23:19:27.804Z</updated>
+      <updated>2019-12-24T15:01:11.036Z</updated>
       <content type="html">&lt;p&gt;2019年11月26日にリングフィットアドベンチャーを購入して以来、18日間中15日間やった。風邪で休んだ日が1日と、睡眠不足で休んだ日が2日。&lt;&#x2F;p&gt;
 &lt;p&gt;朝にやるのがようやく習慣化してきたと思う。大体朝6時から8時の間にやってる。&lt;&#x2F;p&gt;
 &lt;p&gt;適度に運動するようになったおかげで、この辺りの利点を感じてる。&lt;&#x2F;p&gt;
@@ -166,7 +178,7 @@ FactoryBot.create(:user)&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
       <link rel="alternate" type="text/html" href="https:&#x2F;&#x2F;r7kamura.com&#x2F;articles&#x2F;2019-12-11-routine"/>
       <id>tag:r7kamura.com,2019:&#x2F;articles&#x2F;2019-12-11-routine</id>
       <published>2019-12-11T00:00:00+09:00</published>
-      <updated>2019-12-22T23:19:27.804Z</updated>
+      <updated>2019-12-24T15:01:11.036Z</updated>
       <content type="html">&lt;p&gt;&lt;img src&#x3D;&quot;&#x2F;images&#x2F;2019-12-11-routine.jpg&quot; alt&#x3D;&quot;&quot;&gt;&lt;&#x2F;p&gt;
 &lt;p&gt;ここ最近、運動と掃除を毎日やってる。&lt;&#x2F;p&gt;
 &lt;p&gt;「数日おき」や「毎週」より、「毎日」の方が継続しやすい。&lt;&#x2F;p&gt;
@@ -190,7 +202,7 @@ FactoryBot.create(:user)&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
       <link rel="alternate" type="text/html" href="https:&#x2F;&#x2F;r7kamura.com&#x2F;articles&#x2F;2019-12-09-og-information"/>
       <id>tag:r7kamura.com,2019:&#x2F;articles&#x2F;2019-12-09-og-information</id>
       <published>2019-12-09T00:00:00+09:00</published>
-      <updated>2019-12-22T23:19:27.804Z</updated>
+      <updated>2019-12-24T15:01:11.036Z</updated>
       <content type="html">&lt;p&gt;&lt;img src&#x3D;&quot;&#x2F;images&#x2F;2019-12-09-og-information.png&quot; alt&#x3D;&quot;&quot;&gt;&lt;&#x2F;p&gt;
 &lt;p&gt;meta要素を見直して、これまで用意されていなかったdescriptionとog:imageを適切に用意するようにした。&lt;&#x2F;p&gt;
 &lt;p&gt;トップページと記事一覧ページでは、og:imageにはウェブサイト用のデフォルトの画像を利用する。descriptionにはページ内に含まれる文言の一部を利用する。&lt;&#x2F;p&gt;
@@ -203,7 +215,7 @@ FactoryBot.create(:user)&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
       <link rel="alternate" type="text/html" href="https:&#x2F;&#x2F;r7kamura.com&#x2F;articles&#x2F;2019-12-08-rurema-breadcrumb"/>
       <id>tag:r7kamura.com,2019:&#x2F;articles&#x2F;2019-12-08-rurema-breadcrumb</id>
       <published>2019-12-08T00:00:00+09:00</published>
-      <updated>2019-12-22T23:19:27.804Z</updated>
+      <updated>2019-12-24T15:01:11.036Z</updated>
       <content type="html">&lt;p&gt;&lt;img src&#x3D;&quot;&#x2F;images&#x2F;2019-12-08-rurema-breadcrumb.png&quot; alt&#x3D;&quot;&quot;&gt;&lt;&#x2F;p&gt;
 &lt;p&gt;るりま (※) のパンくずリストのマークアップ方法について、これまでほぼプレーンテキストとして表現されていたのを、順序付きリストで表現するようにし、ついでにheader要素とnav要素で囲んでナビゲーションであることを表現するように変更した。&lt;&#x2F;p&gt;
 &lt;p&gt;&lt;a href&#x3D;&quot;https:&#x2F;&#x2F;github.com&#x2F;rurema&#x2F;bitclust&#x2F;pull&#x2F;86&quot;&gt;https:&#x2F;&#x2F;github.com&#x2F;rurema&#x2F;bitclust&#x2F;pull&#x2F;86&lt;&#x2F;a&gt;&lt;&#x2F;p&gt;
@@ -232,7 +244,7 @@ FactoryBot.create(:user)&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
       <link rel="alternate" type="text/html" href="https:&#x2F;&#x2F;r7kamura.com&#x2F;articles&#x2F;2019-12-07-manget-usb"/>
       <id>tag:r7kamura.com,2019:&#x2F;articles&#x2F;2019-12-07-manget-usb</id>
       <published>2019-12-07T00:00:00+09:00</published>
-      <updated>2019-12-22T23:19:27.804Z</updated>
+      <updated>2019-12-24T15:01:11.036Z</updated>
       <content type="html">&lt;p&gt;&lt;img src&#x3D;&quot;&#x2F;images&#x2F;2019-12-07-magnet-usb.jpg&quot; alt&#x3D;&quot;&quot;&gt;&lt;&#x2F;p&gt;
 &lt;p&gt;一般的なマグネット式USBアダプタは、自分の持ってるiPad Pro 12.9 inch (2018年に出たやつ) を充電できないものがほとんどなのだけど、このiPadにも対応しているものをようやく見つけた。&lt;&#x2F;p&gt;
 &lt;p&gt;&lt;a href&#x3D;&quot;https:&#x2F;&#x2F;www.amazon.co.jp&#x2F;gp&#x2F;product&#x2F;B07GGCSV45&quot;&gt;https:&#x2F;&#x2F;www.amazon.co.jp&#x2F;gp&#x2F;product&#x2F;B07GGCSV45&lt;&#x2F;a&gt;&lt;&#x2F;p&gt;
@@ -246,7 +258,7 @@ FactoryBot.create(:user)&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
       <link rel="alternate" type="text/html" href="https:&#x2F;&#x2F;r7kamura.com&#x2F;articles&#x2F;2019-12-07-inner-clothes"/>
       <id>tag:r7kamura.com,2019:&#x2F;articles&#x2F;2019-12-07-inner-clothes</id>
       <published>2019-12-07T00:00:00+09:00</published>
-      <updated>2019-12-22T23:19:27.804Z</updated>
+      <updated>2019-12-24T15:01:11.036Z</updated>
       <content type="html">&lt;p&gt;&lt;img src&#x3D;&quot;&#x2F;images&#x2F;2019-12-07-inner-clothes.jpg&quot; alt&#x3D;&quot;&quot;&gt;&lt;&#x2F;p&gt;
 &lt;p&gt;下着や靴下みたいなインナー類は、脱衣所の洗濯機の上のスペースに収納してる。ここの前で脱いで洗って着るので、ここにあるとかなり捗る。&lt;&#x2F;p&gt;
 &lt;p&gt;折り畳んで重ねると取るとき引っ掛かったりしてあまり取り回しが良くないので、二段階ほど折り畳んだあと丸めて円柱状にして放り込んでおくのが良いとされている。&lt;&#x2F;p&gt;
@@ -258,7 +270,7 @@ FactoryBot.create(:user)&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
       <link rel="alternate" type="text/html" href="https:&#x2F;&#x2F;r7kamura.com&#x2F;articles&#x2F;2019-12-06-joycon"/>
       <id>tag:r7kamura.com,2019:&#x2F;articles&#x2F;2019-12-06-joycon</id>
       <published>2019-12-06T00:00:00+09:00</published>
-      <updated>2019-12-22T23:19:27.804Z</updated>
+      <updated>2019-12-24T15:01:11.036Z</updated>
       <content type="html">&lt;p&gt;&lt;img src&#x3D;&quot;&#x2F;images&#x2F;2019-12-06-joycon.jpg&quot; alt&#x3D;&quot;&quot;&gt;&lt;&#x2F;p&gt;
 &lt;p&gt;リングフィット アドベンチャーが順調に続いている。今日で10日目くらい？順調に身体の節々が痛い。&lt;&#x2F;p&gt;
 &lt;p&gt;左のジョイコンとの通信が頻繁に途切れて使い物にならなくなったので、新しく買い直した。左コンはよくこういう状態になるらしい。左コンだけ公式でバラ売りしてるのは助かる。期待を込めて☆3つです。&lt;&#x2F;p&gt;
@@ -269,7 +281,7 @@ FactoryBot.create(:user)&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
       <link rel="alternate" type="text/html" href="https:&#x2F;&#x2F;r7kamura.com&#x2F;articles&#x2F;2019-12-05-stepladder"/>
       <id>tag:r7kamura.com,2019:&#x2F;articles&#x2F;2019-12-05-stepladder</id>
       <published>2019-12-05T00:00:00+09:00</published>
-      <updated>2019-12-22T23:19:27.804Z</updated>
+      <updated>2019-12-24T15:01:11.036Z</updated>
       <content type="html">&lt;p&gt;天井照明とプロジェクタをメンテナンスするために、折り畳める小さな踏み台を買った。&lt;&#x2F;p&gt;
 &lt;p&gt;&lt;img src&#x3D;&quot;&#x2F;images&#x2F;2019-12-05-stepladder-1.jpg&quot; alt&#x3D;&quot;&quot;&gt;&lt;&#x2F;p&gt;
 &lt;p&gt;普段は玄関周りに置いておいて、靴の脱ぎ履きのときに荷物を置いたり座ったりするのに使う。&lt;&#x2F;p&gt;
@@ -282,7 +294,7 @@ FactoryBot.create(:user)&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
       <link rel="alternate" type="text/html" href="https:&#x2F;&#x2F;r7kamura.com&#x2F;articles&#x2F;2019-12-05-active-storage-template"/>
       <id>tag:r7kamura.com,2019:&#x2F;articles&#x2F;2019-12-05-active-storage-template</id>
       <published>2019-12-05T00:00:00+09:00</published>
-      <updated>2019-12-22T23:19:27.804Z</updated>
+      <updated>2019-12-24T15:01:11.036Z</updated>
       <content type="html">&lt;p&gt;&lt;a href&#x3D;&quot;https:&#x2F;&#x2F;github.com&#x2F;rails&#x2F;rails&#x2F;pull&#x2F;37888&quot;&gt;Add bug report templates for Active Storage by r7kamura · Pull Request #37888 · rails&#x2F;rails&lt;&#x2F;a&gt; 出したらmergeされたよって話。&lt;&#x2F;p&gt;
 &lt;h2 id&#x3D;&quot;スポンサーで浮かれてossをやる&quot;&gt;スポンサーで浮かれてOSSをやる&lt;&#x2F;h2&gt;
 &lt;p&gt;GitHubスポンサーの審査を通過した旨をTwitterでつぶやいたところ、何人かにすぐにスポンサーになってもらえてモチベートされたので、Railsで最近気になっていたところについてPull Requestを送ってみることにした。&lt;&#x2F;p&gt;
@@ -302,7 +314,7 @@ FactoryBot.create(:user)&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
       <link rel="alternate" type="text/html" href="https:&#x2F;&#x2F;r7kamura.com&#x2F;articles&#x2F;2019-12-03-unit-shelf"/>
       <id>tag:r7kamura.com,2019:&#x2F;articles&#x2F;2019-12-03-unit-shelf</id>
       <published>2019-12-03T00:00:00+09:00</published>
-      <updated>2019-12-22T23:19:27.804Z</updated>
+      <updated>2019-12-24T15:01:11.036Z</updated>
       <content type="html">&lt;p&gt;&lt;img src&#x3D;&quot;&#x2F;images&#x2F;2019-12-03-unit-shelf.jpg&quot; alt&#x3D;&quot;&quot;&gt;&lt;&#x2F;p&gt;
 &lt;p&gt;先週末に友達が手伝ってくれて、無印良品週間のときに買っておいたユニットシェルフが完成した。書類と機器と配線の整理に役に立ってる。&lt;&#x2F;p&gt;
 &lt;p&gt;ユニットシェルフを買うのは結構難しい。迷ったら&lt;a href&#x3D;&quot;https:&#x2F;&#x2F;www.muji.net&#x2F;store&#x2F;cmdty&#x2F;detail&#x2F;4550182141535&quot;&gt;カウンターセット&lt;&#x2F;a&gt;がおすすめ。組み立てに工具は不要だけど、結構重いので2人以上じゃないと厳しい。&lt;&#x2F;p&gt;
@@ -325,37 +337,6 @@ FactoryBot.create(:user)&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
 &lt;&#x2F;ul&gt;
 &lt;p&gt;がこの中で配線されている。更に、8mのHDMIケーブルとオーディオケーブルを伸ばして、プロジェクタやサウンドバーと接続してて大変。一応床にはケーブルが一切付いてないので、上手くまとまってる方だと思う。&lt;&#x2F;p&gt;
 &lt;p&gt;ヘッドホンとか鍵とかリングフィットコントローラとかの置き場所にちょっと困ってるので、2x4とラブリコを使って、有孔ボードを棚上の壁面に取り付けたいところ。&lt;&#x2F;p&gt;
-</content>
-    </entry>
-    <entry>
-      <title>キャプチャした映像をDiscordのGo Liveで配信</title>
-      <link rel="alternate" type="text/html" href="https:&#x2F;&#x2F;r7kamura.com&#x2F;articles&#x2F;2019-12-03-discord-go-live-capture"/>
-      <id>tag:r7kamura.com,2019:&#x2F;articles&#x2F;2019-12-03-discord-go-live-capture</id>
-      <published>2019-12-03T00:00:00+09:00</published>
-      <updated>2019-12-22T23:19:27.804Z</updated>
-      <content type="html">&lt;p&gt;キャプチャボードで取り込んだSwitchやPS4なんかの音声と映像を、DiscordのGo Live機能で配信する方法について。&lt;&#x2F;p&gt;
-&lt;h2 id&#x3D;&quot;映像と音声を入力&quot;&gt;映像と音声を入力&lt;&#x2F;h2&gt;
-&lt;p&gt;&lt;a href&#x3D;&quot;https:&#x2F;&#x2F;obsproject.com&#x2F;ja&quot;&gt;OBS&lt;&#x2F;a&gt;を使う。OBSに以下のソースをそれぞれ追加して、デバイスとしてキャプチャボードを指定する。これで、OBSが映像と音声を参照できるようになる。&lt;&#x2F;p&gt;
-&lt;ul&gt;
-&lt;li&gt;音声入力キャプチャ&lt;&#x2F;li&gt;
-&lt;li&gt;映像キャプチャデバイス&lt;&#x2F;li&gt;
-&lt;&#x2F;ul&gt;
-&lt;h2 id&#x3D;&quot;音声を再生&quot;&gt;音声を再生&lt;&#x2F;h2&gt;
-&lt;p&gt;次に、音声ミキサーのオーディオの詳細プロパティから、音声入力キャプチャの音声モニタリングの項目を「モニターと出力」に変更する。これで、OBSのアプリケーションから、音声入力キャプチャで取り込んだ音が再生されるようになる。&lt;&#x2F;p&gt;
-&lt;p&gt;&lt;img src&#x3D;&quot;&#x2F;images&#x2F;2019-12-03-discord-go-live-capture-1.png&quot; alt&#x3D;&quot;&quot;&gt;&lt;&#x2F;p&gt;
-&lt;p&gt;&lt;img src&#x3D;&quot;&#x2F;images&#x2F;2019-12-03-discord-go-live-capture-2.png&quot; alt&#x3D;&quot;&quot;&gt;&lt;&#x2F;p&gt;
-&lt;h2 id&#x3D;&quot;discordを設定&quot;&gt;Discordを設定&lt;&#x2F;h2&gt;
-&lt;p&gt;次に、OBSの「全画面プロジェクター (プレビュー)」で全画面に映し出し、Discordのゲームアクティビティの設定画面から、OBSをゲームとして追加する。このとき、アプリケーションの名前を変更すると、その名前のゲームを配信していることになるので、気になる人は設定しておくと良いと思う。設定しない場合は「OBSをプレイ中」「OBSを配信中」のように表示されることになる。&lt;&#x2F;p&gt;
-&lt;p&gt;2019年12月頃のDiscordのアップデートで、ゲームとしてOBSを追加しなくても、OBSのウィンドウを選択して配信できるようにもなっている。&lt;&#x2F;p&gt;
-&lt;h2 id&#x3D;&quot;おわり&quot;&gt;おわり&lt;&#x2F;h2&gt;
-&lt;p&gt;これで設定は完了で、DiscordでGo Liveの配信をできるようになる。&lt;&#x2F;p&gt;
-&lt;p&gt;自分は以下の環境で動作を確認した。&lt;&#x2F;p&gt;
-&lt;ul&gt;
-&lt;li&gt;OBS Studio 24.0.2&lt;&#x2F;li&gt;
-&lt;li&gt;VT-C878 PLUS&lt;&#x2F;li&gt;
-&lt;li&gt;Windows 10 Home&lt;&#x2F;li&gt;
-&lt;&#x2F;ul&gt;
-&lt;p&gt;ちなみに、Macでは2019年12月3日時点ではDiscord Go Liveは利用できない。また、OBSのプレビュー画面では少し遅延が発生するので、キャプチャボードのパススルー機能を利用して、プレイヤーは別画面で映像を見るようにした方が良い。&lt;&#x2F;p&gt;
 </content>
     </entry>
 </feed>
