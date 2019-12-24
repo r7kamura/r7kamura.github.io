@@ -4,17 +4,21 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width">
   <title>amakanのCIをShippableに移行した</title>
-  <link href="/articles/2017-01-14-h" rel="canonical">
+  <link href="https://r7kamura.com:0/articles/2017-01-14-h" rel="canonical">
   <link rel="stylesheet" href="/css/main.css">
   <link rel="search" type="application/opensearchdescription+xml" title="r7kamura.com" href="/opensearch.xml">
   <link rel="alternate" type="application/rss+xml" href="/feed.xml">
-  <meta property="description" content="https:&#x2F;&#x2F;amakan.net&#x2F; のこの辺の改善の続き。">
-  <meta property="og:description" content="https:&#x2F;&#x2F;amakan.net&#x2F; のこの辺の改善の続き。">
-  <meta property="og:type" content="article">
+  
+  <meta property="description" content="https://amakan.net/ のこの辺の改善の続き。">
+  <meta property="og:description" content="https://amakan.net/ のこの辺の改善の続き。">
+  
+  <meta property="og:type" content="website">
   <meta property="og:title" content="amakanのCIをShippableに移行した">
-  <meta property="og:url" content="https://r7kamura.com/articles/2017-01-14-h">
+  <meta property="og:url" content="https://r7kamura.com:0/articles/2017-01-14-h">
+  
   <meta property="og:image" content="https://cdn-ak.f.st-hatena.com/images/fotolife/r/r7kamura/20170114/20170114143123.png">
   <meta property="twitter:card" content="summary_large_image">
+  
 </head>
 <body>
   <header>
@@ -35,7 +39,7 @@
   <h1>amakanのCIをShippableに移行した</h1>
   <footer>
     <p>
-      <time datetime="2017-01-14T00:00:00+09:00">2017年01月14日</time>
+      <time datetime="2017-01-14T00:00:00+00:00">2017年01月14日</time>
     </p>
   </footer>
   <div>
@@ -53,8 +57,7 @@
 <li><a href="http://r7kamura.hatenablog.com/entry/2017/01/02/223425">amakanをDocker化した感想 - ✘╹◡╹✘</a></li>
 </ul>
 
-
-<hr>
+<p><hr></p>
 
 <p><span itemscope itemtype="http://schema.org/Photograph"><img src="https://cdn-ak.f.st-hatena.com/images/fotolife/r/r7kamura/20170114/20170114143123.png" alt="f:id:r7kamura:20170114143123p:plain" title="f:id:r7kamura:20170114143123p:plain" class="hatena-fotolife" itemprop="image"></span></p>
 
@@ -74,7 +77,6 @@
 <li>Rails用のDockerイメージでテストを実行する</li>
 <li>Rails用のDockerイメージをAmazon ECRにPushする</li>
 </ul>
-
 
 <p>CircleCIからShippableに移行したことで、過去にビルドしたDockerイメージのキャッシュが再利用できるようになったので、それぞれのDockerイメージをビルドする部分が一瞬で終わるようになった。</p>
 
@@ -132,8 +134,6 @@
       <span class="synIdentifier">recipients</span><span class="synSpecial">:</span>
         <span class="synStatement">- </span><span class="synConstant">"#shippable"</span>
 </pre>
-
-
 
   </div>
 </article>

@@ -4,17 +4,21 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width">
   <title>Railsでコンフリクトをvalidate</title>
-  <link href="/articles/2014-11-28-q" rel="canonical">
+  <link href="https://r7kamura.com:0/articles/2014-11-28-q" rel="canonical">
   <link rel="stylesheet" href="/css/main.css">
   <link rel="search" type="application/opensearchdescription+xml" title="r7kamura.com" href="/opensearch.xml">
   <link rel="alternate" type="application/rss+xml" href="/feed.xml">
+  
   <meta property="description" content="Railsで同じデータを2人のユーザがほぼ同時に編集したとき、何も対処しないと片方のユーザがもう片方のユーザの変更を確認しないまま上書きしてしまうことになるので、更新時刻を元に一方が競合していることを判定する方法について説明します。">
   <meta property="og:description" content="Railsで同じデータを2人のユーザがほぼ同時に編集したとき、何も対処しないと片方のユーザがもう片方のユーザの変更を確認しないまま上書きしてしまうことになるので、更新時刻を元に一方が競合していることを判定する方法について説明します。">
-  <meta property="og:type" content="article">
+  
+  <meta property="og:type" content="website">
   <meta property="og:title" content="Railsでコンフリクトをvalidate">
-  <meta property="og:url" content="https://r7kamura.com/articles/2014-11-28-q">
+  <meta property="og:url" content="https://r7kamura.com:0/articles/2014-11-28-q">
+  
   <meta property="og:image" content="https://r7kamura.com/default_og_image.jpg">
   <meta property="twitter:card" content="summary">
+  
 </head>
 <body>
   <header>
@@ -35,57 +39,77 @@
   <h1>Railsでコンフリクトをvalidate</h1>
   <footer>
     <p>
-      <time datetime="2014-11-28T00:00:00+09:00">2014年11月28日</time>
+      <time datetime="2014-11-28T00:00:00+00:00">2014年11月28日</time>
     </p>
   </footer>
   <div>
     <p>Railsで同じデータを2人のユーザがほぼ同時に編集したとき、何も対処しないと片方のユーザがもう片方のユーザの変更を確認しないまま上書きしてしまうことになるので、更新時刻を元に一方が競合していることを判定する方法について説明します。</p>
-<h2 id="要点">要点</h2>
+
+<h2>要点</h2>
+
 <ol>
 <li>サーバ側でHTMLに最終更新日時を埋め込む</li>
 <li>クライアント側で更新リクエスト時に最終更新日時も同時に送る</li>
 <li>サーバ側で送られてきた最終更新日時とDB上の最終更新日時を比較して検証する</li>
 <li>これらの実装に validate_confirmation の機能を使う</li>
 </ol>
-<h2 id="viewに最終更新日時を埋め込む">Viewに最終更新日時を埋め込む</h2>
+
+<h2>Viewに最終更新日時を埋め込む</h2>
+
 <p>日時をUnixtimeで表現して埋め込むならこんな感じになります。</p>
-<pre><code class="language-erb">&lt;%= form_for @model do |f| %&gt;
+
+<p><code>erb
+&lt;%= form_for @model do |f| %&gt;
   &lt;%= f.hidden_field :updated_at_confirmation_in_unixtime, value: @model.updated_at_confirmation_in_unixtime %&gt;
   ...
-&lt;% end %&gt;</code></pre>
-<h2 id="modelにvalidationを定義する">ModelにValidationを定義する</h2>
-<p>View用にupdated_atのunixtime表現を提供するメソッドと、クライアントから送られてきたunixtimeを保持しておくプロパティ、それからupdated_at_confirmationがnil以外の値を返したときにupdated_atと等価かどうか比較するvalidationを定義します。confirmation: trueを利用すると等値比較のvalidationとエラーメッセージを定義してくれるので少し楽できます。</p>
-<pre><code class="language-rb"># Public: A concern module to validate conflict.
-# To validate conflict, set updated_at_confirmation_in_unixtime attribute to the model object.
-#
-# Example:
-#
-#   model.update(body: &quot;foo&quot;, updated_at_confirmation_in_unixtime: time.to_i)
-#
-module ConflictValidatable
-  extend ActiveSupport::Concern
+&lt;% end %&gt;
+</code></p>
 
-  included do
-    attr_accessor :updated_at_confirmation_in_unixtime
+<h2>ModelにValidationを定義する</h2>
 
-    validates :updated_at, confirmation: true, if: :has_updated_at_confirmation_in_unixtime?
+<p>View用にupdated<em>atのunixtime表現を提供するメソッドと、クライアントから送られてきたunixtimeを保持しておくプロパティ、それからupdated</em>at<em>confirmationがnil以外の値を返したときにupdated</em>atと等価かどうか比較するvalidationを定義します。confirmation: trueを利用すると等値比較のvalidationとエラーメッセージを定義してくれるので少し楽できます。</p>
+
+<p>```rb</p>
+
+<h1>Public: A concern module to validate conflict.</h1>
+
+<h1>To validate conflict, set updated<em>at</em>confirmation<em>in</em>unixtime attribute to the model object.</h1>
+
+<h1>Example:</h1>
+
+<h1>model.update(body: &quot;foo&quot;, updated<em>at</em>confirmation<em>in</em>unixtime: time.to_i)</h1>
+
+<p>module ConflictValidatable
+  extend ActiveSupport::Concern</p>
+
+<p>included do
+    attr<em>accessor :updated</em>at<em>confirmation</em>in_unixtime</p>
+
+<pre><code>validates :updated_at, confirmation: true, if: :has_updated_at_confirmation_in_unixtime?
+</code></pre>
+
+<p>end</p>
+
+<p>def has<em>updated</em>at<em>confirmation</em>in<em>unixtime?
+    updated</em>at<em>confirmation</em>in_unixtime.present?
+  end</p>
+
+<p>def updated<em>at</em>confirmation
+    Time.at(updated<em>at</em>confirmation<em>in</em>unixtime.to<em>i) if has</em>updated<em>at</em>confirmation<em>in</em>unixtime?
+  end</p>
+
+<p>def updated<em>at</em>in<em>unixtime
+    updated</em>at.to<em>i unless updated</em>at.nil?
   end
+end
+```</p>
 
-  def has_updated_at_confirmation_in_unixtime?
-    updated_at_confirmation_in_unixtime.present?
-  end
+<h2>Ajaxで更新する場合の注意点</h2>
 
-  def updated_at_confirmation
-    Time.at(updated_at_confirmation_in_unixtime.to_i) if has_updated_at_confirmation_in_unixtime?
-  end
-
-  def updated_at_in_unixtime
-    updated_at.to_i unless updated_at.nil?
-  end
-end</code></pre>
-<h2 id="ajaxで更新する場合の注意点">Ajaxで更新する場合の注意点</h2>
 <p>Ajaxで更新するようなフォームの場合は、更新成功後にサーバが最終更新日時を返すようにし、クライアント側でView内の最終更新日時を書き換える処理を入れる必要があるので注意が必要です。</p>
-<h2 id="おしまい">おしまい</h2>
+
+<h2>おしまい</h2>
+
 <p>今回は更新時刻で判定しましたが、本文のハッシュ値などにも利用できると思います。</p>
 
   </div>

@@ -4,17 +4,21 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width">
   <title>React.jsのJSXで条件分岐・繰り返しを記述する</title>
-  <link href="/articles/2015-09-23-q" rel="canonical">
+  <link href="https://r7kamura.com:0/articles/2015-09-23-q" rel="canonical">
   <link rel="stylesheet" href="/css/main.css">
   <link rel="search" type="application/opensearchdescription+xml" title="r7kamura.com" href="/opensearch.xml">
   <link rel="alternate" type="application/rss+xml" href="/feed.xml">
+  
   <meta property="description" content="If-Else in JSX | React で述べられているように、{...} の中で即時関数を利用すれば、その中でJSXの記法を利用してコードを記述できる。">
   <meta property="og:description" content="If-Else in JSX | React で述べられているように、{...} の中で即時関数を利用すれば、その中でJSXの記法を利用してコードを記述できる。">
-  <meta property="og:type" content="article">
+  
+  <meta property="og:type" content="website">
   <meta property="og:title" content="React.jsのJSXで条件分岐・繰り返しを記述する">
-  <meta property="og:url" content="https://r7kamura.com/articles/2015-09-23-q">
+  <meta property="og:url" content="https://r7kamura.com:0/articles/2015-09-23-q">
+  
   <meta property="og:image" content="https://r7kamura.com/default_og_image.jpg">
   <meta property="twitter:card" content="summary">
+  
 </head>
 <body>
   <header>
@@ -35,52 +39,64 @@
   <h1>React.jsのJSXで条件分岐・繰り返しを記述する</h1>
   <footer>
     <p>
-      <time datetime="2015-09-23T00:00:00+09:00">2015年09月23日</time>
+      <time datetime="2015-09-23T00:00:00+00:00">2015年09月23日</time>
     </p>
   </footer>
   <div>
     <p><a href="https://facebook.github.io/react/tips/if-else-in-JSX.html">If-Else in JSX | React</a> で述べられているように、<code>{...}</code> の中で即時関数を利用すれば、その中でJSXの記法を利用してコードを記述できる。</p>
-<h2 id="条件分岐">条件分岐</h2>
+
+<h2>条件分岐</h2>
+
 <p>3ペインの画面を例にした条件分岐の例。</p>
-<pre><code>import PaneCenter from &#39;./pane-center&#39;
+
+<p>```
+import PaneCenter from &#39;./pane-center&#39;
 import PaneLeft from &#39;./pane-left&#39;
 import PaneRight from &#39;./pane-right&#39;
-import React from &#39;react&#39;
+import React from &#39;react&#39;</p>
 
-export default class Panes extends React.Component {
+<p>export default class Panes extends React.Component {
   render() {
     return(
-      &lt;div className=&quot;panes&quot;&gt;
+      <div className="panes">
         {(() =&gt; {
           if (this.props.panesCount &gt;= 3) {
-            return &lt;PaneLeft /&gt;;
+            return <PaneLeft />;
           }
         })()}
         {(() =&gt; {
           if (this.props.panesCount &gt;= 2) {
-            return &lt;PaneCenter /&gt;;
+            return <PaneCenter />;
           }
         })()}
-        &lt;PaneRight /&gt;
-      &lt;/div&gt;
+        <PaneRight />
+      </div>
     );
   }
-}</code></pre><h2 id="繰り返し">繰り返し</h2>
-<p>記事一覧を例にした繰り返しの例。</p>
-<pre><code>import Article from &#39;./article&#39;
-import React from &#39;react&#39;
+}
+```</p>
 
-export default class Articles extends React.Component {
+<h2>繰り返し</h2>
+
+<p>記事一覧を例にした繰り返しの例。</p>
+
+<p>```
+import Article from &#39;./article&#39;
+import React from &#39;react&#39;</p>
+
+<p>export default class Articles extends React.Component {
   render() {
     return(
-      &lt;div className=&quot;articles&quot;&gt;
+      <div className="articles">
         {this.props.articles.map((article) =&gt; {
-          return &lt;Article key={article.id} /&gt;;
+          return <Article key={article.id} />;
         })}
-      &lt;/div&gt;
+      </div>
     );
   }
-}</code></pre>
+}
+```</p>
+
   </div>
 </article>
 

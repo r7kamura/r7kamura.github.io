@@ -4,17 +4,21 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width">
   <title>今日もAmazon API Gatewayを撫でた</title>
-  <link href="/articles/2015-08-14-h" rel="canonical">
+  <link href="https://r7kamura.com:0/articles/2015-08-14-h" rel="canonical">
   <link rel="stylesheet" href="/css/main.css">
   <link rel="search" type="application/opensearchdescription+xml" title="r7kamura.com" href="/opensearch.xml">
   <link rel="alternate" type="application/rss+xml" href="/feed.xml">
-  <meta property="description" content="帰宅後に r7kamura&#x2F;fluct の開発をちょっと進めて、AWS Lambdaの関数でHTTPリクエストのパスとかリクエストボディの内容とかを取れるようにした。">
-  <meta property="og:description" content="帰宅後に r7kamura&#x2F;fluct の開発をちょっと進めて、AWS Lambdaの関数でHTTPリクエストのパスとかリクエストボディの内容とかを取れるようにした。">
-  <meta property="og:type" content="article">
+  
+  <meta property="description" content="帰宅後に r7kamura/fluct の開発をちょっと進めて、AWS Lambdaの関数でHTTPリクエストのパスとかリクエストボディの内容とかを取れるようにした。">
+  <meta property="og:description" content="帰宅後に r7kamura/fluct の開発をちょっと進めて、AWS Lambdaの関数でHTTPリクエストのパスとかリクエストボディの内容とかを取れるようにした。">
+  
+  <meta property="og:type" content="website">
   <meta property="og:title" content="今日もAmazon API Gatewayを撫でた">
-  <meta property="og:url" content="https://r7kamura.com/articles/2015-08-14-h">
+  <meta property="og:url" content="https://r7kamura.com:0/articles/2015-08-14-h">
+  
   <meta property="og:image" content="https://qiita-image-store.s3.amazonaws.com/0/4365/65d9c0c7-0686-c9b9-7670-6feeeb9a97b2.png">
   <meta property="twitter:card" content="summary_large_image">
+  
 </head>
 <body>
   <header>
@@ -35,7 +39,7 @@
   <h1>今日もAmazon API Gatewayを撫でた</h1>
   <footer>
     <p>
-      <time datetime="2015-08-14T00:00:00+09:00">2015年08月14日</time>
+      <time datetime="2015-08-14T00:00:00+00:00">2015年08月14日</time>
     </p>
   </footer>
   <div>
@@ -58,7 +62,6 @@
 <p><img src="https://qiita-image-store.s3.amazonaws.com/0/4365/4279da3a-0d53-68de-058e-f180ee60aaf5.png" alt="image"></p>
 
 <p>テンプレートの内容を編集し、VTLという古の言語を使って正しい形式のJSONが描画されるように編集する。VTLというのは、Apache VelocityというJavaベースのテンプレートエンジンがあって、その中で使う言語がVTL (Velocity Template Languate)。<a href="http://docs.aws.amazon.com/ja_jp/apigateway/latest/developerguide/api-gateway-mapping-template-reference.html">API Gatewayのドキュメント</a> にどういう変数と関数が提供されているかが書いてあって、Apache Velocityでググって <a href="http://velocity.apache.org/engine/devel/user-guide.html">http://velocity.apache.org/engine/devel/user-guide.html</a> とかの説明を見るとマップ構造を走査する方法が把握できる。ので、最終的に <a href="https://gist.github.com/r7kamura/c6cc5967f1d08939fed0">こういうの</a> を書けばHTTPリクエストの情報をテンプレート経由でLambdaに渡せるはこびとなった。</p>
-
 
   </div>
 </article>

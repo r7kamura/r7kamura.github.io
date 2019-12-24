@@ -4,17 +4,21 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width">
   <title>カスタムドメイン用にリポジトリ名を変更した</title>
-  <link href="/articles/2019-11-23-migrate-to-project-page" rel="canonical">
+  <link href="https://r7kamura.com:0/articles/2019-11-23-migrate-to-project-page" rel="canonical">
   <link rel="stylesheet" href="/css/main.css">
   <link rel="search" type="application/opensearchdescription+xml" title="r7kamura.com" href="/opensearch.xml">
   <link rel="alternate" type="application/rss+xml" href="/feed.xml">
+  
   <meta property="description" content="リポジトリ名を変更した。">
   <meta property="og:description" content="リポジトリ名を変更した。">
-  <meta property="og:type" content="article">
+  
+  <meta property="og:type" content="website">
   <meta property="og:title" content="カスタムドメイン用にリポジトリ名を変更した">
-  <meta property="og:url" content="https://r7kamura.com/articles/2019-11-23-migrate-to-project-page">
+  <meta property="og:url" content="https://r7kamura.com:0/articles/2019-11-23-migrate-to-project-page">
+  
   <meta property="og:image" content="https://r7kamura.com/default_og_image.jpg">
   <meta property="twitter:card" content="summary">
+  
 </head>
 <body>
   <header>
@@ -35,26 +39,33 @@
   <h1>カスタムドメイン用にリポジトリ名を変更した</h1>
   <footer>
     <p>
-      <time datetime="2019-11-23T00:00:00+09:00">2019年11月23日</time>
+      <time datetime="2019-11-23T00:00:00+00:00">2019年11月23日</time>
     </p>
   </footer>
   <div>
     <p>リポジトリ名を変更した。</p>
+
 <ul>
 <li>変更前は r7kamura/r7kamura.github.io</li>
 <li>変更後は r7kamura/r7kamura.com</li>
 </ul>
+
 <p>GitHub Pagesでは、ユーザページにカスタムドメインを設定すると、そのユーザの全てのプロジェクトページのドメインも切り替わってしまう。今回はこのウェブサイトだけカスタムドメインに切り替わってほしかったので、リポジトリ名を変更してユーザページからプロジェクトページに変更した。</p>
+
 <p>同時に、これまで</p>
+
 <ul>
 <li>develop: ソースコード</li>
 <li>master: 成果物</li>
 </ul>
+
 <p>というブランチ運用だったのを、</p>
+
 <ul>
 <li>master: ソースコード</li>
 <li>gh-pages: 成果物</li>
 </ul>
+
 <p>というブランチ運用に変更した。</p>
 
   </div>

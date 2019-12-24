@@ -4,17 +4,21 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width">
   <title>Boxenを実行すると何が起こるのか</title>
-  <link href="/articles/2013-02-22-h" rel="canonical">
+  <link href="https://r7kamura.com:0/articles/2013-02-22-h" rel="canonical">
   <link rel="stylesheet" href="/css/main.css">
   <link rel="search" type="application/opensearchdescription+xml" title="r7kamura.com" href="/opensearch.xml">
   <link rel="alternate" type="application/rss+xml" href="/feed.xml">
-  <meta property="description" content="http:&#x2F;&#x2F;boxen.github.com&#x2F;">
-  <meta property="og:description" content="http:&#x2F;&#x2F;boxen.github.com&#x2F;">
-  <meta property="og:type" content="article">
+  
+  <meta property="description" content="http://boxen.github.com/">
+  <meta property="og:description" content="http://boxen.github.com/">
+  
+  <meta property="og:type" content="website">
   <meta property="og:title" content="Boxenを実行すると何が起こるのか">
-  <meta property="og:url" content="https://r7kamura.com/articles/2013-02-22-h">
+  <meta property="og:url" content="https://r7kamura.com:0/articles/2013-02-22-h">
+  
   <meta property="og:image" content="https://r7kamura.com/default_og_image.jpg">
   <meta property="twitter:card" content="summary">
+  
 </head>
 <body>
   <header>
@@ -35,7 +39,7 @@
   <h1>Boxenを実行すると何が起こるのか</h1>
   <footer>
     <p>
-      <time datetime="2013-02-22T00:00:00+09:00">2013年02月22日</time>
+      <time datetime="2013-02-22T00:00:00+00:00">2013年02月22日</time>
     </p>
   </footer>
   <div>
@@ -54,6 +58,7 @@
 <p></p>
 
 </div>
+
 <div class="section">
     <h3>Puppetの扱い</h3>
     <p>librarian-puppetという仕組みが利用されていて、Puppetfile(=Puppet版Gemfile)にPuppetで入れたいものが定義されている。<br>
@@ -61,6 +66,7 @@ Puppetfileで <a href="https://github.com/boxen/puppet-ruby">https://github.com/
 <p></p>
 
 </div>
+
 <div class="section">
     <h3>コールグラフ</h3>
     <p>表記方法だけども、例えばCLI.runはBoxen::CLI.runを実行しているという意味で、CLI#runはCLIクラスのインスタンスに対しrunメソッドを呼んでいるという意味になる。インデントは、メソッドの内部で更にメソッドが呼ばれているということを表現している。</p>

@@ -4,17 +4,21 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width">
   <title>Webtail</title>
-  <link href="/articles/2012-08-04-h" rel="canonical">
+  <link href="https://r7kamura.com:0/articles/2012-08-04-h" rel="canonical">
   <link rel="stylesheet" href="/css/main.css">
   <link rel="search" type="application/opensearchdescription+xml" title="r7kamura.com" href="/opensearch.xml">
   <link rel="alternate" type="application/rss+xml" href="/feed.xml">
-  <meta property="description" content="https:&#x2F;&#x2F;github.com&#x2F;r7kamura&#x2F;webtail昨日ブログに書いたものをつくった。">
-  <meta property="og:description" content="https:&#x2F;&#x2F;github.com&#x2F;r7kamura&#x2F;webtail昨日ブログに書いたものをつくった。">
-  <meta property="og:type" content="article">
+  
+  <meta property="description" content="https://github.com/r7kamura/webtail昨日ブログに書いたものをつくった。">
+  <meta property="og:description" content="https://github.com/r7kamura/webtail昨日ブログに書いたものをつくった。">
+  
+  <meta property="og:type" content="website">
   <meta property="og:title" content="Webtail">
-  <meta property="og:url" content="https://r7kamura.com/articles/2012-08-04-h">
+  <meta property="og:url" content="https://r7kamura.com:0/articles/2012-08-04-h">
+  
   <meta property="og:image" content="http://dl.dropbox.com/u/5978869/image/20120804_205402.png">
   <meta property="twitter:card" content="summary_large_image">
+  
 </head>
 <body>
   <header>
@@ -35,7 +39,7 @@
   <h1>Webtail</h1>
   <footer>
     <p>
-      <time datetime="2012-08-04T00:00:00+09:00">2012年08月04日</time>
+      <time datetime="2012-08-04T00:00:00+00:00">2012年08月04日</time>
     </p>
   </footer>
   <div>
@@ -47,27 +51,30 @@
 <pre class="code" data-unlink>$ gem install webtail
 $ tail -f log/development.log | webtail</pre>
 </div>
+
 <div class="section">
     <h3>拡張</h3>
     <p>~/.webtailrc にJavaScriptを書けば、1行出力されるたびにそのコードが実行される。</p>
 <pre class="code" data-unlink>var line = $('pre:last');
 var text = line.text();
 
-<p>// Change empty line to border with lime color
-if (text == &#39;\n&#39;) {
+// Change empty line to border with lime color
+if (text == '\n') {
   line.css({
-    margin: &#39;3em 0&#39;,
+    margin: '3em 0',
     height: 1,
-    background: &#39;lime&#39;
+    background: 'lime'
   });
-}</p>
-<p>// Change SQL lines to red color
+}
+
+// Change SQL lines to red color
 if (text.match(/CACHE|Load/)) {
   line.css({
-    color: &#39;#E1017B&#39;
+    color: '#E1017B'
   });
-}</pre></p>
+}</pre>
 </div>
+
 <div class="section">
     <h3>例</h3>
     <p>上記の~/.webtailrcを置きながら手元のRailsのログをブラウザに出力してみた例。</p>
@@ -75,6 +82,7 @@ if (text.match(/CACHE|Load/)) {
 <p></p>
 
 </div>
+
 <div class="section">
     <h3>今後</h3>
     <p>Rails用とかSinatra用とかの~/.webtailrcを用意して、それらを配布/導入するような仕組みが欲しい。<br>

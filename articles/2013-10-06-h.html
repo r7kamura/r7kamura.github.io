@@ -4,17 +4,21 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width">
   <title>Go言語のテスト用ライブラリとGospel</title>
-  <link href="/articles/2013-10-06-h" rel="canonical">
+  <link href="https://r7kamura.com:0/articles/2013-10-06-h" rel="canonical">
   <link rel="stylesheet" href="/css/main.css">
   <link rel="search" type="application/opensearchdescription+xml" title="r7kamura.com" href="/opensearch.xml">
   <link rel="alternate" type="application/rss+xml" href="/feed.xml">
+  
   <meta property="description" content="先週初めてGo言語を触る機会があったので、テストの書き方を調べた。">
   <meta property="og:description" content="先週初めてGo言語を触る機会があったので、テストの書き方を調べた。">
-  <meta property="og:type" content="article">
+  
+  <meta property="og:type" content="website">
   <meta property="og:title" content="Go言語のテスト用ライブラリとGospel">
-  <meta property="og:url" content="https://r7kamura.com/articles/2013-10-06-h">
+  <meta property="og:url" content="https://r7kamura.com:0/articles/2013-10-06-h">
+  
   <meta property="og:image" content="http://dl.dropboxusercontent.com//u/5978869/image/20131003_083821.png">
   <meta property="twitter:card" content="summary_large_image">
+  
 </head>
 <body>
   <header>
@@ -35,7 +39,7 @@
   <h1>Go言語のテスト用ライブラリとGospel</h1>
   <footer>
     <p>
-      <time datetime="2013-10-06T00:00:00+09:00">2013年10月06日</time>
+      <time datetime="2013-10-06T00:00:00+00:00">2013年10月06日</time>
     </p>
   </footer>
   <div>
@@ -69,7 +73,6 @@
 }
 </pre>
 
-
 <h3>他のライブラリ</h3>
 
 <p>色々あるっぽい。</p>
@@ -83,7 +86,6 @@
 <li><a href="https://github.com/pranavraja/zen">zen</a></li>
 <li><a href="https://github.com/smartystreets/goconvey">goconvey</a></li>
 </ul>
-
 
 <h3>Gospel</h3>
 
@@ -122,7 +124,6 @@ RSpecっぽい記法になっていて、こういう風に書ける。</p>
 }
 </pre>
 
-
 <p>Expectにテスト対象の値を渡して、Toに期待する状態を渡す。
 EqualやExist等はただの関数なので、自分で好きなものを定義しても良い。
 例えばEqualは次のように定義されている。
@@ -137,7 +138,6 @@ EqualやExist等はただの関数なので、自分で好きなものを定義�
 }
 </pre>
 
-
 <p>「go test」でテストを実行できる。成功すると"."、失敗すると"F"が表示される。これは成功例。</p>
 
 <p><img src="http://dl.dropboxusercontent.com//u/5978869/image/20131003_083821.png" alt=""></p>
@@ -145,7 +145,6 @@ EqualやExist等はただの関数なので、自分で好きなものを定義�
 <p>「go test -v」で実行すると出力形式が変わる。失敗するとどこが違ったかが表示される。</p>
 
 <p><img src="http://dl.dropboxusercontent.com//u/5978869/image/20131006_224123.png" alt=""></p>
-
 
   </div>
 </article>

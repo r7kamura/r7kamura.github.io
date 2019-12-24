@@ -4,17 +4,21 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width">
   <title>Resource Routingつらくね？</title>
-  <link href="/articles/2014-09-02-q" rel="canonical">
+  <link href="https://r7kamura.com:0/articles/2014-09-02-q" rel="canonical">
   <link rel="stylesheet" href="/css/main.css">
   <link rel="search" type="application/opensearchdescription+xml" title="r7kamura.com" href="/opensearch.xml">
   <link rel="alternate" type="application/rss+xml" href="/feed.xml">
+  
   <meta property="description" content="Resource Routing">
   <meta property="og:description" content="Resource Routing">
-  <meta property="og:type" content="article">
+  
+  <meta property="og:type" content="website">
   <meta property="og:title" content="Resource Routingつらくね？">
-  <meta property="og:url" content="https://r7kamura.com/articles/2014-09-02-q">
+  <meta property="og:url" content="https://r7kamura.com:0/articles/2014-09-02-q">
+  
   <meta property="og:image" content="https://r7kamura.com/default_og_image.jpg">
   <meta property="twitter:card" content="summary">
+  
 </head>
 <body>
   <header>
@@ -35,15 +39,20 @@
   <h1>Resource Routingつらくね？</h1>
   <footer>
     <p>
-      <time datetime="2014-09-02T00:00:00+09:00">2014年09月02日</time>
+      <time datetime="2014-09-02T00:00:00+00:00">2014年09月02日</time>
     </p>
   </footer>
   <div>
-    <h2 id="resource-routing">Resource Routing</h2>
+    <h2>Resource Routing</h2>
+
 <p><a href="http://guides.rubyonrails.org/routing.html#resource-routing-the-rails-default">Rails Guides</a>では「Resource Routing: the Rails Default」として <code>namespace</code>, <code>resource</code>, <code>resources</code> といったメソッドを利用する方法が紹介されている。これまでとりあえずこの機能を使って開発してきたが、これは果たして本当に積極的に利用した方が良い機能なのか。</p>
-<h2 id="あるとき">あるとき</h2>
+
+<h2>あるとき</h2>
+
 <p>試しにTwitterのAPIのようなルーティングを定義しながら、Resource Routingを利用する場合としない場合とを比較してみることにする。ここでは (Resource Routingを利用するメリットを出すためにも)、API用のPrefixとして各パスの先頭に /api/v1 を付けることにする。このAPIはアクセストークンの発行や、tweetの取得、投稿、ユーザやフォロワー情報の取得などの機能を提供する。また、/api/v1 以下のどのパターンにも一致しなかった場合、Railsのデフォルトのエラーレスポンスを返すのではなく、この場合も適切なControllerで処理できるようにしている (※詳しくは<a href="http://qiita.com/r7kamura/items/e0eddd3581cab6e0cae0">Railsでルーティングが無いときの挙動を変える</a>を参照)。</p>
-<pre><code class="language-ruby">Qiita::Application.routes.draw do
+
+<p><code>ruby
+Qiita::Application.routes.draw do
   namespace :api do
     namespace :v1 do
       resources :access_tokens, only: [:create, :destroy]
@@ -63,10 +72,15 @@
       match &#39;*any&#39; =&gt; &#39;black_holes#show&#39;, via: :all
     end
   end
-end</code></pre>
-<h2 id="ないとき">ないとき</h2>
+end
+</code></p>
+
+<h2>ないとき</h2>
+
 <p>Resource Routingを利用しない場合は以下のように <code>get</code>, <code>post</code>, <code>delete</code> などを用いて定義する。</p>
-<pre><code class="language-ruby">Qiita::Application.routes.draw do
+
+<p><code>ruby
+Qiita::Application.routes.draw do
   post   &#39;/api/v1/access_tokens&#39;             =&gt; &#39;api/v1/access_tokens#create&#39;
   delete &#39;/api/v1/access_tokens/:id&#39;         =&gt; &#39;api/v1/access_tokens#destroy&#39;
   get    &#39;/api/v1/tweets&#39;                    =&gt; &#39;api/v1/tweets#index&#39;
@@ -85,9 +99,13 @@ end</code></pre>
   get    &#39;/api/v1/users/:user_id/followers&#39;  =&gt; &#39;api/v1/followers#index&#39;
   get    &#39;/api/v1/users/:user_id/tweets&#39;     =&gt; &#39;api/v1/user_tweets#index&#39;
   match  &#39;/api/v1/*any&#39;                      =&gt; &#39;api/v1/black_holes#show&#39;, via: :all
-end</code></pre>
-<h2 id="俺はこう思ったッス">俺はこう思ったッス</h2>
+end
+</code></p>
+
+<h2>俺はこう思ったッス</h2>
+
 <p>Resource Routingを擁護しておくと、そういったDSLを半ば強制することで、RESTfulでないURLを定義しづらくなるという利点が挙げられる。この利点は、大勢の人間が開発に参加するような状況ではより有意性が増すだろう。しかしながら、例えもし既存のルーティングが全てResource Routingを利用して定義されていたとしても、Resource Routingを利用せずに新しいルーティングを定義する人間は現れる。そういう現象を何度も見てきた。</p>
+
 <p>Resource Routingを利用するとルーティング定義が幾つかの論理的なブロックに分けられるので、Constraints (※拡張子やサブドメインなどの一致パターンを指定できる機能) などの制約がブロックごとに適用できる余地がある、という利点がある。例えばリクエストに対して任意のProcの内容を評価して一致したことにするかどうか検査する、なんてこともできる。しかし、ルーティング部分に多くのロジックが入る状況はあまり好ましくない。ちなみに最近見たコードでは、config/routes.rbの中で <code>Kernel#escape</code> が定義されていてオシャレ感があった。config/routes.rb にゴミみたいなコードたくさん入ってませんか、大丈夫ですか。</p>
 
   </div>

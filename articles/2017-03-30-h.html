@@ -4,17 +4,21 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width">
   <title>シリーズ判定最前線</title>
-  <link href="/articles/2017-03-30-h" rel="canonical">
+  <link href="https://r7kamura.com:0/articles/2017-03-30-h" rel="canonical">
   <link rel="stylesheet" href="/css/main.css">
   <link rel="search" type="application/opensearchdescription+xml" title="r7kamura.com" href="/opensearch.xml">
   <link rel="alternate" type="application/rss+xml" href="/feed.xml">
+  
   <meta property="description" content="10 日ほど前から amakan books の再設計に着手しており、最近ようやく実装を終えた。">
   <meta property="og:description" content="10 日ほど前から amakan books の再設計に着手しており、最近ようやく実装を終えた。">
-  <meta property="og:type" content="article">
+  
+  <meta property="og:type" content="website">
   <meta property="og:title" content="シリーズ判定最前線">
-  <meta property="og:url" content="https://r7kamura.com/articles/2017-03-30-h">
+  <meta property="og:url" content="https://r7kamura.com:0/articles/2017-03-30-h">
+  
   <meta property="og:image" content="https://cdn-ak.f.st-hatena.com/images/fotolife/r/r7kamura/20170330/20170330075749.png">
   <meta property="twitter:card" content="summary_large_image">
+  
 </head>
 <body>
   <header>
@@ -35,7 +39,7 @@
   <h1>シリーズ判定最前線</h1>
   <footer>
     <p>
-      <time datetime="2017-03-30T00:00:00+09:00">2017年03月30日</time>
+      <time datetime="2017-03-30T00:00:00+00:00">2017年03月30日</time>
     </p>
   </footer>
   <div>
@@ -57,7 +61,6 @@
 <li>products</li>
 </ul>
 
-
 <p>新 DB スキーマ では以下のようなテーブル群を利用するようになった。</p>
 
 <ul>
@@ -71,7 +74,6 @@
 <li>book_works</li>
 <li>books</li>
 </ul>
-
 
 <p><a href="https://anime.amakan.net/">amakan anime</a> の登場により Generic な名前が利用しづらくなったので、これを機に book という prefix を付けて分かりやすくした。amakan anime では一連のシリーズを video_works と呼ぶことにしたので、amakan books でもそれに対応して、シリーズを表すテーブルを product_lists から book_works に変更している。</p>
 
@@ -88,7 +90,6 @@
 <li>それぞれのデータソース (book_product_amazon_sources)</li>
 </ul>
 
-
 <p>books にはもはや書籍名は含まれておらず、これはシリーズ名を元に計算される。また books にはもはや発売日は含まれておらず、個々の商品ごとに発売日が記録されている。</p>
 
 <h2>シリーズとは何か</h2>
@@ -100,7 +101,6 @@
 <li>書籍のシリーズは自身の書籍名とカテゴリと DB の状態から決定される</li>
 </ul>
 
-
 <p>DB の状態というのは、具体的には「同じカテゴリ内に2冊以上シリーズ名が部分一致する書籍が存在すればシリーズとして成立させる」というルールによるもの。これが新設計では、シリーズは以下のようなルールになる。</p>
 
 <ul>
@@ -108,14 +108,12 @@
 <li>書籍のシリーズは自身の書籍名とカテゴリからのみ決定される</li>
 </ul>
 
-
 <p>DB の状態に関わらず、書籍単体からシリーズ名を決定できるので強い。また全ての書籍がシリーズに所属する構造になるので、UI 設計や新刊リストの計算が非常にやりやすくなる。downside として、実態としてシリーズ化されていない本を扱う場合には少し違和感が出るようになってしまったかもしれない。しかしながら、</p>
 
 <ul>
 <li>amakan books のコアな機能は、気になるシリーズの新刊を通知する機能である</li>
 <li>amakan books のメインターゲットは、(シリーズ化されやすい) コミックやライトノベルである</li>
 </ul>
-
 
 <p>ということを考慮して、今回のような設計に至った。</p>
 
@@ -131,7 +129,6 @@
 <li>シリーズ名と対応する書籍が 2 件以上存在する場合、それらの書籍のシリーズを決定する</li>
 </ol>
 
-
 <p>この方法には、書籍の登録順序次第で最終的なシリーズ判定結果が変わってしまうという問題がある。
 例えば「ソードアート・オンライン19　ムーン・クレイドル (電撃文庫)」からは、現状「ソードアート・オンライン」というシリーズ名を抽出することが出来ない。しかし、その前の巻は「ソードアート・オンライン (18) アリシゼーション・ラスティング」という表記であるため、この商品名からは「ソードアート・オンライン」というシリーズ名を抽出できる。そのため、19巻と18巻のどちらが後に DB に登録されるかで、シリーズの内容が変わってしまう。</p>
 
@@ -143,7 +140,6 @@
 <li>2つのシリーズ名が入れ子構造になっている場合に、小さい側のシリーズに含められなかったものが大きい側のシリーズに間違って入ってしまう (例: 「ソードアート・オンライン」と「ソードアート・オンライン プログレッシブ」)</li>
 </ul>
 
-
 <p>新設計では、以下のようなルールでシリーズが決定される。</p>
 
 <ol>
@@ -151,14 +147,12 @@
 <li>書籍のカテゴリと抽出されたシリーズ名から、シリーズを決定する</li>
 </ol>
 
-
 <p>非常にシンプルになったが、旧設計と比べるとシリーズ判定ミスに対して少し弱くなった。この downside を補うための材料として、</p>
 
 <ul>
 <li>シリーズ判定器の amakanize の精度が十分に向上してきた</li>
 <li>シリーズ決定ルールの簡素化により、利用者にシリーズを修正してもらう設計が可能になった</li>
 </ul>
-
 
 <p>という反論材料が用意できたので、新設計への移行に踏み切れたという背景がある。</p>
 
@@ -175,7 +169,6 @@
 <li>シリーズ判定精度が向上した</li>
 <li>巻数判定機能を実装した</li>
 </ul>
-
 
 <p>という変化によって、書籍の同一性判定に使える材料が増え、同じ書籍に対して重複したレコードが生成されてしまう問題がより起きづらくなった。具体的には、同じシリーズ名の同じ巻数の商品であれば同じ書籍だということにしてしまおう、というルールを設けている。</p>
 
@@ -198,7 +191,6 @@
 <h2>おしまい</h2>
 
 <p>問題なく移行が終わると良いですね。</p>
-
 
   </div>
 </article>

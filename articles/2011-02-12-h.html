@@ -4,17 +4,21 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width">
   <title>さくらVPS設定その3 Git+Ruby+Gem+Rails+Passenger</title>
-  <link href="/articles/2011-02-12-h" rel="canonical">
+  <link href="https://r7kamura.com:0/articles/2011-02-12-h" rel="canonical">
   <link rel="stylesheet" href="/css/main.css">
   <link rel="search" type="application/opensearchdescription+xml" title="r7kamura.com" href="/opensearch.xml">
   <link rel="alternate" type="application/rss+xml" href="/feed.xml">
+  
   <meta property="description" content="さくらVPS設定まとめ の子エントリになります。">
   <meta property="og:description" content="さくらVPS設定まとめ の子エントリになります。">
-  <meta property="og:type" content="article">
+  
+  <meta property="og:type" content="website">
   <meta property="og:title" content="さくらVPS設定その3 Git+Ruby+Gem+Rails+Passenger">
-  <meta property="og:url" content="https://r7kamura.com/articles/2011-02-12-h">
+  <meta property="og:url" content="https://r7kamura.com:0/articles/2011-02-12-h">
+  
   <meta property="og:image" content="http://gyazo.com/85df9ff5d8d0126b8dc0641b9ce60eaf.png">
   <meta property="twitter:card" content="summary_large_image">
+  
 </head>
 <body>
   <header>
@@ -35,7 +39,7 @@
   <h1>さくらVPS設定その3 Git+Ruby+Gem+Rails+Passenger</h1>
   <footer>
     <p>
-      <time datetime="2011-02-12T00:00:00+09:00">2011年02月12日</time>
+      <time datetime="2011-02-12T00:00:00+00:00">2011年02月12日</time>
     </p>
   </footer>
   <div>
@@ -122,7 +126,8 @@
 <ul>
 <li>-</li>
 </ul>
-</li>
+
+<p></li>
 </ul>
 </li>
 </ul>
@@ -195,7 +200,7 @@
 </li>
 </ul>
 </li>
-</ul><p>RubyやRailsをバリバリ動かしたいので、それ関係のものを入れていきますよ。</p><p></p>
+</ul><p>RubyやRailsをバリバリ動かしたいので、それ関係のものを入れていきますよ。</p><p></p></p>
 
 <div class="section">
     <h4>Git</h4>
@@ -233,6 +238,7 @@ Gitを見るのに便利なTig(text-mode interface for git)を入れます。相
 $ sudo port <span class="synStatement">install</span> tig              <span class="synComment"> # 再度挑戦すると成功</span>
 </pre>
 </div>
+
 <div class="section">
     <h4>Ruby</h4>
     <p>Rubyはrvm(ruby version manager)で入れます。丁度Ruby1.8から1.9への過渡期でもあるので、複数バージョンを管理できる方が都合が色々と都合が良いという理由や、調べると結構RVMで入れている人が多いという理由からです。インストール方法は、<a href="http://rvm.beginrescueend.com/">公式サイト</a>に従うだけです。(※日本人はreadlineのオプション指定をした方が良さそうなので後日追記しました 2011-02-20)</p>
@@ -258,6 +264,7 @@ $ ruby list                                <span class="synComment"> # 導入済
   <span class="synStatement">=&gt;</span> ruby<span class="synConstant">-1</span>.<span class="synConstant">9</span>.<span class="synConstant">2</span>-p136 <span class="synStatement">[</span> x86_64 <span class="synStatement">]</span>            <span class="synComment"> # 入ってますね</span>
 </pre>
 </div>
+
 <div class="section">
     <h4>Gem</h4>
     <p>いつの間にか入ってるみたいです。rvmと一緒に入ったのでしょう。</p>
@@ -267,6 +274,7 @@ $ gem <span class="synStatement">install</span> rubygems-update              <sp
 $ update_rubygems                          <span class="synComment"> # アップデートします</span>
 </pre>
 </div>
+
 <div class="section">
     <h4>Rails</h4>
     <p>Rubyが入ったらRailsですね！</p>
@@ -293,6 +301,7 @@ $ rails server                             <span class="synComment"> # Railsの�
 http://example.sakura.ne.jp:<span class="synConstant">3000</span>/blogs     <span class="synComment"> # ブラウザから確認</span>
 </pre>
 </div>
+
 <div class="section">
     <h4>Passenger</h4>
     <p>Railsを入れたら、恐らく公開用サーバーにはPassengerを通してApacheを使うことになるかと思うので、Passengerをインストールします。これはGemからインストール出来ます。Ruby関係のものはほとんどGemからいけますね。</p>
@@ -300,22 +309,24 @@ http://example.sakura.ne.jp:<span class="synConstant">3000</span>/blogs     <spa
 $ passenger-<span class="synStatement">install</span>-apache2-module         <span class="synComment"> # apacheへの設定ウィザードを起動. 設定ファイルへの記述事項を出力してくれます</span>
 $ sudo vi /etc/httpd/conf/httpd.conf       <span class="synComment"> # 3行ほど追加が必要みたいですね</span>
 
-<p><span class="synComment"># Setting for Passenger</span>
+<span class="synComment"># Setting for Passenger</span>
 LoadModule passenger_module /home/r7kamura/.rvm/gems/ruby<span class="synConstant">-1</span>.<span class="synConstant">9</span>.<span class="synConstant">2</span>-p136/gems/passenger<span class="synConstant">-3</span>.<span class="synConstant">0</span>.<span class="synConstant">2</span>/ext/apache2/mod_passenger.so
 PassengerRoot /home/r7kamura/.rvm/gems/ruby<span class="synConstant">-1</span>.<span class="synConstant">9</span>.<span class="synConstant">2</span>-p136/gems/passenger<span class="synConstant">-3</span>.<span class="synConstant">0</span>.<span class="synConstant">2</span>
-PassengerRuby /home/r7kamura/.rvm/wrappers/ruby<span class="synConstant">-1</span>.<span class="synConstant">9</span>.<span class="synConstant">2</span>-p136/ruby</p>
-<p><span class="synComment"># 独自ドメインごとに設定するには以下のようにすれば良い…と思います。</span>
+PassengerRuby /home/r7kamura/.rvm/wrappers/ruby<span class="synConstant">-1</span>.<span class="synConstant">9</span>.<span class="synConstant">2</span>-p136/ruby
+
+<span class="synComment"># 独自ドメインごとに設定するには以下のようにすれば良い…と思います。</span>
 <span class="synStatement">&lt;</span>VirtualHost *:<span class="synConstant">80</span><span class="synStatement">&gt;</span>
   ServerName example.com
   DocumentRoot /path/to/my_rails_app/public
   <span class="synStatement">&lt;</span>Directory /path/to/public<span class="synStatement">&gt;</span>
     AllowOverride all
     Options <span class="synSpecial">-MultiViews</span>
-  <span class="synStatement">&lt;</span>/Directory<span class="synStatement">&gt;</span></p>
-<p>  ServerName hostname.sakura.ne.jp
+  <span class="synStatement">&lt;</span>/Directory<span class="synStatement">&gt;</span>
+
+  ServerName hostname.sakura.ne.jp
   DocumentRoot /var/www/html
 <span class="synStatement">&lt;</span>/VirtualHost<span class="synStatement">&gt;</span>
-</pre></p>
+</pre>
 <p><br>
 これでアプリが自動的にProductionモードで公開されるようになります。この設定の瞬間から公開されるので気をつけてください。</p>
 

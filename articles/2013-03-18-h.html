@@ -4,17 +4,21 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width">
   <title>WebサイトのFeedのMIME types</title>
-  <link href="/articles/2013-03-18-h" rel="canonical">
+  <link href="https://r7kamura.com:0/articles/2013-03-18-h" rel="canonical">
   <link rel="stylesheet" href="/css/main.css">
   <link rel="search" type="application/opensearchdescription+xml" title="r7kamura.com" href="/opensearch.xml">
   <link rel="alternate" type="application/rss+xml" href="/feed.xml">
-  <meta property="description" content="主にapplication&#x2F;xmlからapplication&#x2F;rdf+xmlへの変遷について調べたことを書きます。">
-  <meta property="og:description" content="主にapplication&#x2F;xmlからapplication&#x2F;rdf+xmlへの変遷について調べたことを書きます。">
-  <meta property="og:type" content="article">
+  
+  <meta property="description" content="主にapplication/xmlからapplication/rdf+xmlへの変遷について調べたことを書きます。">
+  <meta property="og:description" content="主にapplication/xmlからapplication/rdf+xmlへの変遷について調べたことを書きます。">
+  
+  <meta property="og:type" content="website">
   <meta property="og:title" content="WebサイトのFeedのMIME types">
-  <meta property="og:url" content="https://r7kamura.com/articles/2013-03-18-h">
+  <meta property="og:url" content="https://r7kamura.com:0/articles/2013-03-18-h">
+  
   <meta property="og:image" content="https://r7kamura.com/default_og_image.jpg">
   <meta property="twitter:card" content="summary">
+  
 </head>
 <body>
   <header>
@@ -35,7 +39,7 @@
   <h1>WebサイトのFeedのMIME types</h1>
   <footer>
     <p>
-      <time datetime="2013-03-18T00:00:00+09:00">2013年03月18日</time>
+      <time datetime="2013-03-18T00:00:00+00:00">2013年03月18日</time>
     </p>
   </footer>
   <div>
@@ -52,6 +56,7 @@
 <li>application/xml</li>
 </ul>
 </div>
+
 <div class="section">
     <h3>application/rdf+xmlの仕様策定と登録</h3>
     <p>RFC3023において、XMLで記述されたRDFに対してはapplication/rdf+xmlを使うべきとされた。RDF/XMLの仕様書にて、RDF/XMLのMIME typeにはapplication/rdf+xmlを使うべきとされた。RFC3870において、application/rdf+xmlの登録についての仕様が公開された。しかしこの時点においてapplication/rdf+xmlは未だIANAに登録されておらず、登録されるまでは使うべきではないとされていた。</p>
@@ -60,22 +65,26 @@
 <a href="http://www.ietf.org/rfc/rfc3870.txt">http://www.ietf.org/rfc/rfc3870.txt</a></p>
 
 </div>
+
 <div class="section">
     <h3>当時のUser-Agentの対応</h3>
     <p>application/rdf+xmlが登録されていなかった時期においては、Internet ExplorerやMozilla等のUser-Agentもapplication/rdf+xmlに対応していなかった。例えばRSSをapplication/rss+xmlの形式のデータを閲覧しようとすると、ダウンロードのダイアログが表示されていた。</p>
 
 </div>
+
 <div class="section">
     <h3>当時のサイト側の対応</h3>
     <p>現実的な対応として、一般的なXML文書を表すapplication/xmlを利用するサイトが多かった。当時既にFeedの需要は高まっており、ページのHTMLからFeedのURLを自動で検出する機能、所謂RSS Auto Discoveryと呼ばれる機能を実装しているUser-Agentも存在していた。そこで、HTTPヘッダにはaplication/xmlを利用し、RSS Auto Discoveryの為のlink要素にはapplication/rdf+xmlやapplication/rss+xmlを利用する、という対応を行うサイトも少なくなかった。</p>
 
 </div>
+
 <div class="section">
     <h3>現在のMIME typesの登録状況</h3>
     <p>RFC2046において、MIME typesはIANAによって割り当てられるべきとされている。IANAのWebサイトから、現在登録されているMIME typesが確認できる。application/xml、appication/rdf+xml、appication/atom+xmlが登録されていることが分かるが、一方でRSSが利用してきた application/rss+xml というMIME typeは登録されていないことが分かる。<br>
 <a href="http://www.iana.org/assignments/media-types">http://www.iana.org/assignments/media-types</a></p>
 
 </div>
+
 <div class="section">
     <h3>調査のモチベーション</h3>
 

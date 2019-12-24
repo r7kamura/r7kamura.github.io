@@ -4,17 +4,21 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width">
   <title>掲示板のJavaScriptこういう風に最適化しました</title>
-  <link href="/articles/2016-10-04-h" rel="canonical">
+  <link href="https://r7kamura.com:0/articles/2016-10-04-h" rel="canonical">
   <link rel="stylesheet" href="/css/main.css">
   <link rel="search" type="application/opensearchdescription+xml" title="r7kamura.com" href="/opensearch.xml">
   <link rel="alternate" type="application/rss+xml" href="/feed.xml">
+  
   <meta property="description" content="最近Railsで掲示板つくってて、サボって後回しにしていたJavaScriptの最適化をやりました。">
   <meta property="og:description" content="最近Railsで掲示板つくってて、サボって後回しにしていたJavaScriptの最適化をやりました。">
-  <meta property="og:type" content="article">
+  
+  <meta property="og:type" content="website">
   <meta property="og:title" content="掲示板のJavaScriptこういう風に最適化しました">
-  <meta property="og:url" content="https://r7kamura.com/articles/2016-10-04-h">
+  <meta property="og:url" content="https://r7kamura.com:0/articles/2016-10-04-h">
+  
   <meta property="og:image" content="https://r7kamura.com/default_og_image.jpg">
   <meta property="twitter:card" content="summary">
+  
 </head>
 <body>
   <header>
@@ -35,7 +39,7 @@
   <h1>掲示板のJavaScriptこういう風に最適化しました</h1>
   <footer>
     <p>
-      <time datetime="2016-10-04T00:00:00+09:00">2016年10月04日</time>
+      <time datetime="2016-10-04T00:00:00+00:00">2016年10月04日</time>
     </p>
   </footer>
   <div>
@@ -51,7 +55,6 @@
 <li>Sprocketsを使っていない</li>
 </ul>
 
-
 <h2>作業内容</h2>
 
 <ul>
@@ -62,15 +65,11 @@
 <li>moment.jsの不要なlocaleを読み込まないように設定</li>
 </ul>
 
-
 <h2>変更結果</h2>
 
 <p>これでminify後の容量が770KB→476KBに。gzip圧縮状態では202KB→125KB。</p>
 
 <pre class="code" data-lang="" data-unlink>$(npm bin)/webpack --profile --json | webpack-bundle-size-analyzer</pre>
-
-
-
 
 <pre class="code" data-lang="" data-unlink>react: 649.51 KB (40.3%)
 babel-polyfill: 198.61 KB (12.3%)
@@ -206,13 +205,11 @@ axios.interceptors.request.use(
 <span class="synIdentifier">}</span>
 </pre>
 
-
 <h2>おわり</h2>
 
 <p>自社サービスの強大なJavaScriptに立ち向かうために、ジェンガで気持ちを高めましょう。</p>
 
-<p></p><a href="http://www.amazon.co.jp/exec/obidos/ASIN/B01794GV3E/r7kamura-22/">ジェンガ</a>
-
+<p><p></p><a href="http://www.amazon.co.jp/exec/obidos/ASIN/B01794GV3E/r7kamura-22/">ジェンガ</a></p>
 
   </div>
 </article>

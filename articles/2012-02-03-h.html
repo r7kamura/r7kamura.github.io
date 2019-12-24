@@ -4,17 +4,21 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width">
   <title>IRCの話</title>
-  <link href="/articles/2012-02-03-h" rel="canonical">
+  <link href="https://r7kamura.com:0/articles/2012-02-03-h" rel="canonical">
   <link rel="stylesheet" href="/css/main.css">
   <link rel="search" type="application/opensearchdescription+xml" title="r7kamura.com" href="/opensearch.xml">
   <link rel="alternate" type="application/rss+xml" href="/feed.xml">
+  
   <meta property="description" content="IRCクライアント作りたいと思ってIRCの仕様調べ始めた。">
   <meta property="og:description" content="IRCクライアント作りたいと思ってIRCの仕様調べ始めた。">
-  <meta property="og:type" content="article">
+  
+  <meta property="og:type" content="website">
   <meta property="og:title" content="IRCの話">
-  <meta property="og:url" content="https://r7kamura.com/articles/2012-02-03-h">
+  <meta property="og:url" content="https://r7kamura.com:0/articles/2012-02-03-h">
+  
   <meta property="og:image" content="http://dl.dropbox.com/u/5978869/image/20120203_195120.png">
   <meta property="twitter:card" content="summary_large_image">
+  
 </head>
 <body>
   <header>
@@ -35,7 +39,7 @@
   <h1>IRCの話</h1>
   <footer>
     <p>
-      <time datetime="2012-02-03T00:00:00+09:00">2012年02月03日</time>
+      <time datetime="2012-02-03T00:00:00+00:00">2012年02月03日</time>
     </p>
   </footer>
   <div>
@@ -46,11 +50,13 @@
     <p><img src="http://dl.dropbox.com/u/5978869/image/20120203_195120.png" class="frame"></p>
 
 </div>
+
 <div class="section">
     <h3>実装の話</h3>
     <p>Rubyの実装でこういう感じにしてみてるけど絶対あとで気持ち悪がられそう。</p>
 
-<pre><code>&lt;pre class=&quot;code lang-txt&quot; data-lang=&quot;txt&quot;&gt;%w[</code></pre><p>  ADMIN   KICK    MOTD     QUIT     VERSION
+    <pre class="code lang-txt" data-lang="txt">%w[
+  ADMIN   KICK    MOTD     QUIT     VERSION
   AWAY    KNOCK   NAMES    RULES    VHOST
   CREDITS LICENSE NICK     SETNAME  WATCH
   CYCLE   LINKS   NOTICE   SILENCE  WHO
@@ -60,12 +66,14 @@
   JOIN    MODE    USERHOST USER     PRIVMSG
 ].each do |name|
   define_method(name.downcase) do |*params|
-    command [name, params].flatten.join(&quot; &quot;)
+    command [name, params].flatten.join(" ")
   end
-end</p>
-<p>def command(msg)
-  @socket.write(msg + &quot;\r\n&quot;)
-end</pre></p>
+end
+
+def command(msg)
+  @socket.write(msg + "\r\n")
+end</pre>
+
 </div>
 
   </div>

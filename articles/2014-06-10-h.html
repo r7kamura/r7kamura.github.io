@@ -4,17 +4,21 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width">
   <title>全てがJSONになる</title>
-  <link href="/articles/2014-06-10-h" rel="canonical">
+  <link href="https://r7kamura.com:0/articles/2014-06-10-h" rel="canonical">
   <link rel="stylesheet" href="/css/main.css">
   <link rel="search" type="application/opensearchdescription+xml" title="r7kamura.com" href="/opensearch.xml">
   <link rel="alternate" type="application/rss+xml" href="/feed.xml">
+  
   <meta property="description" content="TL;DR">
   <meta property="og:description" content="TL;DR">
-  <meta property="og:type" content="article">
+  
+  <meta property="og:type" content="website">
   <meta property="og:title" content="全てがJSONになる">
-  <meta property="og:url" content="https://r7kamura.com/articles/2014-06-10-h">
+  <meta property="og:url" content="https://r7kamura.com:0/articles/2014-06-10-h">
+  
   <meta property="og:image" content="http://37.media.tumblr.com/tumblr_lunxi8JjQZ1r3rbvro1_500.gif">
   <meta property="twitter:card" content="summary_large_image">
+  
 </head>
 <body>
   <header>
@@ -35,7 +39,7 @@
   <h1>全てがJSONになる</h1>
   <footer>
     <p>
-      <time datetime="2014-06-10T00:00:00+09:00">2014年06月10日</time>
+      <time datetime="2014-06-10T00:00:00+00:00">2014年06月10日</time>
     </p>
   </footer>
   <div>
@@ -52,7 +56,6 @@
 <li>APIサーバのバリデータの動的定義</li>
 <li>APIサーバのレスポンスの自動テスト</li>
 </ul>
-
 
 <h3>JSON Schemaとは</h3>
 
@@ -95,7 +98,6 @@ HerokuのAPI関係のプロダクトについては前に
 
 <pre class="code lang-sh" data-lang="sh" data-unlink>$ jdoc spec/fixtures/schema.json <span class="synStatement">&gt;</span> example-api-documentation.md
 </pre>
-
 
 <h3>テストからドキュメントを生成する手法との比較</h3>
 
@@ -188,7 +190,6 @@ $ curl :8080/apps/01234567-89ab-cdef-0123-456789abcdef
   "name": "example"
 }</pre>
 
-
 <p>用途としては、specupコマンドとJSON Schemaさえあればどこでもサーバを立てられるので、
 例えばクライアントライブラリのテストをする用途や、
 サーバ実装が未完成の状態でも仕様を詰めたりある程度クライアント側の開発を進めたりなど、色々な用途に使えると思う。</p>
@@ -224,7 +225,6 @@ APIサーバがAPIの仕様を返却してくれるというのは結構良い�
 
 <pre class="code lang-" data-lang="" data-unlink>$ curl https://api.heroku.com/schema  -H "Accept: application/vnd.heroku+json; version=3"</pre>
 
-
 <p>JSON Schemaが取得できるようになっていると何が良いかと言うと、
 self-documentingでデザイン的に美しいということもあるんだけど、
 後述のようにJSON Schemaをもとにクライアントの実装を自動生成できるという実用的な利点がある。</p>
@@ -259,7 +259,6 @@ resource.update
 # DELETE /apps/:id
 resource.delete</pre>
 
-
 <h3>自動生成か 動的定義か</h3>
 
 <p>例えばHerokuのRuby用APIクライアント自動生成ツール<a href="https://github.com/interagent/heroics">Heroics</a>
@@ -288,7 +287,6 @@ JSON SchemaをもとにAPIクライアント用のソースコードを(ERBで)�
 <li>APIサーバのレスポンスの自動テスト</li>
 </ul>
 
-
 <p>実装の自動化についてはまだまだ可能性はありそうで、
 例えば「このアプリはこの認証システムを使いながらこのルールに従った振る舞いをするAPIを提供する」
 みたいな仕様の記述が可能になれば、
@@ -299,7 +297,6 @@ JSON SchemaをもとにAPIクライアント用のソースコードを(ERBで)�
 JSON Schemaが最高かと言われると別に全然そんなことはなくてすごい書きづらいんだけど、
 働いても働いても一向に仕事が無くならないのは何かがおかしい。どんどん自動化して職を奪っていきたい。
 余暇でHackして富を生もう。</p>
-
 
   </div>
 </article>

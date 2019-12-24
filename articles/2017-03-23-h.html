@@ -4,17 +4,21 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width">
   <title>2017年3月22日</title>
-  <link href="/articles/2017-03-23-h" rel="canonical">
+  <link href="https://r7kamura.com:0/articles/2017-03-23-h" rel="canonical">
   <link rel="stylesheet" href="/css/main.css">
   <link rel="search" type="application/opensearchdescription+xml" title="r7kamura.com" href="/opensearch.xml">
   <link rel="alternate" type="application/rss+xml" href="/feed.xml">
+  
   <meta property="description" content="GitHub のマグカップ">
   <meta property="og:description" content="GitHub のマグカップ">
-  <meta property="og:type" content="article">
+  
+  <meta property="og:type" content="website">
   <meta property="og:title" content="2017年3月22日">
-  <meta property="og:url" content="https://r7kamura.com/articles/2017-03-23-h">
+  <meta property="og:url" content="https://r7kamura.com:0/articles/2017-03-23-h">
+  
   <meta property="og:image" content="https://cdn-ak.f.st-hatena.com/images/fotolife/r/r7kamura/20170323/20170323135143.png">
   <meta property="twitter:card" content="summary_large_image">
+  
 </head>
 <body>
   <header>
@@ -35,7 +39,7 @@
   <h1>2017年3月22日</h1>
   <footer>
     <p>
-      <time datetime="2017-03-23T00:00:00+09:00">2017年03月23日</time>
+      <time datetime="2017-03-23T00:00:00+00:00">2017年03月23日</time>
     </p>
   </footer>
   <div>
@@ -55,14 +59,12 @@
 <li>Petitest.configuration.output</li>
 </ul>
 
-
 <p>などの設定項目を増やしたり、TAP 形式でテスト結果を出力できる <a href="https://github.com/petitest/petitest-tap">https://github.com/petitest/petitest-tap</a> をつくったりしていた。このタイミングで設定項目を増やしたのは、petitest-tap が外部に出力を行うので、その出力先を統制したかったからという背景。</p>
 
 <ul>
 <li>テスト時間の計測</li>
 <li>テスト結果の出力</li>
 </ul>
-
 
 <p>などを行う部分は、テスト実行中に発生する各種イベントを購読する Subscriber という単位でまとめていて、petitest-tap も Subscriber の 1 つとして実装している。他のテストフレームワークだと Reporter や Formatter として定義されるものも、Subscriber という Generic な名前の概念で実装していて、利用者視点で分かりづらくないか少し不安ではある。開発者視点では実態と名前が一致しているので分かりやすい。</p>
 
@@ -72,8 +74,6 @@
 <li><a href="https://github.com/seattlerb/minitest/blob/c6ba2afd90473b76d289562edd24f7d7ca8484f9/lib/minitest/assertions.rb">lib/minitest/assertions.rb</a></li>
 <li><a href="https://github.com/test-unit/test-unit/blob/0e79db64366a909470836992cf1dd345696663d3/lib/test/unit/assertions.rb">lib/test/unit/assertions.rb</a></li>
 </ul>
-
-
 
   </div>
 </article>

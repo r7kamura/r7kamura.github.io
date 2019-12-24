@@ -4,17 +4,21 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width">
   <title>mackerel使ってみた</title>
-  <link href="/articles/2014-06-23-h" rel="canonical">
+  <link href="https://r7kamura.com:0/articles/2014-06-23-h" rel="canonical">
   <link rel="stylesheet" href="/css/main.css">
   <link rel="search" type="application/opensearchdescription+xml" title="r7kamura.com" href="/opensearch.xml">
   <link rel="alternate" type="application/rss+xml" href="/feed.xml">
+  
   <meta property="description" content="20分ほど前にmackerelに登録して、とりあえずuiureoさんの総資産情報をモニタリングしてみました。">
   <meta property="og:description" content="20分ほど前にmackerelに登録して、とりあえずuiureoさんの総資産情報をモニタリングしてみました。">
-  <meta property="og:type" content="article">
+  
+  <meta property="og:type" content="website">
   <meta property="og:title" content="mackerel使ってみた">
-  <meta property="og:url" content="https://r7kamura.com/articles/2014-06-23-h">
+  <meta property="og:url" content="https://r7kamura.com:0/articles/2014-06-23-h">
+  
   <meta property="og:image" content="http://cdn-ak.f.st-hatena.com/images/fotolife/r/r7kamura/20140623/20140623154539.png">
   <meta property="twitter:card" content="summary_large_image">
+  
 </head>
 <body>
   <header>
@@ -35,7 +39,7 @@
   <h1>mackerel使ってみた</h1>
   <footer>
     <p>
-      <time datetime="2014-06-23T00:00:00+09:00">2014年06月23日</time>
+      <time datetime="2014-06-23T00:00:00+00:00">2014年06月23日</time>
     </p>
   </footer>
   <div>
@@ -51,7 +55,6 @@ Dashboardでserviceとroleを作成して表示されているAPI Keyを得た�
   -H "Content-Type: application/json" \
   -d '{"name":"uiureo","meta":{}}'</pre>
 
-
 <p>データは <a href="http://help-ja.mackerel.io/entry/spec/api/v0#metric-value-post">POST /api/v0/</a> で投稿できます。</p>
 
 <pre class="code" data-unlink>curl https://mackerel.io/api/v0/tsdb \
@@ -59,15 +62,12 @@ Dashboardでserviceとroleを作成して表示されているAPI Keyを得た�
   -H "Content-Type: application/json" \
   -d '[{"hostId":"YYY","name":"money","time":1403505217,"value":817065}]'</pre>
 
-
 <p>参考情報です。</p>
 
 <ul>
 <li><a href="http://openforward.me/user/uiureo">uiureoさんの総資産情報</a></li>
 <li><a href="http://help-ja.mackerel.io/entry/spec/api/v0">API仕様（v0） - mackerel.io ヘルプ</a></li>
 </ul>
-
-
 
   </div>
 </article>

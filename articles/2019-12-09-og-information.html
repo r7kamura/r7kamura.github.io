@@ -4,17 +4,21 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width">
   <title>ページのメタデータを整えた</title>
-  <link href="/articles/2019-12-09-og-information" rel="canonical">
+  <link href="https://r7kamura.com:0/articles/2019-12-09-og-information" rel="canonical">
   <link rel="stylesheet" href="/css/main.css">
   <link rel="search" type="application/opensearchdescription+xml" title="r7kamura.com" href="/opensearch.xml">
   <link rel="alternate" type="application/rss+xml" href="/feed.xml">
+  
   <meta property="description" content="meta要素を見直して、これまで用意されていなかったdescriptionとog:imageを適切に用意するようにした。">
   <meta property="og:description" content="meta要素を見直して、これまで用意されていなかったdescriptionとog:imageを適切に用意するようにした。">
-  <meta property="og:type" content="article">
+  
+  <meta property="og:type" content="website">
   <meta property="og:title" content="ページのメタデータを整えた">
-  <meta property="og:url" content="https://r7kamura.com/articles/2019-12-09-og-information">
-  <meta property="og:image" content="https://r7kamura.com/images/2019-12-09-og-information.png">
+  <meta property="og:url" content="https://r7kamura.com:0/articles/2019-12-09-og-information">
+  
+  <meta property="og:image" content="https://r7kamura.com:0/images/2019-12-09-og-information.png">
   <meta property="twitter:card" content="summary_large_image">
+  
 </head>
 <body>
   <header>
@@ -35,15 +39,19 @@
   <h1>ページのメタデータを整えた</h1>
   <footer>
     <p>
-      <time datetime="2019-12-09T00:00:00+09:00">2019年12月09日</time>
+      <time datetime="2019-12-09T00:00:00+00:00">2019年12月09日</time>
     </p>
   </footer>
   <div>
     <p><img src="/images/2019-12-09-og-information.png" alt=""></p>
+
 <p>meta要素を見直して、これまで用意されていなかったdescriptionとog:imageを適切に用意するようにした。</p>
+
 <p>トップページと記事一覧ページでは、og:imageにはウェブサイト用のデフォルトの画像を利用する。descriptionにはページ内に含まれる文言の一部を利用する。</p>
+
 <p>記事ページでは、og:imageには本文内の最初に出てくるimg要素か、それがなければウェブサイト用のデフォルトのものを利用する。descriptionには、本文内の最初の一文を利用する。最初の有効なテキストノード内の「。」までを一文としている。</p>
-<p>twitter:cardの種類は、デフォルトの画像を利用する場合はsummary、記事内の画像を利用できる場合はsummary_large_imageとしている。</p>
+
+<p>twitter:cardの種類は、デフォルトの画像を利用する場合はsummary、記事内の画像を利用できる場合はsummary<em>large</em>imageとしている。</p>
 
   </div>
 </article>

@@ -4,17 +4,21 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width">
   <title>ActiveRecordのcounter_cacheに条件を与える</title>
-  <link href="/articles/2014-10-07-q" rel="canonical">
+  <link href="https://r7kamura.com:0/articles/2014-10-07-q" rel="canonical">
   <link rel="stylesheet" href="/css/main.css">
   <link rel="search" type="application/opensearchdescription+xml" title="r7kamura.com" href="/opensearch.xml">
   <link rel="alternate" type="application/rss+xml" href="/feed.xml">
-  <meta property="description" content="counter_cacheに条件を付けたい、あるいはcounter_cultureを利用しているが不満がある、という方向けの投稿です。">
-  <meta property="og:description" content="counter_cacheに条件を付けたい、あるいはcounter_cultureを利用しているが不満がある、という方向けの投稿です。">
-  <meta property="og:type" content="article">
+  
+  <meta property="description" content="countercacheに条件を付けたい、あるいはcountercultureを利用しているが不満がある、という方向けの投稿です。">
+  <meta property="og:description" content="countercacheに条件を付けたい、あるいはcountercultureを利用しているが不満がある、という方向けの投稿です。">
+  
+  <meta property="og:type" content="website">
   <meta property="og:title" content="ActiveRecordのcounter_cacheに条件を与える">
-  <meta property="og:url" content="https://r7kamura.com/articles/2014-10-07-q">
+  <meta property="og:url" content="https://r7kamura.com:0/articles/2014-10-07-q">
+  
   <meta property="og:image" content="https://r7kamura.com/default_og_image.jpg">
   <meta property="twitter:card" content="summary">
+  
 </head>
 <body>
   <header>
@@ -35,34 +39,55 @@
   <h1>ActiveRecordのcounter_cacheに条件を与える</h1>
   <footer>
     <p>
-      <time datetime="2014-10-07T00:00:00+09:00">2014年10月07日</time>
+      <time datetime="2014-10-07T00:00:00+00:00">2014年10月07日</time>
     </p>
   </footer>
   <div>
-    <p>counter_cacheに条件を付けたい、あるいはcounter_cultureを利用しているが不満がある、という方向けの投稿です。</p>
-<h2 id="背景">背景</h2>
+    <p>counter<em>cacheに条件を付けたい、あるいはcounter</em>cultureを利用しているが不満がある、という方向けの投稿です。</p>
+
+<h2>背景</h2>
+
 <p>ActiveRecordには、公式のチュートリアル<a href="http://guides.rubyonrails.org/association_basics.html">Active Record Associations — Ruby on Rails Guides</a>にもあるように、counter cacheと呼ばれる機能が用意されています。</p>
-<pre><code class="language-rb">Tagging.belongs_to :tag, counter_cache: true</code></pre>
-<p>例えば上記のように投稿とタグの関係性を表すような中間テーブル用のモデルTaggingにcounter_cacheを設定しておくと、taggingsテーブルにレコードが作成/削除されたときに <code>tags.taggings_count</code> が自動的に更新されるようになります。便利ですね。</p>
-<h2 id="問題">問題</h2>
+
+<p><code>rb
+Tagging.belongs_to :tag, counter_cache: true
+</code></p>
+
+<p>例えば上記のように投稿とタグの関係性を表すような中間テーブル用のモデルTaggingにcounter<em>cacheを設定しておくと、taggingsテーブルにレコードが作成/削除されたときに `tags.taggings</em>count` が自動的に更新されるようになります。便利ですね。</p>
+
+<h2>問題</h2>
+
 <p>他人に見せたくない投稿を表現するためにprivateモードというものが存在したとしましょう。このとき、privateモードの投稿は、<code>tag.taggings_count</code> には反映させたくありませんが、counter_cacheは投稿の状態に関わらず値を更新してしまいます。</p>
-<h2 id="counter_culture">counter_culture</h2>
+
+<h2>counter_culture</h2>
+
 <p><a href="https://github.com/magnusvk/counter_culture">magnusvk/counter_culture</a> を使えば、条件を設定することができます。他にも、deadlockを避けるためにCountを更新するタイミングをトランザクションのCOMMIT後に置いていたり、便利な機能が沢山入っています。</p>
-<pre><code class="language-rb">Tagging.belongs_to :tag
+
+<p><code>rb
+Tagging.belongs_to :tag
 Tagging.counter_culture :tag, column_name: -&gt;(tagging) do
   if tagging.item.private?
     nil
   else
     :items_count
   end
-end</code></pre>
+end
+</code></p>
+
 <p>しかし、rspec-railsのデフォルトの機能であるtransactional fixturesが有効化されていると、テスト環境ではcounter_cultureが動作しません。これは、テスト中にCOMMITが発生しないためです。transactional fixturesを無効化したり、DatabaseCleanerを利用している場合はtruncation strategyを利用したり、更にテスト中にCOMMIT相当のコールバックを発生させるためのGemを導入したり、という解決策がありますが、どれも手元の環境では力及ばず成功できませんでした。</p>
-<h2 id="conditional_counter_cache">conditional_counter_cache</h2>
-<p>本来の目的は「ActiveRecordのcounter_cacheに条件を与える」ことなので、結局、トランザクションには触れず条件だけを与えることを目的とした <a href="https://github.com/r7kamura/conditional_counter_cache">r7kamura/conditional_counter_cache</a> というライブラリをつくりました。belongs_toに与える <code>:counter_cache</code> オプションに条件を与えられるように拡張し、条件に一致しない場合にCountの動作を無効化する処理を加えています。</p>
-<pre><code class="language-rb">Tagging.belongs_to :tag, counter_cache: { condition: -&gt; { !item.private? } }</code></pre>
-<h2 id="まとめ">まとめ</h2>
-<p>counter_cacheに条件が必要になるケースと、その解決策としてのcounter_cultureの概要と問題点、それから拙作のconditional_counter_cacheについて簡単に説明しました。
-条件付きのcounter_cacheを実現したいとき、トランザクションを必要としているならcounter_cultureを、何処の馬の骨とも知れないライブラリに一石投じる気概があればconditional_counter_cacheを、それ以外の場合は自前の実装を利用するのが良いでしょう。</p>
+
+<h2>conditional<em>counter</em>cache</h2>
+
+<p>本来の目的は「ActiveRecordのcounter<em>cacheに条件を与える」ことなので、結局、トランザクションには触れず条件だけを与えることを目的とした <a href="https://github.com/r7kamura/conditional_counter_cache">r7kamura/conditional<em>counter</em>cache</a> というライブラリをつくりました。belongs</em>toに与える <code>:counter_cache</code> オプションに条件を与えられるように拡張し、条件に一致しない場合にCountの動作を無効化する処理を加えています。</p>
+
+<p><code>rb
+Tagging.belongs_to :tag, counter_cache: { condition: -&gt; { !item.private? } }
+</code></p>
+
+<h2>まとめ</h2>
+
+<p>counter<em>cacheに条件が必要になるケースと、その解決策としてのcounter</em>cultureの概要と問題点、それから拙作のconditional<em>counter</em>cacheについて簡単に説明しました。
+条件付きのcounter<em>cacheを実現したいとき、トランザクションを必要としているならcounter</em>cultureを、何処の馬の骨とも知れないライブラリに一石投じる気概があればconditional<em>counter</em>cacheを、それ以外の場合は自前の実装を利用するのが良いでしょう。</p>
 
   </div>
 </article>

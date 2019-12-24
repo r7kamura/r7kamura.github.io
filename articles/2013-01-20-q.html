@@ -4,17 +4,21 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width">
   <title>Herokuのデプロイ作業をRakeで管理する</title>
-  <link href="/articles/2013-01-20-q" rel="canonical">
+  <link href="https://r7kamura.com:0/articles/2013-01-20-q" rel="canonical">
   <link rel="stylesheet" href="/css/main.css">
   <link rel="search" type="application/opensearchdescription+xml" title="r7kamura.com" href="/opensearch.xml">
   <link rel="alternate" type="application/rss+xml" href="/feed.xml">
+  
   <meta property="description" content="最近、システム自動管理ツールであるところのPuppetや、デプロイ自動化ツールのCapistranoやMinaやCinnamonを調べていて、そういえばHerokuにデプロイする時に行なっている行動もファイルに記述してから実行した方が良いのでは、と思ったので簡単な奴を書き記しておく。">
   <meta property="og:description" content="最近、システム自動管理ツールであるところのPuppetや、デプロイ自動化ツールのCapistranoやMinaやCinnamonを調べていて、そういえばHerokuにデプロイする時に行なっている行動もファイルに記述してから実行した方が良いのでは、と思ったので簡単な奴を書き記しておく。">
-  <meta property="og:type" content="article">
+  
+  <meta property="og:type" content="website">
   <meta property="og:title" content="Herokuのデプロイ作業をRakeで管理する">
-  <meta property="og:url" content="https://r7kamura.com/articles/2013-01-20-q">
+  <meta property="og:url" content="https://r7kamura.com:0/articles/2013-01-20-q">
+  
   <meta property="og:image" content="https://r7kamura.com/default_og_image.jpg">
   <meta property="twitter:card" content="summary">
+  
 </head>
 <body>
   <header>
@@ -35,13 +39,16 @@
   <h1>Herokuのデプロイ作業をRakeで管理する</h1>
   <footer>
     <p>
-      <time datetime="2013-01-20T00:00:00+09:00">2013年01月20日</time>
+      <time datetime="2013-01-20T00:00:00+00:00">2013年01月20日</time>
     </p>
   </footer>
   <div>
     <p>最近、システム自動管理ツールであるところのPuppetや、デプロイ自動化ツールのCapistranoやMinaやCinnamonを調べていて、そういえばHerokuにデプロイする時に行なっている行動もファイルに記述してから実行した方が良いのでは、と思ったので簡単な奴を書き記しておく。</p>
+
 <p>初めての時はrake deploy:setupを1度だけ試行して、以降はデプロイの度にrake deployを繰り返す。1度しか実行しないのであればdeploy:setupは必要ないのではと言われそうだが、では1箇所からしか参照されないメソッドは抽象化する必要はないのかと言えばそうではないし、後からアアこう設定されているのねということを把握するために必要だったり、生きていれば何もしていないのに壊れたということもあるだろうし、後は他のプロジェクトで使うときに案外便利だったりする。</p>
-<pre><code class="language-sh">$ rake -T deploy
+
+<p><code>sh
+$ rake -T deploy
 rake deploy               # Deploy application to production server
 rake deploy:migrate       # Migrate the database
 rake deploy:precompile    # Compile assets and git commit public/assets
@@ -49,100 +56,111 @@ rake deploy:push          # Push code to production server
 rake deploy:setup         # Setup environments
 rake deploy:setup:addons  # Setup addons
 rake deploy:setup:env     # Setup ENV from .env
-rake deploy:tag           # Mark a git tag to remember release version</code></pre>
-<pre><code class="language-ruby"># lib/tasks/deploy.rake
-define_method(:`) {|command| puts &quot;$ #{command}&quot; } if ENV[&quot;DRYRUN&quot;]
+rake deploy:tag           # Mark a git tag to remember release version
+</code></p>
 
-desc &quot;Deploy application to production server&quot;
+<p>```ruby</p>
+
+<h1>lib/tasks/deploy.rake</h1>
+
+<p>define_method(:`) {|command| puts &quot;$ #{command}&quot; } if ENV[&quot;DRYRUN&quot;]</p>
+
+<p>desc &quot;Deploy application to production server&quot;
 task :deploy =&gt; %w[
   deploy:precompile
   deploy:push
   deploy:migrate
   deploy:tag
-]
+]</p>
 
-namespace :deploy do
+<p>namespace :deploy do
   desc &quot;Compile assets and git commit public/assets&quot;
   task :precompile do
     puts
     puts &quot;Compile assets to public/assets/&quot;
-    puts `RAILS_ENV=production rake assets:precompile`
-    puts `git reset`
-    puts `git add public/assets`
-    puts `git commit -m &quot;Update public/assets/&quot;`
-  end
+    puts <code>RAILS_ENV=production rake assets:precompile</code>
+    puts <code>git reset</code>
+    puts <code>git add public/assets</code>
+    puts <code>git commit -m &quot;Update public/assets/&quot;</code>
+  end</p>
 
-  desc &quot;Push code to production server&quot;
+<p>desc &quot;Push code to production server&quot;
   task :push do
     puts
     puts &quot;Deploy application to production server&quot;
-    puts `git push heroku master`
-  end
+    puts <code>git push heroku master</code>
+  end</p>
 
-  desc &quot;Migrate the database&quot;
+<p>desc &quot;Migrate the database&quot;
   task :migrate do
     puts
     puts &quot;Migrate the database&quot;
-    puts `heroku rake db:migrate`
-  end
+    puts <code>heroku rake db:migrate</code>
+  end</p>
 
-  desc &quot;Mark a git tag to remember release version&quot;
+<p>desc &quot;Mark a git tag to remember release version&quot;
   task :tag do
     name = &quot;release-#{Time.now.utc.strftime(&quot;%Y%m%d%H%M%S&quot;)}&quot;
     puts
     puts &quot;Mark a git tag to remember release version&quot;
     puts &quot;Tagging release as [#{name}]&quot;
-    puts `git tag -a #{name} -m &quot;Tagged release&quot;`
-    puts `git push --tags heroku`
-  end
+    puts <code>git tag -a #{name} -m &quot;Tagged release&quot;</code>
+    puts <code>git push --tags heroku</code>
+  end</p>
 
-  desc &quot;Setup environments&quot;
+<p>desc &quot;Setup environments&quot;
   task :setup =&gt; %w[
     deploy:setup:addons
     deploy:setup:env
-  ]
+  ]</p>
 
-  namespace :setup do
+<p>namespace :setup do
     desc &quot;Setup addons&quot;
     task :addons do
       puts
       puts &quot;Setup addons&quot;
-      puts `heroku addons:add memcache`
-    end
+      puts <code>heroku addons:add memcache</code>
+    end</p>
 
-    desc &quot;Setup ENV from .env&quot;
-    task :env do
-      vals = File.read(&quot;.env&quot;).gsub(&quot;\n&quot;, &quot; &quot;)
-      puts
-      puts &quot;Setup ENV from .env&quot;
-      puts `heroku config:add #{vals}`
-    end
-  end
-end</code></pre>
+<pre><code>desc &quot;Setup ENV from .env&quot;
+task :env do
+  vals = File.read(&quot;.env&quot;).gsub(&quot;\n&quot;, &quot; &quot;)
+  puts
+  puts &quot;Setup ENV from .env&quot;
+  puts `heroku config:add #{vals}`
+end
+</code></pre>
+
+<p>end
+end
+```</p>
+
 <p>因みに<code>rake deploy DRYRUN=1</code>すると実行せずに内容だけ出力する。</p>
-<pre><code>Compile assets to public/assets/
-$ RAILS_ENV=production rake assets:precompile
 
-$ git reset
+<p>```
+Compile assets to public/assets/
+$ RAILS_ENV=production rake assets:precompile</p>
 
-$ git add public/assets
+<p>$ git reset</p>
 
-$ git commit -m &quot;Update public/assets/&quot;
+<p>$ git add public/assets</p>
 
+<p>$ git commit -m &quot;Update public/assets/&quot;</p>
 
-Deploy application to production server
-$ git push heroku master
+<p>Deploy application to production server
+$ git push heroku master</p>
 
+<p>Migrate the database
+$ heroku rake db:migrate</p>
 
-Migrate the database
-$ heroku rake db:migrate
-
-
-Mark a git tag to remember release version
+<p>Mark a git tag to remember release version
 Tagging release as [release-20130120103054]
-$ git tag -a release-20130120103054 -m &quot;Tagged release&quot;
+$ git tag -a release-20130120103054 -m &quot;Tagged release&quot;</p>
 
-$ git push --tags heroku</code></pre><p>descに書かれた内容を必ずtaksの中で標準出力するようにしているんだけど、task内部で自身に対して設定されたdescの中身を参照出来ればもっとかっこ良くなりそうなので、参照方法をご存じの方はご一報ください。</p>
+<p>$ git push --tags heroku
+```</p>
+
+<p>descに書かれた内容を必ずtaksの中で標準出力するようにしているんだけど、task内部で自身に対して設定されたdescの中身を参照出来ればもっとかっこ良くなりそうなので、参照方法をご存じの方はご一報ください。</p>
 
   </div>
 </article>

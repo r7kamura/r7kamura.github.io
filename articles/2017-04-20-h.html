@@ -4,17 +4,21 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width">
   <title>MastodonをAWSでシュッと動かすやつ</title>
-  <link href="/articles/2017-04-20-h" rel="canonical">
+  <link href="https://r7kamura.com:0/articles/2017-04-20-h" rel="canonical">
   <link rel="stylesheet" href="/css/main.css">
   <link rel="search" type="application/opensearchdescription+xml" title="r7kamura.com" href="/opensearch.xml">
   <link rel="alternate" type="application/rss+xml" href="/feed.xml">
-  <meta property="description" content="Mastodon を AWS で動かしたい人のために、https:&#x2F;&#x2F;github.com&#x2F;r7kamura&#x2F;mastodon-terraform というのをつくった。">
-  <meta property="og:description" content="Mastodon を AWS で動かしたい人のために、https:&#x2F;&#x2F;github.com&#x2F;r7kamura&#x2F;mastodon-terraform というのをつくった。">
-  <meta property="og:type" content="article">
+  
+  <meta property="description" content="Mastodon を AWS で動かしたい人のために、https://github.com/r7kamura/mastodon-terraform というのをつくった。">
+  <meta property="og:description" content="Mastodon を AWS で動かしたい人のために、https://github.com/r7kamura/mastodon-terraform というのをつくった。">
+  
+  <meta property="og:type" content="website">
   <meta property="og:title" content="MastodonをAWSでシュッと動かすやつ">
-  <meta property="og:url" content="https://r7kamura.com/articles/2017-04-20-h">
+  <meta property="og:url" content="https://r7kamura.com:0/articles/2017-04-20-h">
+  
   <meta property="og:image" content="https://r7kamura.com/default_og_image.jpg">
   <meta property="twitter:card" content="summary">
+  
 </head>
 <body>
   <header>
@@ -35,7 +39,7 @@
   <h1>MastodonをAWSでシュッと動かすやつ</h1>
   <footer>
     <p>
-      <time datetime="2017-04-20T00:00:00+09:00">2017年04月20日</time>
+      <time datetime="2017-04-20T00:00:00+00:00">2017年04月20日</time>
     </p>
   </footer>
   <div>
@@ -50,7 +54,6 @@
 <li>適当な環境変数を与えてビルドする</li>
 <li>マストドン動く ✌(‘ω'✌ )三✌('ω’)✌三(✌'ω')✌</li>
 </ol>
-
 
 <p>別に必ず fork しないといけない訳ではなくて、copy して使ったり terraform module として参照したりしても良い。</p>
 
@@ -98,7 +101,6 @@
 |       RDS      | | Elasticache |
 └----------------┘ └-------------┘</pre>
 
-
 <p>静的ファイルのキャッシュ用に前段に CloudFront が居て、後ろに ALB (ロードバランサー) が居て、EC2 で Docker が動いてて、Docker で Puma (Web サーバ)、Express (WebSocket サーバ)、Sidekiq (Job Worker) が動いていて、更に RDS で PostgreSQL、Elasticache で Redis が動いている、という構成。</p>
 
 <h2>構成についての補足</h2>
@@ -121,7 +123,6 @@
 <h2>改善中のところ</h2>
 
 <p>指定できる変数が少なかったり、ところどころ壊れていたりする。コード書ける人がいたら Pull Request ほしい。練習用の雑な構成という訳ではなくて、ちゃんと育てて本番環境用途でも利用できる構成を想定してつくっているので、同じく Mastodon を AWS で運用する人達同士で相乗りしていけると良いなあと思う。</p>
-
 
   </div>
 </article>

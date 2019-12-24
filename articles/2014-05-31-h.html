@@ -3,18 +3,22 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width">
-  <title>Ruby + Bot &#x3D; Ruboty</title>
-  <link href="/articles/2014-05-31-h" rel="canonical">
+  <title>Ruby + Bot = Ruboty</title>
+  <link href="https://r7kamura.com:0/articles/2014-05-31-h" rel="canonical">
   <link rel="stylesheet" href="/css/main.css">
   <link rel="search" type="application/opensearchdescription+xml" title="r7kamura.com" href="/opensearch.xml">
   <link rel="alternate" type="application/rss+xml" href="/feed.xml">
-  <meta property="description" content="https:&#x2F;&#x2F;github.com&#x2F;r7kamura&#x2F;ruboty">
-  <meta property="og:description" content="https:&#x2F;&#x2F;github.com&#x2F;r7kamura&#x2F;ruboty">
-  <meta property="og:type" content="article">
-  <meta property="og:title" content="Ruby + Bot &#x3D; Ruboty">
-  <meta property="og:url" content="https://r7kamura.com/articles/2014-05-31-h">
+  
+  <meta property="description" content="https://github.com/r7kamura/ruboty">
+  <meta property="og:description" content="https://github.com/r7kamura/ruboty">
+  
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Ruby + Bot = Ruboty">
+  <meta property="og:url" content="https://r7kamura.com:0/articles/2014-05-31-h">
+  
   <meta property="og:image" content="https://r7kamura.com/default_og_image.jpg">
   <meta property="twitter:card" content="summary">
+  
 </head>
 <body>
   <header>
@@ -32,10 +36,10 @@
   </header>
   <main>
     <article>
-  <h1>Ruby + Bot &#x3D; Ruboty</h1>
+  <h1>Ruby + Bot = Ruboty</h1>
   <footer>
     <p>
-      <time datetime="2014-05-31T00:00:00+09:00">2014年05月31日</time>
+      <time datetime="2014-05-31T00:00:00+00:00">2014年05月31日</time>
     </p>
   </footer>
   <div>
@@ -76,7 +80,6 @@ gem <span class="synSpecial">"</span><span class="synConstant">ruboty-redis</spa
 gem <span class="synSpecial">"</span><span class="synConstant">ruboty-slack</span><span class="synSpecial">"</span>           <span class="synComment"># Slackで利用できる</span>
 gem <span class="synSpecial">"</span><span class="synConstant">ruboty-syoboi_calendar</span><span class="synSpecial">"</span> <span class="synComment"># その日放送されるアニメを教えてくれる</span>
 </pre>
-
 
 <h3>環境変数で設定する</h3>
 
@@ -129,7 +132,6 @@ Ruboty::Handlers::Baseを継承したクラスをつくれば良い。
 <span class="synPreProc">end</span>
 </pre>
 
-
 <p>Rubotyは何もアダプタを追加していない状態だとシェルで起動するようになっているので、
 開発中のプラグインのデバッグなどに使える。</p>
 
@@ -141,7 +143,6 @@ ruboty /ping\z/i       - Return PONG to PING
 ruboty /who am i\?/i   - Answer who you are
 &gt; ruboty ping
 pong</pre>
-
 
 <p>ruboty起動時に --load foo.rb のようにオプションを渡せばそのRubyファイルを起動時に実行してくれる。
 プラグインをいちいちGemにして書くのがだるかったら適当なファイルに書いても良い。</p>
@@ -155,7 +156,6 @@ pong</pre>
 元々DevOpsのOpsの部分を任せる用途(=ChatOps)で開発をはじめたので、
 その辺を便利にするプラグインをつくってBotと仲良くやっていきたいという気持ち。
 こういうの欲しいとかこういうのつくったとかは大歓迎です。</p>
-
 
   </div>
 </article>

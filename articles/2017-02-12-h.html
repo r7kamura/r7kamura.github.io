@@ -4,17 +4,21 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width">
   <title>しょぼいカレンダー API 用のライブラリでキャスト、スタッフ、楽曲の情報を取得できるようにした</title>
-  <link href="/articles/2017-02-12-h" rel="canonical">
+  <link href="https://r7kamura.com:0/articles/2017-02-12-h" rel="canonical">
   <link rel="stylesheet" href="/css/main.css">
   <link rel="search" type="application/opensearchdescription+xml" title="r7kamura.com" href="/opensearch.xml">
   <link rel="alternate" type="application/rss+xml" href="/feed.xml">
-  <meta property="description" content="https:&#x2F;&#x2F;github.com&#x2F;r7kamura&#x2F;syoboi_calendar の改良を重ね、キャスト、スタッフ、楽曲の情報も取得できるようにした。">
-  <meta property="og:description" content="https:&#x2F;&#x2F;github.com&#x2F;r7kamura&#x2F;syoboi_calendar の改良を重ね、キャスト、スタッフ、楽曲の情報も取得できるようにした。">
-  <meta property="og:type" content="article">
+  
+  <meta property="description" content="https://github.com/r7kamura/syoboi_calendar の改良を重ね、キャスト、スタッフ、楽曲の情報も取得できるようにした。">
+  <meta property="og:description" content="https://github.com/r7kamura/syoboi_calendar の改良を重ね、キャスト、スタッフ、楽曲の情報も取得できるようにした。">
+  
+  <meta property="og:type" content="website">
   <meta property="og:title" content="しょぼいカレンダー API 用のライブラリでキャスト、スタッフ、楽曲の情報を取得できるようにした">
-  <meta property="og:url" content="https://r7kamura.com/articles/2017-02-12-h">
+  <meta property="og:url" content="https://r7kamura.com:0/articles/2017-02-12-h">
+  
   <meta property="og:image" content="https://r7kamura.com/default_og_image.jpg">
   <meta property="twitter:card" content="summary">
+  
 </head>
 <body>
   <header>
@@ -35,7 +39,7 @@
   <h1>しょぼいカレンダー API 用のライブラリでキャスト、スタッフ、楽曲の情報を取得できるようにした</h1>
   <footer>
     <p>
-      <time datetime="2017-02-12T00:00:00+09:00">2017年02月12日</time>
+      <time datetime="2017-02-12T00:00:00+00:00">2017年02月12日</time>
     </p>
   </footer>
   <div>
@@ -121,7 +125,6 @@ title = client.list_titles(<span class="synConstant">title_id</span>: <span clas
 title.class <span class="synComment">#=&gt; SyoboiCalendar::Resources::TitleResource</span>
 </pre>
 
-
 <h3>キャスト</h3>
 
 <pre class="code lang-ruby" data-lang="ruby" data-unlink>title.casts.count <span class="synComment">#=&gt; 10</span>
@@ -130,7 +133,6 @@ title.casts[<span class="synConstant">0</span>].name <span class="synComment">#=
 title.casts[<span class="synConstant">0</span>].role <span class="synComment">#=&gt; "岸井野ノ子"</span>
 </pre>
 
-
 <h3>スタッフ</h3>
 
 <pre class="code lang-ruby" data-lang="ruby" data-unlink>title.staffs.count <span class="synComment">#=&gt; 17</span>
@@ -138,7 +140,6 @@ title.staffs[<span class="synConstant">0</span>].class <span class="synComment">
 title.staffs[<span class="synConstant">0</span>].name <span class="synComment">#=&gt; "舞城王太郎"</span>
 title.staffs[<span class="synConstant">0</span>].role <span class="synComment">#=&gt; "原作"</span>
 </pre>
-
 
 <h3>主題歌</h3>
 
@@ -150,7 +151,6 @@ title.songs_theme[<span class="synConstant">0</span>].personalities[<span class=
 title.songs_theme[<span class="synConstant">0</span>].personalities[<span class="synConstant">0</span>].role <span class="synComment">#=&gt; "作詞・作曲"</span>
 </pre>
 
-
 <h3>挿入歌</h3>
 
 <pre class="code lang-ruby" data-lang="ruby" data-unlink>title.songs_inserted[<span class="synConstant">0</span>].class <span class="synComment">#=&gt; SyoboiCalendar::Song</span>
@@ -160,8 +160,6 @@ title.songs_inserted[<span class="synConstant">0</span>].personalities[<span cla
 title.songs_inserted[<span class="synConstant">0</span>].personalities[<span class="synConstant">0</span>].name <span class="synComment">#=&gt; "DAOKO"</span>
 title.songs_inserted[<span class="synConstant">0</span>].personalities[<span class="synConstant">0</span>].role <span class="synComment">#=&gt; "作詞・歌"</span>
 </pre>
-
-
 
   </div>
 </article>

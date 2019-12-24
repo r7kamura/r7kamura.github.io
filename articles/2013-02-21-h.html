@@ -4,17 +4,21 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width">
   <title>全自動モヒカンさん</title>
-  <link href="/articles/2013-02-21-h" rel="canonical">
+  <link href="https://r7kamura.com:0/articles/2013-02-21-h" rel="canonical">
   <link rel="stylesheet" href="/css/main.css">
   <link rel="search" type="application/opensearchdescription+xml" title="r7kamura.com" href="/opensearch.xml">
   <link rel="alternate" type="application/rss+xml" href="/feed.xml">
-  <meta property="description" content="https:&#x2F;&#x2F;github.com&#x2F;r7kamura&#x2F;code_hunter">
-  <meta property="og:description" content="https:&#x2F;&#x2F;github.com&#x2F;r7kamura&#x2F;code_hunter">
-  <meta property="og:type" content="article">
+  
+  <meta property="description" content="https://github.com/r7kamura/code_hunter">
+  <meta property="og:description" content="https://github.com/r7kamura/code_hunter">
+  
+  <meta property="og:type" content="website">
   <meta property="og:title" content="全自動モヒカンさん">
-  <meta property="og:url" content="https://r7kamura.com/articles/2013-02-21-h">
+  <meta property="og:url" content="https://r7kamura.com:0/articles/2013-02-21-h">
+  
   <meta property="og:image" content="https://r7kamura.com/default_og_image.jpg">
   <meta property="twitter:card" content="summary">
+  
 </head>
 <body>
   <header>
@@ -35,7 +39,7 @@
   <h1>全自動モヒカンさん</h1>
   <footer>
     <p>
-      <time datetime="2013-02-21T00:00:00+09:00">2013年02月21日</time>
+      <time datetime="2013-02-21T00:00:00+00:00">2013年02月21日</time>
     </p>
   </footer>
   <div>
@@ -47,13 +51,13 @@ Railsのコードを静的解析して指摘してくれるツールをつくり
     <p>Ruby 1.9 があれば使えます。</p>
 <pre class="code" data-unlink>$ gem install code_hunter
 
-<p>$ code_hunter --help
+$ code_hunter --help
 Usage: code_hunter [options]
         --application-path=          (default:    ./) rails application root path
         --format=                    (default:  yaml) output format (yaml or json)
         --no-brakeman                (default: false) disable brakeman
         --no-pendaxes                (default: false) disable pendaxes
-        --no-rails-best-practices    (default: false) disable rails-best-practices</pre></p>
+        --no-rails-best-practices    (default: false) disable rails-best-practices</pre>
 <p><br>
 実行すると標準出力で色々指摘されます。<br>
 デフォルトの出力形式はYAMLで、JSONも選択出来ます。</p>
@@ -62,6 +66,7 @@ Usage: code_hunter [options]
 ...
 </pre>
 </div>
+
   </div>
 </article>
 

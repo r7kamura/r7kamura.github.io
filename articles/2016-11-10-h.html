@@ -4,17 +4,21 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width">
   <title>キーボードショートカットをカスタマイズするブラウザ拡張</title>
-  <link href="/articles/2016-11-10-h" rel="canonical">
+  <link href="https://r7kamura.com:0/articles/2016-11-10-h" rel="canonical">
   <link rel="stylesheet" href="/css/main.css">
   <link rel="search" type="application/opensearchdescription+xml" title="r7kamura.com" href="/opensearch.xml">
   <link rel="alternate" type="application/rss+xml" href="/feed.xml">
-  <meta property="description" content="この文章は https:&#x2F;&#x2F;github.com&#x2F;r7kamura&#x2F;keyworks&#x2F; の製作記である。">
-  <meta property="og:description" content="この文章は https:&#x2F;&#x2F;github.com&#x2F;r7kamura&#x2F;keyworks&#x2F; の製作記である。">
-  <meta property="og:type" content="article">
+  
+  <meta property="description" content="この文章は https://github.com/r7kamura/keyworks/ の製作記である。">
+  <meta property="og:description" content="この文章は https://github.com/r7kamura/keyworks/ の製作記である。">
+  
+  <meta property="og:type" content="website">
   <meta property="og:title" content="キーボードショートカットをカスタマイズするブラウザ拡張">
-  <meta property="og:url" content="https://r7kamura.com/articles/2016-11-10-h">
+  <meta property="og:url" content="https://r7kamura.com:0/articles/2016-11-10-h">
+  
   <meta property="og:image" content="https://cloud.githubusercontent.com/assets/111689/20159419/d2aaf64c-a723-11e6-9428-ccb117c235ee.png">
   <meta property="twitter:card" content="summary_large_image">
+  
 </head>
 <body>
   <header>
@@ -35,13 +39,13 @@
   <h1>キーボードショートカットをカスタマイズするブラウザ拡張</h1>
   <footer>
     <p>
-      <time datetime="2016-11-10T00:00:00+09:00">2016年11月10日</time>
+      <time datetime="2016-11-10T00:00:00+00:00">2016年11月10日</time>
     </p>
   </footer>
   <div>
     <p>この文章は <a href="https://github.com/r7kamura/keyworks/">https://github.com/r7kamura/keyworks/</a> の製作記である。Keyworksはキーボードショートカットをカスタマイズするための凡庸なブラウザ拡張であり、つい先日、思いつきによりつくられた。</p>
 
-<hr>
+<p><hr></p>
 
 <p>いま見ているページをTwitterで共有するとき、あるいはMarkdownで書いた文書にページのリンクを載せるとき、皆どのようなツールを利用しているのだろう。この話題を出すと、それ専用のChrome拡張や、秘蔵のブックマークレット、VimやEmacs風のキーバインドを実現するツールのプラグインなど、みな懐から様々なツールを取り出して楽しませてくれる。自分はというと、これまで<strong>Keyconfig</strong>というChrome拡張を使っていた。</p>
 
@@ -49,7 +53,6 @@
 <li><a href="https://chrome.google.com/webstore/detail/empty-title/okneonigbfnolfkmfgjmaeniipdjkgkl?hl=ja">Keyconfig - Chromeウェブストア</a></li>
 <li><a href="https://github.com/os0x/ChromeKeyconfig">https://github.com/os0x/ChromeKeyconfig</a></li>
 </ul>
-
 
 <h2>Keyconfigの思い出</h2>
 
@@ -61,13 +64,11 @@
 <li><a href="https://speakerdeck.com/a_matsuda/work-and-oss">Work and OSS // Speaker Deck</a></li>
 </ul>
 
-
 <p>残念ながら、Chrome 54からKeyconfigは動かなくなってしまった。理由は単純なもので、event.keyIdentifier というプロパティが利用できなくなってしまったから。原因はこれだけなので event.key に修正すれば済む話であり、Pull Requestも出されている。</p>
 
 <ul>
 <li><a href="https://github.com/os0x/ChromeKeyconfig/pull/12">Fix: Use KeyboardEvent.key instead of KeyboardEvent.keyIdentifier by haburibe · Pull Request #12 · os0x/ChromeKeyconfig</a></li>
 </ul>
-
 
 <p>しかしながら、何となくこういうものを自分で簡単につくれるようになっておきたいという気持ちが湧き、今回は改めて自作してみることにした。自分が何かをつくるとき、こういうものがつくりたいという気持ちよりも、こういうものがつくれる自分になっておきたいという気持ちが先行することがままある。それに、日常でふと湧く創作意欲は決して見逃すべきではないという思いも、やっていくに至った理由の1つだ。</p>
 
@@ -86,7 +87,6 @@
 <span class="synSpecial">}</span>
 </pre>
 
-
 <p>content.js というJavaScriptが全てのページで実行されるようになり、キーの押下が監視され、押されたキーに対応する操作が定義されていれば、それが実行される。現在 v0.1.0 では、以下の操作が用意されている。</p>
 
 <ul>
@@ -99,7 +99,6 @@
 <li>上にスクロール</li>
 </ul>
 
-
 <p>とりあえず自分が使うものしか用意しなかったが、汎用的に使える操作があれば追加したいと考えている。</p>
 
 <h2>あれがECMA、Webpack、Yarn...</h2>
@@ -109,7 +108,6 @@
 <ul>
 <li><a href="https://circleci.com/blog/its-the-future/">It’s The Future - CircleCI</a></li>
 </ul>
-
 
 <p>確かに、我々は未来の時代を生きている。</p>
 
@@ -127,17 +125,15 @@
 <li>CircleCIでテストを実行し...</li>
 </ul>
 
-
 <p>こんなことをやっていると、たまに懐かしくなる。index.html に好き勝手書いてFFFTPでサーバに置けばなんでも動いてみんなが喜んでくれた、あの牧歌的な日々が……</p>
 
 <p><a href="http://blog.hatena.ne.jp/moznion/">id:moznion</a> へ、寒い日が続きますがお元気ですか。ともあれChrome拡張を1つこさえれば、大の大人が寄ってたかってモダンと言い合う類のものが一通り学べるだろうと思います。</p>
 
-<hr>
+<p><hr></p>
 
 <p>この文章で紹介したChrome拡張は <a href="https://chrome.google.com/webstore/detail/keyworks/chmkmpahmlgaaincbbdfnplohkkkapdl?hl=ja">Keyworks - Chromeウェブストア</a> からインストールできる。</p>
 
 <p><a href="https://chrome.google.com/webstore/detail/keyworks/chmkmpahmlgaaincbbdfnplohkkkapdl?hl=ja"><img src="https://cloud.githubusercontent.com/assets/111689/20159419/d2aaf64c-a723-11e6-9428-ccb117c235ee.png" alt="image"></a></p>
-
 
   </div>
 </article>

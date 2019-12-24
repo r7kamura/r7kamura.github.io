@@ -4,17 +4,21 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width">
   <title>amakanのフロントエンドを色々改善した</title>
-  <link href="/articles/2016-12-13-h" rel="canonical">
+  <link href="https://r7kamura.com:0/articles/2016-12-13-h" rel="canonical">
   <link rel="stylesheet" href="/css/main.css">
   <link rel="search" type="application/opensearchdescription+xml" title="r7kamura.com" href="/opensearch.xml">
   <link rel="alternate" type="application/rss+xml" href="/feed.xml">
-  <meta property="description" content="https:&#x2F;&#x2F;amakan.net&#x2F; のこの辺の改善の続き。">
-  <meta property="og:description" content="https:&#x2F;&#x2F;amakan.net&#x2F; のこの辺の改善の続き。">
-  <meta property="og:type" content="article">
+  
+  <meta property="description" content="https://amakan.net/ のこの辺の改善の続き。">
+  <meta property="og:description" content="https://amakan.net/ のこの辺の改善の続き。">
+  
+  <meta property="og:type" content="website">
   <meta property="og:title" content="amakanのフロントエンドを色々改善した">
-  <meta property="og:url" content="https://r7kamura.com/articles/2016-12-13-h">
+  <meta property="og:url" content="https://r7kamura.com:0/articles/2016-12-13-h">
+  
   <meta property="og:image" content="https://r7kamura.com/default_og_image.jpg">
   <meta property="twitter:card" content="summary">
+  
 </head>
 <body>
   <header>
@@ -35,7 +39,7 @@
   <h1>amakanのフロントエンドを色々改善した</h1>
   <footer>
     <p>
-      <time datetime="2016-12-13T00:00:00+09:00">2016年12月13日</time>
+      <time datetime="2016-12-13T00:00:00+00:00">2016年12月13日</time>
     </p>
   </footer>
   <div>
@@ -48,8 +52,7 @@
 <li><a href="http://r7kamura.hatenablog.com/entry/2016/12/10/221600">amakanを Ruby 2.3.3 から 2.4.0-preview3 に移行した - ✘╹◡╹✘</a></li>
 </ul>
 
-
-<hr>
+<p><hr></p>
 
 <h2>react_on_rails</h2>
 
@@ -63,7 +66,6 @@
 compile: yarn run watch
 serve: puma -C config/puma-development.rb</pre>
 
-
 <p>package.json の中身も一部抜粋しておく。watch は上述したように開発環境で使うスクリプトで、--watch オプション付きで Webpack が実行される。build は本番環境でデプロイ時に実行されるスクリプトで、NODE_ENV=production 付きで Webpack が実行される。</p>
 
 <pre class="code" data-lang="" data-unlink>{
@@ -72,7 +74,6 @@ serve: puma -C config/puma-development.rb</pre>
     "watch": "webpack --watch"
   }
 }</pre>
-
 
 <h3>therubyracer</h3>
 
@@ -87,7 +88,6 @@ serve: puma -C config/puma-development.rb</pre>
 <li>本番環境向けに CSS や JavaScript を生成するときに manifest ファイルを利用する</li>
 </ol>
 
-
 <p>これはこの辺りの Webpack のプラグインを利用すれば簡単に実現できる。</p>
 
 <ul>
@@ -97,7 +97,6 @@ serve: puma -C config/puma-development.rb</pre>
 <li>style-loader</li>
 <li>webpack-manifest-plugin</li>
 </ul>
-
 
 <p>この辺りの Webpack の知見は <a href="http://r7kamura.hatenablog.com/entry/2016/11/24/030101">katatema.js</a> の開発で得ておいて良かったと思う。</p>
 
@@ -134,7 +133,6 @@ serve: puma -C config/puma-development.rb</pre>
   &lt;/body&gt;
 &lt;/html&gt;</pre>
 
-
 <h2>ファイルの命名規則と読み込み方法</h2>
 
 <p>JavaScript のコードで import 対象のファイルパスの付ける拡張子を省略するかしないかというのを、省略しない側に統一することにした。</p>
@@ -145,13 +143,11 @@ serve: puma -C config/puma-development.rb</pre>
 <li>アプリケーション内では index.js を利用しない</li>
 </ul>
 
-
 <pre class="code" data-lang="" data-unlink>import Helmet from "react-helmet";
 import Layout from "../components/Layout.jsx";
 import Link from "../components/Link.jsx";
 import React from "react";
 import Root from "../components/Root.jsx";</pre>
-
 
 <p>それと、ファイルの命名規則も統一することにした。</p>
 
@@ -161,15 +157,13 @@ import Root from "../components/Root.jsx";</pre>
 <li>default export される値の名前を優先的にファイル名に付ける</li>
 </ul>
 
-
 <p>ファイルシステム起因の問題を軽く見て、代わりに補完が効きやすくなるなど、編集環境で恩恵を受けやすいという利点に重きを置いた。ファイルシステムはともかくGitは大文字小文字を区別して管理しているので、Gitで管理しているならそこまで困ることはない。</p>
 
 <h2>その他</h2>
 
-<p></p><blockquote class="twitter-tweet" data-lang="ja">
+<p><p></p><blockquote class="twitter-tweet" data-lang="ja">
 <p lang="ja" dir="ltr">ここ2日間でamakanのwebpackの設定書き直すついでにsprockets捨てて全コンポーネント書き直したんだけど結構な変更量になってしまった <a href="https://t.co/F93lgmEa5n">pic.twitter.com/F93lgmEa5n</a></p>— ホームページビルダー (@r7kamura) <a href="https://twitter.com/r7kamura/status/808424775622107136">2016年12月12日</a>
-</blockquote><script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
-
+</blockquote><script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script></p>
 
   </div>
 </article>

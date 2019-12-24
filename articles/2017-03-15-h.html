@@ -4,17 +4,21 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width">
   <title>amakan の React コンポーネント設計</title>
-  <link href="/articles/2017-03-15-h" rel="canonical">
+  <link href="https://r7kamura.com:0/articles/2017-03-15-h" rel="canonical">
   <link rel="stylesheet" href="/css/main.css">
   <link rel="search" type="application/opensearchdescription+xml" title="r7kamura.com" href="/opensearch.xml">
   <link rel="alternate" type="application/rss+xml" href="/feed.xml">
+  
   <meta property="description" content="説明用の図">
   <meta property="og:description" content="説明用の図">
-  <meta property="og:type" content="article">
+  
+  <meta property="og:type" content="website">
   <meta property="og:title" content="amakan の React コンポーネント設計">
-  <meta property="og:url" content="https://r7kamura.com/articles/2017-03-15-h">
+  <meta property="og:url" content="https://r7kamura.com:0/articles/2017-03-15-h">
+  
   <meta property="og:image" content="https://cloud.githubusercontent.com/assets/111689/23945598/710686be-09ba-11e7-9a98-da8b8c362f94.png">
   <meta property="twitter:card" content="summary_large_image">
+  
 </head>
 <body>
   <header>
@@ -35,7 +39,7 @@
   <h1>amakan の React コンポーネント設計</h1>
   <footer>
     <p>
-      <time datetime="2017-03-15T00:00:00+09:00">2017年03月15日</time>
+      <time datetime="2017-03-15T00:00:00+00:00">2017年03月15日</time>
     </p>
   </footer>
   <div>
@@ -55,7 +59,6 @@
 <li>Router</li>
 <li>VideoPrograms</li>
 </ul>
-
 
 <h2>Router コンポーネント</h2>
 
@@ -101,7 +104,6 @@
 <span class="synIdentifier">}</span>
 </pre>
 
-
 <p>ちなみに識者のために与太話をすると、コンポーネントの数があまりにも大きくなってきてコードを分割したくなってきたら (1つのファイルに全てのコンポーネントを含めると巨大になりすぎるので分割したいという話)、ここのルーティングロジックを少し弄って、ある程度の粒度で dynamic import するようにすれば良いと思う。</p>
 
 <h2>Layout コンポーネント</h2>
@@ -144,7 +146,6 @@
 <span class="synIdentifier">}</span>
 </pre>
 
-
 <p>VideoPrograms や VideoCast など、action と対応する全てのコンポーネントは、Layout コンポーネントを描画するしきたりになっている。Layout コンポーネントは、</p>
 
 <ul>
@@ -152,7 +153,6 @@
 <li>ヘッダーの描画</li>
 <li>フッターの描画</li>
 </ul>
-
 
 <p>を担当するコンポーネントで、全ページに共通する HTML の描画を担当してくれる便利なコンポーネントである。上例はたまたまトップページを表現するコンポーネントなので記述されていないが、Layout コンポーネントに title や imageUrl などの props を渡すと、ページタイトルや <del>OPG</del> OGP 用の要素を適切に変更してくれるようになっている (トップページでは何も渡していないのでデフォルトの値が利用される)。</p>
 
@@ -165,12 +165,10 @@
 <pre class="code lang-html" data-lang="html" data-unlink><span class="synIdentifier">&lt;</span><span class="synStatement">a</span><span class="synIdentifier"> </span><span class="synType">href</span><span class="synIdentifier">=</span><span class="synConstant">"/timeline"</span><span class="synIdentifier">&gt;</span><span class="synUnderlined">タイムライン</span><span class="synIdentifier">&lt;/</span><span class="synStatement">a</span><span class="synIdentifier">&gt;</span>
 </pre>
 
-
 <p>しかし amakan では、サイト内リンクの場合、以下のように Link コンポーネントを配置する。</p>
 
 <pre class="code lang-html" data-lang="html" data-unlink><span class="synIdentifier">&lt;</span><span class="synStatement">Link</span><span class="synIdentifier"> </span><span class="synType">href</span><span class="synIdentifier">=</span><span class="synConstant">"/timeline"</span><span class="synIdentifier">&gt;</span>タイムライン<span class="synIdentifier">&lt;/</span><span class="synStatement">Link</span><span class="synIdentifier">&gt;</span>
 </pre>
-
 
 <p>Link コンポーネントは、Web ブラウザでページ遷移を行う代わりに指定された URL に XHR でリクエストを送り、レスポンスの内容で Router の状態を差し替えるという振る舞いをする。さて、amakan のサーバサイドの action は、以下のように実装されている。</p>
 
@@ -178,7 +176,6 @@
 <li>HTML が期待されている場合には、props を利用して SSR した結果の HTML を返す</li>
 <li>JSON が期待されている場合には、props を JSON にエンコードして返す</li>
 </ul>
-
 
 <p>Link をクリックして発生したリクエストに対しては、action に対応した props が返ってくるということになる。Link コンポーネントは、Router の props をこのレスポンスの内容に差し替えるように仕組まれているので、これで再描画が発生し、ページ遷移が完了する。</p>
 
@@ -207,7 +204,6 @@
 <p>UI のパーツとして切り出したコンポーネントには、表示形態としての部品を表すような名前を後ろに付けており、例えば amakan anime のトップページの幾つかのページで使う共通のサイドバーは VideoTopPageSidebar、共通のタブは VideoTopPageTabs という名前になっている。1つのアプリケーションで複数のサービスを運用するときは、この辺りの prefix, suffix の細かいルール付けが後々かなり効いてくることになる。実際別サービスで命名ルールがバラバラで苦しめられる時期があった。</p>
 
 <p>なおコンポーネント間の参照に関する依存関係がツリー構造になっていたとしても、安易にディレクトリ構造をそのツリー構造に対応付けるとルール付けが破綻する恐れがあるので、そこにディレクトリ構造を持ち込むのはあまりオススメしない (例: video ディレクトリに amakan anime 関係の全てのコンポーネントを入れるなど)。ディレクトリ構造を利用した適切なルールが用意できてかつ運用もできるという場合でない限り、個々のコンポーネントに適切な名前を付けてフラットに管理するという運用の方が、考えることが少なく命名規則も守られやすい傾向にあるのでオススメする。ちなみに命名ルールは大きいスコープで分類したときの名前から順に後置修飾で命名していく方が、辞書順にソートしたときに同種の要素が近くに並びやすいので良いのだが (例: video &gt; top page &gt; tabs)、細かすぎて伝わらない話になってくるのでこの辺りでやめておく。</p>
-
 
   </div>
 </article>

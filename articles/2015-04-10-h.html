@@ -4,17 +4,21 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width">
   <title>Serverkitの進捗</title>
-  <link href="/articles/2015-04-10-h" rel="canonical">
+  <link href="https://r7kamura.com:0/articles/2015-04-10-h" rel="canonical">
   <link rel="stylesheet" href="/css/main.css">
   <link rel="search" type="application/opensearchdescription+xml" title="r7kamura.com" href="/opensearch.xml">
   <link rel="alternate" type="application/rss+xml" href="/feed.xml">
+  
   <meta property="description" content="前回 Serverkitつくった - ✘╹◡╹✘ の記事で触れた Serverkit という構成管理ツールの開発を、暇なときにぼちぼち進めてる。">
   <meta property="og:description" content="前回 Serverkitつくった - ✘╹◡╹✘ の記事で触れた Serverkit という構成管理ツールの開発を、暇なときにぼちぼち進めてる。">
-  <meta property="og:type" content="article">
+  
+  <meta property="og:type" content="website">
   <meta property="og:title" content="Serverkitの進捗">
-  <meta property="og:url" content="https://r7kamura.com/articles/2015-04-10-h">
+  <meta property="og:url" content="https://r7kamura.com:0/articles/2015-04-10-h">
+  
   <meta property="og:image" content="https://r7kamura.com/default_og_image.jpg">
   <meta property="twitter:card" content="summary">
+  
 </head>
 <body>
   <header>
@@ -35,7 +39,7 @@
   <h1>Serverkitの進捗</h1>
   <footer>
     <p>
-      <time datetime="2015-04-10T00:00:00+09:00">2015年04月10日</time>
+      <time datetime="2015-04-10T00:00:00+00:00">2015年04月10日</time>
     </p>
   </footer>
   <div>
@@ -58,7 +62,6 @@
     type: command
     script: killall Dock</pre>
 
-
 <h2>serverkit-rbenv</h2>
 
 <p>名前の通り、rbenvをserverkitで扱うためのプラグイン。rbenvが手元にインストールされていることを前提として、rbenvで任意のバージョンのRubyをインストールしたり、それをグローバルに使うRubyとして設定したりする。とりあえずまあ簡単な記述で適当なバージョンのRubyが入れられればええやろぐらいの気持ちでやってるので、細かいオプションとかは無いけど、必要になれば追加する構え。例えばこのレシピで、Ruby 2.2.0が入る。</p>
@@ -67,7 +70,6 @@
   - type: rbenv_ruby
     version: 2.2.0
     global: true</pre>
-
 
 <h2>Notify</h2>
 
@@ -85,13 +87,11 @@ handlers:
     type: command
     script: killall Dock</pre>
 
-
 <h2>今後</h2>
 
 <p>現状は、自分のMacの環境構築を自動化するために使っていって、そこで足りない機能を追加していっている。<a href="https://github.com/r7kamura/dotfiles/blob/master/recipe.yml">dotfiles/recipe.yml at master · r7kamura/dotfiles</a> に自分のMac用のレシピがあるけど、Homebrewで何か入れてRuby入れてdefaultsで設定変えるぐらいしかまだ出来てない。クリーンインストールした直後のMacに適用するとすぐさま開発環境として使えるようになる、という状態にするにはいろいろ機能を足していく必要があると思う。</p>
 
 <p>並行して、仕事で使ってるアプリケーションサーバのAMIをつくるのにいまChefを使っているけど、試しにそれと同等のことをServerkitでも実現できるようにしていこうとしていってる。こっちは色々要件があってしかも規模も大きいので、これをやっていくとログの機構の整理とか、テスト環境の整備とか、VagrantやDockerで簡単に試せるようにとか色々やっていく必要がありそう。</p>
-
 
   </div>
 </article>

@@ -4,17 +4,21 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width">
   <title>Ruby Patterns</title>
-  <link href="/articles/2014-01-22-h" rel="canonical">
+  <link href="https://r7kamura.com:0/articles/2014-01-22-h" rel="canonical">
   <link rel="stylesheet" href="/css/main.css">
   <link rel="search" type="application/opensearchdescription+xml" title="r7kamura.com" href="/opensearch.xml">
   <link rel="alternate" type="application/rss+xml" href="/feed.xml">
+  
   <meta property="description" content="この記事には、Rubyを書いているときに「これは言語化されたり公式化されたりしていないけれど基本的には必ずこのパターンに則ってプログラムを書いているな」ということをふと思い出したときにやってきてそのパターンを書く。">
   <meta property="og:description" content="この記事には、Rubyを書いているときに「これは言語化されたり公式化されたりしていないけれど基本的には必ずこのパターンに則ってプログラムを書いているな」ということをふと思い出したときにやってきてそのパターンを書く。">
-  <meta property="og:type" content="article">
+  
+  <meta property="og:type" content="website">
   <meta property="og:title" content="Ruby Patterns">
-  <meta property="og:url" content="https://r7kamura.com/articles/2014-01-22-h">
+  <meta property="og:url" content="https://r7kamura.com:0/articles/2014-01-22-h">
+  
   <meta property="og:image" content="https://r7kamura.com/default_og_image.jpg">
   <meta property="twitter:card" content="summary">
+  
 </head>
 <body>
   <header>
@@ -35,7 +39,7 @@
   <h1>Ruby Patterns</h1>
   <footer>
     <p>
-      <time datetime="2014-01-22T00:00:00+09:00">2014年01月22日</time>
+      <time datetime="2014-01-22T00:00:00+00:00">2014年01月22日</time>
     </p>
   </footer>
   <div>
@@ -56,7 +60,6 @@
   end
 end</pre>
 
-
 <h3>名前が"?"で終わるメソッド名は"形容詞(句)?"か"has_名詞(句)?"</h3>
 
 <ul>
@@ -64,7 +67,6 @@ end</pre>
 <li>rejected?</li>
 <li>written_in_english?</li>
 </ul>
-
 
 <p>例えばRSpecの記法に合わせたときに、 a.should be_xxx や a.should have_xxx, a.should has_xxx(yyy) と自然に読めるかどうかで考えている。「自然に読める」というのを見ると「はい出ました〜はい出ました"自然に"読める〜」という風に過剰に反応してしまうこともあると思うけど、1つの処理を複数の書き方で実現できるという事実がある以上、どのような文字でそれを実現するかというのは結局読み手1人1人とのコミュニケーションの問題なので、どの文字で実現すれば読み手が自然に読めるのかという答えのない、常に答えの変わる問題に対して自分の中での最善手を考えないといけない。Ruby では a.has_key? より a.key? が好まれているけど、 a is key という法則が成立しなくなるので、一貫性が無いのがあまり好ましくないと個人的には考えている。</p>
 
@@ -83,7 +85,6 @@ end</pre>
 <li>例えば、Hashリテラルのキー。</li>
 <li>例えば、Gemfile。</li>
 </ul>
-
 
 <h3>Overrideしてほしいメソッドの実装にNotImplementedErrorを利用する</h3>
 
@@ -124,8 +125,6 @@ end</pre>
     end
   end
 end</pre>
-
-
 
   </div>
 </article>

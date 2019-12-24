@@ -4,17 +4,21 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width">
   <title>snipMate.vim便利</title>
-  <link href="/articles/2012-01-16-h" rel="canonical">
+  <link href="https://r7kamura.com:0/articles/2012-01-16-h" rel="canonical">
   <link rel="stylesheet" href="/css/main.css">
   <link rel="search" type="application/opensearchdescription+xml" title="r7kamura.com" href="/opensearch.xml">
   <link rel="alternate" type="application/rss+xml" href="/feed.xml">
+  
   <meta property="description" content="snipMate特定の文字を入力してTABキーを押すと、予め定義しておいたsnippetを展開してくれる。">
   <meta property="og:description" content="snipMate特定の文字を入力してTABキーを押すと、予め定義しておいたsnippetを展開してくれる。">
-  <meta property="og:type" content="article">
+  
+  <meta property="og:type" content="website">
   <meta property="og:title" content="snipMate.vim便利">
-  <meta property="og:url" content="https://r7kamura.com/articles/2012-01-16-h">
+  <meta property="og:url" content="https://r7kamura.com:0/articles/2012-01-16-h">
+  
   <meta property="og:image" content="https://r7kamura.com/default_og_image.jpg">
   <meta property="twitter:card" content="summary">
+  
 </head>
 <body>
   <header>
@@ -35,13 +39,16 @@
   <h1>snipMate.vim便利</h1>
   <footer>
     <p>
-      <time datetime="2012-01-16T00:00:00+09:00">2012年01月16日</time>
+      <time datetime="2012-01-16T00:00:00+00:00">2012年01月16日</time>
     </p>
   </footer>
   <div>
     <p><a href="http://www.vim.org/scripts/script.php?script_id=2540">snipMate</a></p><p>特定の文字を入力してTABキーを押すと、予め定義しておいたsnippetを展開してくれる。TABキーを押していくと、定義内の次の箇所へ移動していける。snippetはfiletypeごとに定義できる。neocomplecacheにこの機能も同梱されるようになっているけど、自動補完は嫌いなのでsnippetの機能だけ提供してくれるsnipMateを入れた。snippetsはこういう風に定義できる。</p>
 
-<pre><code>&lt;pre class=&quot;code lang-txt&quot; data-lang=&quot;txt&quot;&gt;# javascript.snippets</code></pre><p>snippet a
+<pre><code>&lt;pre class=&quot;code lang-txt&quot; data-lang=&quot;txt&quot;&gt;# javascript.snippets
+</code></pre>
+
+<p>snippet a
     alert(${1});
 snippet c
     console.log(${1});

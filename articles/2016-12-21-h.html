@@ -4,17 +4,21 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width">
   <title>amakanの開発環境をDockerに移行した</title>
-  <link href="/articles/2016-12-21-h" rel="canonical">
+  <link href="https://r7kamura.com:0/articles/2016-12-21-h" rel="canonical">
   <link rel="stylesheet" href="/css/main.css">
   <link rel="search" type="application/opensearchdescription+xml" title="r7kamura.com" href="/opensearch.xml">
   <link rel="alternate" type="application/rss+xml" href="/feed.xml">
-  <meta property="description" content="https:&#x2F;&#x2F;amakan.net&#x2F; のこの辺の改善の続き。">
-  <meta property="og:description" content="https:&#x2F;&#x2F;amakan.net&#x2F; のこの辺の改善の続き。">
-  <meta property="og:type" content="article">
+  
+  <meta property="description" content="https://amakan.net/ のこの辺の改善の続き。">
+  <meta property="og:description" content="https://amakan.net/ のこの辺の改善の続き。">
+  
+  <meta property="og:type" content="website">
   <meta property="og:title" content="amakanの開発環境をDockerに移行した">
-  <meta property="og:url" content="https://r7kamura.com/articles/2016-12-21-h">
+  <meta property="og:url" content="https://r7kamura.com:0/articles/2016-12-21-h">
+  
   <meta property="og:image" content="https://r7kamura.com/default_og_image.jpg">
   <meta property="twitter:card" content="summary">
+  
 </head>
 <body>
   <header>
@@ -35,7 +39,7 @@
   <h1>amakanの開発環境をDockerに移行した</h1>
   <footer>
     <p>
-      <time datetime="2016-12-21T00:00:00+09:00">2016年12月21日</time>
+      <time datetime="2016-12-21T00:00:00+00:00">2016年12月21日</time>
     </p>
   </footer>
   <div>
@@ -49,7 +53,6 @@
 <li><a href="http://r7kamura.hatenablog.com/entry/2016/12/13/074119">amakanのフロントエンドを色々改善した - ✘╹◡╹✘</a></li>
 <li><a href="http://r7kamura.hatenablog.com/entry/2016/12/18/212642">amakanをSidekiqに移行した - ✘╹◡╹✘</a></li>
 </ul>
-
 
 <h2>環境構築</h2>
 
@@ -65,7 +68,6 @@ docker-compose run --rm puma bundle install
 docker-compose run --rm puma bundle exec rake db:create db:load:schema
 docker-compose up -d</pre>
 
-
 <p>やっているのはこういう処理。</p>
 
 <ol>
@@ -74,7 +76,6 @@ docker-compose up -d</pre>
 <li>DBスキーマの作成</li>
 <li>コンテナの起動</li>
 </ol>
-
 
 <p>bundle と node_modules は volume を利用してマウントしているので、ビルド後に手元でインストールする必要がある。代わりに、これらが変更されるたびにビルドを行う必要はない。</p>
 
@@ -87,6 +88,7 @@ docker-compose up -d</pre>
 <pre class="code" data-lang="" data-unlink>$ docker-compose ps
       Name                    Command               State               Ports
 ---------------------------------------------------------------------------------</pre>
+
   </div>
 </article>
 

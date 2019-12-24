@@ -4,17 +4,21 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width">
   <title>ブラウザのテキストフィールドで好きなエディタを使う</title>
-  <link href="/articles/2011-12-15-h" rel="canonical">
+  <link href="https://r7kamura.com:0/articles/2011-12-15-h" rel="canonical">
   <link rel="stylesheet" href="/css/main.css">
   <link rel="search" type="application/opensearchdescription+xml" title="r7kamura.com" href="/opensearch.xml">
   <link rel="alternate" type="application/rss+xml" href="/feed.xml">
+  
   <meta property="description" content="ブログとかで長文を書くとき、どうしてますか。">
   <meta property="og:description" content="ブログとかで長文を書くとき、どうしてますか。">
-  <meta property="og:type" content="article">
+  
+  <meta property="og:type" content="website">
   <meta property="og:title" content="ブラウザのテキストフィールドで好きなエディタを使う">
-  <meta property="og:url" content="https://r7kamura.com/articles/2011-12-15-h">
+  <meta property="og:url" content="https://r7kamura.com:0/articles/2011-12-15-h">
+  
   <meta property="og:image" content="http://dl.dropbox.com/u/5978869/image/20111215_082657.png">
   <meta property="twitter:card" content="summary_large_image">
+  
 </head>
 <body>
   <header>
@@ -35,7 +39,7 @@
   <h1>ブラウザのテキストフィールドで好きなエディタを使う</h1>
   <footer>
     <p>
-      <time datetime="2011-12-15T00:00:00+09:00">2011年12月15日</time>
+      <time datetime="2011-12-15T00:00:00+00:00">2011年12月15日</time>
     </p>
   </footer>
   <div>
@@ -49,30 +53,38 @@
 <p>サーバは自分で用意する必要がある。<a href="https://github.com/kayakaya/edit_server_rack">edit_server_rack</a>というRackで実装されたサーバがあるので、これを利用する。config.ruの5行目でEmacsを利用するようになってるので、ENV['EDITOR']とか'vim'とかに上書きする。書き換えたらrackupで起動する。rackを利用しているから事前にgem install rackが必要かもしれない。screenとかでバックグラウンドで適当に動かすと良さそう。これで、ブラウザのテキストフィールドで好きなエディタが使えるようになる。</p>
 
 </div>
+
 <div class="section">
     <h3>それ他のエディタで</h3>
     <p>MacVim-Kaoriya版を使ってる人は、<a href="http://repo.or.cz/w/MacVim/KaoriYa.git/blob_plain/HEAD:/src/MacVim/mvim">ここ</a>からmvimというスクリプトをダウンロードして、パスの通るところにおいて'mvim -f'を設定すると良い。gitとかでMacVimを使う方法を参考にした。TextMateを使ってる人はmateっていうコマンドが付属していると思うから、mateにパス通して'mate -w'を設定すると良い。<a href="#fn1" title="但し少しサーバの実装が変で、edit_server.rbのsystem関数の部分を書き替えないと上手く動かない。困ったらコメントしてもらえると一緒に考えられる">*1</a>それ以外のエディタでも、コマンドで外部から良い感じに呼び出せる奴だと上手くいきそう。「git ◯◯ 使う」とかでググるんや。</p>
 
 </div>
+
 <div class="section">
     <h3>それ他のブラウザで</h3>
     <p>SafariだとCocoaとテキストフィールドを連携させる仕組みがあるので、エディタ側が対応していれば何の拡張も要らない。TextMateとかは「Safariだとその場でTextMate呼び出せるよ！」って謳っている。Safariで色々やりたい人はQuickCursorってアプリを調べてみると良い。Firefoxだと<a href="https://addons.mozilla.org/ja/firefox/addon/its-all-text/">It's All Text!</a>っていうAdd-onがあるのでそれを使うと良い。但しEdit with Emacsと違って少し重い。Firefoxは2年前に使ってたわ。</p>
 
 </div>
+
 <div class="section">
     <h3>まとめ</h3>
     <p>導入方法まとめです。</p>
 
-<pre><code>&lt;pre class=&quot;code lang-txt&quot; data-lang=&quot;txt&quot;&gt;# 1. Chrome拡張のEdit with Emacsを入れる</code></pre><h1 id="2-拡張の設定でキーボードショートカットを有効化する">2. 拡張の設定でキーボードショートカットを有効化する</h1>
-<h1 id="3-サーバを入れて動かす">3. サーバを入れて動かす</h1>
-<pre><code>$ git clone https://github.com/kayakaya/edit_server_rack.git
-$ cd edit_server_rack
-$ vim config.ru
-$ gem install rack
-$ rackup</code></pre><h1 id="4-おもむろにはてなブログのテキストフィールドを開いてaltenterを押す">4. おもむろにはてなブログのテキストフィールドを開いてAlt+Enterを押す</h1>
-<h1 id="5-エディタが開くので適当に文章を入力して保存して閉じる">5. エディタが開くので適当に文章を入力して保存して閉じる</h1>
-<h1 id="6-ブラウザに戻るとテキストフィールドに文章が挿入されている">6. ブラウザに戻るとテキストフィールドに文章が挿入されている</h1>
-<h1 id="7-happy-blogging-with-your-favorite-editorpre">7. Happy Blogging with your favorite Editor!</pre></h1>
+    <pre class="code lang-txt" data-lang="txt"># 1. Chrome拡張のEdit with Emacsを入れる
+# 2. 拡張の設定でキーボードショートカットを有効化する
+# 3. サーバを入れて動かす
+
+    $ git clone https://github.com/kayakaya/edit_server_rack.git
+    $ cd edit_server_rack
+    $ vim config.ru
+    $ gem install rack
+    $ rackup
+
+# 4. おもむろにはてなブログのテキストフィールドを開いてAlt+Enterを押す
+# 5. エディタが開くので適当に文章を入力して保存して閉じる
+# 6. ブラウザに戻るとテキストフィールドに文章が挿入されている
+# 7. Happy Blogging with your favorite Editor!</pre>
+
 </div>
 
   </div>

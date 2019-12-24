@@ -4,17 +4,21 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width">
   <title>今日の経験値</title>
-  <link href="/articles/2012-02-16-h" rel="canonical">
+  <link href="https://r7kamura.com:0/articles/2012-02-16-h" rel="canonical">
   <link rel="stylesheet" href="/css/main.css">
   <link rel="search" type="application/opensearchdescription+xml" title="r7kamura.com" href="/opensearch.xml">
   <link rel="alternate" type="application/rss+xml" href="/feed.xml">
+  
   <meta property="description" content="今日はバイト先で経験値とお金を稼ぎました。">
   <meta property="og:description" content="今日はバイト先で経験値とお金を稼ぎました。">
-  <meta property="og:type" content="article">
+  
+  <meta property="og:type" content="website">
   <meta property="og:title" content="今日の経験値">
-  <meta property="og:url" content="https://r7kamura.com/articles/2012-02-16-h">
+  <meta property="og:url" content="https://r7kamura.com:0/articles/2012-02-16-h">
+  
   <meta property="og:image" content="https://r7kamura.com/default_og_image.jpg">
   <meta property="twitter:card" content="summary">
+  
 </head>
 <body>
   <header>
@@ -35,7 +39,7 @@
   <h1>今日の経験値</h1>
   <footer>
     <p>
-      <time datetime="2012-02-16T00:00:00+09:00">2012年02月16日</time>
+      <time datetime="2012-02-16T00:00:00+00:00">2012年02月16日</time>
     </p>
   </footer>
   <div>
@@ -128,14 +132,18 @@
   }
 }</pre>
 
-<pre><code>&lt;pre class=&quot;code lang-txt&quot; data-lang=&quot;txt&quot; data-unlink&gt;# CamelCaseとsnake_caseを相互変換する</code></pre><p>my $str = &quot;CamelCase&quot;;
-$str =~ s/([A-Z])/<em>\l$1/g;
-$str =~ s/^</em>//;
-$str; #=&gt; &quot;camel_case&quot;;</p>
-<p>$str =~ s/(?:^|<em>)(.)/\u$1/g;
-$str =~ s/</em>//g;
-$str; #=&gt; &quot;CamelCase&quot;;</pre></p>
+    <pre class="code lang-txt" data-lang="txt" data-unlink># CamelCaseとsnake_caseを相互変換する
+my $str = "CamelCase";
+$str =~ s/([A-Z])/_\l$1/g;
+$str =~ s/^_//;
+$str; #=&gt; "camel_case";
+
+$str =~ s/(?:^|_)(.)/\u$1/g;
+$str =~ s/_//g;
+$str; #=&gt; "CamelCase";</pre>
+
 </div>
+
 <div class="section">
     <h3>頭の中</h3>
 

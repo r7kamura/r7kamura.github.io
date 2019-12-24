@@ -4,17 +4,21 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width">
   <title>JavaScriptパターンを読んだ</title>
-  <link href="/articles/2012-01-17-h" rel="canonical">
+  <link href="https://r7kamura.com:0/articles/2012-01-17-h" rel="canonical">
   <link rel="stylesheet" href="/css/main.css">
   <link rel="search" type="application/opensearchdescription+xml" title="r7kamura.com" href="/opensearch.xml">
   <link rel="alternate" type="application/rss+xml" href="/feed.xml">
+  
   <meta property="description" content="読む前">
   <meta property="og:description" content="読む前">
-  <meta property="og:type" content="article">
+  
+  <meta property="og:type" content="website">
   <meta property="og:title" content="JavaScriptパターンを読んだ">
-  <meta property="og:url" content="https://r7kamura.com/articles/2012-01-17-h">
+  <meta property="og:url" content="https://r7kamura.com:0/articles/2012-01-17-h">
+  
   <meta property="og:image" content="http://ec2.images-amazon.com/images/I/51ZoMJ%2BrLhL._SL500_AA300_.jpg">
   <meta property="twitter:card" content="summary_large_image">
+  
 </head>
 <body>
   <header>
@@ -35,7 +39,7 @@
   <h1>JavaScriptパターンを読んだ</h1>
   <footer>
     <p>
-      <time datetime="2012-01-17T00:00:00+09:00">2012年01月17日</time>
+      <time datetime="2012-01-17T00:00:00+00:00">2012年01月17日</time>
     </p>
   </footer>
   <div>
@@ -47,11 +51,13 @@
 </a></p>
 
 </div>
+
 <div class="section">
     <h3>読んだ後</h3>
     <p>読み終えた。前半40%くらいはすぐに使えるような汎用的な知識が沢山書いてあったけど、後半になるにつれて使いどころの限定される内容が増えてきて読むのが辛かった。そこまで気合い入れてる人じゃなければ前半だけ読んであとは閉じても良さそう。そういう風に感じる本多い。半分の内容で7割ぐらいの価格で売ってくれれば良いのにと思う。せっかく電子書籍なのでこの章だけ購入するとか出来たら良い。PDFで購入すると電車で読みやすかった。混んでいてもiPhoneで見られる。</p>
 
 </div>
+
 <div class="section">
     <h3>1番の収穫 - 変数の巻き上げ</h3>
 
@@ -62,15 +68,17 @@
     <pre class="code lang-txt" data-lang="txt">function foo() { alert('global foo') }
 function bar() { alert('global bar') }
 
-<p>function hoistMe() {
-  console.log(typeof foo); // &quot;function&quot;
-  console.log(typeof bar); // &quot;undefined&quot;
-  foo(); // &quot;local foo&quot;
-  bar(); // TypeError: bar is not a function</p>
-<p>  function foo() { alert(&#39;local foo&#39;) }
-  var bar = function () { alert(&#39;local bar&#39;) };
+function hoistMe() {
+  console.log(typeof foo); // "function"
+  console.log(typeof bar); // "undefined"
+  foo(); // "local foo"
+  bar(); // TypeError: bar is not a function
+
+  function foo() { alert('local foo') }
+  var bar = function () { alert('local bar') };
 }
-hoistMe();</pre></p>
+hoistMe();</pre>
+
 </div>
 
   </div>

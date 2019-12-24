@@ -4,17 +4,21 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width">
   <title>Ruby合宿2011に参加した</title>
-  <link href="/articles/2011-08-14-h" rel="canonical">
+  <link href="https://r7kamura.com:0/articles/2011-08-14-h" rel="canonical">
   <link rel="stylesheet" href="/css/main.css">
   <link rel="search" type="application/opensearchdescription+xml" title="r7kamura.com" href="/opensearch.xml">
   <link rel="alternate" type="application/rss+xml" href="/feed.xml">
+  
   <meta property="description" content="目次">
   <meta property="og:description" content="目次">
-  <meta property="og:type" content="article">
+  
+  <meta property="og:type" content="website">
   <meta property="og:title" content="Ruby合宿2011に参加した">
-  <meta property="og:url" content="https://r7kamura.com/articles/2011-08-14-h">
+  <meta property="og:url" content="https://r7kamura.com:0/articles/2011-08-14-h">
+  
   <meta property="og:image" content="http://www.pref.shimane.lg.jp/itsangyo/rubycamp.data/Rubytitle2.gif">
   <meta property="twitter:card" content="summary_large_image">
+  
 </head>
 <body>
   <header>
@@ -35,13 +39,13 @@
   <h1>Ruby合宿2011に参加した</h1>
   <footer>
     <p>
-      <time datetime="2011-08-14T00:00:00+09:00">2011年08月14日</time>
+      <time datetime="2011-08-14T00:00:00+00:00">2011年08月14日</time>
     </p>
   </footer>
   <div>
     <p>目次</p>
 
-<ul>
+<p><ul>
 <li>きっかけ</li>
 <li>僕は重度の臆病者で</li>
 <li>人に教えること</li>
@@ -55,7 +59,7 @@
 <br>
 <img src="http://www.pref.shimane.lg.jp/itsangyo/rubycamp.data/Rubytitle2.gif" align="left"><br>
 <img src="http://www.pref.shimane.lg.jp/itsangyo/rubycamp.data/Rubytitle.gif" align="left"><br>
-</div>
+</div></p>
 
 <div class="section">
     <h4>きっかけ</h4>
@@ -72,6 +76,7 @@
 </p>
 
 </div>
+
 <div class="section">
     <h4>僕は重度の臆病者で</h4>
     <p>Ruby合宿の参加者は25人で、そのうち全員が学生、2割が女子、8割が男子だった。今回の合宿で、僕は出来るだけ、皆とフランクに話そうと努めた。</p>
@@ -91,6 +96,7 @@
 </p>
 
 </div>
+
 <div class="section">
     <h4>人に教えること</h4>
     <p>合宿参加者は、まだRubyを触ったことがない人が多かった。高校受験の時から、人に教えながら勉強するということの効果を強く信じていたから、それはプログラミングも例外ではないと思って試した。幸いにも僕はある程度Rubyの基礎文法は知っていたから、適当に人を捕まえて、その子に教える感じで『たのしいRuby』を読み聞かせたりした。</p>
@@ -105,7 +111,8 @@
 <a href="http://t.co/G0CAmKk"><img src="http://ec2.images-amazon.com/images/I/51OI1P9LkwL._AA300_.jpg" alt="" align="left" style="border:0"></a><br>
 <a href="http://t.co/EFUNqmM"><img src="http://ec2.images-amazon.com/images/I/51TODrMIEnL._SL500_AA300_.jpg" align="left" style="border:0"></a><br>
 </div>
-<br>
+
+<p><br>
 <p>次の日からは、班に分かれてゲームを作り始めた。今回の合宿は、ネットワークを利用したゲーム作りを題材にして、オブジェクト指向を学ぼうという内容だった。その日、自分の班のゲームのサーバ/クライアントのコネクション部分を完成させた後、夜に他の班の子にサーバ部分の作り方を教えた。さて説明しようとしたところで、サーバ部分の実装が実はどう動いているか、自分が理解していないことに気付いた。</p>
 <br>
 <p>だからそこで、彼女に説明するという形を借りて、少しずつ言葉を紡ぎながらサーバとクライアントの仕組みを整理した。君の班が作っているのは人生ゲームで、各プレイヤーが順々にサイコロを振って、画面上でイベントが進行していく。ゲームが進むのはプレイヤーが何かした時だけだから、サーバ側は単純に全員の知るべきデータを登録/取得するための機能だけ持てばいい。ざっくり言えばサーバは、プレイヤー全員が共有している「ゲームデータ」という名の変数だと考えればいいと思う。プレイヤー側は、1秒ごとにサーバからゲームデータを取得し、画面に描画する。自分のターンであれば、ボタンを押すことでダイスを振り、ダイスを振って更新した後の自分のデータをサーバに登録する。</p>
@@ -114,9 +121,9 @@
 <br>
 <p>こんな感じの絵を描いた。ひとしきり説明したところで、ようやく自分で仕組みを理解した。カーニハンの「プログラミング作法」の中にベア(bear)プログラミングというのがあって、物事の仕組みが上手く分からないとき、誰でも、それこそ机の上のテディベアにでも良いので誰かに語りかける口調で説明することで、自然と自分の中で頭が整理されるというやつだ。でも彼女の場合は「おお」「なるほど」とか「どういうこと？」とか「もういっかい…」とか、人間らしい反応をくれるので、より深く、より分かりやすく整理する必要があるし、何よりちゃんと伝わったときの純粋な楽しさがあった。恥ずかしいので直接伝えてないけど、彼女の向上心と率直な意見のお陰で理解が進んだし、本当に感謝してる。<br>
 <br>
-</p>
+</p></p>
 
-</div>
+<p></div>
 <div class="section">
     <h4>複数人でつくること</h4>
     <p>複数人で何かつくるの、多分初めてだったと思う。うちの班は5人で、自分以外には、Rubyがよく書ける人が1人と、Rubyは初めてという人が3人居た。奇数なのがまた絶妙なアンバランスさで、同時に作業するのに3人は多いし、1人では負担が大きいし、片方を2人にすると片方が3人になるしで困った。</p>
@@ -129,23 +136,23 @@
 <br>
 <p>最初にかっこ良く設計しようよーって言って、メンバーと一緒にホワイトボードに描いた設計図の一部。主に設計を考えてくれたのは同じ班の林田くんという人で、TDDBCとか参加してるらしく、@t_wadaさんとペアプロした時にサクサクRspec書く姿に憧れたらしい。彼が「俺がテスト書くからそれを実装するコードを書こう！」って言ってて、それがすげーかっこ良かったのを覚えてる。<br>
 <br>
-</p>
+</p></p>
 
-</div>
+<p></div>
 <div class="section">
     <h4>1番大事にしたいこと</h4>
     <p>プログラミングをするとき、1番大事にしたいことは、楽しさだと思った。曖昧な指標で測りづらいけど、楽しいか楽しくないかは自分が知ってるし、いま楽しいか？を常に問い続けることは出来る。ゲームをつくることになったとき、班のメンバーと一緒に、大きなホワイトボードにゲームの設計図を書いた。純粋にものづくりをしている気がして楽しい時間だった。詰まらないときがあったけど、そういうときは必ず、間違ってることをやってる時だった。みんなの書いたコードをマージした時、例えば内部処理と描画処理が上手く噛み合わさってゲーム画面が表示されたとき、おおってなって楽しかった。徹夜して一緒にゲームサーバつくってて、少しずつ出来ることが増えていったとき、眠かったけど、本当に楽しかった。偉い人たちの前でプレゼンしたときですら、僕は楽しんでた。<br>
 <br>
-</p>
+</p></p>
 
-</div>
+<p></div>
 <div class="section">
     <h4>おしまい</h4>
     <p>バラバラになったけど、とにかくRuby合宿の感想はこんな感じだった。今回Ruby合宿で一緒に集まれた人達、自由時間少なくてちゃんと話せなかったから、これからもまた話したいし、twitter:<a href="http://twitter.com/r7kamura">@r7kamura</a>とかにてきとーに連絡くれたら嬉しいなーと思ってる。</p>
 <br>
-<p>学び続ける限り楽しいこと待ってるし、怖いのは寿命が尽きてしまうことだけだと思う。</p>
+<p>学び続ける限り楽しいこと待ってるし、怖いのは寿命が尽きてしまうことだけだと思う。</p></p>
 
-</div>
+<p></div></p>
 
   </div>
 </article>

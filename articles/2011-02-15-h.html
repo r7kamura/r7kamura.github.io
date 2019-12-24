@@ -4,17 +4,21 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width">
   <title>初心者向けGitの使い方のおさらい</title>
-  <link href="/articles/2011-02-15-h" rel="canonical">
+  <link href="https://r7kamura.com:0/articles/2011-02-15-h" rel="canonical">
   <link rel="stylesheet" href="/css/main.css">
   <link rel="search" type="application/opensearchdescription+xml" title="r7kamura.com" href="/opensearch.xml">
   <link rel="alternate" type="application/rss+xml" href="/feed.xml">
+  
   <meta property="description" content="Git初心者向けに、Gitを使ったローカルでのVersion管理方法についての説明を書く。">
   <meta property="og:description" content="Git初心者向けに、Gitを使ったローカルでのVersion管理方法についての説明を書く。">
-  <meta property="og:type" content="article">
+  
+  <meta property="og:type" content="website">
   <meta property="og:title" content="初心者向けGitの使い方のおさらい">
-  <meta property="og:url" content="https://r7kamura.com/articles/2011-02-15-h">
+  <meta property="og:url" content="https://r7kamura.com:0/articles/2011-02-15-h">
+  
   <meta property="og:image" content="https://r7kamura.com/default_og_image.jpg">
   <meta property="twitter:card" content="summary">
+  
 </head>
 <body>
   <header>
@@ -35,7 +39,7 @@
   <h1>初心者向けGitの使い方のおさらい</h1>
   <footer>
     <p>
-      <time datetime="2011-02-15T00:00:00+09:00">2011年02月15日</time>
+      <time datetime="2011-02-15T00:00:00+00:00">2011年02月15日</time>
     </p>
   </footer>
   <div>
@@ -58,49 +62,57 @@
 $ brew install git
 
 
-<h1 id="guiから入れる場合git-osx-installerを利用する">GUIから入れる場合(git-osx-installerを利用する)</h1>
-<p>$ open <a href="http://git-scm.com/">http://git-scm.com/</a></p>
-<h1 id="macportsから入れる場合">macportsから入れる場合</h1>
-<p>$ sudo port install curl expat gettext openssl zlib
+# GUIから入れる場合(git-osx-installerを利用する)
+$ open http://git-scm.com/
+
+
+# macportsから入れる場合
+$ sudo port install curl expat gettext openssl zlib
 $ sudo port install git-core       # インストール
 $ sudo port deactivate ImageMagick # もしImageMagickが邪魔している旨のエラーが出れば無効化する
-$ sudo port install git-core       # インストール再挑戦</p>
-<h1 id="ソースから入れる場合公式サイトで最新版のurlを確認する">ソースから入れる場合(公式サイトで最新版のURLを確認する)</h1>
-<p>$ open <a href="http://git-scm.com/">http://git-scm.com/</a>
-$ curl -O <a href="http://kernel.org/pub/software/scm/git/git-1.7.4.1.tar.bz2">http://kernel.org/pub/software/scm/git/git-1.7.4.1.tar.bz2</a>
+$ sudo port install git-core       # インストール再挑戦
+
+
+# ソースから入れる場合(公式サイトで最新版のURLを確認する)
+$ open http://git-scm.com/
+$ curl -O http://kernel.org/pub/software/scm/git/git-1.7.4.1.tar.bz2
 $ tar xjvf git-1.7.4.1.tar.bz2
 $ ./configure
 $ make
-$ sudo make install</pre></p>
+$ sudo make install</pre>
 </div>
+
 <div class="section">
     <h4>CentOS</h4>
     <pre class="code" data-unlink># ソースから入れる場合
 # Macと同じ
 
 
-<h1 id="yumから入れる場合">yumから入れる場合</h1>
-<p>$ sudo yum install curl-devel expat-devel gettext-devel openssl-devel zlib-devel
-$ rpm -ivh <a href="http://repo.webtatic.com/yum/centos/5/%60uname">http://repo.webtatic.com/yum/centos/5/`uname</a> -i`/webtatic-release-5-1.noarch.rpm
-$ sudo yum install --enablerepo=webtatic git</pre></p>
+# yumから入れる場合
+$ sudo yum install curl-devel expat-devel gettext-devel openssl-devel zlib-devel
+$ rpm -ivh http://repo.webtatic.com/yum/centos/5/`uname -i`/webtatic-release-5-1.noarch.rpm
+$ sudo yum install --enablerepo=webtatic git</pre>
 </div>
+
 <div class="section">
     <h4>Windows</h4>
     <pre class="code" data-unlink># msysGitを利用する
 http://code.google.com/p/msysgit</pre>
 </div>
-</div>
+
+<p></div>
 <div class="section">
-    <h3>用語</h3>
+    <h3>用語</h3></p>
 
 <ul>
 <li>commit: バージョンを1つ進める</li>
 <li>index: 次回のcommitで適用されるファイル一覧</li>
 <li>stage: 特定の変更内容をindexに追加する</li>
 </ul>
-</div>
+
+<p></div>
 <div class="section">
-    <h3>コマンド</h3>
+    <h3>コマンド</h3></p>
 
 <ul>
 <li>git init - カレントディレクトリ以下をgit管理下に置く</li>
@@ -111,26 +123,27 @@ http://code.google.com/p/msysgit</pre>
 <li>git log - commitの履歴を見る</li>
 <li>git rm ファイルを削除してgitに削除したことを伝える</li>
 </ul>
-</div>
+
+<p></div>
 <div class="section">
     <h3>使用例</h3>
     <p>「foo.txtとbar.txtを作り、更にREADMEを作るがやっぱり要らないので消す。更にbar.txtも要らないのでbar.txtを作る前までバージョンを戻す」というシナリオで作業を進める。</p>
 <pre class="code" data-unlink>$ cd /path/to/hoge               # hogeディレクトリをバージョン管理します
 $ git init                       # gitで管理を始める宣言
 $ git add .                      # stage  all
-$ git commit -m "Initial commit" # commit all
+$ git commit -m &quot;Initial commit&quot; # commit all
 $ touch foo.txt                  # create  foo.txt
 $ git add .                      # stage   foo.txt
-$ git commit -m "Create foo"     # commit  foo.txt
+$ git commit -m &quot;Create foo&quot;     # commit  foo.txt
 $ vi foo.txt                     # edit    foo.txt
 $ git add .                      # stage   foo.txt
-$ git commit -m "Modify foo"     # commit  foo.txt
+$ git commit -m &quot;Modify foo&quot;     # commit  foo.txt
 $ vi foo.txt                     # edit    foo.txt
 $ touch bar.txt                  # create  bar.txt
 $ git add foo.txt                # stage   foo.txt    &lt;= bar作成分のcommitと分けてる
-$ git commit -m "Modify foo"     # commit  foo.txt    &lt;= fooの分だけcommitされる
+$ git commit -m &quot;Modify foo&quot;     # commit  foo.txt    &lt;= fooの分だけcommitされる
 $ git add bar.txt                # stage   bar.txt
-$ git commit -m "Create bar"     # commit  bar.txt    &lt;= barの分だけcommitされる
+$ git commit -m &quot;Create bar&quot;     # commit  bar.txt    &lt;= barの分だけcommitされる
 $ touch README                   # create  README
 $ git add .                      # stage   README     &lt;= あ、やっぱREADMEいらないかも
 $ git status                     # show    status     &lt;= indexの状態を確認
@@ -145,17 +158,17 @@ $ git reset 1239e3f              # return to [taregt] &lt;= &lt;target&gt;まで
     <h3>git config</h3>
     <p>git configコマンドで、gitの環境設定ファイルを編集できる。</p>
 <p></p>
-<pre class="code" data-unlink>$ git config <span class="synSpecial">--global</span> user.name <span class="synStatement">"</span><span class="synConstant">Kyoko Sakura</span><span class="synStatement">"</span>           <span class="synComment"> # ユーザ名(必須)</span>
-$ git config <span class="synSpecial">--global</span> user.email kyoko-sakura@example.com<span class="synComment"> # メールアドレス(必須)</span>
+<pre class="code" data-unlink>$ git config <span class="synSpecial">--global</span> user.name <span class="synStatement">&quot;</span><span class="synConstant">Kyoko Sakura</span><span class="synStatement">&quot;</span>           <span class="synComment"> # ユーザ名(必須)</span>
+$ git config <span class="synSpecial">--global</span> user.email <a href="mailto:kyoko-sakura@example.com">kyoko-sakura@example.com</a><span class="synComment"> # メールアドレス(必須)</span>
 $ git config <span class="synSpecial">--list</span>                                      <span class="synComment"> # 全ての設定を一覧</span>
 <span class="synIdentifier">user.name</span>=Kyoko Sakura
-<span class="synIdentifier">user.email</span>=kyoko-sakura@example.com
+<span class="synIdentifier">user.email</span>=<a href="mailto:kyoko-sakura@example.com">kyoko-sakura@example.com</a>
 </pre>
 </div>
 <div class="section">
     <h3>git commit --amend - commitのやり直し</h3>
     <p>addし忘れたファイルがあったり、commitメッセージを打ち間違えた場合等にcommitをやり直したくなることがある。commit時に--amend -C HEADオプションを利用すると、現在addされている変更を前回のcommitに追加することが出来る。--amendオプション単独だと、前回のcommitのメッセージも変更できる。</p>
-<pre class="code" data-unlink>$ git commit <span class="synSpecial">-m</span> <span class="synStatement">"</span><span class="synConstant">Modify Foo</span><span class="synStatement">"</span>
+<pre class="code" data-unlink>$ git commit <span class="synSpecial">-m</span> <span class="synStatement">&quot;</span><span class="synConstant">Modify Foo</span><span class="synStatement">&quot;</span>
 $ git add bar.txt
 $ git commit <span class="synSpecial">--amend</span> <span class="synSpecial">-C</span> HEAD
 $ git commit <span class="synSpecial">--amend</span>
@@ -163,10 +176,10 @@ $ git commit <span class="synSpecial">--amend</span>
 </div>
 <div class="section">
     <h3>.gitignore - ファイルの無視</h3>
-    <p>logや.DS_Storeファイル等Gitに無視してほしいファイルがある場合は、無視させたいファイルのパターンを並べた.gitignoreというファイルを作成する。.gitignoreの影響範囲は、それが置かれたディレクトリ以下全てのgit管理下のディレクトリ。filenameの指定には.gitignoreの例で示すようなglobパターン(*)やディレクトリ名の指定などが利用できる。.gitignoreに記述するパターンの規則はこういう感じ。</p>
+    <p>logや.DS<em>Storeファイル等Gitに無視してほしいファイルがある場合は、無視させたいファイルのパターンを並べた.gitignoreというファイルを作成する。.gitignoreの影響範囲は、それが置かれたディレクトリ以下全てのgit管理下のディレクトリ。filenameの指定には.gitignoreの例で示すようなglobパターン(*)やディレクトリ名の指定などが利用できる。.gitignoreに記述するパターンの規則はこういう感じ。</p>
 <pre class="code" data-unlink>$ vi .gitignore
-.DS_Store                              <span class="synComment"> # .DS_Storeファイルを無視(Macの一時ファイル)</span>
-*.log                                  <span class="synComment"> # .logで終わるファイルを無視(Rails等のログファイル)</span>
+.DS</em>Store                              <span class="synComment"> # .DS_Storeファイルを無視(Macの一時ファイル)</span>
+<em>.log                                  <span class="synComment"> # .logで終わるファイルを無視(Rails等のログファイル)</span>
 *.sqlite                               <span class="synComment"> # .sqliteで終わるファイルを無視(SQLite3のDBファイル)</span>
 *.swp                                  <span class="synComment"> # .swpで終わるファイルを無視(Vimの一時ファイル)</span>
 *~                                     <span class="synComment"> # ~で終わるファイルを無視(Emacsの一時ファイル)</span>
@@ -174,10 +187,10 @@ $ git commit <span class="synSpecial">--amend</span>
 <span class="synStatement">!</span>lib.a                                 <span class="synComment"> # しかしlib.aファイルだけは無視しない</span>
 /TODO                                  <span class="synComment"> # ルートディレクトリに置かれたTODOファイルを無視</span>
 build/                                 <span class="synComment"> # build/ディレクトリ以下の全てのファイルを無視</span>
-doc/*.txt                              <span class="synComment"> # doc/ディレクトリ以下の.txtで終わるファイルを無視</span>
+doc/</em>.txt                              <span class="synComment"> # doc/ディレクトリ以下の.txtで終わるファイルを無視</span>
 $ git <span class="synStatement">rm</span> <span class="synSpecial">--cached</span> log/*.log
 </pre>
-</div>
+</div></p>
 
   </div>
 </article>

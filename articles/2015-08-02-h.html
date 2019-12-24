@@ -4,17 +4,21 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width">
   <title>Node.jsでAmazon API Gatewayのクライアント書いた</title>
-  <link href="/articles/2015-08-02-h" rel="canonical">
+  <link href="https://r7kamura.com:0/articles/2015-08-02-h" rel="canonical">
   <link rel="stylesheet" href="/css/main.css">
   <link rel="search" type="application/opensearchdescription+xml" title="r7kamura.com" href="/opensearch.xml">
   <link rel="alternate" type="application/rss+xml" href="/feed.xml">
-  <meta property="description" content="https:&#x2F;&#x2F;github.com&#x2F;r7kamura&#x2F;amazon-api-gateway-client">
-  <meta property="og:description" content="https:&#x2F;&#x2F;github.com&#x2F;r7kamura&#x2F;amazon-api-gateway-client">
-  <meta property="og:type" content="article">
+  
+  <meta property="description" content="https://github.com/r7kamura/amazon-api-gateway-client">
+  <meta property="og:description" content="https://github.com/r7kamura/amazon-api-gateway-client">
+  
+  <meta property="og:type" content="website">
   <meta property="og:title" content="Node.jsでAmazon API Gatewayのクライアント書いた">
-  <meta property="og:url" content="https://r7kamura.com/articles/2015-08-02-h">
+  <meta property="og:url" content="https://r7kamura.com:0/articles/2015-08-02-h">
+  
   <meta property="og:image" content="https://r7kamura.com/default_og_image.jpg">
   <meta property="twitter:card" content="summary">
+  
 </head>
 <body>
   <header>
@@ -35,7 +39,7 @@
   <h1>Node.jsでAmazon API Gatewayのクライアント書いた</h1>
   <footer>
     <p>
-      <time datetime="2015-08-02T00:00:00+09:00">2015年08月02日</time>
+      <time datetime="2015-08-02T00:00:00+00:00">2015年08月02日</time>
     </p>
   </footer>
   <div>
@@ -55,7 +59,6 @@ client.createRestapi({ name: 'MyRestapi' }).then(function (restapi) {
   // Restapiクラスのインスタンスが受け取れるので色々やる
 });</pre>
 
-
 <p>最近つくったstackable-fetcherのmiddleware stackの仕組みを積極的に使っていこうとしていて、Content-Typeがapplication/jsonのときにresponse bodyを勝手にdecodeしてくれるmiddlewareや、リクエストの内容を見てAmazon Signature version 4で認証してくれるmiddleware、リクエストとレスポンスのログをデバッグ用に出力してくれるmiddlewareなどをつくって開発に使った。Rubyを知っている人はFaradayみたいなやつです。stackable-fetcherは <a href="https://fetch.spec.whatwg.org/">whatwgのFetch API</a> を実装した <a href="https://github.com/bitinn/node-fetch">node-fetch</a> をHTTPクライアントのベースに利用していて、これがリクエスト時やレスポンスボディの読み込み時にPromiseを返す設計になっているので、処理の前後に何か差し込むmiddlewareの仕組みとわりと相性が良い。</p>
 
 <ul>
@@ -63,8 +66,6 @@ client.createRestapi({ name: 'MyRestapi' }).then(function (restapi) {
 <li><a href="https://github.com/r7kamura/stackable-fetcher">https://github.com/r7kamura/stackable-fetcher</a></li>
 <li><a href="https://github.com/r7kamura/stackable-fetcher-aws-signer-v4">https://github.com/r7kamura/stackable-fetcher-aws-signer-v4</a></li>
 </ul>
-
-
 
   </div>
 </article>

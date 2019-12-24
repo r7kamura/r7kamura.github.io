@@ -4,17 +4,21 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width">
   <title>ActiveRecordを試すときに便利なやつ</title>
-  <link href="/articles/2018-04-15-activerecord-f5a10a8c17d8" rel="canonical">
+  <link href="https://r7kamura.com:0/articles/2018-04-15-activerecord-f5a10a8c17d8" rel="canonical">
   <link rel="stylesheet" href="/css/main.css">
   <link rel="search" type="application/opensearchdescription+xml" title="r7kamura.com" href="/opensearch.xml">
   <link rel="alternate" type="application/rss+xml" href="/feed.xml">
+  
   <meta property="description" content="手元で ActiveRecord を試したいときに、いちいちデータベースを用意したり、再現性のあるコード片に整えたりするのは、結構な手間に感じてしまうかもしれません。">
   <meta property="og:description" content="手元で ActiveRecord を試したいときに、いちいちデータベースを用意したり、再現性のあるコード片に整えたりするのは、結構な手間に感じてしまうかもしれません。">
-  <meta property="og:type" content="article">
+  
+  <meta property="og:type" content="website">
   <meta property="og:title" content="ActiveRecordを試すときに便利なやつ">
-  <meta property="og:url" content="https://r7kamura.com/articles/2018-04-15-activerecord-f5a10a8c17d8">
+  <meta property="og:url" content="https://r7kamura.com:0/articles/2018-04-15-activerecord-f5a10a8c17d8">
+  
   <meta property="og:image" content="https://r7kamura.com/default_og_image.jpg">
   <meta property="twitter:card" content="summary">
+  
 </head>
 <body>
   <header>
@@ -35,28 +39,48 @@
   <h1>ActiveRecordを試すときに便利なやつ</h1>
   <footer>
     <p>
-      <time datetime="2018-04-15T00:00:00+09:00">2018年04月15日</time>
+      <time datetime="2018-04-15T00:00:00+00:00">2018年04月15日</time>
     </p>
   </footer>
   <div>
     <p>手元で ActiveRecord を試したいときに、いちいちデータベースを用意したり、再現性のあるコード片に整えたりするのは、結構な手間に感じてしまうかもしれません。この記事では、そういったケースで利用できる知識を幾つかまとめておこうと思います。</p>
+
 <p>以下は今回題材に使うコード例で、これを上から順に説明していきます。</p>
-<p>ActiveRecord で .count の挙動を試す例</p>
-<h2 id="bundlerinline">bundler/inline</h2>
+
+<p>ActiveRecord で .count の挙動を試す例</p>
+
+<h2>bundler/inline</h2>
+
 <p>bundler/inline は Bundler 1.10 から追加された機能です。これを利用すると、Gemfile を独立したファイルとして用意することなく、スクリプトの中にその定義を埋め込めるようになります。</p>
+
 <p>続くスクリプトがどのバージョンの Gem で動かせるのかということを明示でき、必要であればライブラリを実行時に自動的にインストールし、依存関係を調べて $LOAD_PATH を調整し、require まで実行してくれます。</p>
-<h2 id="activerecordbaseestablish_connection">ActiveRecord::Base.establish_connection</h2>
+
+<h2>ActiveRecord::Base.establish_connection</h2>
+
 <p>ActiveRecord::Base.establish_connection を利用することで、これからどのデータベースにどんな設定で接続しにいく予定なのかを指定できます。</p>
-<p>簡単に試すだけであれば、SQLite が便利に使えます。SQLite のデータベース名 (SQLite 的にはファイル名) として :memory: を指定すると、ファイルを用意することなく、メモリ上で動作するデータベースを用意できます。プロセス終了時にこのデータベースは揮発するため、簡単な実験では役に立ちます。</p>
-<p><a href="https://www.sqlite.org/inmemorydb.html" title="https://www.sqlite.org/inmemorydb.html"><strong>In-Memory Databases</strong><br>_When this is done, no disk file is opened. Instead, a new database is created purely in memory. The database ceases to…_www.sqlite.org</a><a href="https://www.sqlite.org/inmemorydb.html"></a></p>
-<h2 id="activerecordschemadefine">ActiveRecord::Schema.define</h2>
+
+<p>簡単に試すだけであれば、SQLite が便利に使えます。SQLite のデータベース名 (SQLite 的にはファイル名) として :memory: を指定すると、ファイルを用意することなく、メモリ上で動作するデータベースを用意できます。プロセス終了時にこのデータベースは揮発するため、簡単な実験では役に立ちます。</p>
+
+<p><a href="https://www.sqlite.org/inmemorydb.html" title="https://www.sqlite.org/inmemorydb.html"><strong>In-Memory Databases</strong><br>
+<em>When this is done, no disk file is opened. Instead, a new database is created purely in memory. The database ceases to…</em>www.sqlite.org</a><a href="https://www.sqlite.org/inmemorydb.html"></a></p>
+
+<h2>ActiveRecord::Schema.define</h2>
+
 <p>ActiveRecord::Schema.define を利用すると、ActiveRecord の migration で使う DSL を利用してテーブルの定義を用意できます。このメソッドは、Rails の db/schema.rb で利用されているものです。</p>
-<h2 id="minitestautorun">minitest/autorun</h2>
+
+<h2>minitest/autorun</h2>
+
 <p>標準出力を利用することで挙動を確かめても良いのですが、スクリプト内でテストフレームワークを利用する方法を覚えておくと、再現性が高く、共有したときにより意図の伝わりやすいスクリプトを記述できる可能性が高まります。</p>
+
 <p>Ruby のテストフレームワークでは、それまでに定義されたテストケースをスクリプト終了直前に自動的に実行する機能を備えていることが多く、大抵その機能には autorun という名前が付けられています。例えば Rails のデフォルトのテストフレームワークである minitest であれば、minitest/autorun を require しておくことで、その機能が有効になります。</p>
-<h2 id="使用例">使用例</h2>
+
+<h2>使用例</h2>
+
 <p>下記の例では、rails/rails への Pull Request において、期待する動作と実際の動作との違いを説明するために利用しています。</p>
-<p><a href="https://github.com/rails/rails/pull/32576" title="https://github.com/rails/rails/pull/32576"><strong>Add missing `require &quot;benchmark&quot;` by r7kamura · Pull Request #32576 · rails/rails</strong><br>_Summary Added require &quot;benchmark&quot; at the head of lib/active_record/migration.rb. This is because it may raise NameError…_github.com</a><a href="https://github.com/rails/rails/pull/32576"></a></p>
+
+<p><a href="https://github.com/rails/rails/pull/32576" title="https://github.com/rails/rails/pull/32576"><strong>Add missing `require &quot;benchmark&quot;` by r7kamura · Pull Request #32576 · rails/rails</strong><br>
+<em>Summary Added require &quot;benchmark&quot; at the head of lib/active_record/migration.rb. This is because it may raise NameError…</em>github.com</a><a href="https://github.com/rails/rails/pull/32576"></a></p>
+
 <p>「active_record/base.rb を読み込む前に ActiveRecord::Schema.define を使おうとしたら NameError が出るんだけど、本来ここは ActiveRecord::ConnectionNotEstablished が出るべき場所なんじゃないの？」というテストケースになっています。</p>
 
   </div>

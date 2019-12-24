@@ -4,17 +4,21 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width">
   <title>cycle.jsを使うアプリのコード分割方針の例</title>
-  <link href="/articles/2015-10-04-h" rel="canonical">
+  <link href="https://r7kamura.com:0/articles/2015-10-04-h" rel="canonical">
   <link rel="stylesheet" href="/css/main.css">
   <link rel="search" type="application/opensearchdescription+xml" title="r7kamura.com" href="/opensearch.xml">
   <link rel="alternate" type="application/rss+xml" href="/feed.xml">
+  
   <meta property="description" content="前の記事でcycle.jsについて少し紹介したものの、いまから始める人のことを考えると日本語の情報が無くて大変だろうと思ったので、何か説明出来ることがないか探した。">
   <meta property="og:description" content="前の記事でcycle.jsについて少し紹介したものの、いまから始める人のことを考えると日本語の情報が無くて大変だろうと思ったので、何か説明出来ることがないか探した。">
-  <meta property="og:type" content="article">
+  
+  <meta property="og:type" content="website">
   <meta property="og:title" content="cycle.jsを使うアプリのコード分割方針の例">
-  <meta property="og:url" content="https://r7kamura.com/articles/2015-10-04-h">
+  <meta property="og:url" content="https://r7kamura.com:0/articles/2015-10-04-h">
+  
   <meta property="og:image" content="https://cloud.githubusercontent.com/assets/111689/10268419/0b883786-6af3-11e5-9a85-4c26ad156ae1.png">
   <meta property="twitter:card" content="summary_large_image">
+  
 </head>
 <body>
   <header>
@@ -35,7 +39,7 @@
   <h1>cycle.jsを使うアプリのコード分割方針の例</h1>
   <footer>
     <p>
-      <time datetime="2015-10-04T00:00:00+09:00">2015年10月04日</time>
+      <time datetime="2015-10-04T00:00:00+00:00">2015年10月04日</time>
     </p>
   </footer>
   <div>
@@ -67,7 +71,6 @@
 |   `-- sheet-selector.js
 `-- view.js</pre>
 
-
 <p><img src="https://cloud.githubusercontent.com/assets/111689/10268419/0b883786-6af3-11e5-9a85-4c26ad156ae1.png" alt="image"></p>
 
 <h2>index.js</h2>
@@ -91,7 +94,6 @@ Cycle.run(
   }
 );</pre>
 
-
 <h2>intent.js</h2>
 
 <p>intents ディレクトリの中にある小さく分割された複数のintentを読み込み、大きなintentとして合成して返す。intentは「responsesを受け取って、<code>Object{String =&gt; Observable}</code> を返す関数」ということにしている。responsesは、<code>{ DOM: ... }</code> というデータ構造になっているObjectで、主にDOMからのイベントを受け取るためのイベントソースの集合である。DOM以外にもHTTPやipc (Electronのプロセス間通信のための仕組み) などから入力を受け取る場合もあるので、intentをresponsesを受け取る関数として定義した。intentは単純なObjectを返すだけなので簡単に1つの関数にまとめられる。</p>
@@ -105,7 +107,6 @@ export default function (responses) {
     ...loadSheets(responses)
   };
 }</pre>
-
 
 <h2>model.js</h2>
 
@@ -128,7 +129,6 @@ export default function (actions) {
   );
 }</pre>
 
-
 <h2>view.js</h2>
 
 <p>viewだけは同じ型の小さなviewには分割されない。代わりに、templatesディレクトリ以下にtemplate関数を返す複数のファイルを用意して分割するようにしている。template関数は「Objectを受け取り、VirtualDOMを返す関数」として定義してある。ただのテンプレート関数。</p>
@@ -138,8 +138,6 @@ export default function (actions) {
 export default function (state$) {
   return state$.map(root);
 }</pre>
-
-
 
   </div>
 </article>

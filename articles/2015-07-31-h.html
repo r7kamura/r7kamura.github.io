@@ -4,17 +4,21 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width">
   <title>Node.jsでAWSのAPIで認証するやつ書いた</title>
-  <link href="/articles/2015-07-31-h" rel="canonical">
+  <link href="https://r7kamura.com:0/articles/2015-07-31-h" rel="canonical">
   <link rel="stylesheet" href="/css/main.css">
   <link rel="search" type="application/opensearchdescription+xml" title="r7kamura.com" href="/opensearch.xml">
   <link rel="alternate" type="application/rss+xml" href="/feed.xml">
-  <meta property="description" content="https:&#x2F;&#x2F;github.com&#x2F;r7kamura&#x2F;aws-signer-v4">
-  <meta property="og:description" content="https:&#x2F;&#x2F;github.com&#x2F;r7kamura&#x2F;aws-signer-v4">
-  <meta property="og:type" content="article">
+  
+  <meta property="description" content="https://github.com/r7kamura/aws-signer-v4">
+  <meta property="og:description" content="https://github.com/r7kamura/aws-signer-v4">
+  
+  <meta property="og:type" content="website">
   <meta property="og:title" content="Node.jsでAWSのAPIで認証するやつ書いた">
-  <meta property="og:url" content="https://r7kamura.com/articles/2015-07-31-h">
+  <meta property="og:url" content="https://r7kamura.com:0/articles/2015-07-31-h">
+  
   <meta property="og:image" content="https://r7kamura.com/default_og_image.jpg">
   <meta property="twitter:card" content="summary">
+  
 </head>
 <body>
   <header>
@@ -35,7 +39,7 @@
   <h1>Node.jsでAWSのAPIで認証するやつ書いた</h1>
   <footer>
     <p>
-      <time datetime="2015-07-31T00:00:00+09:00">2015年07月31日</time>
+      <time datetime="2015-07-31T00:00:00+00:00">2015年07月31日</time>
     </p>
   </footer>
   <div>
@@ -56,7 +60,6 @@ request.headers.Authorization = new Sign(
   url: request.url
 ).toString()</pre>
 
-
 <p>昨日、自分で好きなmiddlewareを組み合わせて君だけの最強のHTTPクライアントをつくれる <a href="https://github.com/r7kamura/stackable-fetcher">stackable-fetcher</a> というやつを書いたので、今回つくった aws-signer-v4 を組み合わせて、リクエストを送る前に勝手に認証用のAuthorizationヘッダを組み立ててくれるmiddlewareを書いてみた。<a href="https://github.com/r7kamura/stackable-fetcher/blob/master/examples/middlewares/aws-signer-v4.js">stackable-fetcherのexamples</a> に置いてある。こういう感じでuseして使える。</p>
 
 <pre class="code" data-lang="" data-unlink>var AwsSignerV4 = require('/path/to/middlewares/aws-signer-v4');
@@ -69,9 +72,7 @@ fetcher.get('https://apigateway.us-east-1.amazonaws.com/restapis')
     console.log(response.status);
   });</pre>
 
-
 <p>Node.js、Rubyとかと比べると場が整っていない感じだけど (場とは?)、うまく書けば少しのコードで恩恵を受けられる人が多くて良いと思う。</p>
-
 
   </div>
 </article>

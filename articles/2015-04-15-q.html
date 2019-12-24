@@ -4,17 +4,21 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width">
   <title>Vagrantfileで使うプラグインを定義する</title>
-  <link href="/articles/2015-04-15-q" rel="canonical">
+  <link href="https://r7kamura.com:0/articles/2015-04-15-q" rel="canonical">
   <link rel="stylesheet" href="/css/main.css">
   <link rel="search" type="application/opensearchdescription+xml" title="r7kamura.com" href="/opensearch.xml">
   <link rel="alternate" type="application/rss+xml" href="/feed.xml">
+  
   <meta property="description" content="プロジェクトで利用するプラグインを明示しておきたい">
   <meta property="og:description" content="プロジェクトで利用するプラグインを明示しておきたい">
-  <meta property="og:type" content="article">
+  
+  <meta property="og:type" content="website">
   <meta property="og:title" content="Vagrantfileで使うプラグインを定義する">
-  <meta property="og:url" content="https://r7kamura.com/articles/2015-04-15-q">
+  <meta property="og:url" content="https://r7kamura.com:0/articles/2015-04-15-q">
+  
   <meta property="og:image" content="https://r7kamura.com/default_og_image.jpg">
   <meta property="twitter:card" content="summary">
+  
 </head>
 <body>
   <header>
@@ -35,7 +39,7 @@
   <h1>Vagrantfileで使うプラグインを定義する</h1>
   <footer>
     <p>
-      <time datetime="2015-04-15T00:00:00+09:00">2015年04月15日</time>
+      <time datetime="2015-04-15T00:00:00+00:00">2015年04月15日</time>
     </p>
   </footer>
   <div>
@@ -44,44 +48,79 @@
 <li>プラグインのインストールを自動化したい</li>
 <li>Vagrantで任意のGemをたくさん利用したい</li>
 </ol>
+
 <p>などの目的のために、<a href="https://github.com/r7kamura/vagrant-multiplug">vagrant-multiplug</a> というVagrantのプラグインをつくりました。このプラグインをインストールした状態で、利用するプラグインの名前が定義されたVagrantflieを読み込むと、<code>vagrant up</code> や <code>vagrant provision</code> などのタイミングで自動的にプラグインをインストールしてくれます。</p>
-<h2 id="インストール">インストール</h2>
+
+<h2>インストール</h2>
+
 <p>手元の環境に vagrant-multiplug をインストールします。</p>
-<pre><code>$ vagrant plugin install vagrant-multiplug</code></pre><h2 id="使い方">使い方</h2>
+
+<p><code>
+$ vagrant plugin install vagrant-multiplug
+</code></p>
+
+<h2>使い方</h2>
+
 <p>Vagrantfileの中で <code>config.plugin.add_dependency(name, version = nil)</code> という風に利用するプラグインを定義できます。今回は、例としてプロビジョニングツールの1つの<a href="https://github.com/r7kamura/serverkit">Serverkit</a> を使うためのプラグイン <a href="https://github.com/r7kamura/vagrant-serverkit">vagrant-serverkit</a> と、それからServerkitでrbenvを扱うためのプラグインである <a href="https://github.com/r7kamura/serverkit-rbenv">serverkit-rbenv</a> を利用することにします。</p>
-<pre><code class="language-rb:Vagrantfile">Vagrant.configure(&quot;2&quot;) do |config|
-  config.vm.box = &quot;ubuntu/trusty64&quot;
 
-  config.plugin.add_dependency &quot;vagrant-serverkit&quot;
-  config.plugin.add_dependency &quot;serverkit-rbenv&quot;, &quot;0.0.2&quot;
+<p>```rb:Vagrantfile
+Vagrant.configure(&quot;2&quot;) do |config|
+  config.vm.box = &quot;ubuntu/trusty64&quot;</p>
 
-  config.vm.provision :serverkit do |config|
+<p>config.plugin.add<em>dependency &quot;vagrant-serverkit&quot;
+  config.plugin.add</em>dependency &quot;serverkit-rbenv&quot;, &quot;0.0.2&quot;</p>
+
+<p>config.vm.provision :serverkit do |config|
     config.recipe_path = &quot;recipe.yml&quot;
   end
-end</code></pre>
+end
+```</p>
+
 <p>この状態で <code>vagrant up</code> を利用すると、自動的にvagrant-serverkitとserverkit-rbenv (v0.0.2) がインストールされ、その後Serverkitを利用してProvisionが実行されます。使い方は以上です。</p>
-<pre><code>$ vagrant up</code></pre><h2 id="vagrantプラグインの実体はgem">Vagrantプラグインの実体はGem</h2>
+
+<p><code>
+$ vagrant up
+</code></p>
+
+<h2>Vagrantプラグインの実体はGem</h2>
+
 <p>ここからは内部実装の話になります。
 <code>vagrant plugin install</code> で入れているVagrantのプラグインは、実体としては単なるGemに過ぎません。上記の例では、vagrant-serverkitの他に、serverkit-rbenvもプラグインとして指定しました。しかし、serverkit-rbenvは特にVagrantのプラグインという訳ではなく、Serverkitの機能を拡張するだけのただのGemです。ServerkitではGemを利用したプラグイン機構を持っていますが、Vagrantの環境下では「Gemfileに書いてbundler execで起動」という方法が使えないため、読み込んでほしいGemはVagrantのプラグインとして認識させる必要がありました。今回vagrant-multiplugのようなプラグインをつくったのは、Gemを利用して機能を拡張していく仕組みをもったライブラリのために、少しでもプラグインを入れるためのコストを軽減させたいという意図もありました。</p>
-<h2 id="なぜvagrant環境下ではgemfileが使えないのか">なぜVagrant環境下ではGemfileが使えないのか</h2>
+
+<h2>なぜVagrant環境下ではGemfileが使えないのか</h2>
+
 <p>先述したように、Vagrantの環境下では「Gemfileに書いてbundler execで起動」という方法が使えません。これには、Vagrantの内部実装で別の用途にBundlerを利用しているので、一緒に使われるとまずいという理由があります。Vagrantは、本体それ自体に動作するRubyをまるごと同梱しており、Vagrantで利用するGemは全てその内部で管理されています。そして、VagrantのプラグインもまたGemであるため、同じくVagrant同梱のRubyによって管理されています。</p>
-<p>例えば <code>vagrant plugin install vagrant-serverkit</code> というコマンドでプラグインをインストールすると、<del>/.vagrant.d/gems/gems/vagrant-serverkit-0.0.4 にGemがインストールされます。また、</del>/.vagrant.d/plugins.json にvagrant-serverkitをインストールしているという情報が保存されます。この状態で <code>vagrant up</code> などのコマンドを利用すると、Vagrantはまず ~/.vagrant.d/plugins.json などの情報をもとに一時的なGemfileを生成します。Vagrantは、このGemfileのパスを <code>ENV[&quot;BUNDLE_GEMFILE&quot;]</code> に、またGemをインストールしているパスを <code>ENV[&quot;GEM_PATH&quot;]</code> に入れた状態で <code>Bundler.setup</code> を実行することで、各種プラグインの実体へのパスを <code>$LOAD_PATH</code> に入れ、<code>require &quot;vagrant-serverkit&quot;</code> などで読み込めるようにしています。</p>
-<h2 id="vagrant-multiplugはどう対処しているか">vagrant-multiplugはどう対処しているか</h2>
+
+<p>例えば <code>vagrant plugin install vagrant-serverkit</code> というコマンドでプラグインをインストールすると、~/.vagrant.d/gems/gems/vagrant-serverkit-0.0.4 にGemがインストールされます。また、~/.vagrant.d/plugins.json にvagrant-serverkitをインストールしているという情報が保存されます。この状態で <code>vagrant up</code> などのコマンドを利用すると、Vagrantはまず ~/.vagrant.d/plugins.json などの情報をもとに一時的なGemfileを生成します。Vagrantは、このGemfileのパスを <code>ENV[&quot;BUNDLE_GEMFILE&quot;]</code> に、またGemをインストールしているパスを <code>ENV[&quot;GEM_PATH&quot;]</code> に入れた状態で <code>Bundler.setup</code> を実行することで、各種プラグインの実体へのパスを <code>$LOAD_PATH</code> に入れ、<code>require &quot;vagrant-serverkit&quot;</code> などで読み込めるようにしています。</p>
+
+<h2>vagrant-multiplugはどう対処しているか</h2>
+
 <p>Vagrantのプラグインでは、「ある処理が行われる前に任意の処理を行う」という類のコールバックを追加できます。今回は、<code>vagrant up</code> などのVagrantの全てのアクションが起動されたときに、最初に必ず config.plugin.add_dependency で定義されたGemがインストールされているか確認し、されていなければインストールを行う、という処理を追加しています。ここでもしインストールが行われた場合は、再度Gemfileを生成して <code>Bundler.setup</code> を実行し、追加されたプラグインをすぐに読み込める状態にしておく必要があります。</p>
-<p>そこでvagrant-multiplugでは、もしインストールが行われた場合は <code>Kernel.#exec</code> で現在のプロセスを最初から再実行するという方法を取りました。$0 で現在のプログラムへのパスを参照し、同じコマンドライン引数を渡しながら別プロセスへ処理を引き渡し、現在のプロセスはそこで終了させます。このとき、何もしなければ次のプロセスに環境変数が引き継がれるという点に注意しなければなりません。Vagrantでは、一度Gemfileの生成が終わると VAGRANT_INTERNAL_BUNDLERIZED に値が書き込まれますが、この値が既に設定されているときはもうこの処理を行わないという条件分岐が存在するため、この環境変数は空にしておく必要があります。また、VAGRANT_FORCE_BUNDLER が1でなければ再度実行してくれないという条件分岐もあるため、これは1にしておきます。これで、Gemfileを再生成する処理が exec で起動する次のプロセスでも実行されます。</p>
-<pre><code class="language-rb">Kernel.exec(
+
+<p>そこでvagrant-multiplugでは、もしインストールが行われた場合は <code>Kernel.#exec</code> で現在のプロセスを最初から再実行するという方法を取りました。$0 で現在のプログラムへのパスを参照し、同じコマンドライン引数を渡しながら別プロセスへ処理を引き渡し、現在のプロセスはそこで終了させます。このとき、何もしなければ次のプロセスに環境変数が引き継がれるという点に注意しなければなりません。Vagrantでは、一度Gemfileの生成が終わると VAGRANT<em>INTERNAL</em>BUNDLERIZED に値が書き込まれますが、この値が既に設定されているときはもうこの処理を行わないという条件分岐が存在するため、この環境変数は空にしておく必要があります。また、VAGRANT<em>FORCE</em>BUNDLER が1でなければ再度実行してくれないという条件分岐もあるため、これは1にしておきます。これで、Gemfileを再生成する処理が exec で起動する次のプロセスでも実行されます。</p>
+
+<p><code>rb
+Kernel.exec(
   {
     &quot;VAGRANT_INTERNAL_BUNDLERIZED&quot; =&gt; nil,
     &quot;VAGRANT_FORCE_BUNDLER&quot; =&gt; &quot;1&quot;,
   },
   &quot;#{$0} #{ARGV * &#39; &#39;}&quot;,
-)</code></pre>
-<h2 id="参考にしたもの">参考にしたもの</h2>
+)
+</code></p>
+
+<h2>参考にしたもの</h2>
+
 <p>2年前のプラグインでもうメンテナンスされていないみたいですが、<a href="https://github.com/tknerr/vagrant-plugin-bundler">tknerr/vagrant-plugin-bundler</a> というものがあったので参考にしました。Vagrantfileで <code>config.plugin.depend &quot;vagrant-omnibus&quot;, &quot;1.0.2&quot;</code> と書いておくと、vagrant-omnibus v1.0.2 がインストールされていなかった場合に、エラーを出してそこで処理を止めるというやつです。これは主に、Vagrantfileのインターフェースのデザインの参考にしました。vagrant-multiplug ではgemspecのメソッド名を少し意識して、.add_dependency というメソッド名にしました。</p>
+
 <p>これももはやメンテナンスされていませんが、<a href="https://github.com/fgrehm/bindler">fgrehm/bindler</a> というプラグインも参考にしました。これはGemfileのようなものを別途用意してプラグインを管理しようというもので、Vagrantに新しいコマンドを追加して <code>bundle install</code> のようにインストールできるようにしています。</p>
+
 <p>他に、<a href="https://github.com/chef/vagrant-omnibus">vagrant-omnibus</a> も参考になりました。指定したバージョンのChefがゲストにインストールされていることを保証するもので、自動インストール機能なども付いています。プラグインで処理をフックする仕組みなども参考になりました。</p>
+
 <p>また、プロビジョニングツールの1つである <a href="https://github.com/itamae-kitchen/itamae">Itamae</a> も、Serverkit同様にプラグインで機能を拡張する形式のため、同じ問題を抱えていました。<a href="https://github.com/chiastolite/vagrant-itamae">vagrant-itamae</a> の作者からServerkitではどう解決するつもりか尋ねられたときに初めてこの問題を認識したので、その辺りの会話がなければこのプラグインは生まれなかったと思います。</p>
-<h2 id="おわり">おわり</h2>
+
+<h2>おわり</h2>
+
 <p><a href="https://github.com/r7kamura/vagrant-multiplug">vagrant-multiplug</a> が手動で入れる最後のプラグインになると良いですね。</p>
 
   </div>

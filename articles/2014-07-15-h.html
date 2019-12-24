@@ -4,17 +4,21 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width">
   <title>scheman-rails</title>
-  <link href="/articles/2014-07-15-h" rel="canonical">
+  <link href="https://r7kamura.com:0/articles/2014-07-15-h" rel="canonical">
   <link rel="stylesheet" href="/css/main.css">
   <link rel="search" type="application/opensearchdescription+xml" title="r7kamura.com" href="/opensearch.xml">
   <link rel="alternate" type="application/rss+xml" href="/feed.xml">
+  
   <meta property="description" content="沖縄開発合宿2日目: Rails用のDBスキーマ管理ツール scheman-rails を開発した。">
   <meta property="og:description" content="沖縄開発合宿2日目: Rails用のDBスキーマ管理ツール scheman-rails を開発した。">
-  <meta property="og:type" content="article">
+  
+  <meta property="og:type" content="website">
   <meta property="og:title" content="scheman-rails">
-  <meta property="og:url" content="https://r7kamura.com/articles/2014-07-15-h">
+  <meta property="og:url" content="https://r7kamura.com:0/articles/2014-07-15-h">
+  
   <meta property="og:image" content="http://cdn-ak.f.st-hatena.com/images/fotolife/r/r7kamura/20140715/20140715192948.jpg">
   <meta property="twitter:card" content="summary_large_image">
+  
 </head>
 <body>
   <header>
@@ -35,7 +39,7 @@
   <h1>scheman-rails</h1>
   <footer>
     <p>
-      <time datetime="2014-07-15T00:00:00+09:00">2014年07月15日</time>
+      <time datetime="2014-07-15T00:00:00+00:00">2014年07月15日</time>
     </p>
   </footer>
   <div>
@@ -51,7 +55,6 @@
 <li>rake db:schema:apply でSQLを適用して差分を埋める</li>
 </ol>
 
-
 <p>基本的にはこれの繰り返しで、開発者は理想的な db/schema.sql を保つことに集中していれば良いという世界観。
 DBスキーマどういう構成だったったっけという場合にもこのファイルを見れば良いのでちょっと楽。
 導入時に既にDBが存在するときは、いちいちdb/schema.sqlを書くのはだるいので適当に
@@ -66,7 +69,6 @@ mysqldump --no-data --compact の結果を貼り付けとけば良いかもし�
 <li>MySQL固有の構文を使おうとして結局DSLの中に素のSQLが混在してだるい問題</li>
 </ul>
 
-
 <h3>Rails用につくった理由</h3>
 
 <p>強い理由は特に無し。
@@ -80,8 +82,6 @@ Railsはconfig/database.ymlにこれを書く規約になってるので、そ�
 <li>明らかに差分あるはずなのに差分として抽出されないんだけど → 差分抽出器に修正の必要あり</li>
 <li>複数DB扱うときどうするの → db/schema.sql で複数DBのスキーマを扱うか要検討</li>
 </ul>
-
-
 
   </div>
 </article>

@@ -4,17 +4,21 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width">
   <title>cycle.jsでのMVI分割時にどう考えてるか</title>
-  <link href="/articles/2015-10-07-1-h" rel="canonical">
+  <link href="https://r7kamura.com:0/articles/2015-10-07-1-h" rel="canonical">
   <link rel="stylesheet" href="/css/main.css">
   <link rel="search" type="application/opensearchdescription+xml" title="r7kamura.com" href="/opensearch.xml">
   <link rel="alternate" type="application/rss+xml" href="/feed.xml">
+  
   <meta property="description" content="実装していくうちにレイヤやシステムの境界に対する認識が変わってきたので現状を整理。">
   <meta property="og:description" content="実装していくうちにレイヤやシステムの境界に対する認識が変わってきたので現状を整理。">
-  <meta property="og:type" content="article">
+  
+  <meta property="og:type" content="website">
   <meta property="og:title" content="cycle.jsでのMVI分割時にどう考えてるか">
-  <meta property="og:url" content="https://r7kamura.com/articles/2015-10-07-1-h">
+  <meta property="og:url" content="https://r7kamura.com:0/articles/2015-10-07-1-h">
+  
   <meta property="og:image" content="https://r7kamura.com/default_og_image.jpg">
   <meta property="twitter:card" content="summary">
+  
 </head>
 <body>
   <header>
@@ -35,7 +39,7 @@
   <h1>cycle.jsでのMVI分割時にどう考えてるか</h1>
   <footer>
     <p>
-      <time datetime="2015-10-07T00:00:00+09:00">2015年10月07日</time>
+      <time datetime="2015-10-07T00:00:00+00:00">2015年10月07日</time>
     </p>
   </footer>
   <div>
@@ -50,7 +54,6 @@
 <li>例: 記事が作成されたので記事を表示するページに遷移してほしい (HTTP経由の入力に反応する例)</li>
 </ul>
 
-
 <h2>Model</h2>
 
 <p>Intentからの入力をもとに状態の管理を行う。状態は変数に格納するとかではなくて、Observableの中に生き続ける。Elixir/Erlangやったことがある人は、Agentを使って無限ループするプロセスでKVSを表現したりする事例を知っているかもしれないけど、そういう感じに近いです。状態が正規化されていない場合は、状態同士の依存関係などもModelで表現される。例えば記事ID一覧と記事一覧を状態として保持しているとしたら、「記事一覧は記事ID一覧に依存しており、記事ID一覧が変更されるとそれに伴って記事一覧も更新される」といったことがModelで表現されることになる。</p>
@@ -62,7 +65,6 @@
 <h2>Driver</h2>
 
 <p>Drievrは、アプリ外部とのインターフェースとなるやつ。ビジネスロジックを一切含まない、ので普通はライブラリ化して別のアプリと共有できる。公式ではHTTP DriverやDOM Driverがある。Modelでアプリ外部と通信するのは得策ではない。例えばIntentから「記事を削除してくれ」という入力がきたらModelから記事を削除するHTTPリクエストを送りたくなるだろうが、「HTTPリクエストを送信する要求」をViewに返すのがよい。メリットを理解しにくければ、実際にシステム外部と通信しないほうがテストしやすいということを考えるととりあえず納得しやすい。で、「HTTPリクエストを送信する要求」をもとに実際にリクエストを送ってレスポンスを受け取るのがDriverの役割。</p>
-
 
   </div>
 </article>

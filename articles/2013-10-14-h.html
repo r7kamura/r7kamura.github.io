@@ -4,17 +4,21 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width">
   <title>体育の日って高速に唱えるとテストの日に聴こえる</title>
-  <link href="/articles/2013-10-14-h" rel="canonical">
+  <link href="https://r7kamura.com:0/articles/2013-10-14-h" rel="canonical">
   <link rel="stylesheet" href="/css/main.css">
   <link rel="search" type="application/opensearchdescription+xml" title="r7kamura.com" href="/opensearch.xml">
   <link rel="alternate" type="application/rss+xml" href="/feed.xml">
+  
   <meta property="description" content="テスト書きすぎ問題 - hitode909の日記">
   <meta property="og:description" content="テスト書きすぎ問題 - hitode909の日記">
-  <meta property="og:type" content="article">
+  
+  <meta property="og:type" content="website">
   <meta property="og:title" content="体育の日って高速に唱えるとテストの日に聴こえる">
-  <meta property="og:url" content="https://r7kamura.com/articles/2013-10-14-h">
+  <meta property="og:url" content="https://r7kamura.com:0/articles/2013-10-14-h">
+  
   <meta property="og:image" content="https://r7kamura.com/default_og_image.jpg">
   <meta property="twitter:card" content="summary">
+  
 </head>
 <body>
   <header>
@@ -35,7 +39,7 @@
   <h1>体育の日って高速に唱えるとテストの日に聴こえる</h1>
   <footer>
     <p>
-      <time datetime="2013-10-14T00:00:00+09:00">2013年10月14日</time>
+      <time datetime="2013-10-14T00:00:00+00:00">2013年10月14日</time>
     </p>
   </footer>
   <div>
@@ -44,7 +48,6 @@
 <li><a href="http://hakobe932.hatenablog.com/entry/2013/10/14/120345">階層が増えるとテストが増える - はこべブログ ♨</a></li>
 <li><a href="http://shibayu36.hatenablog.com/entry/2013/10/14/122925">テストと対応関係 - $shibayu36-&gt;blog;</a></li>
 </ul>
-
 
 <p>最近書いているWebアプリは、HTTPリクエストを送ってレスポンスと状態をテストする、というテストだけ書くようにしてる。リクエストするとブログエントリを返す、というサービスだとこういう風なテストを書いてる。(HTMLを返すようにすると話が広がって説明が面倒なのでJSONを返すAPIで説明する)</p>
 
@@ -127,7 +130,6 @@
 <span class="synStatement">end</span>
 </pre>
 
-
 <p>言語化したことなかったけどこういう慣習があると思う。</p>
 
 <ul>
@@ -143,7 +145,6 @@
 <li>正常系にタグを付ける</li>
 </ul>
 
-
 <p>これまで色々な規則性を持たせてテストを書くことを試してきたけど、他のは進化の過程で淘汰されて、最終的にこの慣習が最も長く生き残った。ドキュメント形式でのテストの出力結果を見ると大体仕様が分かって便利、という側面もあるけど、このテストを実行すると<a href="https://github.com/r7kamura/autodoc">謎の技術</a>でAPIドキュメントがMarkdownで生成されるようになっているというのが良いところだと思う。全てこの規則の上に成り立っている。正常系用のタグが付いているテストケースごとに、次の情報が記載される。</p>
 
 <ul>
@@ -155,14 +156,12 @@
 <li>サンプルレスポンス</li>
 </ul>
 
-
 <p><a href="https://github.com/r7kamura/autodoc/blob/master/spec/dummy/doc/recipes.md">https://github.com/r7kamura/autodoc/blob/master/spec/dummy/doc/recipes.md</a></p>
 
 <p>開発者用にアプリ側にAPI documentationみたいページを用意してあって、アクセスするとこのMarkdownファイルをいい感じに表示するようにしてる。テストを書くとドキュメントが生成されるので、テストを書くことに対する見返りが大きい。ControllerやDispatcherの内部実装は全くテストしていないけど、C0 coverageは99.0%ぐらいあった気がする。今のところこの方法で困っていることが特に無いのだけど、敢えて言うなら仕様バグみたいなものが見つからないので、関心の埒外の出来事が起きて爆発する可能性がある。だから、テストの出力結果を睨みながら、この仕様はおかしい、ということに人間が思い至る必要がある。</p>
 
 <p>落ちはないけど、JSON API用にドキュメントを自動生成する実装があるので良かったら参考にどうぞ。<br>
 <a href="https://github.com/r7kamura/autodoc">https://github.com/r7kamura/autodoc</a></p>
-
 
   </div>
 </article>

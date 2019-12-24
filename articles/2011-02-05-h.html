@@ -4,17 +4,21 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width">
   <title>MacでUstream等のストリーム配信の再生音を録音する</title>
-  <link href="/articles/2011-02-05-h" rel="canonical">
+  <link href="https://r7kamura.com:0/articles/2011-02-05-h" rel="canonical">
   <link rel="stylesheet" href="/css/main.css">
   <link rel="search" type="application/opensearchdescription+xml" title="r7kamura.com" href="/opensearch.xml">
   <link rel="alternate" type="application/rss+xml" href="/feed.xml">
+  
   <meta property="description" content="この記事はUstremやニコニコ生放送等リアルタイムで再生されている音源を録音して後でも聴けるようにしようという主旨の話をするので、Ustreamは刹那的で一期一会な感じがいいんだよ的な人は読み飛ばしちゃってください。">
   <meta property="og:description" content="この記事はUstremやニコニコ生放送等リアルタイムで再生されている音源を録音して後でも聴けるようにしようという主旨の話をするので、Ustreamは刹那的で一期一会な感じがいいんだよ的な人は読み飛ばしちゃってください。">
-  <meta property="og:type" content="article">
+  
+  <meta property="og:type" content="website">
   <meta property="og:title" content="MacでUstream等のストリーム配信の再生音を録音する">
-  <meta property="og:url" content="https://r7kamura.com/articles/2011-02-05-h">
+  <meta property="og:url" content="https://r7kamura.com:0/articles/2011-02-05-h">
+  
   <meta property="og:image" content="http://gyazo.com/684aa143d42ca1b77a6000592766954f.png">
   <meta property="twitter:card" content="summary_large_image">
+  
 </head>
 <body>
   <header>
@@ -35,15 +39,17 @@
   <h1>MacでUstream等のストリーム配信の再生音を録音する</h1>
   <footer>
     <p>
-      <time datetime="2011-02-05T00:00:00+09:00">2011年02月05日</time>
+      <time datetime="2011-02-05T00:00:00+00:00">2011年02月05日</time>
     </p>
   </footer>
   <div>
     <p>この記事はUstremやニコニコ生放送等リアルタイムで再生されている音源を録音して後でも聴けるようにしようという主旨の話をするので、Ustreamは刹那的で一期一会な感じがいいんだよ的な人は読み飛ばしちゃってください。環境はMac OSX 10.6 SnowLeopardです。仮想オーディオデバイス『Soundflower』を導入して、内蔵出力をSoundflower(2ch)にループバックし、Soundflower(2ch)から内蔵出力と録音ソフトに出力を渡します。録音ソフトには録音から編集まで幅広くこなしMac/Linux/Winで動作するフリーソフト『Audacity』を利用します。</p><br>
 <p>▼イメージで言うとこんな感じ</p>
+
 <pre class="code lang-txt" data-lang="txt" data-unlink>Builtin-Output[1] --&gt; Soundflower --┬--&gt; [3]Audacity.app
                                     └--&gt; [2]Bultin-Input
 </pre>
+
 <div class="section">
     <h4>Soundflower</h4>
     <p><a href="http://code.google.com/p/soundflower/downloads/list">http://code.google.com/p/soundflower/downloads/list</a><br>
@@ -57,6 +63,7 @@ Soundflowerはこんな感じで設定して内部出力にも出力する[2]</p
 <p></p>
 
 </div>
+
 <div class="section">
     <h4>Audacity</h4>
     <p><a href="http://audacity.sourceforge.net/download/beta_mac">Audacity Mac OS X</a><br>

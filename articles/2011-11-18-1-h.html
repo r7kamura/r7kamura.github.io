@@ -4,17 +4,21 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width">
   <title>CSSの整形を正規表現だけで何とかする</title>
-  <link href="/articles/2011-11-18-1-h" rel="canonical">
+  <link href="https://r7kamura.com:0/articles/2011-11-18-1-h" rel="canonical">
   <link rel="stylesheet" href="/css/main.css">
   <link rel="search" type="application/opensearchdescription+xml" title="r7kamura.com" href="/opensearch.xml">
   <link rel="alternate" type="application/rss+xml" href="/feed.xml">
+  
   <meta property="description" content="最近見た2000行ぐらいのCSS、いろんな人が好き勝手編集していてインデントとかその他もろもろが地獄っぽかったので、正規表現だけで何とかして修正しようとした。">
   <meta property="og:description" content="最近見た2000行ぐらいのCSS、いろんな人が好き勝手編集していてインデントとかその他もろもろが地獄っぽかったので、正規表現だけで何とかして修正しようとした。">
-  <meta property="og:type" content="article">
+  
+  <meta property="og:type" content="website">
   <meta property="og:title" content="CSSの整形を正規表現だけで何とかする">
-  <meta property="og:url" content="https://r7kamura.com/articles/2011-11-18-1-h">
+  <meta property="og:url" content="https://r7kamura.com:0/articles/2011-11-18-1-h">
+  
   <meta property="og:image" content="http://cdn-ak.f.st-hatena.com/images/fotolife/r/r7kamura/20111118/20111118034036.png?1321555252">
   <meta property="twitter:card" content="summary_large_image">
+  
 </head>
 <body>
   <header>
@@ -35,11 +39,12 @@
   <h1>CSSの整形を正規表現だけで何とかする</h1>
   <footer>
     <p>
-      <time datetime="2011-11-18T00:00:00+09:00">2011年11月18日</time>
+      <time datetime="2011-11-18T00:00:00+00:00">2011年11月18日</time>
     </p>
   </footer>
   <div>
     <p>最近見た2000行ぐらいのCSS、いろんな人が好き勝手編集していてインデントとかその他もろもろが地獄っぽかったので、正規表現だけで何とかして修正しようとした。</p><p></p>
+
 <div class="section">
 <h3>エントロピー</h3>
 <p>100行程度の規模なら1行ずつ見ていって修正すれば良いけど、人為的な作業である以上必ずエントロピーは拡大していって、定期的に「すみませんでした、死にます」「いえいえすみませんでした、死にます」「いえいえいえすみ」という感じになってみんなの心が濁っていく。生まれる前に消し去りたい。</p>
@@ -58,31 +63,42 @@
 <pre class="code lang-ruby" data-lang="ruby" data-unlink>#!/usr/bin/env ruby
 # usage: cat hell.css | ruby $0 &gt; heaven.css
 
-<p>str = STDIN.read</p>
-<h1 id="末尾の半角スペースを削除">末尾の半角スペースを削除</h1>
-<p>str.gsub!(/ +$/, &quot;&quot;)</p>
-<h1 id="コロンの前に半角スペース">コロンの前に半角スペース</h1>
-<p>str.gsub!(/ +,/, &quot;,&quot;)</p>
-<h1 id="中括弧の前に半角スペース">中括弧の前に半角スペース</h1>
-<p>str.gsub!(/([^ ]){/, &#39;\1 {&#39;)</p>
-<h1 id="中に何も記述のない中括弧を削除">中に何も記述のない中括弧を削除</h1>
-<p>str.gsub!(/.<em>{[\s\n]</em>}\n/, &quot;&quot;)</p>
-<h1 id="1〜7個のインデントを4個に">1〜7個のインデントを4個に</h1>
-<p>str.gsub!(/^ {1,7}([^ ])/, &#39;    \1&#39;)</p>
-<h1 id="タブ文字を半角スペースに">タブ文字を半角スペースに</h1>
-<p>str.gsub!(/\t/, &quot;    &quot;)</p>
-<h1 id="コロンの後に半角スペースを入れる">コロンの後に半角スペースを入れる</h1>
-<h1 id="但しコロンの後がdかのときは入れないhttpと、filter-progiddximage対策">但しコロンの後が&#39;D&#39;か&#39;&#39;のときは入れない(http://と、filter: progid:DXImage対策)</h1>
-<p>str.gsub!(/^( .*):([^ ^D^/])/, &#39;\1: \2&#39;)</p>
-<h1 id="background-urlno-repeat-とかの括弧の後に半角スペース">background: url()no-repeat とかの括弧の後に半角スペース</h1>
-<p>str.gsub!(/)no-repeat/, &quot;) no-repeat&quot;)
-str.gsub!(/)repeat/, &quot;) repeat&quot;)</p>
-<h1 id="先頭がかかのときはインデントしない">先頭が&#39;}&#39;か&#39;#&#39;か&#39;.&#39;のときはインデントしない</h1>
-<h1 id="但しカラーコードのぽい場合は無視">但しカラーコードの#ぽい場合は無視</h1>
-<h1 id="media-only-screen----を使っている場合は困る">@media only screen ... { } を使っている場合は困る</h1>
-<p>str.gsub!(/^ +([.}])/, &#39;\1&#39;)
-str.gsub!(/^ +#([^\d^A-F^a-f])/, &#39;#\1&#39;)</p>
-<p>print str</pre></p>
+str = STDIN.read
+
+# 末尾の半角スペースを削除
+str.gsub!(/ +$/, "")
+
+# コロンの前に半角スペース
+str.gsub!(/ +,/, ",")
+
+# 中括弧の前に半角スペース
+str.gsub!(/([^ ]){/, '\1 {')
+
+# 中に何も記述のない中括弧を削除
+str.gsub!(/.*{[\s\n]*}\n/, "")
+
+# 1〜7個のインデントを4個に
+str.gsub!(/^ {1,7}([^ ])/, '    \1')
+
+# タブ文字を半角スペースに
+str.gsub!(/\t/, "    ")
+
+# コロンの後に半角スペースを入れる
+# 但しコロンの後が'D'か'\'のときは入れない(http://と、filter: progid:DXImage対策)
+str.gsub!(/^( .*):([^ ^D^\/])/, '\1: \2')
+
+# background: url()no-repeat とかの括弧の後に半角スペース
+str.gsub!(/\)no-repeat/, ") no-repeat")
+str.gsub!(/\)repeat/, ") repeat")
+
+# 先頭が'}'か'#'か'.'のときはインデントしない
+# 但しカラーコードの#ぽい場合は無視
+# @media only screen ... { } を使っている場合は困る
+str.gsub!(/^ +([.}])/, '\1')
+str.gsub!(/^ +#([^\d^A-F^a-f])/, '#\1')
+
+print str</pre>
+
 </div><div class="section">
 <h3>FileMerge.app</h3>
 <p>MacだとXcodeにFileMerge.appという差分表示用のアプリが標準で入っていて、大量のCSSの書き換えとかを行った後の比較に役に立つ。</p>

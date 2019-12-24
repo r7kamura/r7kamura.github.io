@@ -4,17 +4,21 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width">
   <title>XMPP界</title>
-  <link href="/articles/2014-05-14-h" rel="canonical">
+  <link href="https://r7kamura.com:0/articles/2014-05-14-h" rel="canonical">
   <link rel="stylesheet" href="/css/main.css">
   <link rel="search" type="application/opensearchdescription+xml" title="r7kamura.com" href="/opensearch.xml">
   <link rel="alternate" type="application/rss+xml" href="/feed.xml">
+  
   <meta property="description" content="XrcというRubyのXMPPクライアントライブラリをつくったので、XMPP界の知見を共有します。">
   <meta property="og:description" content="XrcというRubyのXMPPクライアントライブラリをつくったので、XMPP界の知見を共有します。">
-  <meta property="og:type" content="article">
+  
+  <meta property="og:type" content="website">
   <meta property="og:title" content="XMPP界">
-  <meta property="og:url" content="https://r7kamura.com/articles/2014-05-14-h">
+  <meta property="og:url" content="https://r7kamura.com:0/articles/2014-05-14-h">
+  
   <meta property="og:image" content="https://r7kamura.com/default_og_image.jpg">
   <meta property="twitter:card" content="summary">
+  
 </head>
 <body>
   <header>
@@ -35,7 +39,7 @@
   <h1>XMPP界</h1>
   <footer>
     <p>
-      <time datetime="2014-05-14T00:00:00+09:00">2014年05月14日</time>
+      <time datetime="2014-05-14T00:00:00+00:00">2014年05月14日</time>
     </p>
   </footer>
   <div>
@@ -110,7 +114,6 @@ XMLを部分的に読んでいくので、解析にもSAX形式のパーサを�
 <pre class="code lang-xml" data-lang="xml" data-unlink><span class="synIdentifier">&lt;</span><span class="synSpecial">stream</span><span class="synComment">:</span><span class="synIdentifier">stream </span><span class="synType">xmlns</span><span class="synComment">:</span><span class="synType">stream</span>=<span class="synConstant">'http://etherx.jabber.org/streams'</span><span class="synIdentifier"> </span><span class="synType">xmlns</span>=<span class="synConstant">'jabber:client'</span><span class="synIdentifier"> </span><span class="synType">to</span>=<span class="synConstant">'xxx.example.com'</span><span class="synIdentifier"> </span><span class="synType">xml</span><span class="synComment">:</span><span class="synType">lang</span>=<span class="synConstant">'en'</span><span class="synIdentifier"> </span><span class="synType">version</span>=<span class="synConstant">'1.0'</span><span class="synIdentifier"> &gt;</span>
 </pre>
 
-
 <p>XMLは普通開始要素があると対応する終了要素が存在するけど、
 接続中のときは開始要素しか存在しないっていうのがお洒落ポイントらしい。
 サーバからはこういうメッセージが返ってくる。</p>
@@ -127,7 +130,6 @@ XMLを部分的に読んでいくので、解析にもSAX形式のパーサを�
   <span class="synIdentifier">&lt;/</span><span class="synSpecial">stream</span><span class="synComment">:</span><span class="synIdentifier">features&gt;</span>
 </pre>
 
-
 <h3>TLS</h3>
 
 <p>接続時にstream:featuresという要素を送ってきて、サーバが提供しているサービスを教えてくれるという構図。
@@ -137,7 +139,6 @@ XMLを部分的に読んでいくので、解析にもSAX形式のパーサを�
 
 <pre class="code lang-xml" data-lang="xml" data-unlink><span class="synIdentifier">&lt;starttls </span><span class="synType">xmlns</span>=<span class="synConstant">'urn:ietf:params:xml:ns:xmpp-tls'</span><span class="synIdentifier">/&gt;</span>
 </pre>
-
 
 <p>するとサーバが了承した旨のメッセージを返してくれるので、
 ここで接続中のソケットをSSLを利用したものに取り替える。
@@ -150,7 +151,6 @@ OpenSSL::SSL::SSLSocketを継承してUTF-8を強制するようなクラスを�
 <pre class="code lang-xml" data-lang="xml" data-unlink><span class="synIdentifier">&lt;proceed </span><span class="synType">xmlns</span>=<span class="synConstant">'urn:ietf:params:xml:ns:xmpp-tls'</span><span class="synIdentifier">/&gt;</span>
 </pre>
 
-
 <h3>Auth</h3>
 
 <p>ソケットを取り替えて再接続したら、stream:streamを送るところからやり直す。
@@ -162,13 +162,11 @@ JabberIDとパスワードを単純に繋いでBase64エンコードしたもの
 <pre class="code lang-xml" data-lang="xml" data-unlink><span class="synIdentifier">&lt;auth </span><span class="synType">mechanism</span>=<span class="synConstant">'PLAIN'</span><span class="synIdentifier"> </span><span class="synType">xmlns</span>=<span class="synConstant">'urn:ietf:params:xml:ns:xmpp-sasl'</span><span class="synIdentifier">&gt;</span>YWxpY2VAZXhhbXBsZS5jb20AYWxpY2UAa29nYWlkYW4=<span class="synIdentifier">&lt;/auth&gt;</span>
 </pre>
 
-
 <p>認証に成功するとサーバからその旨のメッセージが送られてくる。
 認証が済んだら再度stream:streamを送るところからやり直す。</p>
 
 <pre class="code lang-xml" data-lang="xml" data-unlink><span class="synIdentifier">&lt;success </span><span class="synType">xmlns</span>=<span class="synConstant">'urn:ietf:params:xml:ns:xmpp-sasl'</span><span class="synIdentifier">/&gt;</span>
 </pre>
-
 
 <h3>Resource Binding</h3>
 
@@ -187,7 +185,6 @@ JabberIDとパスワードを単純に繋いでBase64エンコードしたもの
 <span class="synIdentifier">&lt;/iq&gt;</span>
 </pre>
 
-
 <p>id属性には任意のIDを指定できる。
 クライアントから複数のメッセージをサーバに送ることになるが、
 サーバはそれぞれのメッセージに対して個別に返事を送る。
@@ -203,7 +200,6 @@ JabberIDとパスワードを単純に繋いでBase64エンコードしたもの
 <span class="synIdentifier">&lt;/iq&gt;</span>
 </pre>
 
-
 <h3>Roster</h3>
 
 <p>XMPPではRosterというアドレス帳みたいな概念があって、
@@ -218,7 +214,6 @@ HipChatだと色々返ってくるけどSlackはあまり返ってこない。</
 <span class="synIdentifier">&lt;/iq&gt;</span>
 </pre>
 
-
 <h3>Precense</h3>
 
 <p>Resource Bindingが終われば大体接続時にやるべきことは終わったので、
@@ -227,7 +222,6 @@ HipChatだと色々返ってくるけどSlackはあまり返ってこない。</
 
 <pre class="code lang-xml" data-lang="xml" data-unlink><span class="synIdentifier">&lt;presence </span><span class="synType">xmlns</span>=<span class="synConstant">'jabber:client'</span><span class="synIdentifier">/&gt;</span>
 </pre>
-
 
 <h3>Ping</h3>
 
@@ -244,7 +238,6 @@ SlackもHipChatもおよそ60秒通信がないと接続を切られるので、
 <span class="synIdentifier">&lt;/iq&gt;</span>
 </pre>
 
-
 <h3>Join</h3>
 
 <p>XMPPのコアの概念では、基本的には通信はノード間の通信として実現される。
@@ -259,7 +252,6 @@ aliceがhackにJoinするときにサーバに送るメッセージはこんな�
   <span class="synIdentifier">&lt;x </span><span class="synType">xmlns</span>=<span class="synConstant">'http://jabber.org/protocol/muc'</span><span class="synIdentifier">/&gt;</span>
 <span class="synIdentifier">&lt;/presence&gt;</span>
 </pre>
-
 
 <p>部屋に参加すると、同じ部屋に参加している人の接続状況がpresenceメッセージとしてサーバから送られてきたりする。</p>
 
@@ -281,7 +273,6 @@ aliceがhackにJoinするときにサーバに送るメッセージはこんな�
 <span class="synIdentifier">&lt;/presence&gt;</span>
 </pre>
 
-
 <h3>Message</h3>
 
 <p>会話はmessage要素で表現される。
@@ -294,7 +285,6 @@ hackという部屋でaliceからbobにThank youという文字列を送る場�
 <span class="synIdentifier">&lt;/message&gt;</span>
 </pre>
 
-
 <p>このとき幾つかのHTMLの文字列はHTMLエンティティに変換されるので、
 受け取るときは適当にデコードしてやる必要がある。
 botからaliceにYou're welcomeという文字列が送られてくるとこういうメッセージを受け取ることになる。</p>
@@ -305,7 +295,6 @@ botからaliceにYou're welcomeという文字列が送られてくるとこう�
   <span class="synIdentifier">&lt;/body&gt;</span>
 <span class="synIdentifier">&lt;/message&gt;</span>
 </pre>
-
 
 <h3>Abstraction</h3>
 
@@ -320,7 +309,6 @@ Rubotyの中で「メッセージ」は以下の属性を持つオブジェク�
 <li>payload</li>
 </ul>
 
-
 <p>fromやtoは送り元や送り先を表す識別子で、XMPPならalice@example.com/bot、IRCなら@aliceなど。
 bodyは本文。payloadはその他の任意の情報を入れられるところ。
 例えばXMPPにはIRCと違ってtypeという概念がある(groupchatとchatを区別するのとかに使う)ので、そういう値を入れる。
@@ -333,7 +321,6 @@ fromがalice、toがbob、bodyがpongでtypeがgroupchatとなるような返信
 今はチャットからDigitalOceanのインスタンス立ち上げるAPI叩くやつとか、
 デプロイ用Pull Requestをつくってチャット経由でデプロイさせるやつとかをいろいろ作ってる。
 現場からは以上です。</p>
-
 
   </div>
 </article>

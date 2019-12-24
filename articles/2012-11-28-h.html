@@ -4,17 +4,21 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width">
   <title>ResponseCodeMatchers.gem</title>
-  <link href="/articles/2012-11-28-h" rel="canonical">
+  <link href="https://r7kamura.com:0/articles/2012-11-28-h" rel="canonical">
   <link rel="stylesheet" href="/css/main.css">
   <link rel="search" type="application/opensearchdescription+xml" title="r7kamura.com" href="/opensearch.xml">
   <link rel="alternate" type="application/rss+xml" href="/feed.xml">
-  <meta property="description" content="https:&#x2F;&#x2F;github.com&#x2F;r7kamura&#x2F;response_code_matchers">
-  <meta property="og:description" content="https:&#x2F;&#x2F;github.com&#x2F;r7kamura&#x2F;response_code_matchers">
-  <meta property="og:type" content="article">
+  
+  <meta property="description" content="https://github.com/r7kamura/response_code_matchers">
+  <meta property="og:description" content="https://github.com/r7kamura/response_code_matchers">
+  
+  <meta property="og:type" content="website">
   <meta property="og:title" content="ResponseCodeMatchers.gem">
-  <meta property="og:url" content="https://r7kamura.com/articles/2012-11-28-h">
+  <meta property="og:url" content="https://r7kamura.com:0/articles/2012-11-28-h">
+  
   <meta property="og:image" content="https://r7kamura.com/default_og_image.jpg">
   <meta property="twitter:card" content="summary">
+  
 </head>
 <body>
   <header>
@@ -35,7 +39,7 @@
   <h1>ResponseCodeMatchers.gem</h1>
   <footer>
     <p>
-      <time datetime="2012-11-28T00:00:00+09:00">2012年11月28日</time>
+      <time datetime="2012-11-28T00:00:00+00:00">2012年11月28日</time>
     </p>
   </footer>
   <div>
@@ -48,9 +52,9 @@
 <pre class="code" data-unlink># spec/spec_helper.rb
 require "response_code_matchers"
 
-<p>RSpec.configure do |config|
+RSpec.configure do |config|
   config.include ResponseCodeMatchers
-end</pre></p>
+end</pre>
 <p><br>
 今まではresponse.code.should == "422"って書いてたのを、こういう風に書けるようになる。Railsのcontrollerのspecだと、postやgetがresponseオブジェクトを返す。自分は大体subjectでpostやgetを呼ぶことが多いので、そういうときに良い感じに書ける。</p>
 <p></p>
@@ -61,34 +65,36 @@ describe BlogsController do
       post :create, params
     end
 
-<pre><code>let(:params) do
-  { :title =&amp;gt; &quot;title&quot;, :body =&amp;gt; &quot;body&quot;, :token =&amp;gt; &quot;token&quot;, :user_id =&amp;gt; 1 }
-end
+    let(:params) do
+      { :title =&gt; "title", :body =&gt; "body", :token =&gt; "token", :user_id =&gt; 1 }
+    end
 
-# 201
-context &quot;with valid token&quot; do
-  it { should be_created }
-end
+    # 201
+    context "with valid token" do
+      it { should be_created }
+    end
 
-# 400
-context &quot;without user_id&quot; do
-  before do
-    params.delete(:user_id)
+    # 400
+    context "without user_id" do
+      before do
+        params.delete(:user_id)
+      end
+
+      it { should be_bad_request }
+    end
+
+    # 401
+    context "with invalid token" do
+      before do
+        params[:token] = "invalid"
+      end
+
+      it { should be_unauthorized }
+    end
   end
-
-  it { should be_bad_request }
-end
-
-# 401
-context &quot;with invalid token&quot; do
-  before do
-    params[:token] = &quot;invalid&quot;
-  end
-
-  it { should be_unauthorized }
-end</code></pre><p>  end
-end</pre></p>
+end</pre>
 </div>
+
 <div class="section">
     <h3>実装</h3>
     <p>RackがHTTPステータスコードと名前の対応表を持っているので、それを利用してMatcherをつくる。<br>
@@ -113,35 +119,38 @@ Matcherクラスは、以下のメソッドを持っていれば良い。</p>
 </ul>
 <pre class="code" data-unlink>require "rack"
 
-<p>module ResponseCodeMatchers
+module ResponseCodeMatchers
   Rack::Utils::SYMBOL_TO_STATUS_CODE.each do |name, code|
-    name = name.to_s.gsub(&quot;&#39;&quot;, &quot;&quot;)
-    define_method(&quot;be_#{name}&quot;) do
+    name = name.to_s.gsub("'", "")
+    define_method("be_#{name}") do
       ResponseCodeMatcher.new(code.to_s, name)
     end
-  end</p>
-<p>  class ResponseCodeMatcher
+  end
+
+  class ResponseCodeMatcher
     def initialize(expected, name)
       @expected    = expected
-      @description = name.to_s.gsub(&quot;_&quot;, &quot; &quot;)
-    end</p>
-<pre><code>def matches?(response)
-  @actual = response.code
-  @actual == @expected
-end
+      @description = name.to_s.gsub("_", " ")
+    end
 
-def description
-  &quot;be #@description&quot;
-end
+    def matches?(response)
+      @actual = response.code
+      @actual == @expected
+    end
 
-def failure_message
-  &quot;expected response code to be #@expected, but #@actual&quot;
-end
+    def description
+      "be #@description"
+    end
 
-def negative_failure_message
-  &quot;expected response code not to be #@expected, but #@actual&quot;
-end</code></pre><p>  end
-end</pre></p>
+    def failure_message
+      "expected response code to be #@expected, but #@actual"
+    end
+
+    def negative_failure_message
+      "expected response code not to be #@expected, but #@actual"
+    end
+  end
+end</pre>
 </div>
 
   </div>

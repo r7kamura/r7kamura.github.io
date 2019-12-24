@@ -4,17 +4,21 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width">
   <title>Heroku環境でフォントを追加する</title>
-  <link href="/articles/2018-01-19-heroku-f51381c0f870" rel="canonical">
+  <link href="https://r7kamura.com:0/articles/2018-01-19-heroku-f51381c0f870" rel="canonical">
   <link rel="stylesheet" href="/css/main.css">
   <link rel="search" type="application/opensearchdescription+xml" title="r7kamura.com" href="/opensearch.xml">
   <link rel="alternate" type="application/rss+xml" href="/feed.xml">
+  
   <meta property="description" content="Heroku で動かしている環境にフォントを追加する方法について。">
   <meta property="og:description" content="Heroku で動かしている環境にフォントを追加する方法について。">
-  <meta property="og:type" content="article">
+  
+  <meta property="og:type" content="website">
   <meta property="og:title" content="Heroku環境でフォントを追加する">
-  <meta property="og:url" content="https://r7kamura.com/articles/2018-01-19-heroku-f51381c0f870">
+  <meta property="og:url" content="https://r7kamura.com:0/articles/2018-01-19-heroku-f51381c0f870">
+  
   <meta property="og:image" content="https://r7kamura.com/default_og_image.jpg">
   <meta property="twitter:card" content="summary">
+  
 </head>
 <body>
   <header>
@@ -35,20 +39,32 @@
   <h1>Heroku環境でフォントを追加する</h1>
   <footer>
     <p>
-      <time datetime="2018-01-19T00:00:00+09:00">2018年01月19日</time>
+      <time datetime="2018-01-19T00:00:00+00:00">2018年01月19日</time>
     </p>
   </footer>
   <div>
     <p>Heroku で動かしている環境にフォントを追加する方法について。日本語を含む PDF を生成する場合などに必要になる情報です。</p>
+
 <p>Heroku の環境では、fontconfig という、システム全体のフォントの設定を管理するためのライブラリが利用されています。この設定により、システムがフォントを参照するディレクトリの1つとして、~/.fonts が設定されています (※fontconfig 的にはこのディレクトリは非推奨とありますが)。</p>
+
 <p>この ~/.fonts ディレクトリ以下にフォントファイルを配置することで、システムがフォントを参照できるようになります。フォントファイルというのは、例えば TrueType 形式のフォントの場合、*.ttf のような拡張子のファイルのことです。例えば前述した日本語の PDF 用途だと、IPA フォントや Noto フォントが利用されているケースをよく見かけます。</p>
-<p>さて、フォントのインストール先としてこのディレクトリを利用する場合、Heroku の場合、ホームディレクトリは /app なので、/app/.fonts ディレクトリ以下にフォントファイルを配置することになります。また、Heroku では Push した Git リポジトリが /app 以下に展開されることから、Git リポジトリ内にフォントファイルを含めて管理する場合には、そのルートディレクトリに .fonts ディレクトリを用意しておけば、システムが参照するパスに上手くフォントファイルが配置されることになります。</p>
+
+<p>さて、フォントのインストール先としてこのディレクトリを利用する場合、Heroku の場合、ホームディレクトリは /app なので、/app/.fonts ディレクトリ以下にフォントファイルを配置することになります。また、Heroku では Push した Git リポジトリが /app 以下に展開されることから、Git リポジトリ内にフォントファイルを含めて管理する場合には、そのルートディレクトリに .fonts ディレクトリを用意しておけば、システムが参照するパスに上手くフォントファイルが配置されることになります。</p>
+
 <p>しかし注意点として、どのフォントがインストールされているかという情報はキャッシュされて管理されているため、フォントファイルを変更した場合には、このキャッシュを明示的に更新する必要があります。このキャッシュの更新には、fc-cacheコマンドが利用できます。</p>
+
 <p>例えば、アプリケーションを作成したときにキャッシュを更新する戦略 (Review-Apps 等の用途ではこれで十分) を取るとすると、Heroku では app.json の scripts postdeploy を利用してこれを実現できます。</p>
-<p>{  
-  &quot;scripts&quot;: {<br>    &quot;postdeploy&quot;: &quot;fc-cache -fv&quot;<br>  }<br>}</p>
+
+<p>{<br>
+  &quot;scripts&quot;: {<br>
+    &quot;postdeploy&quot;: &quot;fc-cache -fv&quot;<br>
+  }<br>
+}</p>
+
 <p>ちなみに、Docker で同じようなことをやる場合、ホームディレクトリが /root であることから、~/.fonts は /root/.fonts に展開されるため、例えば以下のように、フォントファイルを適切に配置した上でキャッシュを更新する必要があります。</p>
+
 <p>COPY .fonts /root/.fonts</p>
+
 <p>RUN fc-cache -fv</p>
 
   </div>

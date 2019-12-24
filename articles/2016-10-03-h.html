@@ -4,17 +4,21 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width">
   <title>モデルからJSON生成するときこうやってます2016</title>
-  <link href="/articles/2016-10-03-h" rel="canonical">
+  <link href="https://r7kamura.com:0/articles/2016-10-03-h" rel="canonical">
   <link rel="stylesheet" href="/css/main.css">
   <link rel="search" type="application/opensearchdescription+xml" title="r7kamura.com" href="/opensearch.xml">
   <link rel="alternate" type="application/rss+xml" href="/feed.xml">
+  
   <meta property="description" content="最近RubyとReact.jsをよく利用していて、Rubyで扱っている値をJSONとして表現したいケースが増えてきた。">
   <meta property="og:description" content="最近RubyとReact.jsをよく利用していて、Rubyで扱っている値をJSONとして表現したいケースが増えてきた。">
-  <meta property="og:type" content="article">
+  
+  <meta property="og:type" content="website">
   <meta property="og:title" content="モデルからJSON生成するときこうやってます2016">
-  <meta property="og:url" content="https://r7kamura.com/articles/2016-10-03-h">
+  <meta property="og:url" content="https://r7kamura.com:0/articles/2016-10-03-h">
+  
   <meta property="og:image" content="https://r7kamura.com/default_og_image.jpg">
   <meta property="twitter:card" content="summary">
+  
 </head>
 <body>
   <header>
@@ -35,7 +39,7 @@
   <h1>モデルからJSON生成するときこうやってます2016</h1>
   <footer>
     <p>
-      <time datetime="2016-10-03T00:00:00+09:00">2016年10月03日</time>
+      <time datetime="2016-10-03T00:00:00+00:00">2016年10月03日</time>
     </p>
   </footer>
   <div>
@@ -51,7 +55,6 @@
 <li>
 <code>Object#to_json</code> が再帰的に <code>#as_json</code> を利用するようにする (ActiveSupportがやってくれる)</li>
 </ol>
-
 
 <h2>コード</h2>
 
@@ -79,7 +82,6 @@
     end
   end
 end</pre>
-
 
 <p>上記のものは共通部分を集めた基底クラスで、実際にはこれを継承した具象クラスを定義して利用する。</p>
 
@@ -128,7 +130,6 @@ end</pre>
   end
 end</pre>
 
-
 <h2>使い方</h2>
 
 <p>雑多な部分は取り除いてあるが、例えばRailsでコメントのJSONを返すactionを定義したい場合はこういう風にして使う。Railsの <code>render(json: ...)</code> では内部でJSONを生成するときに勝手に <code>#to_json</code> が呼ばれるが、このときに <code>#as_json</code> が利用される。</p>
@@ -139,7 +140,6 @@ end</pre>
     render json: ::Megaboard::Resources::Comment.new(comment, current_user: current_user)
   end
 end</pre>
-
 
 <h2>JsonWorld::DSL</h2>
 
@@ -184,7 +184,6 @@ end</pre>
 <h2>追記2</h2>
 
 <p>使っている人はコード読んでいるので大体理解してくれそうだけど、active_model_serializersはやりたいことに対して実装が豪華すぎると思っている (仮にactive_model_serializersを自分で書けと言われると少し面倒な規模感)。このくらいの用途であればもっと軽量な実装の方が良いだろうというのが、これを使っていない理由です。ちなみにJsonWorldからJSON Schemaの実装を抜いた、さらに軽量なGemも用意していて、用途に応じてこれと使い分けている。</p>
-
 
   </div>
 </article>

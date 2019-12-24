@@ -4,17 +4,21 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width">
   <title>API Gateway用にRubyでSwagger触るやつ書いた</title>
-  <link href="/articles/2015-07-27-h" rel="canonical">
+  <link href="https://r7kamura.com:0/articles/2015-07-27-h" rel="canonical">
   <link rel="stylesheet" href="/css/main.css">
   <link rel="search" type="application/opensearchdescription+xml" title="r7kamura.com" href="/opensearch.xml">
   <link rel="alternate" type="application/rss+xml" href="/feed.xml">
-  <meta property="description" content="r7kamura&#x2F;swagger_parser">
-  <meta property="og:description" content="r7kamura&#x2F;swagger_parser">
-  <meta property="og:type" content="article">
+  
+  <meta property="description" content="r7kamura/swagger_parser">
+  <meta property="og:description" content="r7kamura/swagger_parser">
+  
+  <meta property="og:type" content="website">
   <meta property="og:title" content="API Gateway用にRubyでSwagger触るやつ書いた">
-  <meta property="og:url" content="https://r7kamura.com/articles/2015-07-27-h">
+  <meta property="og:url" content="https://r7kamura.com:0/articles/2015-07-27-h">
+  
   <meta property="og:image" content="https://pbs.twimg.com/media/CKzps9EUwAAhArY.jpg:large">
   <meta property="twitter:card" content="summary_large_image">
+  
 </head>
 <body>
   <header>
@@ -35,7 +39,7 @@
   <h1>API Gateway用にRubyでSwagger触るやつ書いた</h1>
   <footer>
     <p>
-      <time datetime="2015-07-27T00:00:00+09:00">2015年07月27日</time>
+      <time datetime="2015-07-27T00:00:00+00:00">2015年07月27日</time>
     </p>
   </footer>
   <div>
@@ -52,7 +56,6 @@
 <p>面白半分でAPI GatewayとLambdaを簡単に試してみたところ、リクエストに応じて処理して適当なレスポンスを返すというのはそこまで制限もなく実現できるということが分かったので、これで簡単なWebアプリであれば論理的には実現できる。しかしながら、AWSのコンソールのGUIでちょこちょこコードアップロードしていくのは辛いという感触だったので、何らかの形で自動化したい。そこで、Railsみたいにある程度決められた形に則ってWebアプリを実装すると、提供されるエンドポイントを解析してAPI GatewayとLambdaの上に適当に反映してくれるというやつをつくろうとしていて、そのためにエンドポイントのインターフェースを定義するスキーマがあると内部表現として便利で、そこで鎌倉まで来て海見ながらSwaggerのパーサを書くに至ってる。</p>
 
 <p>この方法でWebアプリを作れるようにしたとしてもそんなに綺麗に上手くとは思えないので、まあ遊びという感じだけど、サーバのことをそこまで気にせずにWebアプリをつくれる可能性が存在するのは良いことだろうと思うし、飽きるまではしばらくやっていきたい。</p>
-
 
   </div>
 </article>

@@ -4,17 +4,21 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width">
   <title>Serverkitつくった</title>
-  <link href="/articles/2015-04-06-h" rel="canonical">
+  <link href="https://r7kamura.com:0/articles/2015-04-06-h" rel="canonical">
   <link rel="stylesheet" href="/css/main.css">
   <link rel="search" type="application/opensearchdescription+xml" title="r7kamura.com" href="/opensearch.xml">
   <link rel="alternate" type="application/rss+xml" href="/feed.xml">
+  
   <meta property="description" content="ChefやAnsible、Puppet、Itamaeなどの構成管理ツールをあまり使ったことがなく、勉強のためにServerkitというのをつくってみたので、現状こういう感じでやってみましたというのを書き残しておく。">
   <meta property="og:description" content="ChefやAnsible、Puppet、Itamaeなどの構成管理ツールをあまり使ったことがなく、勉強のためにServerkitというのをつくってみたので、現状こういう感じでやってみましたというのを書き残しておく。">
-  <meta property="og:type" content="article">
+  
+  <meta property="og:type" content="website">
   <meta property="og:title" content="Serverkitつくった">
-  <meta property="og:url" content="https://r7kamura.com/articles/2015-04-06-h">
+  <meta property="og:url" content="https://r7kamura.com:0/articles/2015-04-06-h">
+  
   <meta property="og:image" content="http://cdn-ak.f.st-hatena.com/images/fotolife/r/r7kamura/20140407/20140407004740.png">
   <meta property="twitter:card" content="summary_large_image">
+  
 </head>
 <body>
   <header>
@@ -35,7 +39,7 @@
   <h1>Serverkitつくった</h1>
   <footer>
     <p>
-      <time datetime="2015-04-06T00:00:00+09:00">2015年04月06日</time>
+      <time datetime="2015-04-06T00:00:00+00:00">2015年04月06日</time>
     </p>
   </footer>
   <div>
@@ -54,7 +58,6 @@
 
 <pre class="code" data-lang="" data-unlink>$ serverkit check recipe.yml
 $ serverkit apply recipe.yml</pre>
-
 
 <h2>レシピ</h2>
 
@@ -76,7 +79,6 @@ $ serverkit apply recipe.yml</pre>
   ]
 }</pre>
 
-
 <h2>レシピの指定</h2>
 
 <p>実行時には、コマンドの引数でレシピのパスを与える。また、レシピを記述したファイルパスの代わりにディレクトリのパスを指定することもでき、この場合ディレクトリ内部のレシピが再帰的に読み込まれることになる。例えばカレントディレクトリから見て以下のようにファイルが配置されていた場合、上から順にレシピが読み込まれ、全てのresourcesが1つの配列にまとめられた状態で実行されることになる。</p>
@@ -90,7 +92,6 @@ recipes
    |--e.yml
    `--f.json
 $ serverkit apply recipes</pre>
-
 
 <h2>レシピの表示</h2>
 
@@ -134,7 +135,6 @@ $ serverkit apply recipes</pre>
   ]
 }</pre>
 
-
 <h2>レシピの検閲</h2>
 
 <p>レシピの内容に誤りがないか実行前に調べるために、<code>serverkit validate</code> というコマンドも用意してみた。例えば、レシピはHash型でArray型のresourcesプロパティを持ち、resourcesの各要素はHash、それぞれのresourceはtypeプロパティを持ち、typeがfileであればsourceとdestinationプロパティが必須、またsourceで指定されたパスには実際にファイルが存在している必要がある、といったルールに従い、違えていればエラーを出力してくれる。余談になるが、validationの定義にはRailsなどで使われているActiveModel::Validationsを利用した。<code>attribute :source, required: true, readable: true</code> のようにValidation定義が書けて、適切なエラーメッセージも用意されて便利。</p>
@@ -142,7 +142,6 @@ $ serverkit apply recipes</pre>
 <pre class="code" data-lang="" data-unlink>$ serverkit validate recipe.yml
 Error: source attribute is required in file resource
 Error: path attribute can't be unreadable path in recipe resource</pre>
-
 
 <h2>ERBテンプレートと変数</h2>
 
@@ -152,15 +151,9 @@ Error: path attribute can't be unreadable path in recipe resource</pre>
 
 <pre class="code" data-lang="" data-unlink>$ serverkit apply recipe.yml.erb --variables=variables.yml</pre>
 
-
-
-
 <pre class="code" data-lang="" data-unlink># variables.yml
 dotfiles_repository: r7kamura/dotfiles
 user: r7kamura</pre>
-
-
-
 
 <pre class="code" data-lang="" data-unlink># recipe.yml.erb
 resources:
@@ -172,7 +165,6 @@ resources:
     type: symlink
     source: /Users/&lt;%= user %&gt;/.zshrc
     destination: /Users/&lt;%= user %&gt;/src/github.com/&lt;%= dotfiles_repository %&gt;/.zshrc</pre>
-
 
 <h2>リソース</h2>
 
@@ -188,7 +180,6 @@ resources:
 <li>service</li>
 <li>symlink</li>
 </ul>
-
 
 <h2>ロール</h2>
 
@@ -206,13 +197,11 @@ resources:
     type: recipe
     path: dotfiles.yml.erb</pre>
 
-
 <h2>おわり</h2>
 
 <p>とりあえず1週間ほど前から深夜アニメを見ながら気長につくってみており、現状こういう感じでやってみたという内容をまとめました。使っていくうちに要件が見えていくだろうと思うので、まずは自宅用のMacbookと職場用のMacbookの構成管理ツールとして使いながら、リソースの種類を増やしていけると良さそう。適当なアプリケーションサーバに適用できる段階になってくれば、AnsibleのvaultやChefのencrypted data bagのような機能なども付けていくかもしれないし、単機能用途と割りきって付けていかないかもしれない。</p>
 
 <p>機能を実装するというのは、極論で言えばまあある程度時間を掛ければできていくけれど、使ってもらえるようなものにするには、そのための要件を拾い集めたり、途中で詰まないように逃げ道を残して安全に仕様を固めていったり、ちゃんと使えるものであるという信頼を得たり、使われるためにコミュニティに参画、また運営し、困っている人がいたら助けてあげる、また自分だけでなく周りの人たちも巻き込んでいく、そういう空気をつくっていく、というところへの絶え間ない努力がまた必要なわけで、先を見ると道は長いし、上手くいくかどうかも怪しい。作り手の気持ちになればこそわかるものというのはこういうもので、また再確認できて嬉しいし、こういうことをまだ嬉しく感じられるというのがまた嬉しくもある。</p>
-
 
   </div>
 </article>

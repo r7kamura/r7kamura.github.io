@@ -4,17 +4,21 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width">
   <title>request specのパターン</title>
-  <link href="/articles/2019-11-15-request-spec-pattern" rel="canonical">
+  <link href="https://r7kamura.com:0/articles/2019-11-15-request-spec-pattern" rel="canonical">
   <link rel="stylesheet" href="/css/main.css">
   <link rel="search" type="application/opensearchdescription+xml" title="r7kamura.com" href="/opensearch.xml">
   <link rel="alternate" type="application/rss+xml" href="/feed.xml">
+  
   <meta property="description" content="request specを書くときに従っているパターンを言語化する。">
   <meta property="og:description" content="request specを書くときに従っているパターンを言語化する。">
-  <meta property="og:type" content="article">
+  
+  <meta property="og:type" content="website">
   <meta property="og:title" content="request specのパターン">
-  <meta property="og:url" content="https://r7kamura.com/articles/2019-11-15-request-spec-pattern">
+  <meta property="og:url" content="https://r7kamura.com:0/articles/2019-11-15-request-spec-pattern">
+  
   <meta property="og:image" content="https://r7kamura.com/default_og_image.jpg">
   <meta property="twitter:card" content="summary">
+  
 </head>
 <body>
   <header>
@@ -35,47 +39,65 @@
   <h1>request specのパターン</h1>
   <footer>
     <p>
-      <time datetime="2019-11-15T00:00:00+09:00">2019年11月15日</time>
+      <time datetime="2019-11-15T00:00:00+00:00">2019年11月15日</time>
     </p>
   </footer>
   <div>
     <p>request specを書くときに従っているパターンを言語化する。</p>
-<h2 id="ファイルパス">ファイルパス</h2>
+
+<h2>ファイルパス</h2>
+
 <p>1つのエンドポイントに対して1つのテストファイルを用意する。</p>
-<pre><code>GET  /users
+
+<p><code>
+GET  /users
 GET  /users/:id
 GET  /users/:user_id/articles
 POST /users/:user_id/articles
-GET  /users/:user_id/articles/:id/edit</code></pre><p>例えば、上記のエンドポイントに対して以下のファイルを用意する。</p>
+GET  /users/:user_id/articles/:id/edit
+</code></p>
+
+<p>例えば、上記のエンドポイントに対して以下のファイルを用意する。</p>
+
 <ul>
-<li>spec/requests/users_index_spec.rb</li>
-<li>spec/requests/users_show_spec.rb</li>
-<li>spec/requests/user_articles_index_spec.rb</li>
-<li>spec/requests/user_articles_create_spec.rb</li>
-<li>spec/requests/user_articles_edit_spec.rb</li>
+<li>spec/requests/users<em>index</em>spec.rb</li>
+<li>spec/requests/users<em>show</em>spec.rb</li>
+<li>spec/requests/user<em>articles</em>index_spec.rb</li>
+<li>spec/requests/user<em>articles</em>create_spec.rb</li>
+<li>spec/requests/user<em>articles</em>edit_spec.rb</li>
 </ul>
+
 <p>以下の背景でこうしている。</p>
+
 <ul>
 <li>関連度が近いファイルが辞書順で近いところに並んでほしい</li>
 <li>ほとんどの場合、エンドポイントとactionは1対1対応している</li>
 </ul>
-<h2 id="ファイルの内容">ファイルの内容</h2>
+
+<h2>ファイルの内容</h2>
+
 <p>例えば、<code>GET /users/:id</code> に対するコードは以下のように書く。</p>
-<pre><code>RSpec.describe &quot;GET /users/:id&quot; do
+
+<p>```
+RSpec.describe &quot;GET /users/:id&quot; do
   subject do
     get &quot;/users/#{id}&quot;
-  end
+  end</p>
 
-  let(:id) do
+<p>let(:id) do
     user.id
-  end
+  end</p>
 
-  let(:user) do
+<p>let(:user) do
     FactoryBot.create(:user)
-  end
+  end</p>
 
-  # ...
-end</code></pre><p><code>describe</code>の中では、以下の順でメソッド呼び出しを行う。</p>
+<p># ...
+end
+```</p>
+
+<p><code>describe</code>の中では、以下の順でメソッド呼び出しを行う。</p>
+
 <ol>
 <li><code>subject</code></li>
 <li><code>around</code></li>
@@ -86,24 +108,37 @@ end</code></pre><p><code>describe</code>の中では、以下の順でメソッ�
 <li><code>shared_examples</code></li>
 <li><code>context</code></li>
 </ol>
+
 <p><code>let</code>、<code>shared_context</code>、<code>shared_examples</code>は、第一引数の辞書順で定義する。このとき、<code>let</code>と<code>let!</code>は区別しない。</p>
+
 <p><code>description</code>と<code>subject</code>については、<a href="https://github.com/r7kamura/rspec-request_describer">rspec-request_describer</a>の作法に従った書き方でもある。</p>
-<h2 id="共通ファイル">共通ファイル</h2>
+
+<h2>共通ファイル</h2>
+
 <p>例えば、ログインを済ませるコードを共通化したい場合、以下のようなmoduleを定義して利用する。</p>
-<pre><code># spec/support/my_app/spec_helpers/authenticatable.rb
-module MyApp
+
+<p>```</p>
+
+<h1>spec/support/my<em>app/spec</em>helpers/authenticatable.rb</h1>
+
+<p>module MyApp
   module SpecHelpers
     module Authenticatable
-      extend ::ActiveSupport::Concern
+      extend ::ActiveSupport::Concern</p>
 
-      included do
-        shared_context &#39;with current user&#39; do
-          # ...
-        end
-      end
+<pre><code>  included do
+    shared_context &#39;with current user&#39; do
+      # ...
     end
   end
-end</code></pre><p>トップレベルに奔放に定数を定義せず、そのアプリの名前空間に、ExampleGroupに<code>include</code>するmoduleを定義するための名前空間をつくり、そこに定義すること。</p>
+end
+</code></pre>
+
+<p>end
+end
+```</p>
+
+<p>トップレベルに奔放に定数を定義せず、そのアプリの名前空間に、ExampleGroupに<code>include</code>するmoduleを定義するための名前空間をつくり、そこに定義すること。</p>
 
   </div>
 </article>

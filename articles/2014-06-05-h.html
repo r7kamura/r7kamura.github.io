@@ -4,17 +4,21 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width">
   <title>APIクライアントを自動生成するやつ</title>
-  <link href="/articles/2014-06-05-h" rel="canonical">
+  <link href="https://r7kamura.com:0/articles/2014-06-05-h" rel="canonical">
   <link rel="stylesheet" href="/css/main.css">
   <link rel="search" type="application/opensearchdescription+xml" title="r7kamura.com" href="/opensearch.xml">
   <link rel="alternate" type="application/rss+xml" href="/feed.xml">
+  
   <meta property="description" content="Heroicsという、JSON Schemaを元にAPIクライアントのコードを自動生成するやつを見た。">
   <meta property="og:description" content="Heroicsという、JSON Schemaを元にAPIクライアントのコードを自動生成するやつを見た。">
-  <meta property="og:type" content="article">
+  
+  <meta property="og:type" content="website">
   <meta property="og:title" content="APIクライアントを自動生成するやつ">
-  <meta property="og:url" content="https://r7kamura.com/articles/2014-06-05-h">
+  <meta property="og:url" content="https://r7kamura.com:0/articles/2014-06-05-h">
+  
   <meta property="og:image" content="https://r7kamura.com/default_og_image.jpg">
   <meta property="twitter:card" content="summary">
+  
 </head>
 <body>
   <header>
@@ -35,7 +39,7 @@
   <h1>APIクライアントを自動生成するやつ</h1>
   <footer>
     <p>
-      <time datetime="2014-06-05T00:00:00+09:00">2014年06月05日</time>
+      <time datetime="2014-06-05T00:00:00+00:00">2014年06月05日</time>
     </p>
   </footer>
   <div>
@@ -45,7 +49,6 @@ client.erbというERBのテンプレートに解析結果のオブジェクト�
 
 <pre class="code" data-unlink>$ gem install heroics
 $ heroics-generate SuperAwesomeClient schema.json https://api.example.com &gt; client.rb</pre>
-
 
 <h3>Heroicsから生成されるもの</h3>
 
@@ -57,12 +60,12 @@ client.recipe.create("title")
 client.recipe.list #=&gt; [...]
 client.recipe.show(123)</pre>
 
-
 <h3>JSON Schema</h3>
 
 <p>普通JSONで書くけど紙面の都合上ちょっと読みにくいのでYAML形式で記述しときます。</p>
 
 <pre class="code" data-unlink></pre>
+
   </div>
 </article>
 

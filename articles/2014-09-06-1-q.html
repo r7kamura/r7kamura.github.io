@@ -4,17 +4,21 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width">
   <title>REST APIのドキュメントに書かれているもの</title>
-  <link href="/articles/2014-09-06-1-q" rel="canonical">
+  <link href="https://r7kamura.com:0/articles/2014-09-06-1-q" rel="canonical">
   <link rel="stylesheet" href="/css/main.css">
   <link rel="search" type="application/opensearchdescription+xml" title="r7kamura.com" href="/opensearch.xml">
   <link rel="alternate" type="application/rss+xml" href="/feed.xml">
+  
   <meta property="description" content="もし急にAPIドキュメントを書く必要が発生したら、何を参考にしたら良いのか。">
   <meta property="og:description" content="もし急にAPIドキュメントを書く必要が発生したら、何を参考にしたら良いのか。">
-  <meta property="og:type" content="article">
+  
+  <meta property="og:type" content="website">
   <meta property="og:title" content="REST APIのドキュメントに書かれているもの">
-  <meta property="og:url" content="https://r7kamura.com/articles/2014-09-06-1-q">
+  <meta property="og:url" content="https://r7kamura.com:0/articles/2014-09-06-1-q">
+  
   <meta property="og:image" content="https://r7kamura.com/default_og_image.jpg">
   <meta property="twitter:card" content="summary">
+  
 </head>
 <body>
   <header>
@@ -35,20 +39,25 @@
   <h1>REST APIのドキュメントに書かれているもの</h1>
   <footer>
     <p>
-      <time datetime="2014-09-06T00:00:00+09:00">2014年09月06日</time>
+      <time datetime="2014-09-06T00:00:00+00:00">2014年09月06日</time>
     </p>
   </footer>
   <div>
     <p>もし急にAPIドキュメントを書く必要が発生したら、何を参考にしたら良いのか。REST APIを提供しているサービスがどういった開発者向けドキュメントを提供しているのかについて調べた。今回対象としたサービスは、GitHub、Twitter、Square、DigitalOceanの4つのサービス。</p>
+
 <ul>
 <li><a href="https://developer.github.com/v3/">https://developer.github.com/v3/</a></li>
 <li><a href="https://dev.twitter.com/docs">https://dev.twitter.com/docs</a></li>
 <li><a href="https://developers.digitalocean.com/">https://developers.digitalocean.com/</a></li>
 <li><a href="https://connect.squareup.com/docs/api">https://connect.squareup.com/docs/api</a></li>
 </ul>
+
 <p>なお以下の文章の中では、個々のアクセス可能なメソッドとURLの組み合わせを指して「API」という言葉を使うことがある。例えば、<code>GET /gists/:id</code> という特定の投稿を取得するAPIや <code>GET /gists/:gist_id/comments</code> という特定の投稿に寄せられたコメントを取得するAPI、というように利用する。</p>
-<h2 id="overviewの内容はほぼ共通している">Overviewの内容はほぼ共通している</h2>
+
+<h2>Overviewの内容はほぼ共通している</h2>
+
 <p>GitHub、Square、DigitalOceanでは、ドキュメントの先頭部分にAPI全体に共通する情報を記載している。Twitterでは情報が分散しており、明らかにOverviewだと言える箇所は見当たらなかった。各Overviewには、共通して以下のような内容が記載されている。</p>
+
 <ul>
 <li>バージョン</li>
 <li>入出力データの形式 (JSONであるとか)</li>
@@ -62,15 +71,20 @@
 <li>ページネーション</li>
 <li>リクエスト数制限</li>
 </ul>
+
 <p>また、サービスによっては以下のような内容にも触れている。</p>
+
 <ul>
 <li>Cross Origin Resource Sharing</li>
 <li>JSON-P Callbacks</li>
 <li>Timezones</li>
 <li>メタデータ</li>
 </ul>
-<h2 id="apiごとの説明もほぼ共通している">APIごとの説明もほぼ共通している</h2>
+
+<h2>APIごとの説明もほぼ共通している</h2>
+
 <p>ドキュメントではOverviewの説明のあとに各APIについての説明が続く。内容はサービスによってまちまちだが、主に以下の候補の中の一部の情報が記載されている。</p>
+
 <ul>
 <li>エンドポイントに関する情報</li>
 <li>APIに関する説明文</li>
@@ -81,13 +95,21 @@
 <li>サンプルリクエスト</li>
 <li>サンプルレスポンス</li>
 </ul>
+
 <p>リソースごとにAPIをまとめているページでは、それぞれのAPIについてレスポンスの内容を説明するわけではなく、このAPIはこのリソースを返すという情報と、このリソースにはこの属性が含まれる、という情報がまとめて記載されている場合もある。</p>
-<h2 id="ページの分け方が異なる">ページの分け方が異なる</h2>
-<h3 id="github">GitHub</h3>
+
+<h2>ページの分け方が異なる</h2>
+
+<h3>GitHub</h3>
+
 <p>GitHubでは、リソースの種類ごとにページが分かれている。例えばユーザに関するAPIについては /v3/users に記載されており、Gistに関するAPIについては /v3/gists に記載されている。どのページにも表示されるサイドバーからページ間を遷移できるようになっている。また、タブ形式のナビゲーションから、Webhook APIについてのページや、API用のライブラリを紹介するページに遷移できるようになっている。</p>
-<h3 id="twitter">Twitter</h3>
+
+<h3>Twitter</h3>
+
 <p>Twitterでは、各APIごとにページが独立している。認証の種類やリクエスト数制限など、Twitterでは各APIごとの持つ属性が大きく異なる場合があり、またAPIごとに説明する必要のある情報量が多いため、細かくページが分かれている方が都合が良いと判断したのかもしれない。</p>
-<h3 id="square--digitalocean">Square &amp; DigitalOcean</h3>
+
+<h3>Square &amp; DigitalOcean</h3>
+
 <p>GitHubとTwitterはツリー状にページを分けていたが、SquareとDigitalOceanでは全てのAPIに関する情報が1つのページに収められており、サイドバーからページ内リンクを辿るようになっている。各APIは、リソースの種類別にまとめられていると言える。</p>
 
   </div>

@@ -4,17 +4,21 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width">
   <title>エディタの実装をcycle.jsでMVIベースにしてみた話</title>
-  <link href="/articles/2015-10-04-1-h" rel="canonical">
+  <link href="https://r7kamura.com:0/articles/2015-10-04-1-h" rel="canonical">
   <link rel="stylesheet" href="/css/main.css">
   <link rel="search" type="application/opensearchdescription+xml" title="r7kamura.com" href="/opensearch.xml">
   <link rel="alternate" type="application/rss+xml" href="/feed.xml">
+  
   <meta property="description" content="最近Electronでエディタをつくっており、最初はReact.jsを使いながらゆるいFlux風の設計でつくっていたのを、cycle.jsを使いながら一部をMVI風の設計に置き換えてみた。">
   <meta property="og:description" content="最近Electronでエディタをつくっており、最初はReact.jsを使いながらゆるいFlux風の設計でつくっていたのを、cycle.jsを使いながら一部をMVI風の設計に置き換えてみた。">
-  <meta property="og:type" content="article">
+  
+  <meta property="og:type" content="website">
   <meta property="og:title" content="エディタの実装をcycle.jsでMVIベースにしてみた話">
-  <meta property="og:url" content="https://r7kamura.com/articles/2015-10-04-1-h">
+  <meta property="og:url" content="https://r7kamura.com:0/articles/2015-10-04-1-h">
+  
   <meta property="og:image" content="https://cloud.githubusercontent.com/assets/111689/10122526/3d9b996c-6557-11e5-80bb-967bb7e13478.png">
   <meta property="twitter:card" content="summary_large_image">
+  
 </head>
 <body>
   <header>
@@ -35,7 +39,7 @@
   <h1>エディタの実装をcycle.jsでMVIベースにしてみた話</h1>
   <footer>
     <p>
-      <time datetime="2015-10-04T00:00:00+09:00">2015年10月04日</time>
+      <time datetime="2015-10-04T00:00:00+00:00">2015年10月04日</time>
     </p>
   </footer>
   <div>
@@ -64,7 +68,6 @@
   return renderingEventSource;
 }</pre>
 
-
 <h2>Model-View-Intent</h2>
 
 <p><code>main()</code> 関数が大きくなっていくことを考えると、適切に分割することを考えたいが、そのときの分割方法としてModel・View・Intentの3つの部分に分けることが提案されている。Model・View・Intentはどれも、入力としてイベントソースを取り、出力として別のイベントソースを返す関数の形態をとる。(図は <a href="http://cycle.js.org/model-view-intent.html">http://cycle.js.org/model-view-intent.html</a> より)</p>
@@ -88,7 +91,6 @@ Cycle.run(
   }
 );</pre>
 
-
 <h2>フラクタル懐かしいですね</h2>
 
 <p>cycle.js を見てると、たびたび「イベントソースを受け取ってイベントソースを返す関数」という形式が設計上に何度も出てくる。こういう風に「イベントソースを変換する関数」という型を共通プロトコルとして使い回し、ある大きなコンポーネントを分割する場合にも複数の同じ型の小さなコンポーネントに分割することで、自己相似形を保っていて、直感的な設計を保ってるのはかっこいい。いかにも好きそうな人は好きそう。</p>
@@ -99,29 +101,29 @@ Cycle.run(
 
 <p>ReactやReduxでの描画とイベントハンドラの責務の分離の話が出てちょっと会話したので参考に載せとく。</p>
 
-<p></p><blockquote class="twitter-tweet" lang="ja">
+<p><p></p><blockquote class="twitter-tweet" lang="ja">
 <p lang="ja" dir="ltr">Reduxでconnectするとdispatchが手に入るのでComponentの中でバンバン使っちゃうけど、できればmapDispatchToPropsをうまく使ってComponentはほぼDumbな状態にするべきなんだろうな</p>— 稚魚 (@questbeat) <a href="https://twitter.com/questbeat/status/650329970133209088">2015, 10月 3</a>
-</blockquote><script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+</blockquote><script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script></p>
 
-<p></p><blockquote class="twitter-tweet" lang="ja">
+<p><p></p><blockquote class="twitter-tweet" lang="ja">
 <p lang="ja" dir="ltr"><a href="https://twitter.com/r7kamura">@r7kamura</a> view-event-publisherってやつですか？これ正直どうかと思います…</p>— 稚魚 (@questbeat) <a href="https://twitter.com/questbeat/status/650333765181411328">2015, 10月 3</a>
-</blockquote><script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+</blockquote><script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script></p>
 
-<p></p><blockquote class="twitter-tweet" lang="ja">
+<p><p></p><blockquote class="twitter-tweet" lang="ja">
 <p lang="ja" dir="ltr"><a href="https://twitter.com/r7kamura">@r7kamura</a> <a href="https://twitter.com/questbeat">@questbeat</a> 理性捨てて this.props.actions.clip.addClip() とかやってる……</p>— 偽名 (@amagitakayosi) <a href="https://twitter.com/amagitakayosi/status/650335270273847298">2015, 10月 3</a>
-</blockquote><script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+</blockquote><script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script></p>
 
-<p></p><blockquote class="twitter-tweet" lang="ja">
-<p lang="ja" dir="ltr"><a href="https://twitter.com/amagitakayosi">@amagitakayosi</a> <a href="https://twitter.com/questbeat">@questbeat</a> 完全に理性捨てると祖先のコンポーネントのstateにactions渡すだけでたら自動的に末代まで知れ渡るぞ <a href="http://t.co/XSHRAgTqoj">http://t.co/XSHRAgTqoj</a></p>— CSSセレクタ設計技師 (@r7kamura) <a href="https://twitter.com/r7kamura/status/650335755319951361">2015, 10月 3</a>
-</blockquote><script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+<p><p></p><blockquote class="twitter-tweet" lang="ja">
+<p lang="ja" dir="ltr"><a href="https://twitter.com/amagitakayosi">@amagitakayosi</a> <a href="https://twitter.com/questbeat">@questbeat</a> 完全に理性捨てると祖先のコンポーネントのstateにactions渡すだけでたら自動的に末代まで知れ渡るぞ <a href="http://t.co/XSHRAgTqoj"><a href="http://t.co/XSHRAgTqoj">http://t.co/XSHRAgTqoj</a></a></p>— CSSセレクタ設計技師 (@r7kamura) <a href="https://twitter.com/r7kamura/status/650335755319951361">2015, 10月 3</a>
+</blockquote><script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script></p>
 
-<p></p><blockquote class="twitter-tweet" lang="ja">
+<p><p></p><blockquote class="twitter-tweet" lang="ja">
 <p lang="ja" dir="ltr"><a href="https://twitter.com/r7kamura">@r7kamura</a> <a href="https://twitter.com/amagitakayosi">@amagitakayosi</a> 最初全く理解できなかったんですが読んでるうちに理解してきて良さそうに思えてきました</p>— 稚魚 (@questbeat) <a href="https://twitter.com/questbeat/status/650343426865565698">2015, 10月 3</a>
-</blockquote><script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+</blockquote><script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script></p>
 
-<p></p><blockquote class="twitter-tweet" lang="ja">
+<p><p></p><blockquote class="twitter-tweet" lang="ja">
 <p lang="ja" dir="ltr"><a href="https://twitter.com/r7kamura">@r7kamura</a> これならViewはテンプレートエンジンから出力しても困らなそうですね</p>— 偽名 (@amagitakayosi) <a href="https://twitter.com/amagitakayosi/status/650342394173362176">2015, 10月 3</a>
-</blockquote><script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+</blockquote><script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script></p>
 
 <h2>その他リンク</h2>
 
@@ -129,8 +131,6 @@ Cycle.run(
 <li><a href="https://gist.github.com/r7kamura/59c394af95f35668085c">cycle.jsのほとんど何もしない雛形.js</a></li>
 <li><a href="https://gist.github.com/r7kamura/a8fc92261921032eb42d">cycle.js使うとエントリポイント大体こうなる.js</a></li>
 </ul>
-
-
 
   </div>
 </article>

@@ -4,17 +4,21 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width">
   <title>rapa v0.5.4 の変更点</title>
-  <link href="/articles/2017-03-30-1-h" rel="canonical">
+  <link href="https://r7kamura.com:0/articles/2017-03-30-1-h" rel="canonical">
   <link rel="stylesheet" href="/css/main.css">
   <link rel="search" type="application/opensearchdescription+xml" title="r7kamura.com" href="/opensearch.xml">
   <link rel="alternate" type="application/rss+xml" href="/feed.xml">
+  
   <meta property="description" content="新たな日付の形式のサポート">
   <meta property="og:description" content="新たな日付の形式のサポート">
-  <meta property="og:type" content="article">
+  
+  <meta property="og:type" content="website">
   <meta property="og:title" content="rapa v0.5.4 の変更点">
-  <meta property="og:url" content="https://r7kamura.com/articles/2017-03-30-1-h">
+  <meta property="og:url" content="https://r7kamura.com:0/articles/2017-03-30-1-h">
+  
   <meta property="og:image" content="https://r7kamura.com/default_og_image.jpg">
   <meta property="twitter:card" content="summary">
+  
 </head>
 <body>
   <header>
@@ -35,7 +39,7 @@
   <h1>rapa v0.5.4 の変更点</h1>
   <footer>
     <p>
-      <time datetime="2017-03-30T00:00:00+09:00">2017年03月30日</time>
+      <time datetime="2017-03-30T00:00:00+00:00">2017年03月30日</time>
     </p>
   </footer>
   <div>
@@ -48,13 +52,11 @@
 <li>2017-03</li>
 </ul>
 
-
 <p>今回、amakan の取得済み商品データを確認することで、以下のようなパターンが新たに発見された。</p>
 
 <ul>
 <li>2017</li>
 </ul>
-
 
 <p>該当するのは、例えば以下の商品。</p>
 
@@ -62,18 +64,15 @@
 <li><a href="https://www.amazon.co.jp/dp/B01LWNZASZ">https://www.amazon.co.jp/dp/B01LWNZASZ</a></li>
 </ul>
 
-
 <p>これに合わせて rapa の日付解析部分のコードが以下のように変更された。今後想定外のパターンが来た場合はすべて nil を返すようにも変更している。</p>
 
 <ul>
 <li><a href="https://github.com/r7kamura/rapa/commit/6b37095c1f4e11f3fd175a95115534a0bb03ce1b">https://github.com/r7kamura/rapa/commit/6b37095c1f4e11f3fd175a95115534a0bb03ce1b</a></li>
 </ul>
 
-
 <h2>雑記</h2>
 
 <p>なんでも記事にしておく期に入ったので、細かい変更についても気が向いたら記事を書いている。</p>
-
 
   </div>
 </article>

@@ -4,17 +4,21 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width">
   <title>streamerというCUIアプリを作っています</title>
-  <link href="/articles/2011-04-12-h" rel="canonical">
+  <link href="https://r7kamura.com:0/articles/2011-04-12-h" rel="canonical">
   <link rel="stylesheet" href="/css/main.css">
   <link rel="search" type="application/opensearchdescription+xml" title="r7kamura.com" href="/opensearch.xml">
   <link rel="alternate" type="application/rss+xml" href="/feed.xml">
-  <meta property="description" content="https:&#x2F;&#x2F;github.com&#x2F;r7kamura&#x2F;streamer">
-  <meta property="og:description" content="https:&#x2F;&#x2F;github.com&#x2F;r7kamura&#x2F;streamer">
-  <meta property="og:type" content="article">
+  
+  <meta property="description" content="https://github.com/r7kamura/streamer">
+  <meta property="og:description" content="https://github.com/r7kamura/streamer">
+  
+  <meta property="og:type" content="website">
   <meta property="og:title" content="streamerというCUIアプリを作っています">
-  <meta property="og:url" content="https://r7kamura.com/articles/2011-04-12-h">
+  <meta property="og:url" content="https://r7kamura.com:0/articles/2011-04-12-h">
+  
   <meta property="og:image" content="http://farm6.static.flickr.com/5264/5610500965_055bb9b714_b.jpg">
   <meta property="twitter:card" content="summary_large_image">
+  
 </head>
 <body>
   <header>
@@ -35,7 +39,7 @@
   <h1>streamerというCUIアプリを作っています</h1>
   <footer>
     <p>
-      <time datetime="2011-04-12T00:00:00+09:00">2011年04月12日</time>
+      <time datetime="2011-04-12T00:00:00+00:00">2011年04月12日</time>
     </p>
   </footer>
   <div>
@@ -55,6 +59,7 @@ jugyoさんの作られたTwitterクライアントEarthquake.gemを改造して
 <p></p>
 
 </div>
+
 <div class="section">
     <h4>インストール</h4>
     <p>Ruby 1.9以上を利用して下さい。<br>
@@ -66,6 +71,7 @@ $ gem <span class="synStatement">install</span> bundler<span class="synComment">
 $ bundle <span class="synStatement">install</span>
 </pre>
 </div>
+
 <div class="section">
     <h4>使い方</h4>
     <p>以下のような感じで、オプションを渡して使いたいモードを指定しながら起動します。</p>
@@ -73,15 +79,18 @@ $ bundle <span class="synStatement">install</span>
 ヘルプが出ます。
   $ ./bin/streamer.rb <span class="synSpecial">-h</span>
 
-<p>twitter<span class="synStatement">(</span>-t, --twitter<span class="synStatement">)</span>
-  $ ./bin/streamer.rb <span class="synSpecial">-t</span></p>
-<p>hatena-bookmark<span class="synStatement">(</span>-b username, --<span class="synIdentifier">bookmark</span>=username<span class="synStatement">)</span>
-  $ ./bin/streamer.rb <span class="synSpecial">-b</span> r7kamura</p>
-<p>2ch<span class="synStatement">(</span>-c thread_url, --<span class="synIdentifier">channel</span>=thread_url<span class="synStatement">)</span>
-  $ ./bin/streamer.rb <span class="synSpecial">-c</span> <a href="http://kamome.2ch.net/">http://kamome.2ch.net/</a><span class="synStatement">test</span>/<span class="synStatement">read</span>.cgi/anime/<span class="synConstant">1301907984</span>/</p>
-<p>all
-  $ ./bin/streamer.rb <span class="synSpecial">-t</span> <span class="synSpecial">-b</span> r7kamura <span class="synSpecial">-c</span> <a href="http://kamome.2ch.net/">http://kamome.2ch.net/</a><span class="synStatement">test</span>/<span class="synStatement">read</span>.cgi/anime/<span class="synConstant">1301907984</span>/
-</pre></p>
+twitter<span class="synStatement">(</span>-t, --twitter<span class="synStatement">)</span>
+  $ ./bin/streamer.rb <span class="synSpecial">-t</span>
+
+hatena-bookmark<span class="synStatement">(</span>-b username, --<span class="synIdentifier">bookmark</span>=username<span class="synStatement">)</span>
+  $ ./bin/streamer.rb <span class="synSpecial">-b</span> r7kamura
+
+2ch<span class="synStatement">(</span>-c thread_url, --<span class="synIdentifier">channel</span>=thread_url<span class="synStatement">)</span>
+  $ ./bin/streamer.rb <span class="synSpecial">-c</span> http://kamome.2ch.net/<span class="synStatement">test</span>/<span class="synStatement">read</span>.cgi/anime/<span class="synConstant">1301907984</span>/
+
+all
+  $ ./bin/streamer.rb <span class="synSpecial">-t</span> <span class="synSpecial">-b</span> r7kamura <span class="synSpecial">-c</span> http://kamome.2ch.net/<span class="synStatement">test</span>/<span class="synStatement">read</span>.cgi/anime/<span class="synConstant">1301907984</span>/
+</pre>
 <p>起動後は最近の数件を出力した後、更新がある度に画面に出力されていきます。<br>
 :(コロン)で始まるコマンドが利用できます。<br>
 :helpと入力することで、使えるコマンド一覧が拙い説明とともに表示されます。<br>
@@ -99,6 +108,7 @@ Tabキーを押すとコマンドが補完されます。<br>
 <p></p>
 
 </div>
+
 <div class="section">
     <h5>2chモードについて</h5>
     <p>1分に1度、起動時に渡されたURLのスレッドを見に行って更新分を表示します。<br>
@@ -111,6 +121,7 @@ AAっぽいレス(本文中の記号の割合が6割以上)の場合は省略さ
 <p></p>
 
 </div>
+
 <div class="section">
     <h5>hatena-bookmarkモードについて</h5>
     <p><a href="http://b.hatena.ne.jp/">http://b.hatena.ne.jp/</a>指定したユーザ名/favorite のページの新着ブクマを見に行って更新分を表示します。<br>
@@ -119,7 +130,8 @@ AAっぽいレス(本文中の記号の割合が6割以上)の場合は省略さ
 <p></p>
 
 </div>
-</div>
+
+<p></div>
 <div class="section">
     <h4>開発者向け</h4>
     <p>自分でストリームっぽいものを取得するスクリプトを書けば、好きなものを画面上に流すことが出来ます。<br>
@@ -127,24 +139,24 @@ lib/streamer/hatebu.rb等を参考にして、lib/streamer/辺りにファイル
 lib/streamer.rbでrequireし、initブロックの中でstreamsにProc等を定義した適切なHashをPushすれば上手く行くと思います。<br>
 なお、active_supportとlib/streamer/ext.rbにより一部クラスの拡張が行われているためご注意下さい。<br>
 便利なものを作られた方はpull requestを送っていただければ作者が喜びます。</p>
-<p></p>
+<p></p></p>
 
-</div>
+<p></div>
 <div class="section">
     <h4>謝辞</h4>
-    <p><a href="http://github.com/jugyo/earthquake">http://github.com/jugyo/earthquake</a><br>
+    <p><a href="http://github.com/jugyo/earthquake"><a href="http://github.com/jugyo/earthquake">http://github.com/jugyo/earthquake</a></a><br>
 jugyoさんのearthquake.gemをほぼ丸ごと利用させていただきました。ありがとうございます。</p>
 <br>
-<p><a href="http://github.com/cho45/net-irc">http://github.com/cho45/net-irc</a><br>
+<p><a href="http://github.com/cho45/net-irc"><a href="http://github.com/cho45/net-irc">http://github.com/cho45/net-irc</a></a><br>
 cho45さんのnet-ircからexamples/2ch.rbのThreadDataを利用させていただきました。ありがとうございます。</p>
-<p></p>
+<p></p></p>
 
-</div>
+<p></div>
 <div class="section">
     <h4>作った経緯</h4>
-    <p>Rubyでまともなコードを書いたことが無かったので、その頃たまたまjugyoさんがEarthquake.gemを開発されていたのを見つけ、コードリーディングがてら読むかという感じで遊びながら作りました。「twitterや2chやはてブやIRCなんかの情報を一箇所に集約できたら、情報集めに行く時間で寿命縮まらないし良いよねー」という話を元々していたので、色々な情報の流れを1つの流れに集約して流せる感じ = streamer としました。CUIでRuby1.9系さえあれば動くので、家に転がっている10年前くらいのiBookが生きる理由を見つけて喜んでいます。</p>
+    <p>Rubyでまともなコードを書いたことが無かったので、その頃たまたまjugyoさんがEarthquake.gemを開発されていたのを見つけ、コードリーディングがてら読むかという感じで遊びながら作りました。「twitterや2chやはてブやIRCなんかの情報を一箇所に集約できたら、情報集めに行く時間で寿命縮まらないし良いよねー」という話を元々していたので、色々な情報の流れを1つの流れに集約して流せる感じ = streamer としました。CUIでRuby1.9系さえあれば動くので、家に転がっている10年前くらいのiBookが生きる理由を見つけて喜んでいます。</p></p>
 
-</div>
+<p></div></p>
 
   </div>
 </article>

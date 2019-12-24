@@ -4,17 +4,21 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width">
   <title>3Dプログラミング勉強会をやりました</title>
-  <link href="/articles/2013-03-29-h" rel="canonical">
+  <link href="https://r7kamura.com:0/articles/2013-03-29-h" rel="canonical">
   <link rel="stylesheet" href="/css/main.css">
   <link rel="search" type="application/opensearchdescription+xml" title="r7kamura.com" href="/opensearch.xml">
   <link rel="alternate" type="application/rss+xml" href="/feed.xml">
-  <meta property="description" content="( Hatsune Miku &#x2F; Crypton Future Media inc. &#x2F; CC BY-NC )週末、3Dプログラミングに興味のある自称初心者が7人集まって勉強会をした。">
-  <meta property="og:description" content="( Hatsune Miku &#x2F; Crypton Future Media inc. &#x2F; CC BY-NC )週末、3Dプログラミングに興味のある自称初心者が7人集まって勉強会をした。">
-  <meta property="og:type" content="article">
+  
+  <meta property="description" content="( Hatsune Miku / Crypton Future Media inc. / CC BY-NC )週末、3Dプログラミングに興味のある自称初心者が7人集まって勉強会をした。">
+  <meta property="og:description" content="( Hatsune Miku / Crypton Future Media inc. / CC BY-NC )週末、3Dプログラミングに興味のある自称初心者が7人集まって勉強会をした。">
+  
+  <meta property="og:type" content="website">
   <meta property="og:title" content="3Dプログラミング勉強会をやりました">
-  <meta property="og:url" content="https://r7kamura.com/articles/2013-03-29-h">
+  <meta property="og:url" content="https://r7kamura.com:0/articles/2013-03-29-h">
+  
   <meta property="og:image" content="http://dl.dropbox.com/u/5978869/image/20130329_010914.png">
   <meta property="twitter:card" content="summary_large_image">
+  
 </head>
 <body>
   <header>
@@ -35,14 +39,13 @@
   <h1>3Dプログラミング勉強会をやりました</h1>
   <footer>
     <p>
-      <time datetime="2013-03-29T00:00:00+09:00">2013年03月29日</time>
+      <time datetime="2013-03-29T00:00:00+00:00">2013年03月29日</time>
     </p>
   </footer>
   <div>
     <p><img src="http://dl.dropbox.com/u/5978869/image/20130329_010914.png"><br>
 ( <a href="http://piapro.net/en_for_creators.html#prettyPhoto">Hatsune Miku</a> / Crypton Future Media inc. / <a href="http://creativecommons.org/licenses/by-nc/3.0/">CC BY-NC</a> )</p><p>週末、3Dプログラミングに興味のある自称初心者が7人集まって勉強会をした。皆適当にピザ食べたりして語らないながら各自作業を進めて、終わって琉球料理食べて成果報告とか最近のプログラミング界隈の話とかをした。MikuMikuDanceをブラウザで動かす奴を作ろうと思って、MMDのモデルデータの歴史・仕様を調べ、PMD形式とその後継のPMX形式があること、PMDは仕様の詳細が公にされていないがPMXはPMX仕様.txtに少し書いてあること、PMXファイルはバイナリデータであること、ブラウザでバイナリデータを読み込むにはArrayBufferやDataViewが使えることなどを勉強した。PMXのデータ構造をBNFで記述してそれを元にコードを自動生成しようとしたのだけど、規則が色々複雑で、結局BNFを完成させたあと自前で再帰下降型PMXパーサを実装した。</p><p>勉強会ではバイナリデータのPMXをツリー構造のデータに変換するPMXパーサまでを完成させて、three.jsを利用して頂点データを3D空間上に配置して描画するコードをさっき家で実装した。ここまでのコードをGitHubに上げているので、改良して初音氏を踊らせてPull Requestを頂ければこちらでも喜びの舞を踊らさせて頂きます。</p><p>r7kamura/mmd.js · GitHub<br>
 <a href="https://github.com/r7kamura/mmd.js">https://github.com/r7kamura/mmd.js</a></p>
-
 
   </div>
 </article>

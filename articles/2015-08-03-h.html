@@ -4,17 +4,21 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width">
   <title>Amazon API Gatewayに自動で定義するやつ</title>
-  <link href="/articles/2015-08-03-h" rel="canonical">
+  <link href="https://r7kamura.com:0/articles/2015-08-03-h" rel="canonical">
   <link rel="stylesheet" href="/css/main.css">
   <link rel="search" type="application/opensearchdescription+xml" title="r7kamura.com" href="/opensearch.xml">
   <link rel="alternate" type="application/rss+xml" href="/feed.xml">
-  <meta property="description" content="https:&#x2F;&#x2F;github.com&#x2F;r7kamura&#x2F;amazon-api-gateway-client をつかって、適当にエンドポイント生やしてデプロイするところまでを上から下に書き殴ったところ意外と動いたのでコードを貼っておく。">
-  <meta property="og:description" content="https:&#x2F;&#x2F;github.com&#x2F;r7kamura&#x2F;amazon-api-gateway-client をつかって、適当にエンドポイント生やしてデプロイするところまでを上から下に書き殴ったところ意外と動いたのでコードを貼っておく。">
-  <meta property="og:type" content="article">
+  
+  <meta property="description" content="https://github.com/r7kamura/amazon-api-gateway-client をつかって、適当にエンドポイント生やしてデプロイするところまでを上から下に書き殴ったところ意外と動いたのでコードを貼っておく。">
+  <meta property="og:description" content="https://github.com/r7kamura/amazon-api-gateway-client をつかって、適当にエンドポイント生やしてデプロイするところまでを上から下に書き殴ったところ意外と動いたのでコードを貼っておく。">
+  
+  <meta property="og:type" content="website">
   <meta property="og:title" content="Amazon API Gatewayに自動で定義するやつ">
-  <meta property="og:url" content="https://r7kamura.com/articles/2015-08-03-h">
+  <meta property="og:url" content="https://r7kamura.com:0/articles/2015-08-03-h">
+  
   <meta property="og:image" content="https://r7kamura.com/default_og_image.jpg">
   <meta property="twitter:card" content="summary">
+  
 </head>
 <body>
   <header>
@@ -35,15 +39,13 @@
   <h1>Amazon API Gatewayに自動で定義するやつ</h1>
   <footer>
     <p>
-      <time datetime="2015-08-03T00:00:00+09:00">2015年08月03日</time>
+      <time datetime="2015-08-03T00:00:00+00:00">2015年08月03日</time>
     </p>
   </footer>
   <div>
     <p><a href="https://github.com/r7kamura/amazon-api-gateway-client">https://github.com/r7kamura/amazon-api-gateway-client</a> をつかって、適当にエンドポイント生やしてデプロイするところまでを上から下に書き殴ったところ意外と動いたのでコードを貼っておく。使ってそうなnpmのパッケージを入れてnodeで実行すると、GET /recipes と GET /articles というエンドポイントが生える。どちらも中身は GET <a href="https://api.github.com/users/r7kamura">https://api.github.com/users/r7kamura</a> にアクセスしてレスポンスをプロキシするだけという内容になってる。</p>
 
 <script src="https://gist.github.com/r7kamura/3d60c3efed22801868ff.js"></script>
-
-
 
   </div>
 </article>

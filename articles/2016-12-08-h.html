@@ -4,17 +4,21 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width">
   <title>amakanでyarnを使うようにした</title>
-  <link href="/articles/2016-12-08-h" rel="canonical">
+  <link href="https://r7kamura.com:0/articles/2016-12-08-h" rel="canonical">
   <link rel="stylesheet" href="/css/main.css">
   <link rel="search" type="application/opensearchdescription+xml" title="r7kamura.com" href="/opensearch.xml">
   <link rel="alternate" type="application/rss+xml" href="/feed.xml">
+  
   <meta property="description" content="amakanをUnicornからPumaに移行した - ✘╹◡╹✘ に引き続き、小さい改善を加えた。">
   <meta property="og:description" content="amakanをUnicornからPumaに移行した - ✘╹◡╹✘ に引き続き、小さい改善を加えた。">
-  <meta property="og:type" content="article">
+  
+  <meta property="og:type" content="website">
   <meta property="og:title" content="amakanでyarnを使うようにした">
-  <meta property="og:url" content="https://r7kamura.com/articles/2016-12-08-h">
+  <meta property="og:url" content="https://r7kamura.com:0/articles/2016-12-08-h">
+  
   <meta property="og:image" content="https://r7kamura.com/default_og_image.jpg">
   <meta property="twitter:card" content="summary">
+  
 </head>
 <body>
   <header>
@@ -35,13 +39,13 @@
   <h1>amakanでyarnを使うようにした</h1>
   <footer>
     <p>
-      <time datetime="2016-12-08T00:00:00+09:00">2016年12月08日</time>
+      <time datetime="2016-12-08T00:00:00+00:00">2016年12月08日</time>
     </p>
   </footer>
   <div>
     <p><a href="http://r7kamura.hatenablog.com/entry/2016/12/08/001413">amakanをUnicornからPumaに移行した - ✘╹◡╹✘</a> に引き続き、小さい改善を加えた。</p>
 
-<hr>
+<p><hr></p>
 
 <h2>変更の概要</h2>
 
@@ -59,7 +63,6 @@
 <li>yarnがキャッシュに使うディレクトリをCircle CIにキャッシュしてもらう</li>
 <li>テストの実行前に依存パッケージをインストールする</li>
 </ul>
-
 
 <p>結果的にcircle.ymlはこういうコードに。</p>
 
@@ -87,7 +90,6 @@ test:
   override:
     - yarn run test</pre>
 
-
 <p>必要なときだけyarnをインストールする、という設定に少し手こずった。</p>
 
 <h2>デプロイスクリプトの設定変更</h2>
@@ -100,13 +102,11 @@ test:
 set :yarn_flags, "--prefer-offline --production"
 set :yarn_roles, :app</pre>
 
-
 <h2>yarnに移行した感想</h2>
 
 <p>設定を調べるのは面倒だったが、依存解決部分がとても速くなったので良かった。--prefer-offline を付けると特に。Chrome拡張やNode.js用のライブラリなどの管理では既にYarnを利用してはいたものの、Railsアプリで利用するようにしたのは初めてだったので、Capistrano周りの事情も考慮しながら設定する方法を勉強できたのも良かった。</p>
 
 <p>本筋とは逸れるけど、yarnを見直したついでにwebpackやpackage.jsonの設定、本番環境で利用するNode.jsのバージョンなども整理した。変更のついでに触れた箇所を綺麗にしておくというのも大事だし、そういうことが起きるように能動的に小さい変更を発生させるようにしておくというのも、精神的な部分での飽きを防ぐという意味も含めて、小さなアプリケーションの改善のエコシステムとして効果的かもしれない。</p>
-
 
   </div>
 </article>

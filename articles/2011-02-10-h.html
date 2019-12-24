@@ -4,17 +4,21 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width">
   <title>さくらVPS設定その2 Apache+MySQL+WordPress</title>
-  <link href="/articles/2011-02-10-h" rel="canonical">
+  <link href="https://r7kamura.com:0/articles/2011-02-10-h" rel="canonical">
   <link rel="stylesheet" href="/css/main.css">
   <link rel="search" type="application/opensearchdescription+xml" title="r7kamura.com" href="/opensearch.xml">
   <link rel="alternate" type="application/rss+xml" href="/feed.xml">
+  
   <meta property="description" content="さくらVPS設定まとめ の子エントリになります。">
   <meta property="og:description" content="さくらVPS設定まとめ の子エントリになります。">
-  <meta property="og:type" content="article">
+  
+  <meta property="og:type" content="website">
   <meta property="og:title" content="さくらVPS設定その2 Apache+MySQL+WordPress">
-  <meta property="og:url" content="https://r7kamura.com/articles/2011-02-10-h">
+  <meta property="og:url" content="https://r7kamura.com:0/articles/2011-02-10-h">
+  
   <meta property="og:image" content="https://r7kamura.com/default_og_image.jpg">
   <meta property="twitter:card" content="summary">
+  
 </head>
 <body>
   <header>
@@ -35,7 +39,7 @@
   <h1>さくらVPS設定その2 Apache+MySQL+WordPress</h1>
   <footer>
     <p>
-      <time datetime="2011-02-10T00:00:00+09:00">2011年02月10日</time>
+      <time datetime="2011-02-10T00:00:00+00:00">2011年02月10日</time>
     </p>
   </footer>
   <div>
@@ -47,6 +51,7 @@
 <li>MySQL</li>
 <li>WordPress</li>
 </ul>
+
 <ul>
 <li>
 <ul>
@@ -118,7 +123,8 @@
 <ul>
 <li>-</li>
 </ul>
-</li>
+
+<p></li>
 </ul>
 </li>
 </ul>
@@ -198,7 +204,7 @@
   Options Includes ExecCGI FollowSymLinks
   AllowOverride All                  <span class="synComment"> # .htaccessによる上書き許可</span>
   ServerSignature Off                <span class="synComment"> # エラー出力時にフッター情報を非表示</span>
-  <span class="synStatement">&lt;</span>Directory <span class="synStatement">"</span><span class="synConstant">/var/www/icons</span><span class="synStatement">"&gt;</span>
+  <span class="synStatement">&lt;</span>Directory <span class="synStatement">&quot;</span><span class="synConstant">/var/www/icons</span><span class="synStatement">&quot;&gt;</span>
     ... Options MultiViews ...       <span class="synComment"> # /var/www/icons/のIndexed削除</span>
   <span class="synStatement">&lt;</span>/Directory<span class="synStatement">&gt;</span>
  <span class="synComment"> # AddDefaultCharset UTF-8           # デフォルト文字コードを設定しない</span>
@@ -217,16 +223,17 @@
 % cp /etc/my.cnf /etc/my.cnf.yyyymmdd_default
 % vi /etc/my.cnf                     <span class="synComment"> # MySQLの設定を編集</span>
   <span class="synStatement">[</span>client<span class="synStatement">]</span>                           <span class="synComment"> # ここから下を追加します</span>
-  default-character-<span class="synStatement">set=</span>utf8
-
-<p>  <span class="synStatement">[</span>mysql<span class="synStatement">]</span>
   default-character-<span class="synStatement">set=</span>utf8</p>
-<p>  <span class="synStatement">[</span>mysqldump<span class="synStatement">]</span>
+
+<p><span class="synStatement">[</span>mysql<span class="synStatement">]</span>
+  default-character-<span class="synStatement">set=</span>utf8</p>
+
+<p><span class="synStatement">[</span>mysqldump<span class="synStatement">]</span>
   default-character-<span class="synStatement">set=</span>utf8
 % /etc/rc.d/init.d/mysqld <span class="synStatement">start</span>      <span class="synComment"> # MySQLサービスを開始</span>
 % chkconfig mysqld on                <span class="synComment"> # MySQLサービスを自動起動設定</span>
 % chkconfig <span class="synSpecial">--list</span> mysqld             <span class="synComment"> # 設定反映を確認</span>
-% mysql_secure_installation          <span class="synComment"> # パスワード等の設定をウィザード形式で行う</span>
+% mysql<em>secure</em>installation          <span class="synComment"> # パスワード等の設定をウィザード形式で行う</span>
                                      <span class="synComment"> # new passwordの設定以外はEnter連打でOK</span>
                                      <span class="synComment"> # phpmyadminを導入します</span>
                                      <span class="synComment"> # phpと、phpmyadminに必要なものを導入</span>
@@ -247,13 +254,13 @@
   hogefuga...
 % config.inc.php                     <span class="synComment"> # 設定ファイルを編集</span>
                                      <span class="synComment"> # 暗号生成用文字列にランダムな文字列を設定</span>
-  <span class="synPreProc">$cfg</span><span class="synStatement">[&#39;</span><span class="synConstant">blowfish_secret</span><span class="synStatement">&#39;]</span> <span class="synStatement">=</span> <span class="synStatement">&#39;</span><span class="synConstant">...</span><span class="synStatement">&#39;;</span>   <span class="synComment"> # これでログイン時にパスワードを聞かれます</span>
+  <span class="synPreProc">$cfg</span><span class="synStatement">[&#39;</span><span class="synConstant">blowfish<em>secret</span><span class="synStatement">&#39;]</span> <span class="synStatement">=</span> <span class="synStatement">&#39;</span><span class="synConstant">...</span><span class="synStatement">&#39;;</span>   <span class="synComment"> # これでログイン時にパスワードを聞かれます</span>
   <span class="synPreProc">$cfg</span><span class="synStatement">[&#39;</span><span class="synConstant">Lang</span><span class="synStatement">&#39;]</span> <span class="synStatement">=</span> <span class="synStatement">&#39;</span><span class="synConstant">ja-utf-8</span><span class="synStatement">&#39;;</span>         <span class="synComment"> # 言語を日本語でUTF-8に設定</span>
 % vi /etc/httpd/conf.d/phpmyadmin.con<span class="synComment">f# phpmyadmin向けのApacheの設定ファイルを作成</span>
   Alias /phpmyadmin /var/www/phpmyadmin<span class="synComment"> # http://&lt;servername&gt;/phpmyadmin へのアクセスをphpmyadminの実体がある場所へ誘導</span>
 % /etc/rc.d/init.d/httpd <span class="synStatement">reload</span>      <span class="synComment"> # Apache再始動</span>
                                      <span class="synComment"> # http://&lt;servername&gt;/phpmyadmin へアクセスして確認してみましょう</span>
-</pre></p>
+</pre>
 </div>
 <div class="section">
     <h4>WordPress</h4>
@@ -262,26 +269,26 @@
 mysql<span class="synStatement">&gt;</span> show databases<span class="synStatement">;</span>               <span class="synComment"> # まあ既存のDBでも確認しておきましょう</span>
 mysql<span class="synStatement">&gt;</span> create database wordpress<span class="synStatement">;</span>    <span class="synComment"> # wordpress というDBを作成</span>
                                      <span class="synComment"> # パスワード付きのwordpressユーザを作成して上記DBに権限を与えます</span>
-mysql<span class="synStatement">&gt;</span> grant all privileges on wordpress.* to wordpress@localhost identified by <span class="synStatement">'</span><span class="synConstant">password</span><span class="synStatement">';</span>
+mysql<span class="synStatement">&gt;</span> grant all privileges on wordpress.* to wordpress@localhost identified by <span class="synStatement">&#39;</span><span class="synConstant">password</span><span class="synStatement">&#39;;</span>
 $ su -
 % yum <span class="synSpecial">-y</span> <span class="synStatement">install</span> php-mysql           <span class="synComment"> # PHP用のMySQLドライバを導入</span>
 % <span class="synStatement">cd</span> /tmp                            <span class="synComment"> # WordPressを公式からダウンロード</span>
-% wget http://ja.wordpress.org/wordpress<span class="synConstant">-3</span>.<span class="synConstant">0</span>.<span class="synConstant">4</span>-ja.zip
+% wget <a href="http://ja.wordpress.org/wordpress">http://ja.wordpress.org/wordpress</a><span class="synConstant">-3</span>.<span class="synConstant">0</span>.<span class="synConstant">4</span>-ja.zip
 % unzip wordpress<span class="synConstant">-3</span>.<span class="synConstant">0</span>.<span class="synConstant">4</span>-ja.zip
 % <span class="synStatement">rm</span> <span class="synSpecial">-f</span> wordpress<span class="synConstant">-3</span>.<span class="synConstant">0</span>.<span class="synConstant">4</span>-ja.zip
 % <span class="synStatement">mv</span> wordpress /var/www              <span class="synComment"> # /var/www 以下に配置</span>
 % <span class="synStatement">cd</span> /var/www                        <span class="synComment"> # サンプルを元に設定ファイルを作成</span>
 % cp wp-config-sample.php wp-config.php
 % vi /var/www/wordpress/wp-config.php<span class="synComment"> # 設定ファイルを編集</span>
-  DB_NAME <span class="synStatement">=&gt;</span> <span class="synStatement">'</span><span class="synConstant">wordpress</span><span class="synStatement">'</span>             <span class="synComment"> # wordpress用DBの名前を入力</span>
-  DB_USER <span class="synStatement">=&gt;</span> <span class="synStatement">'</span><span class="synConstant">wordpress</span><span class="synStatement">'</span>             <span class="synComment"> # DB用ユーザ名を入力</span>
-  DB_PASSWORD <span class="synStatement">=&gt;</span> <span class="synStatement">'</span><span class="synConstant">password</span><span class="synStatement">'</span>          <span class="synComment"> # DB用パスワードを入力</span>
+  DB</em>NAME <span class="synStatement">=&gt;</span> <span class="synStatement">&#39;</span><span class="synConstant">wordpress</span><span class="synStatement">&#39;</span>             <span class="synComment"> # wordpress用DBの名前を入力</span>
+  DB<em>USER <span class="synStatement">=&gt;</span> <span class="synStatement">&#39;</span><span class="synConstant">wordpress</span><span class="synStatement">&#39;</span>             <span class="synComment"> # DB用ユーザ名を入力</span>
+  DB</em>PASSWORD <span class="synStatement">=&gt;</span> <span class="synStatement">&#39;</span><span class="synConstant">password</span><span class="synStatement">&#39;</span>          <span class="synComment"> # DB用パスワードを入力</span>
 % vi /etc/httpd/conf.d/wordpress.conf<span class="synComment"> # wordpress向けのApache設定ファイルを作成</span>
   Alias /blog /var/www/wordpress     <span class="synComment"> # phpmyadmin同様Aliasを張る</span>
 % /etc/rc.d/init.d/httpd <span class="synStatement">reload</span>      <span class="synComment"> # Apache再始動</span>
                                      <span class="synComment"> # /wordpressへアクセスして確認してみましょう</span>
 </pre>
-</div>
+</div></p>
 
   </div>
 </article>

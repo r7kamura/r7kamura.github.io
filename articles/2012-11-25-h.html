@@ -4,17 +4,21 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width">
   <title>zshのautoload</title>
-  <link href="/articles/2012-11-25-h" rel="canonical">
+  <link href="https://r7kamura.com:0/articles/2012-11-25-h" rel="canonical">
   <link rel="stylesheet" href="/css/main.css">
   <link rel="search" type="application/opensearchdescription+xml" title="r7kamura.com" href="/opensearch.xml">
   <link rel="alternate" type="application/rss+xml" href="/feed.xml">
+  
   <meta property="description" content="zsh autoload 意味— 人月さん (@r7kamura) 11月 25, 2012">
   <meta property="og:description" content="zsh autoload 意味— 人月さん (@r7kamura) 11月 25, 2012">
-  <meta property="og:type" content="article">
+  
+  <meta property="og:type" content="website">
   <meta property="og:title" content="zshのautoload">
-  <meta property="og:url" content="https://r7kamura.com/articles/2012-11-25-h">
+  <meta property="og:url" content="https://r7kamura.com:0/articles/2012-11-25-h">
+  
   <meta property="og:image" content="https://r7kamura.com/default_og_image.jpg">
   <meta property="twitter:card" content="summary">
+  
 </head>
 <body>
   <header>
@@ -35,7 +39,7 @@
   <h1>zshのautoload</h1>
   <footer>
     <p>
-      <time datetime="2012-11-25T00:00:00+09:00">2012年11月25日</time>
+      <time datetime="2012-11-25T00:00:00+00:00">2012年11月25日</time>
     </p>
   </footer>
   <div>
@@ -50,11 +54,13 @@
 /usr/local/Cellar/zsh/4.3.12/share/zsh/site-functions
 
 
-<p>% cat  $fpath[1]/a
-echo 1</p>
-<p>% autoload a
+% cat  $fpath[1]/a
+echo 1
+
+
+% autoload a
 % a
-1</pre></p>
+1</pre>
 </div>
 <div class="section">
     <h3>仕組み</h3>
@@ -72,23 +78,27 @@ echo 1</p>
 <div class="section">
     <h3>-U オプション</h3>
     <p>aliasを無効化</p>
+
 <pre class="code" data-unlink>% alias echo='shutdown -h now'
 % autoload a
 % a #=&gt; 死</pre>
+
 <pre class="code" data-unlink>% alias echo='shutdown -h now'
 % autoload -U a
 % a
 1</pre>
-</div>
+
+<p></div>
 <div class="section">
-    <h3>参考</h3>
+    <h3>参考</h3></p>
 
 <ul>
 <li><a href="http://zsh.sourceforge.net/Doc/Release/Functions.html#Autoloading-Functions">http://zsh.sourceforge.net/Doc/Release/Functions.html#Autoloading-Functions</a></li>
 <li><a href="http://zsh.sourceforge.net/Guide/zshguide03.html#l48">http://zsh.sourceforge.net/Guide/zshguide03.html#l48</a></li>
 <li>zshbuiltins(1)</li>
 </ul>
-</div>
+
+<p></div></p>
 
   </div>
 </article>

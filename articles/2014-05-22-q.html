@@ -4,17 +4,21 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width">
   <title>GistでGemを公開する</title>
-  <link href="/articles/2014-05-22-q" rel="canonical">
+  <link href="https://r7kamura.com:0/articles/2014-05-22-q" rel="canonical">
   <link rel="stylesheet" href="/css/main.css">
   <link rel="search" type="application/opensearchdescription+xml" title="r7kamura.com" href="/opensearch.xml">
   <link rel="alternate" type="application/rss+xml" href="/feed.xml">
+  
   <meta property="description" content="Gemは思いついたときにサクッとつくって即公開できたら最高だと思う。">
   <meta property="og:description" content="Gemは思いついたときにサクッとつくって即公開できたら最高だと思う。">
-  <meta property="og:type" content="article">
+  
+  <meta property="og:type" content="website">
   <meta property="og:title" content="GistでGemを公開する">
-  <meta property="og:url" content="https://r7kamura.com/articles/2014-05-22-q">
+  <meta property="og:url" content="https://r7kamura.com:0/articles/2014-05-22-q">
+  
   <meta property="og:image" content="https://pbs.twimg.com/media/BoOHaoDIIAAwCNC.png:large">
   <meta property="twitter:card" content="summary_large_image">
+  
 </head>
 <body>
   <header>
@@ -35,22 +39,28 @@
   <h1>GistでGemを公開する</h1>
   <footer>
     <p>
-      <time datetime="2014-05-22T00:00:00+09:00">2014年05月22日</time>
+      <time datetime="2014-05-22T00:00:00+00:00">2014年05月22日</time>
     </p>
   </footer>
   <div>
     <p>Gemは思いついたときにサクッとつくって即公開できたら最高だと思う。
 <a href="https://gist.github.com/">https://gist.github.com/</a> を使えばブラウザで簡単にGemを書いて公開できる。</p>
-<h3 id="要点">要点</h3>
+
+<h3>要点</h3>
+
 <ul>
 <li>GemfileはGitレポジトリ上に存在するGemを指定できる</li>
 <li>GistはGitレポジトリとしてのインターフェースを備えている</li>
 <li>Gistには複数のファイルを置ける</li>
 <li>最小構成のGemspecとコード片をGistに置いてGemfileから参照する</li>
 </ul>
-<h3 id="やり方">やり方</h3>
+
+<h3>やり方</h3>
+
 <p>以下のように2つのファイルをGistに置く。</p>
-<pre><code class="language-rb:my-gem-name.gemspec">Gem::Specification.new do |spec|
+
+<p><code>rb:my-gem-name.gemspec
+Gem::Specification.new do |spec|
  spec.name = &quot;my-gem-name&quot;
  spec.version = &quot;0.0.1&quot;
  spec.authors = [&quot;Your Name&quot;]
@@ -58,13 +68,28 @@
  spec.summary = &quot;Summary of this gem&quot;
  spec.files = [&quot;my-gem-name.rb&quot;]
  spec.require_path = &quot;.&quot;
-end</code></pre>
-<pre><code class="language-rb"># my-gem-name.rb
-# ここに好きなコードを書く</code></pre>
+end
+</code></p>
+
+<p>```rb</p>
+
+<h1>my-gem-name.rb</h1>
+
+<h1>ここに好きなコードを書く</h1>
+
+<p>```</p>
+
 <p>使う側では以下のように指定する。</p>
-<pre><code class="language-rb"># Gemfileからこういう感じで参照する
-gem &quot;my-gem-name&quot;, git: &quot;https://gist.github.com/1234567890abcdef1234.git&quot;</code></pre>
-<h3 id="余談">余談</h3>
+
+<p>```rb</p>
+
+<h1>Gemfileからこういう感じで参照する</h1>
+
+<p>gem &quot;my-gem-name&quot;, git: &quot;<a href="https://gist.github.com/1234567890abcdef1234.git">https://gist.github.com/1234567890abcdef1234.git</a>&quot;
+```</p>
+
+<h3>余談</h3>
+
 <p>Hubot用の画期的なプラグインを見つけたのでRuboty用にサクッと移植してGistに置いた。
 <a href="https://gist.github.com/r7kamura/0146d99b96f938898d08">https://gist.github.com/r7kamura/0146d99b96f938898d08</a>
 <img src="https://pbs.twimg.com/media/BoOHaoDIIAAwCNC.png:large" alt=""></p>

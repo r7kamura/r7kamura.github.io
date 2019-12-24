@@ -3,18 +3,22 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width">
-  <title>GET &#x2F;@:id みたいなURLで他との衝突を避ける</title>
-  <link href="/articles/2015-01-24-q" rel="canonical">
+  <title>GET /@:id みたいなURLで他との衝突を避ける</title>
+  <link href="https://r7kamura.com:0/articles/2015-01-24-q" rel="canonical">
   <link rel="stylesheet" href="/css/main.css">
   <link rel="search" type="application/opensearchdescription+xml" title="r7kamura.com" href="/opensearch.xml">
   <link rel="alternate" type="application/rss+xml" href="/feed.xml">
+  
   <meta property="description" content="Webアプリのルーティングにおいて、各ユーザの個別ページを特殊なものにしたい場合にどういうURLにすると便利かという話に触れる。">
   <meta property="og:description" content="Webアプリのルーティングにおいて、各ユーザの個別ページを特殊なものにしたい場合にどういうURLにすると便利かという話に触れる。">
-  <meta property="og:type" content="article">
-  <meta property="og:title" content="GET &#x2F;@:id みたいなURLで他との衝突を避ける">
-  <meta property="og:url" content="https://r7kamura.com/articles/2015-01-24-q">
+  
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="GET /@:id みたいなURLで他との衝突を避ける">
+  <meta property="og:url" content="https://r7kamura.com:0/articles/2015-01-24-q">
+  
   <meta property="og:image" content="https://r7kamura.com/default_og_image.jpg">
   <meta property="twitter:card" content="summary">
+  
 </head>
 <body>
   <header>
@@ -32,24 +36,34 @@
   </header>
   <main>
     <article>
-  <h1>GET &#x2F;@:id みたいなURLで他との衝突を避ける</h1>
+  <h1>GET /@:id みたいなURLで他との衝突を避ける</h1>
   <footer>
     <p>
-      <time datetime="2015-01-24T00:00:00+09:00">2015年01月24日</time>
+      <time datetime="2015-01-24T00:00:00+00:00">2015年01月24日</time>
     </p>
   </footer>
   <div>
     <p>Webアプリのルーティングにおいて、各ユーザの個別ページを特殊なものにしたい場合にどういうURLにすると便利かという話に触れる。例えばr7kamuraというIDのユーザ用のページは、Twitterだと <a href="https://twitter.com/r7kamura">https://twitter.com/r7kamura</a> で、GitHubだと <a href="https://github.com/r7kamura">https://github.com/r7kamura</a> というURLになっている。</p>
-<h2 id="get-id-だと他のパターンと衝突してしまう"><code>GET /:id</code> だと他のパターンと衝突してしまう</h2>
+
+<h2><code>GET /:id</code> だと他のパターンと衝突してしまう</h2>
+
 <p>もしユーザページに <code>GET /:id</code> というパターンを採用すると、他のURLのパターンと競合してしまうという問題がある。どんなときに困るかと言うと、例えば <a href="https://twitter.com/about">https://twitter.com/about</a> でTwitterというサービスについて説明するWebページを提供しようとすると、aboutというIDを持ったユーザ用のページが提供できなくなってしまう。</p>
+
 <p>この問題に対してよく見られる解決方法の一つは、「ユーザページに <code>GET /:id</code> というパターンを採用する」という方針は変えず、ユーザのIDに使えない文字列の一覧を用意しておくというもの。例えば、aboutやhelpなどURLに使う可能性の高い文字列を予め確保しておくことになる。しかし、将来利用する文字列を全て予測しておくことは難しい。新しいURLを追加するたびに、同名のIDのユーザが居ないか調べて一安心、という状況は避けたい。</p>
-<h2 id="get-id-にしてみる"><code>GET /@:id</code> にしてみる</h2>
+
+<h2><code>GET /@:id</code> にしてみる</h2>
+
 <p>他のURLと衝突しないようにPrefixを付けておけば良いのだけど、しかしPrefixが付いていないURLがかっこ良いと思っているからこそ困っている。なので「極力Prefix感の薄い文字をPrefixとして付けておく」という方針が、まあそこそこ妥協しつつも折り合いが付けられる範囲で良い。</p>
+
 <p>mediumはそうなっていて、r7kamuraというIDのユーザページは <a href="https://medium.com/@r7kamura/">https://medium.com/@r7kamura/</a> という具合になっている。URLに <code>@</code> が含まれると最初は抵抗感があるけど、まあ大丈夫大丈夫、慣れてくると気持ちいいしみんなやってる。TwitterやGitHubなど、ユーザIDを <code>@r7kamura</code> のように表記する文化があるサービスであれば、受け入れられやすい可能性が高い。</p>
+
 <p>例えばRailsであれば、以下のように実装できる。<code>GET /@r7kamura</code> に対するリクエストが、UsersControllerクラスのshowメソッドで処理され、<code>params[:id]</code> というパラメータで &quot;r7kamura&quot; という文字列を参照できる。</p>
-<pre><code class="language-rb">Rails.application.routes.draw do
+
+<p><code>rb
+Rails.application.routes.draw do
   get &quot;/@:id&quot; =&gt; &quot;users#show&quot;
-end</code></pre>
+end
+</code></p>
 
   </div>
 </article>

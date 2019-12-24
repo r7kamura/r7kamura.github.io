@@ -4,17 +4,21 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width">
   <title>日本への祈りを集めるサイト pray4japan.heroku.com をつくりました</title>
-  <link href="/articles/2011-03-13-h" rel="canonical">
+  <link href="https://r7kamura.com:0/articles/2011-03-13-h" rel="canonical">
   <link rel="stylesheet" href="/css/main.css">
   <link rel="search" type="application/opensearchdescription+xml" title="r7kamura.com" href="/opensearch.xml">
   <link rel="alternate" type="application/rss+xml" href="/feed.xml">
-  <meta property="description" content="http:&#x2F;&#x2F;pray4japan.heroku.com&#x2F;">
-  <meta property="og:description" content="http:&#x2F;&#x2F;pray4japan.heroku.com&#x2F;">
-  <meta property="og:type" content="article">
+  
+  <meta property="description" content="http://pray4japan.heroku.com/">
+  <meta property="og:description" content="http://pray4japan.heroku.com/">
+  
+  <meta property="og:type" content="website">
   <meta property="og:title" content="日本への祈りを集めるサイト pray4japan.heroku.com をつくりました">
-  <meta property="og:url" content="https://r7kamura.com/articles/2011-03-13-h">
+  <meta property="og:url" content="https://r7kamura.com:0/articles/2011-03-13-h">
+  
   <meta property="og:image" content="http://gyazo.com/f0fbcc2436f20e1f7cc145963e70758b.png">
   <meta property="twitter:card" content="summary_large_image">
+  
 </head>
 <body>
   <header>
@@ -35,7 +39,7 @@
   <h1>日本への祈りを集めるサイト pray4japan.heroku.com をつくりました</h1>
   <footer>
     <p>
-      <time datetime="2011-03-13T00:00:00+09:00">2011年03月13日</time>
+      <time datetime="2011-03-13T00:00:00+00:00">2011年03月13日</time>
     </p>
   </footer>
   <div>
@@ -89,6 +93,7 @@
 </li>
 </ul>
 </div>
+
 <div class="section">
     <h4>Heroku</h4>
     <p>日本のサーバーを利用するのは現在の状況を考えるとあまり好ましくなさそうであり、またサクッと作って公開してしまいたかったので、<a href="http://heroku.com/">Heroku</a>というRubyのホスティングサービスで公開しました。DBは利用せずアクセスがあるたびにInstagramのAPIにリクエストを投げ、最新の画像を取得しにいっています。herokuのDBは普通のユーザの場合5MBまでですが、今回のようなDBを利用しないアプリにとってはほぼ制限がありません。</p>
@@ -98,17 +103,19 @@
 $ git init
 $ git add .
 
-<p>$ heroku create pray4japan <span class="synComment"> #=&gt; pray4japan.heroku.com</span>
+$ heroku create pray4japan <span class="synComment"> #=&gt; pray4japan.heroku.com</span>
 $ git push heroku master   <span class="synComment"> #=&gt; deployed!!</span>
-$ heroku open              <span class="synComment"> #=&gt; go to <a href="http://pray4japan.heroku.com">http://pray4japan.heroku.com</a></span>
-</pre></p>
+$ heroku open              <span class="synComment"> #=&gt; go to http://pray4japan.heroku.com</span>
+</pre>
 </div>
+
 <div class="section">
     <h4>SourceCode</h4>
     <p>サイトはRailsで動いており、ソースコードは<a href="https://github.com/r7kamura/pray4japan">githubで公開しています</a>。NekostagramはSinatraで書かれていましたが、Railsの方が開発者が多そうだったので、Railsで書き直してあります。私の関与した部分に関してはライセンスフリーとしていますので、同様のサービスを作成する際などご自由にお使いください。</p>
 <p></p>
 
 </div>
+
 <div class="section">
     <h4>Demand</h4>
     <p>まだまだ不十分なところが多いかと思います。よろしければコメントやtwitterやブクマコメントなどで要望・意見をいただけると助かります。質問などもあればどうぞ。</p>

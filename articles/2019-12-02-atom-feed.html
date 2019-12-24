@@ -4,17 +4,21 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width">
   <title>Atomフィードを配信開始</title>
-  <link href="/articles/2019-12-02-atom-feed" rel="canonical">
+  <link href="https://r7kamura.com:0/articles/2019-12-02-atom-feed" rel="canonical">
   <link rel="stylesheet" href="/css/main.css">
   <link rel="search" type="application/opensearchdescription+xml" title="r7kamura.com" href="/opensearch.xml">
   <link rel="alternate" type="application/rss+xml" href="/feed.xml">
-  <meta property="description" content="https:&#x2F;&#x2F;r7kamura.com&#x2F;feed.xml から、Atom 1.0形式で直近20件の記事の情報を配信するようにした。">
-  <meta property="og:description" content="https:&#x2F;&#x2F;r7kamura.com&#x2F;feed.xml から、Atom 1.0形式で直近20件の記事の情報を配信するようにした。">
-  <meta property="og:type" content="article">
+  
+  <meta property="description" content="https://r7kamura.com/feed.xml から、Atom 1.0形式で直近20件の記事の情報を配信するようにした。">
+  <meta property="og:description" content="https://r7kamura.com/feed.xml から、Atom 1.0形式で直近20件の記事の情報を配信するようにした。">
+  
+  <meta property="og:type" content="website">
   <meta property="og:title" content="Atomフィードを配信開始">
-  <meta property="og:url" content="https://r7kamura.com/articles/2019-12-02-atom-feed">
+  <meta property="og:url" content="https://r7kamura.com:0/articles/2019-12-02-atom-feed">
+  
   <meta property="og:image" content="https://r7kamura.com/default_og_image.jpg">
   <meta property="twitter:card" content="summary">
+  
 </head>
 <body>
   <header>
@@ -35,16 +39,22 @@
   <h1>Atomフィードを配信開始</h1>
   <footer>
     <p>
-      <time datetime="2019-12-02T00:00:00+09:00">2019年12月02日</time>
+      <time datetime="2019-12-02T00:00:00+00:00">2019年12月02日</time>
     </p>
   </footer>
   <div>
     <p><a href="https://r7kamura.com/feed.xml">https://r7kamura.com/feed.xml</a> から、Atom 1.0形式で直近20件の記事の情報を配信するようにした。</p>
-<h2 id="実装にあたって">実装にあたって</h2>
+
+<h2>実装にあたって</h2>
+
 <p><a href="https://tools.ietf.org/html/rfc4287">RFC 4287</a>を読みながら一通り実装して、W3Cの<a href="https://validator.w3.org/feed/">Feed Validation Service</a>で最終確認した。</p>
+
 <p>泥臭い作業を雑にこなしただけで、大したことはやってない。RFCも全てに目を通した訳ではなくて、冒頭のサンプルを真似してXMLテンプレートを埋めて、足りない要素や気になる要素について個別に読んでいっただけ。Feed Validation Serviceはたいへん便利でした。</p>
-<h2 id="feedlyを試用">Feedlyを試用</h2>
+
+<h2>Feedlyを試用</h2>
+
 <p>フィードの実装に併せて、ドッグフーディングしようと思ってMacとiPhoneで<a href="https://feedly.com/">Feedly</a>を使い始めた。</p>
+
 <p>Feedly上でそのフィードが何人に購読されているか、みたいなソーシャルな部分も少しあって楽しい。このウェブサイトは既に10人に購読されていた。そんなことあるんだ。</p>
 
   </div>

@@ -4,17 +4,21 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width">
   <title>汎用絵文字ライブラリ Somemoji</title>
-  <link href="/articles/2016-10-09-h" rel="canonical">
+  <link href="https://r7kamura.com:0/articles/2016-10-09-h" rel="canonical">
   <link rel="stylesheet" href="/css/main.css">
   <link rel="search" type="application/opensearchdescription+xml" title="r7kamura.com" href="/opensearch.xml">
   <link rel="alternate" type="application/rss+xml" href="/feed.xml">
+  
   <meta property="description" content="ここ最近絵文字で遊んでいて、Somemoji というライブラリをつくったので知見を共有します。">
   <meta property="og:description" content="ここ最近絵文字で遊んでいて、Somemoji というライブラリをつくったので知見を共有します。">
-  <meta property="og:type" content="article">
+  
+  <meta property="og:type" content="website">
   <meta property="og:title" content="汎用絵文字ライブラリ Somemoji">
-  <meta property="og:url" content="https://r7kamura.com/articles/2016-10-09-h">
+  <meta property="og:url" content="https://r7kamura.com:0/articles/2016-10-09-h">
+  
   <meta property="og:image" content="https://i.imgur.com/ELuRQu7.jpg">
   <meta property="twitter:card" content="summary_large_image">
+  
 </head>
 <body>
   <header>
@@ -35,7 +39,7 @@
   <h1>汎用絵文字ライブラリ Somemoji</h1>
   <footer>
     <p>
-      <time datetime="2016-10-09T00:00:00+09:00">2016年10月09日</time>
+      <time datetime="2016-10-09T00:00:00+00:00">2016年10月09日</time>
     </p>
   </footer>
   <div>
@@ -61,7 +65,6 @@
 <li>Twitter</li>
 </ul>
 
-
 <p>大抵の絵文字セットはUnicodeのEmojiの仕様に則って実装されていて、このコードポイントに対応する絵文字画像はこれ、というように互換性があります。Unicode 6.0, Unicode 7.0, Unicode 8.0, ... とバージョンが増えるに従って定義されるEmojiの数も増えていっているので、それぞれの絵文字セットごとに対応具合はまちまちという状況ではあるものの、よく使う主要なものについては大体カバーされています。</p>
 
 <h2>オープンソースの絵文字セット</h2>
@@ -74,7 +77,6 @@
 <li><a href="https://github.com/twitter/twemoji">Twemoji</a></li>
 <li><a href="https://github.com/mozilla/fxemoji">Firefox OS Emojis</a></li>
 </ul>
-
 
 <h2>汎用絵文字ライブラリ</h2>
 
@@ -90,7 +92,6 @@
 <li>絵文字画像を手元に持ってくるためのコマンドラインツール</li>
 <li>Ruby用のライブラリ</li>
 </ul>
-
 
 <h2>使い方</h2>
 
@@ -122,7 +123,6 @@ Usage: somemoji extract [options]
 <span class="synComment">#=&gt; 'I &lt;img alt="❤" class="emoji" src="/assets/emoji/unicode/2764.png"&gt; Emoji'</span>
 </pre>
 
-
 <h3>文中に含まれる絵文字を画像に置換する</h3>
 
 <p>文中に含まれる絵文字を、先述の例と同様にimg要素に置き換えてみるというコードの例がこれです。例えば、サービス上で表示する絵文字は全てTwitterの絵文字画像に統一したいなあ、みたいなときに使えます。</p>
@@ -132,7 +132,6 @@ Usage: somemoji extract [options]
 <span class="synStatement">end</span>
 <span class="synComment">#=&gt; 'I &lt;img alt="💗" class="emoji" src="/assets/emoji/unicode/1f497.png"&gt; Emoji'</span>
 </pre>
-
 
 <h3>独自の絵文字を追加する</h3>
 
@@ -151,7 +150,6 @@ custom_emoji_collection.replace_code(<span class="synSpecial">"</span><span clas
   <span class="synSpecial">%(</span><span class="synConstant">&lt;img alt="</span><span class="synSpecial">#{</span>emoji.character || emoji.code<span class="synSpecial">}</span><span class="synConstant">" class="emoji" src="/images/emoji/</span><span class="synSpecial">#{</span>emoji.base_path<span class="synSpecial">}</span><span class="synConstant">.png"&gt;</span><span class="synSpecial">)</span>
 <span class="synStatement">end</span> <span class="synComment">#=&gt; 'I &lt;img alt="bar" class="emoji" src="/images/emoji/bar.png"&gt; Emoji'</span>
 </pre>
-
 
 <h3>Markdown内の絵文字を置換する</h3>
 
@@ -188,7 +186,6 @@ custom_emoji_collection.replace_code(<span class="synSpecial">"</span><span clas
 <span class="synPreProc">end</span>
 </pre>
 
-
 <h2>おわり</h2>
 
 <p><a href="https://github.com/r7kamura/somemoji">Somemoji</a> 開発の背景や使い方を説明しました。今後の展開として、JavaScript環境で使えるようにする対応と、絵文字画像ダウンロードの高速化、サポートする絵文字セットの増加、絵文字セットごとの利用できる文字種とライセンスの明示、絵文字定義ファイルの追加を考えています。</p>
@@ -199,10 +196,7 @@ custom_emoji_collection.replace_code(<span class="synSpecial">"</span><span clas
 <p lang="ja" dir="ltr">Somemojiつかって掲示板に絵文字切り替え機能つけてみた <a href="https://t.co/T9RPI9zlVI">pic.twitter.com/T9RPI9zlVI</a></p>— 完全週休七日制 (@r7kamura) <a href="https://twitter.com/r7kamura/status/785078578174042112">2016年10月9日</a>
 </blockquote>
 
-
 <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
-
-
 
   </div>
 </article>

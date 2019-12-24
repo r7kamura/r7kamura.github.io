@@ -4,17 +4,21 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width">
   <title>2017年3月27日</title>
-  <link href="/articles/2017-03-27-h" rel="canonical">
+  <link href="https://r7kamura.com:0/articles/2017-03-27-h" rel="canonical">
   <link rel="stylesheet" href="/css/main.css">
   <link rel="search" type="application/opensearchdescription+xml" title="r7kamura.com" href="/opensearch.xml">
   <link rel="alternate" type="application/rss+xml" href="/feed.xml">
+  
   <meta property="description" content="rapa">
   <meta property="og:description" content="rapa">
-  <meta property="og:type" content="article">
+  
+  <meta property="og:type" content="website">
   <meta property="og:title" content="2017年3月27日">
-  <meta property="og:url" content="https://r7kamura.com/articles/2017-03-27-h">
+  <meta property="og:url" content="https://r7kamura.com:0/articles/2017-03-27-h">
+  
   <meta property="og:image" content="https://r7kamura.com/default_og_image.jpg">
   <meta property="twitter:card" content="summary">
+  
 </head>
 <body>
   <header>
@@ -35,7 +39,7 @@
   <h1>2017年3月27日</h1>
   <footer>
     <p>
-      <time datetime="2017-03-27T00:00:00+09:00">2017年03月27日</time>
+      <time datetime="2017-03-27T00:00:00+00:00">2017年03月27日</time>
     </p>
   </footer>
   <div>
@@ -48,13 +52,11 @@
 <li>コミック</li>
 </ul>
 
-
 <p>更にコミックの親として</p>
 
 <ul>
 <li>コミック・本・BL</li>
 </ul>
-
 
 <p>更にその親に</p>
 
@@ -62,13 +64,11 @@
 <li>ジャンル別</li>
 </ul>
 
-
 <p>更にその親に</p>
 
 <ul>
 <li>本</li>
 </ul>
-
 
 <p>といった具合で BrowseNode が与えられている。説明していないけど、小学館の BrowseNode にも同様に親が存在する。今日は Product Advertising API 用の Ruby のクライアントライブラリ <a href="https://github.com/r7kamura/rapa">rapa</a> を改善して、この辺りの情報に簡単にアクセスできるように変更した。また、機能追加に合わせて <a href="https://github.com/petitest/petitest">petitest</a> で幾つかテストを追加した。<a href="https://github.com/petitest/petitest-spec">petitest-spec</a> に足りない機能があったので、機能追加も行った。</p>
 
@@ -83,7 +83,6 @@
 <h2>amakan books</h2>
 
 <p>新 DB 設計を利用して書籍データを集めてみたところ、カテゴリの概念を失念していたので、その辺りを実装した。カテゴリというのは、雑誌、技術書、ラノベなどの単位だが、amakan books では「同じカテゴリの本しか同じシリーズにならない」というルールでシリーズ間に境界線を引くための使われ方をしている。例えばコミックなどは特に細かく分かれていて、文庫コミック、アニメコミック、コミック雑誌、コミックアンソロジーなど、同名だが違うシリーズなものを上手く分けられるようなカテゴライズがなされている。コミック周辺はメディアミックスが行われやすい傾向にあるので、この対策として特にコミックに対して細かく分類を行っているという状況です。</p>
-
 
   </div>
 </article>

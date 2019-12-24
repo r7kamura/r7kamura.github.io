@@ -4,17 +4,21 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width">
   <title>Webサービスの通知連携機能にYoを組み込む</title>
-  <link href="/articles/2016-04-16-q" rel="canonical">
+  <link href="https://r7kamura.com:0/articles/2016-04-16-q" rel="canonical">
   <link rel="stylesheet" href="/css/main.css">
   <link rel="search" type="application/opensearchdescription+xml" title="r7kamura.com" href="/opensearch.xml">
   <link rel="alternate" type="application/rss+xml" href="/feed.xml">
+  
   <meta property="description" content="最近 WikiHub というWebサービスをつくっている中で、Yo を利用した通知連携に対応してほしいという要望があったので、調べて実装してみました。">
   <meta property="og:description" content="最近 WikiHub というWebサービスをつくっている中で、Yo を利用した通知連携に対応してほしいという要望があったので、調べて実装してみました。">
-  <meta property="og:type" content="article">
+  
+  <meta property="og:type" content="website">
   <meta property="og:title" content="Webサービスの通知連携機能にYoを組み込む">
-  <meta property="og:url" content="https://r7kamura.com/articles/2016-04-16-q">
+  <meta property="og:url" content="https://r7kamura.com:0/articles/2016-04-16-q">
+  
   <meta property="og:image" content="https://qiita-image-store.s3.amazonaws.com/0/4365/6babd901-83ed-1d30-e8f9-726c6ff1c044.png">
   <meta property="twitter:card" content="summary_large_image">
+  
 </head>
 <body>
   <header>
@@ -35,53 +39,70 @@
   <h1>Webサービスの通知連携機能にYoを組み込む</h1>
   <footer>
     <p>
-      <time datetime="2016-04-16T00:00:00+09:00">2016年04月16日</time>
+      <time datetime="2016-04-16T00:00:00+00:00">2016年04月16日</time>
     </p>
   </footer>
   <div>
     <p>最近 <a href="https://wikihub.io/">WikiHub</a> というWebサービスをつくっている中で、<a href="https://www.justyo.co/">Yo</a> を利用した通知連携に対応してほしいという要望があったので、調べて実装してみました。<a href="https://meta.wikihub.io/blog/users/r7kamura/20160415204220">Yo連携機能を追加しました - WikiHub Help</a> という記事でYo連携機能の内容を紹介しています。この機能を実装する過程で得た知識をまとめておきます。</p>
-<h3 id="公式ページではアプリをインストールしてほしそう">公式ページではアプリをインストールしてほしそう</h3>
+
+<h3>公式ページではアプリをインストールしてほしそう</h3>
+
 <p>YoはiPhoneとAndroidアプリを主な対象としたアプリケーションです。公式サイトのホームページ <a href="https://www.justyo.co/">https://www.justyo.co/</a> だけ見ると、アプリをインストールしなければ利用できないような印象を受けます。</p>
+
 <p><img src="https://qiita-image-store.s3.amazonaws.com/0/4365/6babd901-83ed-1d30-e8f9-726c6ff1c044.png" alt="image"></p>
-<h3 id="開発者用のページにいけばpcでもログインしたりできて便利">開発者用のページにいけばPCでもログインしたりできて便利</h3>
+
+<h3>開発者用のページにいけばPCでもログインしたりできて便利</h3>
+
 <p>開発者用に別途 <a href="https://dashboard.justyo.co">https://dashboard.justyo.co</a> というページがあります。このページ経由であれば、PCからでも新しいYoアカウントをつくったり、既存のYoアカウントでログインしたりできます。</p>
+
 <p><img src="https://qiita-image-store.s3.amazonaws.com/0/4365/08856dbb-3d83-408f-44bd-e736ec31ca81.png" alt="image"></p>
-<h3 id="api用のアカウントは簡単に作成できる">API用のアカウントは簡単に作成できる</h3>
+
+<h3>API用のアカウントは簡単に作成できる</h3>
+
 <p>開発者用のダッシュボードのページでは、新たなアカウントの発行や、アカウントのAPI Keyの表示などができます。Yoではサービスの性質上メッセージに含められる情報が少ないため、アカウント名を工夫することでそれを補う運用になると思います。そのため、必然的に新しいアカウントをつくる機会が増えることでしょう。Yoでは、メインのアカウント (ログインに利用するアカウント) に紐付ける形で、APIで利用するためのアカウントを複数作成できます。</p>
-<h3 id="apiキーを付けてpostすればyoできる">APIキーを付けてPOSTすればYoできる</h3>
+
+<h3>APIキーを付けてPOSTすればYoできる</h3>
+
 <p>自分の利用用途では「何らかのイベントが発生したときに、あるアカウントを購読している全員にYoを送る」という要件が満たせればOKでした。これには <code>POST /yoall/</code> というエンドポイントが利用できました。YoのREST APIにどんな機能があるかなどの情報は、<a href="http://docs.justyo.co/">http://docs.justyo.co/</a> というページから探せます。APIを利用するには対応するアカウントのAPIキーが必要ですが、これは先述した開発者用のダッシュボードのページから取得できます。</p>
-<h3 id="例えばrubyで-post-yoall-を利用するにはこう">例えばRubyで POST /yoall を利用するにはこう</h3>
+
+<h3>例えばRubyで POST /yoall を利用するにはこう</h3>
+
 <p>利用しているコードの一部をそのまま貼り付けますが、Rubyで <code>POST /yoall</code> を利用するなら例えばこういう風に実装できます。Yoのためのクライアントライブラリもありますが、今回は<a href="https://github.com/lostisland/faraday">Faraday</a> というRubyのHTTPクライアントのライブラリを利用してみています。YoのメッセージにはURLも付与でき、このエンドポイントにもURLを渡せばそれも実現可能です。</p>
-<pre><code class="language-rb">require &quot;faraday&quot;
 
-class YoHook &lt; Hook
-  validates :api_token, presence: true
+<p>```rb
+require &quot;faraday&quot;</p>
 
-  class &lt;&lt; self
+<p>class YoHook &lt; Hook
+  validates :api_token, presence: true</p>
+
+<p>class &lt;&lt; self
     # @return [Faraday::Connection]
-    def faraday_connection
-      @faraday_connection ||= ::Faraday::Connection.new do |connection|
-        connection.request :url_encoded
-        connection.adapter :net_http
+    def faraday<em>connection
+      @faraday</em>connection ||= ::Faraday::Connection.new do |connection|
+        connection.request :url<em>encoded
+        connection.adapter :net</em>http
       end
     end
-  end
+  end</p>
 
-  # @note Override
-  def trigger_article_created_hook
+<p># @note Override
+  def trigger<em>article</em>created_hook
     yo
-  end
+  end</p>
 
-  private
+<p>private</p>
 
-  def yo
-    self.class.faraday_connection.post(
-      &quot;http://api.justyo.co/yoall/&quot;,
-      api_token: api_token,
+<p>def yo
+    self.class.faraday<em>connection.post(
+      &quot;<a href="http://api.justyo.co/yoall/">http://api.justyo.co/yoall/</a>&quot;,
+      api</em>token: api_token,
     )
   end
-end</code></pre>
-<h3 id="おしまい">おしまい</h3>
+end
+```</p>
+
+<h3>おしまい</h3>
+
 <p>サービス上では、APIキーを入力してもらう機能や画面を提供したり、上記のコードで少し出てきたHookクラスを正しく実装したりということが必要ですが、Yoに関係する部分は以上です。Webサービスの簡易通知機能として、使い方次第でわりと便利にYoを利用できるケースがあるかもしれないので、たまにはYoのことを思い出してあげてください。</p>
 
   </div>

@@ -4,17 +4,21 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width">
   <title>scheman diff</title>
-  <link href="/articles/2014-07-15-1-h" rel="canonical">
+  <link href="https://r7kamura.com:0/articles/2014-07-15-1-h" rel="canonical">
   <link rel="stylesheet" href="/css/main.css">
   <link rel="search" type="application/opensearchdescription+xml" title="r7kamura.com" href="/opensearch.xml">
   <link rel="alternate" type="application/rss+xml" href="/feed.xml">
-  <meta property="description" content="https:&#x2F;&#x2F;github.com&#x2F;r7kamura&#x2F;scheman">
-  <meta property="og:description" content="https:&#x2F;&#x2F;github.com&#x2F;r7kamura&#x2F;scheman">
-  <meta property="og:type" content="article">
+  
+  <meta property="description" content="https://github.com/r7kamura/scheman">
+  <meta property="og:description" content="https://github.com/r7kamura/scheman">
+  
+  <meta property="og:type" content="website">
   <meta property="og:title" content="scheman diff">
-  <meta property="og:url" content="https://r7kamura.com/articles/2014-07-15-1-h">
+  <meta property="og:url" content="https://r7kamura.com:0/articles/2014-07-15-1-h">
+  
   <meta property="og:image" content="http://cdn-ak.f.st-hatena.com/images/fotolife/r/r7kamura/20140715/20140715100217.png">
   <meta property="twitter:card" content="summary_large_image">
+  
 </head>
 <body>
   <header>
@@ -35,7 +39,7 @@
   <h1>scheman diff</h1>
   <footer>
     <p>
-      <time datetime="2014-07-15T00:00:00+09:00">2014年07月15日</time>
+      <time datetime="2014-07-15T00:00:00+00:00">2014年07月15日</time>
     </p>
   </footer>
   <div>
@@ -55,7 +59,6 @@
 <li>SQL以外の言語でも記述できる (DSLを使用しても良い)</li>
 </ul>
 
-
 <h3>方針</h3>
 
 <p>次のような実装を試みた。</p>
@@ -65,7 +68,6 @@
 <li>適用すべきSQLを2つのスキーマデータの差分から自動で計算する</li>
 <li>SQL以外の解析器も作成可能に</li>
 </ul>
-
 
 <h3>scheman diff</h3>
 
@@ -80,7 +82,6 @@
 $ cat before.sql | scheman diff --after schema.sql
 $ cat before.sql | scheman diff</pre>
 
-
 <h3>with mysqldump</h3>
 
 <p>標準入力経由でスキーマを入力できるので、例えばmysqldumpの出力をschemanに入力できる。
@@ -92,7 +93,6 @@ mysqldumpは--no-dataと--compactオプションを付ければ、ほぼCREATE T
 <pre class="code" data-unlink>$ mysqldump --no-data --compact db_name | scheman diff
 $ mysqldump --no-data --compact db_name | scheman diff | mysql db_name</pre>
 
-
 <h3>難しいところ</h3>
 
 <ul>
@@ -101,7 +101,6 @@ $ mysqldump --no-data --compact db_name | scheman diff | mysql db_name</pre>
 <li>DBと接続する部分との分離 (接続部分までサポートすべきでないという仮説を持っている)</li>
 </ul>
 
-
 <h3>改善するとしたらこの辺</h3>
 
 <ul>
@@ -109,8 +108,6 @@ $ mysqldump --no-data --compact db_name | scheman diff | mysql db_name</pre>
 <li>MySQLパーサのドキュメント (例: サポート済みの構文一覧)</li>
 <li>他言語用のパーサ (例: PostgreSQL、SQLite)</li>
 </ul>
-
-
 
   </div>
 </article>

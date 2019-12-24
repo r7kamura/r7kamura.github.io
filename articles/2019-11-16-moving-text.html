@@ -4,17 +4,21 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width">
   <title>テキストの引越し</title>
-  <link href="/articles/2019-11-16-moving-text" rel="canonical">
+  <link href="https://r7kamura.com:0/articles/2019-11-16-moving-text" rel="canonical">
   <link rel="stylesheet" href="/css/main.css">
   <link rel="search" type="application/opensearchdescription+xml" title="r7kamura.com" href="/opensearch.xml">
   <link rel="alternate" type="application/rss+xml" href="/feed.xml">
+  
   <meta property="description" content="自分の書いた文章が急に消えたり、いつの間にか意図していない形で表示されるようになったりすることが怖くなってきた。">
   <meta property="og:description" content="自分の書いた文章が急に消えたり、いつの間にか意図していない形で表示されるようになったりすることが怖くなってきた。">
-  <meta property="og:type" content="article">
+  
+  <meta property="og:type" content="website">
   <meta property="og:title" content="テキストの引越し">
-  <meta property="og:url" content="https://r7kamura.com/articles/2019-11-16-moving-text">
+  <meta property="og:url" content="https://r7kamura.com:0/articles/2019-11-16-moving-text">
+  
   <meta property="og:image" content="https://r7kamura.com/default_og_image.jpg">
   <meta property="twitter:card" content="summary">
+  
 </head>
 <body>
   <header>
@@ -35,84 +39,115 @@
   <h1>テキストの引越し</h1>
   <footer>
     <p>
-      <time datetime="2019-11-16T00:00:00+09:00">2019年11月16日</time>
+      <time datetime="2019-11-16T00:00:00+00:00">2019年11月16日</time>
     </p>
   </footer>
   <div>
     <p>自分の書いた文章が急に消えたり、いつの間にか意図していない形で表示されるようになったりすることが怖くなってきた。そこで、各サービスに投稿していたテキストデータを徐々に引っ越してきて、GitHubで管理していくことにした。</p>
+
 <p>これまでこういう状態だった。</p>
+
 <ul>
-<li>Hatena Blog<ul>
+<li>Hatena Blog
+
+<ul>
 <li>雑記</li>
 <li>日記</li>
 <li>2009年〜2019年</li>
-</ul>
-</li>
-<li>Medium<ul>
+</ul></li>
+<li>Medium
+
+<ul>
 <li>雑記</li>
 <li>技術記事</li>
 <li>2017年〜2019年</li>
-</ul>
-</li>
-<li>Patreon<ul>
+</ul></li>
+<li>Patreon
+
+<ul>
 <li>技術記事</li>
 <li>2018年〜2019年</li>
-</ul>
-</li>
-<li>Qiita<ul>
+</ul></li>
+<li>Qiita
+
+<ul>
 <li>技術記事</li>
 <li>2014年〜2016年</li>
-</ul>
-</li>
-<li>Twitter<ul>
+</ul></li>
+<li>Twitter
+
+<ul>
 <li>つぶやき</li>
 <li>2011年〜2019年</li>
+</ul></li>
 </ul>
-</li>
-</ul>
+
 <p>これからはこういう状態にしようとしている。</p>
+
 <ul>
-<li>GitHub<ul>
+<li>GitHub
+
+<ul>
 <li>雑記</li>
 <li>日記</li>
 <li>技術記事</li>
 <li>2009年〜2019年</li>
-</ul>
-</li>
-<li>Twitter<ul>
+</ul></li>
+<li>Twitter
+
+<ul>
 <li>つぶやき</li>
 <li>2011年〜2019年</li>
+</ul></li>
 </ul>
-</li>
-</ul>
+
 <p>テキストデータはfrontmatter付きのMarkdownとして記述することにした。人間が書いて機械が読む、というところでバランスが取れるギリギリの妥協点だと思う。プレーンテキストとして読めるようなMarkdownを心掛けたい。</p>
+
 <p>データの保存と整形と公開はGitHubにやってもらう。何かの間違いで全てが消えてしまうかもしれないから、たまにバックアップを取って、どこか遠いところに保存しておく。</p>
+
 <p>とにかく安心感を得たい。見る側のための行動ではなくて、書く側のための行動である。移行にあたって、失われる情報もあるだろうし、これまで各サービスを通して自分の文章を見てくれていた人達に対しては、不便を感じさせてしまうと思う。そこについては本当に申し訳ない。</p>
+
 <hr>
+
 <p>以下は泥臭い引越し作業の話。</p>
+
 <p>Qiitaは記事のエクスポートに対応していないけど、<a href="https://github.com/increments/qiita-rb">increments/qiita-rb</a>を使うと、Qiitaの記事をJSON形式で簡単にエクスポートできる。これぐらいならCLIでも簡単。</p>
-<pre><code>gem install qiita
-qiita list_user_items r7kamura per_page=100 &gt; items.json</code></pre><p>記事の削除もCLIで出来るけど、jqとかでごにょごにょやるのはちょっと面倒なので、Ruby向けのAPIを使う。</p>
-<pre><code>require &quot;qiita&quot;
 
-client = Qiita::Client.new(
-  access_token: ENV[&quot;QIITA_ACCESS_TOKEN&quot;]
-)
+<p><code>
+gem install qiita
+qiita list_user_items r7kamura per_page=100 &gt; items.json
+</code></p>
 
-response = client.list_user_items(
+<p>記事の削除もCLIで出来るけど、jqとかでごにょごにょやるのはちょっと面倒なので、Ruby向けのAPIを使う。</p>
+
+<p>```
+require &quot;qiita&quot;</p>
+
+<p>client = Qiita::Client.new(
+  access<em>token: ENV[&quot;QIITA</em>ACCESS_TOKEN&quot;]
+)</p>
+
+<p>response = client.list<em>user</em>items(
   &quot;r7kamura&quot;,
-  per_page: 100
+  per<em>page: 100
 )
 response.body.each do |item|
   begin
-    client.delete_item(item[&quot;id&quot;])
+    client.delete</em>item(item[&quot;id&quot;])
   rescue
     retry
   end
-end</code></pre><p>いいねが数百件以上付いた記事の削除は、体感50%ぐらいの確率でタイムアウトするので、無限にリトライさせて対応した。</p>
+end
+```</p>
+
+<p>いいねが数百件以上付いた記事の削除は、体感50%ぐらいの確率でタイムアウトするので、無限にリトライさせて対応した。</p>
+
 <p>MediumはHTMLでエクスポートされるので、最初はNokogiriでぎこぎこやっていたのだけど、途中からおかしいと思い始めて「medium export markdown」でググった。<a href="https://hackernoon.com/medium-2-md-convert-medium-posts-to-markdown-with-front-matter-c044e02c3cbb">medium-2-md</a>でMarkdownに変換できて最高。アカウントを仮削除状態にできるボタンもあるので移行が捗る。</p>
+
 <p>はてなブログはMovableType形式でエクスポートされるので、文字列操作で適当にゴニョゴニョやってMarkdown化する。Patreonも今のところ良いエクスポート方法が無さそうなので、Nokogiriでぎこぎこやる予定。</p>
+
 <p>エクスポートしてきた記事にはそれぞれ、frontmatter部分にエクスポート元のサービス名を記述してある。現状はまだ不要なマークアップが含まれてしまっているので、将来この部分を綺麗にするためにサービス名の情報を使う。</p>
+
 <p>全部終わったら、今度は記事に含まれる画像のURLを探索して、適切なサービスに移し替えたい。</p>
 
   </div>

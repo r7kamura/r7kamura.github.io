@@ -4,17 +4,21 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width">
   <title>fluctでAPI GatewayやLambdaと仲良くやる</title>
-  <link href="/articles/2015-08-08-h" rel="canonical">
+  <link href="https://r7kamura.com:0/articles/2015-08-08-h" rel="canonical">
   <link rel="stylesheet" href="/css/main.css">
   <link rel="search" type="application/opensearchdescription+xml" title="r7kamura.com" href="/opensearch.xml">
   <link rel="alternate" type="application/rss+xml" href="/feed.xml">
-  <meta property="description" content="https:&#x2F;&#x2F;github.com&#x2F;r7kamura&#x2F;fluct というのをつくってて、これを使ってAmazon API GatewayとAmazon Lambda上に簡単にWebアプリをつくれるようにしたいなあと思っている。">
-  <meta property="og:description" content="https:&#x2F;&#x2F;github.com&#x2F;r7kamura&#x2F;fluct というのをつくってて、これを使ってAmazon API GatewayとAmazon Lambda上に簡単にWebアプリをつくれるようにしたいなあと思っている。">
-  <meta property="og:type" content="article">
+  
+  <meta property="description" content="https://github.com/r7kamura/fluct というのをつくってて、これを使ってAmazon API GatewayとAmazon Lambda上に簡単にWebアプリをつくれるようにしたいなあと思っている。">
+  <meta property="og:description" content="https://github.com/r7kamura/fluct というのをつくってて、これを使ってAmazon API GatewayとAmazon Lambda上に簡単にWebアプリをつくれるようにしたいなあと思っている。">
+  
+  <meta property="og:type" content="website">
   <meta property="og:title" content="fluctでAPI GatewayやLambdaと仲良くやる">
-  <meta property="og:url" content="https://r7kamura.com/articles/2015-08-08-h">
+  <meta property="og:url" content="https://r7kamura.com:0/articles/2015-08-08-h">
+  
   <meta property="og:image" content="https://qiita-image-store.s3.amazonaws.com/0/4365/69909845-1541-b86d-fdf1-c1c87e5d9651.png">
   <meta property="twitter:card" content="summary_large_image">
+  
 </head>
 <body>
   <header>
@@ -35,7 +39,7 @@
   <h1>fluctでAPI GatewayやLambdaと仲良くやる</h1>
   <footer>
     <p>
-      <time datetime="2015-08-08T00:00:00+09:00">2015年08月08日</time>
+      <time datetime="2015-08-08T00:00:00+00:00">2015年08月08日</time>
     </p>
   </footer>
   <div>
@@ -46,7 +50,6 @@
 <p>fluctはNode.jsで書かれていて、npm経由でインストールできる。なぜNode.jsかと言うと、Amazon LambdaでNode.jsかJava 8しか動かないのでNode.jsにした。先週からNode.js書き始めたのであまりよく分かっていないけど、そのような人間でも簡単なツールがつくれる程度には使いやすいものだと思う。</p>
 
 <pre class="code" data-lang="" data-unlink>$ npm install fluct -g</pre>
-
 
 <h2>試しにアプリをつくってみる</h2>
 
@@ -59,7 +62,6 @@ Created ./myapp/actions
 Created ./myapp/actions/.keep
 Created ./myapp/package.json</pre>
 
-
 <h2>エンドポイントを追加してみる</h2>
 
 <p>fluctでは GET /foo/bar みたいなAPIのエンドポイントの単位のことをactionと呼んでいて、1つのプロジェクトに複数のactionを持てるようになっている。RailsだとControllerのactionみたいな感じのもの。fluct generate action ... でactionに必要なファイルを生成する機能がある。</p>
@@ -70,7 +72,6 @@ Created ./actions/list_users
 Created ./actions/list_users/dist
 Created ./actions/list_users/dist/index.js
 Created ./actions/list_users/package.json</pre>
-
 
 <h2>デプロイしてみる</h2>
 
@@ -91,7 +92,6 @@ PUT    https://apigateway.us-east-1.amazonaws.com/restapis/nob3eusi70/resources/
 PUT    https://apigateway.us-east-1.amazonaws.com/restapis/nob3eusi70/resources/i7qrat/methods/GET/responses/200
 PUT    https://apigateway.us-east-1.amazonaws.com/restapis/nob3eusi70/resources/i7qrat/methods/GET/integration/responses/200</pre>
 
-
 <h2>確認してみる</h2>
 
 <p>AWSの管理画面で見るとこういうのができている。</p>
@@ -104,8 +104,6 @@ PUT    https://apigateway.us-east-1.amazonaws.com/restapis/nob3eusi70/resources/
 
 <pre class="code" data-lang="" data-unlink>$ fluct server
 Server starting on http://127.0.0.1:3000</pre>
-
-
 
   </div>
 </article>

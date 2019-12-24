@@ -4,17 +4,21 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width">
   <title>amakanにstylelintを導入した</title>
-  <link href="/articles/2017-01-27-h" rel="canonical">
+  <link href="https://r7kamura.com:0/articles/2017-01-27-h" rel="canonical">
   <link rel="stylesheet" href="/css/main.css">
   <link rel="search" type="application/opensearchdescription+xml" title="r7kamura.com" href="/opensearch.xml">
   <link rel="alternate" type="application/rss+xml" href="/feed.xml">
-  <meta property="description" content="https:&#x2F;&#x2F;amakan.net&#x2F; のこの辺の改善の続き。">
-  <meta property="og:description" content="https:&#x2F;&#x2F;amakan.net&#x2F; のこの辺の改善の続き。">
-  <meta property="og:type" content="article">
+  
+  <meta property="description" content="https://amakan.net/ のこの辺の改善の続き。">
+  <meta property="og:description" content="https://amakan.net/ のこの辺の改善の続き。">
+  
+  <meta property="og:type" content="website">
   <meta property="og:title" content="amakanにstylelintを導入した">
-  <meta property="og:url" content="https://r7kamura.com/articles/2017-01-27-h">
+  <meta property="og:url" content="https://r7kamura.com:0/articles/2017-01-27-h">
+  
   <meta property="og:image" content="https://cdn-ak.f.st-hatena.com/images/fotolife/r/r7kamura/20170127/20170127233333.png">
   <meta property="twitter:card" content="summary_large_image">
+  
 </head>
 <body>
   <header>
@@ -35,7 +39,7 @@
   <h1>amakanにstylelintを導入した</h1>
   <footer>
     <p>
-      <time datetime="2017-01-27T00:00:00+09:00">2017年01月27日</time>
+      <time datetime="2017-01-27T00:00:00+00:00">2017年01月27日</time>
     </p>
   </footer>
   <div>
@@ -54,8 +58,7 @@
 <li><a href="http://r7kamura.hatenablog.com/entry/2017/01/14/143025">amakanのCIをShippableに移行した - ✘╹◡╹✘</a></li>
 </ul>
 
-
-<hr>
+<p><hr></p>
 
 <p>amakan の CSS は勘で書いていて、何となく気が向いたので stylelint を導入してみた。</p>
 
@@ -69,7 +72,6 @@
 
 <pre class="code" data-lang="" data-unlink>yarn add stylelint --dev</pre>
 
-
 <h2>stylelint-config-standard</h2>
 
 <p>Lint のルールとして標準的なやつが stylelint-config-standard というやつに入っているらしいので、これもとりあえずインストール。</p>
@@ -77,7 +79,6 @@
 <p><a href="https://github.com/stylelint/stylelint-config-standard">https://github.com/stylelint/stylelint-config-standard</a></p>
 
 <pre class="code" data-lang="" data-unlink>yarn add stylelint-config-standard --dev</pre>
-
 
 <h2>.stylelintrc</h2>
 
@@ -88,7 +89,6 @@
 <span class="synSpecial">}</span>
 </pre>
 
-
 <h2>docker-compose.yml</h2>
 
 <p>stylelint は Node.js 用のコンテナで動かす。.stylelintrc という設定ファイルを利用するので、これはホスト側からコンテナ側にマウントする必要がある。そのために docker-compose.yml に追記した。</p>
@@ -97,7 +97,6 @@
   <span class="synIdentifier">volumes</span><span class="synSpecial">:</span>
     <span class="synStatement">- </span>./.stylelintrc:/app/.stylelintrc
 </pre>
-
 
 <h2>package.json</h2>
 
@@ -111,7 +110,6 @@
 <span class="synError">  }</span>
 <span class="synSpecial">}</span>
 </pre>
-
 
 <h2>NG集</h2>
 
@@ -136,33 +134,31 @@
 <li>調べるところから初めて 20 分ぐらいで作業完了したので導入しやすかった</li>
 </ul>
 
-
 <h2>様子</h2>
 
-<p></p><blockquote class="twitter-tweet" data-lang="ja">
+<p><p></p><blockquote class="twitter-tweet" data-lang="ja">
 <p lang="ja" dir="ltr">amakanのCSSも勘で書いてるしStylelintとかいうの導入してみようかな</p>— ホームページビルダー (@r7kamura) <a href="https://twitter.com/r7kamura/status/824979547690934272">2017年1月27日</a>
-</blockquote><script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+</blockquote><script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script></p>
 
-<p></p><blockquote class="twitter-tweet" data-lang="ja">
+<p><p></p><blockquote class="twitter-tweet" data-lang="ja">
 <p lang="ja" dir="ltr">とりあえず stylelint と stylelint-config-standard というの入れたけど何なのか分かってない</p>— ホームページビルダー (@r7kamura) <a href="https://twitter.com/r7kamura/status/824979734291378177">2017年1月27日</a>
-</blockquote><script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+</blockquote><script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script></p>
 
-<p></p><blockquote class="twitter-tweet" data-lang="ja">
+<p><p></p><blockquote class="twitter-tweet" data-lang="ja">
 <p lang="ja" dir="ltr">JSON で .stylelintrc というの書いて Node.js 用のコンテナにマウントして動かしてみたが ✖ がいっぱい出た</p>— ホームページビルダー (@r7kamura) <a href="https://twitter.com/r7kamura/status/824980079264436225">2017年1月27日</a>
-</blockquote><script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+</blockquote><script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script></p>
 
-<p></p><blockquote class="twitter-tweet" data-lang="ja">
+<p><p></p><blockquote class="twitter-tweet" data-lang="ja">
 <p lang="ja" dir="ltr">とりあえずamakanにstylelint導入してstylelint-config-standardのルールでエラー出ないようにしてみたところ、不要なファイルが5つ見つかり、300行ほどCSSが減って良かった</p>— ホームページビルダー (@r7kamura) <a href="https://twitter.com/r7kamura/status/824985768409993218">2017年1月27日</a>
-</blockquote><script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+</blockquote><script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script></p>
 
-<p></p><blockquote class="twitter-tweet" data-lang="ja">
-<p lang="ja" dir="ltr">日記 / amakanにstylelintを導入した - ✘╹◡╹✘ <a href="https://t.co/624BepLbGr">https://t.co/624BepLbGr</a></p>— ホームページビルダー (@r7kamura) <a href="https://twitter.com/r7kamura/status/824990400116977665">2017年1月27日</a>
-</blockquote><script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+<p><p></p><blockquote class="twitter-tweet" data-lang="ja">
+<p lang="ja" dir="ltr">日記 / amakanにstylelintを導入した - ✘╹◡╹✘ <a href="https://t.co/624BepLbGr"><a href="https://t.co/624BepLbGr">https://t.co/624BepLbGr</a></a></p>— ホームページビルダー (@r7kamura) <a href="https://twitter.com/r7kamura/status/824990400116977665">2017年1月27日</a>
+</blockquote><script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script></p>
 
-<p></p><blockquote class="twitter-tweet" data-lang="ja">
+<p><p></p><blockquote class="twitter-tweet" data-lang="ja">
 <p lang="ja" dir="ltr">ほんとうに雰囲気でやっていてこんなんで大丈夫化</p>— ホームページビルダー (@r7kamura) <a href="https://twitter.com/r7kamura/status/824990865189789696">2017年1月27日</a>
-</blockquote><script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
-
+</blockquote><script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script></p>
 
   </div>
 </article>

@@ -4,17 +4,21 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width">
   <title>FactoryBotのfactoryへの期待</title>
-  <link href="/articles/2019-12-18-factory-bot" rel="canonical">
+  <link href="https://r7kamura.com:0/articles/2019-12-18-factory-bot" rel="canonical">
   <link rel="stylesheet" href="/css/main.css">
   <link rel="search" type="application/opensearchdescription+xml" title="r7kamura.com" href="/opensearch.xml">
   <link rel="alternate" type="application/rss+xml" href="/feed.xml">
+  
   <meta property="description" content="FactoryBotのfactoryはこう書かれていてほしい、という期待をまとめておこうと思う。">
   <meta property="og:description" content="FactoryBotのfactoryはこう書かれていてほしい、という期待をまとめておこうと思う。">
-  <meta property="og:type" content="article">
+  
+  <meta property="og:type" content="website">
   <meta property="og:title" content="FactoryBotのfactoryへの期待">
-  <meta property="og:url" content="https://r7kamura.com/articles/2019-12-18-factory-bot">
+  <meta property="og:url" content="https://r7kamura.com:0/articles/2019-12-18-factory-bot">
+  
   <meta property="og:image" content="https://r7kamura.com/default_og_image.jpg">
   <meta property="twitter:card" content="summary">
+  
 </head>
 <body>
   <header>
@@ -35,25 +39,45 @@
   <h1>FactoryBotのfactoryへの期待</h1>
   <footer>
     <p>
-      <time datetime="2019-12-18T00:00:00+09:00">2019年12月18日</time>
+      <time datetime="2019-12-18T00:00:00+00:00">2019年12月18日</time>
     </p>
   </footer>
   <div>
     <p><a href="https://github.com/thoughtbot/factory_bot">FactoryBot</a>のfactoryはこう書かれていてほしい、という期待をまとめておこうと思う。</p>
-<h2 id="第一段階">第一段階</h2>
+
+<h2>第一段階</h2>
+
 <p>最低限の基準として、attributesを与えなくてもレコードの保存に成功するように定義されていてほしい。</p>
+
 <p>つまり、全ての（少なくともtraitを用いない場合の）factoryの定義について、以下のように呼び出せるように定義されていてほしい。</p>
-<pre><code class="language-ruby">FactoryBot.create(:user)</code></pre>
+
+<p><code>ruby
+FactoryBot.create(:user)
+</code></p>
+
 <p>例えば、以下のように呼び出さ<strong>なければならない</strong>のであれば、使いづらく、良くない定義だと考えている。</p>
-<pre><code class="language-ruby">FactoryBot.create(:user, name: &#39;alice&#39;)</code></pre>
+
+<p><code>ruby
+FactoryBot.create(:user, name: &#39;alice&#39;)
+</code></p>
+
 <p>もちろん例外的な状況は存在するので、そういう場合には守らなくて良い。</p>
-<h2 id="第二段階">第二段階</h2>
+
+<h2>第二段階</h2>
+
 <p>次の段階の基準として、2つ以上のレコードを作成してもエラーにならないように定義されていてほしい。</p>
+
 <p>つまり、以下のように呼び出せるように定義されていてほしい。</p>
-<pre><code class="language-ruby">FactoryBot.create(:user)
-FactoryBot.create(:user)</code></pre>
+
+<p><code>ruby
+FactoryBot.create(:user)
+FactoryBot.create(:user)
+</code></p>
+
 <p>例えば、name属性にUniquenessValidatorが定義されていて、name属性の内容が決め打ちだったりすると、こういうコードは失敗する。factoryの定義で <code>sequence</code> 等の機能を利用して回避するのが望ましい。</p>
-<h2 id="その他">その他</h2>
+
+<h2>その他</h2>
+
 <p>雛形で自動生成されるようなfactoryは、経験上、存在すらしていない方がましなことの方が多い。</p>
 
   </div>

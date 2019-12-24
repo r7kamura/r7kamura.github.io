@@ -4,17 +4,21 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width">
   <title>HerokuのOAuth as Single Sign On読んだ</title>
-  <link href="/articles/2014-06-20-h" rel="canonical">
+  <link href="https://r7kamura.com:0/articles/2014-06-20-h" rel="canonical">
   <link rel="stylesheet" href="/css/main.css">
   <link rel="search" type="application/opensearchdescription+xml" title="r7kamura.com" href="/opensearch.xml">
   <link rel="alternate" type="application/rss+xml" href="/feed.xml">
+  
   <meta property="description" content="Heroku | OAuth as Single Sign Onを読んだ。">
   <meta property="og:description" content="Heroku | OAuth as Single Sign Onを読んだ。">
-  <meta property="og:type" content="article">
+  
+  <meta property="og:type" content="website">
   <meta property="og:title" content="HerokuのOAuth as Single Sign On読んだ">
-  <meta property="og:url" content="https://r7kamura.com/articles/2014-06-20-h">
+  <meta property="og:url" content="https://r7kamura.com:0/articles/2014-06-20-h">
+  
   <meta property="og:image" content="https://r7kamura.com/default_og_image.jpg">
   <meta property="twitter:card" content="summary">
+  
 </head>
 <body>
   <header>
@@ -35,7 +39,7 @@
   <h1>HerokuのOAuth as Single Sign On読んだ</h1>
   <footer>
     <p>
-      <time datetime="2014-06-20T00:00:00+09:00">2014年06月20日</time>
+      <time datetime="2014-06-20T00:00:00+00:00">2014年06月20日</time>
     </p>
   </footer>
   <div>
@@ -52,7 +56,6 @@
 <li>各サービスではcookieに含まれているアクセストークンを利用してAPIサーバと通信する</li>
 </ul>
 
-
 <h3>アクセストークンについて</h3>
 
 <ul>
@@ -60,7 +63,6 @@
 <li>とはいえ有効期間は30日間に設定されているので30日の間はログインし続けられる</li>
 <li>あとアクセストークンと一緒に時刻も保存してて6時間でcookieを無効化するようにしてる(?)</li>
 </ul>
-
 
 <h3>ログアウトについて</h3>
 
@@ -70,7 +72,6 @@
 <li>例えば次にdashboard.heroku.comからAPIサーバと通信したとき分かるのでログアウトできる</li>
 </ul>
 
-
 <h3>つらい</h3>
 
 <ul>
@@ -79,7 +80,6 @@
 <li>*.heroku.com用のcookie使って他のサービスでログアウトしたかどうか分かるようにした</li>
 </ul>
 
-
 <h3>更につらい</h3>
 
 <ul>
@@ -87,8 +87,6 @@
 <li>*.heroku.com用のcookie使うことにしたらそこから操作されるかもしれんやばい</li>
 <li>リスク見積もったけどまあ大丈夫そうやしええやろという判断になった</li>
 </ul>
-
-
 
   </div>
 </article>

@@ -4,17 +4,21 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width">
   <title>読むべきコード量</title>
-  <link href="/articles/2012-01-07-h" rel="canonical">
+  <link href="https://r7kamura.com:0/articles/2012-01-07-h" rel="canonical">
   <link rel="stylesheet" href="/css/main.css">
   <link rel="search" type="application/opensearchdescription+xml" title="r7kamura.com" href="/opensearch.xml">
   <link rel="alternate" type="application/rss+xml" href="/feed.xml">
+  
   <meta property="description" content="読むべきコード量が増えるか">
   <meta property="og:description" content="読むべきコード量が増えるか">
-  <meta property="og:type" content="article">
+  
+  <meta property="og:type" content="website">
   <meta property="og:title" content="読むべきコード量">
-  <meta property="og:url" content="https://r7kamura.com/articles/2012-01-07-h">
+  <meta property="og:url" content="https://r7kamura.com:0/articles/2012-01-07-h">
+  
   <meta property="og:image" content="https://r7kamura.com/default_og_image.jpg">
   <meta property="twitter:card" content="summary">
+  
 </head>
 <body>
   <header>
@@ -35,7 +39,7 @@
   <h1>読むべきコード量</h1>
   <footer>
     <p>
-      <time datetime="2012-01-07T00:00:00+09:00">2012年01月07日</time>
+      <time datetime="2012-01-07T00:00:00+00:00">2012年01月07日</time>
     </p>
   </footer>
   <div>
@@ -45,6 +49,7 @@
 読むべきコードが多いっていうのはそういうことじゃない、って言われそう。でも「3クラス先くらいまで読むのは良いけどそれ以上になると厳しくなってくる」みたいな曖昧な指標では捉えたくない。「実装はきっとそこにある」って分かっているかどうかとかもある。コードを読んでて新しいことを学んでいるかどうかというのもある。そういうのが色々ありすぎて結局感覚でしか推し量れないのは信頼性に欠ける。</p>
 
 </div>
+
 <div class="section">
     <h3>読むべきコード量をどう考えるか</h3>
     <p>読むべきコードと読んだ後の生産性については天秤に掛けられるべきだと思う。EmacsやVimなんかは学習コストが最高にハイだけど、1度使い方を覚えた後の生産性は著しく高い。皆がRailsにどういう考え方を持ってるかどうかは分からないけど、自分にとってのRailsはそうだった。やり方を覚えたあとの開発や理解の速さがある。そういう速さから得られる開発の気持ち良さがある。昨日、社内サービスの特定の部分の挙動を変えたいという要求があって、3年前に弊社で書かれていたRailsのコードをgit-cloneする機会があったけど、読んだことないにも関わらずルートディレクトリ開いて3秒ぐらいで目的の処理部分に到達できた。この学習コストの不要さをどう考えるか、大切そうな気がした。<br>

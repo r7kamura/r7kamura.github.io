@@ -4,17 +4,21 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width">
   <title>RubyでGPUを使おう</title>
-  <link href="/articles/2011-12-28-h" rel="canonical">
+  <link href="https://r7kamura.com:0/articles/2011-12-28-h" rel="canonical">
   <link rel="stylesheet" href="/css/main.css">
   <link rel="search" type="application/opensearchdescription+xml" title="r7kamura.com" href="/opensearch.xml">
   <link rel="alternate" type="application/rss+xml" href="/feed.xml">
+  
   <meta property="description" content="※この記事はRuby Advent Calendar jp 2011の28日目の記事です。">
   <meta property="og:description" content="※この記事はRuby Advent Calendar jp 2011の28日目の記事です。">
-  <meta property="og:type" content="article">
+  
+  <meta property="og:type" content="website">
   <meta property="og:title" content="RubyでGPUを使おう">
-  <meta property="og:url" content="https://r7kamura.com/articles/2011-12-28-h">
+  <meta property="og:url" content="https://r7kamura.com:0/articles/2011-12-28-h">
+  
   <meta property="og:image" content="http://dl.dropbox.com/u/5978869/image/20111228_235322.png">
   <meta property="twitter:card" content="summary_large_image">
+  
 </head>
 <body>
   <header>
@@ -35,17 +39,17 @@
   <h1>RubyでGPUを使おう</h1>
   <footer>
     <p>
-      <time datetime="2011-12-28T00:00:00+09:00">2011年12月28日</time>
+      <time datetime="2011-12-28T00:00:00+00:00">2011年12月28日</time>
     </p>
   </footer>
   <div>
     <p>※この記事は<a href="http://atnd.org/events/22021">Ruby Advent Calendar jp 2011</a>の28日目の記事です。</p>
 
-<ul>
-<li><a href="http://d.hatena.ne.jp/kk_Ataka/20111227/1324911671">27日目 kk_Ataka EvernoteのAPIをRubyから叩きたい</a></li>
+<p><ul>
+<li><a href="http://d.hatena.ne.jp/kk_Ataka/20111227/1324911671">27日目 kk<em>Ataka EvernoteのAPIをRubyから叩きたい</a></li>
 <li>28日目 r7kamura RubyでGPUを使おう (←イマココ)</li>
-<li>29日目 Daic_h (予定)</li>
-</ul><p>こんにちは、r7kamuraです。耳を澄ませば2011年の崩れていく音がしますね。今回は年末用にとっておいた残り少ない意識を使って、RubyでGPUを使う方法を紹介しようと思います。</p>
+<li>29日目 Daic</em>h (予定)</li>
+</ul><p>こんにちは、r7kamuraです。耳を澄ませば2011年の崩れていく音がしますね。今回は年末用にとっておいた残り少ない意識を使って、RubyでGPUを使う方法を紹介しようと思います。</p></p>
 
 <div class="section">
     <h3>GPU?</h3>
@@ -58,46 +62,57 @@
 <p></p>
 
 </div>
+
 <div class="section">
     <h3>Ruby</h3>
     <p>RubyでGPUを使う方法、つまりRubyでGPGPUなプログラムを書いて動かす方法を紹介します。OpenCLとCUDA、どちらにもRubyバインディングが存在しますが、今回はOpenCLのRubyバインディングであるBarracudaを利用する方法を紹介します。最近のMac(OS 10.6以降)ではOpenCLの環境が元からインストールされているので、Barracudaを入れるだけOKです。</p>
 
-<pre><code>&lt;pre class=&quot;code lang-txt&quot; data-lang=&quot;txt&quot;&gt;$ git clone https://github.com/lsegal/barracuda.git</code></pre><p>$ cd barracuda
-$ rake install</p>
-<h1 id="本家のrakefileではsudo権限で入れるようになっています。">本家のRakefileではsudo権限で入れるようになっています。</h1>
-<h1 id="rvm等を利用している場合は、rakefileの6行目を書き換えて">RVM等を利用している場合は、Rakefileの6行目を書き換えて</h1>
-<h1 id="sudo-を外すなどしましょう">sudo を外すなどしましょう</h1>
-<h1 id="--本家-httpsgithubcomlsegalbarracudablobmasterrakefilel6">- 本家 <a href="https://github.com/lsegal/barracuda/blob/master/Rakefile#L6">https://github.com/lsegal/barracuda/blob/master/Rakefile#L6</a></h1>
-<h1 id="--修正-httpsgistgithubcom1524778pre">- 修正 <a href="https://gist.github.com/1524778">https://gist.github.com/1524778</a></pre></h1>
+    <pre class="code lang-txt" data-lang="txt">$ git clone https://github.com/lsegal/barracuda.git
+$ cd barracuda
+$ rake install
+
+# 本家のRakefileではsudo権限で入れるようになっています。
+# RVM等を利用している場合は、Rakefileの6行目を書き換えて
+# sudo を外すなどしましょう
+# - 本家 https://github.com/lsegal/barracuda/blob/master/Rakefile#L6
+# - 修正 https://gist.github.com/1524778</pre>
 <p>ではBarracudaを利用した簡単なコードを動かしてみます。<br>
 要素数の大きな適当な配列を用意して掛けて足すだけの単純な内容です。</p>
 
-<pre><code>&lt;pre class=&quot;code lang-txt&quot; data-lang=&quot;txt&quot;&gt;#!/usr/bin/env ruby</code></pre><p>require &quot;barracuda&quot;</p>
-<h1 id="gpu用の関数を定義-opencl実行プログラムの作成とコンパイル">GPU用の関数を定義(= OpenCL実行プログラムの作成とコンパイル)</h1>
-<p>program = Barracuda::Program.new &lt;&lt;EOF
+    <pre class="code lang-txt" data-lang="txt">#!/usr/bin/env ruby
+require "barracuda"
+
+# GPU用の関数を定義(= OpenCL実行プログラムの作成とコンパイル)
+program = Barracuda::Program.new &lt;&lt;EOF
 __kernel void calculate(
   __global int *a,
   __global int *b,
   __global int *c,
-  __global int *d) {</p>
-<p>  // 0〜n-1のthreadIDを得る
-  int i = get_global_id(0);</p>
-<p>  // a = b * c + d
+  __global int *d) {
+
+  // 0〜n-1のthreadIDを得る
+  int i = get_global_id(0);
+
+  // a = b * c + d
   a[i] = b[i] * c[i] + d[i];
 }
-EOF</p>
-<h1 id="calculate関数を実行するスレッド数">calculate関数を実行するスレッド数</h1>
-<p>n = 1_000_000</p>
-<h1 id="calculate関数の引数を用意">calculate関数の引数を用意</h1>
-<p>a = Array.new(n)
+EOF
+
+# calculate関数を実行するスレッド数
+n = 1_000_000
+
+# calculate関数の引数を用意
+a = Array.new(n)
 b = Array.new(n) { rand(123456) }
 c = Array.new(n) { rand(123456) }
-d = Array.new(n) { rand(123456) }</p>
-<h1 id="calculate関数の実行--barracudaprogramcalculateが呼べる">calculate関数の実行 / Barracuda::Program#calculateが呼べる</h1>
-<p>result = program.calculate(a, b, c, d, :times =&gt; n)</pre></p>
+d = Array.new(n) { rand(123456) }
+
+# calculate関数の実行 / Barracuda::Program#calculateが呼べる
+result = program.calculate(a, b, c, d, :times =&gt; n)</pre>
 <p>Barracudaでは、上記のように文字列としてOpenCL用のコードを渡します。OpenCLとして妥当なコードならここでコンパイルが成功し、コードの中で定義した関数が実行できるようになります。案外簡単ですね！普通にRubyでやろうとすると逐次実行するのでイテレータで時間を取りますが、GPUを利用すれば単純に並列実行が可能なため実行時間短縮が期待できます。</p>
 
 </div>
+
 <div class="section">
     <h3>まとめ</h3>
     <p>今回はRubyでGPUを扱う方法の1つとして、OpenCLを利用するBarracudaを紹介しました。まだまだ発展途中な感じではありますが、意外と簡単に利用することができるため、処理の重い部分だけを局所的にGPUに任せるなどの使い方が期待できますね。明日の記事はDaic_hさんの予定です。</p>

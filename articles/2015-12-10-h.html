@@ -4,17 +4,21 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width">
   <title>ルーティング定義時の変数名のアレ</title>
-  <link href="/articles/2015-12-10-h" rel="canonical">
+  <link href="https://r7kamura.com:0/articles/2015-12-10-h" rel="canonical">
   <link rel="stylesheet" href="/css/main.css">
   <link rel="search" type="application/opensearchdescription+xml" title="r7kamura.com" href="/opensearch.xml">
   <link rel="alternate" type="application/rss+xml" href="/feed.xml">
-  <meta property="description" content="get &quot;&#x2F;users&#x2F;:id&quot; &#x3D;&gt; &quot;users#show&quot;">
-  <meta property="og:description" content="get &quot;&#x2F;users&#x2F;:id&quot; &#x3D;&gt; &quot;users#show&quot;">
-  <meta property="og:type" content="article">
+  
+  <meta property="description" content="get "/users/:id" => "users#show"">
+  <meta property="og:description" content="get "/users/:id" => "users#show"">
+  
+  <meta property="og:type" content="website">
   <meta property="og:title" content="ルーティング定義時の変数名のアレ">
-  <meta property="og:url" content="https://r7kamura.com/articles/2015-12-10-h">
+  <meta property="og:url" content="https://r7kamura.com:0/articles/2015-12-10-h">
+  
   <meta property="og:image" content="https://r7kamura.com/default_og_image.jpg">
   <meta property="twitter:card" content="summary">
+  
 </head>
 <body>
   <header>
@@ -35,22 +39,19 @@
   <h1>ルーティング定義時の変数名のアレ</h1>
   <footer>
     <p>
-      <time datetime="2015-12-10T00:00:00+09:00">2015年12月10日</time>
+      <time datetime="2015-12-10T00:00:00+00:00">2015年12月10日</time>
     </p>
   </footer>
   <div>
     <pre class="code" data-lang="" data-unlink>get "/users/:id" =&gt; "users#show"
 get "/users/:user_id/recipes" =&gt; "user_recipes#index"</pre>
 
-
 <p>というコードたまにあると思うんですが、「URLのパスを元にUserを取得する」という処理を共通化することを考えると、</p>
 
 <pre class="code" data-lang="" data-unlink>get "/users/:user_id" =&gt; "users#show"
 get "/users/:user_id/recipes" =&gt; "user_recipes#index"</pre>
 
-
 <p>のように「同種の変数に対しては同じ変数名を割り当てる」というルールを設けたほうが便利。</p>
-
 
   </div>
 </article>

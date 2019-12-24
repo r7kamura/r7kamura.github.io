@@ -4,17 +4,21 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width">
   <title>Rails 4.2.8 の変更点</title>
-  <link href="/articles/2018-04-07-rails-4-2-8-37df96e43f80" rel="canonical">
+  <link href="https://r7kamura.com:0/articles/2018-04-07-rails-4-2-8-37df96e43f80" rel="canonical">
   <link rel="stylesheet" href="/css/main.css">
   <link rel="search" type="application/opensearchdescription+xml" title="r7kamura.com" href="/opensearch.xml">
   <link rel="alternate" type="application/rss+xml" href="/feed.xml">
+  
   <meta property="description" content="Rails 4.2.7.1 から 4.2.8 にかけての変更点をまとめます。">
   <meta property="og:description" content="Rails 4.2.7.1 から 4.2.8 にかけての変更点をまとめます。">
-  <meta property="og:type" content="article">
+  
+  <meta property="og:type" content="website">
   <meta property="og:title" content="Rails 4.2.8 の変更点">
-  <meta property="og:url" content="https://r7kamura.com/articles/2018-04-07-rails-4-2-8-37df96e43f80">
+  <meta property="og:url" content="https://r7kamura.com:0/articles/2018-04-07-rails-4-2-8-37df96e43f80">
+  
   <meta property="og:image" content="https://r7kamura.com/default_og_image.jpg">
   <meta property="twitter:card" content="summary">
+  
 </head>
 <body>
   <header>
@@ -35,79 +39,166 @@
   <h1>Rails 4.2.8 の変更点</h1>
   <footer>
     <p>
-      <time datetime="2018-04-07T00:00:00+09:00">2018年04月07日</time>
+      <time datetime="2018-04-07T00:00:00+00:00">2018年04月07日</time>
     </p>
   </footer>
   <div>
     <p>Rails 4.2.7.1 から 4.2.8 にかけての変更点をまとめます。</p>
-<p><a href="https://github.com/rails/rails/compare/v4.2.7.1...v4.2.8" title="https://github.com/rails/rails/compare/v4.2.7.1...v4.2.8"><strong>rails/rails</strong><br>_rails - Ruby on Rails_github.com</a><a href="https://github.com/rails/rails/compare/v4.2.7.1...v4.2.8"></a></p>
-<h3 id="activerecord">activerecord</h3>
-<h2 id="mysql-サーバとの再接続失敗時に発生する例外が改善された">MySQL サーバとの再接続失敗時に発生する例外が改善された</h2>
+
+<p><a href="https://github.com/rails/rails/compare/v4.2.7.1...v4.2.8" title="https://github.com/rails/rails/compare/v4.2.7.1...v4.2.8"><strong>rails/rails</strong><br>
+<em>rails - Ruby on Rails</em>github.com</a><a href="https://github.com/rails/rails/compare/v4.2.7.1...v4.2.8"></a></p>
+
+<h3>activerecord</h3>
+
+<h2>MySQL サーバとの再接続失敗時に発生する例外が改善された</h2>
+
 <p>MySQL サーバとの接続が閉じられたときに、これまではインスタンス変数 connection に nil が格納されていましたが、connection を再度利用するような処理が試みられた場合に NoMethodError が発生する状態でした。これが改善され、接続が閉じられたときにもインスタンス変数 connection はそのまま保持されるようになり、再接続試行時に適切な例外が発生するようになりました。</p>
-<p><a href="https://github.com/rails/rails/pull/26643" title="https://github.com/rails/rails/pull/26643"><strong>4-2-backport: activerecord/mysql2: Avoid setting @connection to nil, just close it by dylanahsmith…</strong><br>_@rafaelfranca, @arthurnn please review cc @sirupsen Backport #26434 for the 4-2-stable branch_github.com</a><a href="https://github.com/rails/rails/pull/26643"></a></p>
-<h2 id="attribute-でモデルの属性の定義を更新したときに-attribute_names-のキャッシュが適宜更新されるようになった">attribute でモデルの属性の定義を更新したときに attribute_names のキャッシュが適宜更新されるようになった</h2>
+
+<p><a href="https://github.com/rails/rails/pull/26643" title="https://github.com/rails/rails/pull/26643"><strong>4-2-backport: activerecord/mysql2: Avoid setting @connection to nil, just close it by dylanahsmith…</strong><br>
+<em>@rafaelfranca, @arthurnn please review cc @sirupsen Backport #26434 for the 4-2-stable branch</em>github.com</a><a href="https://github.com/rails/rails/pull/26643"></a></p>
+
+<h2>attribute でモデルの属性の定義を更新したときに attribute_names のキャッシュが適宜更新されるようになった</h2>
+
 <p>モデルクラスに属性を追加したり、あるいは既存の属性の型情報を上書きしたり、またこのときに独自の変換ロジックを持つ型情報を与えたりできる、attribute というメソッドがあります。また、モデルの持つ属性一覧を返す attribute_names というメソッドがあります。ここで属性と呼んでいるものは、カラムとほぼ同義のものです。</p>
+
 <p>attribute メソッドを呼び出して新しくモデルに属性を追加した場合、これまでは attribute_names のキャッシュが更新されず、追加した属性の内容が結果に反映されない状態でした。これが、attribute メソッドを呼び出したときに適切にキャッシュが更新されるように改善され、attribute_names が意図通りの結果を返すようになりました。</p>
-<p><a href="https://github.com/rails/rails/pull/26705" title="https://github.com/rails/rails/pull/26705"><strong>Fix attributes names caching by jcoleman · Pull Request #26705 · rails/rails</strong><br>_Summary Model.attribute_names is cached and relies on Model.columns, but does not currently have its cache busted when…_github.com</a><a href="https://github.com/rails/rails/pull/26705"></a></p>
-<h2 id="属性の型情報が以前の問い合わせ時と同等のものであれば、以前のクエリキャッシュが再利用されるようになった">属性の型情報が以前の問い合わせ時と同等のものであれば、以前のクエリキャッシュが再利用されるようになった</h2>
+
+<p><a href="https://github.com/rails/rails/pull/26705" title="https://github.com/rails/rails/pull/26705"><strong>Fix attributes names caching by jcoleman · Pull Request #26705 · rails/rails</strong><br>
+<em>Summary Model.attribute_names is cached and relies on Model.columns, but does not currently have its cache busted when…</em>github.com</a><a href="https://github.com/rails/rails/pull/26705"></a></p>
+
+<h2>属性の型情報が以前の問い合わせ時と同等のものであれば、以前のクエリキャッシュが再利用されるようになった</h2>
+
 <p>ActiveRecord は、各クラスの属性を表現するために、属性ごとに ActiveRecord::Type::Value というクラスのインスタンスを生成します。attribute メソッドが実行されたり、属性の情報を再読込するような処理が実行された場合、このインスタンスは再生成されます。</p>
+
 <p>データベースへの問い合わせ時、ActiveRecord はクエリキャッシュを利用することを試みます。このとき、クエリキャッシュが利用できるかどうかの判断材料として、属性がそのキャッシュが作成されたときのものと同じかどうかという情報が利用されます。この実装には、Hash が利用されています。</p>
+
 <p>Hash が利用されるということは、同じキーであるかどうか調べるために、eql? メソッドと hash メソッドが利用されます。これまでの ActiveRecord::Type::Value の実装では eql? や hash は特に上書きされておらず、完全に同じオブジェクトであるかどうかで判断される状態でした。これでは、前述したような理由でインスタンスが再生成されたあとでデータベースに問い合わせときに、例え以前と属性の情報が同じでも、クエリキャッシュが利用されなくなってしまいます。</p>
+
 <p>今回の変更によって Hash のキーとしての同値性判定ロジックが改善され、別のインスタンスであっても、内部情報が同等のものであれば同じキーとして認識されるようになりました。この結果、上手くクエリキャッシュが利用されるようになりました。</p>
-<p><a href="https://github.com/rails/rails/pull/26261" title="https://github.com/rails/rails/pull/26261"><strong>Don&#39;t bust AR query cache when types are not same object (backport bug fix) by jcoleman · Pull…</strong><br>_Summary AR&#39;s query cache currently depends on the type objects being not only equivalent but also to be the same…_github.com</a><a href="https://github.com/rails/rails/pull/26261"></a></p>
-<h2 id="joinsを呼び出したときに、unscoped-ブロックの効果が意図通り発揮されるようになった">joinsを呼び出したときに、unscoped ブロックの効果が意図通り発揮されるようになった</h2>
+
+<p><a href="https://github.com/rails/rails/pull/26261" title="https://github.com/rails/rails/pull/26261"><strong>Don&#39;t bust AR query cache when types are not same object (backport bug fix) by jcoleman · Pull…</strong><br>
+<em>Summary AR&#39;s query cache currently depends on the type objects being not only equivalent but also to be the same…</em>github.com</a><a href="https://github.com/rails/rails/pull/26261"></a></p>
+
+<h2>joinsを呼び出したときに、unscoped ブロックの効果が意図通り発揮されるようになった</h2>
+
 <p>unscoped ブロックの中で処理を実行することで、それまでに付与されていた default_scope などのスコープが適用されないようにする機能があります。これまでの実装では、joins の呼び出し時にこの unscoped の効果が発揮されない状態でした。これが改善され、意図通りの効果が発揮されるようになりました。</p>
-<p><a href="https://github.com/rails/rails/commit/c55a5d6b16d18b028c3642caaf5815072630de40" title="https://github.com/rails/rails/commit/c55a5d6b16d18b028c3642caaf5815072630de40"><strong>Allow `joins` to be unscoped · rails/rails@c55a5d6</strong><br>_rails - Ruby on Rails_github.com</a><a href="https://github.com/rails/rails/commit/c55a5d6b16d18b028c3642caaf5815072630de40"></a></p>
-<h2 id="composed_of-で実装された属性について、この属性に-hash-を割り当てようとしたときに発生する不具合が修正された">composed_of で実装された属性について、この属性に Hash を割り当てようとしたときに発生する不具合が修正された</h2>
+
+<p><a href="https://github.com/rails/rails/commit/c55a5d6b16d18b028c3642caaf5815072630de40" title="https://github.com/rails/rails/commit/c55a5d6b16d18b028c3642caaf5815072630de40"><strong>Allow `joins` to be unscoped · rails/rails@c55a5d6</strong><br>
+<em>rails - Ruby on Rails</em>github.com</a><a href="https://github.com/rails/rails/commit/c55a5d6b16d18b028c3642caaf5815072630de40"></a></p>
+
+<h2>composed_of で実装された属性について、この属性に Hash を割り当てようとしたときに発生する不具合が修正された</h2>
+
 <p>複数の値から成る1つの仮想的な属性を定義するために、 ActiveRecord では composed_of を利用できます。compose_of で実装された属性に対して値を割り当てるときに、特定の仕様を満たした Hash を利用した場合に割り当て方が変化するという挙動がそれまでに実装されていましたが、そこで Hash であるかどうかしか確認しておらず、それ以外のケースで Hash を割り当てたい場合に問題になっていました。</p>
+
 <p>これが改善され、従来通りのユースケースにおいても Hash を意図通り割り当てることが可能になりました。</p>
-<p><a href="https://github.com/rails/rails/commit/4e7cfbfcfd69e1398ccfa74e71aa1eca19eef5bf" title="https://github.com/rails/rails/commit/4e7cfbfcfd69e1398ccfa74e71aa1eca19eef5bf"><strong>Don&#39;t assume all hashes are from multiparameter assignment in `compos... · rails/rails@4e7cfbf</strong><br>_ed_of` So this bug is kinda funky. The code path is basically &quot;if we weren&#39;t passed an instance of the class we…_github.com</a><a href="https://github.com/rails/rails/commit/4e7cfbfcfd69e1398ccfa74e71aa1eca19eef5bf"></a></p>
-<h3 id="activesupport">activesupport</h3>
-<h2 id="datetimeutc-が-datetime-ではなく-time-を返すようになった">DateTime#utc が DateTime ではなく Time を返すようになった</h2>
+
+<p><a href="https://github.com/rails/rails/commit/4e7cfbfcfd69e1398ccfa74e71aa1eca19eef5bf" title="https://github.com/rails/rails/commit/4e7cfbfcfd69e1398ccfa74e71aa1eca19eef5bf"><strong>Don&#39;t assume all hashes are from multiparameter assignment in `compos... · rails/rails@4e7cfbf</strong><br>
+<em>ed_of` So this bug is kinda funky. The code path is basically &quot;if we weren&#39;t passed an instance of the class we…</em>github.com</a><a href="https://github.com/rails/rails/commit/4e7cfbfcfd69e1398ccfa74e71aa1eca19eef5bf"></a></p>
+
+<h3>activesupport</h3>
+
+<h2>DateTime#utc が DateTime ではなく Time を返すようになった</h2>
+
 <p>ActiveSupport は DateTime#utc というメソッドを定義しています。このメソッドの戻り値が、DateTime ではなく Time に変更されました。新しく追加される DateTime#localtime との一貫性を考慮しての変更だと思われます。</p>
+
 <p>この Time を返すようにするという変更自体は、Ruby 2.4 の #to_time の挙動に対応するための言わば付随的な変更でした。パッチリリースで変更するには大きすぎる変更だとみなされ、後に 4.2.9 で元の状態に戻されます。</p>
-<p><a href="https://github.com/rails/rails/commit/bcda029a47b414a86d196eeae19c651ea3ca9be1" title="https://github.com/rails/rails/commit/bcda029a47b414a86d196eeae19c651ea3ca9be1"><strong>Make getlocal and getutc always return instances of Time · rails/rails@bcda029</strong><br>_Previously these methods could return either a DateTime or a Time depending on how the ActiveSupport::TimeWithZone…_github.com</a><a href="https://github.com/rails/rails/commit/bcda029a47b414a86d196eeae19c651ea3ca9be1"></a></p>
-<h2 id="datetimesubsec-が追加された">DateTime#subsec が追加された</h2>
+
+<p><a href="https://github.com/rails/rails/commit/bcda029a47b414a86d196eeae19c651ea3ca9be1" title="https://github.com/rails/rails/commit/bcda029a47b414a86d196eeae19c651ea3ca9be1"><strong>Make getlocal and getutc always return instances of Time · rails/rails@bcda029</strong><br>
+<em>Previously these methods could return either a DateTime or a Time depending on how the ActiveSupport::TimeWithZone…</em>github.com</a><a href="https://github.com/rails/rails/commit/bcda029a47b414a86d196eeae19c651ea3ca9be1"></a></p>
+
+<h2>DateTime#subsec が追加された</h2>
+
 <p>DateTime の秒数部分を分数として得るメソッドとして、DateTime#subsec が追加されました。</p>
+
 <p>Time#subsec との対称性を考慮して追加されたのではないかと思います。内部実装としては、単に DateTime#sec_fraction を利用しているだけのようです。</p>
-<p><a href="https://github.com/rails/rails/commit/bc7c5668d7f036d572790bfebbe6a1f9a49d3452" title="https://github.com/rails/rails/commit/bc7c5668d7f036d572790bfebbe6a1f9a49d3452"><strong>Add DateTime#subsec · rails/rails@bc7c566</strong><br>_Mirrors the Time#subsec method by returning the fraction of the second as a Rational. (cherry picked from commit…_github.com</a><a href="https://github.com/rails/rails/commit/bc7c5668d7f036d572790bfebbe6a1f9a49d3452"></a></p>
-<h2 id="datetimegetgm-と-datetimegmtime-が追加された">DateTime#getgm と DateTime#gmtime が追加された</h2>
+
+<p><a href="https://github.com/rails/rails/commit/bc7c5668d7f036d572790bfebbe6a1f9a49d3452" title="https://github.com/rails/rails/commit/bc7c5668d7f036d572790bfebbe6a1f9a49d3452"><strong>Add DateTime#subsec · rails/rails@bc7c566</strong><br>
+<em>Mirrors the Time#subsec method by returning the fraction of the second as a Rational. (cherry picked from commit…</em>github.com</a><a href="https://github.com/rails/rails/commit/bc7c5668d7f036d572790bfebbe6a1f9a49d3452"></a></p>
+
+<h2>DateTime#getgm と DateTime#gmtime が追加された</h2>
+
 <p>ActiveSupport#TimeWithZone や Time との対称性を考慮し、DateTime にも DateTime#getgm と DateTime#gmtime が追加されました。これらは DateTime#utc の alias となっています。</p>
-<p><a href="https://github.com/rails/rails/commit/a9097a8cf54c42f9122e2ef560f42c09fa680a96" title="https://github.com/rails/rails/commit/a9097a8cf54c42f9122e2ef560f42c09fa680a96"><strong>Add additional aliases for DateTime#utc · rails/rails@a9097a8</strong><br>_(cherry picked from commit dbc7a7cb509ef0046afa327d4ac8330259fd8e73)_github.com</a><a href="https://github.com/rails/rails/commit/a9097a8cf54c42f9122e2ef560f42c09fa680a96"></a></p>
-<h2 id="datetimegetlocal-と-datetimelocaltime-が追加された">DateTime#getlocal と DateTime#localtime が追加された</h2>
+
+<p><a href="https://github.com/rails/rails/commit/a9097a8cf54c42f9122e2ef560f42c09fa680a96" title="https://github.com/rails/rails/commit/a9097a8cf54c42f9122e2ef560f42c09fa680a96"><strong>Add additional aliases for DateTime#utc · rails/rails@a9097a8</strong><br>
+<em>(cherry picked from commit dbc7a7cb509ef0046afa327d4ac8330259fd8e73)</em>github.com</a><a href="https://github.com/rails/rails/commit/a9097a8cf54c42f9122e2ef560f42c09fa680a96"></a></p>
+
+<h2>DateTime#getlocal と DateTime#localtime が追加された</h2>
+
 <p>DateTime#getlocal と、その alias である DateTime#localtime が追加されました。システムのタイムゾーンで、レシーバと同等の日時を持つ Time のインスタンスを返します。</p>
+
 <p>そもそも DateTime#getlocal が定義されたのは、Ruby 2.4 の #to_time の挙動が変更されることから、ActiveSupport の設定次第でこの挙動を変更可能にしようとしたためです。このための作戦として、ActiveSupport の設定を参照しつつ getlocal というメソッドを利用しながら適切な Time のインスタンスを返す、#to_time が定義された module が用意されました。この module をActiveSupport::TimeWithZone、DateTime、Time に prepend することで、#to_time の挙動を設定によって制御できるようになるという流れです。</p>
+
 <p>Time#getlocal はそのままで利用可能でしたが、ActiveSupport::TimeWithZone#getlocal はそのままでは問題がありました。というのも、当時の ActiveSupport::TimeWithZone は Time あるいは DateTime のどちらかのインスタンスを内包するような仕組みであり、DateTime が内包されている場合、#getlocal では DateTime#to_time が利用されることになっていたからです。これでは #to_time を呼ぶために #getlocal が必要で、#getlocal を呼ぶために #to_time が必要となり、循環参照してしまう問題がありました。DateTime#utc についての変更の箇所でも前述した通り、これは常に Time を内包するように変更されたため、問題は解消されました。</p>
+
 <p>DateTime#getlocal は元々定義されていなかったため、このタイミングで定義されました。少し長くなりましたが、これが DateTime#getlocal が定義された背景です。#localtime については、DateTime#getlocal の定義場所が calculations.rb に移動されたタイミングで、一貫性を考慮して追加されています。</p>
-<p><a href="https://github.com/rails/rails/commit/d569f8dc5f0c6345db476ebd9f228c68c3434a29" title="https://github.com/rails/rails/commit/d569f8dc5f0c6345db476ebd9f228c68c3434a29"><strong>Add compatibility for Ruby 2.4 `to_time` changes · rails/rails@d569f8d</strong><br>_In Ruby 2.4 the `to_time` method for both `DateTime` and `Time` will preserve the timezone of the receiver when…_github.com</a><a href="https://github.com/rails/rails/commit/d569f8dc5f0c6345db476ebd9f228c68c3434a29"></a></p>
-<p><a href="https://github.com/rails/rails/commit/1fc3bdab8f34e066837195bcceffd782926a8b13" title="https://github.com/rails/rails/commit/1fc3bdab8f34e066837195bcceffd782926a8b13"><strong>Move `DateTime#getlocal` to `/core_ext/date_time/calculations.rb` · rails/rails@1fc3bda</strong><br>_DateTime#getlocal` is newly added public API. It&#39;s responsible is same as `DateTime#utc`, so `calculations.rb` is a…_github.com</a><a href="https://github.com/rails/rails/commit/1fc3bdab8f34e066837195bcceffd782926a8b13"></a></p>
-<h2 id="timesec_fraction-が追加された">Time#sec_fraction が追加された</h2>
+
+<p><a href="https://github.com/rails/rails/commit/d569f8dc5f0c6345db476ebd9f228c68c3434a29" title="https://github.com/rails/rails/commit/d569f8dc5f0c6345db476ebd9f228c68c3434a29"><strong>Add compatibility for Ruby 2.4 `to_time` changes · rails/rails@d569f8d</strong><br>
+<em>In Ruby 2.4 the `to_time` method for both `DateTime` and `Time` will preserve the timezone of the receiver when…</em>github.com</a><a href="https://github.com/rails/rails/commit/d569f8dc5f0c6345db476ebd9f228c68c3434a29"></a></p>
+
+<p><a href="https://github.com/rails/rails/commit/1fc3bdab8f34e066837195bcceffd782926a8b13" title="https://github.com/rails/rails/commit/1fc3bdab8f34e066837195bcceffd782926a8b13"><strong>Move `DateTime#getlocal` to `/core_ext/date_time/calculations.rb` · rails/rails@1fc3bda</strong><br>
+<em>DateTime#getlocal` is newly added public API. It&#39;s responsible is same as `DateTime#utc`, so `calculations.rb` is a…</em>github.com</a><a href="https://github.com/rails/rails/commit/1fc3bdab8f34e066837195bcceffd782926a8b13"></a></p>
+
+<h2>Time#sec_fraction が追加された</h2>
+
 <p>DateTime#sec_fraction との対称性を考慮して、Time#sec_fraction が追加されました。</p>
+
 <p>内部実装は Rational を返すように実装されていますが、これは後に Time#subsec を使うように変更されることになります。</p>
+
 <p>DateTime#subsec と Time#sec_fraction が追加されたことで、DateTime と Time に対して、#subsec と #sec_fraction のどちらを呼び出しても秒数部分の分数表現が得られるようになったと言えます。</p>
-<p><a href="https://github.com/rails/rails/commit/3edf968a1160955395e279b4384289d2a0c1c22e" title="https://github.com/rails/rails/commit/3edf968a1160955395e279b4384289d2a0c1c22e"><strong>Add Time#sec_fraction · rails/rails@3edf968</strong><br>_Mirrors the DateTime#sec_fraction method by returning the fraction of the second as a Rational. (cherry picked from…_github.com</a><a href="https://github.com/rails/rails/commit/3edf968a1160955395e279b4384289d2a0c1c22e"></a></p>
-<h2 id="activesupportto_time_preserves_timezone-が追加された">ActiveSupport.to_time_preserves_timezone が追加された</h2>
+
+<p><a href="https://github.com/rails/rails/commit/3edf968a1160955395e279b4384289d2a0c1c22e" title="https://github.com/rails/rails/commit/3edf968a1160955395e279b4384289d2a0c1c22e"><strong>Add Time#sec_fraction · rails/rails@3edf968</strong><br>
+<em>Mirrors the DateTime#sec_fraction method by returning the fraction of the second as a Rational. (cherry picked from…</em>github.com</a><a href="https://github.com/rails/rails/commit/3edf968a1160955395e279b4384289d2a0c1c22e"></a></p>
+
+<h2>ActiveSupport.to_time_preserves_timezone が追加された</h2>
+
 <p>Ruby 2.4 から #to_time がレシーバのタイムゾーンを引き継ぐようになったことを承けて、ActiveSupport 側でその挙動を制御するための設定が追加されました。デフォルトでは引き継がないように設定されています。</p>
-<p><a href="https://github.com/rails/rails/commit/d569f8dc5f0c6345db476ebd9f228c68c3434a29" title="https://github.com/rails/rails/commit/d569f8dc5f0c6345db476ebd9f228c68c3434a29"><strong>Add compatibility for Ruby 2.4 `to_time` changes · rails/rails@d569f8d</strong><br>_In Ruby 2.4 the `to_time` method for both `DateTime` and `Time` will preserve the timezone of the receiver when…_github.com</a><a href="https://github.com/rails/rails/commit/d569f8dc5f0c6345db476ebd9f228c68c3434a29"></a></p>
-<h2 id="activesupport-5-で-serialize-された-activesupporttimewithzone-のインスタンスが-4-で-deserialize-できない問題が修正された">activesupport 5 で serialize された ActiveSupport::TimeWithZone のインスタンスが 4 で deserialize できない問題が修正された</h2>
+
+<p><a href="https://github.com/rails/rails/commit/d569f8dc5f0c6345db476ebd9f228c68c3434a29" title="https://github.com/rails/rails/commit/d569f8dc5f0c6345db476ebd9f228c68c3434a29"><strong>Add compatibility for Ruby 2.4 `to_time` changes · rails/rails@d569f8d</strong><br>
+<em>In Ruby 2.4 the `to_time` method for both `DateTime` and `Time` will preserve the timezone of the receiver when…</em>github.com</a><a href="https://github.com/rails/rails/commit/d569f8dc5f0c6345db476ebd9f228c68c3434a29"></a></p>
+
+<h2>activesupport 5 で serialize された ActiveSupport::TimeWithZone のインスタンスが 4 で deserialize できない問題が修正された</h2>
+
 <p>ActiveSupport::TimeWithZone のインスタンスを YAML 形式に serialize しようとしたとき、これまでは UTC+0 のタイムゾーンに変換された Time のインスタンスとしてエンコードされる状態でした。変換前のタイムゾーンを持つ ActiveSupport::TimeWithZone のインスタンスとして deserialize されるよう、activesupport 5 でこれが改善されました。しかし、5 で serialize したデータを 4 で deserialize しようとしたときに問題が起こることが分かったため、これが修正されました。</p>
-<p><a href="https://github.com/rails/rails/pull/17333" title="https://github.com/rails/rails/pull/17333"><strong>Improve ActiveSupport::TimeWithZone conversion to YAML by pixeltrix · Pull Request #17333 ·…</strong><br>_Previously when converting AS::TimeWithZone to YAML it would be output as a UTC timestamp. Whilst this preserves the…_github.com</a><a href="https://github.com/rails/rails/pull/17333"></a></p>
-<p><a href="https://github.com/rails/rails/commit/e9bd957064a040fdd80e2b6d3fb0b793ccb9cce1" title="https://github.com/rails/rails/commit/e9bd957064a040fdd80e2b6d3fb0b793ccb9cce1"><strong>Add init_with to AS::TimeWithZone and AS::TimeZone · rails/rails@e9bd957</strong><br>_It is helpful to be able to run apps concurrently written in successive versions of Rails to aid migration, e.g. run…_github.com</a><a href="https://github.com/rails/rails/commit/e9bd957064a040fdd80e2b6d3fb0b793ccb9cce1"></a></p>
-<h2 id="activesupporttimewithzonein-が夏時間に対応していない問題が修正された">ActiveSupport::TimeWithZone#in が夏時間に対応していない問題が修正された</h2>
+
+<p><a href="https://github.com/rails/rails/pull/17333" title="https://github.com/rails/rails/pull/17333"><strong>Improve ActiveSupport::TimeWithZone conversion to YAML by pixeltrix · Pull Request #17333 ·…</strong><br>
+<em>Previously when converting AS::TimeWithZone to YAML it would be output as a UTC timestamp. Whilst this preserves the…</em>github.com</a><a href="https://github.com/rails/rails/pull/17333"></a></p>
+
+<p><a href="https://github.com/rails/rails/commit/e9bd957064a040fdd80e2b6d3fb0b793ccb9cce1" title="https://github.com/rails/rails/commit/e9bd957064a040fdd80e2b6d3fb0b793ccb9cce1"><strong>Add init_with to AS::TimeWithZone and AS::TimeZone · rails/rails@e9bd957</strong><br>
+<em>It is helpful to be able to run apps concurrently written in successive versions of Rails to aid migration, e.g. run…</em>github.com</a><a href="https://github.com/rails/rails/commit/e9bd957064a040fdd80e2b6d3fb0b793ccb9cce1"></a></p>
+
+<h2>ActiveSupport::TimeWithZone#in が夏時間に対応していない問題が修正された</h2>
+
 <p>ActiveSupport では、Date や DateTime や Time において、#in が #since の alias となるように実装されていました。しかし ActiveSupport::TimeWithZone#in が #since に alias されていなかったため、ActiveSupport::TimeWithZone#since で加えられている夏時間への対応が加わらず、method_missing により Time#since の実装が利用される状態でした。</p>
+
 <p>この問題が修正され、ActiveSupport::TimeWithZone#in にも夏時間への対応が含まれるようになりました。</p>
-<p><a href="https://github.com/rails/rails/commit/a6edbeb2fa924d8c5b660cbc764da3b6635f9446" title="https://github.com/rails/rails/commit/a6edbeb2fa924d8c5b660cbc764da3b6635f9446"><strong>Fix ActiveSupport::TimeWithZone#in · rails/rails@a6edbeb</strong><br>_Previously calls to `in` were being sent to the non-DST aware method `Time#since` via `method_missing`. It is now…_github.com</a><a href="https://github.com/rails/rails/commit/a6edbeb2fa924d8c5b660cbc764da3b6635f9446"></a></p>
-<h3 id="railties">railties</h3>
-<h2 id="configinitializersto_time_preserves_timezonerb-が追加された">config/initializers/to_time_preserves_timezone.rb が追加された</h2>
-<p>#to_time の挙動を制御する設定が追加されたことに関連して、Rails が生成するファイルに config/initializers/to_time_preserves_timezone.rb が追加されました。内容は ActiveSupport.to_time_preserves_timezone を true に設定するものです。</p>
-<p><a href="https://github.com/rails/rails/commit/d569f8dc5f0c6345db476ebd9f228c68c3434a29" title="https://github.com/rails/rails/commit/d569f8dc5f0c6345db476ebd9f228c68c3434a29"><strong>Add compatibility for Ruby 2.4 `to_time` changes · rails/rails@d569f8d</strong><br>_In Ruby 2.4 the `to_time` method for both `DateTime` and `Time` will preserve the timezone of the receiver when…_github.com</a><a href="https://github.com/rails/rails/commit/d569f8dc5f0c6345db476ebd9f228c68c3434a29"></a></p>
-<h2 id="actiondispatchintegrationtest-で同時に複数のセッションを利用したときの不具合が修正された">ActionDispatch::IntegrationTest で同時に複数のセッションを利用したときの不具合が修正された</h2>
+
+<p><a href="https://github.com/rails/rails/commit/a6edbeb2fa924d8c5b660cbc764da3b6635f9446" title="https://github.com/rails/rails/commit/a6edbeb2fa924d8c5b660cbc764da3b6635f9446"><strong>Fix ActiveSupport::TimeWithZone#in · rails/rails@a6edbeb</strong><br>
+<em>Previously calls to `in` were being sent to the non-DST aware method `Time#since` via `method_missing`. It is now…</em>github.com</a><a href="https://github.com/rails/rails/commit/a6edbeb2fa924d8c5b660cbc764da3b6635f9446"></a></p>
+
+<h3>railties</h3>
+
+<h2>config/initializers/to_time_preserves_timezone.rb が追加された</h2>
+
+<h1>to_time の挙動を制御する設定が追加されたことに関連して、Rails が生成するファイルに config/initializers/to_time_preserves_timezone.rb が追加されました。内容は ActiveSupport.to_time_preserves_timezone を true に設定するものです。</h1>
+
+<p><a href="https://github.com/rails/rails/commit/d569f8dc5f0c6345db476ebd9f228c68c3434a29" title="https://github.com/rails/rails/commit/d569f8dc5f0c6345db476ebd9f228c68c3434a29"><strong>Add compatibility for Ruby 2.4 `to_time` changes · rails/rails@d569f8d</strong><br>
+<em>In Ruby 2.4 the `to_time` method for both `DateTime` and `Time` will preserve the timezone of the receiver when…</em>github.com</a><a href="https://github.com/rails/rails/commit/d569f8dc5f0c6345db476ebd9f228c68c3434a29"></a></p>
+
+<h2>ActionDispatch::IntegrationTest で同時に複数のセッションを利用したときの不具合が修正された</h2>
+
 <p>ActionDispatch::IntegrationTest では、それまでの変更により、新しいセッションを作成するために Object#dup が利用されるようになっていました。このとき、それまで利用しているセッションが再利用されるような実装になっていたため、複数のセッションを利用しようとすると問題が起きる状態でした。</p>
+
 <p>これが修正され、複数のセッションを利用しても問題が起きないようになりました。</p>
-<p><a href="https://github.com/rails/rails/pull/27096" title="https://github.com/rails/rails/pull/27096"><strong>Fix unexpected session sharing by sina-s · Pull Request #27096 · rails/rails</strong><br>_Added the test for issue #22742 in actionpack/test/controller/integration_test.rb Updated the CHANGELOG Credited @tawan_github.com</a><a href="https://github.com/rails/rails/pull/27096"></a></p>
-<h2 id="before_configuration-フックが適切なタイミングで実行されるようになった">before_configuration フックが適切なタイミングで実行されるようになった</h2>
+
+<p><a href="https://github.com/rails/rails/pull/27096" title="https://github.com/rails/rails/pull/27096"><strong>Fix unexpected session sharing by sina-s · Pull Request #27096 · rails/rails</strong><br>
+<em>Added the test for issue #22742 in actionpack/test/controller/integration_test.rb Updated the CHANGELOG Credited @tawan</em>github.com</a><a href="https://github.com/rails/rails/pull/27096"></a></p>
+
+<h2>before_configuration フックが適切なタイミングで実行されるようになった</h2>
+
 <p>Rails 4.2 で加えられた変更によって、before_configuration フックの実行されるタイミングに問題が発生していました。今回この問題が修正され、適切なタイミングで before_configuration フックが実行されるようになりました。</p>
-<p><a href="https://github.com/rails/rails/pull/26216" title="https://github.com/rails/rails/pull/26216"><strong>run `before_configuration` callbacks as soon as application constant inherits from…</strong><br>_Until Rails 4.1, before_configuration run as soon as the application constant inherits from Rails::Application…_github.com</a><a href="https://github.com/rails/rails/pull/26216"></a></p>
+
+<p><a href="https://github.com/rails/rails/pull/26216" title="https://github.com/rails/rails/pull/26216"><strong>run `before_configuration` callbacks as soon as application constant inherits from…</strong><br>
+<em>Until Rails 4.1, before_configuration run as soon as the application constant inherits from Rails::Application…</em>github.com</a><a href="https://github.com/rails/rails/pull/26216"></a></p>
 
   </div>
 </article>

@@ -3,18 +3,22 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width">
-  <title>RubyのUnitテスト系フレームワーク用のテストファイル名のパターンには test&#x2F;test*.rb を使うのが良さそう</title>
-  <link href="/articles/2017-03-26-h" rel="canonical">
+  <title>RubyのUnitテスト系フレームワーク用のテストファイル名のパターンには test/test*.rb を使うのが良さそう</title>
+  <link href="https://r7kamura.com:0/articles/2017-03-26-h" rel="canonical">
   <link rel="stylesheet" href="/css/main.css">
   <link rel="search" type="application/opensearchdescription+xml" title="r7kamura.com" href="/opensearch.xml">
   <link rel="alternate" type="application/rss+xml" href="/feed.xml">
+  
   <meta property="description" content="Rake::TestTask">
   <meta property="og:description" content="Rake::TestTask">
-  <meta property="og:type" content="article">
-  <meta property="og:title" content="RubyのUnitテスト系フレームワーク用のテストファイル名のパターンには test&#x2F;test*.rb を使うのが良さそう">
-  <meta property="og:url" content="https://r7kamura.com/articles/2017-03-26-h">
+  
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="RubyのUnitテスト系フレームワーク用のテストファイル名のパターンには test/test*.rb を使うのが良さそう">
+  <meta property="og:url" content="https://r7kamura.com:0/articles/2017-03-26-h">
+  
   <meta property="og:image" content="https://r7kamura.com/default_og_image.jpg">
   <meta property="twitter:card" content="summary">
+  
 </head>
 <body>
   <header>
@@ -32,10 +36,10 @@
   </header>
   <main>
     <article>
-  <h1>RubyのUnitテスト系フレームワーク用のテストファイル名のパターンには test&#x2F;test*.rb を使うのが良さそう</h1>
+  <h1>RubyのUnitテスト系フレームワーク用のテストファイル名のパターンには test/test*.rb を使うのが良さそう</h1>
   <footer>
     <p>
-      <time datetime="2017-03-26T00:00:00+09:00">2017年03月26日</time>
+      <time datetime="2017-03-26T00:00:00+00:00">2017年03月26日</time>
     </p>
   </footer>
   <div>
@@ -51,11 +55,9 @@
 <span class="synType">Rake</span>::<span class="synType">TestTask</span>.new
 </pre>
 
-
 <p>実行する。</p>
 
 <pre class="code" data-lang="" data-unlink>rake test</pre>
-
 
 <p>標準出力の出力結果。</p>
 
@@ -82,7 +84,6 @@ Times:
   Finished: 2017-03-26T15:02:46.404074+09:00
   Total:    0.002824s</pre>
 
-
 <h2>テストのファイルパスとクラス名</h2>
 
 <p>RSpec is a testing DSL, Minitest is Ruby (seattlerb/minitestより) という言葉があるように 、こういうテスト用途で定義されるクラスも定数としてグローバルに参照できるように定義される訳なので、テストファイルも Ruby の他のプログラムと変わらないよという世界観の上では、当然クラス名の命名規則も普段 Ruby でコードを書くときと同じように統一しておくほうが良いと思う。上例では、以下のようなパターンの対応関係でテストのファイルパスとクラス名を割り当てることにしている。</p>
@@ -95,8 +96,6 @@ Times:
 <li>test/test_test.rb -&gt; <code>::TestTest</code>
 </li>
 </ul>
-
-
 
   </div>
 </article>

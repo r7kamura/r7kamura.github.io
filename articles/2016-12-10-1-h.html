@@ -4,17 +4,21 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width">
   <title>amakanをRails 5に移行した</title>
-  <link href="/articles/2016-12-10-1-h" rel="canonical">
+  <link href="https://r7kamura.com:0/articles/2016-12-10-1-h" rel="canonical">
   <link rel="stylesheet" href="/css/main.css">
   <link rel="search" type="application/opensearchdescription+xml" title="r7kamura.com" href="/opensearch.xml">
   <link rel="alternate" type="application/rss+xml" href="/feed.xml">
+  
   <meta property="description" content="amakanでRuby 2.3.3を使うようにした - ✘╹◡╹✘ に引き続き、amakan に改善を加えた。">
   <meta property="og:description" content="amakanでRuby 2.3.3を使うようにした - ✘╹◡╹✘ に引き続き、amakan に改善を加えた。">
-  <meta property="og:type" content="article">
+  
+  <meta property="og:type" content="website">
   <meta property="og:title" content="amakanをRails 5に移行した">
-  <meta property="og:url" content="https://r7kamura.com/articles/2016-12-10-1-h">
+  <meta property="og:url" content="https://r7kamura.com:0/articles/2016-12-10-1-h">
+  
   <meta property="og:image" content="https://r7kamura.com/default_og_image.jpg">
   <meta property="twitter:card" content="summary">
+  
 </head>
 <body>
   <header>
@@ -35,13 +39,13 @@
   <h1>amakanをRails 5に移行した</h1>
   <footer>
     <p>
-      <time datetime="2016-12-10T00:00:00+09:00">2016年12月10日</time>
+      <time datetime="2016-12-10T00:00:00+00:00">2016年12月10日</time>
     </p>
   </footer>
   <div>
     <p><a href="http://r7kamura.hatenablog.com/entry/2016/12/09/201115">amakanでRuby 2.3.3を使うようにした - ✘╹◡╹✘</a> に引き続き、amakan に改善を加えた。</p>
 
-<hr>
+<p><hr></p>
 
 <p>Rails 4.2.6 で動いていた <a href="https://amakan.net/">https://amakan.net/</a> を Rails 5.0.0.1 に移行した。前回 Ruby 2.3.3 に移行したという記事で、「Rails 5 にすれば Ruby 2.4.0-preview3 が使えるのにな」という話をしたのでその伏線回収。</p>
 
@@ -84,7 +88,6 @@
 <li>belongs_to の関連先がデフォルトでは必須になった</li>
 </ol>
 
-
 <p>また一見気付きづらい変更の1つに、ActiveRecord の enum の変更がある。</p>
 
 <pre class="code" data-lang="" data-unlink>class Book &lt; ApplicationRecord
@@ -98,24 +101,20 @@
   )
 end</pre>
 
-
 <p>Rails 4 以前では、こういう挙動をしていた。</p>
 
 <pre class="code" data-lang="" data-unlink>Book.first[:category] #=&gt; 0</pre>
-
 
 <p>Rails 5 以降では、こういう挙動になる。</p>
 
 <pre class="code" data-lang="" data-unlink>Book.first[:category] #=&gt; "comic"
 Book.first.category_before_type_cast #=&gt; 0</pre>
 
-
 <h2>おわり</h2>
 
 <p>これでデプロイして一通り終了した。amakan はそこまでコードも無いので、Rails 5 への移行は全体を通して30分ぐらいで完了した。業務でも変更しているし、他のアプリでも何度も変更しているので、あまり高揚はないかも。しかしめでたいのでハーゲンダッツの1番いいやつを買いました。こういう、節目節目の出来事をきちんと喜ぶ気持ちを大切にな…。Rails アップデートしたいので手伝ってほしいという話があれば twitter などで雑に声をかけてください。Rails 2.0.2 以降からのバージョンアップであれば一応何度かやった経験がある。</p>
 
 <p>次回は Ruby 2.4.0-preview3 に移行するかも。</p>
-
 
   </div>
 </article>

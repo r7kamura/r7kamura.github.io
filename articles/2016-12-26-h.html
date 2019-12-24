@@ -4,17 +4,21 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width">
   <title>amakanの本番環境をDockerに移行した</title>
-  <link href="/articles/2016-12-26-h" rel="canonical">
+  <link href="https://r7kamura.com:0/articles/2016-12-26-h" rel="canonical">
   <link rel="stylesheet" href="/css/main.css">
   <link rel="search" type="application/opensearchdescription+xml" title="r7kamura.com" href="/opensearch.xml">
   <link rel="alternate" type="application/rss+xml" href="/feed.xml">
-  <meta property="description" content="https:&#x2F;&#x2F;amakan.net&#x2F; のこの辺の改善の続き。">
-  <meta property="og:description" content="https:&#x2F;&#x2F;amakan.net&#x2F; のこの辺の改善の続き。">
-  <meta property="og:type" content="article">
+  
+  <meta property="description" content="https://amakan.net/ のこの辺の改善の続き。">
+  <meta property="og:description" content="https://amakan.net/ のこの辺の改善の続き。">
+  
+  <meta property="og:type" content="website">
   <meta property="og:title" content="amakanの本番環境をDockerに移行した">
-  <meta property="og:url" content="https://r7kamura.com/articles/2016-12-26-h">
+  <meta property="og:url" content="https://r7kamura.com:0/articles/2016-12-26-h">
+  
   <meta property="og:image" content="https://pbs.twimg.com/media/C0gWPLjVEAA-jB_.jpg">
   <meta property="twitter:card" content="summary_large_image">
+  
 </head>
 <body>
   <header>
@@ -35,7 +39,7 @@
   <h1>amakanの本番環境をDockerに移行した</h1>
   <footer>
     <p>
-      <time datetime="2016-12-26T00:00:00+09:00">2016年12月26日</time>
+      <time datetime="2016-12-26T00:00:00+00:00">2016年12月26日</time>
     </p>
   </footer>
   <div>
@@ -51,8 +55,7 @@
 <li><a href="http://r7kamura.hatenablog.com/entry/2016/12/21/010420">amakanの開発環境をDockerに移行した - ✘╹◡╹✘</a></li>
 </ul>
 
-
-<hr>
+<p><hr></p>
 
 <p><img src="https://pbs.twimg.com/media/C0gWPLjVEAA-jB_.jpg" alt="image"></p>
 
@@ -65,7 +68,6 @@
 <li>本番環境に必要な全てのファイルを一旦イメージに含める</li>
 <li>開発環境で変更されるファイルはマウントして上書きする</li>
 </ul>
-
 
 <p>Rails用のDockerfileは次のような感じで、Gemやソースコードを全てイメージに含めていることが分かる。</p>
 
@@ -115,14 +117,12 @@ COPY . /app</pre>
   <span class="synIdentifier">bundle</span><span class="synSpecial">:</span>
 </pre>
 
-
 <p>ソースコードだけでなく、Gemも頻繁に変更される部分なので、ボリュームを /bundle にマウントしている。これは以下のような影響を及ぼす。</p>
 
 <ul>
 <li>開発環境では環境構築時に <code>docker-compose run --rm puma bundle install</code> を実行する必要がある</li>
 <li>Gemfileを変更したときに全てのGemを再インストールする必要はない (上記のコマンドで差分だけ入る)</li>
 </ul>
-
 
 <h2>CSSとJavaScriptのコンパイル</h2>
 
@@ -256,7 +256,6 @@ X-Amz-Cf-Id: JBIQSgCoiBex6eGEONFnvD4K0R43DlDbd8dbYdXT2fXSq9aM3WUi5A==</pre>
       fi
 </pre>
 
-
 <h2>ECS</h2>
 
 <p>本番環境でDockerを動かすために、Amazon ECSを利用した。Amazon ECSを使うと、ざっくり言うと「このイメージを利用して3つほどコンテナを起動しておいてくれ」「ロードバランサから適当に繋ぐんでよろしく頼む」ということができる。</p>
@@ -293,7 +292,6 @@ X-Amz-Cf-Id: JBIQSgCoiBex6eGEONFnvD4K0R43DlDbd8dbYdXT2fXSq9aM3WUi5A==</pre>
   key_name                    = "amakan"
   user_data                   = "#!/bin/bash\necho ECS_CLUSTER='${aws_ecs_cluster.amakan.name}' &gt;&gt; /etc/ecs/ecs.config"
 }</pre>
-
 
 <p>定義されている全てのリソースを洗い出すと、こういう感じ。規模感としては、全体で500行程度のコードになっている。</p>
 
@@ -336,7 +334,6 @@ aws_subnet.amakan_public_a
 aws_subnet.amakan_public_c
 aws_vpc.amakan</pre>
 
-
 <p>VPC環境への引越しのとき、DBだけは状態を持っているのでデータをコピーする必要があった。これはこういう感じで処理した。</p>
 
 <ol>
@@ -348,7 +345,6 @@ aws_vpc.amakan</pre>
 <li>terraform import を利用してterraformの状態を合わせる</li>
 </ol>
 
-
 <h2>おわり</h2>
 
 <p>長くなってしまったけど、本番環境のDocker移行でやった作業は以上。長くなりそうなので触れなかった話題としてこの辺りの話があるが、また後日。</p>
@@ -358,8 +354,6 @@ aws_vpc.amakan</pre>
 <li>デプロイ</li>
 <li>スケーリング</li>
 </ul>
-
-
 
   </div>
 </article>

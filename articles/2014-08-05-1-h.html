@@ -4,17 +4,21 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width">
   <title>APIデザインの極意</title>
-  <link href="/articles/2014-08-05-1-h" rel="canonical">
+  <link href="https://r7kamura.com:0/articles/2014-08-05-1-h" rel="canonical">
   <link rel="stylesheet" href="/css/main.css">
   <link rel="search" type="application/opensearchdescription+xml" title="r7kamura.com" href="/opensearch.xml">
   <link rel="alternate" type="application/rss+xml" href="/feed.xml">
-  <meta property="description" content="APIデザインの極意 Java&#x2F;NetBeansアーキテクト探究ノート">
-  <meta property="og:description" content="APIデザインの極意 Java&#x2F;NetBeansアーキテクト探究ノート">
-  <meta property="og:type" content="article">
+  
+  <meta property="description" content="APIデザインの極意 Java/NetBeansアーキテクト探究ノート">
+  <meta property="og:description" content="APIデザインの極意 Java/NetBeansアーキテクト探究ノート">
+  
+  <meta property="og:type" content="website">
   <meta property="og:title" content="APIデザインの極意">
-  <meta property="og:url" content="https://r7kamura.com/articles/2014-08-05-1-h">
+  <meta property="og:url" content="https://r7kamura.com:0/articles/2014-08-05-1-h">
+  
   <meta property="og:image" content="https://r7kamura.com/default_og_image.jpg">
   <meta property="twitter:card" content="summary">
+  
 </head>
 <body>
   <header>
@@ -35,7 +39,7 @@
   <h1>APIデザインの極意</h1>
   <footer>
     <p>
-      <time datetime="2014-08-05T00:00:00+09:00">2014年08月05日</time>
+      <time datetime="2014-08-05T00:00:00+00:00">2014年08月05日</time>
     </p>
   </footer>
   <div>
@@ -64,7 +68,6 @@
 <h3>後方互換性がどう失われるか知っておくべき</h3>
 
 <p>「APIに変更を加える際には後方互換性を保つ方が良い」という意見には多くの人が同意できると思う。しかしながら、どういう行為によって後方互換性が失われてしまうのかを知らなければAPIを変更できないし、ひいては変更しやすい良いAPIを設計することもできない。文中では、例を上げながら「例えばこういうときにこういう実装にしていてはこのように後方互換性がなくなってしまい、APIの利用者からの信頼を失ってしまう…」といった話が示されている。例えばあるクラスからメソッドを取り除いたときはどうか、またメソッドを追加したときはどうか、また新たにクラスを追加したときはどうか、という具合である。この文脈での「後方互換性」とは、過去のバージョンと未来のバージョンで同じようにコンパイルでき、実行時にもエラーなく動作し、また同じ機能が提供されることを指している。機能の同一性にまで目を向けると、単純にメソッドのシグネチャなどを整えるだけでは後方互換性が守られる保証はないということが分かるだろう。</p>
-
 
   </div>
 </article>

@@ -4,17 +4,21 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width">
   <title>Amazon Lambdaにまとめてアップロードするやつ</title>
-  <link href="/articles/2015-08-04-h" rel="canonical">
+  <link href="https://r7kamura.com:0/articles/2015-08-04-h" rel="canonical">
   <link rel="stylesheet" href="/css/main.css">
   <link rel="search" type="application/opensearchdescription+xml" title="r7kamura.com" href="/opensearch.xml">
   <link rel="alternate" type="application/rss+xml" href="/feed.xml">
-  <meta property="description" content="https:&#x2F;&#x2F;github.com&#x2F;r7kamura&#x2F;api-gateway-lambda-example">
-  <meta property="og:description" content="https:&#x2F;&#x2F;github.com&#x2F;r7kamura&#x2F;api-gateway-lambda-example">
-  <meta property="og:type" content="article">
+  
+  <meta property="description" content="https://github.com/r7kamura/api-gateway-lambda-example">
+  <meta property="og:description" content="https://github.com/r7kamura/api-gateway-lambda-example">
+  
+  <meta property="og:type" content="website">
   <meta property="og:title" content="Amazon Lambdaにまとめてアップロードするやつ">
-  <meta property="og:url" content="https://r7kamura.com/articles/2015-08-04-h">
+  <meta property="og:url" content="https://r7kamura.com:0/articles/2015-08-04-h">
+  
   <meta property="og:image" content="https://qiita-image-store.s3.amazonaws.com/0/4365/5d685090-a6d3-b610-a0ae-8ec25e6feebf.png">
   <meta property="twitter:card" content="summary_large_image">
+  
 </head>
 <body>
   <header>
@@ -35,7 +39,7 @@
   <h1>Amazon Lambdaにまとめてアップロードするやつ</h1>
   <footer>
     <p>
-      <time datetime="2015-08-04T00:00:00+09:00">2015年08月04日</time>
+      <time datetime="2015-08-04T00:00:00+00:00">2015年08月04日</time>
     </p>
   </footer>
   <div>
@@ -57,7 +61,6 @@
 |-- gulpfile.js
 `-- package.json</pre>
 
-
 <p>サンプルアプリは手短に言うと上のようなファイル構成になっていて、作成したいAmazon Lambdaの関数ごとにfunctionsディレクトリ内に更にディレクトリをつくっていくルールにしてある。<code>npm run &lt;command&gt;</code> で実行できるコマンドが幾つか定義されている。</p>
 
 <pre class="code" data-lang="" data-unlink>$ npm run
@@ -71,7 +74,6 @@ Scripts available in api-gateway-lambda-example via `npm run-script`:
   zip
     gulp zip</pre>
 
-
 <p>個々のfunctionごとにpackage.jsonが用意されていて、<code>npm run bundle</code> を使うと必要なnode_modulesがそれぞれインストールされる。<code>npm run compile</code> を使うと、個々のfunctionのsrcディレクトリ内のJavaScriptがコンパイルされて、それぞれのdistディレクトリにまとめられる。<code>npm run zip</code> を使うと、distディレクトリの内容がdist.zipに圧縮される。Amazon LambdaにコードをアップロードするためにZIPにしている。<code>npm run upload</code> を使うと、個々のdist.zipをAmazon Lambdaにアップロードしてくれるようになっている。諸々のタスクを実行するとこういうのが出来上がる。</p>
 
 <p><img src="https://qiita-image-store.s3.amazonaws.com/0/4365/5d685090-a6d3-b610-a0ae-8ec25e6feebf.png" alt="image"></p>
@@ -84,8 +86,6 @@ Scripts available in api-gateway-lambda-example via `npm run-script`:
 <li><a href="http://r7kamura.hatenablog.com/entry/2015/08/02/052043">Node.jsでAmazon API Gatewayのクライアント書いた - ✘╹◡╹✘</a></li>
 <li><a href="http://r7kamura.hatenablog.com/entry/2015/08/03/102704">Amazon API Gatewayに自動で定義するやつ - ✘╹◡╹✘</a></li>
 </ul>
-
-
 
   </div>
 </article>

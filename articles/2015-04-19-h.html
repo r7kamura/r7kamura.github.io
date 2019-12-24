@@ -4,17 +4,21 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width">
   <title>最近のServerkitの様子</title>
-  <link href="/articles/2015-04-19-h" rel="canonical">
+  <link href="https://r7kamura.com:0/articles/2015-04-19-h" rel="canonical">
   <link rel="stylesheet" href="/css/main.css">
   <link rel="search" type="application/opensearchdescription+xml" title="r7kamura.com" href="/opensearch.xml">
   <link rel="alternate" type="application/rss+xml" href="/feed.xml">
+  
   <meta property="description" content="最近のServerkit界隈の変更についてまとめておきます。">
   <meta property="og:description" content="最近のServerkit界隈の変更についてまとめておきます。">
-  <meta property="og:type" content="article">
+  
+  <meta property="og:type" content="website">
   <meta property="og:title" content="最近のServerkitの様子">
-  <meta property="og:url" content="https://r7kamura.com/articles/2015-04-19-h">
+  <meta property="og:url" content="https://r7kamura.com:0/articles/2015-04-19-h">
+  
   <meta property="og:image" content="https://raw.githubusercontent.com/r7kamura/dotfiles/master/images/install.gif">
   <meta property="twitter:card" content="summary_large_image">
+  
 </head>
 <body>
   <header>
@@ -35,7 +39,7 @@
   <h1>最近のServerkitの様子</h1>
   <footer>
     <p>
-      <time datetime="2015-04-19T00:00:00+09:00">2015年04月19日</time>
+      <time datetime="2015-04-19T00:00:00+00:00">2015年04月19日</time>
     </p>
   </footer>
   <div>
@@ -55,12 +59,8 @@ Vagrant.configure("2") do |config|
   end
 end</pre>
 
-
-
-
 <pre class="code" data-lang="" data-unlink>$ vagrant plugin install vagrant-serverkit
 $ vagrant up</pre>
-
 
 <h2>vagrant-multiplug</h2>
 
@@ -78,12 +78,8 @@ Vagrant.configure("2") do |config|
   end
 end</pre>
 
-
-
-
 <pre class="code" data-lang="" data-unlink>$ vagrant plugin install vagrant-multiplug
 $ vagrant up</pre>
-
 
 <h2>dotfiles</h2>
 
@@ -103,7 +99,6 @@ resources:
     name: vim-mode
     version: 0.43.0</pre>
 
-
 <h2>serverkit-homebrew</h2>
 
 <p>homebrewやhomebrew cask関係のリソースを <a href="https://github.com/r7kamura/serverkit-homebrew">serverkit-homebrew</a> といプラグインに分けました。同じコマンド体系を使っているのでlinuxbrewなどでも動くようです。使い方はこういう感じ。</p>
@@ -114,7 +109,6 @@ resources:
   - type: homebrew_package
     name: rbenv
     options: --HEAD</pre>
-
 
 <h2>--log-level</h2>
 
@@ -139,8 +133,6 @@ resources:
 <li><a href="https://github.com/r7kamura/serverkit/blob/master/lib/serverkit/resources/symlink.rb">symlink</a></li>
 <li><a href="https://github.com/r7kamura/serverkit/blob/master/lib/serverkit/resources/user.rb">user</a></li>
 </ul>
-
-
 
   </div>
 </article>

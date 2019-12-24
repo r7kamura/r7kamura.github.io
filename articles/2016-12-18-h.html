@@ -4,17 +4,21 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width">
   <title>amakanをSidekiqに移行した</title>
-  <link href="/articles/2016-12-18-h" rel="canonical">
+  <link href="https://r7kamura.com:0/articles/2016-12-18-h" rel="canonical">
   <link rel="stylesheet" href="/css/main.css">
   <link rel="search" type="application/opensearchdescription+xml" title="r7kamura.com" href="/opensearch.xml">
   <link rel="alternate" type="application/rss+xml" href="/feed.xml">
-  <meta property="description" content="https:&#x2F;&#x2F;amakan.net&#x2F; のこの辺の改善の続き。">
-  <meta property="og:description" content="https:&#x2F;&#x2F;amakan.net&#x2F; のこの辺の改善の続き。">
-  <meta property="og:type" content="article">
+  
+  <meta property="description" content="https://amakan.net/ のこの辺の改善の続き。">
+  <meta property="og:description" content="https://amakan.net/ のこの辺の改善の続き。">
+  
+  <meta property="og:type" content="website">
   <meta property="og:title" content="amakanをSidekiqに移行した">
-  <meta property="og:url" content="https://r7kamura.com/articles/2016-12-18-h">
+  <meta property="og:url" content="https://r7kamura.com:0/articles/2016-12-18-h">
+  
   <meta property="og:image" content="https://cloud.githubusercontent.com/assets/111689/21296863/a3670750-c5b8-11e6-9342-0f177854a011.png">
   <meta property="twitter:card" content="summary_large_image">
+  
 </head>
 <body>
   <header>
@@ -35,7 +39,7 @@
   <h1>amakanをSidekiqに移行した</h1>
   <footer>
     <p>
-      <time datetime="2016-12-18T00:00:00+09:00">2016年12月18日</time>
+      <time datetime="2016-12-18T00:00:00+00:00">2016年12月18日</time>
     </p>
   </footer>
   <div>
@@ -49,8 +53,7 @@
 <li><a href="http://r7kamura.hatenablog.com/entry/2016/12/13/074119">amakanのフロントエンドを色々改善した - ✘╹◡╹✘</a></li>
 </ul>
 
-
-<hr>
+<p><hr></p>
 
 <h2>Sidekiq</h2>
 
@@ -60,7 +63,6 @@
 <li><a href="https://github.com/resque/resque">https://github.com/resque/resque</a></li>
 <li><a href="https://github.com/mperham/sidekiq">https://github.com/mperham/sidekiq</a></li>
 </ul>
-
 
 <p>Sidekiqの提供するWeb UIはこんな感じ。興味本位で日本語に翻訳されたものを利用してみたけれど、言葉が直球でいい。</p>
 
@@ -75,7 +77,6 @@
 <li>本が登録されたときにDMM版が無いか探す</li>
 </ol>
 
-
 <h2>定期的にやりたい処理</h2>
 
 <p>この手の処理はSidekiqを使ってもそのまでは単純には実装できないので、sidekiq-scheduler というライブラリを使った。</p>
@@ -85,14 +86,12 @@
 <li>登録済みの本の情報が更新されていないか調べる</li>
 </ol>
 
-
 <p>バックグラウンド処理を行うライブラリは色々あるものの、これまで利用していた resque-scheduler と使い方が似ていることや、Sidekiqが用意しているWeb UIに対応していることなどからこれを選んだ。</p>
 
 <ul>
 <li><a href="https://github.com/moove-it/sidekiq-scheduler">https://github.com/moove-it/sidekiq-scheduler</a></li>
 <li><a href="https://github.com/resque/resque-scheduler">https://github.com/resque/resque-scheduler</a></li>
 </ul>
-
 
 <h2>デプロイ</h2>
 
@@ -103,7 +102,6 @@
 <li><a href="https://github.com/sshingler/capistrano-resque">https://github.com/sshingler/capistrano-resque</a></li>
 </ul>
 
-
 <h2>ActiveJob</h2>
 
 <p>移行するついでに、今回はActiveJobを使うことにした。コードの変更は結構簡単で、この辺りの自分でも実装できるけど最初から付いてると嬉しい、という機能が何気に便利に使えた。</p>
@@ -113,11 +111,9 @@
 <li>処理の実行前後にコールバックを登録できる</li>
 </ul>
 
-
 <h2>おわり</h2>
 
 <p>Sidekiqへの移行とPumaへの移行でメモリ使用量がかなり減ったので、サーバの数を減らせそうだった。今回は移行に合わせて開発環境にDockerを導入したので、次回はDocker化の話について書くかもしれない。</p>
-
 
   </div>
 </article>

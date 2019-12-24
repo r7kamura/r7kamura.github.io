@@ -4,17 +4,21 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width">
   <title>2017年2月27日</title>
-  <link href="/articles/2017-02-27-h" rel="canonical">
+  <link href="https://r7kamura.com:0/articles/2017-02-27-h" rel="canonical">
   <link rel="stylesheet" href="/css/main.css">
   <link rel="search" type="application/opensearchdescription+xml" title="r7kamura.com" href="/opensearch.xml">
   <link rel="alternate" type="application/rss+xml" href="/feed.xml">
+  
   <meta property="description" content="ニーアオートマタを進めた">
   <meta property="og:description" content="ニーアオートマタを進めた">
-  <meta property="og:type" content="article">
+  
+  <meta property="og:type" content="website">
   <meta property="og:title" content="2017年2月27日">
-  <meta property="og:url" content="https://r7kamura.com/articles/2017-02-27-h">
+  <meta property="og:url" content="https://r7kamura.com:0/articles/2017-02-27-h">
+  
   <meta property="og:image" content="https://r7kamura.com/default_og_image.jpg">
   <meta property="twitter:card" content="summary">
+  
 </head>
 <body>
   <header>
@@ -35,7 +39,7 @@
   <h1>2017年2月27日</h1>
   <footer>
     <p>
-      <time datetime="2017-02-27T00:00:00+09:00">2017年02月27日</time>
+      <time datetime="2017-02-27T00:00:00+00:00">2017年02月27日</time>
     </p>
   </footer>
   <div>
@@ -60,7 +64,6 @@
 <li>少し高くても面倒で飲まなくなるよりマシなので許す</li>
 </ul>
 
-
 <p>ということで、丁度1袋1缶で行けるこれに変更した。</p>
 
 <p></p><a href="http://www.amazon.co.jp/exec/obidos/ASIN/B01D4GJ2O6/r7kamura-22/">コカ・コーラ ジョージア コールドブリューコーヒー カフェラテ 265ml ボトル缶×30本</a>
@@ -76,13 +79,11 @@
 <pre class="code lang-ruby" data-lang="ruby" data-unlink>gem <span class="synSpecial">"</span><span class="synConstant">faraday_middleware-aws-signers-v4</span><span class="synSpecial">"</span>
 </pre>
 
-
 <p>と書いただけで、<code>Bundler.require</code> が適当なファイルを読み込んでくれるようになるというやつです。適当なファイルは Gem の名前から推測されるのだけど、faraday_middleware-aws-signers-v4 という名前が慣習的ではない命名なので、それに対応させる必要があった。幾つかやり方はあるのだけど、今回はこの Pull Request のような対処にした、という感じ。</p>
 
 <h2>rspec-request_describer を更新した</h2>
 
 <p><a href="https://github.com/r7kamura/rspec-request_describer">https://github.com/r7kamura/rspec-request_describer</a> に Pull Request が来ていたので merge するついでに、幾つか変更した。Rails のバージョンとの互換性の問題などがあり、もう次のバージョンからは Rails 4 を切り捨ててもええやろということでそうした。</p>
-
 
   </div>
 </article>

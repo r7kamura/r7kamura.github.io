@@ -4,17 +4,21 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width">
   <title>katatema.js</title>
-  <link href="/articles/2016-11-24-h" rel="canonical">
+  <link href="https://r7kamura.com:0/articles/2016-11-24-h" rel="canonical">
   <link rel="stylesheet" href="/css/main.css">
   <link rel="search" type="application/opensearchdescription+xml" title="r7kamura.com" href="/opensearch.xml">
   <link rel="alternate" type="application/rss+xml" href="/feed.xml">
+  
   <meta property="description" content="次のようなコードを書いて、">
   <meta property="og:description" content="次のようなコードを書いて、">
-  <meta property="og:type" content="article">
+  
+  <meta property="og:type" content="website">
   <meta property="og:title" content="katatema.js">
-  <meta property="og:url" content="https://r7kamura.com/articles/2016-11-24-h">
+  <meta property="og:url" content="https://r7kamura.com:0/articles/2016-11-24-h">
+  
   <meta property="og:image" content="https://raw.githubusercontent.com/r7kamura/katatema/master/images/demo.gif">
   <meta property="twitter:card" content="summary_large_image">
+  
 </head>
 <body>
   <header>
@@ -35,7 +39,7 @@
   <h1>katatema.js</h1>
   <footer>
     <p>
-      <time datetime="2016-11-24T00:00:00+09:00">2016年11月24日</time>
+      <time datetime="2016-11-24T00:00:00+00:00">2016年11月24日</time>
     </p>
   </footer>
   <div>
@@ -44,11 +48,9 @@
 <pre class="code" data-lang="" data-unlink>import React from "react"
 export default () =&gt; &lt;div&gt;Hello!&lt;/div&gt;</pre>
 
-
 <p>次のようなコマンドを叩くと、</p>
 
 <pre class="code" data-lang="" data-unlink>katatema build</pre>
-
 
 <p>次のようなファイルが生成されるという、<a href="https://github.com/r7kamura/katatema">katatema</a> というツールをつくった。</p>
 
@@ -59,7 +61,6 @@ export default () =&gt; &lt;div&gt;Hello!&lt;/div&gt;</pre>
 &lt;body&gt;
   &lt;div&gt;Hello!&lt;/div&gt;
 &lt;/body&gt;</pre>
-
 
 <h2>最先端の消耗</h2>
 
@@ -82,7 +83,6 @@ export default () =&gt; &lt;div&gt;Hello!&lt;/div&gt;</pre>
 <li>Webpackなどの一連の環境を整えてビルドする環境を用意する</li>
 </ol>
 
-
 <p>katatemaはこの問題に対して、他のツールに比べて強い優位性を持っている。まず前述したように、Webpackなどの設定は勝手にやってくれるので、面倒な設定作業を必要としない。そして、サーバサイドでもクライアントサイドでも同じソースコードで動作させられるため、動きを付けるのが非常に簡単である。Reactの機能を利用し、UIのコンポーネント化、状態管理、イベントハンドラ、ライフサイクルの利用など、少しのコードを付け足すだけで様々な機能を実装できる。</p>
 
 <h2>PHPの時代</h2>
@@ -99,13 +99,11 @@ export default () =&gt; &lt;div&gt;Hello!&lt;/div&gt;</pre>
 ./pages/about.js  ---converted---&gt;  ./docs/about.html
 ./pages/usage.js  ---converted---&gt;  ./docs/usage.html</pre>
 
-
 <h2>画面の更新</h2>
 
 <p>HTMLファイルを生成する機能だけでなく、開発時に使うためのプレビュー用サーバも用意している。次のようなコマンドでプレビュー用サーバが起動し、<code>pages/index.js</code> から生成されたHTMLが <a href="http://localhost:3000/">http://localhost:3000/</a> で、<code>pages/foo.js</code> から生成されたHTMLが <a href="http://localhost:3000/foo.html">http://localhost:3000/foo.html</a> で閲覧できるようになっている。</p>
 
 <pre class="code" data-lang="" data-unlink>katatema serve</pre>
-
 
 <p>katatemaでのプレビュー時には、ソースコードを書き換えるとページがリロードされることなく画面の一部がヌルリと書き換わるようになっている。勿論ページだけでなく、ページで利用しているCSSを書き換えたときも、同様に新しいスタイルが適用されるようになっている。めちゃくちゃ便利で、デザイン作業とかだとこれが無いと正直やってられない。</p>
 
@@ -126,7 +124,6 @@ export default () =&gt; &lt;div&gt;Hello!&lt;/div&gt;</pre>
 <h2>追記</h2>
 
 <p>最初、katatemaをつくった動機として「nowなどを使って動的サイトにホスティングする必要は無い云々」ということを書いていたんですが、nowは静的サイトもホスティングできるということを指摘していただいて、その辺りの文面を修正しました。誤解を招く文章で申し訳ないです！</p>
-
 
   </div>
 </article>

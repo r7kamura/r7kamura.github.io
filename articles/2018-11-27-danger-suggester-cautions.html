@@ -4,17 +4,21 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width">
   <title>danger-suggesterをプロジェクトに導入するときの話</title>
-  <link href="/articles/2018-11-27-danger-suggester-cautions" rel="canonical">
+  <link href="https://r7kamura.com:0/articles/2018-11-27-danger-suggester-cautions" rel="canonical">
   <link rel="stylesheet" href="/css/main.css">
   <link rel="search" type="application/opensearchdescription+xml" title="r7kamura.com" href="/opensearch.xml">
   <link rel="alternate" type="application/rss+xml" href="/feed.xml">
-  <meta property="description" content="https:&#x2F;&#x2F;github.com&#x2F;r7kamura&#x2F;danger-suggester の話です。">
-  <meta property="og:description" content="https:&#x2F;&#x2F;github.com&#x2F;r7kamura&#x2F;danger-suggester の話です。">
-  <meta property="og:type" content="article">
+  
+  <meta property="description" content="https://github.com/r7kamura/danger-suggester の話です。">
+  <meta property="og:description" content="https://github.com/r7kamura/danger-suggester の話です。">
+  
+  <meta property="og:type" content="website">
   <meta property="og:title" content="danger-suggesterをプロジェクトに導入するときの話">
-  <meta property="og:url" content="https://r7kamura.com/articles/2018-11-27-danger-suggester-cautions">
+  <meta property="og:url" content="https://r7kamura.com:0/articles/2018-11-27-danger-suggester-cautions">
+  
   <meta property="og:image" content="https://r7kamura.com/default_og_image.jpg">
   <meta property="twitter:card" content="summary">
+  
 </head>
 <body>
   <header>
@@ -35,38 +39,57 @@
   <h1>danger-suggesterをプロジェクトに導入するときの話</h1>
   <footer>
     <p>
-      <time datetime="2018-11-27T00:00:00+09:00">2018年11月27日</time>
+      <time datetime="2018-11-27T00:00:00+00:00">2018年11月27日</time>
     </p>
   </footer>
   <div>
     <p><a href="https://github.com/r7kamura/danger-suggester">https://github.com/r7kamura/danger-suggester</a> の話です。</p>
-<h2 id="背景">背景</h2>
+
+<h2>背景</h2>
+
 <p>前に Patreon で「danger-suggester というのをつくったよ」という話をしました。最近はこのツールの積極的な導入を進めてみていて、いま現在フリーランスとして参加しているプロジェクトや、個人でやっているプロジェクトなどで試しています。
 しかしここに辿り着くまでにも色々と大変なあれこれがあって、 「Danger でインラインコメントを付けようとすると上手く動かないケースがある」という問題や、「RuboCop を Danger で置き換えようとしても danger-rubocop が CI を常に成功させてしまう」という問題がありました。</p>
+
 <p>これらの問題に対策を講じた上でも、更にいくつか注意が必要な事柄が分かってきたので、今回はそれについての話を書こうと思います。前回までの話に興味がある方がいれば、以下の記事を読んでみてください。</p>
+
 <ul>
 <li><a href="https://www.patreon.com/posts/danger-22714545">https://www.patreon.com/posts/danger-22714545</a></li>
 <li><a href="https://www.patreon.com/posts/dangerdeinrainko-22832118">https://www.patreon.com/posts/dangerdeinrainko-22832118</a></li>
 <li><a href="https://www.patreon.com/posts/danger-jia-22852173">https://www.patreon.com/posts/danger-jia-22852173</a></li>
 </ul>
-<h1 id="dangerfile-内での処理の順序に気を付けなければならない">Dangerfile 内での処理の順序に気を付けなければならない</h1>
+
+<h1>Dangerfile 内での処理の順序に気を付けなければならない</h1>
+
 <p>結論から言うと、danger-rubocop などのプラグインと danger-suggester を併用するときは、以下の順で処理を行うような Dangerfile を記述するのが良いと思われます。</p>
+
 <ol>
 <li>danger-rubocop などのプラグインを実行する</li>
 <li>Kernel.#system で外部コマンドを実行してコードを自動修正する</li>
 <li>danger-suggester を実行する (suggester.suggest)</li>
 </ol>
+
 <p>例えば CI 中に2回 danger コマンドを実行すると、最初に実行した danger で付けたコメントが、次に実行した danger によって削除され、別のコメントで上書きされてしまいます。そのため、danger-rubocop と danger-suggester を両方動かしたい場合、同じ Danger のプロセスでまとめて動かす必要があります。</p>
+
 <p>なぜ分けたいという発想に至っているかと言うと、Ruby のコードの中から外部コマンドを実行するのではなくて、rubocop --auto-correct のように普通にシェルのコマンドとして処理を呼び出したいという発想からです。また、例えばこの自動修正が RuboCop ではなく eslint --fix だったりすると、danger-rubocop とは関係が無いので、CI のパイプライン上では別のジョブとして並列に実行しても問題が無いはずです。しかし上述した問題があり、現状まとめる必要があるので気を付けないとなという話です。</p>
+
 <p>そもそも原理的には、danger-rubocop と rubocop --auto-correct をそれぞれ実行しているところにも少し無駄があるのですが、これは rubocop --auto-correct で自動修正できてしまったものが違反として報告されないということが理由で分かれている節もあります。これを一度の実行にまとめようとすると、「自動修正しながらも違反内容は報告する」というような処理が必要になるので、RuboCop の JSON 形式での出力をパースして対処する必要がありそうです。</p>
+
 <p>まあ速く処理が終わるほうが良いに越したことはないのですが、実際には Pull Request で変更を加えたファイルだけを対象として RuboCop を実行することになるので、テストなどの他の並列で動かすジョブと比べると早く終わる傾向にあり、そこまで実行時間が問題になったことはありません。コードを変更しても、基本的にはそのコードが書かれたファイルを解析すれば大体の違反を検査できるからです。しかし、似たコードが他に存在しているかどうかや、すべてのコードの合計や平均を利用するような検査をしたいのであれば、もっと時間が掛かるようになりそうで、今後課題となっていきそうな気がしています。</p>
+
 <p>長くなりましたが、Dangerfile に処理をまとめて書くべきだと考えた理由について説明しました。結論としては、冒頭で述べたような書き方で Dangerfile を書いていただくのが良いかと思います。実際に動いているコード例として r7kamura/danger-suggester の Dangerfile や .circleci/config.yml を見るのも良いでしょう。</p>
-<h2 id="only-build-pull-requests-を有効化しなければならない">Only build pull requests を有効化しなければならない</h2>
+
+<h2>Only build pull requests を有効化しなければならない</h2>
+
 <p>これは danger-suggester 固有の問題ではなく、プロジェクトに Danger を導入するときに起きる問題についての話です。Danger は基本的に Pull Request にコメントさせるために導入するので、Pull Request に紐付いていないビルドで実行しても効果がありません。単純に Danger を導入すると、まずコードを push したことによりビルドが実行されるが、Pull Request と紐付いていないので Danger の実行が skip され、その後 Pull Request を出すものの、そのコードに対してのビルドは既に行われているので Danger が再実行されることはない、という問題が発生します。要は、Pull Request に対する初回の push に対して Danger による検査が行われないという問題があります。</p>
+
 <p>これを回避するために、Circle CI では Only build pull requests という設定があり、Danger 側もこれを利用することを推奨しています。これは、default branch に設定されているブランチを除き、Pull Request が出されるまではビルドを実行しないという設定です。これを有効化すると、初めて Pull Request を作成したタイミングと、それ以降でブランチに変更を push したタイミングでビルドが実行されるようになります。</p>
+
 <p>とはいえ、これを利用するのが難しいプロジェクトもあると思います。例えば自分の担当していたプロジェクトでは、特定のブランチにコードを push することにより、CI によって検証環境や本番環境に変更が反映されるというようなワークフローが導入されていました。このブランチには default branch ではないものが含まれるため、この設定を加えると CI が実行されなくなってしまうという問題がありました。</p>
+
 <p>対処としては、その用途で使うブランチから予め適当なブランチに対して Pull Request を出して放置しておくことで、常にビルドが実行されるようにしました。これは少し dirty な対応と言えます。これについては、もう少し良い感じのワークフローが組めないものか、CircleCI 周りの人に聞くなりご意見を送るなりしてみようと思います。</p>
-<h2 id="おわり">おわり</h2>
+
+<h2>おわり</h2>
+
 <p>danger-suggester をプロジェクトに導入するときに困った問題と、その対策について書きました。導入検討時の参考にしていただければと思います。</p>
 
   </div>

@@ -4,17 +4,21 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width">
   <title>API Gatewayへの入力値にLambdaからアクセスする</title>
-  <link href="/articles/2015-08-15-q" rel="canonical">
+  <link href="https://r7kamura.com:0/articles/2015-08-15-q" rel="canonical">
   <link rel="stylesheet" href="/css/main.css">
   <link rel="search" type="application/opensearchdescription+xml" title="r7kamura.com" href="/opensearch.xml">
   <link rel="alternate" type="application/rss+xml" href="/feed.xml">
+  
   <meta property="description" content="Amazon API GatewayとAWS Lambdaを組み合わせて利用しているときに、リクエストヘッダやURLクエリパラメータなどの入力値にLambdaのコードからアクセスできるようにする方法について説明します。">
   <meta property="og:description" content="Amazon API GatewayとAWS Lambdaを組み合わせて利用しているときに、リクエストヘッダやURLクエリパラメータなどの入力値にLambdaのコードからアクセスできるようにする方法について説明します。">
-  <meta property="og:type" content="article">
+  
+  <meta property="og:type" content="website">
   <meta property="og:title" content="API Gatewayへの入力値にLambdaからアクセスする">
-  <meta property="og:url" content="https://r7kamura.com/articles/2015-08-15-q">
+  <meta property="og:url" content="https://r7kamura.com:0/articles/2015-08-15-q">
+  
   <meta property="og:image" content="https://qiita-image-store.s3.amazonaws.com/0/4365/65d9c0c7-0686-c9b9-7670-6feeeb9a97b2.png">
   <meta property="twitter:card" content="summary_large_image">
+  
 </head>
 <body>
   <header>
@@ -35,42 +39,68 @@
   <h1>API Gatewayへの入力値にLambdaからアクセスする</h1>
   <footer>
     <p>
-      <time datetime="2015-08-15T00:00:00+09:00">2015年08月15日</time>
+      <time datetime="2015-08-15T00:00:00+00:00">2015年08月15日</time>
     </p>
   </footer>
   <div>
     <p>Amazon API GatewayとAWS Lambdaを組み合わせて利用しているときに、リクエストヘッダやURLクエリパラメータなどの入力値にLambdaのコードからアクセスできるようにする方法について説明します。</p>
-<h2 id="integration-requestを選ぶ">Integration Requestを選ぶ</h2>
+
+<h2>Integration Requestを選ぶ</h2>
+
 <p><img src="https://qiita-image-store.s3.amazonaws.com/0/4365/65d9c0c7-0686-c9b9-7670-6feeeb9a97b2.png" alt="image"></p>
-<h2 id="mapping-templatesを選ぶ">Mapping Templatesを選ぶ</h2>
+
+<h2>Mapping Templatesを選ぶ</h2>
+
 <p><img src="https://qiita-image-store.s3.amazonaws.com/0/4365/09eaa051-5d90-c624-9e75-ce02120e7cc9.png" alt="image"></p>
-<h2 id="テンプレートを作成する">テンプレートを作成する</h2>
+
+<h2>テンプレートを作成する</h2>
+
 <p>application/json用のテンプレートを作成します。</p>
+
 <p><img src="https://qiita-image-store.s3.amazonaws.com/0/4365/4279da3a-0d53-68de-058e-f180ee60aaf5.png" alt="image"></p>
-<h2 id="テンプレートを編集する">テンプレートを編集する</h2>
+
+<h2>テンプレートを編集する</h2>
+
 <p>内容は以下の通りです。執筆時点で <a href="http://docs.aws.amazon.com/ja_jp/apigateway/latest/developerguide/api-gateway-mapping-template-reference.html">API Gatewayのドキュメント</a> で説明されている全ての値を参照できるようにしてみました。このテンプレートはVTLという言語で記述することになっているので、詳しく知りたい人は <a href="http://velocity.apache.org/engine/devel/user-guide.html">ユーザガイド</a> を見ると良いです。</p>
-<pre><code>{
+
+<p>```
+{
   &quot;accountId&quot;: &quot;$context.identity.accountId&quot;,
   &quot;apiId&quot;: &quot;$context.apiId&quot;,
   &quot;apiKey&quot;: &quot;$context.identity.apiKey&quot;,
   &quot;caller&quot;: &quot;$context.identity.caller&quot;,
-  &quot;headers&quot;: {
-#foreach( $key in $input.params().header.keySet() )
-    &quot;$key&quot;: &quot;$input.params().header.get($key)&quot;#if( $foreach.hasNext ),#end
-#end
-  },
+  &quot;headers&quot;: {</p>
+
+<h1>foreach( $key in $input.params().header.keySet() )</h1>
+
+<pre><code>&quot;$key&quot;: &quot;$input.params().header.get($key)&quot;#if( $foreach.hasNext ),#end
+</code></pre>
+
+<h1>end</h1>
+
+<p>},
   &quot;httpMethod&quot;: &quot;$context.httpMethod&quot;,
   &quot;path&quot;: &quot;$context.resourcePath&quot;,
-  &quot;pathParameters&quot;: {
-#foreach( $key in $input.params().path.keySet() )
-    &quot;$key&quot;: &quot;$input.params().path.get($key)&quot;#if( $foreach.hasNext ),#end
-#end
-  },
-  &quot;queryParameters&quot;: {
-#foreach( $key in $input.params().querystring.keySet() )
-    &quot;$key&quot;: &quot;$input.params().querystring.get($key)&quot;#if( $foreach.hasNext ),#end
-#end
-  },
+  &quot;pathParameters&quot;: {</p>
+
+<h1>foreach( $key in $input.params().path.keySet() )</h1>
+
+<pre><code>&quot;$key&quot;: &quot;$input.params().path.get($key)&quot;#if( $foreach.hasNext ),#end
+</code></pre>
+
+<h1>end</h1>
+
+<p>},
+  &quot;queryParameters&quot;: {</p>
+
+<h1>foreach( $key in $input.params().querystring.keySet() )</h1>
+
+<pre><code>&quot;$key&quot;: &quot;$input.params().querystring.get($key)&quot;#if( $foreach.hasNext ),#end
+</code></pre>
+
+<h1>end</h1>
+
+<p>},
   &quot;requestId&quot;: &quot;$context.requestId&quot;,
   &quot;requestParameters&quot;: $input.json(&#39;$&#39;),
   &quot;resourceId&quot;: &quot;$context.resourceId&quot;,
@@ -79,11 +109,18 @@
   &quot;user&quot;: &quot;$context.identity.user&quot;,
   &quot;userAgent&quot;: &quot;$context.identity.userAgent&quot;,
   &quot;userArn&quot;: &quot;$context.identity.userArn&quot;
-}</code></pre><h2 id="おわり">おわり</h2>
+}
+```</p>
+
+<h2>おわり</h2>
+
 <p>以上の設定を反映させると、Lambdaのeventオブジェクトとしてこれらの値が渡されるようになります。</p>
-<pre><code class="language-js">exports.handler = function (event, context) {
+
+<p><code>js
+exports.handler = function (event, context) {
   context.succeed(event);
-};</code></pre>
+};
+</code></p>
 
   </div>
 </article>
