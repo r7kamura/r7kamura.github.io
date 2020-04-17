@@ -3,18 +3,89 @@
   <title>r7kamura.com</title>
   <link rel="self" type="application/atom+xml" href="https://r7kamura.com/feed.xml"/>
   <link rel="alternate" type="text/html" href="https://r7kamura.com/"/>
-  <updated>2020-02-29T06:09:47+00:00</updated>
+  <updated>2020-04-17T17:25:24+00:00</updated>
   <author>
     <name>Ryo Nakamura</name>
   </author>
   <id>tag:r7kamura.com,2019:/</id>
   
     <entry>
+      <title>近況</title>
+      <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-04-18"/>
+      <id>tag:r7kamura.com,2019:/articles/2020-04-18</id>
+      <published>2020-04-18T00:00:00+00:00</published>
+      <updated>2020-04-17T17:24:05+00:00</updated>
+      <content type="html">&lt;p&gt;最近について。&lt;/p&gt;
+
+&lt;h2&gt;AtomからVSCodeへ&lt;/h2&gt;
+
+&lt;p&gt;利用するエディタをVSCodeに移行して1ヶ月が経った。また、AtomではVimモードで利用していたけれど、VSCodeではそういうものを使うのもやめた。&lt;/p&gt;
+
+&lt;p&gt;そこまでVimの機能に強く依存している訳ではなかったせいか、意外と簡単に移行できてしまって驚いたくらい。意図的に、Vimの機能に依存しないようにしていたところもあるかもしれない。&lt;/p&gt;
+
+&lt;h2&gt;Railsアプリを良い感じにする仕事&lt;/h2&gt;
+
+&lt;p&gt;依然として、3年ほどフリーランスでRubyやJavaScriptの仕事をやっている。Railsのアップグレード屋として仕事をもらうことが多く、ここ1年では20個ぐらいのRails 4〜5のアプリをRails 6に移行したと思う。&lt;/p&gt;
+
+&lt;p&gt;とはいえ、Railsのアップグレードをやるという話で仕事を請けるものの、実際には「Railsを利用しているプロダクトに参加して、とにかく全体的にDXを良くしていく人」として動いていることが多い。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;CI環境を改善する&lt;/li&gt;
+&lt;li&gt;Docker環境をまともにする&lt;/li&gt;
+&lt;li&gt;Railsの起動を高速化する&lt;/li&gt;
+&lt;li&gt;RuboCopの問題に一通り対応する&lt;/li&gt;
+&lt;li&gt;Controllerの実装を読み解いて足りないテストを追加する&lt;/li&gt;
+&lt;li&gt;設定値の管理方法を改善する&lt;/li&gt;
+&lt;li&gt;assetsのコンパイル方法を変更する&lt;/li&gt;
+&lt;li&gt;Railsを含めて色々なライブラリをアップデートする&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;とか、そういう感じである。この辺を並行して整えていった方が、結果的に早く、かつ安全にRailsをアップグレードできるため。&lt;/p&gt;
+
+&lt;p&gt;最近請けている仕事の多くが一段落付きつつあるので、週2日程度で、Railsアプリの開発環境やライブラリアップデート等の、いわゆる非機能開発な部分の面倒を見てほしいという組織があればお声がけください。&lt;a href=&quot;https://twitter.com/r7kamura&quot;&gt;Twitter&lt;/a&gt;が1番連絡付きやすいです。&lt;/p&gt;
+
+&lt;h2&gt;最近のゲーム活動&lt;/h2&gt;
+
+&lt;p&gt;『あつまれ どうぶつの森』を1ヶ月で200時間ほどやり込んでしまった。そろそろ飽き気味で、惰性でやってしまっているところがあるので、どこかで終わりにしたい。&lt;/p&gt;
+
+&lt;p&gt;『ファイナルファンタジーVII リメイク』はめちゃくちゃ良い。FF1〜10あたりは個人的に好きすぎてもはやどういう形のものが出てきても喜んでしまうところがあるけれど、それは抜きにしても今回のFF7Rの出来はすごい。段々と終盤に近付いてきてしまっている雰囲気を感じており、勿体なくてあまり進められずにいる。&lt;/p&gt;
+
+&lt;p&gt;『リングフィットアドベンチャー』は依然として毎日20分から30分程度プレイし続けている。今日でプレイを初めて130日目になった。次の目標は200日継続。もうちょい使うスキルを工夫して身体を追い込みたい。&lt;/p&gt;
+
+&lt;p&gt;『BLUE PROTOCOL』のクローズドβテストに来週参加予定なのもちょっと楽しみ。&lt;/p&gt;
+
+&lt;p&gt;『PUBG』も何故か最近またやっている。最近になってようやくリコイル制御が人並みにできるようになってきた気がする。FPS/TPSジャンルだと、『Apex Legends』『Fortnite』あたりは最近はほぼやらなくなってしまった。&lt;/p&gt;
+
+&lt;h2&gt;趣味のプログラミング&lt;/h2&gt;
+
+&lt;p&gt;Rustの勉強をしようと思って、エディタをつくったり、Cコンパイラをつくったりしている。まだまだ分からないことだらけ、というかやったことがないことだらけで楽しい。&lt;/p&gt;
+
+&lt;p&gt;Cコンパイラは &lt;a href=&quot;https://github.com/r7kamura/r8cc&quot;&gt;https://github.com/r7kamura/r8cc&lt;/a&gt; でつくっている。まだifやwhile等の基本的な制御構文が実装できたぐらいのもので、型も関数も使えない、初歩の初歩の段階。&lt;/p&gt;
+
+&lt;h2&gt;生活の様子&lt;/h2&gt;
+
+&lt;p&gt;2020年1月1日から2020年4月18日まで、合計でまだ20回程度しか外出していないと思う。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;外食が2回&lt;/li&gt;
+&lt;li&gt;打ち合わせが1回&lt;/li&gt;
+&lt;li&gt;週に1度、通院後に食材の買い出し&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;毎日Discordで適当に雑談してるおかげか、そもそもが引きこもりな性格なせいなのか、1人で気楽に生きているせいなのか、ストレスが全く溜まらなくて助かる。&lt;/p&gt;
+
+&lt;p&gt;先月にホットサンドメーカーを買って以来、毎朝ホットサンドを焼いている。たまに焦がして失敗するけど、肉と野菜とパンとチーズが1食でいい感じに取れるので気に入っている。文字通り鉄板である。&lt;/p&gt;
+
+&lt;p&gt;あとは鍋、カレー、パスタを食べ続けている。最近はホットクックで低温調理をやるのが楽しい。&lt;/p&gt;
+</content>
+    </entry>
+  
+    <entry>
       <title>『マルコと銀河竜』をやった</title>
       <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-02-28-marcotogingaryu"/>
       <id>tag:r7kamura.com,2019:/articles/2020-02-28-marcotogingaryu</id>
       <published>2020-02-28T00:00:00+00:00</published>
-      <updated>2020-02-29T06:09:16+00:00</updated>
+      <updated>2020-04-17T17:24:05+00:00</updated>
       <content type="html">&lt;p&gt;&lt;img src=&quot;/images/2020-02-28-marcotogingaryu.jpg&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
 
 &lt;p&gt;前々から気になってた『マルコと銀河竜』が遂に発売されたので、購入してそのままエンディングまで駆け抜けてしまった。&lt;/p&gt;
@@ -34,7 +105,7 @@
       <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-02-25-kakutei"/>
       <id>tag:r7kamura.com,2019:/articles/2020-02-25-kakutei</id>
       <published>2020-02-25T00:00:00+00:00</published>
-      <updated>2020-02-29T06:09:16+00:00</updated>
+      <updated>2020-04-17T17:24:05+00:00</updated>
       <content type="html">&lt;p&gt;2019年分の確定申告書類を提出した。今年で3年目。今年も郵送。予定納税分以外の税金の払込はこれから。&lt;/p&gt;
 
 &lt;ul&gt;
@@ -65,7 +136,7 @@
       <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-02-17-my-protein"/>
       <id>tag:r7kamura.com,2019:/articles/2020-02-17-my-protein</id>
       <published>2020-02-17T00:00:00+00:00</published>
-      <updated>2020-02-29T06:09:16+00:00</updated>
+      <updated>2020-04-17T17:24:05+00:00</updated>
       <content type="html">&lt;p&gt;&lt;img src=&quot;/images/2020-02-17-my-protein.jpg&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
 
 &lt;p&gt;マイプロテインというスポーツ栄養ブランドのホエイプロテインが送料無料で1kg 1890円だったので、チョコレートブラウニー味のやつを買ってみた。&lt;/p&gt;
@@ -89,7 +160,7 @@
       <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-02-10-fe-three-houses"/>
       <id>tag:r7kamura.com,2019:/articles/2020-02-10-fe-three-houses</id>
       <published>2020-02-10T00:00:00+00:00</published>
-      <updated>2020-02-29T06:09:16+00:00</updated>
+      <updated>2020-04-17T17:24:05+00:00</updated>
       <content type="html">&lt;p&gt;&lt;img src=&quot;/images/2020-02-10-fe-three-houses.jpg&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
 
 &lt;p&gt;ようやく3つの学級をクリアしたので感想を書ける。&lt;/p&gt;
@@ -129,7 +200,7 @@
       <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-01-27-void-trrlm"/>
       <id>tag:r7kamura.com,2019:/articles/2020-01-27-void-trrlm</id>
       <published>2020-01-27T00:00:00+00:00</published>
-      <updated>2020-02-29T06:09:16+00:00</updated>
+      <updated>2020-04-17T17:24:05+00:00</updated>
       <content type="html">&lt;p&gt;&lt;img src=&quot;/images/2020-01-27-void-trrlm.jpg&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
 
 &lt;p&gt;日本一ソフトウェアの『void tRrLM(); // ボイド・テラリウム』をやった。たまごっちと不思議のダンジョンを同時にやるような作品で、終末世界で見つけた女の子のお世話をしながら、ダンジョンを探索して食糧や建築資材を集めてくることになる。&lt;/p&gt;
@@ -153,7 +224,7 @@
       <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-01-23-13sar"/>
       <id>tag:r7kamura.com,2019:/articles/2020-01-23-13sar</id>
       <published>2020-01-23T00:00:00+00:00</published>
-      <updated>2020-02-29T06:09:16+00:00</updated>
+      <updated>2020-04-17T17:24:05+00:00</updated>
       <content type="html">&lt;p&gt;先週末からやっていた『十三機兵防衛圏』を遂にクリアした。思い出しのために、ネタバレを避けつつ歯切れの悪い感想を残しておく。&lt;/p&gt;
 
 &lt;p&gt;&lt;a href=&quot;https://13sar.jp/&quot;&gt;https://13sar.jp/&lt;/a&gt;&lt;/p&gt;
@@ -173,7 +244,7 @@
       <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-01-21-nameteki"/>
       <id>tag:r7kamura.com,2019:/articles/2020-01-21-nameteki</id>
       <published>2020-01-21T00:00:00+00:00</published>
-      <updated>2020-02-29T06:09:16+00:00</updated>
+      <updated>2020-04-17T17:24:05+00:00</updated>
       <content type="html">&lt;p&gt;&lt;img src=&quot;https://images-fe.ssl-images-amazon.com/images/I/51osytbqqVL.jpg&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
 
 &lt;p&gt;伴名 練の『なめらかな世界と、その敵』を読んだ。表題作に加えて、&lt;/p&gt;
@@ -201,7 +272,7 @@
       <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-01-19-atelier-ryza"/>
       <id>tag:r7kamura.com,2019:/articles/2020-01-19-atelier-ryza</id>
       <published>2020-01-19T00:00:00+00:00</published>
-      <updated>2020-02-29T06:09:16+00:00</updated>
+      <updated>2020-04-17T17:24:05+00:00</updated>
       <content type="html">&lt;p&gt;&lt;img src=&quot;/images/2020-01-19-atelier-ryza.jpg&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
 
 &lt;p&gt;ライザのアトリエがSteamで30%オフで売られていたので、購入した勢いで一気にクリアした。&lt;/p&gt;
@@ -221,7 +292,7 @@
       <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-01-12-gen-gen-kusano"/>
       <id>tag:r7kamura.com,2019:/articles/2020-01-12-gen-gen-kusano</id>
       <published>2020-01-12T00:00:00+00:00</published>
-      <updated>2020-02-29T06:09:16+00:00</updated>
+      <updated>2020-04-17T17:24:05+00:00</updated>
       <content type="html">&lt;p&gt;&lt;img src=&quot;https://images-fe.ssl-images-amazon.com/images/I/615-PsNiAsL.jpg&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
 
 &lt;p&gt;新人SF作家 草野原々による短編集『最後にして最初のアイドル』を読んだ。表題作に加え、『エヴォリューションがーるず』と『暗黒声優』の計三篇が含まれている。&lt;/p&gt;
@@ -247,7 +318,7 @@
       <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-01-10-broken-reality"/>
       <id>tag:r7kamura.com,2019:/articles/2020-01-10-broken-reality</id>
       <published>2020-01-10T00:00:00+00:00</published>
-      <updated>2020-02-29T06:09:16+00:00</updated>
+      <updated>2020-04-17T17:24:05+00:00</updated>
       <content type="html">&lt;p&gt;&lt;img src=&quot;/images/2020-01-10-broken-reality-1.jpg&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
 
 &lt;p&gt;遂に『Broken Reality』をクリアした。短いようでいて、ものすごく長い時間に感じられた。だがやり遂げた。&lt;/p&gt;
@@ -275,7 +346,7 @@
       <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-01-09-locust"/>
       <id>tag:r7kamura.com,2019:/articles/2020-01-09-locust</id>
       <published>2020-01-09T00:00:00+00:00</published>
-      <updated>2020-02-29T06:09:16+00:00</updated>
+      <updated>2020-04-17T17:24:05+00:00</updated>
       <content type="html">&lt;p&gt;&lt;img src=&quot;https://images-fe.ssl-images-amazon.com/images/I/51ScdPFm7LL.jpg&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;a href=&quot;https://www.amazon.co.jp/dp/B072FGTM65&quot;&gt;https://www.amazon.co.jp/dp/B072FGTM65&lt;/a&gt;&lt;/p&gt;
@@ -293,7 +364,7 @@
       <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-01-07-macbook-pro-repair"/>
       <id>tag:r7kamura.com,2019:/articles/2020-01-07-macbook-pro-repair</id>
       <published>2020-01-07T00:00:00+00:00</published>
-      <updated>2020-02-29T06:09:16+00:00</updated>
+      <updated>2020-04-17T17:24:05+00:00</updated>
       <content type="html">&lt;p&gt;バッテリーが膨張したMacBook ProをAppleストアに預けたところ、2日後に無料で修理されて工場から送られてきた。&lt;/p&gt;
 
 &lt;p&gt;このMacBook Proは2017年7月に購入したもの。過充電によりバッテリーがひどく膨張し、蓋も閉まらず、キーボードとトラックパッドが折れ曲がって破壊されるのも時間の問題という状態になっていた。ちなみに購入以来、ずっとクラムシェルモード (本体は閉じた状態でディスプレイに接続して利用するモード) で利用しており、数回しか外に持ち出していない。&lt;/p&gt;
@@ -323,7 +394,7 @@
       <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-01-07-explore-fushimi-inari"/>
       <id>tag:r7kamura.com,2019:/articles/2020-01-07-explore-fushimi-inari</id>
       <published>2020-01-07T00:00:00+00:00</published>
-      <updated>2020-02-29T06:09:16+00:00</updated>
+      <updated>2020-04-17T17:24:05+00:00</updated>
       <content type="html">&lt;p&gt;&lt;img src=&quot;/images/2020-01-07-explore-fushimi-inari-3.jpg&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
 
 &lt;p&gt;伏見稲荷を散策できるウォーキングシミュレーター『Explore Fushimi Inari』をプレイした。&lt;/p&gt;
@@ -346,7 +417,7 @@
       <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-01-06-return-of-the-obra-dinn"/>
       <id>tag:r7kamura.com,2019:/articles/2020-01-06-return-of-the-obra-dinn</id>
       <published>2020-01-06T00:00:00+00:00</published>
-      <updated>2020-02-29T06:09:16+00:00</updated>
+      <updated>2020-04-17T17:24:05+00:00</updated>
       <content type="html">&lt;p&gt;&lt;img src=&quot;/images/2020-01-06-return-of-the-obra-dinn.jpg&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
 
 &lt;p&gt;死体謎解きアドベンチャーゲーム『Return of the Obra Dinn』をやった。&lt;/p&gt;
@@ -369,7 +440,7 @@
       <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-01-04-cave-story"/>
       <id>tag:r7kamura.com,2019:/articles/2020-01-04-cave-story</id>
       <published>2020-01-04T00:00:00+00:00</published>
-      <updated>2020-02-29T06:09:16+00:00</updated>
+      <updated>2020-04-17T17:24:05+00:00</updated>
       <content type="html">&lt;p&gt;&lt;img src=&quot;/images/2020-01-04-cave-story.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
 
 &lt;p&gt;洞窟物語を初めてやり、5時間ほどプレイして、ひいひい言いながらもとりあえず通常エンドを迎えた。&lt;/p&gt;
@@ -385,7 +456,7 @@
       <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-01-03-a-short-hike"/>
       <id>tag:r7kamura.com,2019:/articles/2020-01-03-a-short-hike</id>
       <published>2020-01-03T00:00:00+00:00</published>
-      <updated>2020-02-29T06:09:16+00:00</updated>
+      <updated>2020-04-17T17:24:05+00:00</updated>
       <content type="html">&lt;p&gt;&lt;img src=&quot;/images/2020-01-03-a-short-hike.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
 
 &lt;p&gt;短編ハイキングアドベンチャーゲーム『A Short Hike』をやった。&lt;/p&gt;
@@ -399,29 +470,11 @@
     </entry>
   
     <entry>
-      <title>『Untitled Goose Game』をやった</title>
-      <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-01-02-untitled-goose-game"/>
-      <id>tag:r7kamura.com,2019:/articles/2020-01-02-untitled-goose-game</id>
-      <published>2020-01-02T00:00:00+00:00</published>
-      <updated>2020-02-29T06:09:16+00:00</updated>
-      <content type="html">&lt;p&gt;&lt;img src=&quot;/images/2020-01-02-untitled-goose-game.jpg&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
-
-&lt;p&gt;ドタバタアクション・ステルス・サンドボックス・ガチョウシミュレーター『Untitled Goose Game』をやった。&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://www.epicgames.com/store/ja/product/untitled-goose-game/home&quot;&gt;https://www.epicgames.com/store/ja/product/untitled-goose-game/home&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;ガチョウになって、平和な村の人々にとにかく迷惑を掛けまくりながら、先に進んでいく。クリアしたとき、なんとなくその目的が分かる……そんなゲーム。のんびりとした雰囲気で、短いボリュームながらもやりがいのあるパズルゲームという感じ。&lt;/p&gt;
-
-&lt;p&gt;ガチョウが暴れ回るカオスなゲームなのに、UIのシンプルさとインタラクティブなBGMが上手く働いていて、すごく純粋で綺麗な印象の残る作品だった。&lt;/p&gt;
-</content>
-    </entry>
-  
-    <entry>
       <title>『198X』をやった</title>
       <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-01-02-198x"/>
       <id>tag:r7kamura.com,2019:/articles/2020-01-02-198x</id>
       <published>2020-01-02T00:00:00+00:00</published>
-      <updated>2020-02-29T06:09:16+00:00</updated>
+      <updated>2020-04-17T17:24:05+00:00</updated>
       <content type="html">&lt;p&gt;&lt;img src=&quot;/images/2020-01-02-198x-1.png&quot; alt=&quot;&quot;&gt;
 &lt;img src=&quot;/images/2020-01-02-198x-2.png&quot; alt=&quot;&quot;&gt;
 &lt;img src=&quot;/images/2020-01-02-198x-3.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
@@ -437,11 +490,29 @@
     </entry>
   
     <entry>
+      <title>『Untitled Goose Game』をやった</title>
+      <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-01-02-untitled-goose-game"/>
+      <id>tag:r7kamura.com,2019:/articles/2020-01-02-untitled-goose-game</id>
+      <published>2020-01-02T00:00:00+00:00</published>
+      <updated>2020-04-17T17:24:05+00:00</updated>
+      <content type="html">&lt;p&gt;&lt;img src=&quot;/images/2020-01-02-untitled-goose-game.jpg&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+
+&lt;p&gt;ドタバタアクション・ステルス・サンドボックス・ガチョウシミュレーター『Untitled Goose Game』をやった。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://www.epicgames.com/store/ja/product/untitled-goose-game/home&quot;&gt;https://www.epicgames.com/store/ja/product/untitled-goose-game/home&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;ガチョウになって、平和な村の人々にとにかく迷惑を掛けまくりながら、先に進んでいく。クリアしたとき、なんとなくその目的が分かる……そんなゲーム。のんびりとした雰囲気で、短いボリュームながらもやりがいのあるパズルゲームという感じ。&lt;/p&gt;
+
+&lt;p&gt;ガチョウが暴れ回るカオスなゲームなのに、UIのシンプルさとインタラクティブなBGMが上手く働いていて、すごく純粋で綺麗な印象の残る作品だった。&lt;/p&gt;
+</content>
+    </entry>
+  
+    <entry>
       <title>『VA-11 Hall-A』をやった</title>
       <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-01-01-va-11-hall-a"/>
       <id>tag:r7kamura.com,2019:/articles/2020-01-01-va-11-hall-a</id>
       <published>2020-01-01T00:00:00+00:00</published>
-      <updated>2020-02-29T06:09:16+00:00</updated>
+      <updated>2020-04-17T17:24:05+00:00</updated>
       <content type="html">&lt;p&gt;&lt;img src=&quot;/images/2020-01-01-va-11-hall-a.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
 
 &lt;p&gt;サイバーパンク・バーテンダー・アクションゲーム『VA-11 Hall-A』をやった。&lt;/p&gt;
@@ -449,68 +520,6 @@
 &lt;p&gt;ゲームへの愛情と、日本文化へのリスペクトを感じる良い作品だった。前々からやろうやろうと思っていたゲームを遂にプレイできたこともあって、年末年始から良いゲーム体験ができて気持ちが良い。ストーリーが12月から年末にかけて展開されるので、年末年始にプレイすると二度おいしい。&lt;/p&gt;
 
 &lt;p&gt;ゲームの仕組みは単純で、テキストを読みながら会話を進めていくだけのシンプルなアドベンチャーゲーム。客にどんなお酒を提供するかという選択肢によって、その後のストーリーに変化がもたらされる。要するに、難しいことは何も無いので、ゆっくりと腰を据えて、お酒でも飲みながらプレイするのが丁度良い。PCでプレイしたけど、そういう意味ではSwitchでプレイしても良かったかも。&lt;/p&gt;
-</content>
-    </entry>
-  
-    <entry>
-      <title>2019年にやったゲーム</title>
-      <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2019-12-30-games-2019"/>
-      <id>tag:r7kamura.com,2019:/articles/2019-12-30-games-2019</id>
-      <published>2019-12-30T00:00:00+00:00</published>
-      <updated>2020-02-29T06:09:16+00:00</updated>
-      <content type="html">&lt;p&gt;2019年にプレイしたゲーム作品を振り返る。&lt;/p&gt;
-
-&lt;h2&gt;一番良かった作品&lt;/h2&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Baba Is You&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;2019年にやったゲームから一作だけ選んで示せと言われると、長考した結果、『Baba Is You』になると思う。個人の体験としてはFF14が一番良かったんだけど、これは他人と共有できる体験ではないから、最終的に上手く選べなかった。&lt;/p&gt;
-
-&lt;h2&gt;良かった作品達&lt;/h2&gt;
-
-&lt;ul&gt;
-&lt;li&gt;APE OUT&lt;/li&gt;
-&lt;li&gt;Apex Legends&lt;/li&gt;
-&lt;li&gt;Auto Chess&lt;/li&gt;
-&lt;li&gt;Baba Is You&lt;/li&gt;
-&lt;li&gt;Celeste&lt;/li&gt;
-&lt;li&gt;Unrailed!&lt;/li&gt;
-&lt;li&gt;VA-11 Hall-A&lt;/li&gt;
-&lt;li&gt;ファイアーエムブレム 風花雪月&lt;/li&gt;
-&lt;li&gt;ファイナルファンタジーXIV&lt;/li&gt;
-&lt;li&gt;ポケットモンスター ソード&lt;/li&gt;
-&lt;li&gt;リングフィット アドベンチャー&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2&gt;その他の作品達&lt;/h2&gt;
-
-&lt;ul&gt;
-&lt;li&gt;.hack//G.U. Last Recode&lt;/li&gt;
-&lt;li&gt;Call of Duty: Modern Warfare&lt;/li&gt;
-&lt;li&gt;Crypt of the NecroDancer&lt;/li&gt;
-&lt;li&gt;Death Stranding&lt;/li&gt;
-&lt;li&gt;Don&amp;#39;t Starve Together&lt;/li&gt;
-&lt;li&gt;Factorio&lt;/li&gt;
-&lt;li&gt;Forager&lt;/li&gt;
-&lt;li&gt;GTFO&lt;/li&gt;
-&lt;li&gt;Hyper Light Drifter&lt;/li&gt;
-&lt;li&gt;Keep Talking and Nobody Explodes&lt;/li&gt;
-&lt;li&gt;MISTOVER&lt;/li&gt;
-&lt;li&gt;Risk of Rain 2&lt;/li&gt;
-&lt;li&gt;Satisfactory&lt;/li&gt;
-&lt;li&gt;Sekiro&lt;/li&gt;
-&lt;li&gt;Slay the Spire&lt;/li&gt;
-&lt;li&gt;Wargroove&lt;/li&gt;
-&lt;li&gt;チョコボの不思議なダンジョン エブリバディ！&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2&gt;おわりに&lt;/h2&gt;
-
-&lt;p&gt;2019年は、例年に比べてあまりゲームをしない年だった。2020年はもう少し色々なタイトルに手を出したい。&lt;/p&gt;
-
-&lt;p&gt;それぞれの作品に対して感想を一言二言述べたい気持ちも山々なんだけど、このタイミングでつらつらと長文を書くのもバランスが悪いと思うので、今回は割愛する。今後は、ゲームの感想をもう少しテキストに残すように意識していきたい。&lt;/p&gt;
 </content>
     </entry>
   
