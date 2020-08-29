@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width">
-  <title>Rails 6.0.2.2で生成したauthenticity_tokenは5.2.4で利用できるのか</title>
+  <title>Rails 6.0.2.2で生成したauthenticity_tokenは5.2.4.3で利用できるのか</title>
   <link href="https://r7kamura.com/articles/2020-08-30-rails-csrf-upgrade" rel="canonical">
   <link rel="stylesheet" href="/css/main.css">
   <link rel="search" type="application/opensearchdescription+xml" title="r7kamura.com" href="/opensearch.xml">
@@ -13,7 +13,7 @@
   <meta property="og:description" content="結論">
   
   <meta property="og:type" content="website">
-  <meta property="og:title" content="Rails 6.0.2.2で生成したauthenticity_tokenは5.2.4で利用できるのか">
+  <meta property="og:title" content="Rails 6.0.2.2で生成したauthenticity_tokenは5.2.4.3で利用できるのか">
   <meta property="og:url" content="https://r7kamura.com/articles/2020-08-30-rails-csrf-upgrade">
   
   <meta property="og:image" content="https://r7kamura.com/default_og_image.jpg">
@@ -36,7 +36,7 @@
   </header>
   <main>
     <article>
-  <h1>Rails 6.0.2.2で生成したauthenticity_tokenは5.2.4で利用できるのか</h1>
+  <h1>Rails 6.0.2.2で生成したauthenticity_tokenは5.2.4.3で利用できるのか</h1>
   <footer>
     <p>
       <time datetime="2020-08-30T00:00:00+00:00">2020年08月30日</time>
@@ -51,7 +51,7 @@
 
 <h2>背景</h2>
 
-<p>Rails 5.2.4からRails 6.0.2.2にアップグレードするにあたり、ActionController::InvalidAuthenticityTokenの例外が頻出するという事例を確認した。これを承けて、表題の件を検証することにした。</p>
+<p>Rails 5.2.4.3からRails 6.0.2.2にアップグレードするにあたり、ActionController::InvalidAuthenticityTokenの例外が頻出するという事例を確認した。これを承けて、表題の件を検証することにした。</p>
 
 <h2>検証方法</h2>
 
@@ -82,9 +82,9 @@ vi config/application.rb
 rails s
 </code></pre>
 
-<p>すると、Rails 6.0.2.2で生成したauthenticity_tokenをRails 5.2.4で利用した場合、ActionController::InvalidAuthenticityTokenが発生することが分かった。</p>
+<p>すると、Rails 6.0.2.2で生成したauthenticity_tokenをRails 5.2.4.3で利用した場合、ActionController::InvalidAuthenticityTokenが発生することが分かった。</p>
 
-<p>なお、Rails 5.2.4で生成したauthenticity_tokenは、Rails 6.0.2.2でも利用できることも分かった。</p>
+<p>なお、Rails 5.2.4.3で生成したauthenticity_tokenは、Rails 6.0.2.2でも利用できることも分かった。</p>
 
   </div>
 </article>
