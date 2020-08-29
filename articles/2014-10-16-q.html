@@ -60,8 +60,7 @@
 
 <p>正規表現を使って実装するなら、例えばこういう感じになるかもしれません。以下のコードは絵文字を実現するためのもので、<code>:pray:</code> のような絵文字のパターンの文字列を抽出し、img要素を表す文字列に変換しています。</p>
 
-<p><code>rb
-def emoji(text)
+<pre><code class="rb">def emoji(text)
   text.gsub!(/:([a-z0-9\+\-_]+):/) do |match|
     emoji = Regexp.last_match(1)
     if Emoji.names.include?(emoji)
@@ -72,7 +71,7 @@ def emoji(text)
     end
   end
 end
-</code></p>
+</code></pre>
 
 <p>もし <code>:pray:</code> がコードブロックの中に含まれていた場合にはどうしたら良いでしょうか？ まさにこの <code>:pray:</code> を記述している表現がその好例です。予めコードブロックを表現するパターンを正規表現で先読みして除外したり、行単位で変換していったりという策は、HTMLが直接記述される例などを考慮すると早々に破綻する気配が感じられます。</p>
 

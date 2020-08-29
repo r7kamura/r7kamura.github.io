@@ -51,19 +51,17 @@
 
 <p>この参照の形には、両者が別の情報源を参照するという形や、実装をもとにドキュメントが生成される形、ドキュメントをもとに実装か生成されるという形が考えられる。現実の例で言うと、例えば実装における型定義からドキュメントを生成したり、インターフェース仕様書からドキュメントと実装の両方が生成される、という具合である。</p>
 
-<p>```txt
-型定義  ----&gt; ドキュメント</p>
+<pre><code class="txt">型定義  ----&gt; ドキュメント
 
-<p>I/F定義 ----&gt; ドキュメント
-        <code>---&gt; 実装
-</code>``</p>
+I/F定義 ----&gt; ドキュメント
+        `---&gt; 実装
+</code></pre>
 
 <h2>例えばJSON Schemaを使う</h2>
 
 <p>インターフェース仕様書を元に実装やドキュメントを生成する例として、JSON Schemaを使ってREST APIのドキュメントを生成しながら開発を行う方法を紹介する。今回は説明のしやすさからJSON Schemaを利用するが、インターフェース定義を表現できる別のツールでも同様の処理を実現できるに違いない。以下は、JSON Schemaに沿ったデータ構造をYAMLで表現したものである。</p>
 
-<p><code>schema.yml
-properties:
+<pre><code class="schema.yml">properties:
   user:
     properties:
       name:
@@ -79,7 +77,7 @@ properties:
               description: 1から始まるページ番号だよ
               type: string
               pattern: &quot;^[0-9]+$&quot;
-</code></p>
+</code></pre>
 
 <p>JSON Schemaは基本的にはJSONで表現するものだが、JSON Schemaに対応した各種ライブラリに与える場合には結局適当なデータ構造にデコードすることになるので、同等なデータ構造を表現できるのであればYAMLを利用しても特に問題はない。プログラム間でデータを受け渡す場合にはJSONを利用すると便利だが、人間がエディタで編集する場合にはYAMLなどの行指向のデータ形式を利用した方が寧ろ便利なことが多い。</p>
 
@@ -89,16 +87,14 @@ properties:
 
 <p>抽象的なインターフェース仕様としてJSON Schemaを記述したが、人間がこれを読んで理解するのは最高の状態とは言えないので、より人間の読みやすい形式 (つまりドキュメント) に変換する必要がある。ここでは、<a href="https://github.com/r7kamura/jdoc">jdoc</a>を利用してJSON Schemaを表現するデータ構造をMarkdownに変換してみる。</p>
 
-<p><code>sh
-jdoc schema.yml &gt; docs.md
-</code></p>
+<pre><code class="sh">jdoc schema.yml &gt; docs.md
+</code></pre>
 
 <p>これでMarkdownが出来上がるので、そのまま見るのも良いし、レポジトリに含めておいてGitHubを通して見るのも良い。ただschema.ymlだけ更新してドキュメントが更新されていないということは避けたいので、schema.ymlの変換結果とdocs.mdの内容が同じであることを保証するテストを書いておいてCIで検知する、といった運用をするのが良いかもしれない。また、サイトでAPIドキュメントを提供するような場合、Markdownをファイルに書き出すのではなく、直接HTMLを描画するのに使うこともできる。</p>
 
-<p><code>ruby
-schema = YAML.load_file(&quot;schema.yml&quot;)
+<pre><code class="ruby">schema = YAML.load_file(&quot;schema.yml&quot;)
 html = Jdoc::Generator.call(schema, html: true)
-</code></p>
+</code></pre>
 
 <h2>インターフェース仕様を実装に利用する</h2>
 
@@ -112,9 +108,8 @@ html = Jdoc::Generator.call(schema, html: true)
 
 <p><a href="https://github.com/r7kamura/rack-json_schema">Rack::JsonSchema::RequestValidation</a>というRack middlewareを利用することで、JSON Schemaを利用してサーバに入力されるHTTPリクエストを検閲できる。これを利用すると、定義されていないAPIに対してリクエストが送られた場合や、定義されたものと異なるデータが入力された場合に、エラーレスポンスを返せるようになる。つまり、上記の1と2の仕様に対して、インターフェース定義をもとに対応する実装が自動的に定義されることになる。</p>
 
-<p><code>ruby
-use Rack::JsonSchema::RequestValidation, schema: schema
-</code></p>
+<pre><code class="ruby">use Rack::JsonSchema::RequestValidation, schema: schema
+</code></pre>
 
 <h2>インターフェース仕様をテストに利用する</h2>
 
@@ -122,9 +117,8 @@ use Rack::JsonSchema::RequestValidation, schema: schema
 
 <p>本番環境で利用するとユーザにエラーレスポンスが返ってしまうため、これはテスト環境で利用するのが良いだろう。もし誤った実装をしていた場合、正常系のテストが書いてあれば例外が発生してテストが失敗するため、本番環境に反映させる前にテストを実行することで誤りを検出できる。</p>
 
-<p><code>ruby
-use Rack::JsonSchema::ResponseValidation, schema: schema if ENV[&quot;RACK_ENV&quot;] == &quot;test&quot;
-</code></p>
+<pre><code class="ruby">use Rack::JsonSchema::ResponseValidation, schema: schema if ENV[&quot;RACK_ENV&quot;] == &quot;test&quot;
+</code></pre>
 
 <h2>Rack::JsonSchemaを使った開発の流れ</h2>
 

@@ -45,9 +45,8 @@
   <div>
     <p>以下のコマンドで無効化できます。offの部分をonにすると有効化もできます。</p>
 
-<p><code>
-networksetup -setairportpower Wi-Fi off
-</code></p>
+<pre><code>networksetup -setairportpower Wi-Fi off
+</code></pre>
 
 <h2>networksetup</h2>
 
@@ -57,33 +56,32 @@ networksetup -setairportpower Wi-Fi off
 
 <p><code>networksetup -listnetworkserviceorder</code> を利用すると、現在マシンが認識しているネットワークサービスの一覧を表示できます。「ネットワークサービス」というのは、システム環境設定のネットワークの項目で左側に表示される個々の項目のことを指していると解釈できます。例えば Wi-Fi というネットワークサービスがあります。ネットワークサービスは「Wi-Fi」や「Display Ethernet」という名前によって一意に特定され、networksetupにはこれを引数にして設定を与える操作が多数存在します。</p>
 
-<p>```
-$ networksetup -listnetworkserviceorder
+<pre><code>$ networksetup -listnetworkserviceorder
 An asterisk (*) denotes that a network service is disabled.
 (1) Bluetooth DUN
-(Hardware Port: Bluetooth DUN, Device: Bluetooth-Modem)</p>
+(Hardware Port: Bluetooth DUN, Device: Bluetooth-Modem)
 
-<p>(2) Display Ethernet
-(Hardware Port: Display Ethernet, Device: en4)</p>
+(2) Display Ethernet
+(Hardware Port: Display Ethernet, Device: en4)
 
-<p>(3) Display FireWire
-(Hardware Port: Display FireWire, Device: fw0)</p>
+(3) Display FireWire
+(Hardware Port: Display FireWire, Device: fw0)
 
-<p>(4) Wi-Fi
-(Hardware Port: Wi-Fi, Device: en0)</p>
+(4) Wi-Fi
+(Hardware Port: Wi-Fi, Device: en0)
 
-<p>(5) iPhone USB
-(Hardware Port: iPhone USB, Device: en5)</p>
+(5) iPhone USB
+(Hardware Port: iPhone USB, Device: en5)
 
-<p>(6) NAD11
-(Hardware Port: NAD11, Device: en6)</p>
+(6) NAD11
+(Hardware Port: NAD11, Device: en6)
 
-<p>(7) Bluetooth PAN
-(Hardware Port: Bluetooth PAN, Device: en3)</p>
+(7) Bluetooth PAN
+(Hardware Port: Bluetooth PAN, Device: en3)
 
-<p>(8) Thunderbolt Bridge
+(8) Thunderbolt Bridge
 (Hardware Port: Thunderbolt Bridge, Device: bridge0)
-```</p>
+</code></pre>
 
 <p><img src="https://qiita-image-store.s3.amazonaws.com/0/4365/7fc55e7a-3888-c196-dd79-805b4d0f06ca.png" alt="image"></p>
 
@@ -91,8 +89,7 @@ An asterisk (*) denotes that a network service is disabled.
 
 <p>特定のネットワークサービスについて、詳細な情報を表示することもできます。これはWi-Fiの例。</p>
 
-<p><code>
-$ networksetup -getinfo Wi-Fi
+<pre><code>$ networksetup -getinfo Wi-Fi
 DHCP Configuration
 IP address: 192.168.3.10
 Subnet mask: 255.255.255.0
@@ -102,16 +99,15 @@ IPv6: Automatic
 IPv6 IP address: none
 IPv6 Router: none
 Wi-Fi ID: 3c:15:c2:e8:71:58
-</code></p>
+</code></pre>
 
 <h2>systemsetup</h2>
 
 <p>networksetupの他に、systemsetupというコマンドもあります。例えば、ディスプレイがスリープするまでの時間を表示させる場合は <code>systemsetup -getdisplaysleep</code> が利用できます。systemsetupの利用にはシステム管理者の権限が必要になるので、sudoを付けています。例えば、社用Macbookのセキュリティポリシーとしてスリープまでの時間を短めに設定したいとき、その工程を自動化するのに使えます。</p>
 
-<p><code>
-$ sudo systemsetup -getdisplaysleep
+<pre><code>$ sudo systemsetup -getdisplaysleep
 Display Sleep: after 5 minutes
-</code></p>
+</code></pre>
 
 <h2>おわり</h2>
 

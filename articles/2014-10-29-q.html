@@ -72,12 +72,11 @@
 <p>次のコードを例にして考えましょう。
 tweetごとに幾つかのfavoritesを付けられるという関係になっています。</p>
 
-<p><code>tweet.rb
-class Tweet &lt; ActiveRecord::Base
+<pre><code class="tweet.rb">class Tweet &lt; ActiveRecord::Base
   has_many :favorites
   volatile_counter_cache :favorites, cache: Rails.cache
 end
-</code></p>
+</code></pre>
 
 <h3>counter method</h3>
 

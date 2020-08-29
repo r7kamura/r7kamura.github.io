@@ -45,9 +45,8 @@
   <div>
     <p>シェルの alias で登録しているコマンドの中で、2018年によく利用したものを振り返っておきます。</p>
 
-<p><code>
-alias pr=&#39;hub browse -- pull/$(git rev-parse --abbrev-ref HEAD)&#39;
-</code></p>
+<pre><code>alias pr=&#39;hub browse -- pull/$(git rev-parse --abbrev-ref HEAD)&#39;
+</code></pre>
 
 <p>この alias は、例えば r7kamura/foo リポジトリの bar ブランチで作業しているときに、<a href="https://github.com/r7kamura/foo/pull/bar">https://github.com/r7kamura/foo/pull/bar</a> をデフォルトの Web ブラウザで開く、というものです。この URL は、foo という名前のリモートブランチからそのリポジトリに Pull Request がつくられているときは Pull Request のページを開き、まだつくられていなければ Pull Request 作成画面を開く、という振る舞いをします。これから Pull Request をつくるときと、作業中の Pull Request のページを開くときに使っています。5年ぐらい利用していますが、今年もこれが一番役に立っている気がします。</p>
 
@@ -55,23 +54,20 @@ alias pr=&#39;hub browse -- pull/$(git rev-parse --abbrev-ref HEAD)&#39;
 
 <p>ここ数年間 GitHub Enterprise を利用していないため、GitHub のことだけ考慮してコマンドを用意すれば良いので管理が随分楽になりました。</p>
 
-<p><code>
-alias f=&#39;ghq get -p $@&#39;
-</code></p>
+<pre><code>alias f=&#39;ghq get -p $@&#39;
+</code></pre>
 
 <p>これは ghq を利用して GitHub のリポジトリを clone してくるためのショートカットです。-p は clone してくるときの URL の形式として SSH 形式を利用するものです。</p>
 
-<p><code>
-alias e=&#39;cd $(ghq root)/$(ghq list | peco)&#39;
-</code></p>
+<pre><code>alias e=&#39;cd $(ghq root)/$(ghq list | peco)&#39;
+</code></pre>
 
 <p>これは ghq で clone してきたリポジトリに移動するためのショートカットです。peco で絞り込んでいます。</p>
 
-<p><code>
-alias xl=&#39;tmux list-session&#39;
+<pre><code>alias xl=&#39;tmux list-session&#39;
 alias xa=&#39;tmux a -t&#39;
 alias xn=&#39;tmux new -s&#39;
-</code></p>
+</code></pre>
 
 <p>この辺りは tumx を使うためのショートカットです。xl は存在しているセッション一覧、xa はセッションへのアタッチ（セッション名の先頭部分数文字を引数として指定します）、xn はセッションの作成（セッション名を引数として指定します）に使っています。</p>
 

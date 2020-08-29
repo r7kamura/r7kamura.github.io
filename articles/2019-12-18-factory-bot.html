@@ -51,15 +51,13 @@
 
 <p>つまり、全ての（少なくともtraitを用いない場合の）factoryの定義について、以下のように呼び出せるように定義されていてほしい。</p>
 
-<p><code>ruby
-FactoryBot.create(:user)
-</code></p>
+<pre><code class="ruby">FactoryBot.create(:user)
+</code></pre>
 
 <p>例えば、以下のように呼び出さ<strong>なければならない</strong>のであれば、使いづらく、良くない定義だと考えている。</p>
 
-<p><code>ruby
-FactoryBot.create(:user, name: &#39;alice&#39;)
-</code></p>
+<pre><code class="ruby">FactoryBot.create(:user, name: &#39;alice&#39;)
+</code></pre>
 
 <p>もちろん例外的な状況は存在するので、そういう場合には守らなくて良い。</p>
 
@@ -69,10 +67,9 @@ FactoryBot.create(:user, name: &#39;alice&#39;)
 
 <p>つまり、以下のように呼び出せるように定義されていてほしい。</p>
 
-<p><code>ruby
+<pre><code class="ruby">FactoryBot.create(:user)
 FactoryBot.create(:user)
-FactoryBot.create(:user)
-</code></p>
+</code></pre>
 
 <p>例えば、name属性にUniquenessValidatorが定義されていて、name属性の内容が決め打ちだったりすると、こういうコードは失敗する。factoryの定義で <code>sequence</code> 等の機能を利用して回避するのが望ましい。</p>
 

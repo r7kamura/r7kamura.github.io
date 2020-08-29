@@ -53,14 +53,13 @@
 
 <p><code>match</code>で全てのパターンに一致させるために、globを利用し(スラッシュを含む全ての文字列に一致させられる)、:viaオプションで全てのHTTPメソッドに一致するようにしている。また、通常は<code>match</code>ではcontroller名とaction名を指定するが、単純な処理の場合は:toオプションでRackアプリを指定して済ますこともできる。</p>
 
-<p><code>rb
-MyApp::Application.routes.draw do
+<pre><code class="rb">MyApp::Application.routes.draw do
   namespace :v1 do
     # ...
     match &quot;*any&quot;, to: -&gt;(env) { ... }, via: :all
   end
 end
-</code></p>
+</code></pre>
 
   </div>
 </article>

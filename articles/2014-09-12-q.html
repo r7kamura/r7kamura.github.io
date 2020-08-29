@@ -53,31 +53,27 @@
 
 <p>できたのが以下のもの。<code>.validates</code>メソッドの引数に渡している<code>:full_http_url</code>と上例で新たに定義したクラスの名前が一致しているので、勝手に呼び出してくれる。</p>
 
-<p>```rb</p>
-
-<h1>Public: Validates if given value is valid and full HTTP URL.</h1>
-
-<h1>Examples</h1>
-
-<h1>class Entry &lt; ActiveRecord::Base</h1>
-
-<h1>validates :url, full<em>http</em>url: true</h1>
-
-<h1>end</h1>
-
-<p>class FullHttpUrlValidator &lt; ActiveModel::EachValidator
-  def validate<em>each(record, attribute, value)
+<pre><code class="rb"># Public: Validates if given value is valid and full HTTP URL.
+#
+# Examples
+#
+#   class Entry &lt; ActiveRecord::Base
+#     validates :url, full_http_url: true
+#   end
+#
+class FullHttpUrlValidator &lt; ActiveModel::EachValidator
+  def validate_each(record, attribute, value)
     begin
       uri = URI.parse(value)
     rescue URI::InvalidURIError
       uri = nil
     end
-    if uri.nil? || uri.host.nil? || !uri.is</em>a?(URI::HTTP)
+    if uri.nil? || uri.host.nil? || !uri.is_a?(URI::HTTP)
       record.errors.add(attribute, :invalid_url)
     end
   end
 end
-```</p>
+</code></pre>
 
 <h2>Custom validatorのテストを書く</h2>
 
@@ -85,78 +81,72 @@ end
 
 <p>ダミーのモデルクラスではEntryクラスと同じように<code>.validates</code>を呼び出せるようなものにする必要がある。これには、クラス名が存在し(定数に挿入されているか<code>.name</code>が呼び出せればOK)、かつ<code>ActiveModel::Validations</code>がincludeされているクラスを用意すれば良い。テストのためにグローバルな名前空間にクラスを定義してしまうのは良くないから、適当にクラスオブジェクトをつくって変数か何かで扱う。クラスをつくるには<code>Class.new</code>を使ってもいいけれど、外部からテスト用にURLを与える機能も実装したいので、丁度良さそうなStruct.newを使う。最終的にできたのが以下のコード。</p>
 
-<p>```rb
-require &#39;spec_helper&#39;</p>
+<pre><code class="rb">require &#39;spec_helper&#39;
 
-<p>describe FullHttpUrlValidator do
+describe FullHttpUrlValidator do
   let(:model_class) do
     Struct.new(:url) do
-      include ActiveModel::Validations</p>
+      include ActiveModel::Validations
 
-<pre><code>  def self.name
-    &#39;DummyModel&#39;
+      def self.name
+        &#39;DummyModel&#39;
+      end
+
+      validates :url, full_http_url: true
+    end
   end
 
-  validates :url, full_http_url: true
-end
-</code></pre>
-
-<p>end</p>
-
-<p>describe &#39;#validate&#39; do
+  describe &#39;#validate&#39; do
     subject do
       model_class.new(url)
-    end</p>
+    end
 
-<pre><code>context &#39;with empty string&#39; do
-  let(:url) do
-    &#39;&#39;
-  end
-  it { should_not be_valid }
-end
+    context &#39;with empty string&#39; do
+      let(:url) do
+        &#39;&#39;
+      end
+      it { should_not be_valid }
+    end
 
-context &#39;with nil&#39; do
-  let(:url) do
-    nil
-  end
-  it { should_not be_valid }
-end
+    context &#39;with nil&#39; do
+      let(:url) do
+        nil
+      end
+      it { should_not be_valid }
+    end
 
-context &#39;without host&#39; do
-  let(:url) do
-    &#39;http:///about&#39;
-  end
-  it { should_not be_valid }
-end
+    context &#39;without host&#39; do
+      let(:url) do
+        &#39;http:///about&#39;
+      end
+      it { should_not be_valid }
+    end
 
-context &#39;without http(s) scheme&#39; do
-  let(:url) do
-    &#39;ftp://example.com&#39;
-  end
-  it { should_not be_valid }
-end
+    context &#39;without http(s) scheme&#39; do
+      let(:url) do
+        &#39;ftp://example.com&#39;
+      end
+      it { should_not be_valid }
+    end
 
-context &#39;with https&#39; do
-  let(:url) do
-    &#39;https://example.com&#39;
-  end
-  it { should be_valid }
-end
+    context &#39;with https&#39; do
+      let(:url) do
+        &#39;https://example.com&#39;
+      end
+      it { should be_valid }
+    end
 
-context &#39;with full HTTP URL&#39; do
-  let(:url) do
-    &#39;http://example.com&#39;
+    context &#39;with full HTTP URL&#39; do
+      let(:url) do
+        &#39;http://example.com&#39;
+      end
+      it { should be_valid }
+    end
   end
-  it { should be_valid }
 end
 </code></pre>
 
-<p>end
-end
-```</p>
-
-<p><code>
-FullHttpUrlValidator
+<pre><code>FullHttpUrlValidator
   #validate
     with empty string
       should not be valid
@@ -170,7 +160,7 @@ FullHttpUrlValidator
       should be valid
     with full HTTP URL
       should be valid
-</code></p>
+</code></pre>
 
   </div>
 </article>

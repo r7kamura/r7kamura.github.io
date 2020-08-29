@@ -69,75 +69,70 @@
 
 <p>以上をまとめて実装すると、下記のようなコードになる。MyApp::ExceptionHandlerという名前のRack middlewareをつくり、Railsのrack middleware stackにこれを配置している。エラーレスポンスを生成するための例外クラスとして、用途に合わせてMyApp::Exceptions::InternalServerErrorやMyApp::Exceptions::NotFoundを用意している。これらのクラスはto<em>rack</em>responseというインスタンスメソッドを実装しており、このメソッドの実行結果が最終的にエラーレスポンスになる。エラーレスポンスには、人間用のメッセージとしてmessageプロパティを、プログラム用のエラーコードとしてtypeプロパティを含んでいる。</p>
 
-<p>```ruby
-module MyApp
+<pre><code class="ruby">module MyApp
   class ExceptionHandler
     def initialize(app)
       @app = app
-    end</p>
+    end
 
-<pre><code>def call(env)
-  begin
-    @app.call(env)
-  rescue ActiveRecord::NotFound
-    raise Exceptions::NotFound
-  rescue
-    raise Exceptions::InternalServerError
+    def call(env)
+      begin
+        @app.call(env)
+      rescue ActiveRecord::NotFound
+        raise Exceptions::NotFound
+      rescue
+        raise Exceptions::InternalServerError
+      end
+    rescue Exceptions::Base =&gt; exception
+      exception.to_rack_response
+    end
   end
-rescue Exceptions::Base =&gt; exception
-  exception.to_rack_response
-end
-</code></pre>
 
-<p>end</p>
-
-<p>module Exceptions
+  module Exceptions
     class Base &lt; StandardError
-      def to<em>rack</em>response
+      def to_rack_response
         [status_code, headers, [body]]
-      end</p>
+      end
 
-<pre><code>  private
+      private
 
-  # 子クラスで適宜Overrideする
-  def status_code
-    500
-  end
+      # 子クラスで適宜Overrideする
+      def status_code
+        500
+      end
 
-  def headers
-    { &quot;Content-Type&quot; =&gt; &quot;application/json&quot; }
-  end
+      def headers
+        { &quot;Content-Type&quot; =&gt; &quot;application/json&quot; }
+      end
 
-  def body
-    { message: error_message, type: type }.to_json
-  end
+      def body
+        { message: error_message, type: type }.to_json
+      end
 
-  # MyApp::Exceptions::NotFoundに対して&quot;NotFound&quot;が返る
-  def error_message
-    type.humanize
-  end
+      # MyApp::Exceptions::NotFoundに対して&quot;NotFound&quot;が返る
+      def error_message
+        type.humanize
+      end
 
-  # MyApp::Exceptions::NotFoundに対して&quot;Not found&quot;が返る
-  def type
-    self.class.to_s.split(&quot;::&quot;).last.underscore
+      # MyApp::Exceptions::NotFoundに対して&quot;Not found&quot;が返る
+      def type
+        self.class.to_s.split(&quot;::&quot;).last.underscore
+      end
+    end
+
+    class InternalServerError &lt; Base
+    end
+
+    class NotFound &lt; Base
+      def status_code
+        404
+      end
+    end
   end
 end
 
-class InternalServerError &lt; Base
-end
-
-class NotFound &lt; Base
-  def status_code
-    404
-  end
-end
+Rails.configuration.middleware.insert(0, MyApp::RackMiddlewares::ExceptionHandler)
 </code></pre>
-
-<p>end
-end</p>
-
-<p>Rails.configuration.middleware.insert(0, MyApp::RackMiddlewares::ExceptionHandler)
-```</p>
 
   </div>
 </article>

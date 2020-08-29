@@ -69,29 +69,26 @@
 
 <h3>1. sitespecをGemfileに追加する</h3>
 
-<p><code>rb:Gemfile
-gem &quot;sitespec&quot;
-</code></p>
+<pre><code class="rb:Gemfile">gem &quot;sitespec&quot;
+</code></pre>
 
 <h3>2. テスト内で sitespec/rspec を読み込む</h3>
 
 <p>これを読み込むことで、特定の条件下でテストが成功したときに静的ファイルを生成するフックが設定されます。</p>
 
-<p><code>rb:spec/spec_helper.rb
-require &quot;sitespec/rspec&quot;
-</code></p>
+<pre><code class="rb:spec/spec_helper.rb">require &quot;sitespec/rspec&quot;
+</code></pre>
 
 <h3>3. <code>:sitespec</code> というメタデータを持ったテストケースを書く</h3>
 
 <p>Sitespecは、RSpecで <code>:sitespec</code> というメタデータを持ったテストケースを実行したときに静的ファイルを生成します。このメタデータが設定されたテストケース内では、<a href="https://github.com/brynary/rack-test">rack-test</a> が利用できるように設定されています。<code>:sitespec</code> を設定し、rack-testを利用して1つのテストケースで1つのリクエストを検証するようなテストを書くことが、Sitespecを利用する上で守らなければならない制約です。</p>
 
-<p>```rb:spec/site_spec.rb
-describe &quot;Sitespec&quot; do
+<pre><code class="rb:spec/site_spec.rb">describe &quot;Sitespec&quot; do
   let(:app) do
     MyRackApp
-  end</p>
+  end
 
-<p>%w[
+  %w[
     /
     /2000/01/01/hello
     /stylesheets/all.css
@@ -103,28 +100,27 @@ describe &quot;Sitespec&quot; do
     end
   end
 end
-```</p>
+</code></pre>
 
 <h3>4. テストを実行する</h3>
 
 <p>テストを実行すると、成功したテストケースに対してそれぞれ静的ファイルが生成されます。生成されるファイルは、build/index.html、build/2001/01/01/hello.html、build/stylesheets/all.css のように、URLのパスに応じた位置に配置されます。</p>
 
-<p>```
-$ bundle exec rspec --format documentation</p>
+<pre><code>$ bundle exec rspec --format documentation
 
-<p>Example application
+Example application
   GET /
     returns 200
   GET /2000/01/01/hello
     returns 200
   GET /stylesheets/all.css
-    returns 200</p>
+    returns 200
 
-<p>Sitespec generated 3 files into build directory.</p>
+Sitespec generated 3 files into build directory.
 
-<p>Finished in 0.08302 seconds (files took 0.79161 seconds to load)
+Finished in 0.08302 seconds (files took 0.79161 seconds to load)
 3 examples, 0 failures
-```</p>
+</code></pre>
 
 <h2>細かい設定</h2>
 
@@ -142,11 +138,10 @@ $ bundle exec rspec --format documentation</p>
 
 <p>.travis.yml にアクセストークンを書き込むことになるため、暗号化して書き込んでおきましょう。travisというGemに付いてくる <code>travis encrypt</code> というコマンドを使えば、与えた値を暗号化しながら環境変数として利用できるように設定ファイルを更新してくれます。</p>
 
-<p><code>
-$ gem install travis
+<pre><code>$ gem install travis
 $ travis init
 $ travis encrypt GITHUB_ACCESS_TOKEN=&quot;...&quot; --add
-</code></p>
+</code></pre>
 
 <h3>ブランチ</h3>
 
@@ -156,29 +151,28 @@ $ travis encrypt GITHUB_ACCESS_TOKEN=&quot;...&quot; --add
 
 <p>Travis CI上でgit-commitを利用するには、Gitのcommiterとauthorの設定が必須ですが、これらは環境変数で指定できます。あとは、テストが全て成功したときにgit-pushを実行するようなスクリプトを追加すれば完成です。実際に利用している .travis.yml の内容がこれです。</p>
 
-<p>```yaml:.travis.yml
-language: ruby
+<pre><code class="yaml:.travis.yml">language: ruby
 env:
   global:
-    - GIT<em>COMMITTER</em>NAME: &quot;r7kamura&quot;
-    - GIT<em>COMMITTER</em>EMAIL: &quot;<a href="mailto:r7kamura@gmail.com">r7kamura@gmail.com</a>&quot;
-    - GIT<em>AUTHOR</em>NAME: &quot;r7kamura&quot;
-    - GIT<em>AUTHOR</em>EMAIL: &quot;<a href="mailto:r7kamura@gmail.com">r7kamura@gmail.com</a>&quot;
+    - GIT_COMMITTER_NAME: &quot;r7kamura&quot;
+    - GIT_COMMITTER_EMAIL: &quot;r7kamura@gmail.com&quot;
+    - GIT_AUTHOR_NAME: &quot;r7kamura&quot;
+    - GIT_AUTHOR_EMAIL: &quot;r7kamura@gmail.com&quot;
     - secure: &quot;caVcOKNB8nhLbR25WFpzm9nOvWOPuLc+VF8OsdPrSrMEVvK5k2t4d/RGSzVzOnr54kQNJs5ttcaKVXwkyl1dnKrxzwxE7Z3QEF4XjqaOMuJeJ6qatNe4hco9w2DEqPzIfOzt/zjwPa58ZYfAgolP9kF5m5iwN/jaNYRjKt40dUI=&quot;
 script:
     - bundle exec rspec
-after<em>success:
+after_success:
     - cd build
     - echo &quot;task :default&quot; &gt; Rakefile
     - git init
     - git add --all
     - git commit -m &quot;Update from Travis CI&quot;
-    - &#39;git push --quiet https://$GITHUB</em><a href="mailto:TOKEN@github.com">TOKEN@github.com</a>/r7kamura/r7kamura.com.git master -f 2&gt; /dev/null&#39;</p>
+    - &#39;git push --quiet https://$GITHUB_TOKEN@github.com/r7kamura/r7kamura.com.git master -f 2&gt; /dev/null&#39;
 
-<p>branches:
+branches:
   only:
     - source
-```</p>
+</code></pre>
 
 <h2>背景</h2>
 

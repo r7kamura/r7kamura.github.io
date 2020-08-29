@@ -59,11 +59,10 @@
 
 <p>例えばRailsであれば、以下のように実装できる。<code>GET /@r7kamura</code> に対するリクエストが、UsersControllerクラスのshowメソッドで処理され、<code>params[:id]</code> というパラメータで &quot;r7kamura&quot; という文字列を参照できる。</p>
 
-<p><code>rb
-Rails.application.routes.draw do
+<pre><code class="rb">Rails.application.routes.draw do
   get &quot;/@:id&quot; =&gt; &quot;users#show&quot;
 end
-</code></p>
+</code></pre>
 
   </div>
 </article>

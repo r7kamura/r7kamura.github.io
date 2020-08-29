@@ -53,58 +53,56 @@
 
 <p>手短にまとめると、<code>ssh ホスト名</code> だけでログインできるように <code>~/.ssh/config</code> を設定したあと (ec2-userでログインするためにHostを設定するなど)、手元に以下のようなYAMLファイルを用意すると、<code>serverkit apply serverkit/recipe.yml --hosts=ホスト名</code> というコマンドで変更を適用できるようになります。意外と短い。<code>serverkit</code> というコマンドが手元で実行できるように、<code>gem install serverkit</code> などでインストールしておくのも必要なので注意しましょう。接続先のサーバに入れる必要はないです。</p>
 
-<p>```serverkit/recipe.yml
-resources:
+<pre><code class="serverkit/recipe.yml">resources:
   # 古いかもしれないので yum update
   - type: command
-    script: yum update --yes</p>
+    script: yum update --yes
 
-<p># yum経由でnginxを入れる
+  # yum経由でnginxを入れる
   - type: package
-    name: nginx</p>
+    name: nginx
 
-<p># serverkit/nginx.conf を接続先サーバの /etc/nginx/nginx.conf に配置する
+  # serverkit/nginx.conf を接続先サーバの /etc/nginx/nginx.conf に配置する
   - type: remote_file
     destination: /etc/nginx/nginx.conf
     group: root
     mode: 0644
     owner: root
-    source: serverkit/nginx.conf</p>
+    source: serverkit/nginx.conf
 
-<p># nginxを起動させておく
+  # nginxを起動させておく
   - type: service
-    name: nginx</p>
+    name: nginx
 
-<p># nginxとunicornのプロセスを実行するためユーザをつくる
+  # nginxとunicornのプロセスを実行するためユーザをつくる
   - type: user
-    name: alice</p>
+    name: alice
 
-<p># 公開鍵を教えたりしてSSH経由でユーザaliceでログインできるようにする
+  # 公開鍵を教えたりしてSSH経由でユーザaliceでログインできるようにする
   - type: directory
     path: /home/alice/.ssh
   - type: file
     group: alice
     owner: alice
-    path: /home/alice/.ssh/authorized<em>keys
+    path: /home/alice/.ssh/authorized_keys
   - type: line
-    path: /home/alice/.ssh/authorized</em>keys
-    line: ssh-rsa AAAAB3N...</p>
+    path: /home/alice/.ssh/authorized_keys
+    line: ssh-rsa AAAAB3N...
 
-<p># rbenvとRubyを入れる
-  - type: rbenv<em>ruby
+  # rbenvとRubyを入れる
+  - type: rbenv_ruby
     dependencies: true
     global: true
-    profile</em>path: /home/alice/.bashrc
+    profile_path: /home/alice/.bashrc
     user: alice
     version: 2.3.0
-```</p>
+</code></pre>
 
 <p>個々の項目の内容や意図はコメントに書いた通りなので省略しますが、Serverkitはこのように、理想的な状態を定義したYAMLファイルを用意して <code>serverkit apply</code> コマンドに渡すと、指定したホストをその状態に変更してくれます。Serverkitではソフトウェア間の依存関係の解決などは行ってくれず、どういう状態が理想かを自分で考えて定義してあげる必要がありますが、そのぶんルールは単純です。</p>
 
 <p>要件とともにレシピが大きくなってきた場合は、こういう感じで複数のレシピにファイルを分割できます。適当な粒度でいい感じの名前を付けて分けられるとよいですね。</p>
 
-<p><code>serverkit/recipe.yml
-resources:
+<pre><code class="serverkit/recipe.yml">resources:
   - type: recipe
     path: serverkit/base.yml
   - type: recipe
@@ -119,7 +117,7 @@ resources:
     path: serverkit/ruby.yml
   - type: recipe
     path: serverkit/node.yml
-</code></p>
+</code></pre>
 
 <p>大量のパッケージをインストールしたいがYAMLを記述するのが面倒とか、様々な理由で動的にレシピの内容を生成したくなってきたら、拡張子を recipe.yml.erb に変更すればYAMLの内容を動的に生成できます。YAMLでメタプログラミングみたいな記法を導入するとひどいことになりそうだったので、何か動的にやりたい場合は無難にERBテンプレートでYAMLを生成することになってます。レシピが巨大になった場合も、最終的にまず1つの大きな定義ファイルが生成されて、それを読み込んでその状態に変更する、という流れは一緒です。</p>
 

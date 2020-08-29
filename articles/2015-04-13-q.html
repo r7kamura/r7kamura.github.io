@@ -49,48 +49,43 @@
 
 <p>標準の状態ではVagrantはServerkitのことを知りませんが、<a href="https://github.com/r7kamura/vagrant-serverkit">vagrant-serverkit</a> というプラグインをインストールすることで、Serverkitを利用して構成管理を行えるようになります。プラグインをインストールするには、<code>vagrant plugin install ${PLUGIN_NAME}</code> のようにコマンドを実行します。インストールされているプラグインを一覧するには、<code>vagrant plugin list</code> というコマンドを実行します。</p>
 
-<p><code>
-$ vagrant plugin install vagrant-serverkit
+<pre><code>$ vagrant plugin install vagrant-serverkit
 $ vagrant plugin list
 vagrant-serverkit (0.0.4)
-</code></p>
+</code></pre>
 
 <h2>Vagrantfileを用意する</h2>
 
 <p>例として、ubuntu/trusty64 という名前で公開されている Ubuntu 14.04 のBoxを手元のVirtualBoxで起動し、recipe.yml に書かれたレシピ通りの状態をServerkitで構築する、という内容のVagrantfileを用意して実行してみます。</p>
 
-<p><code>rb:Vagrantfile
-Vagrant.configure(&quot;2&quot;) do |config|
+<pre><code class="rb:Vagrantfile">Vagrant.configure(&quot;2&quot;) do |config|
   config.vm.box = &quot;ubuntu/trusty64&quot;
   config.vm.provision :serverkit do |serverkit_config|
     serverkit_config.recipe_path = &quot;recipe.yml&quot;
   end
 end
-</code></p>
+</code></pre>
 
-<p><code>yaml:recipe.yml
-resources:
+<pre><code class="yaml:recipe.yml">resources:
   - type: package
     name: curl
   - type: package
     name: nginx
-</code></p>
+</code></pre>
 
 <h2>起動してみる</h2>
 
 <p>Vagrantでは、手元にVagrantfileがあればその内容を見て <code>vagrant up</code> で適切な環境が起動できます。その際、上記の例のように provision の設定が書かれていれば、初回起動時はその設定を見ながらProvisionが実行されます。これで環境構築は完了ですので、<code>vagrant ssh</code> などのコマンドを利用して構築した環境にログインしてみましょう。</p>
 
-<p><code>
-$ vagrant up
-</code></p>
+<pre><code>$ vagrant up
+</code></pre>
 
 <h2>レシピを変更して再度適用する</h2>
 
 <p><code>vagrant up</code> では初回起動時しかProvisionが行われませんが、起動後にレシピの内容を変更して適用したい場合があるかもしれません。その場合、<code>vagrant provision</code> というコマンドが利用できます。</p>
 
-<p><code>
-$ vagrant provision
-</code></p>
+<pre><code>$ vagrant provision
+</code></pre>
 
 <h2>おまけ: プラグインはどこからくるの</h2>
 

@@ -49,53 +49,51 @@
 
 <p>3ペインの画面を例にした条件分岐の例。</p>
 
-<p>```
-import PaneCenter from &#39;./pane-center&#39;
+<pre><code>import PaneCenter from &#39;./pane-center&#39;
 import PaneLeft from &#39;./pane-left&#39;
 import PaneRight from &#39;./pane-right&#39;
-import React from &#39;react&#39;</p>
+import React from &#39;react&#39;
 
-<p>export default class Panes extends React.Component {
+export default class Panes extends React.Component {
   render() {
     return(
-      <div className="panes">
+      &lt;div className=&quot;panes&quot;&gt;
         {(() =&gt; {
           if (this.props.panesCount &gt;= 3) {
-            return <PaneLeft />;
+            return &lt;PaneLeft /&gt;;
           }
         })()}
         {(() =&gt; {
           if (this.props.panesCount &gt;= 2) {
-            return <PaneCenter />;
+            return &lt;PaneCenter /&gt;;
           }
         })()}
-        <PaneRight />
-      </div>
+        &lt;PaneRight /&gt;
+      &lt;/div&gt;
     );
   }
 }
-```</p>
+</code></pre>
 
 <h2>繰り返し</h2>
 
 <p>記事一覧を例にした繰り返しの例。</p>
 
-<p>```
-import Article from &#39;./article&#39;
-import React from &#39;react&#39;</p>
+<pre><code>import Article from &#39;./article&#39;
+import React from &#39;react&#39;
 
-<p>export default class Articles extends React.Component {
+export default class Articles extends React.Component {
   render() {
     return(
-      <div className="articles">
+      &lt;div className=&quot;articles&quot;&gt;
         {this.props.articles.map((article) =&gt; {
-          return <Article key={article.id} />;
+          return &lt;Article key={article.id} /&gt;;
         })}
-      </div>
+      &lt;/div&gt;
     );
   }
 }
-```</p>
+</code></pre>
 
   </div>
 </article>

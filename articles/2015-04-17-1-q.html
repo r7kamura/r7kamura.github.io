@@ -49,28 +49,20 @@
 
 <p>ruboty-aliasは、特定の発言を別の発言として認識させるためのプラグインです。Rubotyには標準で <code>@ruboty ping</code> という発言に反応する機能がついています。例えば <code>@ruboty alias ピング -&gt; ping</code> という風にaliasを登録しておくと、<code>@ruboty ピング</code> に対しても <code>@ruboty ping</code> と同様に反応させられます。</p>
 
-<p>```
-$ ruboty</p>
-
-<blockquote>
-<p>@ruboty alias ピング -&gt; ping
+<pre><code>$ ruboty
+&gt; @ruboty alias ピング -&gt; ping
 Registered alias: ピング -&gt; ping
-@ruboty ピング
+&gt; @ruboty ピング
 pong
-```</p>
-</blockquote>
+</code></pre>
 
 <h2>ruboty-echo</h2>
 
 <p>ruboty-echoは、与えたメッセージをそのままオウム返しで発言してもらうためのプラグインです。例えば <code>@ruboty echo foo</code> と発言すると、Rubotyはこれに対して <code>foo</code> と発言します。</p>
 
-<p>```</p>
-
-<blockquote>
-<p>@ruboty echo foo
+<pre><code>&gt; @ruboty echo foo
 foo
-```</p>
-</blockquote>
+</code></pre>
 
 <h2>ruboty-alias + ruboty-echo</h2>
 

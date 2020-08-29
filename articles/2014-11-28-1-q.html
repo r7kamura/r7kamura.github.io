@@ -77,8 +77,7 @@
 
 <p>Herokuで動かす場合はHerokuのアプリ名がサブドメインの末尾に付与されるため、アプリ上ではこれを取り除いたものを本来のサブドメインだと認識する必要があります。request.subdomainをwrapしたメソッドをつくり、アプリ上でサブドメインを参照したいときは必ずこのメソッド経由で参照するようにします。</p>
 
-<p><code>rb
-class ApplicationController &lt; ActionController::BAse
+<pre><code class="rb">class ApplicationController &lt; ActionController::BAse
   def subdomain
     if heroku?
       request.subdomain.split(&quot;.&quot;)[1..-1].join(&quot;.&quot;)
@@ -87,64 +86,60 @@ class ApplicationController &lt; ActionController::BAse
     end
   end
 end
-</code></p>
+</code></pre>
 
 <h3>URL生成</h3>
 
 <p>polymorphic<em>urlとurl</em>forをoverrideして、subdomainオプションが指定されていたときはURLクエリを付け、また相対パス指定だった場合にはURLクエリを引き継ぐようにします。以下の例ではサブドメインの代わりに ?username=r7kamura のようなクエリが使われるようにしています。注意点として、users<em>pathのようにnamed route由来のメソッドを利用しているとここでoverrideしたメソッドが利用されないので、`url</em>for(:users)<code>や</code>link_to [:login, subdomain: nil] do` のようにsymbol等を利用する方法で統一しておく必要があります。下記のmoduleをcontrollerとviewにincludeしておけば、URL生成部分の対応は完了です。</p>
 
-<p>```rb
-module SubdomainUrlHelper
+<pre><code class="rb">module SubdomainUrlHelper
   if heroku?
-    def polymorphic<em>path(*args)
-      override</em>subdomain!(args.last)
+    def polymorphic_path(*args)
+      override_subdomain!(args.last)
       super
-    end</p>
+    end
 
-<pre><code>def polymorphic_url(*args)
-  override_subdomain!(args.last)
-  super
-end
+    def polymorphic_url(*args)
+      override_subdomain!(args.last)
+      super
+    end
 
-def url_for(*args)
-  override_subdomain!(args.last)
-  super
-end
+    def url_for(*args)
+      override_subdomain!(args.last)
+      super
+    end
 
-private
+    private
 
-def override_subdomain!(options)
-  case options
-  when Hash
-    case
-    when options.has_key?(:subdomain)
-      if options[:subdomain].nil?
-        options.delete(:subdomain)
-      else
-        options[:username] = options.delete(:subdomain)
+    def override_subdomain!(options)
+      case options
+      when Hash
+        case
+        when options.has_key?(:subdomain)
+          if options[:subdomain].nil?
+            options.delete(:subdomain)
+          else
+            options[:username] = options.delete(:subdomain)
+          end
+        when options[:only_path] != false &amp;&amp; current_blog
+          options[:username] = current_blog.username
+        end
       end
-    when options[:only_path] != false &amp;&amp; current_blog
-      options[:username] = current_blog.username
     end
   end
 end
-</code></pre>
 
-<p>end
-end</p>
-
-<p>class ApplicationController &lt; ActionController::Base
+class ApplicationController &lt; ActionController::Base
   include SubdomainUrlHelper
 end
-```</p>
+</code></pre>
 
 <h3>cookie</h3>
 
 <p>任意のサブドメインを利用するアプリでsessionを保存するのにcookieを利用している場合、大抵の場合はdomainオプションとして:allが指定されることになると思います。これにより、cookieに .example.com のようなドメインが指定されることになります。しかしHerokuでこれをやると、cookieに指定されるドメインが .herokuapp.com になってしまうため、ドメインを指定しておく必要があります。</p>
 
-<p><code>rb
-Rails.application.config.session_store :cookie_store, key: &#39;_myapp_all_domain_session&#39;, domain: &quot;.myapp.herokuapp.com&quot;
-</code></p>
+<pre><code class="rb">Rails.application.config.session_store :cookie_store, key: &#39;_myapp_all_domain_session&#39;, domain: &quot;.myapp.herokuapp.com&quot;
+</code></pre>
 
 <h3>注釈</h3>
 

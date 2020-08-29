@@ -55,21 +55,19 @@
 
 <p>例えば、アプリケーションを作成したときにキャッシュを更新する戦略 (Review-Apps 等の用途ではこれで十分) を取るとすると、Heroku では app.json の scripts postdeploy を利用してこれを実現できます。</p>
 
-<p><code>json
-{
+<pre><code class="json">{
   &quot;scripts&quot;: {
     &quot;postdeploy&quot;: &quot;fc-cache -fv&quot;
   }
 }
-</code></p>
+</code></pre>
 
 <p>ちなみに、Docker で同じようなことをやる場合、ホームディレクトリが /root であることから、~/.fonts は /root/.fonts に展開されるため、例えば以下のように、フォントファイルを適切に配置した上でキャッシュを更新する必要があります。</p>
 
-<p>```dockerfile
-COPY .fonts /root/.fonts</p>
+<pre><code class="dockerfile">COPY .fonts /root/.fonts
 
-<p>RUN fc-cache -fv
-```</p>
+RUN fc-cache -fv
+</code></pre>
 
   </div>
 </article>

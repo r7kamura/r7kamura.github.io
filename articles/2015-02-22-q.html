@@ -51,52 +51,47 @@
 
 <h3>Model</h3>
 
-<p>```rb</p>
+<pre><code class="rb"># SVO = Subject + Verb + Object
+class Notification &lt; ActiveRecord::Base
+  belongs_to :object, polymorphic: true
+  belongs_to :subject, class_name: &quot;User&quot;
+end
 
-<h1>SVO = Subject + Verb + Object</h1>
+class FavoriteNotification &lt; Notification
+end
 
-<p>class Notification &lt; ActiveRecord::Base
-  belongs<em>to :object, polymorphic: true
-  belongs</em>to :subject, class_name: &quot;User&quot;
-end</p>
+class MentionNotification &lt; Notification
+end
 
-<p>class FavoriteNotification &lt; Notification
-end</p>
-
-<p>class MentionNotification &lt; Notification
-end</p>
-
-<p>class Mention &lt; ActiveRecord::Base
-  belongs<em>to :mentioned</em>tweet, class<em>name: &quot;Tweet&quot;
-  belongs</em>to :tweet
-end</p>
-
-<p>class Favorite &lt; ActiveRecord::Base
+class Mention &lt; ActiveRecord::Base
+  belongs_to :mentioned_tweet, class_name: &quot;Tweet&quot;
   belongs_to :tweet
-end</p>
+end
 
-<p>class Tweet &lt; ActiveRecord::Base
-end</p>
+class Favorite &lt; ActiveRecord::Base
+  belongs_to :tweet
+end
 
-<p>class User &lt; ActiveRecord::Base
+class Tweet &lt; ActiveRecord::Base
+end
+
+class User &lt; ActiveRecord::Base
   has_many :notifications
 end
-```</p>
+</code></pre>
 
 <h3>Controller</h3>
 
-<p><code>rb
-class NotificationsController &lt; ApplicationController
+<pre><code class="rb">class NotificationsController &lt; ApplicationController
   def index
     @notifications = current_user.notifications.order(created_at: :desc)
   end
 end
-</code></p>
+</code></pre>
 
 <h3>View</h3>
 
-<p><code>slim
-ul
+<pre><code class="slim">ul
   - @notifications.each do |notification|
     li
       = link_to notification.subject do
@@ -113,14 +108,13 @@ ul
         | に
         = link_to notification.object.tweet
           | 返信しました
-</code></p>
+</code></pre>
 
 <h2>問題</h2>
 
 <p>上記のコードでは<a href="http://guides.rubyonrails.org/active_record_querying.html#eager-loading-associations">N+1クエリ問題</a>、すなわちNotification 1件ごとに個別にSELECTクエリが発行されてしまうため、関連するレコードをPreloadすることを考えます。</p>
 
-<p><code>rb
-class NotificationController &lt; ApplicationController
+<pre><code class="rb">class NotificationController &lt; ApplicationController
   def index
     @notification = Notification.order(created_at: :desc).preload(
       :subject,
@@ -131,14 +125,13 @@ class NotificationController &lt; ApplicationController
     )
   end
 end
-</code></p>
+</code></pre>
 
 <p>しかし、このコードではエラーが発生します。Mentionはmentioned<em>tweetに紐付いているものの、Favoriteがmentioned</em>tweetに紐付いていないためです。</p>
 
-<p><code>
-ActiveRecord::AssociationNotFoundError:
+<pre><code>ActiveRecord::AssociationNotFoundError:
   Association named &#39;mentioned_tweet&#39; was not found on Favorite
-</code></p>
+</code></pre>
 
 <h2>対策</h2>
 
@@ -146,21 +139,19 @@ ActiveRecord::AssociationNotFoundError:
 
 <p>まず <code>Notification.belongs_to(:object)</code> の関連を取り除き、二つの別の名前の関連に分けます。次に、<a href="https://github.com/r7kamura/activerecord-belongs_to_if">activerecord-belongs<em>to</em>if</a> を利用してそれぞれの関連が成り立つための条件を与えます。この条件を与えることで、例えば <code>notifications.preload(:favorite)</code> としたときに、条件に一致するnotificationだけfavoriteをpreloadするようになります。</p>
 
-<p><code>rb
-class Notification &lt; ActiveRecord::Base
+<pre><code class="rb">class Notification &lt; ActiveRecord::Base
   #belongs_to :object, polymorphic: true
   belongs_to :favorite, foreign_key: :object_id, if: -&gt; { is_a?(FavoriteNotification) }
   belongs_to :mention, foreign_key: :object_id, if: -&gt; { is_a?(MentionNotification) }
   belongs_to :subject, class_name: &quot;User&quot;
 end
-</code></p>
+</code></pre>
 
 <h3>Controller</h3>
 
 <p>Controllerでは、Preloadする対象をobjectから変更します。favoriteについては関連するtweetを、mentionについては関連するmentioned_tweetとtweetをそれぞれPreloadさせます。</p>
 
-<p><code>rb
-class NotificationController &lt; ApplicationController
+<pre><code class="rb">class NotificationController &lt; ApplicationController
   def index
     @notification = Notification.order(created_at: :desc).preload(
       :subject,
@@ -172,14 +163,13 @@ class NotificationController &lt; ApplicationController
     )
   end
 end
-</code></p>
+</code></pre>
 
 <h3>View</h3>
 
 <p>Viewも、notification.objectではなく、notification.favoriteやnotification.mentionを参照するように変更しておきます。</p>
 
-<p><code>slim
-ul
+<pre><code class="slim">ul
   - @notifications.each do |notification|
     li
       = link_to notification.subject do
@@ -196,21 +186,20 @@ ul
         | に
         = link_to notification.mention.tweet
           | 返信しました
-</code></p>
+</code></pre>
 
 <h3>結果</h3>
 
 <p>これで、以下のようにN+1クエリ問題が少し緩和されます。</p>
 
-<p><code>sql
-SELECT notifications.* FROM notifications WHERE notifications.receiver_id = 1 ORDER BY notifications.created_at DESC
+<pre><code class="sql">SELECT notifications.* FROM notifications WHERE notifications.receiver_id = 1 ORDER BY notifications.created_at DESC
 SELECT users.* FROM users WHERE users.id IN (2)
 SELECT favorites.* FROM favorites WHERE favorites.id IN (4, 127, 128, 133, 134)
 SELECT tweets.* FROM tweets WHERE tweets.id IN (10, 25, 26, 20, 3)
 SELECT mentions.* FROM mentions WHERE mentions.id IN (6)
 SELECT tweets.* FROM tweets WHERE tweets.id IN (27)
 SELECT tweets.* FROM tweets WHERE tweets.id IN (25)
-</code></p>
+</code></pre>
 
 <h3>課題</h3>
 

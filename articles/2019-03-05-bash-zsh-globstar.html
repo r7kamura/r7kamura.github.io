@@ -61,9 +61,8 @@
 
 <p>よく考えたら CircleCI のこのコマンドは、コンテナごとにテストを分割するときに使ったことがありました。</p>
 
-<p><code>
-circleci tests glob &quot;spec/**/*_spec.rb&quot; | circleci tests split --split-by=timings
-</code></p>
+<pre><code>circleci tests glob &quot;spec/**/*_spec.rb&quot; | circleci tests split --split-by=timings
+</code></pre>
 
 <p>のように使っています。ここで circleci tests glob が必要になっている理由を考えると、そのままではシェルで <code>**</code> が動かないことはほぼ自明ですね…。</p>
 

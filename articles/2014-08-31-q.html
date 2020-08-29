@@ -65,47 +65,42 @@
 
 <p>適当なJavaScriptのファイルと、そのファイルの名前を記述したpackage.json、それからアプリを動かすOS用のatom-shellのバイナリファイルを用意すれば、アプリを動かせる。</p>
 
-<p><code>js
-// package.json
+<pre><code class="js">// package.json
 {
   &quot;main&quot;: &quot;main.js&quot;
 }
-</code></p>
+</code></pre>
 
-<p>```js
-// main.js
+<pre><code class="js">// main.js
 var app           = require(&#39;app&#39;);
 var BrowserWindow = require(&#39;browser-window&#39;);
-var mainWindow    = null;</p>
+var mainWindow    = null;
 
-<p>app.on(&#39;ready&#39;, function () {
+app.on(&#39;ready&#39;, function () {
   mainWindow = new BrowserWindow({
     width: 800,
     height: 600
   });
-  mainWindow.loadUrl(&#39;<a href="https://github.com/&#x27;">https://github.com/&#39;</a>);
+  mainWindow.loadUrl(&#39;https://github.com/&#39;);
 });
-```</p>
+</code></pre>
 
 <p>以上のファイルを用意して、<a href="https://github.com/atom/atom-shell/blob/master/docs/tutorial/application-distribution.md">ここ</a>からatom-shellのバイナリファイルを用意して、コマンドラインから引数でディレクトリを指定しながら起動すればアプリが起動する。800x600の大きさのウィンドウが開いてGitHubを描画するだけというアプリになる。下記のコードではAtom.appとなっているが、これはエディタのAtom.appと同名ではあるものの全く別のアプリなので注意されたい。</p>
 
-<p><code>sh
-~/Downloads/atom-shell-v0.15.9-darwin-x64/Atom.app/Contents/MacOS/Atom .
-</code></p>
+<pre><code class="sh">~/Downloads/atom-shell-v0.15.9-darwin-x64/Atom.app/Contents/MacOS/Atom .
+</code></pre>
 
 <h3>node-webkitとそこまで変わらない</h3>
 
 <p>atom-shellは、Atomエディタをつくるためにnode-webkitを改良してつくられている。atom-shellはプログラムのエントリポイント(アプリ開発者から見て最初に実行されるところ)としてJavaScriptを指定するようになっているが、node-webkitはアプリのエントリポイントとしてHTMLファイルを指定する。また、提供するウィンドウのサイズやアプリ全体の挙動なども、atom-shellではJavaScriptで制御するようになっているのに対して、node-webkitではpackage.jsonで指定するようになっている (その設計が原因かnode-webkitよりatom-shellの方が複数のウィンドウを持つアプリを実装するのが容易である)。以下はnode-webkitで至極単純なアプリを動かすときのコード例。</p>
 
-<p><code>js
-// package.json
+<pre><code class="js">// package.json
 {
   &quot;main&quot;: &quot;main.html&quot;
 }
-</code></p>
+</code></pre>
 
-<p><code>html
-&lt;!DOCTYPE html&gt;
+<pre><code class="html">&lt;!DOCTYPE html&gt;
 &lt;html&gt;
   &lt;head&gt;
     &lt;title&gt;main.html&lt;/title&gt;
@@ -114,13 +109,12 @@ var mainWindow    = null;</p>
     foo
   &lt;/body&gt;
 &lt;/html&gt;
-</code></p>
+</code></pre>
 
 <p>以上のファイルを用意して、<a href="https://github.com/rogerwang/node-webkit">ここ</a>からnode-webkitのバイナリファイルを用意し、(atom-shellのときと同様に)コマンドラインから引数でディレクトリを指定しながら起動すればアプリが起動するという仕組みになっている。</p>
 
-<p><code>sh
-/Users/r7kamura/Downloads/node-webkit-v0.10.2-osx-x64/node-webkit.app/Contents/MacOS/node-webkit .
-</code></p>
+<pre><code class="sh">/Users/r7kamura/Downloads/node-webkit-v0.10.2-osx-x64/node-webkit.app/Contents/MacOS/node-webkit .
+</code></pre>
 
 <h3>この辺を読むと参考になる</h3>
 

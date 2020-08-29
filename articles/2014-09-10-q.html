@@ -60,42 +60,39 @@
 
 <p>テストの例として、仮に <code>GET /users</code> というリクエストを送る場合を考えてみましょう。このとき、例えばレスポンスのステータスコードが200であり、レスポンスボディにユーザIDが幾つか含まれていることをテストするような例が考えられます。rspec-railsやrack-specでは、リクエストにヘッダ、パス、ボディを指定できます。またレスポンスからは、ステータスコード、ヘッダ、ボディを参照できます。一般的なHTTPリクエストとHTTPレスポンスで表現可能なデータを反映していると言えるでしょう。</p>
 
-<p><code>ruby
-describe &quot;GET /users&quot; do
+<pre><code class="ruby">describe &quot;GET /users&quot; do
   it &quot;returns 200 with user IDs&quot; do
     get &quot;/users&quot;
     response.status.should == 200
     response.body.should include(&quot;ユーザID&quot;)
   end
 end
-</code></p>
+</code></pre>
 
 <h2>POST /usersのテスト例</h2>
 
 <p>リクエストによってシステムの内部状態が変更される場合もあるでしょう。その場合は、システムの内部状態を何らかの方法でテストしても良いでしょう。例えば、<code>POST /users</code> というリクエストを送信し、データベースの中にユーザのレコードが新しく生成されているかどうかを確認する、というテストが考えられます。</p>
 
-<p><code>ruby
-describe &quot;POST /users&quot; do
+<pre><code class="ruby">describe &quot;POST /users&quot; do
   it &quot;creates a new user and returns 201&quot; do
     post &quot;/users&quot;, name: &quot;alice&quot;
     response.status.should == 201
     User.count.should == 1
   end
 end
-</code></p>
+</code></pre>
 
 <h2>テストをどう分割すると良いのか</h2>
 
 <p>RSpecではitメソッドを利用したブロックごとにテストケースが分割されることになりますが、1つのテストケースの中にどういったコードを記述するかは完全に書き手に委ねられています。例えば、1つのテストケースの中に「GET /usersにリクエストを送って結果を確かめる」というコードと「POST /usersにリクエストを送って結果を確かめる」というコードの両方を含めても動作します。極端に言えば、全てのテストコードを1つの巨大なテストケースに詰め込んでも良いわけです。では、一体どのような判断基準でテストを分割すると良いのでしょうか。</p>
 
-<p><code>ruby
-it &quot;returns users and creates a new user&quot; do
+<pre><code class="ruby">it &quot;returns users and creates a new user&quot; do
   get &quot;/users&quot;
   response.status.should == 200
   post &quot;/users&quot;, name: &quot;alice&quot;
   response.status.should == 201
 end
-</code></p>
+</code></pre>
 
 <h2>テストケースを小さく保つ</h2>
 
@@ -113,30 +110,24 @@ end
 
 <p><a href="https://github.com/r7kamura/rspec-request_describer">RSpec::RequestDescriber</a>という、request-spec用のライブラリがあります。これは前述したような「1つのテストケースで1つのリクエストを送る」というパターンのテストコードの記述を支援するためのライブラリです。describeメソッドを利用して記述した文章を元にHTTPリクエストを送ってくれる、というのがこのライブラリの核となる機能です。</p>
 
-<p>```ruby</p>
-
-<h1>describeで記述されている文字列の内容が解析されて、</h1>
-
-<h1>subject { get &quot;/users/#{id}&quot; } というコードと同等の内容が自動的に定義されます</h1>
-
-<p>describe &quot;GET /users/:id&quot; do
+<pre><code class="ruby"># describeで記述されている文字列の内容が解析されて、
+# subject { get &quot;/users/#{id}&quot; } というコードと同等の内容が自動的に定義されます
+describe &quot;GET /users/:id&quot; do
   let(:id) do
     User.create(name: &quot;alice&quot;).id
-  end</p>
+  end
 
-<p>context &quot;with invalid ID&quot; do
+  context &quot;with invalid ID&quot; do
     let(:id) do
       &quot;invalid&quot;
-    end</p>
+    end
 
-<pre><code># rspec-railsではリクエストを送るメソッドがstatus codeを返すので、
-# (shouldのレシーバを省略することで) subjectの実行結果を呼び出してテストしています
-it { should == 404 }
-</code></pre>
+    # rspec-railsではリクエストを送るメソッドがstatus codeを返すので、
+    # (shouldのレシーバを省略することで) subjectの実行結果を呼び出してテストしています
+    it { should == 404 }
+  end
 
-<p>end</p>
-
-<p># 最後に実行したリクエストに対するレスポンスが response から参照できるので、
+  # 最後に実行したリクエストに対するレスポンスが response から参照できるので、
   # subjectを評価したあと、レスポンスボディの内容をテストしています
   context &quot;with valid ID&quot; do
     it &quot;returns a user&quot; do
@@ -145,7 +136,7 @@ it { should == 404 }
     end
   end
 end
-```</p>
+</code></pre>
 
 <p>request-specの記述にRSpec::RequestDescriberを使う大きな利点として、リクエストの実行が自動的に1度だけ行われるため、全てのテストケースの粒度が統一されるという点が挙げられます。また、describeを強制されることから、エンドポイントごとにテストケースがまとめられたり、テストの出力するレポートが幾らか統一されるという効果が期待されます。他に、HTTPリクエストを組み立てるのに必要になるであろうparamsやheadersといった機能が元から用意されているため、テストのコード量が削減されたり、共通する部品を再利用する機会がより生まれやすくだろうということも期待されます。</p>
 

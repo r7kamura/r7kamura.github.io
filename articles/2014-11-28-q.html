@@ -58,51 +58,45 @@
 
 <p>日時をUnixtimeで表現して埋め込むならこんな感じになります。</p>
 
-<p><code>erb
-&lt;%= form_for @model do |f| %&gt;
+<pre><code class="erb">&lt;%= form_for @model do |f| %&gt;
   &lt;%= f.hidden_field :updated_at_confirmation_in_unixtime, value: @model.updated_at_confirmation_in_unixtime %&gt;
   ...
 &lt;% end %&gt;
-</code></p>
+</code></pre>
 
 <h2>ModelにValidationを定義する</h2>
 
 <p>View用にupdated<em>atのunixtime表現を提供するメソッドと、クライアントから送られてきたunixtimeを保持しておくプロパティ、それからupdated</em>at<em>confirmationがnil以外の値を返したときにupdated</em>atと等価かどうか比較するvalidationを定義します。confirmation: trueを利用すると等値比較のvalidationとエラーメッセージを定義してくれるので少し楽できます。</p>
 
-<p>```rb</p>
+<pre><code class="rb"># Public: A concern module to validate conflict.
+# To validate conflict, set updated_at_confirmation_in_unixtime attribute to the model object.
+#
+# Example:
+#
+#   model.update(body: &quot;foo&quot;, updated_at_confirmation_in_unixtime: time.to_i)
+#
+module ConflictValidatable
+  extend ActiveSupport::Concern
 
-<h1>Public: A concern module to validate conflict.</h1>
+  included do
+    attr_accessor :updated_at_confirmation_in_unixtime
 
-<h1>To validate conflict, set updated<em>at</em>confirmation<em>in</em>unixtime attribute to the model object.</h1>
+    validates :updated_at, confirmation: true, if: :has_updated_at_confirmation_in_unixtime?
+  end
 
-<h1>Example:</h1>
+  def has_updated_at_confirmation_in_unixtime?
+    updated_at_confirmation_in_unixtime.present?
+  end
 
-<h1>model.update(body: &quot;foo&quot;, updated<em>at</em>confirmation<em>in</em>unixtime: time.to_i)</h1>
+  def updated_at_confirmation
+    Time.at(updated_at_confirmation_in_unixtime.to_i) if has_updated_at_confirmation_in_unixtime?
+  end
 
-<p>module ConflictValidatable
-  extend ActiveSupport::Concern</p>
-
-<p>included do
-    attr<em>accessor :updated</em>at<em>confirmation</em>in_unixtime</p>
-
-<pre><code>validates :updated_at, confirmation: true, if: :has_updated_at_confirmation_in_unixtime?
-</code></pre>
-
-<p>end</p>
-
-<p>def has<em>updated</em>at<em>confirmation</em>in<em>unixtime?
-    updated</em>at<em>confirmation</em>in_unixtime.present?
-  end</p>
-
-<p>def updated<em>at</em>confirmation
-    Time.at(updated<em>at</em>confirmation<em>in</em>unixtime.to<em>i) if has</em>updated<em>at</em>confirmation<em>in</em>unixtime?
-  end</p>
-
-<p>def updated<em>at</em>in<em>unixtime
-    updated</em>at.to<em>i unless updated</em>at.nil?
+  def updated_at_in_unixtime
+    updated_at.to_i unless updated_at.nil?
   end
 end
-```</p>
+</code></pre>
 
 <h2>Ajaxで更新する場合の注意点</h2>
 

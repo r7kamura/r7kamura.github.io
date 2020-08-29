@@ -55,8 +55,7 @@
 
 <p>今回はContents APIを利用して、masterブランチのGemfileおよびGemfile.lockというファイルを取得し、追加したいGemをGemfileに追記し、<code>bundle install</code> でGemfile.lockを更新したあと、再びContents APIを利用してレポジトリ上のファイルを更新します。Gemfileを取得する例を以下に示します。contentというプロパティに、Base64形式でエンコードされたデータが格納されています。また、shaプロパティにSHA1の値が入っていますが、ファイルを更新する場合はファイルの内容と一緒にこのSHA1の値を送る必要があるので大事な値です。</p>
 
-<p><code>bash
-$ curl https://api.github.com/repos/increments/qiitan-rb/contents/Gemfile
+<pre><code class="bash">$ curl https://api.github.com/repos/increments/qiitan-rb/contents/Gemfile
 {
   &quot;name&quot;: &quot;Gemfile&quot;,
   &quot;path&quot;: &quot;Gemfile&quot;,
@@ -75,7 +74,7 @@ $ curl https://api.github.com/repos/increments/qiitan-rb/contents/Gemfile
     &quot;html&quot;: &quot;https://github.com/increments/qiitan-rb/blob/master/Gemfile&quot;
   }
 }
-</code></p>
+</code></pre>
 
 <h2>bundle install on Heroku</h2>
 
@@ -83,10 +82,9 @@ $ curl https://api.github.com/repos/increments/qiitan-rb/contents/Gemfile
 
 <p>また、<code>bundle install</code> を実行するとき、.bundle/config というファイルが存在すれば、そこに記述されている設定を読み込んだ上で処理が実行されます。このファイルは最初に <code>bundle install</code> が実行されたときに生成されます。この設定ファイルの存在により、初めて実行したときの設定が記憶され、二度目の実行時にも一度目の実行時と同じ設定で <code>bundle install</code> が実行されるという訳です。今回のケースではこの設定ファイルの存在が新規Gemの追加を妨げてしまうため、何らかの対策が必要です。単純に削除するのも良いでしょう。</p>
 
-<p><code>rb
-File.delete(&quot;.bundle/config&quot;)
+<pre><code class="rb">File.delete(&quot;.bundle/config&quot;)
 Bundler.with_clean_env { `bundle install` }
-</code></p>
+</code></pre>
 
 <h2>Gemfileをパースする</h2>
 
@@ -94,12 +92,11 @@ Bundler.with_clean_env { `bundle install` }
 
 <p>以下のコードは、カレントディレクトリのGemfileとGemfile.lockを解析し、ruboty-kokodeikkuというGemを追加し、Gemfileの内容を再生成する簡単な例です。実際には <code>gem</code> メソッドにはバージョン情報やオプションなどを与えられたりするので、その辺りの面倒も見たほうが良いでしょう。</p>
 
-<p><code>rb
-dependencies = Bundler::Dsl.evaluate(&quot;Gemfile&quot;, &quot;Gemfile.lock&quot;, {}).dependencies
+<pre><code class="rb">dependencies = Bundler::Dsl.evaluate(&quot;Gemfile&quot;, &quot;Gemfile.lock&quot;, {}).dependencies
 dependencies &lt;&lt; Bundler::Dependency.new(&quot;ruboty-kokodeikku&quot;)
 gemfile = %&lt;source &quot;https://rubygems.org&quot;\n\n&gt;
 gemfile &lt;&lt; dependencies.map { |dependency| &quot;gem #{dependency.to_s.inspect}\n&quot; }.join
-</code></p>
+</code></pre>
 
 <h2>Heroku GitHub Sync</h2>
 

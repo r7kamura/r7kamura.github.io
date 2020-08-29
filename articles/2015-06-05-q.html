@@ -59,37 +59,34 @@
 
 <p>「Integer型のidプロパティを持つ」という情報を定義したJSON Schemaを生成することにします。Userクラスのインスタンスを持った、UserResourceクラスを用意して、これにincludeして使うことにします。</p>
 
-<p>```rb
-require &quot;json_world&quot;</p>
+<pre><code class="rb">require &quot;json_world&quot;
 
-<p>class UserResource
-  include JsonWorld::DSL</p>
+class UserResource
+  include JsonWorld::DSL
 
-<p>property(
+  property(
     :id,
     type: Integer,
-  )</p>
+  )
 
-<p># @param [User] user
+  # @param [User] user
   def initialize(user)
     @user = user
-  end</p>
+  end
 
-<p># @return [Integer]
+  # @return [Integer]
   def id
     @user.id
   end
 end
-```</p>
+</code></pre>
 
 <p>propertyの第一引数にはそのリソースが取り得るプロパティの名前をSymbolで、第二引数にはそのプロパティの性質をHashで指定できます。typeを指定すると、idというプロパティの型がInteger型であるという情報が定義されます。Rubyのクラスオブジェクトを渡していますが、これはJSON Schemaにおいて <code>{ &quot;type&quot;: &quot;integer&quot; }</code> という情報に変換されます。<code>.to_json_schema</code> を呼ぶと、それっぽいやつが取り出せます。</p>
 
-<p><code>rb
-puts UserResource.to_json_schema
-</code></p>
+<pre><code class="rb">puts UserResource.to_json_schema
+</code></pre>
 
-<p><code>js
-{
+<pre><code class="js">{
   &quot;properties&quot;: {
     &quot;id&quot;: {
       &quot;type&quot;: &quot;integer&quot;
@@ -99,15 +96,14 @@ puts UserResource.to_json_schema
     &quot;id&quot;
   ]
 }
-</code></p>
+</code></pre>
 
 <p>なお、JsonWorld::DSL は <code>.property</code> で定義したプロパティを利用して <code>#as_json</code> の実装を適当に用意してくれます。active<em>support/json を読み込んでいる環境で、オブジェクトがこのメソッドを実装していると、`#to</em>json<code>がこの結果をJSONに変換したものになります。よって、あるクラスにJsonWorld::DSLをincludeしていれば、そのクラスのインスタンスは</code>#to_json` に対応できます。</p>
 
-<p><code>rb
-user = User.new
+<pre><code class="rb">user = User.new
 user_resource = UserResource.new(user)
 user_resource.to_json #=&gt; &#39;{&quot;id&quot;:1}&#39;
-</code></p>
+</code></pre>
 
 <h2><code>.property</code></h2>
 
@@ -128,44 +124,40 @@ user_resource.to_json #=&gt; &#39;{&quot;id&quot;:1}&#39;
 
 <p>これは、JSON Schemaにおける description プロパティを定義するものです。このプロパティが何であるかを説明するやつです。Qiitaでは日本語と英語のスキーマを用意する必要があるため、<code>I18n.translate</code> を利用した値を :description オプションとして渡しています。</p>
 
-<p><code>rb
-property(
+<pre><code class="rb">property(
   :id,
   description: &quot;A unique user ID of this user&quot;,
 )
-</code></p>
+</code></pre>
 
 <h3><code>:example</code></h3>
 
 <p>これは、JSON Schemaにおいて example プロパティを定義するものです。このプロパティは例えばこういう値を取り得るよというやつですね。Qiita API v2のドキュメントは <a href="https://github.com/r7kamura/jdoc">jdoc</a> でJSON Schemaから生成してるんですが、ここではexampleの値を元に自動的にサンプルリクエストとサンプルレスポンスを生成しています。</p>
 
-<p><code>rb
-property(
+<pre><code class="rb">property(
   :id,
   example: 1,
 )
-</code></p>
+</code></pre>
 
 <h3><code>:items</code> と <code>:unique</code></h3>
 
 <p>これは、JSON Schemaにおいて items プロパティを定義するものです。配列の要素がどういうものかということを表現するための値なので、typeがArrayのときだけ利用します。<code>:items</code> の値には <code>.property</code> の第二引数に渡せるものと同じオプションが渡せます (つまりネストできるということです)。以下の例では、tagsプロパティは文字列型の要素を含む配列であるということを示しています。また、このとき :unique をtrueに指定すると、中の要素は一意であるということを示せます。これは、JSON Schemaにおいては uniqueItems プロパティとして表現されます。</p>
 
-<p><code>rb
-property(
+<pre><code class="rb">property(
   :tags,
   items: {
     type: String,
   },
   unique: true,
 )
-</code></p>
+</code></pre>
 
 <h3><code>:optional</code></h3>
 
 <p>これは、JSON Schemaにおいてrequiredプロパティに影響する値です。JsonWorldでObject相当のデータを定義するとき、基本的には全てのプロパティは必須のものとして扱いますが、:optionalにtrueが指定されているものは必須にはなりません。例えば、記事一覧を取得するエンドポイントでは、ページネーション用のパラメータは必須ではないので、この機能を利用して定義できます。</p>
 
-<p><code>rb
-link(
+<pre><code class="rb">link(
   :list_items,
   parameters: {
     page: {
@@ -175,26 +167,24 @@ link(
     },
   }
 )
-</code></p>
+</code></pre>
 
 <h3><code>:pattern</code></h3>
 
 <p>これは、JSON Schemaにおいてpatternプロパティを定義するものです。値が文字列型のときに、更に正規表現を指定して有効な値を限定するためのやつです。</p>
 
-<p><code>rb
-property(
+<pre><code class="rb">property(
   :name,
   pattern: /^.{3,20}$/,
   type: String,
 )
-</code></p>
+</code></pre>
 
 <h3><code>:properties</code></h3>
 
 <p>これは、JSON Schemaにおいてpropertiesプロパティを定義するものです。値がObject型だったときに、更にネストしてそれぞれのプロパティの情報を定義できるというやつですね。</p>
 
-<p><code>rb
-property(
+<pre><code class="rb">property(
   :stats,
   properties: {
     items_count: {
@@ -205,19 +195,18 @@ property(
     },
   },
 )
-</code></p>
+</code></pre>
 
 <h3><code>:type</code></h3>
 
 <p>これは、JSON Schemaにおいてtypeプロパティを定義するものです。文字列を渡すとその値が利用されますが、Classクラスのインスタンス (※ ArrayとかStringとかです)
 で対応しているものを渡すと、自動的に対応する文字列に変換してくれます。例えば、Stringを指定すると&quot;string&quot;に、Integerを指定すると&quot;integer&quot;になります。</p>
 
-<p><code>rb
-property(
+<pre><code class="rb">property(
   :id,
   type: Integer,
 )
-</code></p>
+</code></pre>
 
 <h2><code>.link</code></h2>
 
@@ -232,11 +221,10 @@ property(
 <li>:title</li>
 </ul>
 
-<p>```rb
-class UserResource
-  include JsonWorld::DSL</p>
+<pre><code class="rb">class UserResource
+  include JsonWorld::DSL
 
-<p>link(
+  link(
     :list_users,
     description: &quot;List users in newest order&quot;,
     path: &quot;/api/users&quot;,
@@ -248,13 +236,12 @@ class UserResource
       },
     },
   )
-end</p>
+end
 
-<p>puts UserResource.to<em>json</em>schema
-```</p>
+puts UserResource.to_json_schema
+</code></pre>
 
-<p><code>js
-{
+<pre><code class="js">{
   &quot;links&quot;: [
     {
       &quot;description&quot;: &quot;List users in newest order&quot;,
@@ -272,29 +259,26 @@ end</p>
     }
   ]
 }
-</code></p>
+</code></pre>
 
 <h2>リソースをまとめる</h2>
 
 <p>.property の :type オプションには、JsonWorld::DSLをincludeしたクラスも渡せます。なので、こういう感じで幾つかのリソースをまとめるためのリソースを用意すれば、1つの大きなスキーマを生成できます。</p>
 
-<p>```rb
-module Api
+<pre><code class="rb">module Api
   class Schema
-    include JsonWorld::DSL</p>
+    include JsonWorld::DSL
 
-<pre><code>property(:access_token, links: true, type: Api::Resources::AccessToken)
-property(:authenticated_user, links: true, type: Api::Resources::AuthenticatedUser)
-property(:comment, links: true, type: Api::Resources::Comment)
+    property(:access_token, links: true, type: Api::Resources::AccessToken)
+    property(:authenticated_user, links: true, type: Api::Resources::AuthenticatedUser)
+    property(:comment, links: true, type: Api::Resources::Comment)
 
-...
+    ...
+  end
+end
+
+puts Api::Schema.to_json_schema
 </code></pre>
-
-<p>end
-end</p>
-
-<p>puts Api::Schema.to<em>json</em>schema
-```</p>
 
 <h2>おわり</h2>
 

@@ -49,22 +49,20 @@
 
 <p>title用のinput要素にrequired属性を付けています。これでtitleが未入力の場合は <code>form.checkValidity()</code> がfalseを返すようになるため、入力があるたびにこの結果を確認し、未入力の場合はsubmitボタンを押せないようにします。</p>
 
-<p>```html
-<form action="/posts" method="post" data-validate>
-  <input name="title" type="text" required>
-  <textarea name="body"></textarea>
-  <input name="commit" type="submit" value="OK" disabled>
-</form></p>
+<pre><code class="html">&lt;form action=&quot;/posts&quot; method=&quot;post&quot; data-validate&gt;
+  &lt;input name=&quot;title&quot; type=&quot;text&quot; required&gt;
+  &lt;textarea name=&quot;body&quot;&gt;&lt;/textarea&gt;
+  &lt;input name=&quot;commit&quot; type=&quot;submit&quot; value=&quot;OK&quot; disabled&gt;
+&lt;/form&gt;
 
-<script>
+&lt;script&gt;
   jQuery(function ($) {
-    $('form[data-validate]').on('input', function () {
-      $(this).find(':submit').attr('disabled', !this.checkValidity());
+    $(&#39;form[data-validate]&#39;).on(&#39;input&#39;, function () {
+      $(this).find(&#39;:submit&#39;).attr(&#39;disabled&#39;, !this.checkValidity());
     });
   });
-</script>
-
-<p>```</p>
+&lt;/script&gt;
+</code></pre>
 
 <h2>デモ</h2>
 

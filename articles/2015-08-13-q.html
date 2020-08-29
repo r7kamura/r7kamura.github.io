@@ -68,24 +68,22 @@
 
 <p>Fluctは、Node.jsのパッケージ管理ツールである<a href="https://www.npmjs.com/">npm</a>経由でインストールできます。FluctはNode.js v0.12以上で動作することを確認しているので、Fluctをインストールする環境にNode v0.12以上がインストールされていない場合は、まずそちらを先にインストールしてください。例えば、特に何もインストールしていない状態のMac OS XにHomebrew経由でNode.jsをインストールしたあとにFluctをインストールするには、以下のコマンドを実行します。手元の環境に合わせて適宜実行するコマンドを選んでください。</p>
 
-<p><code>
-$ ruby -e &quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)&quot;
+<pre><code>$ ruby -e &quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)&quot;
 $ brew install node
 $ npm install fluct --global
-</code></p>
+</code></pre>
 
 <h2>新しくアプリをつくる</h2>
 
 <p>Fluctを使って新しくアプリをつくってみます。<code>fluct new &lt;name&gt;</code> というコマンドを利用すれば、現在のディレクトリに新しいアプリ用のディレクトリが生成されます。</p>
 
-<p><code>
-$ fluct new myapp
+<pre><code>$ fluct new myapp
 Created ./myapp
 Created ./myapp/.gitignore
 Created ./myapp/actions
 Created ./myapp/actions/.keep
 Created ./myapp/package.json
-</code></p>
+</code></pre>
 
 <p>アプリという単位は、1つのプロジェクトの単位であり、Amazon API Gateway上での「Restapi」という単位と一致します。Restapiごとに <code>https://{restapi}.execute-api.{region}.amazonaws.com/{stage}/</code> というURLが割り当てられます。このURLには独自ドメインを割り当てられます。ドメインを分けたい単位でアプリを分けるというのが良いと思います。</p>
 
@@ -93,20 +91,18 @@ Created ./myapp/package.json
 
 <p>試しに、<code>GET /ping</code> にアクセスすると <code>&quot;pong&quot;</code> が返ってくるというサンプルをつくることにします。Fluctでは、この <code>GET /ping</code> のようなエンドポイントの単位のことをactionと呼んでいます。RailsなどのWebアプリケーションフレームワークにおける、ControllerのActionに相当する部分です。今回は、<code>GET /ping</code> のためにshow_pingという名前のactionをつくることにします。アプリのディレクトリで <code>fluct generate &lt;name&gt;</code> というコマンドを実行すると、actionに必要なファイル群が生成されます。</p>
 
-<p><code>
-$ cd myapp
+<pre><code>$ cd myapp
 $ fluct generate show_ping
 Created ./actions/show_ping
 Created ./actions/show_ping/index.js
 Created ./actions/show_ping/package.json
-</code></p>
+</code></pre>
 
 <h2>Actionのパスを変更する</h2>
 
 <p>Actionごとに、package.json というファイルにそのactionが担当するエンドポイントの情報が定義されています。自動生成されたファイルには <code>GET /dummy</code> というエンドポイントが設定されているので、これを <code>GET /ping</code> に変更します。</p>
 
-<p><code>
-$ vi actions/show_ping/package.json
+<pre><code>$ vi actions/show_ping/package.json
 $ cat actions/show_ping/package.json
 {
   &quot;name&quot;: &quot;show_ping&quot;,
@@ -118,19 +114,18 @@ $ cat actions/show_ping/package.json
     &quot;path&quot;: &quot;/ping&quot;
   }
 }
-</code></p>
+</code></pre>
 
 <h2>Actionの実装を変更する</h2>
 
 <p>Actionがリクエストを受け取ったときにどう振る舞うかは、個々のactionのindex.jsというファイルに定義されています。これは最終的にAWS LambdaにアップロードされてNode.jsで実行されることになるファイルです。context.succeedの引数がレスポンスボディになるので、これを書き換えます。</p>
 
-<p><code>
-$ vi actions/show_ping/index.js
+<pre><code>$ vi actions/show_ping/index.js
 $ cat actions/show_ping/index.js
 exports.handler = function (event, context) {
   context.succeed(&#39;pong&#39;);
 };
-</code></p>
+</code></pre>
 
 <h2>IAM Roleを設定する</h2>
 
@@ -138,8 +133,7 @@ exports.handler = function (event, context) {
 
 <p>IAM Roleは、AWSマネジメントコンソールのIAMサービスから作成できます。AWSLambdaBasicExecutionRoleというポリシーを持ったIAM Roleを新たに作成し、そのIAM RoleのARNと呼ばれる識別子を手に入れ、Fluctのアプリのpackage.jsonに設定します。かなり面倒ですが、全てのactionで同じIAM Roleを利用するので、この作業は一度だけやれば大丈夫です。この辺、権限がある場合は自動で設定されるようにしたいですね。</p>
 
-<p><code>
-$ vi package.json
+<pre><code>$ vi package.json
 $ cat package.json
 {
   &quot;name&quot;: &quot;myapp&quot;,
@@ -149,26 +143,24 @@ $ cat package.json
     &quot;roleArn&quot;: &quot;arn:aws:iam::012345678912:role/myExampleRole&quot;
   }
 }
-</code></p>
+</code></pre>
 
 <h2>デプロイしてみる</h2>
 
 <p><code>fluct deploy</code> というコマンドを使えば、AWS Lambdaへのコードのアップロード、Amazon API Gateway上での設定などを全部やってくれます。このときAWSのAPIを利用しますが、<a href="http://docs.aws.amazon.com/AWSJavaScriptSDK/guide/node-configuring.html">AWS SDKの認証の仕組み</a>を利用するので、<code>~/aws/.credentials</code> か環境変数に認証情報が設定されている必要があります。</p>
 
-<p><code>
-$ fluct deploy
+<pre><code>$ fluct deploy
 Created zip file: ./actions/show_ping/lambda.zip
 Uploaded function: show_ping
 Updated endpoint: GET /ping
 Deployed: https://123ge4oabj.execute-api.us-east-1.amazonaws.com/production
-</code></p>
+</code></pre>
 
 <h2>動作を確認する</h2>
 
 <p>デプロイが問題なく完了したら、show_pingのactionが正しく動作しているか確認してみましょう。</p>
 
-<p>```
-$ curl <a href="https://123ge4oabj.execute-api.us-east-1.amazonaws.com/production/ping">https://123ge4oabj.execute-api.us-east-1.amazonaws.com/production/ping</a> -i
+<pre><code>$ curl https://123ge4oabj.execute-api.us-east-1.amazonaws.com/production/ping -i
 HTTP/1.1 200 OK
 Content-Type: text/html
 Content-Length: 13
@@ -177,10 +169,10 @@ Date: Tue, 11 Aug 2015 19:22:33 GMT
 x-amzn-RequestId: 512f8391-405e-11e5-acef-2125b850bbe1
 X-Cache: Miss from cloudfront
 Via: 1.1 6145a790e7dca1c0c567e1f5decce786.cloudfront.net (CloudFront)
-X-Amz-Cf-Id: 5LvHm6SaEQnTj1ubwlCvJhew6G86AU6FFEGB2ic3FI-r7kwNfwDCXg==</p>
+X-Amz-Cf-Id: 5LvHm6SaEQnTj1ubwlCvJhew6G86AU6FFEGB2ic3FI-r7kwNfwDCXg==
 
-<p>pong
-```</p>
+pong
+</code></pre>
 
 <p>はい。</p>
 

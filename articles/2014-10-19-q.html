@@ -49,20 +49,18 @@
 
 <p><a href="https://github.com/causes/scss-lint">scss-lint</a>は、SCSSのコードから与えた設定に違反している箇所を報告してくれるツールです。jslintやrubocopのSCSS版のようなものです。これをCI等で定期的に実行しておくことで、ルールに違反したコードの蔓延を防ぎます。</p>
 
-<p><code>
-gem install scss-lint
+<pre><code>gem install scss-lint
 scss-lint app/assets/stylesheets/**/*.scss
-</code></p>
+</code></pre>
 
 <h2>csscomb :hammer:</h2>
 
 <p><a href="http://csscomb.com/">csscomb</a>はNode製のツールで、CSSのコードを与えた設定に従って自動で変換してくれるものです。scss-lintを初めて導入するときに利用すれば、大半の警告を自動で修正してくれるでしょう。但しCSSの文法しか解釈できないため、SCSSに適用すると失敗する場合があります。SCSSで書かれたファイルに対して適用してみたところ、<code>@include</code>などの文法は受理されるものの、<code>@if</code>などの文法を受理できないようです。しかしながら問題となるケースがそこまで多くないため、SCSSが対象でも十分実用に足るかと思います。csscombは <code>.csscomb.json</code> に記述された設定を元に動作しますが、 この設定内容は<a href="http://csscomb.com/config">公式サイト</a>で生成できます。</p>
 
-<p><code>
-npm install csscomb -g
+<pre><code>npm install csscomb -g
 vi .csscomb.json
 csscomb app/assets/stylesheets/**/*.scss
-</code></p>
+</code></pre>
 
 <h2>導入 :beginner:</h2>
 
@@ -78,19 +76,15 @@ csscomb app/assets/stylesheets/**/*.scss
 
 <p>最後に、Qiitaにcsscombとscss-lintを導入したときの話をしましょう。Qiitaでは最初、scss-lintを動かすと1,540件の警告が出ましたが、csscombを実行することで警告の数は数十件に減り、小一時間手作業で修正することで警告が出なくなったため、その段階でCIでscss-lintを走らせるように設定しました。csscombで修正できず手作業で直した警告内容は、ネストが深すぎるというものだけでした。また、csscombが受理できないSCSSの文法に出会したときにも次のファイルに進んでほしかったので、今回は雑にこういうコマンドを実行しました。</p>
 
-<p><code>
-rails runner &#39;Dir.glob(&quot;app/assets/stylesheets/**/*.scss&quot;).each {|path| `scss-lint #{path}` }&#39;
-</code></p>
+<pre><code>rails runner &#39;Dir.glob(&quot;app/assets/stylesheets/**/*.scss&quot;).each {|path| `scss-lint #{path}` }&#39;
+</code></pre>
 
 <p>scss-lintにはRakeタスクが付属しているので、特にCIではこれを利用するのが良いでしょう。.scss-lint.ymlに<code>scss_files</code>という設定があれば、<code>rake scss_lint</code> を実行することでscss-lintを実行できます。シェルのグロブの機能を利用できないCI等で役に立つかもしれません。なお、このRakeタスクは現在最新のv0.29.0では未だ満足に動作しないので、利用する場合はGitHub上のmasterブランチなどを利用しましょう。</p>
 
-<p>```rb:Rakefile</p>
-
-<h1>Define <code>rake scss_lint</code></h1>
-
-<p>require &#39;scss<em>lint/rake</em>task&#39;
+<pre><code class="rb:Rakefile"># Define `rake scss_lint`
+require &#39;scss_lint/rake_task&#39;
 SCSSLint::RakeTask.new
-```</p>
+</code></pre>
 
 <h2>終わりに :bow:</h2>
 

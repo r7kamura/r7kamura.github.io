@@ -59,8 +59,7 @@
 
 <p>以下のように2つのファイルをGistに置く。</p>
 
-<p><code>rb:my-gem-name.gemspec
-Gem::Specification.new do |spec|
+<pre><code class="rb:my-gem-name.gemspec">Gem::Specification.new do |spec|
  spec.name = &quot;my-gem-name&quot;
  spec.version = &quot;0.0.1&quot;
  spec.authors = [&quot;Your Name&quot;]
@@ -69,24 +68,17 @@ Gem::Specification.new do |spec|
  spec.files = [&quot;my-gem-name.rb&quot;]
  spec.require_path = &quot;.&quot;
 end
-</code></p>
+</code></pre>
 
-<p>```rb</p>
-
-<h1>my-gem-name.rb</h1>
-
-<h1>ここに好きなコードを書く</h1>
-
-<p>```</p>
+<pre><code class="rb"># my-gem-name.rb
+# ここに好きなコードを書く
+</code></pre>
 
 <p>使う側では以下のように指定する。</p>
 
-<p>```rb</p>
-
-<h1>Gemfileからこういう感じで参照する</h1>
-
-<p>gem &quot;my-gem-name&quot;, git: &quot;<a href="https://gist.github.com/1234567890abcdef1234.git">https://gist.github.com/1234567890abcdef1234.git</a>&quot;
-```</p>
+<pre><code class="rb"># Gemfileからこういう感じで参照する
+gem &quot;my-gem-name&quot;, git: &quot;https://gist.github.com/1234567890abcdef1234.git&quot;
+</code></pre>
 
 <h3>余談</h3>
 

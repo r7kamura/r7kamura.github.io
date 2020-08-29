@@ -57,9 +57,8 @@
 
 <p>plutil(1) も defaults(1) と同様にMac OS Xに用意されているコマンドで、これを利用すると、特定のフォーマットで記述されたプロパティリストのファイルを別のフォーマットに変換できます。以下のコマンドを実行すると、NeXTSTEP形式で記述された example.plist というファイルの中身がXML形式に書き換えられます。</p>
 
-<p><code>
-$ plutil -convert xml1 example.plist
-</code></p>
+<pre><code>$ plutil -convert xml1 example.plist
+</code></pre>
 
 <h2>plist Gem</h2>
 
@@ -69,8 +68,7 @@ $ plutil -convert xml1 example.plist
 
 <p>以下のコード例では、defaults(1) から最近利用したディレクトリ一覧が記述されたプロパティリストのデータを読み込み、Tempfileに書き込み、plutil(1) でNeXTSTEP形式からXML形式に変換し、<code>Plist.parse_xml</code> を利用してRubyのオブジェクトに変換しています。</p>
 
-<p><code>
-$ defaults read -g NSNavRecentPlaces
+<pre><code>$ defaults read -g NSNavRecentPlaces
 (
     &quot;~/Desktop&quot;,
     &quot;~/src/github.com/r7kamura/ruboty&quot;,
@@ -78,33 +76,24 @@ $ defaults read -g NSNavRecentPlaces
     &quot;~/src/github.com/r7kamura/serverkit-defaults&quot;,
     &quot;/opt/homebrew-cask/Caskroom/atom/latest&quot;
 )
-</code></p>
+</code></pre>
 
-<p>```rb
-require &quot;plist&quot;
-require &quot;tempfile&quot;</p>
+<pre><code class="rb">require &quot;plist&quot;
+require &quot;tempfile&quot;
 
-<p>tempfile = Tempfile.new(&quot;&quot;)
-tempfile &lt;&lt; <code>defaults read -g NSNavRecentPlaces</code>
+tempfile = Tempfile.new(&quot;&quot;)
+tempfile &lt;&lt; `defaults read -g NSNavRecentPlaces`
 tempfile.close
-<code>plutil -convert xml1 #{tempfile.path}</code>
-Plist.parse_xml(tempfile.path)</p>
-
-<h1>=&gt; [</h1>
-
-<h1>&quot;~/Desktop&quot;,</h1>
-
-<h1>&quot;~/src/github.com/r7kamura/ruboty&quot;,</h1>
-
-<h1>&quot;~/src/github.com/r7kamura/serverkit&quot;,</h1>
-
-<h1>&quot;~/src/github.com/r7kamura/serverkit-defaults&quot;,</h1>
-
-<h1>&quot;/opt/homebrew-cask/Caskroom/atom/latest&quot;</h1>
-
-<h1>]</h1>
-
-<p>```</p>
+`plutil -convert xml1 #{tempfile.path}`
+Plist.parse_xml(tempfile.path)
+# =&gt; [
+#   &quot;~/Desktop&quot;,
+#   &quot;~/src/github.com/r7kamura/ruboty&quot;,
+#   &quot;~/src/github.com/r7kamura/serverkit&quot;,
+#   &quot;~/src/github.com/r7kamura/serverkit-defaults&quot;,
+#   &quot;/opt/homebrew-cask/Caskroom/atom/latest&quot;
+# ]
+</code></pre>
 
 <h2>おわり</h2>
 

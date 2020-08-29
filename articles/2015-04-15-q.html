@@ -55,32 +55,29 @@
 
 <p>手元の環境に vagrant-multiplug をインストールします。</p>
 
-<p><code>
-$ vagrant plugin install vagrant-multiplug
-</code></p>
+<pre><code>$ vagrant plugin install vagrant-multiplug
+</code></pre>
 
 <h2>使い方</h2>
 
 <p>Vagrantfileの中で <code>config.plugin.add_dependency(name, version = nil)</code> という風に利用するプラグインを定義できます。今回は、例としてプロビジョニングツールの1つの<a href="https://github.com/r7kamura/serverkit">Serverkit</a> を使うためのプラグイン <a href="https://github.com/r7kamura/vagrant-serverkit">vagrant-serverkit</a> と、それからServerkitでrbenvを扱うためのプラグインである <a href="https://github.com/r7kamura/serverkit-rbenv">serverkit-rbenv</a> を利用することにします。</p>
 
-<p>```rb:Vagrantfile
-Vagrant.configure(&quot;2&quot;) do |config|
-  config.vm.box = &quot;ubuntu/trusty64&quot;</p>
+<pre><code class="rb:Vagrantfile">Vagrant.configure(&quot;2&quot;) do |config|
+  config.vm.box = &quot;ubuntu/trusty64&quot;
 
-<p>config.plugin.add<em>dependency &quot;vagrant-serverkit&quot;
-  config.plugin.add</em>dependency &quot;serverkit-rbenv&quot;, &quot;0.0.2&quot;</p>
+  config.plugin.add_dependency &quot;vagrant-serverkit&quot;
+  config.plugin.add_dependency &quot;serverkit-rbenv&quot;, &quot;0.0.2&quot;
 
-<p>config.vm.provision :serverkit do |config|
+  config.vm.provision :serverkit do |config|
     config.recipe_path = &quot;recipe.yml&quot;
   end
 end
-```</p>
+</code></pre>
 
 <p>この状態で <code>vagrant up</code> を利用すると、自動的にvagrant-serverkitとserverkit-rbenv (v0.0.2) がインストールされ、その後Serverkitを利用してProvisionが実行されます。使い方は以上です。</p>
 
-<p><code>
-$ vagrant up
-</code></p>
+<pre><code>$ vagrant up
+</code></pre>
 
 <h2>Vagrantプラグインの実体はGem</h2>
 
@@ -99,15 +96,14 @@ $ vagrant up
 
 <p>そこでvagrant-multiplugでは、もしインストールが行われた場合は <code>Kernel.#exec</code> で現在のプロセスを最初から再実行するという方法を取りました。$0 で現在のプログラムへのパスを参照し、同じコマンドライン引数を渡しながら別プロセスへ処理を引き渡し、現在のプロセスはそこで終了させます。このとき、何もしなければ次のプロセスに環境変数が引き継がれるという点に注意しなければなりません。Vagrantでは、一度Gemfileの生成が終わると VAGRANT<em>INTERNAL</em>BUNDLERIZED に値が書き込まれますが、この値が既に設定されているときはもうこの処理を行わないという条件分岐が存在するため、この環境変数は空にしておく必要があります。また、VAGRANT<em>FORCE</em>BUNDLER が1でなければ再度実行してくれないという条件分岐もあるため、これは1にしておきます。これで、Gemfileを再生成する処理が exec で起動する次のプロセスでも実行されます。</p>
 
-<p><code>rb
-Kernel.exec(
+<pre><code class="rb">Kernel.exec(
   {
     &quot;VAGRANT_INTERNAL_BUNDLERIZED&quot; =&gt; nil,
     &quot;VAGRANT_FORCE_BUNDLER&quot; =&gt; &quot;1&quot;,
   },
   &quot;#{$0} #{ARGV * &#39; &#39;}&quot;,
 )
-</code></p>
+</code></pre>
 
 <h2>参考にしたもの</h2>
 

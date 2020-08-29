@@ -71,9 +71,8 @@
 
 <p>何か失敗していそうだったらログを見て確認しましょう。Web UIからはログが見られないので、herokuコマンドから確認します。herokuコマンドを入れていない場合は<a href="https://toolbelt.heroku.com/">ここ</a>から入れておきましょう。よくある間違いとして、パスワードやチーム名、ユーザ名を間違えていてエラーを出しているというものがあります。間違っていたらダッシュボードからアプリを削除してやり直すのが楽かもしれません。</p>
 
-<p><code>sh:ログを確認
-heroku logs --app your-app-name
-</code></p>
+<pre><code class="sh:ログを確認">heroku logs --app your-app-name
+</code></pre>
 
 <h2>カスタマイズ</h2>
 
@@ -83,23 +82,21 @@ heroku logs --app your-app-name
 
 <p>Forkする場合は、Fork後のレポジトリ内で <code>heroku git:remote</code> というコマンドを使うと簡単にpush先を追加できます。変更後の初回のgit-pushでは、恐らく--forceオプションが必要になります。</p>
 
-<p><code>
-heroku git:remote --app your-app-name
+<pre><code>heroku git:remote --app your-app-name
 git push heroku master -f
-</code></p>
+</code></pre>
 
 <h2>コラボレーション</h2>
 
 <p>Herokuを使っていると、他の開発者が変更を行うたびにデプロイを依頼する必要があって大変です。Travis CIを利用してmasterに変更がpushされたらHerokuにデプロイされるようにし、Pull Requestベースで変更を入れるようにしておくと便利です。</p>
 
-<p><code>
-gem install travis
+<pre><code>gem install travis
 travis init
 travis setup heroku
 git add .travis.yml
 git commit -m &quot;Add .travis.yml&quot;
 git push origin master
-</code></p>
+</code></pre>
 
 <h2>おわりに :bow:</h2>
 

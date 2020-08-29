@@ -69,37 +69,36 @@
 
 <p>利用しているコードの一部をそのまま貼り付けますが、Rubyで <code>POST /yoall</code> を利用するなら例えばこういう風に実装できます。Yoのためのクライアントライブラリもありますが、今回は<a href="https://github.com/lostisland/faraday">Faraday</a> というRubyのHTTPクライアントのライブラリを利用してみています。YoのメッセージにはURLも付与でき、このエンドポイントにもURLを渡せばそれも実現可能です。</p>
 
-<p>```rb
-require &quot;faraday&quot;</p>
+<pre><code class="rb">require &quot;faraday&quot;
 
-<p>class YoHook &lt; Hook
-  validates :api_token, presence: true</p>
+class YoHook &lt; Hook
+  validates :api_token, presence: true
 
-<p>class &lt;&lt; self
+  class &lt;&lt; self
     # @return [Faraday::Connection]
-    def faraday<em>connection
-      @faraday</em>connection ||= ::Faraday::Connection.new do |connection|
-        connection.request :url<em>encoded
-        connection.adapter :net</em>http
+    def faraday_connection
+      @faraday_connection ||= ::Faraday::Connection.new do |connection|
+        connection.request :url_encoded
+        connection.adapter :net_http
       end
     end
-  end</p>
+  end
 
-<p># @note Override
-  def trigger<em>article</em>created_hook
+  # @note Override
+  def trigger_article_created_hook
     yo
-  end</p>
+  end
 
-<p>private</p>
+  private
 
-<p>def yo
-    self.class.faraday<em>connection.post(
-      &quot;<a href="http://api.justyo.co/yoall/">http://api.justyo.co/yoall/</a>&quot;,
-      api</em>token: api_token,
+  def yo
+    self.class.faraday_connection.post(
+      &quot;http://api.justyo.co/yoall/&quot;,
+      api_token: api_token,
     )
   end
 end
-```</p>
+</code></pre>
 
 <h3>おしまい</h3>
 

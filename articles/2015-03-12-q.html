@@ -49,11 +49,10 @@
 
 <p>Markdownの変換を行う処理では、下例のような文字列が含まれたMarkdownをHTMLに変換するときに、うまくチェックボックスが表示されるように取り計らう必要があります。</p>
 
-<p><code>
-- [x] Foo
+<pre><code>- [x] Foo
 - [ ] Bar
 - [ ] Baz
-</code></p>
+</code></pre>
 
 <ul>
 <li>[x] Foo</li>
@@ -71,10 +70,9 @@
 
 <p><a href="https://github.com/github/task_list">github/task_list</a>では、正規表現を利用して本文からコードブロックを取り除いた文字列を別途用意したあと、本文を先頭から1行ずつ見ていき、その行がタスクリストっぽいパターンで且つコードブロックを取り除いた文字列に含まれている場合に、番号を振っています。</p>
 
-<p><code>
-- [ ] Foo
+<pre><code>- [ ] Foo
 - [ ] Bar
-</code></p>
+</code></pre>
 
 <ul>
 <li>[ ] Foo</li>
@@ -87,10 +85,9 @@
 
 <p><a href="https://github.com/increments/tasklist.js">increments/tasklist.js</a> でも同じように番号を割り当てる方法で対応関係を調べています。先述した問題への対応として、コードブロック内の文字列を取り除くのをやめて、代わりに先頭に適当な文字列を付与しています。置換前と置換後で同じ行の文字列が同一であることを確認することで、コードブロック内のタスクリストが誤判定されてしまうことを防いでいます。</p>
 
-<p><code>
-XXX-[ ] Foo
+<pre><code>XXX-[ ] Foo
 XXX-[ ] Bar
-</code></p>
+</code></pre>
 
 <h2>おしまい</h2>
 

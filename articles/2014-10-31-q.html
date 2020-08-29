@@ -47,28 +47,24 @@
 
 <h2>サンプルコード</h2>
 
-<p><code>config/application.rb
-class MyApp::Application &lt; Rails::Application
+<pre><code class="config/application.rb">class MyApp::Application &lt; Rails::Application
   config.exceptions_app = routes
 end
-</code></p>
+</code></pre>
 
-<p><code>config/routes.rb
-MyApp.application.routes.draw do
+<pre><code class="config/routes.rb">MyApp.application.routes.draw do
   match &#39;/404&#39; =&gt; &#39;errors#show&#39;, id: 404, via: :all
   match &#39;/422&#39; =&gt; &#39;errors#show&#39;, id: 422, via: :all
   match &#39;/500&#39; =&gt; &#39;errors#show&#39;, id: 500, via: :all
 end
-</code></p>
+</code></pre>
 
-<p><code>app/controllers/errors_controller.rb
-class ErrorsController &lt; ApplicationController
+<pre><code class="app/controllers/errors_controller.rb">class ErrorsController &lt; ApplicationController
 end
-</code></p>
+</code></pre>
 
-<p><code>app/views/errors/show.html.erb
-&lt;%# params[:id]とかを使って適当なエラー用のコンテンツを描画する %&gt;
-</code></p>
+<pre><code class="app/views/errors/show.html.erb">&lt;%# params[:id]とかを使って適当なエラー用のコンテンツを描画する %&gt;
+</code></pre>
 
 <h2>説明</h2>
 

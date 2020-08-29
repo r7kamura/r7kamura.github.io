@@ -81,9 +81,8 @@
 
 <p>という処理をそれぞれ module に分割し、責務の分割を狙っています (そういうストーリーでいきます)。prepend を利用することで、以下のような継承ツリーが生まれます。</p>
 
-<p><code>
-Object|`-FizzBuzz  |  `-Printable    |    `-Buzz      |      `-Fizz        |        `--Clearable
-</code></p>
+<pre><code>Object|`-FizzBuzz  |  `-Printable    |    `-Buzz      |      `-Fizz        |        `--Clearable
+</code></pre>
 
 <p>super で根方向に1つ遷移し、alias されたメソッド呼び出しで葉に遷移するというように考えることで、連続するメソッド呼び出しを状態遷移のように捉え、1ループで1つの数に対応するような設計にできました。</p>
 

@@ -49,13 +49,12 @@
 
 <p>1つのエンドポイントに対して1つのテストファイルを用意する。</p>
 
-<p><code>
-GET  /users
+<pre><code>GET  /users
 GET  /users/:id
 GET  /users/:user_id/articles
 POST /users/:user_id/articles
 GET  /users/:user_id/articles/:id/edit
-</code></p>
+</code></pre>
 
 <p>例えば、上記のエンドポイントに対して以下のファイルを用意する。</p>
 
@@ -78,23 +77,22 @@ GET  /users/:user_id/articles/:id/edit
 
 <p>例えば、<code>GET /users/:id</code> に対するコードは以下のように書く。</p>
 
-<p>```
-RSpec.describe &quot;GET /users/:id&quot; do
+<pre><code>RSpec.describe &quot;GET /users/:id&quot; do
   subject do
     get &quot;/users/#{id}&quot;
-  end</p>
+  end
 
-<p>let(:id) do
+  let(:id) do
     user.id
-  end</p>
+  end
 
-<p>let(:user) do
+  let(:user) do
     FactoryBot.create(:user)
-  end</p>
+  end
 
-<p># ...
+  # ...
 end
-```</p>
+</code></pre>
 
 <p><code>describe</code>の中では、以下の順でメソッド呼び出しを行う。</p>
 
@@ -117,26 +115,21 @@ end
 
 <p>例えば、ログインを済ませるコードを共通化したい場合、以下のようなmoduleを定義して利用する。</p>
 
-<p>```</p>
-
-<h1>spec/support/my<em>app/spec</em>helpers/authenticatable.rb</h1>
-
-<p>module MyApp
+<pre><code># spec/support/my_app/spec_helpers/authenticatable.rb
+module MyApp
   module SpecHelpers
     module Authenticatable
-      extend ::ActiveSupport::Concern</p>
+      extend ::ActiveSupport::Concern
 
-<pre><code>  included do
-    shared_context &#39;with current user&#39; do
-      # ...
+      included do
+        shared_context &#39;with current user&#39; do
+          # ...
+        end
+      end
     end
   end
 end
 </code></pre>
-
-<p>end
-end
-```</p>
 
 <p>トップレベルに奔放に定数を定義せず、そのアプリの名前空間に、ExampleGroupに<code>include</code>するmoduleを定義するための名前空間をつくり、そこに定義すること。</p>
 

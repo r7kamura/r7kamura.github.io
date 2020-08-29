@@ -45,21 +45,19 @@
   <div>
     <p><a href="https://github.com/serverkit/serverkit">Serverkit</a> というプロビジョニングツールを利用して、ローカルあるいはSSHで接続できる任意のマシン上に、rbenv経由で任意のバージョンのRubyをインストールする方法について説明します。端的に言えば、以下のようなレシピとGemfileを用意し、<code>bundle exec serverkit apply recipe.yml</code> を実行するとインストールできます。</p>
 
-<p><code>yaml:recipe.yml
-resources:
+<pre><code class="yaml:recipe.yml">resources:
   - type: rbenv_ruby
     dependencies: true
     global: true
     user: foo
     version: 2.2.0
-</code></p>
+</code></pre>
 
-<p>```rb:Gemfile
-source &quot;<a href="https://rubygems.org">https://rubygems.org</a>&quot;</p>
+<pre><code class="rb:Gemfile">source &quot;https://rubygems.org&quot;
 
-<p>gem &quot;serverkit&quot;
+gem &quot;serverkit&quot;
 gem &quot;serverkit-rbenv&quot;
-```</p>
+</code></pre>
 
 <h2>レシピ</h2>
 
@@ -105,12 +103,11 @@ gem &quot;serverkit-rbenv&quot;
 
 <p>rbenv_rubyというリソースは、serverkit本体ではなく<a href="https://github.com/serverkit/serverkit-rbenv">serverkit-rbenv</a>というプラグインで提供されいるため、これをGemfileに記述しておく必要があります。<code>bundle exec serverkit ...</code> と実行すれば、プラグインが読み込まれる仕組みになっています。</p>
 
-<p>```rb:Gemfile
-source &quot;<a href="https://rubygems.org">https://rubygems.org</a>&quot;</p>
+<pre><code class="rb:Gemfile">source &quot;https://rubygems.org&quot;
 
-<p>gem &quot;serverkit&quot;
+gem &quot;serverkit&quot;
 gem &quot;serverkit-rbenv&quot;
-```</p>
+</code></pre>
 
 <h2>運用</h2>
 

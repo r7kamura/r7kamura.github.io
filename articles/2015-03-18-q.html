@@ -69,8 +69,7 @@
 
 <p>クエリ文字列を検索クエリに変換するために、まず受け取ったクエリ文字列をトークンという単位に分割し、トークンの列を種類ごとに幾つかのグループに分け、最終的にそのグループ達を木構造に並び替えて検索クエリに変換する、ということをやります。例えば「a tag:b OR c -d」というクエリ文字列を受け取ったときは、以下のように5つのトークンに分割します。</p>
 
-<p><code>
-a tag:b OR c -d
+<pre><code>a tag:b OR c -d
 ^ ^^^^^ ^^ ^ ^^
 |   |   |  | |
 |   |   |  | `-- dに一致しない
@@ -78,73 +77,61 @@ a tag:b OR c -d
 |   |   `------- 左辺または右辺の条件が満たされている
 |   `----------- bというタグに一致する
 `--------------- aに一致する
-</code></p>
+</code></pre>
 
 <p>qiita-elasticsearchでは <code>String#scan</code> と正規表現を使って文字列からトークンの配列に変換しています。単純化すると以下のようなコードになります。</p>
 
-<p>```rb
-class Tokenizer
-  DEFAULT<em>FILTERABLE</em>FIELDS = []</p>
+<pre><code class="rb">class Tokenizer
+  DEFAULT_FILTERABLE_FIELDS = []
 
-<p>TOKEN<em>PATTERN = /
-    (?&lt;token</em>string&gt;
-      (?<minus>-)?
-      (?:(?<field_name>\w+):)?
+  TOKEN_PATTERN = /
+    (?&lt;token_string&gt;
+      (?&lt;minus&gt;-)?
+      (?:(?&lt;field_name&gt;\w+):)?
       (?:
-        (?:&quot;(?<quoted_term>.*?)(?&lt;!\)&quot;)
+        (?:&quot;(?&lt;quoted_term&gt;.*?)(?&lt;!\\)&quot;)
         |
-        (?<term>\S+)
+        (?&lt;term&gt;\S+)
       )
     )
-  /x</p>
+  /x
 
-<p>def tokenize(query<em>string)
-    query</em>string.scan(TOKEN<em>PATTERN).map do |token</em>string, minus, field<em>name, quoted</em>term, term|
+  def tokenize(query_string)
+    query_string.scan(TOKEN_PATTERN).map do |token_string, minus, field_name, quoted_term, term|
       Token.new(
-        field<em>name: field</em>name,
+        field_name: field_name,
         minus: minus,
-        quoted<em>term: quoted</em>term,
+        quoted_term: quoted_term,
         term: term,
-        token<em>string: token</em>string,
+        token_string: token_string,
       )
     end
   end
 end
-```</p>
+</code></pre>
 
 <p>使うときはこんな感じで使います。</p>
 
-<p><code>rb
-tokenizer = Tokenizer.new
+<pre><code class="rb">tokenizer = Tokenizer.new
 tokens = tokenizer.tokenize(&quot;a tag:b OR c -d&quot;)
-</code></p>
+</code></pre>
 
 <h2>OrSeparatableNode</h2>
 
 <p>Tokenizerを利用してトークンの配列を生成したあと、これらをグループに分け検索クエリに変換します。まずORトークンに着目して、ORトークンの前後でトークンを分けていきます。「a tag:b OR c -d」というクエリ文字列であれば、「aとtag:b」「cと-d」というグループに分け、<a href="http://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-bool-query.html">Bool Query</a>のshould clauseを利用し、それぞれのグループのいずれかが満たされるものが一致するようなクエリをつくります。</p>
 
-<p>```rb
-tokenizer = Tokenizer.new
+<pre><code class="rb">tokenizer = Tokenizer.new
 tokens = tokenizer.tokenize(&quot;a tag:b OR c -d&quot;)
-OrSeparatableNode.new(tokens).to_hash</p>
-
-<h1>=&gt; {</h1>
-
-<h1>&quot;bool&quot; =&gt; {</h1>
-
-<h1>&quot;should&quot; =&gt; [</h1>
-
-<h1>..., // 「aとtag:b」用のクエリ</h1>
-
-<h1>...  // 「cと-d」用のクエリ</h1>
-
-<h1>]</h1>
-
-<h1>}</h1>
-
-<h1>}</h1>
-
-<p>```</p>
+OrSeparatableNode.new(tokens).to_hash
+#=&gt; {
+#   &quot;bool&quot; =&gt; {
+#     &quot;should&quot; =&gt; [
+#       ..., // 「aとtag:b」用のクエリ
+#       ...  // 「cと-d」用のクエリ
+#     ]
+#   }
+# }
+</code></pre>
 
 <p>細かい調整として、もしORトークンで分割したグループが1つしかなければ、Bool Queryではなく単純な1つのクエリを出力するようにします。また「a OR」のようなクエリ文字列が与えられた場合にORの部分を無視するために、ORトークンで分割してトークンが1つも存在しないグループは無視します。Bool Queryになるかもしれないし、ならないかもしれない、という意味を込めてOrSeparatableという名前にしました。qiita-elasticsearchでは <a href="https://github.com/increments/qiita-elasticsearch/blob/6a997e5078aac426f222e030445e64af6a5f4881/lib/qiita/elasticsearch/nodes/or_separatable_node.rb">or<em>separatable</em>node.rb</a> がこの部分の処理を担当しています。</p>
 
@@ -152,32 +139,19 @@ OrSeparatableNode.new(tokens).to_hash</p>
 
 <p>OrSeparatableNodeでトークンをグループに分割したあと、今度はそれぞれのグループを適切なクエリに変換する必要があります。個々のグループ内のトークンは、必須の条件を表すトークンと、そうではない (=一致するとより嬉しい) 条件を表すトークンに分けられます。そこで、Elasticsearchの <a href="http://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-filtered-query.html">Filtered Query</a> を利用してこれらの条件を表現することにします。必須の条件というのは指定されているときには必ず満たしてほしい種類のもので、「-a」や「tag:a」のようなトークンがこれに該当します。一方「a b」のようなクエリ文字列で検索したときは、aとbの両方に一致すればより嬉しいが、片方に一致するだけでもまあ良しという扱いにし、必須ではない条件として扱うことにします。</p>
 
-<p>```rb
-FilterableNode.new(tokens).to_hash</p>
-
-<h1>=&gt; {</h1>
-
-<h1>&quot;filtered&quot; =&gt; {</h1>
-
-<h1>&quot;filter&quot; =&gt; {</h1>
-
-<h1>&quot;bool&quot; =&gt; {</h1>
-
-<h1>&quot;must&quot; =&gt; ...     // 「tag:b」などのトークン用のクエリ</h1>
-
-<h1>&quot;must_not&quot; =&gt; ... // 「-b」などのトークン用のクエリ</h1>
-
-<h1>}</h1>
-
-<h1>},</h1>
-
-<h1>&quot;query&quot; =&gt; ... // 「c」などのトークン用のクエリ</h1>
-
-<h1>}</h1>
-
-<h1>}</h1>
-
-<p>```</p>
+<pre><code class="rb">FilterableNode.new(tokens).to_hash
+#=&gt; {
+#   &quot;filtered&quot; =&gt; {
+#     &quot;filter&quot; =&gt; {
+#       &quot;bool&quot; =&gt; {
+#         &quot;must&quot; =&gt; ...     // 「tag:b」などのトークン用のクエリ
+#         &quot;must_not&quot; =&gt; ... // 「-b」などのトークン用のクエリ
+#       }
+#     },
+#     &quot;query&quot; =&gt; ... // 「c」などのトークン用のクエリ
+#   }
+# }
+</code></pre>
 
 <p>OrSeparatableNodeと同様、フィルター用のトークンが1つも含まれていない場合はFiltered Queryではなく、より単純なクエリを生成します。qiita-elasticsearchでは、この部分の処理は <a href="https://github.com/increments/qiita-elasticsearch/blob/6a997e5078aac426f222e030445e64af6a5f4881/lib/qiita/elasticsearch/nodes/filterable_node.rb">filterable_node.rb</a> が担当しています。</p>
 
@@ -185,13 +159,10 @@ FilterableNode.new(tokens).to_hash</p>
 
 <p>後は個々のトークンを適切な形に変換していく処理が続くので省略しますが、上記のような流れでトークン列をクエリに変換していくと、最終的に検索クエリが得られます。実際には、説明した以外にも <a href="http://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-match-query.html">Match Query</a>、<a href="http://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-multi-match-query.html">Multi Match Query</a>、<a href="http://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-term-query.html">Term Query</a>、<a href="http://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-prefix-query.html">Prefix Query</a> などを組み合わせて検索クエリを表現しています。qiita-elasticsearchでは、クエリ文字列をトークンに分割する処理と検索クエリを組み立てる処理をまとめてQueryBuilderというクラスで担当しています。単純な例では、以下のような使い方になります。コード上では <a href="https://github.com/increments/qiita-elasticsearch/blob/master/lib/qiita/elasticsearch/query_builder.rb">query_builder.rb</a> がこの部分の処理を担当しています。</p>
 
-<p>```rb
-query<em>builder = QueryBuilder.new
-query</em>builder.build(&quot;a&quot;)</p>
-
-<h1>=&gt; {&quot;match&quot;=&gt;{&quot;_all&quot;=&gt;&quot;a&quot;}}</h1>
-
-<p>```</p>
+<pre><code class="rb">query_builder = QueryBuilder.new
+query_builder.build(&quot;a&quot;)
+#=&gt; {&quot;match&quot;=&gt;{&quot;_all&quot;=&gt;&quot;a&quot;}}
+</code></pre>
 
 <h2>おわり</h2>
 
