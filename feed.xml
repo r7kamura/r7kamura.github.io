@@ -3,7 +3,7 @@
   <title>r7kamura.com</title>
   <link rel="self" type="application/atom+xml" href="https://r7kamura.com/feed.xml"/>
   <link rel="alternate" type="text/html" href="https://r7kamura.com/"/>
-  <updated>2020-09-11T17:49:16+00:00</updated>
+  <updated>2020-09-11T18:03:14+00:00</updated>
   <author>
     <name>Ryo Nakamura</name>
   </author>
@@ -14,7 +14,7 @@
       <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-09-12-activerecord-enum-translation"/>
       <id>tag:r7kamura.com,2019:/articles/2020-09-12-activerecord-enum-translation</id>
       <published>2020-09-12T00:00:00+00:00</published>
-      <updated>2020-09-11T17:48:49+00:00</updated>
+      <updated>2020-09-11T18:02:43+00:00</updated>
       <content type="html">&lt;p&gt;ActiveRecordのenumにi18n機能を追加するgemをつくった。&lt;/p&gt;
 
 &lt;p&gt;&lt;a href=&quot;https://github.com/r7kamura/activerecord-enum_translation&quot;&gt;https://github.com/r7kamura/activerecord-enum_translation&lt;/a&gt;&lt;/p&gt;
@@ -44,6 +44,12 @@
 &lt;li&gt;ActiveModel::Translationと仕様が近いやつ&lt;/li&gt;
 &lt;/ul&gt;&lt;/li&gt;
 &lt;/ul&gt;
+
+&lt;hr&gt;
+
+&lt;p&gt;話は脱線するけれど、この「便利なショートカットは明示的な宣言で追加する」という考え方は、特にRubyのような言語で規模の大きいコードを書くときには本当に大事な考え方だと思っている。&lt;/p&gt;
+
+&lt;p&gt;静的検査に頼れない言語の場合、基本的にgrepに頼りながらコードを追っていくことになるので、そのメソッドが確かに定義されているという足掛かりがコード中に現れると本当に安心する。&lt;/p&gt;
 </content>
     </entry>
   
@@ -52,7 +58,7 @@
       <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-09-11-vscode-disable-suggestion"/>
       <id>tag:r7kamura.com,2019:/articles/2020-09-11-vscode-disable-suggestion</id>
       <published>2020-09-11T00:00:00+00:00</published>
-      <updated>2020-09-11T17:48:49+00:00</updated>
+      <updated>2020-09-11T18:02:43+00:00</updated>
       <content type="html">&lt;p&gt;VSCodeで文字を入力している最中に「もしかしてこれじゃない？」って補完候補をポップアップしてくれるやつがすごく鬱陶しいので、無効化した。&lt;/p&gt;
 
 &lt;pre&gt;&lt;code class=&quot;json&quot;&gt;{
@@ -80,7 +86,7 @@
       <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-08-30-rails-csrf-upgrade"/>
       <id>tag:r7kamura.com,2019:/articles/2020-08-30-rails-csrf-upgrade</id>
       <published>2020-08-30T00:00:00+00:00</published>
-      <updated>2020-09-11T17:48:49+00:00</updated>
+      <updated>2020-09-11T18:02:43+00:00</updated>
       <content type="html">&lt;h2&gt;結論&lt;/h2&gt;
 
 &lt;p&gt;Rails 6.0で &lt;code&gt;Rails.configuration.action_dispatch.use_cookies_with_metadata = true&lt;/code&gt; な状態で生成したCookieをSessionに利用する場合、5.2ではそのSessionを利用できないため、結果的にそのauthenticity_tokenは利用できない。&lt;/p&gt;
@@ -135,7 +141,7 @@ rails s
       <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-04-18-diary"/>
       <id>tag:r7kamura.com,2019:/articles/2020-04-18-diary</id>
       <published>2020-04-18T00:00:00+00:00</published>
-      <updated>2020-09-11T17:48:49+00:00</updated>
+      <updated>2020-09-11T18:02:43+00:00</updated>
       <content type="html">&lt;p&gt;最近について。&lt;/p&gt;
 
 &lt;h2&gt;AtomからVSCodeへ&lt;/h2&gt;
@@ -206,7 +212,7 @@ rails s
       <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-02-28-marcotogingaryu"/>
       <id>tag:r7kamura.com,2019:/articles/2020-02-28-marcotogingaryu</id>
       <published>2020-02-28T00:00:00+00:00</published>
-      <updated>2020-09-11T17:48:49+00:00</updated>
+      <updated>2020-09-11T18:02:43+00:00</updated>
       <content type="html">&lt;p&gt;&lt;img src=&quot;/images/2020-02-28-marcotogingaryu.jpg&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
 
 &lt;p&gt;前々から気になってた『マルコと銀河竜』が遂に発売されたので、購入してそのままエンディングまで駆け抜けてしまった。&lt;/p&gt;
@@ -226,7 +232,7 @@ rails s
       <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-02-25-kakutei"/>
       <id>tag:r7kamura.com,2019:/articles/2020-02-25-kakutei</id>
       <published>2020-02-25T00:00:00+00:00</published>
-      <updated>2020-09-11T17:48:49+00:00</updated>
+      <updated>2020-09-11T18:02:43+00:00</updated>
       <content type="html">&lt;p&gt;2019年分の確定申告書類を提出した。今年で3年目。今年も郵送。予定納税分以外の税金の払込はこれから。&lt;/p&gt;
 
 &lt;ul&gt;
@@ -257,7 +263,7 @@ rails s
       <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-02-17-my-protein"/>
       <id>tag:r7kamura.com,2019:/articles/2020-02-17-my-protein</id>
       <published>2020-02-17T00:00:00+00:00</published>
-      <updated>2020-09-11T17:48:49+00:00</updated>
+      <updated>2020-09-11T18:02:43+00:00</updated>
       <content type="html">&lt;p&gt;&lt;img src=&quot;/images/2020-02-17-my-protein.jpg&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
 
 &lt;p&gt;マイプロテインというスポーツ栄養ブランドのホエイプロテインが送料無料で1kg 1890円だったので、チョコレートブラウニー味のやつを買ってみた。&lt;/p&gt;
@@ -281,7 +287,7 @@ rails s
       <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-02-10-fe-three-houses"/>
       <id>tag:r7kamura.com,2019:/articles/2020-02-10-fe-three-houses</id>
       <published>2020-02-10T00:00:00+00:00</published>
-      <updated>2020-09-11T17:48:49+00:00</updated>
+      <updated>2020-09-11T18:02:43+00:00</updated>
       <content type="html">&lt;p&gt;&lt;img src=&quot;/images/2020-02-10-fe-three-houses.jpg&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
 
 &lt;p&gt;ようやく3つの学級をクリアしたので感想を書ける。&lt;/p&gt;
@@ -321,7 +327,7 @@ rails s
       <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-01-27-void-trrlm"/>
       <id>tag:r7kamura.com,2019:/articles/2020-01-27-void-trrlm</id>
       <published>2020-01-27T00:00:00+00:00</published>
-      <updated>2020-09-11T17:48:49+00:00</updated>
+      <updated>2020-09-11T18:02:43+00:00</updated>
       <content type="html">&lt;p&gt;&lt;img src=&quot;/images/2020-01-27-void-trrlm.jpg&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
 
 &lt;p&gt;日本一ソフトウェアの『void tRrLM(); // ボイド・テラリウム』をやった。たまごっちと不思議のダンジョンを同時にやるような作品で、終末世界で見つけた女の子のお世話をしながら、ダンジョンを探索して食糧や建築資材を集めてくることになる。&lt;/p&gt;
@@ -345,7 +351,7 @@ rails s
       <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-01-23-13sar"/>
       <id>tag:r7kamura.com,2019:/articles/2020-01-23-13sar</id>
       <published>2020-01-23T00:00:00+00:00</published>
-      <updated>2020-09-11T17:48:49+00:00</updated>
+      <updated>2020-09-11T18:02:43+00:00</updated>
       <content type="html">&lt;p&gt;先週末からやっていた『十三機兵防衛圏』を遂にクリアした。思い出しのために、ネタバレを避けつつ歯切れの悪い感想を残しておく。&lt;/p&gt;
 
 &lt;p&gt;&lt;a href=&quot;https://13sar.jp/&quot;&gt;https://13sar.jp/&lt;/a&gt;&lt;/p&gt;
@@ -365,7 +371,7 @@ rails s
       <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-01-21-nameteki"/>
       <id>tag:r7kamura.com,2019:/articles/2020-01-21-nameteki</id>
       <published>2020-01-21T00:00:00+00:00</published>
-      <updated>2020-09-11T17:48:49+00:00</updated>
+      <updated>2020-09-11T18:02:43+00:00</updated>
       <content type="html">&lt;p&gt;&lt;img src=&quot;https://images-fe.ssl-images-amazon.com/images/I/51osytbqqVL.jpg&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
 
 &lt;p&gt;伴名 練の『なめらかな世界と、その敵』を読んだ。表題作に加えて、&lt;/p&gt;
@@ -393,7 +399,7 @@ rails s
       <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-01-19-atelier-ryza"/>
       <id>tag:r7kamura.com,2019:/articles/2020-01-19-atelier-ryza</id>
       <published>2020-01-19T00:00:00+00:00</published>
-      <updated>2020-09-11T17:48:49+00:00</updated>
+      <updated>2020-09-11T18:02:43+00:00</updated>
       <content type="html">&lt;p&gt;&lt;img src=&quot;/images/2020-01-19-atelier-ryza.jpg&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
 
 &lt;p&gt;ライザのアトリエがSteamで30%オフで売られていたので、購入した勢いで一気にクリアした。&lt;/p&gt;
@@ -413,7 +419,7 @@ rails s
       <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-01-12-gen-gen-kusano"/>
       <id>tag:r7kamura.com,2019:/articles/2020-01-12-gen-gen-kusano</id>
       <published>2020-01-12T00:00:00+00:00</published>
-      <updated>2020-09-11T17:48:49+00:00</updated>
+      <updated>2020-09-11T18:02:43+00:00</updated>
       <content type="html">&lt;p&gt;&lt;img src=&quot;https://images-fe.ssl-images-amazon.com/images/I/615-PsNiAsL.jpg&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
 
 &lt;p&gt;新人SF作家 草野原々による短編集『最後にして最初のアイドル』を読んだ。表題作に加え、『エヴォリューションがーるず』と『暗黒声優』の計三篇が含まれている。&lt;/p&gt;
@@ -439,7 +445,7 @@ rails s
       <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-01-10-broken-reality"/>
       <id>tag:r7kamura.com,2019:/articles/2020-01-10-broken-reality</id>
       <published>2020-01-10T00:00:00+00:00</published>
-      <updated>2020-09-11T17:48:49+00:00</updated>
+      <updated>2020-09-11T18:02:43+00:00</updated>
       <content type="html">&lt;p&gt;&lt;img src=&quot;/images/2020-01-10-broken-reality-1.jpg&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
 
 &lt;p&gt;遂に『Broken Reality』をクリアした。短いようでいて、ものすごく長い時間に感じられた。だがやり遂げた。&lt;/p&gt;
@@ -467,7 +473,7 @@ rails s
       <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-01-09-locust"/>
       <id>tag:r7kamura.com,2019:/articles/2020-01-09-locust</id>
       <published>2020-01-09T00:00:00+00:00</published>
-      <updated>2020-09-11T17:48:49+00:00</updated>
+      <updated>2020-09-11T18:02:43+00:00</updated>
       <content type="html">&lt;p&gt;&lt;img src=&quot;https://images-fe.ssl-images-amazon.com/images/I/51ScdPFm7LL.jpg&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;a href=&quot;https://www.amazon.co.jp/dp/B072FGTM65&quot;&gt;https://www.amazon.co.jp/dp/B072FGTM65&lt;/a&gt;&lt;/p&gt;
@@ -485,7 +491,7 @@ rails s
       <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-01-07-explore-fushimi-inari"/>
       <id>tag:r7kamura.com,2019:/articles/2020-01-07-explore-fushimi-inari</id>
       <published>2020-01-07T00:00:00+00:00</published>
-      <updated>2020-09-11T17:48:49+00:00</updated>
+      <updated>2020-09-11T18:02:43+00:00</updated>
       <content type="html">&lt;p&gt;&lt;img src=&quot;/images/2020-01-07-explore-fushimi-inari-3.jpg&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
 
 &lt;p&gt;伏見稲荷を散策できるウォーキングシミュレーター『Explore Fushimi Inari』をプレイした。&lt;/p&gt;
@@ -508,7 +514,7 @@ rails s
       <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-01-07-macbook-pro-repair"/>
       <id>tag:r7kamura.com,2019:/articles/2020-01-07-macbook-pro-repair</id>
       <published>2020-01-07T00:00:00+00:00</published>
-      <updated>2020-09-11T17:48:49+00:00</updated>
+      <updated>2020-09-11T18:02:43+00:00</updated>
       <content type="html">&lt;p&gt;バッテリーが膨張したMacBook ProをAppleストアに預けたところ、2日後に無料で修理されて工場から送られてきた。&lt;/p&gt;
 
 &lt;p&gt;このMacBook Proは2017年7月に購入したもの。過充電によりバッテリーがひどく膨張し、蓋も閉まらず、キーボードとトラックパッドが折れ曲がって破壊されるのも時間の問題という状態になっていた。ちなみに購入以来、ずっとクラムシェルモード (本体は閉じた状態でディスプレイに接続して利用するモード) で利用しており、数回しか外に持ち出していない。&lt;/p&gt;
@@ -538,7 +544,7 @@ rails s
       <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-01-06-return-of-the-obra-dinn"/>
       <id>tag:r7kamura.com,2019:/articles/2020-01-06-return-of-the-obra-dinn</id>
       <published>2020-01-06T00:00:00+00:00</published>
-      <updated>2020-09-11T17:48:49+00:00</updated>
+      <updated>2020-09-11T18:02:43+00:00</updated>
       <content type="html">&lt;p&gt;&lt;img src=&quot;/images/2020-01-06-return-of-the-obra-dinn.jpg&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
 
 &lt;p&gt;死体謎解きアドベンチャーゲーム『Return of the Obra Dinn』をやった。&lt;/p&gt;
@@ -561,7 +567,7 @@ rails s
       <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-01-04-cave-story"/>
       <id>tag:r7kamura.com,2019:/articles/2020-01-04-cave-story</id>
       <published>2020-01-04T00:00:00+00:00</published>
-      <updated>2020-09-11T17:48:49+00:00</updated>
+      <updated>2020-09-11T18:02:43+00:00</updated>
       <content type="html">&lt;p&gt;&lt;img src=&quot;/images/2020-01-04-cave-story.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
 
 &lt;p&gt;洞窟物語を初めてやり、5時間ほどプレイして、ひいひい言いながらもとりあえず通常エンドを迎えた。&lt;/p&gt;
@@ -577,7 +583,7 @@ rails s
       <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-01-03-a-short-hike"/>
       <id>tag:r7kamura.com,2019:/articles/2020-01-03-a-short-hike</id>
       <published>2020-01-03T00:00:00+00:00</published>
-      <updated>2020-09-11T17:48:49+00:00</updated>
+      <updated>2020-09-11T18:02:43+00:00</updated>
       <content type="html">&lt;p&gt;&lt;img src=&quot;/images/2020-01-03-a-short-hike.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
 
 &lt;p&gt;短編ハイキングアドベンチャーゲーム『A Short Hike』をやった。&lt;/p&gt;
