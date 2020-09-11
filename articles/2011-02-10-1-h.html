@@ -205,13 +205,13 @@
   %wheel <span class="synIdentifier">ALL</span>=<span class="synStatement">(</span>ALL<span class="synStatement">)</span> ALL           <span class="synComment"> # ここのコメントアウトを外す</span>
 % <span class="synStatement">echo</span><span class="synConstant"> </span><span class="synPreProc">$LANG</span><span class="synConstant">                      </span># システムの言語設定状況を確認
 % vi /etc/sysconfig/i18n         <span class="synComment"> # システムの言語設定状況を確認</span>
-  <span class="synIdentifier">LANG</span>=<span class="synStatement">&quot;</span><span class="synConstant">ja<em>JP.UTF-8</span><span class="synStatement">&quot;</span>             <span class="synComment"> # 慣れ親しんだ祖国の言語に変更</span>
+  <span class="synIdentifier">LANG</span>=<span class="synStatement">&quot;</span><span class="synConstant">ja_JP.UTF-8</span><span class="synStatement">&quot;</span>             <span class="synComment"> # 慣れ親しんだ祖国の言語に変更</span>
 % yum update                     <span class="synComment"> # yumのシステムが古そうなので更新</span>
 % yum <span class="synSpecial">-y</span> <span class="synStatement">install</span> vim-enhanced    <span class="synComment"> # vimが古いので更新</span>
 % vim /etc/profile.d/vim.sh      <span class="synComment"> # vimの設定を少し弄る</span>
   % <span class="synStatement">[</span> <span class="synPreProc">$tmpid</span> <span class="synStatement">-le</span> <span class="synConstant">100</span> <span class="synStatement">]</span> <span class="synStatement">&amp;&amp;</span> <span class="synStatement">return</span> <span class="synComment"> # この行を&quot;%&quot;でコメントアウトする</span>
 $ su hoge                        <span class="synComment"> # hogeユーザでログイン</span>
-$ vi ~/.bash</em>profile             <span class="synComment"> # hogeユーザのbash設定を編集</span>
+$ vi ~/.bash_profile             <span class="synComment"> # hogeユーザのbash設定を編集</span>
   <span class="synStatement">alias </span><span class="synIdentifier">vi</span><span class="synStatement">=&#39;</span><span class="synConstant">vim</span><span class="synStatement">&#39;</span>                 <span class="synComment"> # viと入力してもvimを呼ぶ</span>
   <span class="synStatement">alias </span><span class="synIdentifier">sudo</span><span class="synStatement">=&#39;</span><span class="synConstant">sudo </span><span class="synStatement">&#39;</span>             <span class="synComment"> # sudo viでもvimを呼ぶ黒魔法</span>
   <span class="synIdentifier">PATH</span>=<span class="synPreProc">$PATH</span>:/sbin               <span class="synComment"> # /sbinにパスを通す</span>
@@ -231,21 +231,21 @@ $ <span class="synStatement">source</span> ~/.bash_profile         <span class="
     <p>次はSSHの設定です。既にSSHでログインして作業されていることかと思いますが、標準のSSHの設定では少し頑張れば誰でも入れてしまうような脆弱な状態なので、少し設定を変えて強固にしてみましょう。</p>
 <pre class="code lang-sh" data-lang="sh" data-unlink><span class="synComment"># [ローカル] ここでは仮にMacで操作しているものと仮定します</span>
 $ ssh-keygen                     <span class="synComment"> # RSA鍵を作成(既にあれば作成不要)</span>
-$ scp <span class="synSpecial">-P</span> <span class="synConstant">22</span> .ssh/id<em>rsa.pub <a href="mailto:hoge@hostname.sakura.ne.jp">hoge@hostname.sakura.ne.jp</a>:/tmp
+$ scp <span class="synSpecial">-P</span> <span class="synConstant">22</span> .ssh/id_rsa.pub <a href="mailto:hoge@hostname.sakura.ne.jp">hoge@hostname.sakura.ne.jp</a>:/tmp
                                  <span class="synComment"> # scpを利用してサーバーに鍵を渡します</span>
 <span class="synComment"># [さくらVPS]</span>
 $ <span class="synStatement">mkdir</span> ~/.ssh                   <span class="synComment"> # 鍵を配置する.sshディレクトリを作成</span>
-$ sudo <span class="synStatement">mv</span> /tmp/id</em>rsa.pub ~/.ssh/authorized<em>keys
+$ sudo <span class="synStatement">mv</span> /tmp/id_rsa.pub ~/.ssh/authorized_keys
                                  <span class="synComment"> # .ssh/内に適切な名前で鍵を置きます</span>
 $ <span class="synStatement">chmod</span> <span class="synConstant">700</span> ~/.ssh               <span class="synComment"> # 読み書き実行権限を付けます</span>
-$ <span class="synStatement">chmod</span> <span class="synConstant">600</span> ~/.ssh/authorized</em>key<span class="synComment">s# 読み書き権限を付けます</span>
+$ <span class="synStatement">chmod</span> <span class="synConstant">600</span> ~/.ssh/authorized_key<span class="synComment">s# 読み書き権限を付けます</span>
 $ su -                           <span class="synComment"> # rootでログインします</span>
-% vi /etc/ssh/sshd<em>config        <span class="synComment"> # sshの設定を編集します</span>
+% vi /etc/ssh/sshd_config        <span class="synComment"> # sshの設定を編集します</span>
   PermitEmptyPasswords no        <span class="synComment"> # パスワード無しのログインを禁止</span>
   RSAAuthentication yes          <span class="synComment"> # RSA認証を許可</span>
   PubkeyAuthentication yes       <span class="synComment"> # 公開鍵認証を許可</span>
                                  <span class="synComment"> # 認証鍵ファイルを指定</span>
-  AuthorizedKeysFile .ssh/authorized</em>keys
+  AuthorizedKeysFile .ssh/authorized_keys
   PasswordAuthentication no      <span class="synComment"> # パスワード認証を非許可</span>
   PermitRootLogin no             <span class="synComment"> # rootログインを非許可</span>
 % /etc/rc.d/init.d/sshd <span class="synStatement">restart</span>  <span class="synComment"> # SSHサービスを再起動して設定を反映</span>

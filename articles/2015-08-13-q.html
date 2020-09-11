@@ -129,7 +129,7 @@ exports.handler = function (event, context) {
 
 <h2>IAM Roleを設定する</h2>
 
-<p>show<em>pingのパスと実装を変更したので、これをAWS LambdaとAmazon API Gatewayに反映させれば完了です。Amazon API GatewayからAWS Lambda上に置かれたshow</em>pingという関数を呼び出して実行することになりますが、AWSの制約上、予めshow_pingという関数にAmazon API Gatewayからの呼び出しを許可する権限を与えておかなければ実行できないようになっています。その権限管理の仕組みとしてIAM Roleを使うことになっているため、まずIAM Roleを用意する必要があります。</p>
+<p>show_pingのパスと実装を変更したので、これをAWS LambdaとAmazon API Gatewayに反映させれば完了です。Amazon API GatewayからAWS Lambda上に置かれたshow_pingという関数を呼び出して実行することになりますが、AWSの制約上、予めshow_pingという関数にAmazon API Gatewayからの呼び出しを許可する権限を与えておかなければ実行できないようになっています。その権限管理の仕組みとしてIAM Roleを使うことになっているため、まずIAM Roleを用意する必要があります。</p>
 
 <p>IAM Roleは、AWSマネジメントコンソールのIAMサービスから作成できます。AWSLambdaBasicExecutionRoleというポリシーを持ったIAM Roleを新たに作成し、そのIAM RoleのARNと呼ばれる識別子を手に入れ、Fluctのアプリのpackage.jsonに設定します。かなり面倒ですが、全てのactionで同じIAM Roleを利用するので、この作業は一度だけやれば大丈夫です。この辺、権限がある場合は自動で設定されるようにしたいですね。</p>
 

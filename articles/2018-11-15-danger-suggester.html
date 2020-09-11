@@ -96,7 +96,7 @@
 
 <p>suggested changes では、「この1行をこういう複数行にするのはどう？」という変更は提案できますが、「この複数行をこういう内容にするのはどう？」というように、複数行に対する変更は提案できません。1行ごとに変更を提案することも考えたのですが、煩わしい結果になりそうので、対象が1行になるような変更だけ提案するようにしました。</p>
 
-<p>やや込み入った箇所なので興味がある方だけ見ていただければと思いますが、コードで言うと <a href="https://github.com/r7kamura/danger-suggester/blob/79a3fb0904ce15b45dcbb756349bd584175a5148/lib/danger/suggester/change.rb#L23-L26">#suggestible?</a> メソッドの箇所です。change には必ず先に deletion の列が並ぶはずなので、削除行だけ取り出すなら Enumerable#take<em>while が、追加行だけ取り出すなら Enumerable#drop</em>while が利用できます。</p>
+<p>やや込み入った箇所なので興味がある方だけ見ていただければと思いますが、コードで言うと <a href="https://github.com/r7kamura/danger-suggester/blob/79a3fb0904ce15b45dcbb756349bd584175a5148/lib/danger/suggester/change.rb#L23-L26">#suggestible?</a> メソッドの箇所です。change には必ず先に deletion の列が並ぶはずなので、削除行だけ取り出すなら Enumerable#take_while が、追加行だけ取り出すなら Enumerable#drop_while が利用できます。</p>
 
 <p>また、suggested changes では Pull Request で変更されていない行に対する変更は提案できないため、上述の方法で求めた提案候補の中で、提案可能なものだけを絞り込むような仕組みを用意しました。これは Pull Request の git-diff から hunk を辿って追加行を抽出することで判定できます。</p>
 

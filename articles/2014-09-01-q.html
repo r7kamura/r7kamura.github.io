@@ -53,13 +53,13 @@
 
 <h3>after_actionは例外時に実行されない</h3>
 
-<p>RailsではHTTPリクエストを受け付けると、まずRouting情報から適切なControllerのクラスとインスタンスメソッドが選択され、そのControllerクラスのインスタンスが生成され、選択されたメソッドが実行される。このとき、before<em>action、after</em>actionといった処理をメソッドの前後に実行させることができる。メソッドの実行後に処理を行うafter<em>actionに焦点を当てると、例えばPV数を計上しておく、レスポンスのキャッシュを生成する、といった処理にafter</em>actionが利用される。</p>
+<p>RailsではHTTPリクエストを受け付けると、まずRouting情報から適切なControllerのクラスとインスタンスメソッドが選択され、そのControllerクラスのインスタンスが生成され、選択されたメソッドが実行される。このとき、before_action、after_actionといった処理をメソッドの前後に実行させることができる。メソッドの実行後に処理を行うafter_actionに焦点を当てると、例えばPV数を計上しておく、レスポンスのキャッシュを生成する、といった処理にafter_actionが利用される。</p>
 
-<p>after<em>actionに登録した処理は例外発生時には実行されないので、「レスポンスの中身を生成する訳ではないが、正常に処理が終わった場合のみ実行したい処理」を実現するのにafter</em>actionを利用すると、上手く処理を分離できて見通しが良くなる。この点を考えると、after_actionに正常系のための処理を任せるためにも、エラーレスポンスを返したい場合は例外を発生させるのが合理的だと言える。</p>
+<p>after_actionに登録した処理は例外発生時には実行されないので、「レスポンスの中身を生成する訳ではないが、正常に処理が終わった場合のみ実行したい処理」を実現するのにafter_actionを利用すると、上手く処理を分離できて見通しが良くなる。この点を考えると、after_actionに正常系のための処理を任せるためにも、エラーレスポンスを返したい場合は例外を発生させるのが合理的だと言える。</p>
 
 <h3>rescue_fromでは捕捉できない例外がある</h3>
 
-<p>RailsのControllerでは、Controller内で発生した例外を捕捉するためにrescue<em>fromという機能が提供されている。しかしながら、rescue</em>fromを利用して捕捉できる例外はControllerの処理の中で発生した例外だけであり、その外側で発生する例外は捕捉できない。例えば、Railsに組み込まれているRack middlewareで発生した例外は捕捉できないし、またrescue_fromの中で発生した例外も捕捉できない。もし仮にデコードできない文字列がJSONとして送られてきたとしたら、これはRack middlewareで処理されるため、500エラーが返ることになってしまう。</p>
+<p>RailsのControllerでは、Controller内で発生した例外を捕捉するためにrescue_fromという機能が提供されている。しかしながら、rescue_fromを利用して捕捉できる例外はControllerの処理の中で発生した例外だけであり、その外側で発生する例外は捕捉できない。例えば、Railsに組み込まれているRack middlewareで発生した例外は捕捉できないし、またrescue_fromの中で発生した例外も捕捉できない。もし仮にデコードできない文字列がJSONとして送られてきたとしたら、これはRack middlewareで処理されるため、500エラーが返ることになってしまう。</p>
 
 <p><img src="https://qiita-image-store.s3.amazonaws.com/0/4365/fb04e1b7-2049-0be2-d81f-eefe4e29d6af.png" alt="onion.png" title="onion.png"></p>
 
@@ -67,7 +67,7 @@
 
 <p>これを回避するには、例外を捕捉して適切なエラーレスポンスを返すためのRack middlewareを実装し、Rack middleware stackの外側の方に配置するのが良い。また、エラーレスポンスの生成に例外処理を利用する場合、エラーレスポンスの種類ごとに対応する例外クラスを用意するとレスポンスの内容を管理しやすい。加えて、Railsから発生した例外をエラーレスポンス用の例外クラスに変換するレイヤがあると、全ての例外を適切なエラーレスポンスに変換することができる。</p>
 
-<p>以上をまとめて実装すると、下記のようなコードになる。MyApp::ExceptionHandlerという名前のRack middlewareをつくり、Railsのrack middleware stackにこれを配置している。エラーレスポンスを生成するための例外クラスとして、用途に合わせてMyApp::Exceptions::InternalServerErrorやMyApp::Exceptions::NotFoundを用意している。これらのクラスはto<em>rack</em>responseというインスタンスメソッドを実装しており、このメソッドの実行結果が最終的にエラーレスポンスになる。エラーレスポンスには、人間用のメッセージとしてmessageプロパティを、プログラム用のエラーコードとしてtypeプロパティを含んでいる。</p>
+<p>以上をまとめて実装すると、下記のようなコードになる。MyApp::ExceptionHandlerという名前のRack middlewareをつくり、Railsのrack middleware stackにこれを配置している。エラーレスポンスを生成するための例外クラスとして、用途に合わせてMyApp::Exceptions::InternalServerErrorやMyApp::Exceptions::NotFoundを用意している。これらのクラスはto_rack_responseというインスタンスメソッドを実装しており、このメソッドの実行結果が最終的にエラーレスポンスになる。エラーレスポンスには、人間用のメッセージとしてmessageプロパティを、プログラム用のエラーコードとしてtypeプロパティを含んでいる。</p>
 
 <pre><code class="ruby">module MyApp
   class ExceptionHandler

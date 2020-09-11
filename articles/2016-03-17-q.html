@@ -66,7 +66,7 @@
 <li>MentionNotification &lt; Notification</li>
 </ul>
 
-<p>さて、こうなると source<em>type の内容と type の内容が重複してしまうことになるので、source</em>type カラムを削除することを考えます。ActiveRecordが source<em>type の値を参照しようとしたとき、以下のように2つのメソッドをOverrideすることで、動的に値を組み立てることができます。<code>#[]</code> の変更だけで良いように思われがちですが、`#</em>read_attribute` の値がActiveRecord内部で関連レコードのキャッシュ用に利用されているので、これも変更する必要があります。</p>
+<p>さて、こうなると source_type の内容と type の内容が重複してしまうことになるので、source_type カラムを削除することを考えます。ActiveRecordが source_type の値を参照しようとしたとき、以下のように2つのメソッドをOverrideすることで、動的に値を組み立てることができます。<code>#[]</code> の変更だけで良いように思われがちですが、<code>#_read_attribute</code> の値がActiveRecord内部で関連レコードのキャッシュ用に利用されているので、これも変更する必要があります。</p>
 
 <pre><code class="rb">class Notification &lt; ActiveRecord::Base
   # @note Override

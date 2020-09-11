@@ -59,15 +59,15 @@
 
 <h2>対象リソース名を目的語に含む</h2>
 
-<p>対象とするリソース名を目的語としてメソッド名に利用する。例えば GET /usersにはlist<em>users、DELETE /users/:idにはdelete</em>userを利用する。</p>
+<p>対象とするリソース名を目的語としてメソッド名に利用する。例えば GET /usersにはlist_users、DELETE /users/:idにはdelete_userを利用する。</p>
 
 <h2>ネストしたリソースの名前は目的語のprefixにする</h2>
 
-<p>GET /users/:user<em>id/gists というネストしたURLを GET /gists をどう区別するかという問題がある。同じ list</em>gistsで引数によってリクエスト先を変更するという仕様にもできるが、1つのエンドポイントには1つのメソッドが対応する、というルールを守った方が理解しやすいと考える。この場合、GET /users/:user<em>id/gistsにはlist</em>user<em>gists、GET /gistsにはlist</em>gistsを対応させる。</p>
+<p>GET /users/:user_id/gists というネストしたURLを GET /gists をどう区別するかという問題がある。同じ list_gistsで引数によってリクエスト先を変更するという仕様にもできるが、1つのエンドポイントには1つのメソッドが対応する、というルールを守った方が理解しやすいと考える。この場合、GET /users/:user_id/gistsにはlist_user_gists、GET /gistsにはlist_gistsを対応させる。</p>
 
 <h2>on/offのスイッチを操作する場合は別の動詞を用意する</h2>
 
-<p>リクエストボディを送らずレスポンスも受け取らないパターンのAPIがある。例えばGitHubの提供しているGistにスターを付けたり外したりするAPIは、(PUT|DELETE) /gists/:id というエンドポイントになっている。スターというリソースを考えて「put<em>gist</em>star」「delete<em>gist</em>star」という風にしても良いが、ここでは (un)starという動詞を考えて「star<em>gist」「unstar</em>gist」という風に扱う。</p>
+<p>リクエストボディを送らずレスポンスも受け取らないパターンのAPIがある。例えばGitHubの提供しているGistにスターを付けたり外したりするAPIは、(PUT|DELETE) /gists/:id というエンドポイントになっている。スターというリソースを考えて「put_gist_star」「delete_gist_star」という風にしても良いが、ここでは (un)starという動詞を考えて「star_gist」「unstar_gist」という風に扱う。</p>
 
   </div>
 </article>

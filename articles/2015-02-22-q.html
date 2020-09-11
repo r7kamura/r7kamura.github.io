@@ -127,7 +127,7 @@ end
 end
 </code></pre>
 
-<p>しかし、このコードではエラーが発生します。Mentionはmentioned<em>tweetに紐付いているものの、Favoriteがmentioned</em>tweetに紐付いていないためです。</p>
+<p>しかし、このコードではエラーが発生します。Mentionはmentioned_tweetに紐付いているものの、Favoriteがmentioned_tweetに紐付いていないためです。</p>
 
 <pre><code>ActiveRecord::AssociationNotFoundError:
   Association named &#39;mentioned_tweet&#39; was not found on Favorite
@@ -137,7 +137,7 @@ end
 
 <h3>Model</h3>
 
-<p>まず <code>Notification.belongs_to(:object)</code> の関連を取り除き、二つの別の名前の関連に分けます。次に、<a href="https://github.com/r7kamura/activerecord-belongs_to_if">activerecord-belongs<em>to</em>if</a> を利用してそれぞれの関連が成り立つための条件を与えます。この条件を与えることで、例えば <code>notifications.preload(:favorite)</code> としたときに、条件に一致するnotificationだけfavoriteをpreloadするようになります。</p>
+<p>まず <code>Notification.belongs_to(:object)</code> の関連を取り除き、二つの別の名前の関連に分けます。次に、<a href="https://github.com/r7kamura/activerecord-belongs_to_if">activerecord-belongs_to_if</a> を利用してそれぞれの関連が成り立つための条件を与えます。この条件を与えることで、例えば <code>notifications.preload(:favorite)</code> としたときに、条件に一致するnotificationだけfavoriteをpreloadするようになります。</p>
 
 <pre><code class="rb">class Notification &lt; ActiveRecord::Base
   #belongs_to :object, polymorphic: true

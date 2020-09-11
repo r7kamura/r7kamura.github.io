@@ -176,10 +176,10 @@ $ git commit <span class="synSpecial">--amend</span>
 </div>
 <div class="section">
     <h3>.gitignore - ファイルの無視</h3>
-    <p>logや.DS<em>Storeファイル等Gitに無視してほしいファイルがある場合は、無視させたいファイルのパターンを並べた.gitignoreというファイルを作成する。.gitignoreの影響範囲は、それが置かれたディレクトリ以下全てのgit管理下のディレクトリ。filenameの指定には.gitignoreの例で示すようなglobパターン(*)やディレクトリ名の指定などが利用できる。.gitignoreに記述するパターンの規則はこういう感じ。</p>
+    <p>logや.DS_Storeファイル等Gitに無視してほしいファイルがある場合は、無視させたいファイルのパターンを並べた.gitignoreというファイルを作成する。.gitignoreの影響範囲は、それが置かれたディレクトリ以下全てのgit管理下のディレクトリ。filenameの指定には.gitignoreの例で示すようなglobパターン(<em>)やディレクトリ名の指定などが利用できる。.gitignoreに記述するパターンの規則はこういう感じ。</p>
 <pre class="code" data-unlink>$ vi .gitignore
-.DS</em>Store                              <span class="synComment"> # .DS_Storeファイルを無視(Macの一時ファイル)</span>
-<em>.log                                  <span class="synComment"> # .logで終わるファイルを無視(Rails等のログファイル)</span>
+.DS_Store                              <span class="synComment"> # .DS_Storeファイルを無視(Macの一時ファイル)</span>
+*.log                                  <span class="synComment"> # .logで終わるファイルを無視(Rails等のログファイル)</span>
 *.sqlite                               <span class="synComment"> # .sqliteで終わるファイルを無視(SQLite3のDBファイル)</span>
 *.swp                                  <span class="synComment"> # .swpで終わるファイルを無視(Vimの一時ファイル)</span>
 *~                                     <span class="synComment"> # ~で終わるファイルを無視(Emacsの一時ファイル)</span>

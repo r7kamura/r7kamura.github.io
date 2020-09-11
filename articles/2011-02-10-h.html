@@ -233,7 +233,7 @@
 % /etc/rc.d/init.d/mysqld <span class="synStatement">start</span>      <span class="synComment"> # MySQLサービスを開始</span>
 % chkconfig mysqld on                <span class="synComment"> # MySQLサービスを自動起動設定</span>
 % chkconfig <span class="synSpecial">--list</span> mysqld             <span class="synComment"> # 設定反映を確認</span>
-% mysql<em>secure</em>installation          <span class="synComment"> # パスワード等の設定をウィザード形式で行う</span>
+% mysql_secure_installation          <span class="synComment"> # パスワード等の設定をウィザード形式で行う</span>
                                      <span class="synComment"> # new passwordの設定以外はEnter連打でOK</span>
                                      <span class="synComment"> # phpmyadminを導入します</span>
                                      <span class="synComment"> # phpと、phpmyadminに必要なものを導入</span>
@@ -254,7 +254,7 @@
   hogefuga...
 % config.inc.php                     <span class="synComment"> # 設定ファイルを編集</span>
                                      <span class="synComment"> # 暗号生成用文字列にランダムな文字列を設定</span>
-  <span class="synPreProc">$cfg</span><span class="synStatement">[&#39;</span><span class="synConstant">blowfish<em>secret</span><span class="synStatement">&#39;]</span> <span class="synStatement">=</span> <span class="synStatement">&#39;</span><span class="synConstant">...</span><span class="synStatement">&#39;;</span>   <span class="synComment"> # これでログイン時にパスワードを聞かれます</span>
+  <span class="synPreProc">$cfg</span><span class="synStatement">[&#39;</span><span class="synConstant">blowfish_secret</span><span class="synStatement">&#39;]</span> <span class="synStatement">=</span> <span class="synStatement">&#39;</span><span class="synConstant">...</span><span class="synStatement">&#39;;</span>   <span class="synComment"> # これでログイン時にパスワードを聞かれます</span>
   <span class="synPreProc">$cfg</span><span class="synStatement">[&#39;</span><span class="synConstant">Lang</span><span class="synStatement">&#39;]</span> <span class="synStatement">=</span> <span class="synStatement">&#39;</span><span class="synConstant">ja-utf-8</span><span class="synStatement">&#39;;</span>         <span class="synComment"> # 言語を日本語でUTF-8に設定</span>
 % vi /etc/httpd/conf.d/phpmyadmin.con<span class="synComment">f# phpmyadmin向けのApacheの設定ファイルを作成</span>
   Alias /phpmyadmin /var/www/phpmyadmin<span class="synComment"> # http://&lt;servername&gt;/phpmyadmin へのアクセスをphpmyadminの実体がある場所へ誘導</span>
@@ -280,9 +280,9 @@ $ su -
 % <span class="synStatement">cd</span> /var/www                        <span class="synComment"> # サンプルを元に設定ファイルを作成</span>
 % cp wp-config-sample.php wp-config.php
 % vi /var/www/wordpress/wp-config.php<span class="synComment"> # 設定ファイルを編集</span>
-  DB</em>NAME <span class="synStatement">=&gt;</span> <span class="synStatement">&#39;</span><span class="synConstant">wordpress</span><span class="synStatement">&#39;</span>             <span class="synComment"> # wordpress用DBの名前を入力</span>
-  DB<em>USER <span class="synStatement">=&gt;</span> <span class="synStatement">&#39;</span><span class="synConstant">wordpress</span><span class="synStatement">&#39;</span>             <span class="synComment"> # DB用ユーザ名を入力</span>
-  DB</em>PASSWORD <span class="synStatement">=&gt;</span> <span class="synStatement">&#39;</span><span class="synConstant">password</span><span class="synStatement">&#39;</span>          <span class="synComment"> # DB用パスワードを入力</span>
+  DB_NAME <span class="synStatement">=&gt;</span> <span class="synStatement">&#39;</span><span class="synConstant">wordpress</span><span class="synStatement">&#39;</span>             <span class="synComment"> # wordpress用DBの名前を入力</span>
+  DB_USER <span class="synStatement">=&gt;</span> <span class="synStatement">&#39;</span><span class="synConstant">wordpress</span><span class="synStatement">&#39;</span>             <span class="synComment"> # DB用ユーザ名を入力</span>
+  DB_PASSWORD <span class="synStatement">=&gt;</span> <span class="synStatement">&#39;</span><span class="synConstant">password</span><span class="synStatement">&#39;</span>          <span class="synComment"> # DB用パスワードを入力</span>
 % vi /etc/httpd/conf.d/wordpress.conf<span class="synComment"> # wordpress向けのApache設定ファイルを作成</span>
   Alias /blog /var/www/wordpress     <span class="synComment"> # phpmyadmin同様Aliasを張る</span>
 % /etc/rc.d/init.d/httpd <span class="synStatement">reload</span>      <span class="synComment"> # Apache再始動</span>

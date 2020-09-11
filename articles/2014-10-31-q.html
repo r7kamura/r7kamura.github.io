@@ -78,7 +78,7 @@ end
 
 <h3>ActionDispatch::DebugExceptions</h3>
 
-<p>ActionDispatch::Journey::Routerの外側にはActionDispatch::DebugExceptionsが居ます。もし <code>X-Cascade: pass</code> というレスポンスヘッダが返ってきた場合、production環境ではActionController::RoutingErrorをraiseし、development環境ではエラーの内容を表示するHTMLを返します。この環境による違いは、Rails.configuration.consider<em>all</em>requests_localを変更することで変更できます。もしdevelopment環境でもproduction環境同様のエラー表示を試したい場合は、この値をfalseにすると良いでしょう。</p>
+<p>ActionDispatch::Journey::Routerの外側にはActionDispatch::DebugExceptionsが居ます。もし <code>X-Cascade: pass</code> というレスポンスヘッダが返ってきた場合、production環境ではActionController::RoutingErrorをraiseし、development環境ではエラーの内容を表示するHTMLを返します。この環境による違いは、Rails.configuration.consider_all_requests_localを変更することで変更できます。もしdevelopment環境でもproduction環境同様のエラー表示を試したい場合は、この値をfalseにすると良いでしょう。</p>
 
 <h3>ActionDispatch::ShowExceptions</h3>
 
@@ -86,11 +86,11 @@ end
 
 <h3>ActionDispatch::ExceptionWrapper</h3>
 
-<p>「ActionController::RoutingErrorの例外に対応するステータスコードは404である」といった情報は、ActionDispatch::ExceptionWrapperが管理しています。この対応表はRails.configuration.action<em>dispatch.rescue</em>responsesと紐付いており、例えばActiveRecordはRailsアプリ初期化時にこの対応表にActiveRecord::RecordNotFoundを404として扱うように追加したりしています。</p>
+<p>「ActionController::RoutingErrorの例外に対応するステータスコードは404である」といった情報は、ActionDispatch::ExceptionWrapperが管理しています。この対応表はRails.configuration.action_dispatch.rescue_responsesと紐付いており、例えばActiveRecordはRailsアプリ初期化時にこの対応表にActiveRecord::RecordNotFoundを404として扱うように追加したりしています。</p>
 
 <h3>ActionDispatch::PublicExceptions</h3>
 
-<p>Rails.configuration.exceptions<em>appはデフォルトの状態ではActionDispatch::PublicExceptionsが設定されています。このrack applicationは、/404に対してpublic/404.htmlを返却するような動作をします。エラー時の挙動を変えたい場合は、Rails.configuration.exceptions</em>appを別のrack applicationに変更すれば良いわけです。</p>
+<p>Rails.configuration.exceptions_appはデフォルトの状態ではActionDispatch::PublicExceptionsが設定されています。このrack applicationは、/404に対してpublic/404.htmlを返却するような動作をします。エラー時の挙動を変えたい場合は、Rails.configuration.exceptions_appを別のrack applicationに変更すれば良いわけです。</p>
 
 <h2>参考リンク :link:</h2>
 

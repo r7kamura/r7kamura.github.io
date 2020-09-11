@@ -9,8 +9,8 @@
   <link rel="search" type="application/opensearchdescription+xml" title="r7kamura.com" href="/opensearch.xml">
   <link rel="alternate" type="application/rss+xml" href="/feed.xml">
   
-  <meta property="description" content="@ainame user.articles.preload(:comments, :stockscount) みたいにstockscountのようなassociationを生やしており、stocks_countの内部実装はPreloaderが弄られていてIDだけ取ってる— 内製フレームワーク (@r7kamura) 2015, 8月 23">
-  <meta property="og:description" content="@ainame user.articles.preload(:comments, :stockscount) みたいにstockscountのようなassociationを生やしており、stocks_countの内部実装はPreloaderが弄られていてIDだけ取ってる— 内製フレームワーク (@r7kamura) 2015, 8月 23">
+  <meta property="description" content="@ainame user.articles.preload(:comments, :stocks_count) みたいにstocks_countのようなassociationを生やしており、stocks_countの内部実装はPreloaderが弄られていてIDだけ取ってる— 内製フレームワーク (@r7kamura) 2015, 8月 23">
+  <meta property="og:description" content="@ainame user.articles.preload(:comments, :stocks_count) みたいにstocks_countのようなassociationを生やしており、stocks_countの内部実装はPreloaderが弄られていてIDだけ取ってる— 内製フレームワーク (@r7kamura) 2015, 8月 23">
   
   <meta property="og:type" content="website">
   <meta property="og:title" content="Qiitaのトップページのフィードの設計">
@@ -44,11 +44,11 @@
   </footer>
   <div>
     <p><p></p><blockquote class="twitter-tweet" lang="ja">
-<p lang="ja" dir="ltr"><a href="https://twitter.com/ainame">@ainame</a> user.articles.preload(:comments, :stocks<em>count) みたいにstocks</em>countのようなassociationを生やしており、stocks_countの内部実装はPreloaderが弄られていてIDだけ取ってる</p>— 内製フレームワーク (@r7kamura) <a href="https://twitter.com/r7kamura/status/635482167737364480">2015, 8月 23</a>
+<p lang="ja" dir="ltr"><a href="https://twitter.com/ainame">@ainame</a> user.articles.preload(:comments, :stocks_count) みたいにstocks_countのようなassociationを生やしており、stocks_countの内部実装はPreloaderが弄られていてIDだけ取ってる</p>— 内製フレームワーク (@r7kamura) <a href="https://twitter.com/r7kamura/status/635482167737364480">2015, 8月 23</a>
 </blockquote><script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script></p>
 
 <p><p></p><blockquote class="twitter-tweet" lang="ja">
-<p lang="ja" dir="ltr"><a href="https://twitter.com/ainame">@ainame</a> これを抽象化するために、Article.has<em>many(:stocks, counter: true) みたいにすると、article.stocksとarticle.stocks</em>countがほぼ同じSQLで同時に定義されるようになってる</p>— 内製フレームワーク (@r7kamura) <a href="https://twitter.com/r7kamura/status/635482558516494336">2015, 8月 23</a>
+<p lang="ja" dir="ltr"><a href="https://twitter.com/ainame">@ainame</a> これを抽象化するために、Article.has_many(:stocks, counter: true) みたいにすると、article.stocksとarticle.stocks_countがほぼ同じSQLで同時に定義されるようになってる</p>— 内製フレームワーク (@r7kamura) <a href="https://twitter.com/r7kamura/status/635482558516494336">2015, 8月 23</a>
 </blockquote><script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script></p>
 
 <p><p></p><blockquote class="twitter-tweet" lang="ja">

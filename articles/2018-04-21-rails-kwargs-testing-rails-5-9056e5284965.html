@@ -46,14 +46,14 @@
     <p>rails_kwargs_testing という gem の紹介記事です。</p>
 
 <p><a href="https://github.com/r7kamura/rails_kwargs_testing" title="https://github.com/r7kamura/rails_kwargs_testing"><strong>r7kamura/rails_kwargs_testing</strong><br>
-<em>Provides Rails 5 compatible testing methods for gradual migration from Rails 4 to 5. - r7kamura/rails_kwargs_testing</em>github.com</a><a href="https://github.com/r7kamura/rails_kwargs_testing"></a></p>
+_Provides Rails 5 compatible testing methods for gradual migration from Rails 4 to 5. - r7kamura/rails_kwargs_testing_github.com</a><a href="https://github.com/r7kamura/rails_kwargs_testing"></a></p>
 
 <h2>Rails 4 から 5 でテストで使う HTTP メソッドの引数が変わった</h2>
 
 <p>Rails 4 から 5 にかけて、ActionController::TestCase と ActionDispatch::IntegrationTest の #get や #post などのメソッドの引数の形式が変わり、Rails 5 ではキーワード引数を利用するようになりました。RSpec であれば、ActionController::TestCase は controller-specs、ActionDispatch::IntegrationTest は request-specs で利用するやつです。</p>
 
 <p><a href="https://github.com/rails/rails/pull/18323" title="https://github.com/rails/rails/pull/18323"><strong>Use kwargs in ActionController::TestCase and ActionDispatch::Integration HTTP methods by kirs ·…</strong><br>
-<em>As @dhh suggested, controller HTTP methods are a prime candidate for kwargs. post url, nil, nil, { a: ‘b’ } doesn’t…</em>github.com</a><a href="https://github.com/rails/rails/pull/18323"></a></p>
+_As @dhh suggested, controller HTTP methods are a prime candidate for kwargs. post url, nil, nil, { a: ‘b’ } doesn’t…_github.com</a><a href="https://github.com/rails/rails/pull/18323"></a></p>
 
 <h2>Rails 4 でも rails_kwargs_testing でキーワード引数を使う</h2>
 
@@ -62,7 +62,7 @@
 <p>こういった背景から、Rails 4 の状態で引数の形式だけを変更しておきたいという需要があり、rails_kwargs_testing という gem をつくりました。実際には、業務委託で色々なサービスの Rails のバージョンを上げる仕事を請け負っている中で、これまで使ってきたコードをライブラリとしてまとめたような形になってます。</p>
 
 <p><a href="https://github.com/r7kamura/rails_kwargs_testing" title="https://github.com/r7kamura/rails_kwargs_testing"><strong>r7kamura/rails_kwargs_testing</strong><br>
-<em>rails_kwargs_testing — Provides Rails 5 compatible testing methods for gradual migration from Rails 4 to 5.</em>github.com</a><a href="https://github.com/r7kamura/rails_kwargs_testing"></a></p>
+_rails_kwargs_testing — Provides Rails 5 compatible testing methods for gradual migration from Rails 4 to 5._github.com</a><a href="https://github.com/r7kamura/rails_kwargs_testing"></a></p>
 
 <h2>使い方</h2>
 
@@ -78,7 +78,7 @@ end</p>
 <p>次にメソッドの引数を全てキーワード引数形式に変更し、全てのテストが成功することを確認すれば完了です。変更しなければ ArgumentError が発声します。コードの変更には rails5-spec-converter を利用するのが良いと思います。コンマの扱いなどに少し不具合はありますが、それを差し置いても非常に便利なツールです。</p>
 
 <p><a href="https://github.com/tjgrathwell/rails5-spec-converter" title="https://github.com/tjgrathwell/rails5-spec-converter"><strong>tjgrathwell/rails5-spec-converter</strong><br>
-<em>rails5-spec-converter — A tool to upgrade Rails 4-style specs to Rails 5-style</em>github.com</a><a href="https://github.com/tjgrathwell/rails5-spec-converter"></a></p>
+_rails5-spec-converter — A tool to upgrade Rails 4-style specs to Rails 5-style_github.com</a><a href="https://github.com/tjgrathwell/rails5-spec-converter"></a></p>
 
 <p>全てのテストが成功することを確認したら、主流の開発用ブランチへ変更を merge し、Rails 5 への残りの移行作業をがんばって進めましょう。</p>
 

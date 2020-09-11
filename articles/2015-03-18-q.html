@@ -133,7 +133,7 @@ OrSeparatableNode.new(tokens).to_hash
 # }
 </code></pre>
 
-<p>細かい調整として、もしORトークンで分割したグループが1つしかなければ、Bool Queryではなく単純な1つのクエリを出力するようにします。また「a OR」のようなクエリ文字列が与えられた場合にORの部分を無視するために、ORトークンで分割してトークンが1つも存在しないグループは無視します。Bool Queryになるかもしれないし、ならないかもしれない、という意味を込めてOrSeparatableという名前にしました。qiita-elasticsearchでは <a href="https://github.com/increments/qiita-elasticsearch/blob/6a997e5078aac426f222e030445e64af6a5f4881/lib/qiita/elasticsearch/nodes/or_separatable_node.rb">or<em>separatable</em>node.rb</a> がこの部分の処理を担当しています。</p>
+<p>細かい調整として、もしORトークンで分割したグループが1つしかなければ、Bool Queryではなく単純な1つのクエリを出力するようにします。また「a OR」のようなクエリ文字列が与えられた場合にORの部分を無視するために、ORトークンで分割してトークンが1つも存在しないグループは無視します。Bool Queryになるかもしれないし、ならないかもしれない、という意味を込めてOrSeparatableという名前にしました。qiita-elasticsearchでは <a href="https://github.com/increments/qiita-elasticsearch/blob/6a997e5078aac426f222e030445e64af6a5f4881/lib/qiita/elasticsearch/nodes/or_separatable_node.rb">or_separatable_node.rb</a> がこの部分の処理を担当しています。</p>
 
 <h2>FilterableNode</h2>
 

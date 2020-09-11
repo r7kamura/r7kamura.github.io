@@ -57,11 +57,11 @@
 
 <h2>BUNDLER_VERSION</h2>
 
-<p>更に調べてみたところ、BUNDLER<em>VERSION という環境変数でバージョンが指定されている場合、強制的にそのバージョンが使われるという情報を得ました。また、Docker Hub の提供している Ruby 用の Docker イメージ側で、BUNDLER</em>VERSION を指定しているということを知りました。</p>
+<p>更に調べてみたところ、BUNDLER_VERSION という環境変数でバージョンが指定されている場合、強制的にそのバージョンが使われるという情報を得ました。また、Docker Hub の提供している Ruby 用の Docker イメージ側で、BUNDLER_VERSION を指定しているということを知りました。</p>
 
 <p><a href="https://github.com/docker-library/ruby/issues/246">https://github.com/docker-library/ruby/issues/246</a></p>
 
-<p>最近この問題が解消された（Docker イメージ側では BUNDLER<em>VERSION を指定しなくなった）とのことなので、手元の Docker イメージとそのキャッシュを消してこの問題が修正されたあとの Docker イメージを再取得してみました。また、他の開発者の手元の Docker イメージを再取得するのは難しいだろうと考え、アプリの Dockerfile 側で BUNDLER</em>VERSION を上書きすることにしました。しかし unsecure なプロトコルが使われているという警告は消えません。</p>
+<p>最近この問題が解消された（Docker イメージ側では BUNDLER_VERSION を指定しなくなった）とのことなので、手元の Docker イメージとそのキャッシュを消してこの問題が修正されたあとの Docker イメージを再取得してみました。また、他の開発者の手元の Docker イメージを再取得するのは難しいだろうと考え、アプリの Dockerfile 側で BUNDLER_VERSION を上書きすることにしました。しかし unsecure なプロトコルが使われているという警告は消えません。</p>
 
 <h2>github オプション</h2>
 

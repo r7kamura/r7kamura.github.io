@@ -51,11 +51,11 @@
 
 <h3>使い方</h3>
 
-<p>docomoruはCLI経由で利用でき、APIキーと文字列を与えると雑談対話APIにリクエストを送り、レスポンスをJSON形式で標準出力します。APIキーは、--api-keyオプションか、環境変数DOCOMO<em>API</em>KEY経由で与えます。雑談対話APIを利用するには、<code>docomoru create_dialogue &lt;文字列&gt;</code> のようにコマンドを実行します。</p>
+<p>docomoruはCLI経由で利用でき、APIキーと文字列を与えると雑談対話APIにリクエストを送り、レスポンスをJSON形式で標準出力します。APIキーは、--api-keyオプションか、環境変数DOCOMO_API_KEY経由で与えます。雑談対話APIを利用するには、<code>docomoru create_dialogue &lt;文字列&gt;</code> のようにコマンドを実行します。</p>
 
 <h3>例</h3>
 
-<p>以下は予め環境変数DOCOMO<em>API</em>KEYを設定してdocomoruを利用してみた例です。docomoruは結果をJSONで出力しますが、例えば <a href="http://stedolan.github.io/jq/">jq</a> を使えば簡単にJSONの中から値を取り出せます。かわいいですね。</p>
+<p>以下は予め環境変数DOCOMO_API_KEYを設定してdocomoruを利用してみた例です。docomoruは結果をJSONで出力しますが、例えば <a href="http://stedolan.github.io/jq/">jq</a> を使えば簡単にJSONの中から値を取り出せます。かわいいですね。</p>
 
 <p><img src="https://qiita-image-store.s3.amazonaws.com/0/4365/2702e398-89d9-cf36-60da-e8e6cf71296b.png" alt="image"></p>
 
@@ -74,7 +74,7 @@ $ @yunotti ねむいの
 
 <p>SlackやHipChatなどチャットのBOTにこれを組み込む場合には、<a href="https://github.com/r7kamura/ruboty">Ruboty</a>のプラグインとして<a href="https://github.com/r7kamura/ruboty-talk">ruboty-talk</a>が提供されています。これを入れると、既に登録されている他のどのルールにも一致しなかったとき、docomoruを利用して雑に発言を返してくれるようになります。</p>
 
-<p>Rubotyで利用するには、Gemfileにruboty-talkを追加して、環境変数にDOCOMO<em>API</em>KEYを与えれば動作します。Rubotyを新しく導入する場合には、<a href="http://qiita.com/r7kamura/items/8d1b98e28154de6030b9">Ruby製HubotクローンのRubotyをSlackで動かす - Qiita</a> などを参考にしてください。</p>
+<p>Rubotyで利用するには、Gemfileにruboty-talkを追加して、環境変数にDOCOMO_API_KEYを与えれば動作します。Rubotyを新しく導入する場合には、<a href="http://qiita.com/r7kamura/items/8d1b98e28154de6030b9">Ruby製HubotクローンのRubotyをSlackで動かす - Qiita</a> などを参考にしてください。</p>
 
 <h2>tqbot</h2>
 

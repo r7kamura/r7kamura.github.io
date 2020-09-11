@@ -47,7 +47,7 @@
 
 <h2>JsonWorldの使い方</h2>
 
-<p><a href="https://github.com/r7kamura/json_world/blob/5f91dffecd642fcbd6e48d81023cce8ae27afdb0/lib/json_world/dsl.rb">JsonWorld::DSL</a> というModuleが提供されているので、これを任意のClassにincludeします。このmoduleをincludeしたClassでは、以下の特異メソッドが利用できるようになります。propertyとlinkを利用してインターフェースを定義し、to<em>json</em>schemaでJSON Schemaとしての表現を取り出す、というのがJsonWorldの使い方です。</p>
+<p><a href="https://github.com/r7kamura/json_world/blob/5f91dffecd642fcbd6e48d81023cce8ae27afdb0/lib/json_world/dsl.rb">JsonWorld::DSL</a> というModuleが提供されているので、これを任意のClassにincludeします。このmoduleをincludeしたClassでは、以下の特異メソッドが利用できるようになります。propertyとlinkを利用してインターフェースを定義し、to_json_schemaでJSON Schemaとしての表現を取り出す、というのがJsonWorldの使い方です。</p>
 
 <ul>
 <li><code>.property(property_name, options)</code></li>
@@ -98,7 +98,7 @@ end
 }
 </code></pre>
 
-<p>なお、JsonWorld::DSL は <code>.property</code> で定義したプロパティを利用して <code>#as_json</code> の実装を適当に用意してくれます。active<em>support/json を読み込んでいる環境で、オブジェクトがこのメソッドを実装していると、`#to</em>json<code>がこの結果をJSONに変換したものになります。よって、あるクラスにJsonWorld::DSLをincludeしていれば、そのクラスのインスタンスは</code>#to_json` に対応できます。</p>
+<p>なお、JsonWorld::DSL は <code>.property</code> で定義したプロパティを利用して <code>#as_json</code> の実装を適当に用意してくれます。active_support/json を読み込んでいる環境で、オブジェクトがこのメソッドを実装していると、<code>#to_json</code> がこの結果をJSONに変換したものになります。よって、あるクラスにJsonWorld::DSLをincludeしていれば、そのクラスのインスタンスは <code>#to_json</code> に対応できます。</p>
 
 <pre><code class="rb">user = User.new
 user_resource = UserResource.new(user)

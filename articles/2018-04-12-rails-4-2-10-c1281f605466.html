@@ -46,10 +46,10 @@
     <p>Rails 4.2.9 から 4.2.10 にかけての変更点をまとめます。</p>
 
 <p><a href="https://github.com/rails/rails/compare/v4.2.9...v4.2.10" title="https://github.com/rails/rails/compare/v4.2.9...v4.2.10"><strong>rails/rails</strong><br>
-<em>rails - Ruby on Rails</em>github.com</a><a href="https://github.com/rails/rails/compare/v4.2.9...v4.2.10"></a></p>
+_rails - Ruby on Rails_github.com</a><a href="https://github.com/rails/rails/compare/v4.2.9...v4.2.10"></a></p>
 
 <p><a href="https://medium.com/@r7kamura/rails-4-2-9-d391597ab04" title="https://medium.com/@r7kamura/rails-4-2-9-d391597ab04"><strong>Rails 4.2.9 の変更点</strong><br>
-<em>Rails 4.2.8 から 4.2.9 の変更点について、前回に引き続き、自分用にまとめておくことにしました。</em>medium.com</a><a href="https://medium.com/@r7kamura/rails-4-2-9-d391597ab04"></a></p>
+_Rails 4.2.8 から 4.2.9 の変更点について、前回に引き続き、自分用にまとめておくことにしました。_medium.com</a><a href="https://medium.com/@r7kamura/rails-4-2-9-d391597ab04"></a></p>
 
 <h3>actionpack</h3>
 
@@ -60,7 +60,7 @@
 <p>更に、Ruby 2.0.0 では文字列リテラルの先頭以外で ASCII-compatible で ASCII-8BIT エンコーディングな文字列を展開した際 (例: “foo #{‘bar’.b}”) に文字列全体のエンコーディングが UTF-8 ではなく ASCII-8IT になるという違いがあり、バージョン間の挙動を統一するために、ここでは常に UTF-8 エンコーディングの文字列が返されるように変更されました。</p>
 
 <p><a href="https://github.com/rails/rails/commit/a7d49ef78c36df2d1ca876451f30915ada1079a5" title="https://github.com/rails/rails/commit/a7d49ef78c36df2d1ca876451f30915ada1079a5"><strong>Restore previous behavior of normalize_path · rails/rails@a7d49ef</strong><br>
-<em>While this is going to break what we were trying to fix in GitHub code, ultimately this returns Rails 4.2 to it&#39;s…</em>github.com</a><a href="https://github.com/rails/rails/commit/a7d49ef78c36df2d1ca876451f30915ada1079a5"></a></p>
+_While this is going to break what we were trying to fix in GitHub code, ultimately this returns Rails 4.2 to it&#39;s…_github.com</a><a href="https://github.com/rails/rails/commit/a7d49ef78c36df2d1ca876451f30915ada1079a5"></a></p>
 
 <h3>activerecord</h3>
 
@@ -69,14 +69,14 @@
 <p>activerecord 4.2.8 で、unscoped が joins にきちんと影響するように変更が加えられましたが、この変更が原因で scope の状態が全て joins に影響するようになってしまいました。scope の joins への影響の是非はともかくとして、Rails 4.2 で挙動の変更が加えられるのは避けるべきだとして修正が加えられ、unscoped を除く scope の状態は joins に影響しなくなりました。</p>
 
 <p><a href="https://github.com/rails/rails/commit/5e7fc65e4c3d4ef6f3584362376fc5f9ccbf39ff" title="https://github.com/rails/rails/commit/5e7fc65e4c3d4ef6f3584362376fc5f9ccbf39ff"><strong>Post.joins(:users) should not be affected by `User.current_scope` · rails/rails@5e7fc65</strong><br>
-<em>This change was introduced by #18109. The intent of that change was to specifically apply `unscoped`, not to allow all…</em>github.com</a><a href="https://github.com/rails/rails/commit/5e7fc65e4c3d4ef6f3584362376fc5f9ccbf39ff"></a></p>
+_This change was introduced by #18109. The intent of that change was to specifically apply `unscoped`, not to allow all…_github.com</a><a href="https://github.com/rails/rails/commit/5e7fc65e4c3d4ef6f3584362376fc5f9ccbf39ff"></a></p>
 
 <h2>mysql adapter で precision 付きの datetime 型を正しく扱えるようになった</h2>
 
 <p>表題の通りで、mysql2 adapter に加えて mysql adapter でも、precision (精度) 付きの datetime 型のフィールドを正しく扱えるようになりました。Rails 5 では mysql adapter は廃止されます。</p>
 
 <p><a href="https://github.com/rails/rails/pull/30651" title="https://github.com/rails/rails/pull/30651"><strong>4-2-stable: Fix datetime with precision for mysql adapter by kamipo · Pull Request #30651 ·…</strong><br>
-<em>It will pass isolated test (test per file), but somehow created t.datetime :written_on, precision: 6 causes any side…</em>github.com</a><a href="https://github.com/rails/rails/pull/30651"></a></p>
+_It will pass isolated test (test per file), but somehow created t.datetime :written_on, precision: 6 causes any side…_github.com</a><a href="https://github.com/rails/rails/pull/30651"></a></p>
 
   </div>
 </article>

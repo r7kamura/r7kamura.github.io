@@ -53,7 +53,7 @@
 
 <h2>なにが困るか</h2>
 
-<p>このとき、node<em>modules内に <code>application.css.ejs.scss</code> のようなファイルが含まれると、rake assets:precompileの対象に含まれてしまう場合があります。bootstrap-sassの例で言えば、node</em>modules/bootstrap-sass/test/dummy<em>node</em>mincer/application.css.ejs.scss が存在するため、これをprecompileしようとして、Sass::SyntaxErrorが発生してしまいます。</p>
+<p>このとき、node_modules内に <code>application.css.ejs.scss</code> のようなファイルが含まれると、rake assets:precompileの対象に含まれてしまう場合があります。bootstrap-sassの例で言えば、node_modules/bootstrap-sass/test/dummy_node_mincer/application.css.ejs.scss が存在するため、これをprecompileしようとして、Sass::SyntaxErrorが発生してしまいます。</p>
 
 <p>なお、この問題は <a href="https://github.com/rails/sprockets-rails/issues/218">all application.(js,css) files pulled in · Issue #218 · rails/sprockets-rails</a> で報告されていて、次のメジャーバージョンでは修正されるようです。</p>
 
@@ -71,7 +71,7 @@
 
 <h2>回避策</h2>
 
-<p><code>/(?:\/|\\|\A)application\.(css|js)$/</code> を必要としていない場合は、これを取り除きます。::Sprockets::Railtie::LOOSE<em>APP</em>ASSETS を忘れるとapp/assets以下のフォントファイルなどがコンパイルされなくなってしまうので、必要な場合は忘れないようにしましょう。</p>
+<p><code>/(?:\/|\\|\A)application\.(css|js)$/</code> を必要としていない場合は、これを取り除きます。::Sprockets::Railtie::LOOSE_APP_ASSETS を忘れるとapp/assets以下のフォントファイルなどがコンパイルされなくなってしまうので、必要な場合は忘れないようにしましょう。</p>
 
 <pre><code class="rb">config.assets.precompile = [
   ::Sprockets::Railtie::LOOSE_APP_ASSETS,

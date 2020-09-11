@@ -45,7 +45,7 @@
   <div>
     <p>ActiveRecordで1:Nの関係を扱うとき、ある親レコードに対して子レコードが幾つ存在するかという情報を、都度計算するのではなくキャッシュしておきたいケースは多いと思います。代表的な実装方法として、ActiveRecordのcounter cacheの機能を利用し、親レコード内にキャッシュを保存しておくという方法があります。</p>
 
-<p>今回は、この情報を親レコード内ではなく揮発性のキャッシュに保存させるために、<a href="https://github.com/r7kamura/volatile_counter_cache">volatile<em>counter</em>cache</a>というGemをつくりました。memcachedやredisなどのKVSにキャッシュを保存することを想定しています。</p>
+<p>今回は、この情報を親レコード内ではなく揮発性のキャッシュに保存させるために、<a href="https://github.com/r7kamura/volatile_counter_cache">volatile_counter_cache</a>というGemをつくりました。memcachedやredisなどのKVSにキャッシュを保存することを想定しています。</p>
 
 <h2>方針</h2>
 
@@ -59,7 +59,7 @@
 
 <h2>概観</h2>
 
-<p>端的に言うと、volatile<em>counter</em>cacheは以下のように動作します。</p>
+<p>端的に言うと、volatile_counter_cacheは以下のように動作します。</p>
 
 <ol>
 <li>初めて必要になったときにキャッシュから取得する</li>
@@ -67,7 +67,7 @@
 <li>一次データが変更されるときは関係するキャッシュを消す</li>
 </ol>
 
-<h2>volatile<em>counter</em>cache</h2>
+<h2>volatile_counter_cache</h2>
 
 <p>次のコードを例にして考えましょう。
 tweetごとに幾つかのfavoritesを付けられるという関係になっています。</p>

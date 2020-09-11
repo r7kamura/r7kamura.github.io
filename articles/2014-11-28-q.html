@@ -66,7 +66,7 @@
 
 <h2>ModelにValidationを定義する</h2>
 
-<p>View用にupdated<em>atのunixtime表現を提供するメソッドと、クライアントから送られてきたunixtimeを保持しておくプロパティ、それからupdated</em>at<em>confirmationがnil以外の値を返したときにupdated</em>atと等価かどうか比較するvalidationを定義します。confirmation: trueを利用すると等値比較のvalidationとエラーメッセージを定義してくれるので少し楽できます。</p>
+<p>View用にupdated_atのunixtime表現を提供するメソッドと、クライアントから送られてきたunixtimeを保持しておくプロパティ、それからupdated_at_confirmationがnil以外の値を返したときにupdated_atと等価かどうか比較するvalidationを定義します。confirmation: trueを利用すると等値比較のvalidationとエラーメッセージを定義してくれるので少し楽できます。</p>
 
 <pre><code class="rb"># Public: A concern module to validate conflict.
 # To validate conflict, set updated_at_confirmation_in_unixtime attribute to the model object.

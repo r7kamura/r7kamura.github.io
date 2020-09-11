@@ -53,15 +53,15 @@
 
 <p>現状リリースされているバージョンの Ruby では、コード中に文字列リテラルを記述すると、freeze されていないオブジェクトが生成されます。文字列リテラルと freeze に関係する話について、この機会に少し整理しておきましょう。</p>
 
-<p>Ruby 2.1 から、文字列リテラルで生成したオブジェクトに対して直後に freeze が呼び出されている (&quot;...&quot;.freeze のように記述されている) 場合、内部的にそれ用の最適化が行われ、同じオブジェクトが使い回されるようになりました (少し語弊がありますが大体そういう感じです)。また Ruby 2.3 より、マジックコメントとしてソースコード冒頭に # frozen<em>string</em>literal: true と記述しておくことで、そのファイル内に記述される文字列リテラルが freeze されたオブジェクトを生成するべく指定できるようになりました。そして Ruby 3 からは、文字列リテラルから生成されるオブジェクトはデフォルトで freeze された状態になる方針が決定されているようです。</p>
+<p>Ruby 2.1 から、文字列リテラルで生成したオブジェクトに対して直後に freeze が呼び出されている (&quot;...&quot;.freeze のように記述されている) 場合、内部的にそれ用の最適化が行われ、同じオブジェクトが使い回されるようになりました (少し語弊がありますが大体そういう感じです)。また Ruby 2.3 より、マジックコメントとしてソースコード冒頭に # frozen_string_literal: true と記述しておくことで、そのファイル内に記述される文字列リテラルが freeze されたオブジェクトを生成するべく指定できるようになりました。そして Ruby 3 からは、文字列リテラルから生成されるオブジェクトはデフォルトで freeze された状態になる方針が決定されているようです。</p>
 
-<h2>Rails 5.2.0 と frozen<em>string</em>literal: true</h2>
+<h2>Rails 5.2.0 と frozen_string_literal: true</h2>
 
-<p>Rails 5.2.0 より、各ファイルの冒頭に # frozen<em>string</em>literal: true のマジックコメントが追加されるようになりました。</p>
+<p>Rails 5.2.0 より、各ファイルの冒頭に # frozen_string_literal: true のマジックコメントが追加されるようになりました。</p>
 
 <p>Rails には ActiveSupport::TimeWithZone というタイムゾーン付きの日時を表すための Time と似たクラスがあります。この中で、ActiveSupport::TimeWithZone#to_s の実装は、特にフォーマットが指定されていない限り、変数展開を利用した文字列リテラルで生成した String のインスタンスを返すようになっています。</p>
 
-<p>結果的に、前述したマジックコメントの効果により、Rails 5.2.0 以降では ActiveSupport::TimeWithZone#to<em>s が freeze された String のインスタンスを返すように変更されています。これは Time.current.to</em>s.frozen? のようなコードで確認できます。</p>
+<p>結果的に、前述したマジックコメントの効果により、Rails 5.2.0 以降では ActiveSupport::TimeWithZone#to_s が freeze された String のインスタンスを返すように変更されています。これは Time.current.to_s.frozen? のようなコードで確認できます。</p>
 
 <h2>ltsv gem と String#gsub!</h2>
 

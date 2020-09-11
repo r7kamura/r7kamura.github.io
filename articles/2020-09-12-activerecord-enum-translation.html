@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width">
+  <title>activerecord-enum_translationをつくった</title>
+  <link href="https://r7kamura.com/articles/2020-09-12-activerecord-enum-translation" rel="canonical">
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="search" type="application/opensearchdescription+xml" title="r7kamura.com" href="/opensearch.xml">
+  <link rel="alternate" type="application/rss+xml" href="/feed.xml">
+  
+  <meta property="description" content="ActiveRecordのenumにi18n機能を追加するgemをつくった。">
+  <meta property="og:description" content="ActiveRecordのenumにi18n機能を追加するgemをつくった。">
+  
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="activerecord-enum_translationをつくった">
+  <meta property="og:url" content="https://r7kamura.com/articles/2020-09-12-activerecord-enum-translation">
+  
+  <meta property="og:image" content="https://r7kamura.com/default_og_image.jpg">
+  <meta property="twitter:card" content="summary">
+  
+</head>
+<body>
+  <header>
+    <nav>
+      <a href="/">r7kamura</a>
+      <ul>
+        <li>
+          <a href="/articles">記事</a>
+        </li>
+        <li>
+          <a href="https://google.com/search?q=site:r7kamura.com">検索</a>
+        </li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <article>
+  <h1>activerecord-enum_translationをつくった</h1>
+  <footer>
+    <p>
+      <time datetime="2020-09-12T00:00:00+00:00">2020年09月12日</time>
+    </p>
+  </footer>
+  <div>
+    <p>ActiveRecordのenumにi18n機能を追加するgemをつくった。</p>
+
+<p><a href="https://github.com/r7kamura/activerecord-enum_translation">https://github.com/r7kamura/activerecord-enum_translation</a></p>
+
+<p>似たgemとしてenum_helpというやつがある。</p>
+
+<p><a href="https://github.com/zmbacker/enum_help">https://github.com/zmbacker/enum_help</a></p>
+
+<p>しかし、以下の理由で自作するに至った。</p>
+
+<ul>
+<li>もう少し明示的な内部実装がなされていてほしい
+
+<ul>
+<li><code>enum</code> を上書きするのは避けたい</li>
+</ul></li>
+<li>デフォルトで勝手に追加されるメソッドは少ない方が嬉しい
+
+<ul>
+<li>デフォルトでは <code>#human_enum_name_for</code> だけ追加する</li>
+<li>便利なショートカットは明示的な宣言で追加する</li>
+</ul></li>
+<li>長くても良いので分かりやすい名前のAPIが用意されていてほしい</li>
+<li>既存の翻訳辞書にわりと自然に追加できる仕様のやつが欲しい
+
+<ul>
+<li>ActiveModel::Translationと仕様が近いやつ</li>
+</ul></li>
+</ul>
+
+  </div>
+</article>
+
+  </main>
+</body>
+</html>

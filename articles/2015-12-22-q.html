@@ -113,12 +113,12 @@ node.to_html #=&gt; &#39;&lt;div class=&quot;changed&quot;&gt;&lt;p&gt;x &lt;del
 <p>現在のところ、以下の6種類の命令があります。</p>
 
 <ul>
-<li>add<em>child</em>operation</li>
-<li>add<em>data</em>before<em>href</em>operation</li>
-<li>add<em>data</em>before<em>tag</em>name_operation</li>
-<li>add<em>previous</em>sibling_operation</li>
+<li>add_child_operation</li>
+<li>add_data_before_href_operation</li>
+<li>add_data_before_tag_name_operation</li>
+<li>add_previous_sibling_operation</li>
 <li>remove_operation</li>
-<li>text<em>diff</em>operation</li>
+<li>text_diff_operation</li>
 </ul>
 
 <p>命令にはノードへの参照が含まれているため、例えばある命令を適用するときに参照先のノードを取り除いたり置換したりしてしまうと、次の命令で参照先のノードが既に存在しなくなってしまっていた、などということが起こりえます。そのため、命令の適用順序に気を付ける必要があります。今回は、まず最初にノードの追加を行う命令を全て処理し、次にノードを削除あるいは置換する命令を処理する、という順序にしました。</p>

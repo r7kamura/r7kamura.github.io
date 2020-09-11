@@ -90,7 +90,7 @@ end
 
 <h3>URL生成</h3>
 
-<p>polymorphic<em>urlとurl</em>forをoverrideして、subdomainオプションが指定されていたときはURLクエリを付け、また相対パス指定だった場合にはURLクエリを引き継ぐようにします。以下の例ではサブドメインの代わりに ?username=r7kamura のようなクエリが使われるようにしています。注意点として、users<em>pathのようにnamed route由来のメソッドを利用しているとここでoverrideしたメソッドが利用されないので、`url</em>for(:users)<code>や</code>link_to [:login, subdomain: nil] do` のようにsymbol等を利用する方法で統一しておく必要があります。下記のmoduleをcontrollerとviewにincludeしておけば、URL生成部分の対応は完了です。</p>
+<p>polymorphic_urlとurl_forをoverrideして、subdomainオプションが指定されていたときはURLクエリを付け、また相対パス指定だった場合にはURLクエリを引き継ぐようにします。以下の例ではサブドメインの代わりに ?username=r7kamura のようなクエリが使われるようにしています。注意点として、users_pathのようにnamed route由来のメソッドを利用しているとここでoverrideしたメソッドが利用されないので、<code>url_for(:users)</code> や <code>link_to [:login, subdomain: nil] do</code> のようにsymbol等を利用する方法で統一しておく必要があります。下記のmoduleをcontrollerとviewにincludeしておけば、URL生成部分の対応は完了です。</p>
 
 <pre><code class="rb">module SubdomainUrlHelper
   if heroku?

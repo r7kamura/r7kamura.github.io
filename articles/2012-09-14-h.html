@@ -57,20 +57,20 @@
 </ul><p>数列を表すときの書き方に似てる。<br>
 F(0) = 0, F(1) = 1, F(n+2) = F(n) + F(n+1) (n &gt;= 2)という実装をしたとき、{F(n)} = {0, 1, 1, 2, 3, 5, 8} と書くのか、{F(n)} = {最初の二項は0,1と定義され、以後どの項もその前の2つの項の和} と書くのか。</p><p>入出力値が含まれるように書くとこういう感じになる。</p>
 <pre class="code" data-unlink>module ApplicationHelper
-  def current<em>css</em>classes
+  def current_css_classes
     %W[
-      #{controller<em>name}</em>controller
-      #{action<em>name}</em>action
+      #{controller_name}_controller
+      #{action_name}_action
     ]
   end
 end</p>
 
 <p>describe ApplicationHelper do
-  describe &quot;#current<em>css</em>classes&quot; do
+  describe &quot;#current_css_classes&quot; do
     context &quot;called at SearchController#show&quot; do
       before do
-        helper.stub(:controller<em>name).and</em>return(&quot;search&quot;)
-        helper.stub(:action<em>name).and</em>return(&quot;show&quot;)
+        helper.stub(:controller_name).and_return(&quot;search&quot;)
+        helper.stub(:action_name).and_return(&quot;show&quot;)
       end</p>
 
 <pre><code>  specify do
@@ -81,9 +81,9 @@ end
 
 <p>end
 end</pre><pre class="code" data-unlink>ApplicationHelper
-  #current<em>css</em>classes
+  #current_css_classes
     called at SearchController#show
-      should == [&quot;search<em>controller&quot;, &quot;show</em>action&quot;]</pre></p>
+      should == [&quot;search_controller&quot;, &quot;show_action&quot;]</pre></p>
 
   </div>
 </article>
