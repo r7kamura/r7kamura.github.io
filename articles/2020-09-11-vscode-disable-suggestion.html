@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width">
+  <title>VSCodeで自動で補完候補を出すのを無効化した</title>
+  <link href="https://r7kamura.com/articles/2020-09-11-vscode-disable-suggestion" rel="canonical">
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="search" type="application/opensearchdescription+xml" title="r7kamura.com" href="/opensearch.xml">
+  <link rel="alternate" type="application/rss+xml" href="/feed.xml">
+  
+  <meta property="description" content="VSCodeで文字を入力している最中に「もしかしてこれじゃない？」って補完候補をポップアップしてくれるやつがすごく鬱陶しいので、無効化した。">
+  <meta property="og:description" content="VSCodeで文字を入力している最中に「もしかしてこれじゃない？」って補完候補をポップアップしてくれるやつがすごく鬱陶しいので、無効化した。">
+  
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="VSCodeで自動で補完候補を出すのを無効化した">
+  <meta property="og:url" content="https://r7kamura.com/articles/2020-09-11-vscode-disable-suggestion">
+  
+  <meta property="og:image" content="https://r7kamura.com/default_og_image.jpg">
+  <meta property="twitter:card" content="summary">
+  
+</head>
+<body>
+  <header>
+    <nav>
+      <a href="/">r7kamura</a>
+      <ul>
+        <li>
+          <a href="/articles">記事</a>
+        </li>
+        <li>
+          <a href="https://google.com/search?q=site:r7kamura.com">検索</a>
+        </li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <article>
+  <h1>VSCodeで自動で補完候補を出すのを無効化した</h1>
+  <footer>
+    <p>
+      <time datetime="2020-09-11T00:00:00+00:00">2020年09月11日</time>
+    </p>
+  </footer>
+  <div>
+    <p>VSCodeで文字を入力している最中に「もしかしてこれじゃない？」って補完候補をポップアップしてくれるやつがすごく鬱陶しいので、無効化した。</p>
+
+<pre><code class="json">{
+  &quot;editor.suggestOnTriggerCharacters&quot;: false,
+  &quot;editor.quickSuggestions&quot;: {
+    &quot;other&quot;: false,
+    &quot;comments&quot;: false,
+    &quot;strings&quot;: false
+  }
+}
+</code></pre>
+
+<p>検索すればすぐ出てくるけど、settings.json に上のような設定を追加しただけ。ちなみに能動的に補完候補を表示するには、Mac版だとデフォルトでは <code>Ctrl + Space</code> で出せる。</p>
+
+<p>思えば前にAtomを利用していたときも無効化したし、その前のVimを使っていたときも無効化した気がする。</p>
+
+<hr>
+
+<p>そういえば、このサイトの記録を辿る限りでは、2020年3月にAtomからVSCodeに移行したらしい。移行してから半年が経ったことになる。Vimモードからの脱却も同時にやったので、離脱症状が出るかと思いきや、意外と難なく乗り切れて本当に良かったと思う。</p>
+
+  </div>
+</article>
+
+  </main>
+</body>
+</html>
