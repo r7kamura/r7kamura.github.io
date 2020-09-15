@@ -3,18 +3,36 @@
   <title>r7kamura.com</title>
   <link rel="self" type="application/atom+xml" href="https://r7kamura.com/feed.xml"/>
   <link rel="alternate" type="text/html" href="https://r7kamura.com/"/>
-  <updated>2020-09-15T16:18:23+00:00</updated>
+  <updated>2020-09-15T17:06:57+00:00</updated>
   <author>
     <name>Ryo Nakamura</name>
   </author>
   <id>tag:r7kamura.com,2019:/</id>
   
     <entry>
+      <title>光る大きいマウスパッドを買った</title>
+      <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-09-16-gaming-mouse-pad"/>
+      <id>tag:r7kamura.com,2019:/articles/2020-09-16-gaming-mouse-pad</id>
+      <published>2020-09-16T00:00:00+00:00</published>
+      <updated>2020-09-15T17:06:28+00:00</updated>
+      <content type="html">&lt;p&gt;RazerのGoliathus Chroma Extendedというマウスパッドを買った。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/2020-09-16-gaming-mouse-pad-light.jpg&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+
+&lt;p&gt;素材がそこそこ柔らかくて、パームレストを置かなくても手首への負担が少し減って嬉しい。ここにキーボードとマウスを置く、という位置取りがはっきりしたことで、何となく収まりが良くなった気がする。何も無いだだっ広い机より、趣があって良いね。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/2020-09-16-gaming-mouse-pad.jpg&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+
+&lt;p&gt;「光る意味ある？」と最初は思ってて、冗談で買ったんだけど、暗い部屋で使ってみたら結構アガるし、買って良かった。雰囲気はだいぶ良いんだけど、スマホで暗い部屋の様子が上手く撮影できなくて、上の写真では良さが伝わりづらくなってしまったかも。&lt;/p&gt;
+</content>
+    </entry>
+  
+    <entry>
       <title>文字とコードブロックの色を変えた</title>
       <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-09-16-color-change"/>
       <id>tag:r7kamura.com,2019:/articles/2020-09-16-color-change</id>
       <published>2020-09-16T00:00:00+00:00</published>
-      <updated>2020-09-15T16:17:56+00:00</updated>
+      <updated>2020-09-15T17:06:28+00:00</updated>
       <content type="html">&lt;p&gt;&lt;img src=&quot;/images/2020-09-16-color-change.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
 
 &lt;p&gt;コントラストが高すぎてどぎつい感じがしてきたので、テキストの色を &lt;code&gt;#111111&lt;/code&gt; から &lt;code&gt;#333333&lt;/code&gt; に変更した。&lt;/p&gt;
@@ -28,7 +46,7 @@
       <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-09-13-mac-movie-edit"/>
       <id>tag:r7kamura.com,2019:/articles/2020-09-13-mac-movie-edit</id>
       <published>2020-09-13T00:00:00+00:00</published>
-      <updated>2020-09-15T16:17:56+00:00</updated>
+      <updated>2020-09-15T17:06:28+00:00</updated>
       <content type="html">&lt;p&gt;iMovieの話。&lt;/p&gt;
 
 &lt;p&gt;GeForce Experienceの録画機能で、ゲーム中の動画を録画した。録画された200MBほどの動画ファイルの保存先はDropboxになっており、今はたまたまMacでそのファイルを見ているのだが、これを小さいファイルサイズの動画にしてDiscordに貼り付けたい。&lt;/p&gt;
@@ -46,7 +64,7 @@
       <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-09-13-terraria"/>
       <id>tag:r7kamura.com,2019:/articles/2020-09-13-terraria</id>
       <published>2020-09-13T00:00:00+00:00</published>
-      <updated>2020-09-15T16:17:56+00:00</updated>
+      <updated>2020-09-15T17:06:28+00:00</updated>
       <content type="html">&lt;p&gt;Terrariaで&lt;a href=&quot;https://terraria.gamepedia.com/Pirate_Map&quot;&gt;Pirate Map&lt;/a&gt;を放置しながら集めるための狩場について。&lt;/p&gt;
 
 &lt;p&gt;&lt;a href=&quot;/images/2020-09-13-terraria.png&quot;&gt;&lt;img src=&quot;/images/2020-09-13-terraria.png&quot; alt=&quot;&quot;&gt;&lt;/a&gt;&lt;/p&gt;
@@ -90,7 +108,7 @@
       <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-09-12-activerecord-enum-translation"/>
       <id>tag:r7kamura.com,2019:/articles/2020-09-12-activerecord-enum-translation</id>
       <published>2020-09-12T00:00:00+00:00</published>
-      <updated>2020-09-15T16:17:56+00:00</updated>
+      <updated>2020-09-15T17:06:28+00:00</updated>
       <content type="html">&lt;p&gt;ActiveRecordのenumにI18n用の機能を提供するgemをつくった。&lt;/p&gt;
 
 &lt;p&gt;&lt;a href=&quot;https://github.com/r7kamura/activerecord-enum_translation&quot;&gt;https://github.com/r7kamura/activerecord-enum_translation&lt;/a&gt;&lt;/p&gt;
@@ -184,7 +202,7 @@ end
       <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-09-11-vscode-disable-suggestion"/>
       <id>tag:r7kamura.com,2019:/articles/2020-09-11-vscode-disable-suggestion</id>
       <published>2020-09-11T00:00:00+00:00</published>
-      <updated>2020-09-15T16:17:56+00:00</updated>
+      <updated>2020-09-15T17:06:28+00:00</updated>
       <content type="html">&lt;p&gt;VSCodeで文字を入力している最中に「もしかしてこれじゃない？」って補完候補をポップアップしてくれるやつがすごく鬱陶しいので、無効化した。&lt;/p&gt;
 
 &lt;pre&gt;&lt;code class=&quot;json&quot;&gt;{
@@ -212,7 +230,7 @@ end
       <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-08-30-rails-csrf-upgrade"/>
       <id>tag:r7kamura.com,2019:/articles/2020-08-30-rails-csrf-upgrade</id>
       <published>2020-08-30T00:00:00+00:00</published>
-      <updated>2020-09-15T16:17:56+00:00</updated>
+      <updated>2020-09-15T17:06:28+00:00</updated>
       <content type="html">&lt;h2&gt;結論&lt;/h2&gt;
 
 &lt;p&gt;Rails 6.0で &lt;code&gt;Rails.configuration.action_dispatch.use_cookies_with_metadata = true&lt;/code&gt; な状態で生成したCookieをSessionに利用する場合、5.2ではそのSessionを利用できないため、結果的にそのauthenticity_tokenは利用できない。&lt;/p&gt;
@@ -267,7 +285,7 @@ rails s
       <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-04-18-diary"/>
       <id>tag:r7kamura.com,2019:/articles/2020-04-18-diary</id>
       <published>2020-04-18T00:00:00+00:00</published>
-      <updated>2020-09-15T16:17:56+00:00</updated>
+      <updated>2020-09-15T17:06:28+00:00</updated>
       <content type="html">&lt;p&gt;最近について。&lt;/p&gt;
 
 &lt;h2&gt;AtomからVSCodeへ&lt;/h2&gt;
@@ -338,7 +356,7 @@ rails s
       <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-02-28-marcotogingaryu"/>
       <id>tag:r7kamura.com,2019:/articles/2020-02-28-marcotogingaryu</id>
       <published>2020-02-28T00:00:00+00:00</published>
-      <updated>2020-09-15T16:17:56+00:00</updated>
+      <updated>2020-09-15T17:06:28+00:00</updated>
       <content type="html">&lt;p&gt;&lt;img src=&quot;/images/2020-02-28-marcotogingaryu.jpg&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
 
 &lt;p&gt;前々から気になってた『マルコと銀河竜』が遂に発売されたので、購入してそのままエンディングまで駆け抜けてしまった。&lt;/p&gt;
@@ -358,7 +376,7 @@ rails s
       <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-02-25-kakutei"/>
       <id>tag:r7kamura.com,2019:/articles/2020-02-25-kakutei</id>
       <published>2020-02-25T00:00:00+00:00</published>
-      <updated>2020-09-15T16:17:56+00:00</updated>
+      <updated>2020-09-15T17:06:28+00:00</updated>
       <content type="html">&lt;p&gt;2019年分の確定申告書類を提出した。今年で3年目。今年も郵送。予定納税分以外の税金の払込はこれから。&lt;/p&gt;
 
 &lt;ul&gt;
@@ -389,7 +407,7 @@ rails s
       <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-02-17-my-protein"/>
       <id>tag:r7kamura.com,2019:/articles/2020-02-17-my-protein</id>
       <published>2020-02-17T00:00:00+00:00</published>
-      <updated>2020-09-15T16:17:56+00:00</updated>
+      <updated>2020-09-15T17:06:28+00:00</updated>
       <content type="html">&lt;p&gt;&lt;img src=&quot;/images/2020-02-17-my-protein.jpg&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
 
 &lt;p&gt;マイプロテインというスポーツ栄養ブランドのホエイプロテインが送料無料で1kg 1890円だったので、チョコレートブラウニー味のやつを買ってみた。&lt;/p&gt;
@@ -413,7 +431,7 @@ rails s
       <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-02-10-fe-three-houses"/>
       <id>tag:r7kamura.com,2019:/articles/2020-02-10-fe-three-houses</id>
       <published>2020-02-10T00:00:00+00:00</published>
-      <updated>2020-09-15T16:17:56+00:00</updated>
+      <updated>2020-09-15T17:06:28+00:00</updated>
       <content type="html">&lt;p&gt;&lt;img src=&quot;/images/2020-02-10-fe-three-houses.jpg&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
 
 &lt;p&gt;ようやく3つの学級をクリアしたので感想を書ける。&lt;/p&gt;
@@ -453,7 +471,7 @@ rails s
       <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-01-27-void-trrlm"/>
       <id>tag:r7kamura.com,2019:/articles/2020-01-27-void-trrlm</id>
       <published>2020-01-27T00:00:00+00:00</published>
-      <updated>2020-09-15T16:17:56+00:00</updated>
+      <updated>2020-09-15T17:06:28+00:00</updated>
       <content type="html">&lt;p&gt;&lt;img src=&quot;/images/2020-01-27-void-trrlm.jpg&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
 
 &lt;p&gt;日本一ソフトウェアの『void tRrLM(); // ボイド・テラリウム』をやった。たまごっちと不思議のダンジョンを同時にやるような作品で、終末世界で見つけた女の子のお世話をしながら、ダンジョンを探索して食糧や建築資材を集めてくることになる。&lt;/p&gt;
@@ -477,7 +495,7 @@ rails s
       <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-01-23-13sar"/>
       <id>tag:r7kamura.com,2019:/articles/2020-01-23-13sar</id>
       <published>2020-01-23T00:00:00+00:00</published>
-      <updated>2020-09-15T16:17:56+00:00</updated>
+      <updated>2020-09-15T17:06:28+00:00</updated>
       <content type="html">&lt;p&gt;先週末からやっていた『十三機兵防衛圏』を遂にクリアした。思い出しのために、ネタバレを避けつつ歯切れの悪い感想を残しておく。&lt;/p&gt;
 
 &lt;p&gt;&lt;a href=&quot;https://13sar.jp/&quot;&gt;https://13sar.jp/&lt;/a&gt;&lt;/p&gt;
@@ -497,7 +515,7 @@ rails s
       <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-01-21-nameteki"/>
       <id>tag:r7kamura.com,2019:/articles/2020-01-21-nameteki</id>
       <published>2020-01-21T00:00:00+00:00</published>
-      <updated>2020-09-15T16:17:56+00:00</updated>
+      <updated>2020-09-15T17:06:28+00:00</updated>
       <content type="html">&lt;p&gt;&lt;img src=&quot;https://images-fe.ssl-images-amazon.com/images/I/51osytbqqVL.jpg&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
 
 &lt;p&gt;伴名 練の『なめらかな世界と、その敵』を読んだ。表題作に加えて、&lt;/p&gt;
@@ -525,7 +543,7 @@ rails s
       <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-01-19-atelier-ryza"/>
       <id>tag:r7kamura.com,2019:/articles/2020-01-19-atelier-ryza</id>
       <published>2020-01-19T00:00:00+00:00</published>
-      <updated>2020-09-15T16:17:56+00:00</updated>
+      <updated>2020-09-15T17:06:28+00:00</updated>
       <content type="html">&lt;p&gt;&lt;img src=&quot;/images/2020-01-19-atelier-ryza.jpg&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
 
 &lt;p&gt;ライザのアトリエがSteamで30%オフで売られていたので、購入した勢いで一気にクリアした。&lt;/p&gt;
@@ -545,7 +563,7 @@ rails s
       <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-01-12-gen-gen-kusano"/>
       <id>tag:r7kamura.com,2019:/articles/2020-01-12-gen-gen-kusano</id>
       <published>2020-01-12T00:00:00+00:00</published>
-      <updated>2020-09-15T16:17:56+00:00</updated>
+      <updated>2020-09-15T17:06:28+00:00</updated>
       <content type="html">&lt;p&gt;&lt;img src=&quot;https://images-fe.ssl-images-amazon.com/images/I/615-PsNiAsL.jpg&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
 
 &lt;p&gt;新人SF作家 草野原々による短編集『最後にして最初のアイドル』を読んだ。表題作に加え、『エヴォリューションがーるず』と『暗黒声優』の計三篇が含まれている。&lt;/p&gt;
@@ -571,7 +589,7 @@ rails s
       <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-01-10-broken-reality"/>
       <id>tag:r7kamura.com,2019:/articles/2020-01-10-broken-reality</id>
       <published>2020-01-10T00:00:00+00:00</published>
-      <updated>2020-09-15T16:17:56+00:00</updated>
+      <updated>2020-09-15T17:06:28+00:00</updated>
       <content type="html">&lt;p&gt;&lt;img src=&quot;/images/2020-01-10-broken-reality-1.jpg&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
 
 &lt;p&gt;遂に『Broken Reality』をクリアした。短いようでいて、ものすごく長い時間に感じられた。だがやり遂げた。&lt;/p&gt;
@@ -599,7 +617,7 @@ rails s
       <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-01-09-locust"/>
       <id>tag:r7kamura.com,2019:/articles/2020-01-09-locust</id>
       <published>2020-01-09T00:00:00+00:00</published>
-      <updated>2020-09-15T16:17:56+00:00</updated>
+      <updated>2020-09-15T17:06:28+00:00</updated>
       <content type="html">&lt;p&gt;&lt;img src=&quot;https://images-fe.ssl-images-amazon.com/images/I/51ScdPFm7LL.jpg&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;a href=&quot;https://www.amazon.co.jp/dp/B072FGTM65&quot;&gt;https://www.amazon.co.jp/dp/B072FGTM65&lt;/a&gt;&lt;/p&gt;
@@ -617,7 +635,7 @@ rails s
       <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-01-07-explore-fushimi-inari"/>
       <id>tag:r7kamura.com,2019:/articles/2020-01-07-explore-fushimi-inari</id>
       <published>2020-01-07T00:00:00+00:00</published>
-      <updated>2020-09-15T16:17:56+00:00</updated>
+      <updated>2020-09-15T17:06:28+00:00</updated>
       <content type="html">&lt;p&gt;&lt;img src=&quot;/images/2020-01-07-explore-fushimi-inari-3.jpg&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
 
 &lt;p&gt;伏見稲荷を散策できるウォーキングシミュレーター『Explore Fushimi Inari』をプレイした。&lt;/p&gt;
@@ -632,36 +650,6 @@ rails s
 &lt;img src=&quot;/images/2020-01-07-explore-fushimi-inari-5.jpg&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
 
 &lt;p&gt;視覚効果にかなり気を遣っていそうなところに好感が持てる。短い散策にも関わらず癒やされる作品で、自分の中でのウォーキングシミュレーターというものへの認識が少し変わったと思う。&lt;/p&gt;
-</content>
-    </entry>
-  
-    <entry>
-      <title>MacBook Pro バッテリー膨張 修理</title>
-      <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-01-07-macbook-pro-repair"/>
-      <id>tag:r7kamura.com,2019:/articles/2020-01-07-macbook-pro-repair</id>
-      <published>2020-01-07T00:00:00+00:00</published>
-      <updated>2020-09-15T16:17:56+00:00</updated>
-      <content type="html">&lt;p&gt;バッテリーが膨張したMacBook ProをAppleストアに預けたところ、2日後に無料で修理されて工場から送られてきた。&lt;/p&gt;
-
-&lt;p&gt;このMacBook Proは2017年7月に購入したもの。過充電によりバッテリーがひどく膨張し、蓋も閉まらず、キーボードとトラックパッドが折れ曲がって破壊されるのも時間の問題という状態になっていた。ちなみに購入以来、ずっとクラムシェルモード (本体は閉じた状態でディスプレイに接続して利用するモード) で利用しており、数回しか外に持ち出していない。&lt;/p&gt;
-
-&lt;p&gt;爆発したら買い換えるか、ぐらいの気持ちでいたのだけれど、せっかく年始で差し迫った仕事も無く、なんとなく天気が良かったので、修理に出しにいくことに。事前にAppleのウェブサイトを開いて、Apple表参道で2時間後に受け付けてくれるようだったので予約。&lt;/p&gt;
-
-&lt;p&gt;店舗に着いたら、店員に予約時間と名前を伝えて待つこと5分。担当者が診断しにきてくれて、目視でバッテリーが膨張していることを確認。ソフトウェアで診断をかけ、バックアップの有無や返送先住所の確認などを済ませ、合計10分ほどで対応は完了。特別な追加の保証は特に付けていなかったのだけど、購入4年以内で1度目のバッテリー膨張であれば無料で修理してくれるらしい。&lt;/p&gt;
-
-&lt;p&gt;まったく新しいMac Proの大根おろし金みたいな筐体をしげしげと眺め、Magic Keyboardの打ち心地の悪さを一通り確認して退出。2日後に、ヤマトのパソコン宅急便で修理されたMacBook Proが届き、無事修理が完了した。&lt;/p&gt;
-
-&lt;hr&gt;
-
-&lt;p&gt;賑やかしに、当日の写真でも貼っておく。&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/2020-01-07-macbook-pro-repair-1.jpg&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
-
-&lt;p&gt;修理前に訪れた中本目黒店の蒙古タンメン。中本目黒店の店員さんは愛想が良くて好き。次回は味噌卵麺を。&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/2020-01-07-macbook-pro-repair-2.jpg&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
-
-&lt;p&gt;つい先日リニューアルされた渋谷駅の銀座線ホームを見た。肋骨のような構造に目を奪われがちだけど、各部で用いられているH形鋼の無骨さも良かった。&lt;/p&gt;
 </content>
     </entry>
   
