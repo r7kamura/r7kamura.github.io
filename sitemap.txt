@@ -4,7 +4,6 @@ https://r7kamura.com/articles/2020-09-13-terraria
 https://r7kamura.com/articles/2020-09-13-mac-movie-edit
 https://r7kamura.com/articles/2020-09-12-activerecord-enum-translation
 https://r7kamura.com/articles/2020-09-11-vscode-disable-suggestion
-https://r7kamura.com/articles/2020-08-30-rails-csrf-upgrade
 https://r7kamura.com/articles/2020-04-18-diary
 https://r7kamura.com/articles/2020-02-28-marcotogingaryu
 https://r7kamura.com/articles/2020-02-25-kakutei
