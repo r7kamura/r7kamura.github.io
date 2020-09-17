@@ -53,19 +53,19 @@
 
 <p>次に、RubotyをHerokuにデプロイしましょう。Herokuアカウントを持っていれば、記事先頭に載せたデプロイボタンを押せば設定画面に進めます。作成したRuboty用のアカウントの名前と、XMPP Gateway用パスワード (<a href="https://my.slack.com/account/settings">プロフィール画面</a>から自分のXMPP用のパスワードを閲覧できます)、Slackのチーム名をそれぞれ入力すれば、Herokuにデプロイできます。</p>
 
-<p><img src="https://raw.githubusercontent.com/r7kamura/ruboty-template/master/images/deploy.gif" alt=""></p>
+<p><a href="https://raw.githubusercontent.com/r7kamura/ruboty-template/master/images/deploy.gif" target="_blank"><img src="https://raw.githubusercontent.com/r7kamura/ruboty-template/master/images/deploy.gif" alt=""></a></p>
 
 <h2>Dynoを追加</h2>
 
 <p>Herokuのデプロイボタンではプロセスを自動的に起動できないので、最後に<a href="https://dashboard-next.heroku.com/apps">ダッシュボード</a>からDynoを0個から1個に変更します。(ところで最近デフォルトで追加されるDynoがβ版のcedarに変わった影響でOpenSSLのエラーが出る場合があります。その場合は <code>heroku stack:set cedar</code> 等で非β版のcedarに戻した後で再度デプロイしましょう)</p>
 
-<p><img src="https://raw.githubusercontent.com/r7kamura/ruboty-template/master/images/add-dyno.gif" alt=""></p>
+<p><a href="https://raw.githubusercontent.com/r7kamura/ruboty-template/master/images/add-dyno.gif" target="_blank"><img src="https://raw.githubusercontent.com/r7kamura/ruboty-template/master/images/add-dyno.gif" alt=""></a></p>
 
 <h2>Slackで確認</h2>
 
 <p>これでデプロイは完了です。Slackの #general チャンネルで <code>@ruboty ping</code> と入力して反応が返ってきたらデプロイ成功です (名前をqiitanにしてたら <code>@qiitan ping</code> です)。1vs1チャットでも試せます。</p>
 
-<p><img src="https://qiita-image-store.s3.amazonaws.com/0/4365/9fb6d5fc-42e0-e153-f4a2-db8a5242a7b8.gif" alt="ping.gif"></p>
+<p><a href="https://qiita-image-store.s3.amazonaws.com/0/4365/9fb6d5fc-42e0-e153-f4a2-db8a5242a7b8.gif" target="_blank"><img src="https://qiita-image-store.s3.amazonaws.com/0/4365/9fb6d5fc-42e0-e153-f4a2-db8a5242a7b8.gif" alt="ping.gif"></a></p>
 
 <h2>デバッグ</h2>
 
@@ -78,7 +78,7 @@
 
 <p>初期状態では最低限のプラグインしか含まれていませんが、<a href="https://github.com/r7kamura/ruboty-template">ruboty-template</a>をforkすれば自分の好きなプラグインを追加できます。いま住んでるシェアハウス用のSlackでは、<a href="https://github.com/r7kamura/ruboty-cron">ruboty-cron</a>と<a href="https://github.com/r7kamura/ruboty-syoboi_calendar">ruboty-syoboi_calendar</a>を組み合わせて、毎日21時に今日都内で放送予定のアニメを発言させたりしています。</p>
 
-<p><img src="https://qiita-image-store.s3.amazonaws.com/0/4365/517f488a-5508-f503-d365-7d414bc72d9c.png" alt="例"></p>
+<p><a href="https://qiita-image-store.s3.amazonaws.com/0/4365/517f488a-5508-f503-d365-7d414bc72d9c.png" target="_blank"><img src="https://qiita-image-store.s3.amazonaws.com/0/4365/517f488a-5508-f503-d365-7d414bc72d9c.png" alt="例"></a></p>
 
 <p>Forkする場合は、Fork後のレポジトリ内で <code>heroku git:remote</code> というコマンドを使うと簡単にpush先を追加できます。変更後の初回のgit-pushでは、恐らく--forceオプションが必要になります。</p>
 
@@ -94,7 +94,7 @@ git push heroku master -f
 travis init
 travis setup heroku
 git add .travis.yml
-git commit -m &quot;Add .travis.yml&quot;
+git commit -m "Add .travis.yml"
 git push origin master
 </code></pre>
 

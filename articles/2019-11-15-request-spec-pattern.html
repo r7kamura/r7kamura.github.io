@@ -77,9 +77,9 @@ GET  /users/:user_id/articles/:id/edit
 
 <p>例えば、<code>GET /users/:id</code> に対するコードは以下のように書く。</p>
 
-<pre><code>RSpec.describe &quot;GET /users/:id&quot; do
+<pre><code>RSpec.describe "GET /users/:id" do
   subject do
-    get &quot;/users/#{id}&quot;
+    get "/users/#{id}"
   end
 
   let(:id) do
@@ -101,7 +101,9 @@ end
 <li><code>around</code></li>
 <li><code>before</code></li>
 <li><code>after</code></li>
-<li><code>let</code> / <code>let!</code></li>
+<li>
+<code>let</code> / <code>let!</code>
+</li>
 <li><code>shared_context</code></li>
 <li><code>shared_examples</code></li>
 <li><code>context</code></li>
@@ -122,7 +124,7 @@ module MyApp
       extend ::ActiveSupport::Concern
 
       included do
-        shared_context &#39;with current user&#39; do
+        shared_context 'with current user' do
           # ...
         end
       end

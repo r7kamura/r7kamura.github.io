@@ -45,11 +45,11 @@
   <div>
     <h2>Rails/LinkToBlank</h2>
 
-<p>RailsのViewではlink_toというメソッドを呼び出すことができ、これはHTMLにおけるa要素に相当する文字列を出力します。このとき、引数が <code>target: &#39;_blank&#39;</code> のように指定されていると、<code>target=&quot;_blank&quot;</code> のようにa要素に属性が付与されます。</p>
+<p>RailsのViewではlink_toというメソッドを呼び出すことができ、これはHTMLにおけるa要素に相当する文字列を出力します。このとき、引数が <code>target: '_blank'</code> のように指定されていると、<code>target="_blank"</code> のようにa要素に属性が付与されます。</p>
 
-<p>さて、この手の <code>target=&quot;_blank&quot;</code> が付けられたa要素から遷移した先のページでは、遷移元のページを制御することができ、ともすればセキュリティリスクになり得ます（アダルト系の広告等でこの手の技が利用されることが多いですね）。そこで、<code>rel=&quot;noopener&quot;</code> という属性を同時に付けておくことで、遷移先のページから制御されることを防げます。link_toメソッドにおいては、<code>rel: &#39;noopener&#39;</code> というように引数を付けることで対応できます。</p>
+<p>さて、この手の <code>target="_blank"</code> が付けられたa要素から遷移した先のページでは、遷移元のページを制御することができ、ともすればセキュリティリスクになり得ます（アダルト系の広告等でこの手の技が利用されることが多いですね）。そこで、<code>rel="noopener"</code> という属性を同時に付けておくことで、遷移先のページから制御されることを防げます。link_toメソッドにおいては、<code>rel: 'noopener'</code> というように引数を付けることで対応できます。</p>
 
-<p>link_toメソッドに <code>target: &#39;_blank&#39;</code> が指定されているとき、同時に <code>rel: &#39;noopener&#39;</code> が指定されているかどうかを検査するために、RuboCopにRails/LinkToBlankというCopがあります。</p>
+<p>link_toメソッドに <code>target: '_blank'</code> が指定されているとき、同時に <code>rel: 'noopener'</code> が指定されているかどうかを検査するために、RuboCopにRails/LinkToBlankというCopがあります。</p>
 
 <p><a href="https://www.rubydoc.info/gems/rubocop/RuboCop/Cop/Rails/LinkToBlank">https://www.rubydoc.info/gems/rubocop/RuboCop/Cop/Rails/LinkToBlank</a></p>
 

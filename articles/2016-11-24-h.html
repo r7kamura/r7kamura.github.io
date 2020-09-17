@@ -107,7 +107,7 @@ export default () =&gt; &lt;div&gt;Hello!&lt;/div&gt;</pre>
 
 <p>katatemaでのプレビュー時には、ソースコードを書き換えるとページがリロードされることなく画面の一部がヌルリと書き換わるようになっている。勿論ページだけでなく、ページで利用しているCSSを書き換えたときも、同様に新しいスタイルが適用されるようになっている。めちゃくちゃ便利で、デザイン作業とかだとこれが無いと正直やってられない。</p>
 
-<p><img src="https://raw.githubusercontent.com/r7kamura/katatema/master/images/demo.gif" alt="demo"></p>
+<p><a href="https://raw.githubusercontent.com/r7kamura/katatema/master/images/demo.gif" target="_blank"><img src="https://raw.githubusercontent.com/r7kamura/katatema/master/images/demo.gif" alt="demo"></a></p>
 
 <p>ちなみにWebpackとReactを使ってHot Module Replacementという機能が利用されていて、内部的にはソースコード変更時にWebSocketで差分のデータがサーバからクライアントに受け渡されており、Reactの差分更新で画面の一部が書き換わっている。これを自分で設定しようとすると、webpack-dev-serverやreact-hot-loaderなどの設定を自分で行わないといけないので、慣れていないとかなり面倒くさいことになる。</p>
 

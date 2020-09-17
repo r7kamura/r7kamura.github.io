@@ -76,7 +76,7 @@ Scripts available in api-gateway-lambda-example via `npm run-script`:
 
 <p>個々のfunctionごとにpackage.jsonが用意されていて、<code>npm run bundle</code> を使うと必要なnode_modulesがそれぞれインストールされる。<code>npm run compile</code> を使うと、個々のfunctionのsrcディレクトリ内のJavaScriptがコンパイルされて、それぞれのdistディレクトリにまとめられる。<code>npm run zip</code> を使うと、distディレクトリの内容がdist.zipに圧縮される。Amazon LambdaにコードをアップロードするためにZIPにしている。<code>npm run upload</code> を使うと、個々のdist.zipをAmazon Lambdaにアップロードしてくれるようになっている。諸々のタスクを実行するとこういうのが出来上がる。</p>
 
-<p><img src="https://qiita-image-store.s3.amazonaws.com/0/4365/5d685090-a6d3-b610-a0ae-8ec25e6feebf.png" alt="image"></p>
+<p><a href="https://qiita-image-store.s3.amazonaws.com/0/4365/5d685090-a6d3-b610-a0ae-8ec25e6feebf.png" target="_blank"><img src="https://qiita-image-store.s3.amazonaws.com/0/4365/5d685090-a6d3-b610-a0ae-8ec25e6feebf.png" alt="image"></a></p>
 
 <p>この辺の記事の内容と組み合わせると、まず必要なLambdaの関数をまとめてつくったあと、API Gatewayのエンドポイントをスキーマファイルか何かを元に定義しつつ、各エンドポイントとLambdaの関数と紐付ける、というのが自動化できそう。</p>
 

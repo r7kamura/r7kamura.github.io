@@ -54,32 +54,37 @@
 <li>雑記</li>
 <li>日記</li>
 <li>2009年〜2019年</li>
-</ul></li>
+</ul>
+</li>
 <li>Medium
 
 <ul>
 <li>雑記</li>
 <li>技術記事</li>
 <li>2017年〜2019年</li>
-</ul></li>
+</ul>
+</li>
 <li>Patreon
 
 <ul>
 <li>技術記事</li>
 <li>2018年〜2019年</li>
-</ul></li>
+</ul>
+</li>
 <li>Qiita
 
 <ul>
 <li>技術記事</li>
 <li>2014年〜2016年</li>
-</ul></li>
+</ul>
+</li>
 <li>Twitter
 
 <ul>
 <li>つぶやき</li>
 <li>2011年〜2019年</li>
-</ul></li>
+</ul>
+</li>
 </ul>
 
 <p>これからはこういう状態にしようとしている。</p>
@@ -92,13 +97,15 @@
 <li>日記</li>
 <li>技術記事</li>
 <li>2009年〜2019年</li>
-</ul></li>
+</ul>
+</li>
 <li>Twitter
 
 <ul>
 <li>つぶやき</li>
 <li>2011年〜2019年</li>
-</ul></li>
+</ul>
+</li>
 </ul>
 
 <p>テキストデータはfrontmatter付きのMarkdownとして記述することにした。人間が書いて機械が読む、というところでバランスが取れるギリギリの妥協点だと思う。プレーンテキストとして読めるようなMarkdownを心掛けたい。</p>
@@ -119,19 +126,19 @@ qiita list_user_items r7kamura per_page=100 &gt; items.json
 
 <p>記事の削除もCLIで出来るけど、jqとかでごにょごにょやるのはちょっと面倒なので、Ruby向けのAPIを使う。</p>
 
-<pre><code>require &quot;qiita&quot;
+<pre><code>require "qiita"
 
 client = Qiita::Client.new(
-  access_token: ENV[&quot;QIITA_ACCESS_TOKEN&quot;]
+  access_token: ENV["QIITA_ACCESS_TOKEN"]
 )
 
 response = client.list_user_items(
-  &quot;r7kamura&quot;,
+  "r7kamura",
   per_page: 100
 )
 response.body.each do |item|
   begin
-    client.delete_item(item[&quot;id&quot;])
+    client.delete_item(item["id"])
   rescue
     retry
   end

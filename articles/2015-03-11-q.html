@@ -57,21 +57,21 @@
 
 <pre><code class="bash">$ curl https://api.github.com/repos/increments/qiitan-rb/contents/Gemfile
 {
-  &quot;name&quot;: &quot;Gemfile&quot;,
-  &quot;path&quot;: &quot;Gemfile&quot;,
-  &quot;sha&quot;: &quot;88bf9ae8f760bfdb8e1f37ffdb70a9475cb76857&quot;,
-  &quot;size&quot;: 389,
-  &quot;url&quot;: &quot;https://api.github.com/repos/increments/qiitan-rb/contents/Gemfile?ref=master&quot;,
-  &quot;html_url&quot;: &quot;https://github.com/increments/qiitan-rb/blob/master/Gemfile&quot;,
-  &quot;git_url&quot;: &quot;https://api.github.com/repos/increments/qiitan-rb/git/blobs/88bf9ae8f760bfdb8e1f37ffdb70a9475cb76857&quot;,
-  &quot;download_url&quot;: &quot;https://raw.githubusercontent.com/increments/qiitan-rb/master/Gemfile&quot;,
-  &quot;type&quot;: &quot;file&quot;,
-  &quot;content&quot;: &quot;c291cmNlICJodHRwczovL3J1YnlnZW1zLm9yZyIKCmdlbSAicmFrZSIKZ2Vt\nICJydWJvdHktcmVwbGFjZSIKZ2VtICJydWJvdHktYWxpYXMiCmdlbSAicnVi\nb3R5LWJ1bmRsZXIiCmdlbSAicnVib3R5LWNyb24iCmdlbSAicnVib3R5LWVj\naG8iCmdlbSAicnVib3R5LWdpdGh1YiIKZ2VtICJydWJvdHktZ29vZ2xlX2Nh\nbGVuZGFyIgpnZW0gInJ1Ym90eS1nb29nbGVfaW1hZ2UiCmdlbSAicnVib3R5\nLWxndG0iCmdlbSAicnVib3R5LXFpaXRhX3BvbGljZSIKZ2VtICJydWJvdHkt\ncmVkaXMiCmdlbSAicnVib3R5LXJ1YnlfZXZhbCIKZ2VtICJydWJvdHktc2Nv\ncmVrZWVwZXIiCmdlbSAicnVib3R5LXNsYWNrIgpnZW0gInJ1Ym90eS10YWxr\nIgpnZW0gInJ1Ym90eS10d2l0dGVyX3NlYXJjaCI=\n&quot;,
-  &quot;encoding&quot;: &quot;base64&quot;,
-  &quot;_links&quot;: {
-    &quot;self&quot;: &quot;https://api.github.com/repos/increments/qiitan-rb/contents/Gemfile?ref=master&quot;,
-    &quot;git&quot;: &quot;https://api.github.com/repos/increments/qiitan-rb/git/blobs/88bf9ae8f760bfdb8e1f37ffdb70a9475cb76857&quot;,
-    &quot;html&quot;: &quot;https://github.com/increments/qiitan-rb/blob/master/Gemfile&quot;
+  "name": "Gemfile",
+  "path": "Gemfile",
+  "sha": "88bf9ae8f760bfdb8e1f37ffdb70a9475cb76857",
+  "size": 389,
+  "url": "https://api.github.com/repos/increments/qiitan-rb/contents/Gemfile?ref=master",
+  "html_url": "https://github.com/increments/qiitan-rb/blob/master/Gemfile",
+  "git_url": "https://api.github.com/repos/increments/qiitan-rb/git/blobs/88bf9ae8f760bfdb8e1f37ffdb70a9475cb76857",
+  "download_url": "https://raw.githubusercontent.com/increments/qiitan-rb/master/Gemfile",
+  "type": "file",
+  "content": "c291cmNlICJodHRwczovL3J1YnlnZW1zLm9yZyIKCmdlbSAicmFrZSIKZ2Vt\nICJydWJvdHktcmVwbGFjZSIKZ2VtICJydWJvdHktYWxpYXMiCmdlbSAicnVi\nb3R5LWJ1bmRsZXIiCmdlbSAicnVib3R5LWNyb24iCmdlbSAicnVib3R5LWVj\naG8iCmdlbSAicnVib3R5LWdpdGh1YiIKZ2VtICJydWJvdHktZ29vZ2xlX2Nh\nbGVuZGFyIgpnZW0gInJ1Ym90eS1nb29nbGVfaW1hZ2UiCmdlbSAicnVib3R5\nLWxndG0iCmdlbSAicnVib3R5LXFpaXRhX3BvbGljZSIKZ2VtICJydWJvdHkt\ncmVkaXMiCmdlbSAicnVib3R5LXJ1YnlfZXZhbCIKZ2VtICJydWJvdHktc2Nv\ncmVrZWVwZXIiCmdlbSAicnVib3R5LXNsYWNrIgpnZW0gInJ1Ym90eS10YWxr\nIgpnZW0gInJ1Ym90eS10d2l0dGVyX3NlYXJjaCI=\n",
+  "encoding": "base64",
+  "_links": {
+    "self": "https://api.github.com/repos/increments/qiitan-rb/contents/Gemfile?ref=master",
+    "git": "https://api.github.com/repos/increments/qiitan-rb/git/blobs/88bf9ae8f760bfdb8e1f37ffdb70a9475cb76857",
+    "html": "https://github.com/increments/qiitan-rb/blob/master/Gemfile"
   }
 }
 </code></pre>
@@ -82,25 +82,25 @@
 
 <p>また、<code>bundle install</code> を実行するとき、.bundle/config というファイルが存在すれば、そこに記述されている設定を読み込んだ上で処理が実行されます。このファイルは最初に <code>bundle install</code> が実行されたときに生成されます。この設定ファイルの存在により、初めて実行したときの設定が記憶され、二度目の実行時にも一度目の実行時と同じ設定で <code>bundle install</code> が実行されるという訳です。今回のケースではこの設定ファイルの存在が新規Gemの追加を妨げてしまうため、何らかの対策が必要です。単純に削除するのも良いでしょう。</p>
 
-<pre><code class="rb">File.delete(&quot;.bundle/config&quot;)
+<pre><code class="rb">File.delete(".bundle/config")
 Bundler.with_clean_env { `bundle install` }
 </code></pre>
 
 <h2>Gemfileをパースする</h2>
 
-<p>今回の目的の中では、Gemfileに任意のGemの定義を追加する必要があります。そのためには、Gemfileの内容を一旦解析し、データを追加し、有効なGemfileを再生成しなければなりません。このとき、<code>bundle install</code> が内部で利用している <code>Bundler::Dsl.evaluate</code> が利用できます。このメソッドにGemfileとGemfile.lockのファイルパスを与えると、それらの解析結果を表す <code>Bundler::Definition</code> のインスタンスが得られます。このインスタンスから、<code>Bundler::Definition#dependencies</code> を利用して <code>Bundler::Dependency</code> のインスタンスの配列を取り出せます。<code>Bundler::Dependency</code> は、それぞれが <code>gem &quot;ruboty&quot;, &quot;&gt;= 1.0.0&quot;</code> のような1つのGemに対する定義を表現するオブジェクトです。</p>
+<p>今回の目的の中では、Gemfileに任意のGemの定義を追加する必要があります。そのためには、Gemfileの内容を一旦解析し、データを追加し、有効なGemfileを再生成しなければなりません。このとき、<code>bundle install</code> が内部で利用している <code>Bundler::Dsl.evaluate</code> が利用できます。このメソッドにGemfileとGemfile.lockのファイルパスを与えると、それらの解析結果を表す <code>Bundler::Definition</code> のインスタンスが得られます。このインスタンスから、<code>Bundler::Definition#dependencies</code> を利用して <code>Bundler::Dependency</code> のインスタンスの配列を取り出せます。<code>Bundler::Dependency</code> は、それぞれが <code>gem "ruboty", "&gt;= 1.0.0"</code> のような1つのGemに対する定義を表現するオブジェクトです。</p>
 
 <p>以下のコードは、カレントディレクトリのGemfileとGemfile.lockを解析し、ruboty-kokodeikkuというGemを追加し、Gemfileの内容を再生成する簡単な例です。実際には <code>gem</code> メソッドにはバージョン情報やオプションなどを与えられたりするので、その辺りの面倒も見たほうが良いでしょう。</p>
 
-<pre><code class="rb">dependencies = Bundler::Dsl.evaluate(&quot;Gemfile&quot;, &quot;Gemfile.lock&quot;, {}).dependencies
-dependencies &lt;&lt; Bundler::Dependency.new(&quot;ruboty-kokodeikku&quot;)
-gemfile = %&lt;source &quot;https://rubygems.org&quot;\n\n&gt;
-gemfile &lt;&lt; dependencies.map { |dependency| &quot;gem #{dependency.to_s.inspect}\n&quot; }.join
+<pre><code class="rb">dependencies = Bundler::Dsl.evaluate("Gemfile", "Gemfile.lock", {}).dependencies
+dependencies &lt;&lt; Bundler::Dependency.new("ruboty-kokodeikku")
+gemfile = %&lt;source "https://rubygems.org"\n\n&gt;
+gemfile &lt;&lt; dependencies.map { |dependency| "gem #{dependency.to_s.inspect}\n" }.join
 </code></pre>
 
 <h2>Heroku GitHub Sync</h2>
 
-<p><img src="https://qiita-image-store.s3.amazonaws.com/0/4365/a13d8908-ebe3-6b66-0df3-24c7e48078f0.png" alt="image"></p>
+<p><a href="https://qiita-image-store.s3.amazonaws.com/0/4365/a13d8908-ebe3-6b66-0df3-24c7e48078f0.png" target="_blank"><img src="https://qiita-image-store.s3.amazonaws.com/0/4365/a13d8908-ebe3-6b66-0df3-24c7e48078f0.png" alt="image"></a></p>
 
 <p>Herokuの<a href="https://dashboard.heroku.com">管理画面</a>で設定を行うと、GitHubのmasterブランチにコードがPushされたときに、自動でHerokuに反映してくれるようになります。この設定が有効化されていると、Contents APIでGemfileとGemfile.lockを更新したときに自動で反映されてくれるということになります。Travis CIなどでもデプロイの自動化はできますが、特長を挙げるとすれば、こちらの方が反映完了までの時間がより短く済みます。</p>
 

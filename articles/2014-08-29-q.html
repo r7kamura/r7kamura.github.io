@@ -56,7 +56,7 @@
 <pre><code class="rb">MyApp::Application.routes.draw do
   namespace :v1 do
     # ...
-    match &quot;*any&quot;, to: -&gt;(env) { ... }, via: :all
+    match "*any", to: -&gt;(env) { ... }, via: :all
   end
 end
 </code></pre>

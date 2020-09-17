@@ -67,7 +67,7 @@ _The current check for whether to add an optional format to the path is very lax
 <p>副次的な変更点として、これまで引数には #to_s を実装したオブジェクトを渡すことができていましたが、この変更で String#encoding を呼び出すように変更されたため、 String しか渡せなくなっています。これは後に Rails 5.2.0 で修正されることになります。</p>
 
 <p><a href="https://github.com/rails/rails/pull/29062" title="https://github.com/rails/rails/pull/29062"><strong>Maintain original encoding from path by eileencodes · Pull Request #29062 · rails/rails</strong><br>
-_When the path info is read from the socket it&#39;s encoded as ASCII 8BIT. The unescape method changes the encoding to UTF8…_github.com</a><a href="https://github.com/rails/rails/pull/29062"></a></p>
+_When the path info is read from the socket it's encoded as ASCII 8BIT. The unescape method changes the encoding to UTF8…_github.com</a><a href="https://github.com/rails/rails/pull/29062"></a></p>
 
 <h3>activerecord</h3>
 
@@ -87,7 +87,7 @@ _Summary Backport to prevent duplicate logging to the console in Rails 4 branch 
 <p>このキャッシュが生成されたあとに table_name が変更された場合、これまではキャッシュが消去されず、以降もそのまま利用されてしまう状態でした。つまり、テーブル名を変更したあとで find や find_by を利用した場合、過去のテーブル名を利用した SQL が生成されてしまう場合があったということです。これが修正され、table_name を変更した際に上手くキャッシュが消されるようになりました。</p>
 
 <p><a href="https://github.com/rails/rails/pull/27953" title="https://github.com/rails/rails/pull/27953"><strong>Make `table_name=` reset current statement cache by namusyaka · Pull Request #27953 · rails/rails</strong><br>
-_Summary In our project some exceptional, we have the function of dynamically swapping table names. It hasn&#39;t been…_github.com</a><a href="https://github.com/rails/rails/pull/27953"></a></p>
+_Summary In our project some exceptional, we have the function of dynamically swapping table names. It hasn't been…_github.com</a><a href="https://github.com/rails/rails/pull/27953"></a></p>
 
 <h2>wait_timeout が DATABASE_URL から問題無く指定できるようになった</h2>
 
@@ -113,13 +113,13 @@ _When a grouped calculation contains a having clause that references a selected 
 _db:migrate` supports subdirectories and have a test…_github.com</a><a href="https://github.com/rails/rails/commit/612edc27db6a71ee75567f08f22642e282bc2732"></a></p>
 
 <p><a href="https://github.com/rails/rails/commit/a627483bb8628a7ca714ad1c0f174688a9e5727a" title="https://github.com/rails/rails/commit/a627483bb8628a7ca714ad1c0f174688a9e5727a"><strong>Fix `rake db:schema:load` with subdirectories · rails/rails@a627483</strong><br>
-_Related #25174. `db:schema:load` doesn&#39;t work with subdirectories like previous `db:migrate:status`…_github.com</a><a href="https://github.com/rails/rails/commit/a627483bb8628a7ca714ad1c0f174688a9e5727a"></a></p>
+_Related #25174. `db:schema:load` doesn't work with subdirectories like previous `db:migrate:status`…_github.com</a><a href="https://github.com/rails/rails/commit/a627483bb8628a7ca714ad1c0f174688a9e5727a"></a></p>
 
 <h2>Ruby 2.4 で Decimal 型のカラムに invalid な String を割り当てようとしたときに例外が発生しなくなった</h2>
 
 <p>BigDecimal(“”) のように invalid な String を与えたときの挙動が、Ruby 2.4 から変更された影響で、Decimal 型のカラムに同様の String を格納しようとしたとき、意図せず例外が発生するようになってしまいました。これを承け、このような状況では 0.0 相当の値が割り当てられるように変更されました。</p>
 
-<p><a href="https://github.com/rails/rails/commit/3aa729c2121b1e5a813afda52b2435dfcf7d4a74" title="https://github.com/rails/rails/commit/3aa729c2121b1e5a813afda52b2435dfcf7d4a74"><strong>Merge branch &#39;jhawthorn-ruby_2_4_bigdecimal_casting&#39; · rails/rails@3aa729c</strong><br>
+<p><a href="https://github.com/rails/rails/commit/3aa729c2121b1e5a813afda52b2435dfcf7d4a74" title="https://github.com/rails/rails/commit/3aa729c2121b1e5a813afda52b2435dfcf7d4a74"><strong>Merge branch 'jhawthorn-ruby_2_4_bigdecimal_casting' · rails/rails@3aa729c</strong><br>
 _Closes #27429 Closes #28553 [Rafael Mendonça França + Tomohiro Hashidate]_github.com</a><a href="https://github.com/rails/rails/commit/3aa729c2121b1e5a813afda52b2435dfcf7d4a74"></a></p>
 
 <h2>環境変数 VERSION が空文字列なときに、誤って migration が実行されないようになった</h2>
@@ -178,7 +178,7 @@ _In Rails 5.0 the return type of `DateTime#utc` was changed to `Time` to be cons
 
 <p>また TimeWithZone についても、#freeze が呼び出されたタイミングで予め #to_time を呼び出して memoize を行うように変更された結果、freeze されたインスタンスに対しても #to_time が呼び出し可能になりました。</p>
 
-<p><a href="https://github.com/rails/rails/pull/28147" title="https://github.com/rails/rails/pull/28147"><strong>Allow Time#to_time on frozen objects. Return frozen time rather than &quot;RuntimeError: can&#39;t modify…</strong><br>
+<p><a href="https://github.com/rails/rails/pull/28147" title="https://github.com/rails/rails/pull/28147"><strong>Allow Time#to_time on frozen objects. Return frozen time rather than "RuntimeError: can't modify…</strong><br>
 _Problem In 29f211f memoization was added to DateAndTime::Compatibility#to_time for performance reasons. Unfortunately…_github.com</a><a href="https://github.com/rails/rails/pull/28147"></a></p>
 
 <h2>Hash.from_xml に freeze された String を渡されるようになった</h2>
@@ -195,7 +195,7 @@ _Using frozen strings with Hash.from_xml results in an error due to use of IO#un
 <p>前述した activerecord が二重にログを出力してしまう問題が rails server にも存在しており、同様に修正されました。</p>
 
 <p><a href="https://github.com/rails/rails/pull/28493" title="https://github.com/rails/rails/pull/28493"><strong>Backport fix duplicate rails server logging output in Rails 4-2-stable by jmgarnier · Pull Request…</strong><br>
-_This is a follow up of PR #25284 which backported @schneems&#39; fix in #22933 but only fixed rails console. This PR fixes…_github.com</a><a href="https://github.com/rails/rails/pull/28493"></a></p>
+_This is a follow up of PR #25284 which backported @schneems' fix in #22933 but only fixed rails console. This PR fixes…_github.com</a><a href="https://github.com/rails/rails/pull/28493"></a></p>
 
   </div>
 </article>

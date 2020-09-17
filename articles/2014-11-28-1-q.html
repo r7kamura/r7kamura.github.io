@@ -80,7 +80,7 @@
 <pre><code class="rb">class ApplicationController &lt; ActionController::BAse
   def subdomain
     if heroku?
-      request.subdomain.split(&quot;.&quot;)[1..-1].join(&quot;.&quot;)
+      request.subdomain.split(".")[1..-1].join(".")
     else
       request.subdomain
     end
@@ -138,7 +138,7 @@ end
 
 <p>任意のサブドメインを利用するアプリでsessionを保存するのにcookieを利用している場合、大抵の場合はdomainオプションとして:allが指定されることになると思います。これにより、cookieに .example.com のようなドメインが指定されることになります。しかしHerokuでこれをやると、cookieに指定されるドメインが .herokuapp.com になってしまうため、ドメインを指定しておく必要があります。</p>
 
-<pre><code class="rb">Rails.application.config.session_store :cookie_store, key: &#39;_myapp_all_domain_session&#39;, domain: &quot;.myapp.herokuapp.com&quot;
+<pre><code class="rb">Rails.application.config.session_store :cookie_store, key: '_myapp_all_domain_session', domain: ".myapp.herokuapp.com"
 </code></pre>
 
 <h3>注釈</h3>

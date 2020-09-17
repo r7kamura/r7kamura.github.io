@@ -64,8 +64,8 @@
   text.gsub!(/:([a-z0-9\+\-_]+):/) do |match|
     emoji = Regexp.last_match(1)
     if Emoji.names.include?(emoji)
-      src = &quot;/emoji/#{CGI.escape(emoji)}.png&quot;
-      %[&lt;img class=&quot;emoji&quot; alt=&quot;:#{emoji}:&quot; title=&quot;:#{emoji}:&quot; src=&quot;#{src}&quot;/&gt;]
+      src = "/emoji/#{CGI.escape(emoji)}.png"
+      %[&lt;img class="emoji" alt=":#{emoji}:" title=":#{emoji}:" src="#{src}"/&gt;]
     else
       match
     end

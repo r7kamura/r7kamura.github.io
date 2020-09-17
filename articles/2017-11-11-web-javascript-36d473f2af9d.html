@@ -78,19 +78,19 @@
 <p>entryPoints ディレクトリに配置されたファイルでは、initializers ディレクトリに配置されたファイルを import することだけしか行わないことにしている。例えば、client/javascripts/entryPoints/client.js は、以下のような内容である。</p>
 
 <p>// Alphabetical order<br>
-import &quot;../initializers/googleAnalytics&quot;;<br>
-import &quot;../initializers/moment&quot;;<br>
-import &quot;../initializers/react&quot;;</p>
+import "../initializers/googleAnalytics";<br>
+import "../initializers/moment";<br>
+import "../initializers/react";</p>
 
 <p>もう一つ例を挙げておくと、client/javascripts/entryPoints/server.js は、以下のような内容である。</p>
 
 <p>// Fixed order<br>
-import &quot;../initializers/polyfill&quot;;</p>
+import "../initializers/polyfill";</p>
 
 <p>// Alphabetical order<br>
-import &quot;../initializers/helmet&quot;;<br>
-import &quot;../initializers/moment&quot;;<br>
-import &quot;../initializers/react&quot;;</p>
+import "../initializers/helmet";<br>
+import "../initializers/moment";<br>
+import "../initializers/react";</p>
 
 <p>client.js はクライアントサイド用のコードで、server.js は Server-Side Rendering を行うためのサーバサイド用のコードである。</p>
 

@@ -63,7 +63,7 @@
 
 <p>次のようにメソッドを呼び出すことで、翻訳された辞書が利用できるようになる、というやつ。</p>
 
-<pre><code class="ruby">user.human_enum_name_for(:status) #=&gt; &quot;利用中&quot;
+<pre><code class="ruby">user.human_enum_name_for(:status) #=&gt; "利用中"
 </code></pre>
 
 <p>技術的な難題の解決とかは全く狙っていなくて、どちらかと言うと、この手の仕組みにルールが無くてアプリ内のいろんなところにこれ系のいろんな実装が書かれがちなので、決まりを用意して仕組み化しましょうというのだけを狙って書いてみたところが大きい。</p>
@@ -84,7 +84,7 @@
 
 <p>とはいえ便利なメソッドが動的に定義される方が便利やん、という意見があり、例えば前述のコードは以下のように引数の不要な形で書けるともっと嬉しい。</p>
 
-<pre><code class="ruby">user.human_enum_name_for_status #=&gt; &quot;利用中&quot;
+<pre><code class="ruby">user.human_enum_name_for_status #=&gt; "利用中"
 </code></pre>
 
 <p>今回書いたやつでは、こういうのが欲しいときは <code>human_enum_reader_for</code> というメソッドでわざわざ宣言させるようにしている。まあこの特異メソッドが呼び出せるようにするために、結局include時に若干マジカルなことをしてはいるんだけども。</p>

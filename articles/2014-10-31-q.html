@@ -53,9 +53,9 @@ end
 </code></pre>
 
 <pre><code class="config/routes.rb">MyApp.application.routes.draw do
-  match &#39;/404&#39; =&gt; &#39;errors#show&#39;, id: 404, via: :all
-  match &#39;/422&#39; =&gt; &#39;errors#show&#39;, id: 422, via: :all
-  match &#39;/500&#39; =&gt; &#39;errors#show&#39;, id: 500, via: :all
+  match '/404' =&gt; 'errors#show', id: 404, via: :all
+  match '/422' =&gt; 'errors#show', id: 422, via: :all
+  match '/500' =&gt; 'errors#show', id: 500, via: :all
 end
 </code></pre>
 
@@ -74,7 +74,7 @@ end
 
 <h3>ActionDispatch::Journey::Router</h3>
 
-<p>config/routes.rb で定義したルーティングは、内部ではActionDispatch::Journey::Routerというライブラリによって処理されます。このRouterもRack middlewareになっています。もしこのRouterが適切なルーティングを見つけられなかった場合、<code>[404, {&#39;X-Cascade&#39; =&gt; &#39;pass&#39;}, [&#39;Not Found&#39;]]</code> というレスポンスが返ります。</p>
+<p>config/routes.rb で定義したルーティングは、内部ではActionDispatch::Journey::Routerというライブラリによって処理されます。このRouterもRack middlewareになっています。もしこのRouterが適切なルーティングを見つけられなかった場合、<code>[404, {'X-Cascade' =&gt; 'pass'}, ['Not Found']]</code> というレスポンスが返ります。</p>
 
 <h3>ActionDispatch::DebugExceptions</h3>
 
@@ -82,7 +82,7 @@ end
 
 <h3>ActionDispatch::ShowExceptions</h3>
 
-<p>DebugExceptionsの外側にはActionDispatch::ShowExceptionsが居ます。ShowExceptionsは、内側のRackアプリで例外が発生した場合、<code>env[&quot;PATH_INFO&quot;]</code> (※URLのパスを示す情報) を <code>/404</code> などの対応するステータスコードを表す値に書き換えた上で、Rails.configuration.exceptions_appにリクエストの処理を委譲します。</p>
+<p>DebugExceptionsの外側にはActionDispatch::ShowExceptionsが居ます。ShowExceptionsは、内側のRackアプリで例外が発生した場合、<code>env["PATH_INFO"]</code> (※URLのパスを示す情報) を <code>/404</code> などの対応するステータスコードを表す値に書き換えた上で、Rails.configuration.exceptions_appにリクエストの処理を委譲します。</p>
 
 <h3>ActionDispatch::ExceptionWrapper</h3>
 

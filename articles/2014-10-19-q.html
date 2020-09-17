@@ -76,13 +76,13 @@ csscomb app/assets/stylesheets/**/*.scss
 
 <p>最後に、Qiitaにcsscombとscss-lintを導入したときの話をしましょう。Qiitaでは最初、scss-lintを動かすと1,540件の警告が出ましたが、csscombを実行することで警告の数は数十件に減り、小一時間手作業で修正することで警告が出なくなったため、その段階でCIでscss-lintを走らせるように設定しました。csscombで修正できず手作業で直した警告内容は、ネストが深すぎるというものだけでした。また、csscombが受理できないSCSSの文法に出会したときにも次のファイルに進んでほしかったので、今回は雑にこういうコマンドを実行しました。</p>
 
-<pre><code>rails runner &#39;Dir.glob(&quot;app/assets/stylesheets/**/*.scss&quot;).each {|path| `scss-lint #{path}` }&#39;
+<pre><code>rails runner 'Dir.glob("app/assets/stylesheets/**/*.scss").each {|path| `scss-lint #{path}` }'
 </code></pre>
 
 <p>scss-lintにはRakeタスクが付属しているので、特にCIではこれを利用するのが良いでしょう。.scss-lint.ymlに<code>scss_files</code>という設定があれば、<code>rake scss_lint</code> を実行することでscss-lintを実行できます。シェルのグロブの機能を利用できないCI等で役に立つかもしれません。なお、このRakeタスクは現在最新のv0.29.0では未だ満足に動作しないので、利用する場合はGitHub上のmasterブランチなどを利用しましょう。</p>
 
 <pre><code class="rb:Rakefile"># Define `rake scss_lint`
-require &#39;scss_lint/rake_task&#39;
+require 'scss_lint/rake_task'
 SCSSLint::RakeTask.new
 </code></pre>
 

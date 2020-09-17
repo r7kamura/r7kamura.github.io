@@ -49,7 +49,7 @@
 
 <p>置き換えたのは、編集中のファイルを別画面でプレビューとして表示する画面で、ただプレビューするだけの機能のほかに連続したスライドとして表示するプレゼンテーション機能もある。1つ前のブログ記事を見てもらうとわかりやすいと思うけれど、次の画像のようなやつ。ボタンをクリックしてモードを切り替えたりキーボードを使って移動したり、またエディタ側でファイルの内容が書き換わったりと、それっぽく言えば幾らか動きのある画面である。</p>
 
-<p><img src="https://cloud.githubusercontent.com/assets/111689/10122526/3d9b996c-6557-11e5-80bb-967bb7e13478.png" alt=""></p>
+<p><a href="https://cloud.githubusercontent.com/assets/111689/10122526/3d9b996c-6557-11e5-80bb-967bb7e13478.png" target="_blank"><img src="https://cloud.githubusercontent.com/assets/111689/10122526/3d9b996c-6557-11e5-80bb-967bb7e13478.png" alt=""></a></p>
 
 <h2>たぶんリアクティブな感じにしたからコードが減った</h2>
 
@@ -59,7 +59,7 @@
 
 <p><a href="http://cycle.js.org/">cycle.jsのドキュメント</a> を読んだほうが早い。早いが、ドキュメントは読みたくないという人向けに説明する。そもそもGUIで動作する大半のアプリケーションというものは、アプリケーションの命令をうけてユーザに対して画面を表示し、ユーザからの入力を待ち、入力に対して何らかの処理を行い、ふたたびユーザに対して新しい画面を表示する、という風に雑に一般化できる。アプリケーションからのイベント (画面を更新しろという命令) を受け取り、ユーザからの入力をイベントとしてアプリケーションに伝えるというように捉えれば、これをイベントソースとして見ることができる。Webブラウザの場合、DOMを介して画面を描画し、DOMを介して入力を受け取ることになる... というのをよく表しているのがこの図。(図は <a href="http://cycle.js.org/drivers.html">http://cycle.js.org/drivers.html</a> より)</p>
 
-<p><img src="https://cloud.githubusercontent.com/assets/111689/10264680/608008c2-6a4e-11e5-80de-63469bf76276.png" alt="image"></p>
+<p><a href="https://cloud.githubusercontent.com/assets/111689/10264680/608008c2-6a4e-11e5-80de-63469bf76276.png" target="_blank"><img src="https://cloud.githubusercontent.com/assets/111689/10264680/608008c2-6a4e-11e5-80de-63469bf76276.png" alt="image"></a></p>
 
 <p><code>domDriver()</code> というのはDOMとのやりとりを抽象化してイベントソースとして扱えるように変換してくれるやつで、この処理はどのWebブラウザ用のアプリケーションにも共通しているので、何らかのフレームワークとして提供できる。で、我々アプリケーションを開発する側としては、上図の <code>main()</code> の部分を実装すると良い。具体的には、<code>domDriver()</code> を使って得られるイベントソースをもとに、いろいろ振る舞ったのちに新しい描画イベントを発火するようなイベントソースを <code>domDriver()</code> に返す、という処理を書けばよい。言い換えると、<code>domDriver()</code> から受け取ったイベントソースを別のイベントソースに変換して返す、ということになる。つまり、<code>main()</code> はイベントソースを受け取ってイベントソースを返す関数になるし、<code>domDriver()</code> もまたイベントソースを受け取ってイベントソースを返す関数である。</p>
 
@@ -72,7 +72,7 @@
 
 <p><code>main()</code> 関数が大きくなっていくことを考えると、適切に分割することを考えたいが、そのときの分割方法としてModel・View・Intentの3つの部分に分けることが提案されている。Model・View・Intentはどれも、入力としてイベントソースを取り、出力として別のイベントソースを返す関数の形態をとる。(図は <a href="http://cycle.js.org/model-view-intent.html">http://cycle.js.org/model-view-intent.html</a> より)</p>
 
-<p><img src="https://cloud.githubusercontent.com/assets/111689/10264685/6eb3fe1c-6a4e-11e5-9f36-40d9a22ab5c2.png" alt="image"></p>
+<p><a href="https://cloud.githubusercontent.com/assets/111689/10264685/6eb3fe1c-6a4e-11e5-9f36-40d9a22ab5c2.png" target="_blank"><img src="https://cloud.githubusercontent.com/assets/111689/10264685/6eb3fe1c-6a4e-11e5-9f36-40d9a22ab5c2.png" alt="image"></a></p>
 
 <p>Model・View・Intentのそれぞれの責務を説明しておくと、IntentはDOM経由で発生したイベントをユーザが何を意図してそうしたのかに変換するやつで、ModelはIntentのイベントをもとにいろいろ振る舞ってアプリケーションの状態が更新されたことを伝えるやつで、Viewは更新された新しい状態をもとに新しい (Virtual) DOMを描画するやつ。例えば、削除ボタンがクリックされると、削除したいらしいというイベントにIntentで変換されて、削除された結果アプリケーションの状態がModelで更新されて、その結果新しいDOMがViewで生成されるという具合。実際に、アプリの <code>main()</code> のコードはこうなっている。</p>
 
@@ -101,29 +101,29 @@ Cycle.run(
 
 <p>ReactやReduxでの描画とイベントハンドラの責務の分離の話が出てちょっと会話したので参考に載せとく。</p>
 
-<p><p></p><blockquote class="twitter-tweet" lang="ja">
+<p></p><p></p><blockquote class="twitter-tweet" lang="ja">
 <p lang="ja" dir="ltr">Reduxでconnectするとdispatchが手に入るのでComponentの中でバンバン使っちゃうけど、できればmapDispatchToPropsをうまく使ってComponentはほぼDumbな状態にするべきなんだろうな</p>— 稚魚 (@questbeat) <a href="https://twitter.com/questbeat/status/650329970133209088">2015, 10月 3</a>
-</blockquote><script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script></p>
+</blockquote><script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
 
-<p><p></p><blockquote class="twitter-tweet" lang="ja">
+<p></p><p></p><blockquote class="twitter-tweet" lang="ja">
 <p lang="ja" dir="ltr"><a href="https://twitter.com/r7kamura">@r7kamura</a> view-event-publisherってやつですか？これ正直どうかと思います…</p>— 稚魚 (@questbeat) <a href="https://twitter.com/questbeat/status/650333765181411328">2015, 10月 3</a>
-</blockquote><script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script></p>
+</blockquote><script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
 
-<p><p></p><blockquote class="twitter-tweet" lang="ja">
+<p></p><p></p><blockquote class="twitter-tweet" lang="ja">
 <p lang="ja" dir="ltr"><a href="https://twitter.com/r7kamura">@r7kamura</a> <a href="https://twitter.com/questbeat">@questbeat</a> 理性捨てて this.props.actions.clip.addClip() とかやってる……</p>— 偽名 (@amagitakayosi) <a href="https://twitter.com/amagitakayosi/status/650335270273847298">2015, 10月 3</a>
-</blockquote><script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script></p>
+</blockquote><script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
 
-<p><p></p><blockquote class="twitter-tweet" lang="ja">
-<p lang="ja" dir="ltr"><a href="https://twitter.com/amagitakayosi">@amagitakayosi</a> <a href="https://twitter.com/questbeat">@questbeat</a> 完全に理性捨てると祖先のコンポーネントのstateにactions渡すだけでたら自動的に末代まで知れ渡るぞ <a href="http://t.co/XSHRAgTqoj"><a href="http://t.co/XSHRAgTqoj">http://t.co/XSHRAgTqoj</a></a></p>— CSSセレクタ設計技師 (@r7kamura) <a href="https://twitter.com/r7kamura/status/650335755319951361">2015, 10月 3</a>
-</blockquote><script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script></p>
+<p></p><p></p><blockquote class="twitter-tweet" lang="ja">
+<p lang="ja" dir="ltr"><a href="https://twitter.com/amagitakayosi">@amagitakayosi</a> <a href="https://twitter.com/questbeat">@questbeat</a> 完全に理性捨てると祖先のコンポーネントのstateにactions渡すだけでたら自動的に末代まで知れ渡るぞ <a href="http://t.co/XSHRAgTqoj"></a><a href="http://t.co/XSHRAgTqoj">http://t.co/XSHRAgTqoj</a></p>— CSSセレクタ設計技師 (@r7kamura) <a href="https://twitter.com/r7kamura/status/650335755319951361">2015, 10月 3</a>
+</blockquote><script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
 
-<p><p></p><blockquote class="twitter-tweet" lang="ja">
+<p></p><p></p><blockquote class="twitter-tweet" lang="ja">
 <p lang="ja" dir="ltr"><a href="https://twitter.com/r7kamura">@r7kamura</a> <a href="https://twitter.com/amagitakayosi">@amagitakayosi</a> 最初全く理解できなかったんですが読んでるうちに理解してきて良さそうに思えてきました</p>— 稚魚 (@questbeat) <a href="https://twitter.com/questbeat/status/650343426865565698">2015, 10月 3</a>
-</blockquote><script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script></p>
+</blockquote><script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
 
-<p><p></p><blockquote class="twitter-tweet" lang="ja">
+<p></p><p></p><blockquote class="twitter-tweet" lang="ja">
 <p lang="ja" dir="ltr"><a href="https://twitter.com/r7kamura">@r7kamura</a> これならViewはテンプレートエンジンから出力しても困らなそうですね</p>— 偽名 (@amagitakayosi) <a href="https://twitter.com/amagitakayosi/status/650342394173362176">2015, 10月 3</a>
-</blockquote><script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script></p>
+</blockquote><script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
 
 <h2>その他リンク</h2>
 

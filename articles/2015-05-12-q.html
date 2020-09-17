@@ -53,10 +53,10 @@
     version: 2.2.0
 </code></pre>
 
-<pre><code class="rb:Gemfile">source &quot;https://rubygems.org&quot;
+<pre><code class="rb:Gemfile">source "https://rubygems.org"
 
-gem &quot;serverkit&quot;
-gem &quot;serverkit-rbenv&quot;
+gem "serverkit"
+gem "serverkit-rbenv"
 </code></pre>
 
 <h2>レシピ</h2>
@@ -93,7 +93,7 @@ gem &quot;serverkit-rbenv&quot;
 
 <h3>rbenv_profile</h3>
 
-<p>そして、<code>export PATH=&quot;$HOME/.rbenv/bin/rbenv:$PATH&quot;</code> と <code>eval &quot;$(rbenv init -)&quot;</code> がfooユーザの.bash_profileに追記されます。例えば別の種類のログインシェルを利用している場合であれば、profile_path属性を指定すれば追記先のファイルを変更できます。また、既に該当行が記述されている場合は追記されません。</p>
+<p>そして、<code>export PATH="$HOME/.rbenv/bin/rbenv:$PATH"</code> と <code>eval "$(rbenv init -)"</code> がfooユーザの.bash_profileに追記されます。例えば別の種類のログインシェルを利用している場合であれば、profile_path属性を指定すれば追記先のファイルを変更できます。また、既に該当行が記述されている場合は追記されません。</p>
 
 <h3>rbenv_ruby</h3>
 
@@ -103,10 +103,10 @@ gem &quot;serverkit-rbenv&quot;
 
 <p>rbenv_rubyというリソースは、serverkit本体ではなく<a href="https://github.com/serverkit/serverkit-rbenv">serverkit-rbenv</a>というプラグインで提供されいるため、これをGemfileに記述しておく必要があります。<code>bundle exec serverkit ...</code> と実行すれば、プラグインが読み込まれる仕組みになっています。</p>
 
-<pre><code class="rb:Gemfile">source &quot;https://rubygems.org&quot;
+<pre><code class="rb:Gemfile">source "https://rubygems.org"
 
-gem &quot;serverkit&quot;
-gem &quot;serverkit-rbenv&quot;
+gem "serverkit"
+gem "serverkit-rbenv"
 </code></pre>
 
 <h2>運用</h2>

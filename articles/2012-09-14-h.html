@@ -45,13 +45,13 @@
   <div>
     <p>入出力値が含まれるように書くいいところは、</p>
 
-<p><ul>
+<p></p><ul>
 <li>メッセージを省略しやすい。自然言語を書くのが冗長</li>
 <li>実際にコードがテストしていることだけがメッセージに出力される</li>
 <li>単純に想像しやすいパターンだと入出力値が書いてある方が分かりやすい場合がある</li>
-</ul><p>入出力値が含まれないように書くいいところは、</p></p>
+</ul><p>入出力値が含まれないように書くいいところは、</p>
 
-<p><ul>
+<p></p><ul>
 <li>自然言語で読むことができる</li>
 <li>こういう類の値が来たときにこういう風になってほしいという意図が分かりやすい</li>
 </ul><p>数列を表すときの書き方に似てる。<br>
@@ -63,14 +63,14 @@ F(0) = 0, F(1) = 1, F(n+2) = F(n) + F(n+1) (n &gt;= 2)という実装をした�
       #{action_name}_action
     ]
   end
-end</p>
+end
 
 <p>describe ApplicationHelper do
-  describe &quot;#current_css_classes&quot; do
-    context &quot;called at SearchController#show&quot; do
+  describe "#current_css_classes" do
+    context "called at SearchController#show" do
       before do
-        helper.stub(:controller_name).and_return(&quot;search&quot;)
-        helper.stub(:action_name).and_return(&quot;show&quot;)
+        helper.stub(:controller_name).and_return("search")
+        helper.stub(:action_name).and_return("show")
       end</p>
 
 <pre><code>  specify do
@@ -80,10 +80,10 @@ end
 </code></pre>
 
 <p>end
-end</pre><pre class="code" data-unlink>ApplicationHelper
+end</p></pre><pre class="code" data-unlink>ApplicationHelper
   #current_css_classes
     called at SearchController#show
-      should == [&quot;search_controller&quot;, &quot;show_action&quot;]</pre></p>
+      should == ["search_controller", "show_action"]</pre>
 
   </div>
 </article>

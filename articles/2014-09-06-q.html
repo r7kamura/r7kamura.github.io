@@ -66,17 +66,17 @@ I/F定義 ----&gt; ドキュメント
     properties:
       name:
         type: string
-        pattern: &quot;^[a-z0-9]{3,20}$&quot;
+        pattern: "^[a-z0-9]{3,20}$"
     links:
       - method: GET
-        href: &quot;/users&quot;
+        href: "/users"
         rel: instances
         schema:
           properties:
             page:
               description: 1から始まるページ番号だよ
               type: string
-              pattern: &quot;^[0-9]+$&quot;
+              pattern: "^[0-9]+$"
 </code></pre>
 
 <p>JSON Schemaは基本的にはJSONで表現するものだが、JSON Schemaに対応した各種ライブラリに与える場合には結局適当なデータ構造にデコードすることになるので、同等なデータ構造を表現できるのであればYAMLを利用しても特に問題はない。プログラム間でデータを受け渡す場合にはJSONを利用すると便利だが、人間がエディタで編集する場合にはYAMLなどの行指向のデータ形式を利用した方が寧ろ便利なことが多い。</p>
@@ -92,7 +92,7 @@ I/F定義 ----&gt; ドキュメント
 
 <p>これでMarkdownが出来上がるので、そのまま見るのも良いし、レポジトリに含めておいてGitHubを通して見るのも良い。ただschema.ymlだけ更新してドキュメントが更新されていないということは避けたいので、schema.ymlの変換結果とdocs.mdの内容が同じであることを保証するテストを書いておいてCIで検知する、といった運用をするのが良いかもしれない。また、サイトでAPIドキュメントを提供するような場合、Markdownをファイルに書き出すのではなく、直接HTMLを描画するのに使うこともできる。</p>
 
-<pre><code class="ruby">schema = YAML.load_file(&quot;schema.yml&quot;)
+<pre><code class="ruby">schema = YAML.load_file("schema.yml")
 html = Jdoc::Generator.call(schema, html: true)
 </code></pre>
 
@@ -117,7 +117,7 @@ html = Jdoc::Generator.call(schema, html: true)
 
 <p>本番環境で利用するとユーザにエラーレスポンスが返ってしまうため、これはテスト環境で利用するのが良いだろう。もし誤った実装をしていた場合、正常系のテストが書いてあれば例外が発生してテストが失敗するため、本番環境に反映させる前にテストを実行することで誤りを検出できる。</p>
 
-<pre><code class="ruby">use Rack::JsonSchema::ResponseValidation, schema: schema if ENV[&quot;RACK_ENV&quot;] == &quot;test&quot;
+<pre><code class="ruby">use Rack::JsonSchema::ResponseValidation, schema: schema if ENV["RACK_ENV"] == "test"
 </code></pre>
 
 <h2>Rack::JsonSchemaを使った開発の流れ</h2>

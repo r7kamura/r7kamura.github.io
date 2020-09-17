@@ -71,8 +71,8 @@
 <pre><code class="rb">class Notification &lt; ActiveRecord::Base
   # @note Override
   def [](attribute_name)
-    if attribute_name.to_s == &quot;source_type&quot;
-      type.gsub(/Notification\z/, &quot;&quot;)
+    if attribute_name.to_s == "source_type"
+      type.gsub(/Notification\z/, "")
     else
       super
     end
@@ -80,7 +80,7 @@
 
   # @note Override
   def _read_attribute(attribute_name)
-    if attribute_name == &quot;source_type&quot;
+    if attribute_name == "source_type"
       self[attribute_name]
     else
       super

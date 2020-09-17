@@ -45,31 +45,31 @@
   <div>
     <p>RSpec で細かく context を分けてテストケースを書いていると、複数の Example Group 間で単一の Example を共有したいケース、つまり異なる context で同じ it のブロックを共有したいケースによく遭遇します。</p>
 
-<p>context &quot;without current user&quot; do<br>
-  it &quot;returns 200&quot; do<br>
+<p>context "without current user" do<br>
+  it "returns 200" do<br>
     is_expected.to eq(200)<br>
   end<br>
 end</p>
 
-<p>context &quot;with current user&quot; do<br>
-  include_context &quot;with current user&quot;</p>
+<p>context "with current user" do<br>
+  include_context "with current user"</p>
 
-<p>it &quot;returns 200&quot; do<br>
+<p>it "returns 200" do<br>
     is_expected.to eq(200)<br>
   end<br>
 end</p>
 
 <p>この目的のために、shared_examples (あるいはその alias) を利用することができますが、shared_examples に付ける名前が必要になり、その名前を逐一考えるのが面倒であったりします。そこで、it に与えるメッセージを shared_examples に与える名前としても使うというルールを課すことが自分の場合多いのですが、定義時には shared_examples の引数と it の引数とで同じ内容を二重に記述することになるため、幾分冗長なところがあります。</p>
 
-<p>shared_examples &quot;returns 200&quot; do<br>
-  it &quot;returns 200&quot; do<br>
+<p>shared_examples "returns 200" do<br>
+  it "returns 200" do<br>
     is_expected.to eq(200)<br>
   end<br>
 end</p>
 
 <p>これをもう少し仕組み化できないかということで、例えば現在開発している Nippo というアプリケーションでは、この目的のために、以下のような module を定義しています。</p>
 
-<p>require &quot;active_support/concern&quot;</p>
+<p>require "active_support/concern"</p>
 
 <p>module Nippo<br>
   module SpecHelpers<br>
@@ -77,7 +77,7 @@ end</p>
       extend ::ActiveSupport::Concern</p>
 
 <pre><code>  module ClassMethods  
-    # [@param](http://twitter.com/param &quot;Twitter profile for @param&quot;) \[String\] name  
+    # [@param](http://twitter.com/param "Twitter profile for @param") \[String\] name  
     def shared\_example(name, &amp;block)  
       shared\_examples name do  
         it name, &amp;block  
@@ -92,7 +92,7 @@ end</p>
 
 <p>この module を利用して、RSpec を以下のように設定すると、shared_example というメソッドが利用できるようになります。shared_examples の単数形版です。</p>
 
-<p>require &quot;nippo/spec_helpers/shared_example&quot;</p>
+<p>require "nippo/spec_helpers/shared_example"</p>
 
 <p>RSpec.configure do |configuration|<br>
   configuration.include Nippo::SpecHelpers::SharedExample<br>
@@ -100,25 +100,25 @@ end</p>
 
 <p>例えば、以下のように利用します。非ログイン時とログイン時のテストで、ステータスコードとして 200 を返す、という挙動を共有しています。</p>
 
-<p>require &quot;rails_helper&quot;</p>
+<p>require "rails_helper"</p>
 
-<p>RSpec.describe &quot;GET /&quot; do<br>
+<p>RSpec.describe "GET /" do<br>
   subject do<br>
-    get(&quot;/&quot;)<br>
+    get("/")<br>
   end</p>
 
-<p>shared_example &quot;returns 200&quot; do<br>
+<p>shared_example "returns 200" do<br>
     is_expected.to eq(200)<br>
   end</p>
 
-<p>context &quot;without current user&quot; do<br>
-    include_examples &quot;returns 200&quot;<br>
+<p>context "without current user" do<br>
+    include_examples "returns 200"<br>
   end</p>
 
-<p>context &quot;with current user&quot; do<br>
-    include_context &quot;with current user&quot;</p>
+<p>context "with current user" do<br>
+    include_context "with current user"</p>
 
-<pre><code>include\_examples &quot;returns 200&quot;  
+<pre><code>include\_examples "returns 200"  
 </code></pre>
 
 <p>end<br>

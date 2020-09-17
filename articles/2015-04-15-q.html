@@ -62,14 +62,14 @@
 
 <p>Vagrantfileの中で <code>config.plugin.add_dependency(name, version = nil)</code> という風に利用するプラグインを定義できます。今回は、例としてプロビジョニングツールの1つの<a href="https://github.com/r7kamura/serverkit">Serverkit</a> を使うためのプラグイン <a href="https://github.com/r7kamura/vagrant-serverkit">vagrant-serverkit</a> と、それからServerkitでrbenvを扱うためのプラグインである <a href="https://github.com/r7kamura/serverkit-rbenv">serverkit-rbenv</a> を利用することにします。</p>
 
-<pre><code class="rb:Vagrantfile">Vagrant.configure(&quot;2&quot;) do |config|
-  config.vm.box = &quot;ubuntu/trusty64&quot;
+<pre><code class="rb:Vagrantfile">Vagrant.configure("2") do |config|
+  config.vm.box = "ubuntu/trusty64"
 
-  config.plugin.add_dependency &quot;vagrant-serverkit&quot;
-  config.plugin.add_dependency &quot;serverkit-rbenv&quot;, &quot;0.0.2&quot;
+  config.plugin.add_dependency "vagrant-serverkit"
+  config.plugin.add_dependency "serverkit-rbenv", "0.0.2"
 
   config.vm.provision :serverkit do |config|
-    config.recipe_path = &quot;recipe.yml&quot;
+    config.recipe_path = "recipe.yml"
   end
 end
 </code></pre>
@@ -88,7 +88,7 @@ end
 
 <p>先述したように、Vagrantの環境下では「Gemfileに書いてbundler execで起動」という方法が使えません。これには、Vagrantの内部実装で別の用途にBundlerを利用しているので、一緒に使われるとまずいという理由があります。Vagrantは、本体それ自体に動作するRubyをまるごと同梱しており、Vagrantで利用するGemは全てその内部で管理されています。そして、VagrantのプラグインもまたGemであるため、同じくVagrant同梱のRubyによって管理されています。</p>
 
-<p>例えば <code>vagrant plugin install vagrant-serverkit</code> というコマンドでプラグインをインストールすると、~/.vagrant.d/gems/gems/vagrant-serverkit-0.0.4 にGemがインストールされます。また、~/.vagrant.d/plugins.json にvagrant-serverkitをインストールしているという情報が保存されます。この状態で <code>vagrant up</code> などのコマンドを利用すると、Vagrantはまず ~/.vagrant.d/plugins.json などの情報をもとに一時的なGemfileを生成します。Vagrantは、このGemfileのパスを <code>ENV[&quot;BUNDLE_GEMFILE&quot;]</code> に、またGemをインストールしているパスを <code>ENV[&quot;GEM_PATH&quot;]</code> に入れた状態で <code>Bundler.setup</code> を実行することで、各種プラグインの実体へのパスを <code>$LOAD_PATH</code> に入れ、<code>require &quot;vagrant-serverkit&quot;</code> などで読み込めるようにしています。</p>
+<p>例えば <code>vagrant plugin install vagrant-serverkit</code> というコマンドでプラグインをインストールすると、~/.vagrant.d/gems/gems/vagrant-serverkit-0.0.4 にGemがインストールされます。また、~/.vagrant.d/plugins.json にvagrant-serverkitをインストールしているという情報が保存されます。この状態で <code>vagrant up</code> などのコマンドを利用すると、Vagrantはまず ~/.vagrant.d/plugins.json などの情報をもとに一時的なGemfileを生成します。Vagrantは、このGemfileのパスを <code>ENV["BUNDLE_GEMFILE"]</code> に、またGemをインストールしているパスを <code>ENV["GEM_PATH"]</code> に入れた状態で <code>Bundler.setup</code> を実行することで、各種プラグインの実体へのパスを <code>$LOAD_PATH</code> に入れ、<code>require "vagrant-serverkit"</code> などで読み込めるようにしています。</p>
 
 <h2>vagrant-multiplugはどう対処しているか</h2>
 
@@ -98,16 +98,16 @@ end
 
 <pre><code class="rb">Kernel.exec(
   {
-    &quot;VAGRANT_INTERNAL_BUNDLERIZED&quot; =&gt; nil,
-    &quot;VAGRANT_FORCE_BUNDLER&quot; =&gt; &quot;1&quot;,
+    "VAGRANT_INTERNAL_BUNDLERIZED" =&gt; nil,
+    "VAGRANT_FORCE_BUNDLER" =&gt; "1",
   },
-  &quot;#{$0} #{ARGV * &#39; &#39;}&quot;,
+  "#{$0} #{ARGV * ' '}",
 )
 </code></pre>
 
 <h2>参考にしたもの</h2>
 
-<p>2年前のプラグインでもうメンテナンスされていないみたいですが、<a href="https://github.com/tknerr/vagrant-plugin-bundler">tknerr/vagrant-plugin-bundler</a> というものがあったので参考にしました。Vagrantfileで <code>config.plugin.depend &quot;vagrant-omnibus&quot;, &quot;1.0.2&quot;</code> と書いておくと、vagrant-omnibus v1.0.2 がインストールされていなかった場合に、エラーを出してそこで処理を止めるというやつです。これは主に、Vagrantfileのインターフェースのデザインの参考にしました。vagrant-multiplug ではgemspecのメソッド名を少し意識して、.add_dependency というメソッド名にしました。</p>
+<p>2年前のプラグインでもうメンテナンスされていないみたいですが、<a href="https://github.com/tknerr/vagrant-plugin-bundler">tknerr/vagrant-plugin-bundler</a> というものがあったので参考にしました。Vagrantfileで <code>config.plugin.depend "vagrant-omnibus", "1.0.2"</code> と書いておくと、vagrant-omnibus v1.0.2 がインストールされていなかった場合に、エラーを出してそこで処理を止めるというやつです。これは主に、Vagrantfileのインターフェースのデザインの参考にしました。vagrant-multiplug ではgemspecのメソッド名を少し意識して、.add_dependency というメソッド名にしました。</p>
 
 <p>これももはやメンテナンスされていませんが、<a href="https://github.com/fgrehm/bindler">fgrehm/bindler</a> というプラグインも参考にしました。これはGemfileのようなものを別途用意してプラグインを管理しようというもので、Vagrantに新しいコマンドを追加して <code>bundle install</code> のようにインストールできるようにしています。</p>
 

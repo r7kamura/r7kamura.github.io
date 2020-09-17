@@ -62,7 +62,7 @@
 <pre><code>$ curl -LSfs https://raw.githubusercontent.com/r7kamura/dotfiles/master/install.sh | sh
 </code></pre>
 
-<p><img src="https://qiita-image-store.s3.amazonaws.com/0/4365/41e0757e-abef-68c8-ccd2-eac9f5af737e.gif" alt="install.gif"></p>
+<p><a href="https://qiita-image-store.s3.amazonaws.com/0/4365/41e0757e-abef-68c8-ccd2-eac9f5af737e.gif" target="_blank"><img src="https://qiita-image-store.s3.amazonaws.com/0/4365/41e0757e-abef-68c8-ccd2-eac9f5af737e.gif" alt="install.gif"></a></p>
 
 <h2>Serverkitとは</h2>
 
@@ -134,34 +134,34 @@
 
 <pre><code>$ serverkit inspect recipe.yml.erb --variables=variables.yml
 {
-  &quot;resources&quot;: [
+  "resources": [
     {
-      &quot;type&quot;: &quot;package&quot;,
-      &quot;name&quot;: &quot;cmake&quot;
+      "type": "package",
+      "name": "cmake"
     },
     {
-      &quot;type&quot;: &quot;package&quot;,
-      &quot;name&quot;: &quot;mysql&quot;
+      "type": "package",
+      "name": "mysql"
     },
     {
-      &quot;type&quot;: &quot;package&quot;,
-      &quot;name&quot;: &quot;node&quot;
+      "type": "package",
+      "name": "node"
     },
     {
-      &quot;type&quot;: &quot;package&quot;,
-      &quot;name&quot;: &quot;rbenv&quot;
+      "type": "package",
+      "name": "rbenv"
     },
     {
-      &quot;type&quot;: &quot;package&quot;,
-      &quot;name&quot;: &quot;readline&quot;
+      "type": "package",
+      "name": "readline"
     },
     {
-      &quot;type&quot;: &quot;package&quot;,
-      &quot;name&quot;: &quot;redis&quot;
+      "type": "package",
+      "name": "redis"
     },
     {
-      &quot;type&quot;: &quot;package&quot;,
-      &quot;name&quot;: &quot;ruby-build&quot;
+      "type": "package",
+      "name": "ruby-build"
     }
   ]
 }
@@ -183,7 +183,7 @@
 
 <h2>さまざまなリソース</h2>
 
-<p>上記の例ではtypeプロパティに <code>&quot;package&quot;</code> が指定されたリソースしか利用していませんでしたが、他にも symlink や git、command など、いろいろな種類のリソースが用意されています。symlinkは、指定したパスから他に指定したパスに対してシンボリックリンクを作成するリソース、gitは、指定したレポジトリを git-clone してくるのリソース、commandは、指定したシェルスクリプトを実行するリソースです。例えば以下のレシピを適用すると、<a href="https://github.com/r7kamura/dotfiles">r7kamura/dotfiles</a> からレポジトリがgit-cloneされ、.zshrc に対してシンボリックリンクが作成され、ログインシェルが /bin/zsh に設定されていなければ chsh を利用して変更されます。</p>
+<p>上記の例ではtypeプロパティに <code>"package"</code> が指定されたリソースしか利用していませんでしたが、他にも symlink や git、command など、いろいろな種類のリソースが用意されています。symlinkは、指定したパスから他に指定したパスに対してシンボリックリンクを作成するリソース、gitは、指定したレポジトリを git-clone してくるのリソース、commandは、指定したシェルスクリプトを実行するリソースです。例えば以下のレシピを適用すると、<a href="https://github.com/r7kamura/dotfiles">r7kamura/dotfiles</a> からレポジトリがgit-cloneされ、.zshrc に対してシンボリックリンクが作成され、ログインシェルが /bin/zsh に設定されていなければ chsh を利用して変更されます。</p>
 
 <pre><code class="yaml:recipe.yml">resources:
   - type: git
@@ -193,7 +193,7 @@
     source: /Users/r7kamura/.zshrc
     destination: /Users/r7kamura/src/github.com/r7kamura/dotfiles/linked/.zshrc
   - type: command
-    check_script: &quot;finger -l | grep -E &#39;Shell: /bin/zsh$&#39;&quot;
+    check_script: "finger -l | grep -E 'Shell: /bin/zsh$'"
     script: sudo chsh -s /bin/zsh r7kamura
 </code></pre>
 
@@ -201,8 +201,8 @@
 
 <p>Serverkitは外部のプラグインを読み込むための特殊な機能は備えていませんが、手元にGemfileがあれば、実行時にGemfileに定義されたGemを読み込むようになっています。そのため、任意のGemを作成して読み込ませることで、Serverkitの機能を拡張することができます。例えば、serverkit-defaultsを読み込むとdefaultsというリソースが使えるようになり、defaults(1) を利用した設定の管理が可能になります。以下の例では、defaultsリソースを利用してスクリーンキャプチャの出力する画像形式をpngに変更しています。</p>
 
-<pre><code class="rb:Gemfile">gem &quot;serverkit&quot;
-gem &quot;serverkit-defaults&quot;
+<pre><code class="rb:Gemfile">gem "serverkit"
+gem "serverkit-defaults"
 </code></pre>
 
 <pre><code class="yaml:recipe.yml">resources:
@@ -248,12 +248,12 @@ pushd ${workspace}/dotfiles-master &gt; /dev/null
 # コマンドラインツールをインストールするためにポップアップを出す。
 # GUIで入れるのでCUI側では入るまで待つ
 xcode-select -p &gt; /dev/null
-if [ &quot;$?&quot; -ne 0 ]; then
+if [ "$?" -ne 0 ]; then
   xcode-select --install
   while :
   do
     xcode-select -p
-    if [ &quot;$?&quot; -eq 0 ]; then
+    if [ "$?" -eq 0 ]; then
       break
     fi
     sleep 5
@@ -262,8 +262,8 @@ fi
 
 # homebrewを入れる
 which brew &gt; /dev/null
-if [ &quot;$?&quot; -ne 0 ]; then
-  ruby -e &quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)&quot;
+if [ "$?" -ne 0 ]; then
+  ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 fi
 
 # serverkitを入れる
@@ -291,15 +291,24 @@ rm -rf ${tempfile} ${workspace}
 <p>リソースのtypeプロパティの値は、<code>Serverkit::Resources</code> の名前空間から対応するクラスを発見するのに利用されます。例えば、symlinkであれば <code>Serverkit::Resources::Symlink</code> が利用されます。つまり、<code>Serverkit::Resources</code> の名前空間下に適当なクラスを用意すると、任意の名前のリソースを定義できます。リソース用クラスの定義は、<a href="https://github.com/r7kamura/serverkit/tree/master/lib/serverkit/resources">標準で用意されているリソースの実装</a>を真似しがら実装するのが良いでしょう。リソース用クラスの実装における要点は以下の通りです。</p>
 
 <ul>
-<li><code>Serverkit::Resources::Base</code> を継承しなければならない</li>
-<li><code>#apply</code> と <code>#check</code> を実装しなければならない</li>
-<li><code>#check</code> は true または false を返さなければならない</li>
-<li><code>#apply</code> は <code>#check</code> がfalseを返したときに実行される</li>
-<li><code>#check</code> は <code>#apply</code> を実行するかどうか、また <code>#apply</code> の後に処理が成功したかを調べるのに利用される</li>
-<li><code>#recheck</code> を実装すると、<code>#apply</code> の後に <code>#check</code> の代わりにこれが利用される</li>
-<li><code>#default_id</code> を実装すると、ログの一部にその返り値が表示される</li>
-<li><code>#run_command</code> や <code>#check_command</code> を利用すると、サーバ上でシェルスクリプトを実行して結果を受け取れる</li>
-<li><code>.attribute</code> を利用して、リソースで利用可能なattributeとそのvalidationルールを指定できる</li>
+<li>
+<code>Serverkit::Resources::Base</code> を継承しなければならない</li>
+<li>
+<code>#apply</code> と <code>#check</code> を実装しなければならない</li>
+<li>
+<code>#check</code> は true または false を返さなければならない</li>
+<li>
+<code>#apply</code> は <code>#check</code> がfalseを返したときに実行される</li>
+<li>
+<code>#check</code> は <code>#apply</code> を実行するかどうか、また <code>#apply</code> の後に処理が成功したかを調べるのに利用される</li>
+<li>
+<code>#recheck</code> を実装すると、<code>#apply</code> の後に <code>#check</code> の代わりにこれが利用される</li>
+<li>
+<code>#default_id</code> を実装すると、ログの一部にその返り値が表示される</li>
+<li>
+<code>#run_command</code> や <code>#check_command</code> を利用すると、サーバ上でシェルスクリプトを実行して結果を受け取れる</li>
+<li>
+<code>.attribute</code> を利用して、リソースで利用可能なattributeとそのvalidationルールを指定できる</li>
 </ul>
 
 <h2>リンク</h2>

@@ -76,8 +76,8 @@ _Summary Model.attribute_names is cached and relies on Model.columns, but does n
 
 <p>今回の変更によって Hash のキーとしての同値性判定ロジックが改善され、別のインスタンスであっても、内部情報が同等のものであれば同じキーとして認識されるようになりました。この結果、上手くクエリキャッシュが利用されるようになりました。</p>
 
-<p><a href="https://github.com/rails/rails/pull/26261" title="https://github.com/rails/rails/pull/26261"><strong>Don&#39;t bust AR query cache when types are not same object (backport bug fix) by jcoleman · Pull…</strong><br>
-_Summary AR&#39;s query cache currently depends on the type objects being not only equivalent but also to be the same…_github.com</a><a href="https://github.com/rails/rails/pull/26261"></a></p>
+<p><a href="https://github.com/rails/rails/pull/26261" title="https://github.com/rails/rails/pull/26261"><strong>Don't bust AR query cache when types are not same object (backport bug fix) by jcoleman · Pull…</strong><br>
+_Summary AR's query cache currently depends on the type objects being not only equivalent but also to be the same…_github.com</a><a href="https://github.com/rails/rails/pull/26261"></a></p>
 
 <h2>joinsを呼び出したときに、unscoped ブロックの効果が意図通り発揮されるようになった</h2>
 
@@ -92,8 +92,8 @@ _rails - Ruby on Rails_github.com</a><a href="https://github.com/rails/rails/com
 
 <p>これが改善され、従来通りのユースケースにおいても Hash を意図通り割り当てることが可能になりました。</p>
 
-<p><a href="https://github.com/rails/rails/commit/4e7cfbfcfd69e1398ccfa74e71aa1eca19eef5bf" title="https://github.com/rails/rails/commit/4e7cfbfcfd69e1398ccfa74e71aa1eca19eef5bf"><strong>Don&#39;t assume all hashes are from multiparameter assignment in `compos... · rails/rails@4e7cfbf</strong><br>
-_ed_of` So this bug is kinda funky. The code path is basically &quot;if we weren&#39;t passed an instance of the class we…_github.com</a><a href="https://github.com/rails/rails/commit/4e7cfbfcfd69e1398ccfa74e71aa1eca19eef5bf"></a></p>
+<p><a href="https://github.com/rails/rails/commit/4e7cfbfcfd69e1398ccfa74e71aa1eca19eef5bf" title="https://github.com/rails/rails/commit/4e7cfbfcfd69e1398ccfa74e71aa1eca19eef5bf"><strong>Don't assume all hashes are from multiparameter assignment in `compos... · rails/rails@4e7cfbf</strong><br>
+_ed_of` So this bug is kinda funky. The code path is basically "if we weren't passed an instance of the class we…_github.com</a><a href="https://github.com/rails/rails/commit/4e7cfbfcfd69e1398ccfa74e71aa1eca19eef5bf"></a></p>
 
 <h3>activesupport</h3>
 
@@ -136,7 +136,7 @@ _(cherry picked from commit dbc7a7cb509ef0046afa327d4ac8330259fd8e73)_github.com
 _In Ruby 2.4 the `to_time` method for both `DateTime` and `Time` will preserve the timezone of the receiver when…_github.com</a><a href="https://github.com/rails/rails/commit/d569f8dc5f0c6345db476ebd9f228c68c3434a29"></a></p>
 
 <p><a href="https://github.com/rails/rails/commit/1fc3bdab8f34e066837195bcceffd782926a8b13" title="https://github.com/rails/rails/commit/1fc3bdab8f34e066837195bcceffd782926a8b13"><strong>Move `DateTime#getlocal` to `/core_ext/date_time/calculations.rb` · rails/rails@1fc3bda</strong><br>
-_DateTime#getlocal` is newly added public API. It&#39;s responsible is same as `DateTime#utc`, so `calculations.rb` is a…_github.com</a><a href="https://github.com/rails/rails/commit/1fc3bdab8f34e066837195bcceffd782926a8b13"></a></p>
+_DateTime#getlocal` is newly added public API. It's responsible is same as `DateTime#utc`, so `calculations.rb` is a…_github.com</a><a href="https://github.com/rails/rails/commit/1fc3bdab8f34e066837195bcceffd782926a8b13"></a></p>
 
 <h2>Time#sec_fraction が追加された</h2>
 

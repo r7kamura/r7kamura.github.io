@@ -64,7 +64,7 @@
 
 <h2>rails/rails#35549</h2>
 
-<p>先述した Content-Type を持つ HTTP レスポンスで ActionDispatch::Response#charset を呼び出したとき、&quot;sjis&quot; が返ってきてほしいところですが、現時点で最新版の rails/rails で試すと &quot;sjis; header=present&quot; という値が返されることが分かりました。どうやら ;charset= 以降の部分を全て charset の値として扱う実装になっているようです。</p>
+<p>先述した Content-Type を持つ HTTP レスポンスで ActionDispatch::Response#charset を呼び出したとき、"sjis" が返ってきてほしいところですが、現時点で最新版の rails/rails で試すと "sjis; header=present" という値が返されることが分かりました。どうやら ;charset= 以降の部分を全て charset の値として扱う実装になっているようです。</p>
 
 <p>そういう訳で、この問題に対して修正を加えたのが <a href="https://github.com/rails/rails/pull/35549">https://github.com/rails/rails/pull/35549</a> です。; と = で区切られている一連のパラメータを真面目に Hash として組み立てた上で、charset パラメータの値を調べるようにしています。</p>
 

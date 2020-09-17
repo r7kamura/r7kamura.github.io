@@ -58,10 +58,10 @@ vagrant-serverkit (0.0.4)
 
 <p>例として、ubuntu/trusty64 という名前で公開されている Ubuntu 14.04 のBoxを手元のVirtualBoxで起動し、recipe.yml に書かれたレシピ通りの状態をServerkitで構築する、という内容のVagrantfileを用意して実行してみます。</p>
 
-<pre><code class="rb:Vagrantfile">Vagrant.configure(&quot;2&quot;) do |config|
-  config.vm.box = &quot;ubuntu/trusty64&quot;
+<pre><code class="rb:Vagrantfile">Vagrant.configure("2") do |config|
+  config.vm.box = "ubuntu/trusty64"
   config.vm.provision :serverkit do |serverkit_config|
-    serverkit_config.recipe_path = &quot;recipe.yml&quot;
+    serverkit_config.recipe_path = "recipe.yml"
   end
 end
 </code></pre>

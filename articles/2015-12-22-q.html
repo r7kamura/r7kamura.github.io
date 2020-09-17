@@ -45,7 +45,7 @@
   <div>
     <p><a href="http://blog.qiita.com/post/135631147364/rich-diff">編集履歴が見やすくなりました - Qiita Blog</a> で紹介したように、編集履歴の差分をより分かりやすく表示できるようにしました。この記事では、この差分表示の実装方法について説明します。</p>
 
-<p><img src="https://qiita-image-store.s3.amazonaws.com/0/4365/1d1b12de-0cb2-b65f-8c7e-3b8bd1103029.png" alt=""></p>
+<p><a href="https://qiita-image-store.s3.amazonaws.com/0/4365/1d1b12de-0cb2-b65f-8c7e-3b8bd1103029.png" target="_blank"><img src="https://qiita-image-store.s3.amazonaws.com/0/4365/1d1b12de-0cb2-b65f-8c7e-3b8bd1103029.png" alt=""></a></p>
 
 <h2>Markdiff</h2>
 
@@ -55,19 +55,19 @@
 
 <p>簡単な例で使い方を説明します。以下のように、まず <code>Markdiff::Differ</code> のインスタンスをつくり、<code>Markdiff::Differ#render</code> に変更前と変更後のHTMLの文字列を渡すと、<code>Nokogiri::XML::Node</code> のインスタンスが返ってきます。</p>
 
-<pre><code class="rb">require &quot;markdiff&quot;
+<pre><code class="rb">require "markdiff"
 
 differ = Markdiff::Differ.new
-node = differ.render(&quot;&lt;p&gt;x x x&lt;/p&gt;&quot;, &quot;&lt;p&gt;x y x&lt;/p&gt;&quot;)
-node.to_html #=&gt; &#39;&lt;div class=&quot;changed&quot;&gt;&lt;p&gt;x &lt;del class=&quot;del&quot;&gt;x&lt;/del&gt;&lt;ins&gt;y&lt;/ins&gt; x&lt;/p&gt;&lt;/div&gt;&#39;
+node = differ.render("&lt;p&gt;x x x&lt;/p&gt;", "&lt;p&gt;x y x&lt;/p&gt;")
+node.to_html #=&gt; '&lt;div class="changed"&gt;&lt;p&gt;x &lt;del class="del"&gt;x&lt;/del&gt;&lt;ins&gt;y&lt;/ins&gt; x&lt;/p&gt;&lt;/div&gt;'
 </code></pre>
 
 <h2>出力形式</h2>
 
 <p>削除された部分はdel要素で囲まれ、追加された部分はins要素で囲まれて挿入されます。これは赤色背景の打ち消し線の部分と、緑色背景の部分を表示するための処理です。また、変更を含む段落はdiv要素で囲まれます。これは、変更を含む箇所の左側に黄色い縦線を引くためです。</p>
 
-<pre><code class="html">&lt;div class=&quot;changed&quot;&gt;
-  &lt;p&gt;x &lt;del class=&quot;del&quot;&gt;x&lt;/del&gt;&lt;ins&gt;y&lt;/ins&gt; x&lt;/p&gt;
+<pre><code class="html">&lt;div class="changed"&gt;
+  &lt;p&gt;x &lt;del class="del"&gt;x&lt;/del&gt;&lt;ins&gt;y&lt;/ins&gt; x&lt;/p&gt;
 &lt;/div&gt;
 </code></pre>
 

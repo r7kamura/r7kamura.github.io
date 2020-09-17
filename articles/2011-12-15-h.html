@@ -49,7 +49,7 @@
 <div class="section">
     <h3>それ拡張で</h3>
     <p>GoogleChromeのテキストフィールドでこれをやるには、<a href="https://chrome.google.com/webstore/detail/ljobjlafonikaiipfkggjbhkghgicgoh">Edit with Emacs</a>という拡張を使う。Emacsって名前に書いてあるけどEmacsは関係ない。Edit with Emacsは、テキストフィールドでAlt+Enter(デフォルトではこのキーショートカットは無効になってるので有効化する)を押すと、サーバにPOSTで通信が送られて、サーバがエディタを開いて、エディタを閉じるとサーバが内容をブラウザに返して、返ってきた値をEdit with Emacsがテキストフィールドに挿入するという仕組み。</p>
-<p><img src="http://dl.dropbox.com/u/5978869/image/20111215_082657.png"></p>
+<p><a href="http://dl.dropbox.com/u/5978869/image/20111215_082657.png" target="_blank"><img src="http://dl.dropbox.com/u/5978869/image/20111215_082657.png"></a></p>
 <p>サーバは自分で用意する必要がある。<a href="https://github.com/kayakaya/edit_server_rack">edit_server_rack</a>というRackで実装されたサーバがあるので、これを利用する。config.ruの5行目でEmacsを利用するようになってるので、ENV['EDITOR']とか'vim'とかに上書きする。書き換えたらrackupで起動する。rackを利用しているから事前にgem install rackが必要かもしれない。screenとかでバックグラウンドで適当に動かすと良さそう。これで、ブラウザのテキストフィールドで好きなエディタが使えるようになる。</p>
 
 </div>

@@ -59,9 +59,9 @@ rake deploy:tag           # Mark a git tag to remember release version
 </code></pre>
 
 <pre><code class="ruby"># lib/tasks/deploy.rake
-define_method(:`) {|command| puts &quot;$ #{command}&quot; } if ENV[&quot;DRYRUN&quot;]
+define_method(:`) {|command| puts "$ #{command}" } if ENV["DRYRUN"]
 
-desc &quot;Deploy application to production server&quot;
+desc "Deploy application to production server"
 task :deploy =&gt; %w[
   deploy:precompile
   deploy:push
@@ -70,59 +70,59 @@ task :deploy =&gt; %w[
 ]
 
 namespace :deploy do
-  desc &quot;Compile assets and git commit public/assets&quot;
+  desc "Compile assets and git commit public/assets"
   task :precompile do
     puts
-    puts &quot;Compile assets to public/assets/&quot;
+    puts "Compile assets to public/assets/"
     puts `RAILS_ENV=production rake assets:precompile`
     puts `git reset`
     puts `git add public/assets`
-    puts `git commit -m &quot;Update public/assets/&quot;`
+    puts `git commit -m "Update public/assets/"`
   end
 
-  desc &quot;Push code to production server&quot;
+  desc "Push code to production server"
   task :push do
     puts
-    puts &quot;Deploy application to production server&quot;
+    puts "Deploy application to production server"
     puts `git push heroku master`
   end
 
-  desc &quot;Migrate the database&quot;
+  desc "Migrate the database"
   task :migrate do
     puts
-    puts &quot;Migrate the database&quot;
+    puts "Migrate the database"
     puts `heroku rake db:migrate`
   end
 
-  desc &quot;Mark a git tag to remember release version&quot;
+  desc "Mark a git tag to remember release version"
   task :tag do
-    name = &quot;release-#{Time.now.utc.strftime(&quot;%Y%m%d%H%M%S&quot;)}&quot;
+    name = "release-#{Time.now.utc.strftime("%Y%m%d%H%M%S")}"
     puts
-    puts &quot;Mark a git tag to remember release version&quot;
-    puts &quot;Tagging release as [#{name}]&quot;
-    puts `git tag -a #{name} -m &quot;Tagged release&quot;`
+    puts "Mark a git tag to remember release version"
+    puts "Tagging release as [#{name}]"
+    puts `git tag -a #{name} -m "Tagged release"`
     puts `git push --tags heroku`
   end
 
-  desc &quot;Setup environments&quot;
+  desc "Setup environments"
   task :setup =&gt; %w[
     deploy:setup:addons
     deploy:setup:env
   ]
 
   namespace :setup do
-    desc &quot;Setup addons&quot;
+    desc "Setup addons"
     task :addons do
       puts
-      puts &quot;Setup addons&quot;
+      puts "Setup addons"
       puts `heroku addons:add memcache`
     end
 
-    desc &quot;Setup ENV from .env&quot;
+    desc "Setup ENV from .env"
     task :env do
-      vals = File.read(&quot;.env&quot;).gsub(&quot;\n&quot;, &quot; &quot;)
+      vals = File.read(".env").gsub("\n", " ")
       puts
-      puts &quot;Setup ENV from .env&quot;
+      puts "Setup ENV from .env"
       puts `heroku config:add #{vals}`
     end
   end
@@ -138,7 +138,7 @@ $ git reset
 
 $ git add public/assets
 
-$ git commit -m &quot;Update public/assets/&quot;
+$ git commit -m "Update public/assets/"
 
 
 Deploy application to production server
@@ -151,7 +151,7 @@ $ heroku rake db:migrate
 
 Mark a git tag to remember release version
 Tagging release as [release-20130120103054]
-$ git tag -a release-20130120103054 -m &quot;Tagged release&quot;
+$ git tag -a release-20130120103054 -m "Tagged release"
 
 $ git push --tags heroku
 </code></pre>

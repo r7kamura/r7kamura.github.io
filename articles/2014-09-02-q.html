@@ -68,7 +68,7 @@
         resources :followers, only: [:index]
         resources :tweets, controller: :user_tweets, only: [:index]
       end
-      match &#39;*any&#39; =&gt; &#39;black_holes#show&#39;, via: :all
+      match '*any' =&gt; 'black_holes#show', via: :all
     end
   end
 end
@@ -79,24 +79,24 @@ end
 <p>Resource Routingを利用しない場合は以下のように <code>get</code>, <code>post</code>, <code>delete</code> などを用いて定義する。</p>
 
 <pre><code class="ruby">Qiita::Application.routes.draw do
-  post   &#39;/api/v1/access_tokens&#39;             =&gt; &#39;api/v1/access_tokens#create&#39;
-  delete &#39;/api/v1/access_tokens/:id&#39;         =&gt; &#39;api/v1/access_tokens#destroy&#39;
-  get    &#39;/api/v1/tweets&#39;                    =&gt; &#39;api/v1/tweets#index&#39;
-  post   &#39;/api/v1/tweets&#39;                    =&gt; &#39;api/v1/tweets#create&#39;
-  get    &#39;/api/v1/tweets/:id&#39;                =&gt; &#39;api/v1/tweets#show&#39;
-  put    &#39;/api/v1/tweets/:tweet_id/favorite&#39; =&gt; &#39;api/v1/favorites#update&#39;
-  delete &#39;/api/v1/tweets/:tweet_id/favorite&#39; =&gt; &#39;api/v1/favorites#destroy&#39;
-  get    &#39;/api/v1/tags&#39;                      =&gt; &#39;api/v1/tags#index&#39;
-  get    &#39;/api/v1/tags/:id&#39;                  =&gt; &#39;api/v1/tags#show&#39;
-  get    &#39;/api/v1/tags/:tag_id/tweets&#39;       =&gt; &#39;api/v1/tag_tweets#index&#39;
-  get    &#39;/api/v1/user&#39;                      =&gt; &#39;api/v1/users#show&#39;
-  get    &#39;/api/v1/users&#39;                     =&gt; &#39;api/v1/users#index&#39;
-  get    &#39;/api/v1/users/:id&#39;                 =&gt; &#39;api/v1/users#show&#39;
-  get    &#39;/api/v1/users/:user_id/favorites&#39;  =&gt; &#39;api/v1/favorites#index&#39;
-  get    &#39;/api/v1/users/:user_id/followees&#39;  =&gt; &#39;api/v1/followees#index&#39;
-  get    &#39;/api/v1/users/:user_id/followers&#39;  =&gt; &#39;api/v1/followers#index&#39;
-  get    &#39;/api/v1/users/:user_id/tweets&#39;     =&gt; &#39;api/v1/user_tweets#index&#39;
-  match  &#39;/api/v1/*any&#39;                      =&gt; &#39;api/v1/black_holes#show&#39;, via: :all
+  post   '/api/v1/access_tokens'             =&gt; 'api/v1/access_tokens#create'
+  delete '/api/v1/access_tokens/:id'         =&gt; 'api/v1/access_tokens#destroy'
+  get    '/api/v1/tweets'                    =&gt; 'api/v1/tweets#index'
+  post   '/api/v1/tweets'                    =&gt; 'api/v1/tweets#create'
+  get    '/api/v1/tweets/:id'                =&gt; 'api/v1/tweets#show'
+  put    '/api/v1/tweets/:tweet_id/favorite' =&gt; 'api/v1/favorites#update'
+  delete '/api/v1/tweets/:tweet_id/favorite' =&gt; 'api/v1/favorites#destroy'
+  get    '/api/v1/tags'                      =&gt; 'api/v1/tags#index'
+  get    '/api/v1/tags/:id'                  =&gt; 'api/v1/tags#show'
+  get    '/api/v1/tags/:tag_id/tweets'       =&gt; 'api/v1/tag_tweets#index'
+  get    '/api/v1/user'                      =&gt; 'api/v1/users#show'
+  get    '/api/v1/users'                     =&gt; 'api/v1/users#index'
+  get    '/api/v1/users/:id'                 =&gt; 'api/v1/users#show'
+  get    '/api/v1/users/:user_id/favorites'  =&gt; 'api/v1/favorites#index'
+  get    '/api/v1/users/:user_id/followees'  =&gt; 'api/v1/followees#index'
+  get    '/api/v1/users/:user_id/followers'  =&gt; 'api/v1/followers#index'
+  get    '/api/v1/users/:user_id/tweets'     =&gt; 'api/v1/user_tweets#index'
+  match  '/api/v1/*any'                      =&gt; 'api/v1/black_holes#show', via: :all
 end
 </code></pre>
 

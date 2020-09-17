@@ -45,10 +45,10 @@
   <div>
     <p>bowerやnpm経由で外部のパッケージに含まれるCSSやJavaScriptを利用したいときに、Rails.configuration.assets.pathsを変更し、Sprocketsを経由してこれを読み込むことがあります。</p>
 
-<pre><code class="rb">config.assets.paths &lt;&lt; &quot;node_modules&quot;
+<pre><code class="rb">config.assets.paths &lt;&lt; "node_modules"
 </code></pre>
 
-<pre><code class="scss">@import &quot;bootstrap-sass/assets/stylesheets/bootstrap&quot;;
+<pre><code class="scss">@import "bootstrap-sass/assets/stylesheets/bootstrap";
 </code></pre>
 
 <h2>なにが困るか</h2>
@@ -64,7 +64,7 @@
 <p><code>application\.(css|js)$</code> なので application.css.ejs.scss には一致しないだろうと思いきや、<a href="https://github.com/sstephenson/sprockets/blob/v2.12.3/lib/sprockets/asset_attributes.rb#L49">sprockets/asset_attributes.rb at v2.12.3 · sstephenson/sprockets</a> を見ると分かるように、実際には <code>logical_path</code> という、engine_extensionsから取り出せる幾つかの拡張子を取り除いたパスに対してチェックを行います。</p>
 
 <pre><code class="rb">[1] pry(main)&gt; Sprockets::Environment.new.engine_extensions
-=&gt; [&quot;.coffee&quot;, &quot;.jst&quot;, &quot;.eco&quot;, &quot;.ejs&quot;, &quot;.less&quot;, &quot;.sass&quot;, &quot;.scss&quot;, &quot;.erb&quot;, &quot;.str&quot;]
+=&gt; [".coffee", ".jst", ".eco", ".ejs", ".less", ".sass", ".scss", ".erb", ".str"]
 </code></pre>
 
 <p>このように、.ejs や .scss が登録されているため、/path/to/application.css.ejs.scss のlogical_pathは /path/to/application.css となり、先述した <code>/(?:\/|\\|\A)application\.(css|js)$/</code> の正規表現に一致することになります。</p>
@@ -75,8 +75,8 @@
 
 <pre><code class="rb">config.assets.precompile = [
   ::Sprockets::Railtie::LOOSE_APP_ASSETS,
-  &#39;application.css&#39;,
-  &#39;application.js&#39;,
+  'application.css',
+  'application.js',
 ]
 </code></pre>
 

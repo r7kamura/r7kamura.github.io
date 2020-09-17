@@ -55,9 +55,9 @@
 <li><a href="http://r7kamura.hatenablog.com/entry/2016/12/21/010420">amakanの開発環境をDockerに移行した - ✘╹◡╹✘</a></li>
 </ul>
 
-<p><hr></p>
+<p></p><hr>
 
-<p><img src="https://pbs.twimg.com/media/C0gWPLjVEAA-jB_.jpg" alt="image"></p>
+<p><a href="https://pbs.twimg.com/media/C0gWPLjVEAA-jB_.jpg" target="_blank"><img src="https://pbs.twimg.com/media/C0gWPLjVEAA-jB_.jpg" alt="image"></a></p>
 
 <h2>本番環境で使うDockerイメージ</h2>
 
@@ -262,15 +262,15 @@ X-Amz-Cf-Id: JBIQSgCoiBex6eGEONFnvD4K0R43DlDbd8dbYdXT2fXSq9aM3WUi5A==</pre>
 
 <p>amakanでは、amakan_pumaとamakan_sidekiqというコンテナをそれぞれ1つずつ起動してもらっている。ECSでは複数の仕事をクラスタという単位にまとめて管理するようになっている。以下の図では、amakanというクラスタがあり、サービスというのが2つ動いており、CPUはほとんど使ってないわりにメモリを沢山使っていることが分かる。</p>
 
-<p><img src="https://cloud.githubusercontent.com/assets/111689/21475313/64823b44-cb6d-11e6-9f28-3e65085cea18.png" alt="image"></p>
+<p><a href="https://cloud.githubusercontent.com/assets/111689/21475313/64823b44-cb6d-11e6-9f28-3e65085cea18.png" target="_blank"><img src="https://cloud.githubusercontent.com/assets/111689/21475313/64823b44-cb6d-11e6-9f28-3e65085cea18.png" alt="image"></a></p>
 
 <p>amakanクラスタの詳細を表示すると、amakan_pumaとamakan_sidekiqというサービスが動いているということが分かる。</p>
 
-<p><img src="https://cloud.githubusercontent.com/assets/111689/21475317/6ffbb482-cb6d-11e6-990c-2cfb3853cb4a.png" alt="image"></p>
+<p><a href="https://cloud.githubusercontent.com/assets/111689/21475317/6ffbb482-cb6d-11e6-990c-2cfb3853cb4a.png" target="_blank"><img src="https://cloud.githubusercontent.com/assets/111689/21475317/6ffbb482-cb6d-11e6-990c-2cfb3853cb4a.png" alt="image"></a></p>
 
 <p>amakan_pumaサービスの詳細を表示すると、amakan_pumaというタスク定義のv1を元にしたタスクが動作中で、Dockerコンテナが3000番ポートを露出させており、これがamakanロードバランサに紐付いていることが分かる。</p>
 
-<p><img src="https://cloud.githubusercontent.com/assets/111689/21475320/81b70c1c-cb6d-11e6-801f-b2489136188c.png" alt="image"></p>
+<p><a href="https://cloud.githubusercontent.com/assets/111689/21475320/81b70c1c-cb6d-11e6-801f-b2489136188c.png" target="_blank"><img src="https://cloud.githubusercontent.com/assets/111689/21475320/81b70c1c-cb6d-11e6-801f-b2489136188c.png" alt="image"></a></p>
 
 <p>タスク定義というのは「amakan_railsというDockerイメージで <code>bundle exec puma</code> コマンドを動かしてくれ」というのが定義してあるもので、サービスには対応するタスク定義を設定することになっている。「amakan_pumaサービスではamakan_pumaというタスク定義を元にコンテナが常に1つ起動されるようにしておいてください」という設定がなされている。実際に起動されるコンテナは、タスク定義を元に動作するタスクという単位で管理されている。</p>
 

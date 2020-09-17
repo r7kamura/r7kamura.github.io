@@ -54,7 +54,7 @@
 <pre><code class="rb"># SVO = Subject + Verb + Object
 class Notification &lt; ActiveRecord::Base
   belongs_to :object, polymorphic: true
-  belongs_to :subject, class_name: &quot;User&quot;
+  belongs_to :subject, class_name: "User"
 end
 
 class FavoriteNotification &lt; Notification
@@ -64,7 +64,7 @@ class MentionNotification &lt; Notification
 end
 
 class Mention &lt; ActiveRecord::Base
-  belongs_to :mentioned_tweet, class_name: &quot;Tweet&quot;
+  belongs_to :mentioned_tweet, class_name: "Tweet"
   belongs_to :tweet
 end
 
@@ -130,7 +130,7 @@ end
 <p>しかし、このコードではエラーが発生します。Mentionはmentioned_tweetに紐付いているものの、Favoriteがmentioned_tweetに紐付いていないためです。</p>
 
 <pre><code>ActiveRecord::AssociationNotFoundError:
-  Association named &#39;mentioned_tweet&#39; was not found on Favorite
+  Association named 'mentioned_tweet' was not found on Favorite
 </code></pre>
 
 <h2>対策</h2>
@@ -143,7 +143,7 @@ end
   #belongs_to :object, polymorphic: true
   belongs_to :favorite, foreign_key: :object_id, if: -&gt; { is_a?(FavoriteNotification) }
   belongs_to :mention, foreign_key: :object_id, if: -&gt; { is_a?(MentionNotification) }
-  belongs_to :subject, class_name: &quot;User&quot;
+  belongs_to :subject, class_name: "User"
 end
 </code></pre>
 

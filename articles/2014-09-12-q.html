@@ -81,7 +81,7 @@ end
 
 <p>ダミーのモデルクラスではEntryクラスと同じように<code>.validates</code>を呼び出せるようなものにする必要がある。これには、クラス名が存在し(定数に挿入されているか<code>.name</code>が呼び出せればOK)、かつ<code>ActiveModel::Validations</code>がincludeされているクラスを用意すれば良い。テストのためにグローバルな名前空間にクラスを定義してしまうのは良くないから、適当にクラスオブジェクトをつくって変数か何かで扱う。クラスをつくるには<code>Class.new</code>を使ってもいいけれど、外部からテスト用にURLを与える機能も実装したいので、丁度良さそうなStruct.newを使う。最終的にできたのが以下のコード。</p>
 
-<pre><code class="rb">require &#39;spec_helper&#39;
+<pre><code class="rb">require 'spec_helper'
 
 describe FullHttpUrlValidator do
   let(:model_class) do
@@ -89,56 +89,56 @@ describe FullHttpUrlValidator do
       include ActiveModel::Validations
 
       def self.name
-        &#39;DummyModel&#39;
+        'DummyModel'
       end
 
       validates :url, full_http_url: true
     end
   end
 
-  describe &#39;#validate&#39; do
+  describe '#validate' do
     subject do
       model_class.new(url)
     end
 
-    context &#39;with empty string&#39; do
+    context 'with empty string' do
       let(:url) do
-        &#39;&#39;
+        ''
       end
       it { should_not be_valid }
     end
 
-    context &#39;with nil&#39; do
+    context 'with nil' do
       let(:url) do
         nil
       end
       it { should_not be_valid }
     end
 
-    context &#39;without host&#39; do
+    context 'without host' do
       let(:url) do
-        &#39;http:///about&#39;
+        'http:///about'
       end
       it { should_not be_valid }
     end
 
-    context &#39;without http(s) scheme&#39; do
+    context 'without http(s) scheme' do
       let(:url) do
-        &#39;ftp://example.com&#39;
+        'ftp://example.com'
       end
       it { should_not be_valid }
     end
 
-    context &#39;with https&#39; do
+    context 'with https' do
       let(:url) do
-        &#39;https://example.com&#39;
+        'https://example.com'
       end
       it { should be_valid }
     end
 
-    context &#39;with full HTTP URL&#39; do
+    context 'with full HTTP URL' do
       let(:url) do
-        &#39;http://example.com&#39;
+        'http://example.com'
       end
       it { should be_valid }
     end

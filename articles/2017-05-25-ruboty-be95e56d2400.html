@@ -43,7 +43,7 @@
     </p>
   </footer>
   <div>
-    <p><img src="https://cdn-images-1.medium.com/max/800/1*B1unmwYlqaP8TgCawNEkCw.png" alt="Ruboty を利用したデプロイの様子">
+    <p><a href="https://cdn-images-1.medium.com/max/800/1*B1unmwYlqaP8TgCawNEkCw.png" target="_blank"><img src="https://cdn-images-1.medium.com/max/800/1*B1unmwYlqaP8TgCawNEkCw.png" alt="Ruboty を利用したデプロイの様子"></a>
 Ruboty を利用したデプロイの様子</p>
 
 <p>この記事では、Slack や HipChat で動く Bot をつくるためのフレームワーク Ruboty の仕組みを振り返り、現状の実現方法を把握し、今後 ChatOps を改善するための足掛かりとしたい。</p>
@@ -110,8 +110,8 @@ _ruboty-slack - Slack adapter for Ruboty._github.com</a><a href="https://github.
 
 <p>例えば、GitHub の Pull Request や Issue を操作するルールを提供する ruboty-github や、勤怠管理サービスを操作するルールを提供する ruboty-jobcan などがある。アダプタは種類が少ないのに対して、ハンドラは rubygems.org で「ruboty」で検索すると大量に出てくる。</p>
 
-<p><a href="https://rubygems.org/search?utf8=%E2%9C%93&query=ruboty" title="https://rubygems.org/search?utf8=%E2%9C%93&amp;query=ruboty"><strong>search | RubyGems.org | your community gem host</strong><br>
-_Mount cron system to Ruboty to schedule messages on a specific time._rubygems.org</a><a href="https://rubygems.org/search?utf8=%E2%9C%93&query=ruboty"></a></p>
+<p><a href="https://rubygems.org/search?utf8=%E2%9C%93&amp;query=ruboty" title="https://rubygems.org/search?utf8=%E2%9C%93&amp;query=ruboty"><strong>search | RubyGems.org | your community gem host</strong><br>
+_Mount cron system to Ruboty to schedule messages on a specific time._rubygems.org</a><a href="https://rubygems.org/search?utf8=%E2%9C%93&amp;query=ruboty"></a></p>
 
 <p>ハンドラの設計は、正規表現とメソッド名の組をルールとして登録してもらって、そのパターンに一致したときに指定されたメソッドを実行する、というものである。Ruboty はメッセージを受け取ると、登録された順にルールに一致するものがないか走査していって、一致するものがあれば対応する処理を実行する。</p>
 
@@ -131,7 +131,7 @@ _A methodology for building modern, scalable, maintainable software-as-a-service
 <p>アダプタとハンドラ以外に、永続化を行うバックエンドを差し替えるための、ブレインと呼ばれる類のプラグインも存在する。最もよく使われるのが ruboty-redis で、Redis をバックエンドにしてデータを永続化するためのプラグインである。</p>
 
 <p><a href="https://github.com/r7kamura/ruboty-redis" title="https://github.com/r7kamura/ruboty-redis"><strong>r7kamura/ruboty-redis</strong><br>
-_ruboty-redis - Store Ruboty&#39;s memory in Redis._github.com</a><a href="https://github.com/r7kamura/ruboty-redis"></a></p>
+_ruboty-redis - Store Ruboty's memory in Redis._github.com</a><a href="https://github.com/r7kamura/ruboty-redis"></a></p>
 
 <p>例えば、「@qiitan デプロイしたい」というコマンドでは、内部的には GitHub の Pull Request を作成する Web API が利用されている。このコマンドを利用するには、事前に GitHub のアクセストークンを Ruboty に教えておいて、Slack のアカウントと GitHub のアクセストークンとの対応関係を記憶させておく必要がある。</p>
 
@@ -157,7 +157,7 @@ _qiitan-rb - A template to create and deploy your ruboty on slack._github.com</a
 
 <p>ruboty-template の fork のグラフを見ると、Ruboty が使われている様子が可視化できる。</p>
 
-<p><img src="https://cdn-images-1.medium.com/max/800/1*hgLOUToHNenPUk9wi-anXQ.gif" alt="ruboty-template の fork Network">
+<p><a href="https://cdn-images-1.medium.com/max/800/1*hgLOUToHNenPUk9wi-anXQ.gif" target="_blank"><img src="https://cdn-images-1.medium.com/max/800/1*hgLOUToHNenPUk9wi-anXQ.gif" alt="ruboty-template の fork Network"></a>
 ruboty-template の fork Network</p>
 
 <h2>WebSocket</h2>

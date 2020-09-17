@@ -47,52 +47,52 @@
 
 <h2>Integration Requestを選ぶ</h2>
 
-<p><img src="https://qiita-image-store.s3.amazonaws.com/0/4365/65d9c0c7-0686-c9b9-7670-6feeeb9a97b2.png" alt="image"></p>
+<p><a href="https://qiita-image-store.s3.amazonaws.com/0/4365/65d9c0c7-0686-c9b9-7670-6feeeb9a97b2.png" target="_blank"><img src="https://qiita-image-store.s3.amazonaws.com/0/4365/65d9c0c7-0686-c9b9-7670-6feeeb9a97b2.png" alt="image"></a></p>
 
 <h2>Mapping Templatesを選ぶ</h2>
 
-<p><img src="https://qiita-image-store.s3.amazonaws.com/0/4365/09eaa051-5d90-c624-9e75-ce02120e7cc9.png" alt="image"></p>
+<p><a href="https://qiita-image-store.s3.amazonaws.com/0/4365/09eaa051-5d90-c624-9e75-ce02120e7cc9.png" target="_blank"><img src="https://qiita-image-store.s3.amazonaws.com/0/4365/09eaa051-5d90-c624-9e75-ce02120e7cc9.png" alt="image"></a></p>
 
 <h2>テンプレートを作成する</h2>
 
 <p>application/json用のテンプレートを作成します。</p>
 
-<p><img src="https://qiita-image-store.s3.amazonaws.com/0/4365/4279da3a-0d53-68de-058e-f180ee60aaf5.png" alt="image"></p>
+<p><a href="https://qiita-image-store.s3.amazonaws.com/0/4365/4279da3a-0d53-68de-058e-f180ee60aaf5.png" target="_blank"><img src="https://qiita-image-store.s3.amazonaws.com/0/4365/4279da3a-0d53-68de-058e-f180ee60aaf5.png" alt="image"></a></p>
 
 <h2>テンプレートを編集する</h2>
 
 <p>内容は以下の通りです。執筆時点で <a href="http://docs.aws.amazon.com/ja_jp/apigateway/latest/developerguide/api-gateway-mapping-template-reference.html">API Gatewayのドキュメント</a> で説明されている全ての値を参照できるようにしてみました。このテンプレートはVTLという言語で記述することになっているので、詳しく知りたい人は <a href="http://velocity.apache.org/engine/devel/user-guide.html">ユーザガイド</a> を見ると良いです。</p>
 
 <pre><code>{
-  &quot;accountId&quot;: &quot;$context.identity.accountId&quot;,
-  &quot;apiId&quot;: &quot;$context.apiId&quot;,
-  &quot;apiKey&quot;: &quot;$context.identity.apiKey&quot;,
-  &quot;caller&quot;: &quot;$context.identity.caller&quot;,
-  &quot;headers&quot;: {
+  "accountId": "$context.identity.accountId",
+  "apiId": "$context.apiId",
+  "apiKey": "$context.identity.apiKey",
+  "caller": "$context.identity.caller",
+  "headers": {
 #foreach( $key in $input.params().header.keySet() )
-    &quot;$key&quot;: &quot;$input.params().header.get($key)&quot;#if( $foreach.hasNext ),#end
+    "$key": "$input.params().header.get($key)"#if( $foreach.hasNext ),#end
 #end
   },
-  &quot;httpMethod&quot;: &quot;$context.httpMethod&quot;,
-  &quot;path&quot;: &quot;$context.resourcePath&quot;,
-  &quot;pathParameters&quot;: {
+  "httpMethod": "$context.httpMethod",
+  "path": "$context.resourcePath",
+  "pathParameters": {
 #foreach( $key in $input.params().path.keySet() )
-    &quot;$key&quot;: &quot;$input.params().path.get($key)&quot;#if( $foreach.hasNext ),#end
+    "$key": "$input.params().path.get($key)"#if( $foreach.hasNext ),#end
 #end
   },
-  &quot;queryParameters&quot;: {
+  "queryParameters": {
 #foreach( $key in $input.params().querystring.keySet() )
-    &quot;$key&quot;: &quot;$input.params().querystring.get($key)&quot;#if( $foreach.hasNext ),#end
+    "$key": "$input.params().querystring.get($key)"#if( $foreach.hasNext ),#end
 #end
   },
-  &quot;requestId&quot;: &quot;$context.requestId&quot;,
-  &quot;requestParameters&quot;: $input.json(&#39;$&#39;),
-  &quot;resourceId&quot;: &quot;$context.resourceId&quot;,
-  &quot;sourceIp&quot;: &quot;$context.identity.sourceIp&quot;,
-  &quot;stage&quot;: &quot;$context.stage&quot;,
-  &quot;user&quot;: &quot;$context.identity.user&quot;,
-  &quot;userAgent&quot;: &quot;$context.identity.userAgent&quot;,
-  &quot;userArn&quot;: &quot;$context.identity.userArn&quot;
+  "requestId": "$context.requestId",
+  "requestParameters": $input.json('$'),
+  "resourceId": "$context.resourceId",
+  "sourceIp": "$context.identity.sourceIp",
+  "stage": "$context.stage",
+  "user": "$context.identity.user",
+  "userAgent": "$context.identity.userAgent",
+  "userArn": "$context.identity.userArn"
 }
 </code></pre>
 

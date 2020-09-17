@@ -55,7 +55,7 @@
 
 <h2>パターン</h2>
 
-<p>例えばQiitaの検索ボックスでは、いくつかの特殊なパターンの検索クエリが利用できます。<code>title:Ruby</code> では記事のタイトルにRubyを含むものが一致し、<code>-Rails</code> ではRailsを含まない記事が、<code>&quot;Ruby on Rails&quot;</code> ではRuby on Railsに完全一致する記事のみが一致します。また、<code>tag:Ruby -tag:Rails user:r7kamura</code> のように、いくつかのパターンが組み合わせられることもあり得ます。渡されたクエリ文字列を解析し、これらのパターンの定義に従ってElasticsearch用の適切な検索クエリを生成するプログラムをつくる、というのがこの記事の目的です。</p>
+<p>例えばQiitaの検索ボックスでは、いくつかの特殊なパターンの検索クエリが利用できます。<code>title:Ruby</code> では記事のタイトルにRubyを含むものが一致し、<code>-Rails</code> ではRailsを含まない記事が、<code>"Ruby on Rails"</code> ではRuby on Railsに完全一致する記事のみが一致します。また、<code>tag:Ruby -tag:Rails user:r7kamura</code> のように、いくつかのパターンが組み合わせられることもあり得ます。渡されたクエリ文字列を解析し、これらのパターンの定義に従ってElasticsearch用の適切な検索クエリを生成するプログラムをつくる、というのがこの記事の目的です。</p>
 
 <ul>
 <li>title:...</li>
@@ -89,7 +89,7 @@
       (?&lt;minus&gt;-)?
       (?:(?&lt;field_name&gt;\w+):)?
       (?:
-        (?:&quot;(?&lt;quoted_term&gt;.*?)(?&lt;!\\)&quot;)
+        (?:"(?&lt;quoted_term&gt;.*?)(?&lt;!\\)")
         |
         (?&lt;term&gt;\S+)
       )
@@ -113,7 +113,7 @@ end
 <p>使うときはこんな感じで使います。</p>
 
 <pre><code class="rb">tokenizer = Tokenizer.new
-tokens = tokenizer.tokenize(&quot;a tag:b OR c -d&quot;)
+tokens = tokenizer.tokenize("a tag:b OR c -d")
 </code></pre>
 
 <h2>OrSeparatableNode</h2>
@@ -121,11 +121,11 @@ tokens = tokenizer.tokenize(&quot;a tag:b OR c -d&quot;)
 <p>Tokenizerを利用してトークンの配列を生成したあと、これらをグループに分け検索クエリに変換します。まずORトークンに着目して、ORトークンの前後でトークンを分けていきます。「a tag:b OR c -d」というクエリ文字列であれば、「aとtag:b」「cと-d」というグループに分け、<a href="http://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-bool-query.html">Bool Query</a>のshould clauseを利用し、それぞれのグループのいずれかが満たされるものが一致するようなクエリをつくります。</p>
 
 <pre><code class="rb">tokenizer = Tokenizer.new
-tokens = tokenizer.tokenize(&quot;a tag:b OR c -d&quot;)
+tokens = tokenizer.tokenize("a tag:b OR c -d")
 OrSeparatableNode.new(tokens).to_hash
 #=&gt; {
-#   &quot;bool&quot; =&gt; {
-#     &quot;should&quot; =&gt; [
+#   "bool" =&gt; {
+#     "should" =&gt; [
 #       ..., // 「aとtag:b」用のクエリ
 #       ...  // 「cと-d」用のクエリ
 #     ]
@@ -141,14 +141,14 @@ OrSeparatableNode.new(tokens).to_hash
 
 <pre><code class="rb">FilterableNode.new(tokens).to_hash
 #=&gt; {
-#   &quot;filtered&quot; =&gt; {
-#     &quot;filter&quot; =&gt; {
-#       &quot;bool&quot; =&gt; {
-#         &quot;must&quot; =&gt; ...     // 「tag:b」などのトークン用のクエリ
-#         &quot;must_not&quot; =&gt; ... // 「-b」などのトークン用のクエリ
+#   "filtered" =&gt; {
+#     "filter" =&gt; {
+#       "bool" =&gt; {
+#         "must" =&gt; ...     // 「tag:b」などのトークン用のクエリ
+#         "must_not" =&gt; ... // 「-b」などのトークン用のクエリ
 #       }
 #     },
-#     &quot;query&quot; =&gt; ... // 「c」などのトークン用のクエリ
+#     "query" =&gt; ... // 「c」などのトークン用のクエリ
 #   }
 # }
 </code></pre>
@@ -160,8 +160,8 @@ OrSeparatableNode.new(tokens).to_hash
 <p>後は個々のトークンを適切な形に変換していく処理が続くので省略しますが、上記のような流れでトークン列をクエリに変換していくと、最終的に検索クエリが得られます。実際には、説明した以外にも <a href="http://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-match-query.html">Match Query</a>、<a href="http://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-multi-match-query.html">Multi Match Query</a>、<a href="http://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-term-query.html">Term Query</a>、<a href="http://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-prefix-query.html">Prefix Query</a> などを組み合わせて検索クエリを表現しています。qiita-elasticsearchでは、クエリ文字列をトークンに分割する処理と検索クエリを組み立てる処理をまとめてQueryBuilderというクラスで担当しています。単純な例では、以下のような使い方になります。コード上では <a href="https://github.com/increments/qiita-elasticsearch/blob/master/lib/qiita/elasticsearch/query_builder.rb">query_builder.rb</a> がこの部分の処理を担当しています。</p>
 
 <pre><code class="rb">query_builder = QueryBuilder.new
-query_builder.build(&quot;a&quot;)
-#=&gt; {&quot;match&quot;=&gt;{&quot;_all&quot;=&gt;&quot;a&quot;}}
+query_builder.build("a")
+#=&gt; {"match"=&gt;{"_all"=&gt;"a"}}
 </code></pre>
 
 <h2>おわり</h2>

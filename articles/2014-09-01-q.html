@@ -61,7 +61,7 @@
 
 <p>RailsのControllerでは、Controller内で発生した例外を捕捉するためにrescue_fromという機能が提供されている。しかしながら、rescue_fromを利用して捕捉できる例外はControllerの処理の中で発生した例外だけであり、その外側で発生する例外は捕捉できない。例えば、Railsに組み込まれているRack middlewareで発生した例外は捕捉できないし、またrescue_fromの中で発生した例外も捕捉できない。もし仮にデコードできない文字列がJSONとして送られてきたとしたら、これはRack middlewareで処理されるため、500エラーが返ることになってしまう。</p>
 
-<p><img src="https://qiita-image-store.s3.amazonaws.com/0/4365/fb04e1b7-2049-0be2-d81f-eefe4e29d6af.png" alt="onion.png" title="onion.png"></p>
+<p><a href="https://qiita-image-store.s3.amazonaws.com/0/4365/fb04e1b7-2049-0be2-d81f-eefe4e29d6af.png" target="_blank"><img src="https://qiita-image-store.s3.amazonaws.com/0/4365/fb04e1b7-2049-0be2-d81f-eefe4e29d6af.png" alt="onion.png" title="onion.png"></a></p>
 
 <h3>Rack middlewareで捕捉すると良い</h3>
 
@@ -102,21 +102,21 @@
       end
 
       def headers
-        { &quot;Content-Type&quot; =&gt; &quot;application/json&quot; }
+        { "Content-Type" =&gt; "application/json" }
       end
 
       def body
         { message: error_message, type: type }.to_json
       end
 
-      # MyApp::Exceptions::NotFoundに対して&quot;NotFound&quot;が返る
+      # MyApp::Exceptions::NotFoundに対して"NotFound"が返る
       def error_message
         type.humanize
       end
 
-      # MyApp::Exceptions::NotFoundに対して&quot;Not found&quot;が返る
+      # MyApp::Exceptions::NotFoundに対して"Not found"が返る
       def type
-        self.class.to_s.split(&quot;::&quot;).last.underscore
+        self.class.to_s.split("::").last.underscore
       end
     end
 

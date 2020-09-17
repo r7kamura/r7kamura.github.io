@@ -51,9 +51,9 @@
 
 <h2>String#*</h2>
 
-<p>最近開発に参加しているアプリケーションで <code>&quot;&lt;br /&gt;&lt;br /&gt;&quot;</code> という HTML を用意する機会があり、ActiveSupport::SafeBuffer を返す ActionView::Helpers::TagHelper#tag を利用して、<code>tag(:br) * 2</code> というコードでこれを実現しようとしました。しかし <code>String#*</code> を呼び出すと内部的に保持していた安全かどうかの情報を引き継がないようで、<code>tag(:br) * 2</code> は素の (安全ではない) String を返すようでした。</p>
+<p>最近開発に参加しているアプリケーションで <code>"&lt;br /&gt;&lt;br /&gt;"</code> という HTML を用意する機会があり、ActiveSupport::SafeBuffer を返す ActionView::Helpers::TagHelper#tag を利用して、<code>tag(:br) * 2</code> というコードでこれを実現しようとしました。しかし <code>String#*</code> を呼び出すと内部的に保持していた安全かどうかの情報を引き継がないようで、<code>tag(:br) * 2</code> は素の (安全ではない) String を返すようでした。</p>
 
-<p>余談ですが、どうして <code>&quot;&lt;br /&gt;&lt;br /&gt;&quot;</code> という HTML が必要になったかと言うと、元々 <code>&quot;&lt;br /&gt;&lt;br /&gt;&quot;.html_safe</code> というコードで実現していたのを、RuboCop の Rails/OutputSafety を有効化したことにより、String#html_safe を使わない方法でこれを実現する必要が出てきたからなのでした。RuboCop の違反を元にして rails/rails に Pull Request を出す流れが最近多い気がしています。</p>
+<p>余談ですが、どうして <code>"&lt;br /&gt;&lt;br /&gt;"</code> という HTML が必要になったかと言うと、元々 <code>"&lt;br /&gt;&lt;br /&gt;".html_safe</code> というコードで実現していたのを、RuboCop の Rails/OutputSafety を有効化したことにより、String#html_safe を使わない方法でこれを実現する必要が出てきたからなのでした。RuboCop の違反を元にして rails/rails に Pull Request を出す流れが最近多い気がしています。</p>
 
 <p><a href="https://www.rubydoc.info/gems/rubocop/RuboCop/Cop/Rails/OutputSafety">https://www.rubydoc.info/gems/rubocop/RuboCop/Cop/Rails/OutputSafety</a></p>
 

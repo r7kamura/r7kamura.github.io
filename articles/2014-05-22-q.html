@@ -60,13 +60,13 @@
 <p>以下のように2つのファイルをGistに置く。</p>
 
 <pre><code class="rb:my-gem-name.gemspec">Gem::Specification.new do |spec|
- spec.name = &quot;my-gem-name&quot;
- spec.version = &quot;0.0.1&quot;
- spec.authors = [&quot;Your Name&quot;]
- spec.email = [&quot;your-email-address@example.com&quot;]
- spec.summary = &quot;Summary of this gem&quot;
- spec.files = [&quot;my-gem-name.rb&quot;]
- spec.require_path = &quot;.&quot;
+ spec.name = "my-gem-name"
+ spec.version = "0.0.1"
+ spec.authors = ["Your Name"]
+ spec.email = ["your-email-address@example.com"]
+ spec.summary = "Summary of this gem"
+ spec.files = ["my-gem-name.rb"]
+ spec.require_path = "."
 end
 </code></pre>
 
@@ -77,14 +77,14 @@ end
 <p>使う側では以下のように指定する。</p>
 
 <pre><code class="rb"># Gemfileからこういう感じで参照する
-gem &quot;my-gem-name&quot;, git: &quot;https://gist.github.com/1234567890abcdef1234.git&quot;
+gem "my-gem-name", git: "https://gist.github.com/1234567890abcdef1234.git"
 </code></pre>
 
 <h3>余談</h3>
 
 <p>Hubot用の画期的なプラグインを見つけたのでRuboty用にサクッと移植してGistに置いた。
 <a href="https://gist.github.com/r7kamura/0146d99b96f938898d08">https://gist.github.com/r7kamura/0146d99b96f938898d08</a>
-<img src="https://pbs.twimg.com/media/BoOHaoDIIAAwCNC.png:large" alt=""></p>
+<a href="https://pbs.twimg.com/media/BoOHaoDIIAAwCNC.png:large" target="_blank"><img src="https://pbs.twimg.com/media/BoOHaoDIIAAwCNC.png:large" alt=""></a></p>
 
   </div>
 </article>

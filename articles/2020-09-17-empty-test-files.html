@@ -45,9 +45,9 @@
   <div>
     <p>雑なスクリプトを書いて空のテストファイルを消したという話。</p>
 
-<pre><code>require &#39;pathname&#39;
+<pre><code>require 'pathname'
 
-Pathname.glob(&#39;spec/**/*_spec.rb&#39;).each do |pathname|
+Pathname.glob('spec/**/*_spec.rb').each do |pathname|
   if pathname.each_line.count &lt; 10 &amp;&amp; !pathname.read.match?(/\bit\b/)
     puts pathname
   end

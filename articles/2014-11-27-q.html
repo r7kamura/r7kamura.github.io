@@ -57,15 +57,15 @@
 <p>そのプロジェクトで初めてnpmを利用する場合、npm initを実行すると、package.jsonというファイルのひな形を生成してくれる。デフォルトで生成される奴は冗長な部分が多いので、適切に編集したほうが良いかもしれない。npm・nodeのversionは開発環境と本番環境とで揃えておいた方が吉。heroku-buildpack-nodejsを利用するなら、package.jsonは必須。</p>
 
 <pre><code>npm init
-echo &quot;/node_modules&quot; &gt;&gt; .gitignore
+echo "/node_modules" &gt;&gt; .gitignore
 </code></pre>
 
 <pre><code>{
-  &quot;engines&quot;: {
-    &quot;node&quot;: &quot;0.10.31&quot;,
-    &quot;npm&quot;: &quot;2.0.0-beta.0&quot;
+  "engines": {
+    "node": "0.10.31",
+    "npm": "2.0.0-beta.0"
   },
-  &quot;private&quot;: true
+  "private": true
 }
 </code></pre>
 
@@ -81,7 +81,7 @@ echo &quot;/node_modules&quot; &gt;&gt; .gitignore
 <p>npm init同様、bower initを実行するとbower.jsonのひな形を生成してくれる。</p>
 
 <pre><code>./node_modules/bower/bin/bower init
-echo &quot;/bower_components&quot; &gt;&gt; .gitignore
+echo "/bower_components" &gt;&gt; .gitignore
 </code></pre>
 
 <h2>bower install</h2>
@@ -98,7 +98,7 @@ echo &quot;/bower_components&quot; &gt;&gt; .gitignore
 <pre><code class="rb"># config/application.rb
 module MyApp
   class Application &lt; Rails::Application
-    config.assets.paths &lt;&lt; config.root.join(&#39;bower_components&#39;)
+    config.assets.paths &lt;&lt; config.root.join('bower_components')
   end
 end
 </code></pre>
@@ -116,7 +116,7 @@ end
 
 <p>Sassから利用する場合は、直接CSSを利用するならrequireを書くだけで済むが、変数やmixinを利用したい場合は<code>@import</code>を利用することもできる。この場合もパスの指定方法はrequireと同様になる。</p>
 
-<pre><code class="scss">@import &quot;bootstrap-sass-official/assets/stylesheets/bootstrap/variables&quot;;
+<pre><code class="scss">@import "bootstrap-sass-official/assets/stylesheets/bootstrap/variables";
 </code></pre>
 
 <h2>heroku-buildpack-multi</h2>
@@ -138,13 +138,13 @@ echo https://github.com/heroku/heroku-buildpack-ruby.git   &gt;&gt; .buildpacks
 
 <pre><code class="rb"># lib/tasks/bower.rake
 namespace :bower do
-  desc &quot;Run `bower install --production` after assets:precompile&quot;
+  desc "Run `bower install --production` after assets:precompile"
   task :install do
-    sh &quot;./node_modules/bower/bin/bower install --production&quot;
+    sh "./node_modules/bower/bin/bower install --production"
   end
 end
 
-task &quot;assets:precompile&quot; =&gt; [&quot;bower:install&quot;]
+task "assets:precompile" =&gt; ["bower:install"]
 </code></pre>
 
 <h2>rake assets:precompile</h2>

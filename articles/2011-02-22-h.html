@@ -57,14 +57,15 @@
 <li>セクション3: VirtualHosts</li>
 </ul>
 
-<p></li>
+<p></p>
+</li>
 <li>モジュールの追加</li>
 <li>外部設定ファイルの読込み</li>
 <li>サーバリソースの監視方法</li>
 </ul>
 <div class="section">
     <h4>httpd.confはどこにある？</h4>
-    <p>OSによって異なりますが、以下の階層に置いてある可能性が高いです。</p></p>
+    <p>OSによって異なりますが、以下の階層に置いてある可能性が高いです。</p>
 
 <table>
     <tr>
@@ -81,13 +82,14 @@
     </tr>
 </table>
 
-<p></div>
+<p></p>
+</div>
 <div class="section">
     <h4>最小限のhttpd.conf</h4>
     <p>httpd.conf は標準でもコメント含めて1000行くらい記述してあることが多いですが、以下の少ない設定でも動作します。httpd.confの理解を目的とするのであれば、小さな設定から徐々に設定項目を増やしていくことをお勧めします。ちなみにhttpd.confは再起動した時点で反映されます。</p>
 <pre class="code lang-sh" data-lang="sh" data-unlink>Listen <span class="synConstant">80</span>
-ServerRoot <span class="synStatement">&quot;</span><span class="synConstant">/etc/httpd</span><span class="synStatement">&quot;</span>
-DocumentRoot <span class="synStatement">&quot;</span><span class="synConstant">/var/www/html/</span><span class="synStatement">&quot;</span></p>
+ServerRoot <span class="synStatement">"</span><span class="synConstant">/etc/httpd</span><span class="synStatement">"</span>
+DocumentRoot <span class="synStatement">"</span><span class="synConstant">/var/www/html/</span><span class="synStatement">"</span>
 
 <p>User  nobody
 Group nobody</p>
@@ -115,11 +117,11 @@ ErrorLog logs/error_log</p>
     Options FollowSymLinks
     AllowOverride None
 <span class="synStatement">&lt;</span>/Directory<span class="synStatement">&gt;</span>
-</pre>
+</p></pre>
 </div>
 <div class="section">
     <h4>3つのセクション</h4>
-    <p>httpd.confの設定項目(ディレクティブ)は、その影響範囲によって主に下記の3つに分類されます。</p></p>
+    <p>httpd.confの設定項目(ディレクティブ)は、その影響範囲によって主に下記の3つに分類されます。</p>
 
 <table>
     <tr>
@@ -304,10 +306,11 @@ VirtualHostの設定には以下の2種類の方法があります(混合も可�
 </ol>
 </div>
 
-<p></div>
+<p></p>
+</div>
 <div class="section">
     <h4>モジュールの追加</h4>
-    <p>Apacheの基本的な機能と設定の説明は以上ですが、Apacheはモジュールを追加することで機能を拡張することが出来ます。Apacheに組み込めるモジュールの種類は大きく分けて以下の2つに分類されます。</p></p>
+    <p>Apacheの基本的な機能と設定の説明は以上ですが、Apacheはモジュールを追加することで機能を拡張することが出来ます。Apacheに組み込めるモジュールの種類は大きく分けて以下の2つに分類されます。</p>
 
 <ol>
 <li>コンパイル時に組み込まれるモジュール</li>
@@ -333,38 +336,39 @@ X / _ / X <span class="synStatement">&lt;</span> cat /etc/httpd/conf/httpd.conf 
      ...
 </pre>
 
-<p></div>
+<p></p>
+</div>
 <div class="section">
     <h4>外部設定ファイルの読込み</h4>
-    <p>Fedora Core / SUSE / Turbo 等のOSではconf.d/<em>.confという外部ファイルに設定を分け、それらを起動時に読み込む設定をhttpd.confに書くが常套手段となっています。ここのパスはServerRootで指定されたディレクトリからの相対パスなので注意してください。この設定により、ServerRoot/conf.d/ 以下の拡張子.confのファイルが全て設定ファイルとして読み込まれます。例として、<a href="http://example.com/blog"><a href="http://example.com/blog">http://example.com/blog</a></a> へのアクセスに対してアクセスされるディレクトリをwordpressに設定するため、conf.d/wordpress.confにAliasの設定を書くなどの利用方法が挙げられます。</p>
+    <p>Fedora Core / SUSE / Turbo 等のOSではconf.d/<em>.confという外部ファイルに設定を分け、それらを起動時に読み込む設定をhttpd.confに書くが常套手段となっています。ここのパスはServerRootで指定されたディレクトリからの相対パスなので注意してください。この設定により、ServerRoot/conf.d/ 以下の拡張子.confのファイルが全て設定ファイルとして読み込まれます。例として、<a href="http://example.com/blog"></a><a href="http://example.com/blog">http://example.com/blog</a> へのアクセスに対してアクセスされるディレクトリをwordpressに設定するため、conf.d/wordpress.confにAliasの設定を書くなどの利用方法が挙げられます。</em></p>
 <pre class="code lang-sh" data-lang="sh" data-unlink>X / _ / X <span class="synStatement">&lt;</span> cat /etc/httpd/conf/httpd.conf <span class="synSpecial">-n</span> | <span class="synStatement">grep</span> *.conf
-   <span class="synConstant">210</span> Include conf.d/</em>.conf</p>
+   <span class="synConstant">210</span> Include conf.d/.conf
 
 <p>X / _ / X <span class="synStatement">&lt;</span> tree /etc/httpd
 /etc/httpd
 |-- conf
 |   |-- httpd.conf
 |   <span class="synSpecial"><code>-- magic&lt;/span&gt;
-&lt;span class=&quot;synSpecial&quot;&gt;|-- conf.d&lt;/span&gt;
-&lt;span class=&quot;synSpecial&quot;&gt;|   |-- README&lt;/span&gt;
-&lt;span class=&quot;synSpecial&quot;&gt;|   |-- php.conf&lt;/span&gt;
-&lt;span class=&quot;synSpecial&quot;&gt;|   |-- phpmyadmin.conf&lt;/span&gt;
-&lt;span class=&quot;synSpecial&quot;&gt;|   |-- proxy_ajp.conf&lt;/span&gt;
-&lt;span class=&quot;synSpecial&quot;&gt;|   |-- welcome.conf_old&lt;/span&gt;
-&lt;span class=&quot;synSpecial&quot;&gt;|</code></span>-- wordpress.conf
+&lt;span class="synSpecial"&gt;|-- conf.d&lt;/span&gt;
+&lt;span class="synSpecial"&gt;|   |-- README&lt;/span&gt;
+&lt;span class="synSpecial"&gt;|   |-- php.conf&lt;/span&gt;
+&lt;span class="synSpecial"&gt;|   |-- phpmyadmin.conf&lt;/span&gt;
+&lt;span class="synSpecial"&gt;|   |-- proxy_ajp.conf&lt;/span&gt;
+&lt;span class="synSpecial"&gt;|   |-- welcome.conf_old&lt;/span&gt;
+&lt;span class="synSpecial"&gt;|</code></span>-- wordpress.conf
 |-- logs -<span class="synStatement">&gt;</span> ../../var/log/httpd
 |-- modules -<span class="synStatement">&gt;</span> ../../usr/lib64/httpd/modules
 <span class="synSpecial">`-- run -&gt; ../../var/run</span></p>
 
 <p><span class="synSpecial">X / _ / X &lt; cat /etc/httpd/conf.d/wordpress.conf </span>
 <span class="synSpecial">Alias /blog /var/www/wordpress</span>
-</pre>
+</p></pre>
 </div>
 <div class="section">
     <h4>サーバリソースの監視方法</h4>
     <p>本題とは少し内容が逸れますが、設定のために必要になったのでサーバリソースの監視方法についても少し調べました。Apacheでは使用するプロセス数を設定出来ますが、これにはApacheのプロセスがサーバのリソースにどれだけ影響を与えるかを見極める必要があります。1プロセスあたりのメモリ使用量はpsコマンドやtopコマンドで調べられます。psはシステムで実行中のプロセスを表示するコマンドです。$ ps aux | grep [a]pache のように使用します。[a]と角括弧で括っているのは出力結果にgrepのプロセス自体を含めないためのハックです。真面目に書きたい人は$ ps aux | grep apache | grep -v grepとして「grepが含まれない行だけ出力する」としても良いですね。しかしgrepではpsコマンド1行目の部分が表示されず残念な感じなので、psコマンドに-u apache(USERを指定するオプション)か-C httpd(COMMANDを指定するオプション)を付けます。</p>
 <pre class="code lang-sh" data-lang="sh" data-unlink><span class="synComment"># Usage</span>
-ps <span class="synStatement">[</span>-<span class="synStatement">]</span> <span class="synStatement">[</span>acefhjlmnrsuvwxS<span class="synStatement">]</span> <span class="synStatement">[</span>txx<span class="synStatement">]</span> <span class="synStatement">[</span>O<span class="synStatement">[</span>+<span class="synStatement">|</span>-<span class="synStatement">]</span>k1<span class="synStatement">[[</span>+<span class="synStatement">|</span>-<span class="synStatement">]</span>k2...<span class="synStatement">]]</span> <span class="synStatement">[</span>pids<span class="synStatement">]</span></p>
+ps <span class="synStatement">[</span>-<span class="synStatement">]</span> <span class="synStatement">[</span>acefhjlmnrsuvwxS<span class="synStatement">]</span> <span class="synStatement">[</span>txx<span class="synStatement">]</span> <span class="synStatement">[</span>O<span class="synStatement">[</span>+<span class="synStatement">|</span>-<span class="synStatement">]</span>k1<span class="synStatement">[[</span>+<span class="synStatement">|</span>-<span class="synStatement">]</span>k2...<span class="synStatement">]]</span> <span class="synStatement">[</span>pids<span class="synStatement">]</span>
 
 <p><span class="synComment"># Sample - COMMANDにhttpdを含むプロセスをユーザ名と開始時刻とツリー付きで表示</span>
 X / _ / X <span class="synStatement">&lt;</span> ps uf <span class="synSpecial">-C</span> httpd
@@ -385,16 +389,16 @@ apache   <span class="synConstant">19144</span>  0.0  0.5 <span class="synConsta
 <p><span class="synComment"># Sample - uid18796のプロセス(rootが動かしているhttpd)の遷移状態をツリー表示</span>
 X / _ / X <span class="synStatement">&lt;</span> pstree <span class="synConstant">18796</span> <span class="synSpecial">-u</span> <span class="synSpecial">-A</span>
 httpd-+-PassengerWatchd-+-PassengerHelper-+-ruby--<span class="synConstant">-2</span><em><span class="synStatement">[</span><span class="synSpecial">{</span>ruby<span class="synSpecial">}</span><span class="synStatement">]</span>
-      |                 |                 <span class="synSpecial">`</span><span class="synConstant">-14</span><span class="synSpecial"></em>[{PassengerHelper}]</span>
+      |                 |                 <span class="synSpecial">`</span><span class="synConstant">-14</span><span class="synSpecial"></span></em>[{PassengerHelper}]
 <span class="synSpecial">      |                 |-PassengerLoggin</span><span class="synPreProc">(</span>nobody<span class="synPreProc">)</span><span class="synSpecial">---{PassengerLoggin}</span>
-<span class="synSpecial">      |                 <code>&lt;/span&gt;&lt;span class=&quot;synConstant&quot;&gt;-3&lt;/span&gt;*&lt;span class=&quot;synStatement&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;synSpecial&quot;&gt;{&lt;/span&gt;PassengerWatchd&lt;span class=&quot;synSpecial&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;synStatement&quot;&gt;]&lt;/span&gt;
-      &lt;span class=&quot;synSpecial&quot;&gt;</code></span><span class="synConstant">-11</span><span class="synSpecial">*[httpd</span><span class="synPreProc">(</span>apache<span class="synPreProc">)</span><span class="synSpecial">]</span>
-</pre>
+<span class="synSpecial">      |                 <code>&lt;/span&gt;&lt;span class="synConstant"&gt;-3&lt;/span&gt;*&lt;span class="synStatement"&gt;[&lt;/span&gt;&lt;span class="synSpecial"&gt;{&lt;/span&gt;PassengerWatchd&lt;span class="synSpecial"&gt;}&lt;/span&gt;&lt;span class="synStatement"&gt;]&lt;/span&gt;
+      &lt;span class="synSpecial"&gt;</code></span><span class="synConstant">-11</span><span class="synSpecial">*[httpd</span><span class="synPreProc">(</span>apache<span class="synPreProc">)</span><span class="synSpecial">]</span>
+</p></pre>
 <p>apacheのプロセスは、まずrootで1本起動させてから内部でUser/Groupに指定したユーザで子プロセスを複数生成します。勉強会中に友人に教えてもらったのですが、pstreeコマンドを利用すると実行中のプロセスの親子関係がツリー構造で表示されて分かりやすいです。上記の例では、rootのhttpdプロセスがapacheのhttpdプロセスを11本生成していることが分かります。またPassengerというRubyOnRailsのアプリをapacheで動かしてくれるモジュールを入れているので、その関係のプロセスも生成されています。プロセス数はapacheがよしなに調整してくれますが、これは『最小限のhttpd.conf』で記述したprefork.c内のStartServers 5(起動時)、MinSpareServers 5(最小数)、MaxSpareServers 15(最大数)の設定に基づいて管理されています。今回はこれらの設定値を最適化するためにメモリ使用量を調べた、という顛末でした。<br>
 最後に、psコマンドで利用するオプションと表示される要素について説明しておきます。</p>
 <br>
 <br>
-<p>オプション</p></p>
+<p>オプション</p>
 
 <table>
     <tr>
@@ -549,9 +553,10 @@ httpd-+-PassengerWatchd-+-PassengerHelper-+-ruby--<span class="synConstant">-2</
     </tr>
 </table>
 
-<p></div>
+<p></p>
+</div>
 <div class="section">
-    <h4>参考</h4></p>
+    <h4>参考</h4>
 
 <ul>
 <li><a href="http://www.atmarkit.co.jp/flinux/rensai/apache2_03/apache03a.html">＠IT：httpd.confによるWebサーバの最適化</a></li>
@@ -560,7 +565,8 @@ httpd-+-PassengerWatchd-+-PassengerHelper-+-ruby--<span class="synConstant">-2</
 <li><a href="http://www.itmedia.co.jp/help/tips/linux/l0158.html">ITmedia エンタープライズ : Linux Tips「「ps aux」コマンドで表示される項目の意味を知りたい」</a></li>
 </ul>
 
-<p></div></p>
+<p></p>
+</div>
 
   </div>
 </article>

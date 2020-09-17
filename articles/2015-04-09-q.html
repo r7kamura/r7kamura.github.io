@@ -70,28 +70,28 @@
 
 <pre><code>$ defaults read -g NSNavRecentPlaces
 (
-    &quot;~/Desktop&quot;,
-    &quot;~/src/github.com/r7kamura/ruboty&quot;,
-    &quot;~/src/github.com/r7kamura/serverkit&quot;,
-    &quot;~/src/github.com/r7kamura/serverkit-defaults&quot;,
-    &quot;/opt/homebrew-cask/Caskroom/atom/latest&quot;
+    "~/Desktop",
+    "~/src/github.com/r7kamura/ruboty",
+    "~/src/github.com/r7kamura/serverkit",
+    "~/src/github.com/r7kamura/serverkit-defaults",
+    "/opt/homebrew-cask/Caskroom/atom/latest"
 )
 </code></pre>
 
-<pre><code class="rb">require &quot;plist&quot;
-require &quot;tempfile&quot;
+<pre><code class="rb">require "plist"
+require "tempfile"
 
-tempfile = Tempfile.new(&quot;&quot;)
+tempfile = Tempfile.new("")
 tempfile &lt;&lt; `defaults read -g NSNavRecentPlaces`
 tempfile.close
 `plutil -convert xml1 #{tempfile.path}`
 Plist.parse_xml(tempfile.path)
 # =&gt; [
-#   &quot;~/Desktop&quot;,
-#   &quot;~/src/github.com/r7kamura/ruboty&quot;,
-#   &quot;~/src/github.com/r7kamura/serverkit&quot;,
-#   &quot;~/src/github.com/r7kamura/serverkit-defaults&quot;,
-#   &quot;/opt/homebrew-cask/Caskroom/atom/latest&quot;
+#   "~/Desktop",
+#   "~/src/github.com/r7kamura/ruboty",
+#   "~/src/github.com/r7kamura/serverkit",
+#   "~/src/github.com/r7kamura/serverkit-defaults",
+#   "/opt/homebrew-cask/Caskroom/atom/latest"
 # ]
 </code></pre>
 

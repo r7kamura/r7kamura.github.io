@@ -55,15 +55,15 @@
 
 <p>幸いにも、これに近い目的を満たすために <a href="https://tools.ietf.org/html/draft-snell-atompub-feed-index-10">Atom Ranking Extensions</a> という仕様がIETFで提案されていたため、今回はこの仕様を利用することにしました。詳細は省きますが、以下のように記述することで、あるフィード内でのentry要素の順位を表現できるようです。<code>http://purl.org/atompub/rank/1.0</code> という名前空間を <code>re</code> という接頭辞で表現し、<code>re:rank</code> という要素でそれを表現しています。</p>
 
-<pre><code class="xml">&lt;feed xml:lang=&quot;ja-JP&quot; xmlns=&quot;http://www.w3.org/2005/Atom&quot; xmlns:re=&quot;http://purl.org/atompub/rank/1.0&quot;&gt;
+<pre><code class="xml">&lt;feed xml:lang="ja-JP" xmlns="http://www.w3.org/2005/Atom" xmlns:re="http://purl.org/atompub/rank/1.0"&gt;
   ...
   &lt;entry&gt;
     ...
-    &lt;re:rank scheme=&quot;tag:qiita.com,2005:/advent-calendar&quot;&gt;21&lt;/re:rank&gt;
+    &lt;re:rank scheme="tag:qiita.com,2005:/advent-calendar"&gt;21&lt;/re:rank&gt;
   &lt;/entry&gt;
   &lt;entry&gt;
     ...
-    &lt;re:rank scheme=&quot;tag:qiita.com,2005:/advent-calendar&quot;&gt;20&lt;/re:rank&gt;
+    &lt;re:rank scheme="tag:qiita.com,2005:/advent-calendar"&gt;20&lt;/re:rank&gt;
   &lt;/entry&gt;
 &lt;/feed&gt;
 </code></pre>

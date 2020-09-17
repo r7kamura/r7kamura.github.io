@@ -57,7 +57,7 @@
 
 <p>どのファイルが変換対象となるのか (Webpack で言うところの entry) が Sprockets ではどう選出されるのかという話ですが、Rails.configuration.assets.paths で指定したパス群に存在するファイルのうち、Rails.configuration.assets.precompile で指定したパターンのいずれかに一致するものが変換対象として認識されます。例えば、デフォルトの状態では app/assets/javascripts が assets.paths に登録されており、application.js という名前が assets.precompile にパターンとして登録されているので、app/assets/javascripts/application.js が変換されることになります。app/assets/stylesheets/application.css についても同様です。他に、app/assets/images 内の .jpg や .png などの拡張子を持つファイルや、app/assets/fonts 内の .eot や .woff  などの拡張子を持つファイルも、同様にデフォルトで変換対象になっています。</p>
 
-<p>また変換時、Sprockets は public/assets/.sprockets-manifest-[hash].json のようなファイルを生成します。これの中身は、{ &quot;application.js&quot;: &quot;application-[hash].js&quot; } のようにハッシュ値を持たないファイルパスとハッシュ値の付いた public/assets ディレクトリからの相対パスという key-value のペアを JSON 形式でエンコードしたものです。プログラム中から asset_path(&quot;application.js&quot;) のように呼び出された場合に適切なパスを返すために、このファイルの内容が利用されています。キャッシュ戦略のための措置ですね。</p>
+<p>また変換時、Sprockets は public/assets/.sprockets-manifest-[hash].json のようなファイルを生成します。これの中身は、{ "application.js": "application-[hash].js" } のようにハッシュ値を持たないファイルパスとハッシュ値の付いた public/assets ディレクトリからの相対パスという key-value のペアを JSON 形式でエンコードしたものです。プログラム中から asset_path("application.js") のように呼び出された場合に適切なパスを返すために、このファイルの内容が利用されています。キャッシュ戦略のための措置ですね。</p>
 
 <h2>Webpack 版でのディレクトリ構成</h2>
 
@@ -92,7 +92,7 @@
 
 <p>Webpack 4 だと、CSS をファイルとして出力するには mini-css-extract-plugin を利用します。他の方法として、extract-loader と file-loader を併用しても上手くいくかもしれません。</p>
 
-<p>Webpack 4 では、{ foo: &#39;./stylesheets/foo.scss&#39; } のように指定した場合、空の foo.js が生成されるという問題があります。これを解決するために、webpack-fix-style-only-entries というプラグインを利用して空のファイルをビルド結果から取り除いています。</p>
+<p>Webpack 4 では、{ foo: './stylesheets/foo.scss' } のように指定した場合、空の foo.js が生成されるという問題があります。これを解決するために、webpack-fix-style-only-entries というプラグインを利用して空のファイルをビルド結果から取り除いています。</p>
 
 <h2>フォントと画像のビルド</h2>
 

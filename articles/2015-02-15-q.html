@@ -49,13 +49,13 @@
 
 <p>このようにチャット上にBotを置いておくと、会話に反応して一句詠んでくれます。</p>
 
-<p><img src="https://qiita-image-store.s3.amazonaws.com/0/4365/40659382-73a6-1509-216c-4409bc4d0f21.png" alt="image"></p>
+<p><a href="https://qiita-image-store.s3.amazonaws.com/0/4365/40659382-73a6-1509-216c-4409bc4d0f21.png" target="_blank"><img src="https://qiita-image-store.s3.amazonaws.com/0/4365/40659382-73a6-1509-216c-4409bc4d0f21.png" alt="image"></a></p>
 
 <h2>ruboty-kokodeikku</h2>
 
 <p>ruboty-kokodeikkuは、チャットBot用のフレームワークであるRubotyのためのプラグインです。Botが参加している部屋の全ての発言を監視し、一句として妥当なパターンがあれば一句詠んでくれます。</p>
 
-<p><img src="https://qiita-image-store.s3.amazonaws.com/0/4365/291d7ecd-4cdf-5e5e-0ebb-58c16db07875.png" alt="image"></p>
+<p><a href="https://qiita-image-store.s3.amazonaws.com/0/4365/291d7ecd-4cdf-5e5e-0ebb-58c16db07875.png" target="_blank"><img src="https://qiita-image-store.s3.amazonaws.com/0/4365/291d7ecd-4cdf-5e5e-0ebb-58c16db07875.png" alt="image"></a></p>
 
 <h3>使い方</h3>
 
@@ -75,7 +75,7 @@
 
 <p>Rubotyは全てのプラグインをGemfileで管理するため、プラグインをつくるにはGemをつくる必要があります。最初は、簡単に試すため<a href="https://gist.github.com/r7kamura/529cab313a3bf792fcf9">GistにGemを置いていました</a>。詳しくは<a href="http://qiita.com/r7kamura/items/5e7d082d8e0d0471d71d">GistでGemを公開する - Qiita</a>に書いています。</p>
 
-<pre><code class="rb">require &quot;ikku&quot;
+<pre><code class="rb">require "ikku"
 
 module Ruboty
   module Handlers
@@ -83,13 +83,13 @@ module Ruboty
       on(
         //,
         all: true,
-        description: &quot;ここで一句&quot;,
-        name: &quot;kokodeikku&quot;,
+        description: "ここで一句",
+        name: "kokodeikku",
       )
 
       def kokodeikku(message)
-        if !message.body.start_with?(&quot;ここで一句 &quot;) &amp;&amp; (phrases = reviewer.find(message.body))
-          message.reply(&quot;ここで一句 #{phrases.map(&amp;:join).join(&#39; &#39;)}&quot;)
+        if !message.body.start_with?("ここで一句 ") &amp;&amp; (phrases = reviewer.find(message.body))
+          message.reply("ここで一句 #{phrases.map(&amp;:join).join(' ')}")
         end
       end
 
@@ -134,28 +134,28 @@ reviewer = Ikku::Reviewer.new(rule: [5, 7, 5, 7])
 
 <p>与えられた文字列が一句かどうかを判定し、trueまたはfalseを返すメソッドです。与えられた文字列中に一句が含まれているかどうかではなく、与えられた文字列全てを消費して一句詠めているかどうかを判定します。</p>
 
-<pre><code class="rb">reviewer.judge(&quot;古池や蛙飛び込む水の音&quot;) #=&gt; true
-reviewer.judge(&quot;ああ古池や蛙飛び込む水の音ああ&quot;) #=&gt; false
+<pre><code class="rb">reviewer.judge("古池や蛙飛び込む水の音") #=&gt; true
+reviewer.judge("ああ古池や蛙飛び込む水の音ああ") #=&gt; false
 </code></pre>
 
 <h3>Ikku::Reviewer#find(text)</h3>
 
 <p>与えられた文字列の中から一句を探し、最初に見つかったものを返します。見つからなかった場合はnilを返します。メソッド名をfindにしたのは <code>Enumerable#find</code> に倣ってのことです。ちなみにIkku::Reviewerは一句批評家です。</p>
 
-<p>ここで返却される一句を表すオブジェクトは、複雑ですが、Ikku::Nodeのインスタンスの配列の配列です。例えば以下の例では、&quot;古池&quot;と&quot;や&quot;が五七五の最初の五を表す部分であり、二つのIkku::Nodeから構成されることを示しています。Ikku::Nodeにはインスタンスメソッドとして<code>to_s</code>が定義されているので、一句を表現するオブジェクトに <code>join</code> メソッドを呼ぶとひと繫ぎの文字列が得られます。</p>
+<p>ここで返却される一句を表すオブジェクトは、複雑ですが、Ikku::Nodeのインスタンスの配列の配列です。例えば以下の例では、"古池"と"や"が五七五の最初の五を表す部分であり、二つのIkku::Nodeから構成されることを示しています。Ikku::Nodeにはインスタンスメソッドとして<code>to_s</code>が定義されているので、一句を表現するオブジェクトに <code>join</code> メソッドを呼ぶとひと繫ぎの文字列が得られます。</p>
 
-<pre><code class="rb">reviewer.find(&quot;ああ古池や蛙飛び込む水の音ああ&quot;)
-#=&gt; [[&quot;古池&quot;, &quot;や&quot;], [&quot;蛙&quot;, &quot;飛び込む&quot;], [&quot;水&quot;, &quot;の&quot;, &quot;音&quot;]]
+<pre><code class="rb">reviewer.find("ああ古池や蛙飛び込む水の音ああ")
+#=&gt; [["古池", "や"], ["蛙", "飛び込む"], ["水", "の", "音"]]
 </code></pre>
 
 <h3>Ikku::Reviewer#search(text)</h3>
 
 <p>与えられた文字列の中に含まれる全ての一句を探し、それらの配列を返却します。findメソッドでは一つ見つかった瞬間に結果を返していましたが、このメソッドでは処理を継続して全ての一句の可能性を探索します。</p>
 
-<pre><code class="rb">reviewer.search(&quot;ああ古池や蛙飛び込む水の音ああ天秤や京江戸かけて千代の春ああ&quot;)
+<pre><code class="rb">reviewer.search("ああ古池や蛙飛び込む水の音ああ天秤や京江戸かけて千代の春ああ")
 #=&gt; [
-#     [[&quot;古池&quot;, &quot;や&quot;], [&quot;蛙&quot;, &quot;飛び込む&quot;], [&quot;水&quot;, &quot;の&quot;, &quot;音&quot;]],
-#     [[&quot;天秤&quot;, &quot;や&quot;], [&quot;京&quot;, &quot;江戸&quot;, &quot;かけ&quot;, &quot;て&quot;], [&quot;千代&quot;, &quot;の&quot;, &quot;春&quot;]]
+#     [["古池", "や"], ["蛙", "飛び込む"], ["水", "の", "音"]],
+#     [["天秤", "や"], ["京", "江戸", "かけ", "て"], ["千代", "の", "春"]]
 #   ]
 </code></pre>
 

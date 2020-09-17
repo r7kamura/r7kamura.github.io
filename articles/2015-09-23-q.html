@@ -49,15 +49,15 @@
 
 <p>3ペインの画面を例にした条件分岐の例。</p>
 
-<pre><code>import PaneCenter from &#39;./pane-center&#39;
-import PaneLeft from &#39;./pane-left&#39;
-import PaneRight from &#39;./pane-right&#39;
-import React from &#39;react&#39;
+<pre><code>import PaneCenter from './pane-center'
+import PaneLeft from './pane-left'
+import PaneRight from './pane-right'
+import React from 'react'
 
 export default class Panes extends React.Component {
   render() {
     return(
-      &lt;div className=&quot;panes&quot;&gt;
+      &lt;div className="panes"&gt;
         {(() =&gt; {
           if (this.props.panesCount &gt;= 3) {
             return &lt;PaneLeft /&gt;;
@@ -79,13 +79,13 @@ export default class Panes extends React.Component {
 
 <p>記事一覧を例にした繰り返しの例。</p>
 
-<pre><code>import Article from &#39;./article&#39;
-import React from &#39;react&#39;
+<pre><code>import Article from './article'
+import React from 'react'
 
 export default class Articles extends React.Component {
   render() {
     return(
-      &lt;div className=&quot;articles&quot;&gt;
+      &lt;div className="articles"&gt;
         {this.props.articles.map((article) =&gt; {
           return &lt;Article key={article.id} /&gt;;
         })}

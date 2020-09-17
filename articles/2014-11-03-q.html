@@ -49,16 +49,16 @@
 
 <p>title用のinput要素にrequired属性を付けています。これでtitleが未入力の場合は <code>form.checkValidity()</code> がfalseを返すようになるため、入力があるたびにこの結果を確認し、未入力の場合はsubmitボタンを押せないようにします。</p>
 
-<pre><code class="html">&lt;form action=&quot;/posts&quot; method=&quot;post&quot; data-validate&gt;
-  &lt;input name=&quot;title&quot; type=&quot;text&quot; required&gt;
-  &lt;textarea name=&quot;body&quot;&gt;&lt;/textarea&gt;
-  &lt;input name=&quot;commit&quot; type=&quot;submit&quot; value=&quot;OK&quot; disabled&gt;
+<pre><code class="html">&lt;form action="/posts" method="post" data-validate&gt;
+  &lt;input name="title" type="text" required&gt;
+  &lt;textarea name="body"&gt;&lt;/textarea&gt;
+  &lt;input name="commit" type="submit" value="OK" disabled&gt;
 &lt;/form&gt;
 
 &lt;script&gt;
   jQuery(function ($) {
-    $(&#39;form[data-validate]&#39;).on(&#39;input&#39;, function () {
-      $(this).find(&#39;:submit&#39;).attr(&#39;disabled&#39;, !this.checkValidity());
+    $('form[data-validate]').on('input', function () {
+      $(this).find(':submit').attr('disabled', !this.checkValidity());
     });
   });
 &lt;/script&gt;
@@ -68,7 +68,7 @@
 
 <p>デモ用にGitHubっぽい見た目のやつを作ってみました。GIFにしたら減色処理が結構酷いですね…</p>
 
-<p><img src="https://qiita-image-store.s3.amazonaws.com/0/4365/1bbeb393-aca7-e905-3b68-400e91abd9f9.gif" alt="demo.gif"></p>
+<p><a href="https://qiita-image-store.s3.amazonaws.com/0/4365/1bbeb393-aca7-e905-3b68-400e91abd9f9.gif" target="_blank"><img src="https://qiita-image-store.s3.amazonaws.com/0/4365/1bbeb393-aca7-e905-3b68-400e91abd9f9.gif" alt="demo.gif"></a></p>
 
 <h2>説明</h2>
 

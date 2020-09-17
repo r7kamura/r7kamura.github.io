@@ -67,21 +67,21 @@
 
 <pre><code class="js">// package.json
 {
-  &quot;main&quot;: &quot;main.js&quot;
+  "main": "main.js"
 }
 </code></pre>
 
 <pre><code class="js">// main.js
-var app           = require(&#39;app&#39;);
-var BrowserWindow = require(&#39;browser-window&#39;);
+var app           = require('app');
+var BrowserWindow = require('browser-window');
 var mainWindow    = null;
 
-app.on(&#39;ready&#39;, function () {
+app.on('ready', function () {
   mainWindow = new BrowserWindow({
     width: 800,
     height: 600
   });
-  mainWindow.loadUrl(&#39;https://github.com/&#39;);
+  mainWindow.loadUrl('https://github.com/');
 });
 </code></pre>
 
@@ -96,7 +96,7 @@ app.on(&#39;ready&#39;, function () {
 
 <pre><code class="js">// package.json
 {
-  &quot;main&quot;: &quot;main.html&quot;
+  "main": "main.html"
 }
 </code></pre>
 

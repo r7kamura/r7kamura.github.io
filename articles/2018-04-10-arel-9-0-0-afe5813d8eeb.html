@@ -53,7 +53,7 @@ _arel - A Relational Algebra_github.com</a><a href="https://github.com/rails/are
 <p>arel の README では、簡単なサンプルコードとして、以下のコードが紹介されています。この記事では、このコードを見ながら説明を進めていきます。</p>
 
 <p>users = Arel::Table.new(:users)<br>
-query = users.project(Arel.sql(&quot;*&quot;))<br>
+query = users.project(Arel.sql("*"))<br>
 query.to_sql</p>
 
 <h2>抽象構文木の構築、文字列への還元</h2>

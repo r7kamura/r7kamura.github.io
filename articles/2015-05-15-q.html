@@ -69,21 +69,21 @@
 
 <h3>1. sitespecをGemfileに追加する</h3>
 
-<pre><code class="rb:Gemfile">gem &quot;sitespec&quot;
+<pre><code class="rb:Gemfile">gem "sitespec"
 </code></pre>
 
 <h3>2. テスト内で sitespec/rspec を読み込む</h3>
 
 <p>これを読み込むことで、特定の条件下でテストが成功したときに静的ファイルを生成するフックが設定されます。</p>
 
-<pre><code class="rb:spec/spec_helper.rb">require &quot;sitespec/rspec&quot;
+<pre><code class="rb:spec/spec_helper.rb">require "sitespec/rspec"
 </code></pre>
 
 <h3>3. <code>:sitespec</code> というメタデータを持ったテストケースを書く</h3>
 
 <p>Sitespecは、RSpecで <code>:sitespec</code> というメタデータを持ったテストケースを実行したときに静的ファイルを生成します。このメタデータが設定されたテストケース内では、<a href="https://github.com/brynary/rack-test">rack-test</a> が利用できるように設定されています。<code>:sitespec</code> を設定し、rack-testを利用して1つのテストケースで1つのリクエストを検証するようなテストを書くことが、Sitespecを利用する上で守らなければならない制約です。</p>
 
-<pre><code class="rb:spec/site_spec.rb">describe &quot;Sitespec&quot; do
+<pre><code class="rb:spec/site_spec.rb">describe "Sitespec" do
   let(:app) do
     MyRackApp
   end
@@ -93,8 +93,8 @@
     /2000/01/01/hello
     /stylesheets/all.css
   ].each do |path|
-    describe &quot;GET #{path}&quot;, :sitespec do
-      it &quot;returns 200&quot; do
+    describe "GET #{path}", :sitespec do
+      it "returns 200" do
         expect(get(path).status).to eq 200
       end
     end
@@ -124,7 +124,7 @@ Finished in 0.08302 seconds (files took 0.79161 seconds to load)
 
 <h2>細かい設定</h2>
 
-<p><code>Sitespec.configuration.build_path = &quot;artifacts&quot;</code> のように設定すれば、出力先のディレクトリを変更できます。他に、<code>Sitespec.configuration.auto_complete_html_path = false</code> を設定すると、レスポンスヘッダのContent-Typeが text/html だった場合に <code>.html</code> や <code>index.html</code> を生成するファイル名に自動で付ける機能を無効化できます。他に、<code>Sitespec.configuration.disable</code> を呼ぶと、<code>:sitespec</code> のメタデータの有無に関係なく、Sitespecによるファイルの生成を無効化できます。環境変数の有無など、何かの条件に応じて動的に切り替えたい場合に有用でしょう。</p>
+<p><code>Sitespec.configuration.build_path = "artifacts"</code> のように設定すれば、出力先のディレクトリを変更できます。他に、<code>Sitespec.configuration.auto_complete_html_path = false</code> を設定すると、レスポンスヘッダのContent-Typeが text/html だった場合に <code>.html</code> や <code>index.html</code> を生成するファイル名に自動で付ける機能を無効化できます。他に、<code>Sitespec.configuration.disable</code> を呼ぶと、<code>:sitespec</code> のメタデータの有無に関係なく、Sitespecによるファイルの生成を無効化できます。環境変数の有無など、何かの条件に応じて動的に切り替えたい場合に有用でしょう。</p>
 
 <h2>GitHub Pagesで使う</h2>
 
@@ -140,7 +140,7 @@ Finished in 0.08302 seconds (files took 0.79161 seconds to load)
 
 <pre><code>$ gem install travis
 $ travis init
-$ travis encrypt GITHUB_ACCESS_TOKEN=&quot;...&quot; --add
+$ travis encrypt GITHUB_ACCESS_TOKEN="..." --add
 </code></pre>
 
 <h3>ブランチ</h3>
@@ -154,20 +154,20 @@ $ travis encrypt GITHUB_ACCESS_TOKEN=&quot;...&quot; --add
 <pre><code class="yaml:.travis.yml">language: ruby
 env:
   global:
-    - GIT_COMMITTER_NAME: &quot;r7kamura&quot;
-    - GIT_COMMITTER_EMAIL: &quot;r7kamura@gmail.com&quot;
-    - GIT_AUTHOR_NAME: &quot;r7kamura&quot;
-    - GIT_AUTHOR_EMAIL: &quot;r7kamura@gmail.com&quot;
-    - secure: &quot;caVcOKNB8nhLbR25WFpzm9nOvWOPuLc+VF8OsdPrSrMEVvK5k2t4d/RGSzVzOnr54kQNJs5ttcaKVXwkyl1dnKrxzwxE7Z3QEF4XjqaOMuJeJ6qatNe4hco9w2DEqPzIfOzt/zjwPa58ZYfAgolP9kF5m5iwN/jaNYRjKt40dUI=&quot;
+    - GIT_COMMITTER_NAME: "r7kamura"
+    - GIT_COMMITTER_EMAIL: "r7kamura@gmail.com"
+    - GIT_AUTHOR_NAME: "r7kamura"
+    - GIT_AUTHOR_EMAIL: "r7kamura@gmail.com"
+    - secure: "caVcOKNB8nhLbR25WFpzm9nOvWOPuLc+VF8OsdPrSrMEVvK5k2t4d/RGSzVzOnr54kQNJs5ttcaKVXwkyl1dnKrxzwxE7Z3QEF4XjqaOMuJeJ6qatNe4hco9w2DEqPzIfOzt/zjwPa58ZYfAgolP9kF5m5iwN/jaNYRjKt40dUI="
 script:
     - bundle exec rspec
 after_success:
     - cd build
-    - echo &quot;task :default&quot; &gt; Rakefile
+    - echo "task :default" &gt; Rakefile
     - git init
     - git add --all
-    - git commit -m &quot;Update from Travis CI&quot;
-    - &#39;git push --quiet https://$GITHUB_TOKEN@github.com/r7kamura/r7kamura.com.git master -f 2&gt; /dev/null&#39;
+    - git commit -m "Update from Travis CI"
+    - 'git push --quiet https://$GITHUB_TOKEN@github.com/r7kamura/r7kamura.com.git master -f 2&gt; /dev/null'
 
 branches:
   only:

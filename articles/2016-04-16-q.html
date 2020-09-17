@@ -49,13 +49,13 @@
 
 <p>YoはiPhoneとAndroidアプリを主な対象としたアプリケーションです。公式サイトのホームページ <a href="https://www.justyo.co/">https://www.justyo.co/</a> だけ見ると、アプリをインストールしなければ利用できないような印象を受けます。</p>
 
-<p><img src="https://qiita-image-store.s3.amazonaws.com/0/4365/6babd901-83ed-1d30-e8f9-726c6ff1c044.png" alt="image"></p>
+<p><a href="https://qiita-image-store.s3.amazonaws.com/0/4365/6babd901-83ed-1d30-e8f9-726c6ff1c044.png" target="_blank"><img src="https://qiita-image-store.s3.amazonaws.com/0/4365/6babd901-83ed-1d30-e8f9-726c6ff1c044.png" alt="image"></a></p>
 
 <h3>開発者用のページにいけばPCでもログインしたりできて便利</h3>
 
 <p>開発者用に別途 <a href="https://dashboard.justyo.co">https://dashboard.justyo.co</a> というページがあります。このページ経由であれば、PCからでも新しいYoアカウントをつくったり、既存のYoアカウントでログインしたりできます。</p>
 
-<p><img src="https://qiita-image-store.s3.amazonaws.com/0/4365/08856dbb-3d83-408f-44bd-e736ec31ca81.png" alt="image"></p>
+<p><a href="https://qiita-image-store.s3.amazonaws.com/0/4365/08856dbb-3d83-408f-44bd-e736ec31ca81.png" target="_blank"><img src="https://qiita-image-store.s3.amazonaws.com/0/4365/08856dbb-3d83-408f-44bd-e736ec31ca81.png" alt="image"></a></p>
 
 <h3>API用のアカウントは簡単に作成できる</h3>
 
@@ -69,7 +69,7 @@
 
 <p>利用しているコードの一部をそのまま貼り付けますが、Rubyで <code>POST /yoall</code> を利用するなら例えばこういう風に実装できます。Yoのためのクライアントライブラリもありますが、今回は<a href="https://github.com/lostisland/faraday">Faraday</a> というRubyのHTTPクライアントのライブラリを利用してみています。YoのメッセージにはURLも付与でき、このエンドポイントにもURLを渡せばそれも実現可能です。</p>
 
-<pre><code class="rb">require &quot;faraday&quot;
+<pre><code class="rb">require "faraday"
 
 class YoHook &lt; Hook
   validates :api_token, presence: true
@@ -93,7 +93,7 @@ class YoHook &lt; Hook
 
   def yo
     self.class.faraday_connection.post(
-      &quot;http://api.justyo.co/yoall/&quot;,
+      "http://api.justyo.co/yoall/",
       api_token: api_token,
     )
   end

@@ -68,7 +68,7 @@
 
 <p>Fluctは、Node.jsのパッケージ管理ツールである<a href="https://www.npmjs.com/">npm</a>経由でインストールできます。FluctはNode.js v0.12以上で動作することを確認しているので、Fluctをインストールする環境にNode v0.12以上がインストールされていない場合は、まずそちらを先にインストールしてください。例えば、特に何もインストールしていない状態のMac OS XにHomebrew経由でNode.jsをインストールしたあとにFluctをインストールするには、以下のコマンドを実行します。手元の環境に合わせて適宜実行するコマンドを選んでください。</p>
 
-<pre><code>$ ruby -e &quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)&quot;
+<pre><code>$ ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 $ brew install node
 $ npm install fluct --global
 </code></pre>
@@ -89,7 +89,7 @@ Created ./myapp/package.json
 
 <h2>Actionを追加する</h2>
 
-<p>試しに、<code>GET /ping</code> にアクセスすると <code>&quot;pong&quot;</code> が返ってくるというサンプルをつくることにします。Fluctでは、この <code>GET /ping</code> のようなエンドポイントの単位のことをactionと呼んでいます。RailsなどのWebアプリケーションフレームワークにおける、ControllerのActionに相当する部分です。今回は、<code>GET /ping</code> のためにshow_pingという名前のactionをつくることにします。アプリのディレクトリで <code>fluct generate &lt;name&gt;</code> というコマンドを実行すると、actionに必要なファイル群が生成されます。</p>
+<p>試しに、<code>GET /ping</code> にアクセスすると <code>"pong"</code> が返ってくるというサンプルをつくることにします。Fluctでは、この <code>GET /ping</code> のようなエンドポイントの単位のことをactionと呼んでいます。RailsなどのWebアプリケーションフレームワークにおける、ControllerのActionに相当する部分です。今回は、<code>GET /ping</code> のためにshow_pingという名前のactionをつくることにします。アプリのディレクトリで <code>fluct generate &lt;name&gt;</code> というコマンドを実行すると、actionに必要なファイル群が生成されます。</p>
 
 <pre><code>$ cd myapp
 $ fluct generate show_ping
@@ -105,13 +105,13 @@ Created ./actions/show_ping/package.json
 <pre><code>$ vi actions/show_ping/package.json
 $ cat actions/show_ping/package.json
 {
-  &quot;name&quot;: &quot;show_ping&quot;,
-  &quot;private&quot;: true,
-  &quot;fluct&quot;: {
-    &quot;arn&quot;: null,
-    &quot;contentType&quot;: &quot;text/html&quot;,
-    &quot;httpMethod&quot;: &quot;GET&quot;,
-    &quot;path&quot;: &quot;/ping&quot;
+  "name": "show_ping",
+  "private": true,
+  "fluct": {
+    "arn": null,
+    "contentType": "text/html",
+    "httpMethod": "GET",
+    "path": "/ping"
   }
 }
 </code></pre>
@@ -123,7 +123,7 @@ $ cat actions/show_ping/package.json
 <pre><code>$ vi actions/show_ping/index.js
 $ cat actions/show_ping/index.js
 exports.handler = function (event, context) {
-  context.succeed(&#39;pong&#39;);
+  context.succeed('pong');
 };
 </code></pre>
 
@@ -136,11 +136,11 @@ exports.handler = function (event, context) {
 <pre><code>$ vi package.json
 $ cat package.json
 {
-  &quot;name&quot;: &quot;myapp&quot;,
-  &quot;private&quot;: true,
-  &quot;fluct&quot;: {
-    &quot;restapiId&quot;: null,
-    &quot;roleArn&quot;: &quot;arn:aws:iam::012345678912:role/myExampleRole&quot;
+  "name": "myapp",
+  "private": true,
+  "fluct": {
+    "restapiId": null,
+    "roleArn": "arn:aws:iam::012345678912:role/myExampleRole"
   }
 }
 </code></pre>

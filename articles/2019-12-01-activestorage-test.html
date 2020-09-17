@@ -58,8 +58,10 @@
 <p>以下の背景でゴニョゴニョしている。</p>
 
 <ul>
-<li><code>ENV[&#39;DATABASE_URL&#39;]</code> が無いと、config/database.yml を読みに行ってしまう</li>
-<li><code>establish_connection(...)</code> を呼んでないと、DBに接続できない</li>
+<li>
+<code>ENV['DATABASE_URL']</code> が無いと、config/database.yml を読みに行ってしまう</li>
+<li>
+<code>establish_connection(...)</code> を呼んでないと、DBに接続できない</li>
 </ul>
 
 <p>この辺理解が浅くて、とりあえず動く形にしてしまっている。同じ処理を二度別の形で書いてしまっているので、もっと良いやり方があるかもしれない。</p>
