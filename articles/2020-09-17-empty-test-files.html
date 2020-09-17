@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width">
+  <title>何も書かれていないテストファイルを消す</title>
+  <link href="https://r7kamura.com/articles/2020-09-17-empty-test-files" rel="canonical">
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="search" type="application/opensearchdescription+xml" title="r7kamura.com" href="/opensearch.xml">
+  <link rel="alternate" type="application/rss+xml" href="/feed.xml">
+  
+  <meta property="description" content="雑なスクリプトを書いて空のテストファイルを消したという話。">
+  <meta property="og:description" content="雑なスクリプトを書いて空のテストファイルを消したという話。">
+  
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="何も書かれていないテストファイルを消す">
+  <meta property="og:url" content="https://r7kamura.com/articles/2020-09-17-empty-test-files">
+  
+  <meta property="og:image" content="https://r7kamura.com/default_og_image.jpg">
+  <meta property="twitter:card" content="summary">
+  
+</head>
+<body>
+  <header>
+    <nav>
+      <a href="/">r7kamura</a>
+      <ul>
+        <li>
+          <a href="/articles">記事</a>
+        </li>
+        <li>
+          <a href="https://google.com/search?q=site:r7kamura.com">検索</a>
+        </li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <article>
+  <h1>何も書かれていないテストファイルを消す</h1>
+  <footer>
+    <p>
+      <time datetime="2020-09-17T00:00:00+00:00">2020年09月17日</time>
+    </p>
+  </footer>
+  <div>
+    <p>雑なスクリプトを書いて空のテストファイルを消したという話。</p>
+
+<pre><code>require &#39;pathname&#39;
+
+Pathname.glob(&#39;spec/**/*_spec.rb&#39;).each do |pathname|
+  if pathname.each_line.count &lt; 10 &amp;&amp; !pathname.read.match?(/\bit\b/)
+    puts pathname
+  end
+end
+</code></pre>
+
+<p>特にRailsのようなomakaseを志向したフレームワークなんかは、ファイルジェネレーターの支援が手厚く、モデルなんかをつくろうとしたときに自動的に実装とテストファイルの雛形を自動生成してくれたりする。そういうものを気にせず放置していると、何も定義されていない空のファイルが大量に溜まっていったりするので、気を付けていないとたまにこういう活動が必要になる。</p>
+
+<p>汎用的なアンチパターンのあるある話だと思ったので、記事に書いておくことにした。またこういう話が出てきたら、適当な粒度で記事にまとめて雑に書いていきたい。こういうツッコミどころの多い文章は、匿名の人々による批判に合いやすく、なかなか書きにくいのだけど、助言の流布ではなく個人の記録という体裁を保つことで、気にせず書いていけたらと良いと思う。</p>
+
+  </div>
+</article>
+
+  </main>
+</body>
+</html>
