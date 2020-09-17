@@ -3,18 +3,42 @@
   <title>r7kamura.com</title>
   <link rel="self" type="application/atom+xml" href="https://r7kamura.com/feed.xml"/>
   <link rel="alternate" type="text/html" href="https://r7kamura.com/"/>
-  <updated>2020-09-17T19:11:46+00:00</updated>
+  <updated>2020-09-17T19:47:28+00:00</updated>
   <author>
     <name>Ryo Nakamura</name>
   </author>
   <id>tag:r7kamura.com,2019:/</id>
   
     <entry>
+      <title>記事内の画像にリンクを付けた</title>
+      <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-09-18-link-image"/>
+      <id>tag:r7kamura.com,2019:/articles/2020-09-18-link-image</id>
+      <published>2020-09-18T00:00:00+00:00</published>
+      <updated>2020-09-17T19:47:00+00:00</updated>
+      <content type="html">&lt;p&gt;これで画像をクリックすると大きく表示できるようになった。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;/images/2020-09-18-link-image.jpg&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/images/2020-09-18-link-image.jpg&quot; alt=&quot;&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;特に脈絡の無いサメのぬいぐるみの画像。&lt;/p&gt;
+
+&lt;p&gt;もともとこのウェブサイトの本文部分のHTMLは、Markdownで書かれた文字列をHTML形式の木構造に変換し、それを文字列として埋め込む、という方法で生成されていた。今回はこの処理の途中に少し手を加え、木構造に含まれるimg要素をa要素で囲む、という処理を加えることにした。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://github.com/r7kamura/r7kamura.com/pull/11&quot;&gt;https://github.com/r7kamura/r7kamura.com/pull/11&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;具体的には、木構造に変換フィルター群を適用して別の木構造にしていく、というパターンで実装している。こういうのは独自記法を実装するときの常套手段で、例えばQiitaやQiita:TeamのMarkdownパーサーなんかも同じ仕組みで実装されている。&lt;/p&gt;
+
+&lt;p&gt;当時、emojiやmention、他の記事への言及、外部リンク、シンタックスハイライトやタスクリストなど、Markdownパーサの仕事は日に日に増えつつあり、この要求に耐え得るべく2014年頃に自分が実装し直したものがこれで、今でもまだ元気に動いているはず。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://github.com/increments/qiita-markdown&quot;&gt;https://github.com/increments/qiita-markdown&lt;/a&gt;&lt;/p&gt;
+</content>
+    </entry>
+  
+    <entry>
       <title>何も書かれていないテストファイルを消す</title>
       <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-09-17-empty-test-files"/>
       <id>tag:r7kamura.com,2019:/articles/2020-09-17-empty-test-files</id>
       <published>2020-09-17T00:00:00+00:00</published>
-      <updated>2020-09-17T19:11:12+00:00</updated>
+      <updated>2020-09-17T19:47:00+00:00</updated>
       <content type="html">&lt;p&gt;雑なスクリプトを書いて空のテストファイルを消したという話。&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;require &#39;pathname&#39;
@@ -39,7 +63,7 @@ end
       <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-09-16-gaming-mouse-pad"/>
       <id>tag:r7kamura.com,2019:/articles/2020-09-16-gaming-mouse-pad</id>
       <published>2020-09-16T00:00:00+00:00</published>
-      <updated>2020-09-17T19:11:12+00:00</updated>
+      <updated>2020-09-17T19:47:00+00:00</updated>
       <content type="html">&lt;p&gt;RazerのGoliathus Chroma Extendedというマウスパッドを買った。&lt;/p&gt;
 
 &lt;p&gt;&lt;a href=&quot;/images/2020-09-16-gaming-mouse-pad-light.jpg&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/images/2020-09-16-gaming-mouse-pad-light.jpg&quot; alt=&quot;&quot;&gt;&lt;/a&gt;&lt;/p&gt;
@@ -57,7 +81,7 @@ end
       <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-09-16-color-change"/>
       <id>tag:r7kamura.com,2019:/articles/2020-09-16-color-change</id>
       <published>2020-09-16T00:00:00+00:00</published>
-      <updated>2020-09-17T19:11:12+00:00</updated>
+      <updated>2020-09-17T19:47:00+00:00</updated>
       <content type="html">&lt;p&gt;&lt;a href=&quot;/images/2020-09-16-color-change.png&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/images/2020-09-16-color-change.png&quot; alt=&quot;&quot;&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;コントラストが高すぎてどぎつい感じがしてきたので、テキストの色を &lt;code&gt;#111111&lt;/code&gt; から &lt;code&gt;#333333&lt;/code&gt; に変更した。&lt;/p&gt;
@@ -71,7 +95,7 @@ end
       <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-09-16-blue-microphones-compass"/>
       <id>tag:r7kamura.com,2019:/articles/2020-09-16-blue-microphones-compass</id>
       <published>2020-09-16T00:00:00+00:00</published>
-      <updated>2020-09-17T19:11:12+00:00</updated>
+      <updated>2020-09-17T19:47:00+00:00</updated>
       <content type="html">&lt;p&gt;&lt;a href=&quot;/images/2020-09-16-blue-microphones-compass.jpg&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/images/2020-09-16-blue-microphones-compass.jpg&quot; alt=&quot;&quot;&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;Blue MicrophonesのCompassというマイクスタンドを購入して取り付けた。&lt;/p&gt;
@@ -89,7 +113,7 @@ end
       <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-09-13-mac-movie-edit"/>
       <id>tag:r7kamura.com,2019:/articles/2020-09-13-mac-movie-edit</id>
       <published>2020-09-13T00:00:00+00:00</published>
-      <updated>2020-09-17T19:11:12+00:00</updated>
+      <updated>2020-09-17T19:47:00+00:00</updated>
       <content type="html">&lt;p&gt;iMovieの話。&lt;/p&gt;
 
 &lt;p&gt;GeForce Experienceの録画機能で、ゲーム中の動画を録画した。録画された200MBほどの動画ファイルの保存先はDropboxになっており、今はたまたまMacでそのファイルを見ているのだが、これを小さいファイルサイズの動画にしてDiscordに貼り付けたい。&lt;/p&gt;
@@ -107,7 +131,7 @@ end
       <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-09-13-terraria"/>
       <id>tag:r7kamura.com,2019:/articles/2020-09-13-terraria</id>
       <published>2020-09-13T00:00:00+00:00</published>
-      <updated>2020-09-17T19:11:12+00:00</updated>
+      <updated>2020-09-17T19:47:00+00:00</updated>
       <content type="html">&lt;p&gt;Terrariaで&lt;a href=&quot;https://terraria.gamepedia.com/Pirate_Map&quot;&gt;Pirate Map&lt;/a&gt;を放置しながら集めるための狩場について。&lt;/p&gt;
 
 &lt;p&gt;&lt;a href=&quot;/images/2020-09-13-terraria.png&quot;&gt;&lt;img src=&quot;/images/2020-09-13-terraria.png&quot; alt=&quot;&quot;&gt;&lt;/a&gt;&lt;/p&gt;
@@ -151,7 +175,7 @@ end
       <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-09-12-activerecord-enum-translation"/>
       <id>tag:r7kamura.com,2019:/articles/2020-09-12-activerecord-enum-translation</id>
       <published>2020-09-12T00:00:00+00:00</published>
-      <updated>2020-09-17T19:11:12+00:00</updated>
+      <updated>2020-09-17T19:47:00+00:00</updated>
       <content type="html">&lt;p&gt;ActiveRecordのenumにI18n用の機能を提供するgemをつくった。&lt;/p&gt;
 
 &lt;p&gt;&lt;a href=&quot;https://github.com/r7kamura/activerecord-enum_translation&quot;&gt;https://github.com/r7kamura/activerecord-enum_translation&lt;/a&gt;&lt;/p&gt;
@@ -245,7 +269,7 @@ end
       <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-09-11-vscode-disable-suggestion"/>
       <id>tag:r7kamura.com,2019:/articles/2020-09-11-vscode-disable-suggestion</id>
       <published>2020-09-11T00:00:00+00:00</published>
-      <updated>2020-09-17T19:11:12+00:00</updated>
+      <updated>2020-09-17T19:47:00+00:00</updated>
       <content type="html">&lt;p&gt;VSCodeで文字を入力している最中に「もしかしてこれじゃない？」って補完候補をポップアップしてくれるやつがすごく鬱陶しいので、無効化した。&lt;/p&gt;
 
 &lt;pre&gt;&lt;code class=&quot;json&quot;&gt;{
@@ -273,7 +297,7 @@ end
       <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-04-18-diary"/>
       <id>tag:r7kamura.com,2019:/articles/2020-04-18-diary</id>
       <published>2020-04-18T00:00:00+00:00</published>
-      <updated>2020-09-17T19:11:12+00:00</updated>
+      <updated>2020-09-17T19:47:00+00:00</updated>
       <content type="html">&lt;p&gt;最近について。&lt;/p&gt;
 
 &lt;h2&gt;AtomからVSCodeへ&lt;/h2&gt;
@@ -344,7 +368,7 @@ end
       <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-02-28-marcotogingaryu"/>
       <id>tag:r7kamura.com,2019:/articles/2020-02-28-marcotogingaryu</id>
       <published>2020-02-28T00:00:00+00:00</published>
-      <updated>2020-09-17T19:11:12+00:00</updated>
+      <updated>2020-09-17T19:47:00+00:00</updated>
       <content type="html">&lt;p&gt;&lt;a href=&quot;/images/2020-02-28-marcotogingaryu.jpg&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/images/2020-02-28-marcotogingaryu.jpg&quot; alt=&quot;&quot;&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;前々から気になってた『マルコと銀河竜』が遂に発売されたので、購入してそのままエンディングまで駆け抜けてしまった。&lt;/p&gt;
@@ -364,7 +388,7 @@ end
       <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-02-25-kakutei"/>
       <id>tag:r7kamura.com,2019:/articles/2020-02-25-kakutei</id>
       <published>2020-02-25T00:00:00+00:00</published>
-      <updated>2020-09-17T19:11:12+00:00</updated>
+      <updated>2020-09-17T19:47:00+00:00</updated>
       <content type="html">&lt;p&gt;2019年分の確定申告書類を提出した。今年で3年目。今年も郵送。予定納税分以外の税金の払込はこれから。&lt;/p&gt;
 
 &lt;ul&gt;
@@ -395,7 +419,7 @@ end
       <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-02-17-my-protein"/>
       <id>tag:r7kamura.com,2019:/articles/2020-02-17-my-protein</id>
       <published>2020-02-17T00:00:00+00:00</published>
-      <updated>2020-09-17T19:11:12+00:00</updated>
+      <updated>2020-09-17T19:47:00+00:00</updated>
       <content type="html">&lt;p&gt;&lt;a href=&quot;/images/2020-02-17-my-protein.jpg&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/images/2020-02-17-my-protein.jpg&quot; alt=&quot;&quot;&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;マイプロテインというスポーツ栄養ブランドのホエイプロテインが送料無料で1kg 1890円だったので、チョコレートブラウニー味のやつを買ってみた。&lt;/p&gt;
@@ -419,7 +443,7 @@ end
       <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-02-10-fe-three-houses"/>
       <id>tag:r7kamura.com,2019:/articles/2020-02-10-fe-three-houses</id>
       <published>2020-02-10T00:00:00+00:00</published>
-      <updated>2020-09-17T19:11:12+00:00</updated>
+      <updated>2020-09-17T19:47:00+00:00</updated>
       <content type="html">&lt;p&gt;&lt;a href=&quot;/images/2020-02-10-fe-three-houses.jpg&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/images/2020-02-10-fe-three-houses.jpg&quot; alt=&quot;&quot;&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;ようやく3つの学級をクリアしたので感想を書ける。&lt;/p&gt;
@@ -459,7 +483,7 @@ end
       <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-01-27-void-trrlm"/>
       <id>tag:r7kamura.com,2019:/articles/2020-01-27-void-trrlm</id>
       <published>2020-01-27T00:00:00+00:00</published>
-      <updated>2020-09-17T19:11:12+00:00</updated>
+      <updated>2020-09-17T19:47:00+00:00</updated>
       <content type="html">&lt;p&gt;&lt;a href=&quot;/images/2020-01-27-void-trrlm.jpg&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/images/2020-01-27-void-trrlm.jpg&quot; alt=&quot;&quot;&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;日本一ソフトウェアの『void tRrLM(); // ボイド・テラリウム』をやった。たまごっちと不思議のダンジョンを同時にやるような作品で、終末世界で見つけた女の子のお世話をしながら、ダンジョンを探索して食糧や建築資材を集めてくることになる。&lt;/p&gt;
@@ -483,7 +507,7 @@ end
       <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-01-23-13sar"/>
       <id>tag:r7kamura.com,2019:/articles/2020-01-23-13sar</id>
       <published>2020-01-23T00:00:00+00:00</published>
-      <updated>2020-09-17T19:11:12+00:00</updated>
+      <updated>2020-09-17T19:47:00+00:00</updated>
       <content type="html">&lt;p&gt;先週末からやっていた『十三機兵防衛圏』を遂にクリアした。思い出しのために、ネタバレを避けつつ歯切れの悪い感想を残しておく。&lt;/p&gt;
 
 &lt;p&gt;&lt;a href=&quot;https://13sar.jp/&quot;&gt;https://13sar.jp/&lt;/a&gt;&lt;/p&gt;
@@ -503,7 +527,7 @@ end
       <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-01-21-nameteki"/>
       <id>tag:r7kamura.com,2019:/articles/2020-01-21-nameteki</id>
       <published>2020-01-21T00:00:00+00:00</published>
-      <updated>2020-09-17T19:11:12+00:00</updated>
+      <updated>2020-09-17T19:47:00+00:00</updated>
       <content type="html">&lt;p&gt;&lt;a href=&quot;https://images-fe.ssl-images-amazon.com/images/I/51osytbqqVL.jpg&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;https://images-fe.ssl-images-amazon.com/images/I/51osytbqqVL.jpg&quot; alt=&quot;&quot;&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;伴名 練の『なめらかな世界と、その敵』を読んだ。表題作に加えて、&lt;/p&gt;
@@ -531,7 +555,7 @@ end
       <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-01-19-atelier-ryza"/>
       <id>tag:r7kamura.com,2019:/articles/2020-01-19-atelier-ryza</id>
       <published>2020-01-19T00:00:00+00:00</published>
-      <updated>2020-09-17T19:11:12+00:00</updated>
+      <updated>2020-09-17T19:47:00+00:00</updated>
       <content type="html">&lt;p&gt;&lt;a href=&quot;/images/2020-01-19-atelier-ryza.jpg&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/images/2020-01-19-atelier-ryza.jpg&quot; alt=&quot;&quot;&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;ライザのアトリエがSteamで30%オフで売られていたので、購入した勢いで一気にクリアした。&lt;/p&gt;
@@ -551,7 +575,7 @@ end
       <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-01-12-gen-gen-kusano"/>
       <id>tag:r7kamura.com,2019:/articles/2020-01-12-gen-gen-kusano</id>
       <published>2020-01-12T00:00:00+00:00</published>
-      <updated>2020-09-17T19:11:12+00:00</updated>
+      <updated>2020-09-17T19:47:00+00:00</updated>
       <content type="html">&lt;p&gt;&lt;a href=&quot;https://images-fe.ssl-images-amazon.com/images/I/615-PsNiAsL.jpg&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;https://images-fe.ssl-images-amazon.com/images/I/615-PsNiAsL.jpg&quot; alt=&quot;&quot;&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;新人SF作家 草野原々による短編集『最後にして最初のアイドル』を読んだ。表題作に加え、『エヴォリューションがーるず』と『暗黒声優』の計三篇が含まれている。&lt;/p&gt;
@@ -577,7 +601,7 @@ end
       <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-01-10-broken-reality"/>
       <id>tag:r7kamura.com,2019:/articles/2020-01-10-broken-reality</id>
       <published>2020-01-10T00:00:00+00:00</published>
-      <updated>2020-09-17T19:11:12+00:00</updated>
+      <updated>2020-09-17T19:47:00+00:00</updated>
       <content type="html">&lt;p&gt;&lt;a href=&quot;/images/2020-01-10-broken-reality-1.jpg&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/images/2020-01-10-broken-reality-1.jpg&quot; alt=&quot;&quot;&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;遂に『Broken Reality』をクリアした。短いようでいて、ものすごく長い時間に感じられた。だがやり遂げた。&lt;/p&gt;
@@ -597,24 +621,6 @@ end
 &lt;p&gt;どう表現したらいいものか分からないけれど、NINTENDO64やプレイステーション時代のゲームに通ずるものへのオマージュが確かにあって、そこに温かみを感じる作品だった。&lt;/p&gt;
 
 &lt;p&gt;個人的にこのゲームからは『バンジョーとカズーイの大冒険』を強く感じた。ヴェイパーウェイヴな世界観に圧倒されてエモみが爆発しているところが目を引きがちな一方で、ゲーム内での探索パートにも幾多のゲームのエッセンスが詰まっていると思う。&lt;/p&gt;
-</content>
-    </entry>
-  
-    <entry>
-      <title>『バッタを倒しにアフリカへ』を読んだ</title>
-      <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-01-09-locust"/>
-      <id>tag:r7kamura.com,2019:/articles/2020-01-09-locust</id>
-      <published>2020-01-09T00:00:00+00:00</published>
-      <updated>2020-09-17T19:11:12+00:00</updated>
-      <content type="html">&lt;p&gt;&lt;a href=&quot;https://images-fe.ssl-images-amazon.com/images/I/51ScdPFm7LL.jpg&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;https://images-fe.ssl-images-amazon.com/images/I/51ScdPFm7LL.jpg&quot; alt=&quot;&quot;&gt;&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://www.amazon.co.jp/dp/B072FGTM65&quot;&gt;https://www.amazon.co.jp/dp/B072FGTM65&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;バッタの研究に憧れる研究者が、大学院を出て、ポスドクの身で単身アフリカへ研究に行った記録が綴られている。&lt;/p&gt;
-
-&lt;p&gt;モーリタニアという異国の雰囲気や、ポスドクの厳しい成果主義な環境を窺い知ることができ、同時に、著者の行動力に元気付けられる。見ず知らずの人間が異邦の地で必死に頑張っているのを見ると、なぜか自分も頑張ろうと思えてくる。&lt;/p&gt;
-
-&lt;p&gt;なぜこの本を読もうと思ったのだったか。今となっては思い出せないけれど、ユーモアに溢れ、惹き込まれる文章で、読み始めたら止まらない1冊だった。ちょうどいいときにこの本と出会えて良かった。&lt;/p&gt;
 </content>
     </entry>
   
