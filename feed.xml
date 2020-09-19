@@ -3,18 +3,53 @@
   <title>r7kamura.com</title>
   <link rel="self" type="application/atom+xml" href="https://r7kamura.com/feed.xml"/>
   <link rel="alternate" type="text/html" href="https://r7kamura.com/"/>
-  <updated>2020-09-17T20:33:03+00:00</updated>
+  <updated>2020-09-19T00:17:24+00:00</updated>
   <author>
     <name>Ryo Nakamura</name>
   </author>
   <id>tag:r7kamura.com,2019:/</id>
   
     <entry>
+      <title>AnkerのUSBハブを買った</title>
+      <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-09-19-anker-usb-hub"/>
+      <id>tag:r7kamura.com,2019:/articles/2020-09-19-anker-usb-hub</id>
+      <published>2020-09-19T00:00:00+00:00</published>
+      <updated>2020-09-19T00:16:52+00:00</updated>
+      <content type="html">&lt;p&gt;&lt;a href=&quot;/images/2020-09-19-anker-usb-hub.jpg&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/images/2020-09-19-anker-usb-hub.jpg&quot; alt=&quot;&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;『&lt;a href=&quot;https://www.amazon.co.jp/dp/B087TB7YM7?tag=r7kamura07-22&quot;&gt;Anker PowerExpand 8-in-1 USB-C PD 10Gbps データ ハブ&lt;/a&gt;』を買った。&lt;/p&gt;
+
+&lt;p&gt;MacBook Proへの配線を1つにまとめるために、以下の用途で使っている。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;USB Type-Aでコンデンサマイクと繋ぐ&lt;/li&gt;
+&lt;li&gt;USB Type-Aでオーディオインターフェースと繋ぐ&lt;/li&gt;
+&lt;li&gt;USB Type-CでWebカメラと繋ぐ&lt;/li&gt;
+&lt;li&gt;USB Type-Cで給電する&lt;/li&gt;
+&lt;li&gt;HDMIで外部ディスプレイと繋ぐ&lt;/li&gt;
+&lt;li&gt;Ethernetでルータと繋ぐ&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;やりたいことが全部満たせて概ね満足。&lt;/p&gt;
+
+&lt;p&gt;電源周りについての注意点。MacBook Pro 13inch用の純正電源アダプタを使うと、13inchに接続しても電力が足りないのか給電されなかった。たまたま持っていた15inch用の電源アダプタを使ったら上手くいった。15Wがハブへの給電に利用されると書いてあるので、余裕のある電源アダプタじゃないと駄目みたい。&lt;/p&gt;
+
+&lt;hr&gt;
+
+&lt;p&gt;ところで、これはこのUSBハブの話とは全く関係無い話なのだけど、電源アダプタ、ミキサー、USBマイクに繋いだMacBook Proからアナログ音声出力を取ろうとすると、自分の環境だとうるさいくらいのノイズが乗ってしまうという問題に遭遇した。&lt;/p&gt;
+
+&lt;p&gt;調査を進めた結果、2つのPC間でマイクとミキサーを経由してグラウンドループが発生していることが判明。過去にもたまに同じ問題に遭遇することがあって不思議に思っていたけど、原因がようやく判明してスッキリ。&lt;/p&gt;
+
+&lt;p&gt;グラウンドループはなかなか気付きづらい問題で、例えばキャプチャーボードに繋いだSwitchから音声をアナログ出力経由で取ろうとすると、同様の問題が起こったりする。解決策としては、経路の一部をアナログ音声からデジタル音声経由に変えたり、音質が多少損なわれても良い場合はグラウンドループ・アイソレーターを間に挟んだりする方法がある。&lt;/p&gt;
+</content>
+    </entry>
+  
+    <entry>
       <title>記事内の画像にリンクを付けた</title>
       <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-09-18-link-image"/>
       <id>tag:r7kamura.com,2019:/articles/2020-09-18-link-image</id>
       <published>2020-09-18T00:00:00+00:00</published>
-      <updated>2020-09-17T20:32:32+00:00</updated>
+      <updated>2020-09-19T00:16:52+00:00</updated>
       <content type="html">&lt;p&gt;これで画像をクリックすると大きく表示できるようになった。&lt;/p&gt;
 
 &lt;p&gt;&lt;a href=&quot;/images/2020-09-18-link-image.jpg&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/images/2020-09-18-link-image.jpg&quot; alt=&quot;&quot;&gt;&lt;/a&gt;&lt;/p&gt;
@@ -44,7 +79,7 @@
       <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-09-17-empty-test-files"/>
       <id>tag:r7kamura.com,2019:/articles/2020-09-17-empty-test-files</id>
       <published>2020-09-17T00:00:00+00:00</published>
-      <updated>2020-09-17T20:32:32+00:00</updated>
+      <updated>2020-09-19T00:16:52+00:00</updated>
       <content type="html">&lt;p&gt;雑なスクリプトを書いて空のテストファイルを消したという話。&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;require &#39;pathname&#39;
@@ -69,7 +104,7 @@ end
       <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-09-16-gaming-mouse-pad"/>
       <id>tag:r7kamura.com,2019:/articles/2020-09-16-gaming-mouse-pad</id>
       <published>2020-09-16T00:00:00+00:00</published>
-      <updated>2020-09-17T20:32:32+00:00</updated>
+      <updated>2020-09-19T00:16:52+00:00</updated>
       <content type="html">&lt;p&gt;RazerのGoliathus Chroma Extendedというマウスパッドを買った。&lt;/p&gt;
 
 &lt;p&gt;&lt;a href=&quot;/images/2020-09-16-gaming-mouse-pad-light.jpg&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/images/2020-09-16-gaming-mouse-pad-light.jpg&quot; alt=&quot;&quot;&gt;&lt;/a&gt;&lt;/p&gt;
@@ -87,7 +122,7 @@ end
       <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-09-16-color-change"/>
       <id>tag:r7kamura.com,2019:/articles/2020-09-16-color-change</id>
       <published>2020-09-16T00:00:00+00:00</published>
-      <updated>2020-09-17T20:32:32+00:00</updated>
+      <updated>2020-09-19T00:16:52+00:00</updated>
       <content type="html">&lt;p&gt;&lt;a href=&quot;/images/2020-09-16-color-change.png&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/images/2020-09-16-color-change.png&quot; alt=&quot;&quot;&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;コントラストが高すぎてどぎつい感じがしてきたので、テキストの色を &lt;code&gt;#111111&lt;/code&gt; から &lt;code&gt;#333333&lt;/code&gt; に変更した。&lt;/p&gt;
@@ -101,7 +136,7 @@ end
       <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-09-16-blue-microphones-compass"/>
       <id>tag:r7kamura.com,2019:/articles/2020-09-16-blue-microphones-compass</id>
       <published>2020-09-16T00:00:00+00:00</published>
-      <updated>2020-09-17T20:32:32+00:00</updated>
+      <updated>2020-09-19T00:16:52+00:00</updated>
       <content type="html">&lt;p&gt;&lt;a href=&quot;/images/2020-09-16-blue-microphones-compass.jpg&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/images/2020-09-16-blue-microphones-compass.jpg&quot; alt=&quot;&quot;&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;Blue MicrophonesのCompassというマイクスタンドを購入して取り付けた。&lt;/p&gt;
@@ -119,7 +154,7 @@ end
       <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-09-13-mac-movie-edit"/>
       <id>tag:r7kamura.com,2019:/articles/2020-09-13-mac-movie-edit</id>
       <published>2020-09-13T00:00:00+00:00</published>
-      <updated>2020-09-17T20:32:32+00:00</updated>
+      <updated>2020-09-19T00:16:52+00:00</updated>
       <content type="html">&lt;p&gt;iMovieの話。&lt;/p&gt;
 
 &lt;p&gt;GeForce Experienceの録画機能で、ゲーム中の動画を録画した。録画された200MBほどの動画ファイルの保存先はDropboxになっており、今はたまたまMacでそのファイルを見ているのだが、これを小さいファイルサイズの動画にしてDiscordに貼り付けたい。&lt;/p&gt;
@@ -137,7 +172,7 @@ end
       <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-09-13-terraria"/>
       <id>tag:r7kamura.com,2019:/articles/2020-09-13-terraria</id>
       <published>2020-09-13T00:00:00+00:00</published>
-      <updated>2020-09-17T20:32:32+00:00</updated>
+      <updated>2020-09-19T00:16:52+00:00</updated>
       <content type="html">&lt;p&gt;Terrariaで&lt;a href=&quot;https://terraria.gamepedia.com/Pirate_Map&quot;&gt;Pirate Map&lt;/a&gt;を放置しながら集めるための狩場について。&lt;/p&gt;
 
 &lt;p&gt;&lt;a href=&quot;/images/2020-09-13-terraria.png&quot;&gt;&lt;img src=&quot;/images/2020-09-13-terraria.png&quot; alt=&quot;&quot;&gt;&lt;/a&gt;&lt;/p&gt;
@@ -181,7 +216,7 @@ end
       <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-09-12-activerecord-enum-translation"/>
       <id>tag:r7kamura.com,2019:/articles/2020-09-12-activerecord-enum-translation</id>
       <published>2020-09-12T00:00:00+00:00</published>
-      <updated>2020-09-17T20:32:32+00:00</updated>
+      <updated>2020-09-19T00:16:52+00:00</updated>
       <content type="html">&lt;p&gt;ActiveRecordのenumにI18n用の機能を提供するgemをつくった。&lt;/p&gt;
 
 &lt;p&gt;&lt;a href=&quot;https://github.com/r7kamura/activerecord-enum_translation&quot;&gt;https://github.com/r7kamura/activerecord-enum_translation&lt;/a&gt;&lt;/p&gt;
@@ -275,7 +310,7 @@ end
       <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-09-11-vscode-disable-suggestion"/>
       <id>tag:r7kamura.com,2019:/articles/2020-09-11-vscode-disable-suggestion</id>
       <published>2020-09-11T00:00:00+00:00</published>
-      <updated>2020-09-17T20:32:32+00:00</updated>
+      <updated>2020-09-19T00:16:52+00:00</updated>
       <content type="html">&lt;p&gt;VSCodeで文字を入力している最中に「もしかしてこれじゃない？」って補完候補をポップアップしてくれるやつがすごく鬱陶しいので、無効化した。&lt;/p&gt;
 
 &lt;pre&gt;&lt;code class=&quot;json&quot;&gt;{
@@ -303,7 +338,7 @@ end
       <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-04-18-diary"/>
       <id>tag:r7kamura.com,2019:/articles/2020-04-18-diary</id>
       <published>2020-04-18T00:00:00+00:00</published>
-      <updated>2020-09-17T20:32:32+00:00</updated>
+      <updated>2020-09-19T00:16:52+00:00</updated>
       <content type="html">&lt;p&gt;最近について。&lt;/p&gt;
 
 &lt;h2&gt;AtomからVSCodeへ&lt;/h2&gt;
@@ -374,7 +409,7 @@ end
       <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-02-28-marcotogingaryu"/>
       <id>tag:r7kamura.com,2019:/articles/2020-02-28-marcotogingaryu</id>
       <published>2020-02-28T00:00:00+00:00</published>
-      <updated>2020-09-17T20:32:32+00:00</updated>
+      <updated>2020-09-19T00:16:52+00:00</updated>
       <content type="html">&lt;p&gt;&lt;a href=&quot;/images/2020-02-28-marcotogingaryu.jpg&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/images/2020-02-28-marcotogingaryu.jpg&quot; alt=&quot;&quot;&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;前々から気になってた『マルコと銀河竜』が遂に発売されたので、購入してそのままエンディングまで駆け抜けてしまった。&lt;/p&gt;
@@ -394,7 +429,7 @@ end
       <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-02-25-kakutei"/>
       <id>tag:r7kamura.com,2019:/articles/2020-02-25-kakutei</id>
       <published>2020-02-25T00:00:00+00:00</published>
-      <updated>2020-09-17T20:32:32+00:00</updated>
+      <updated>2020-09-19T00:16:52+00:00</updated>
       <content type="html">&lt;p&gt;2019年分の確定申告書類を提出した。今年で3年目。今年も郵送。予定納税分以外の税金の払込はこれから。&lt;/p&gt;
 
 &lt;ul&gt;
@@ -425,7 +460,7 @@ end
       <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-02-17-my-protein"/>
       <id>tag:r7kamura.com,2019:/articles/2020-02-17-my-protein</id>
       <published>2020-02-17T00:00:00+00:00</published>
-      <updated>2020-09-17T20:32:32+00:00</updated>
+      <updated>2020-09-19T00:16:52+00:00</updated>
       <content type="html">&lt;p&gt;&lt;a href=&quot;/images/2020-02-17-my-protein.jpg&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/images/2020-02-17-my-protein.jpg&quot; alt=&quot;&quot;&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;マイプロテインというスポーツ栄養ブランドのホエイプロテインが送料無料で1kg 1890円だったので、チョコレートブラウニー味のやつを買ってみた。&lt;/p&gt;
@@ -449,7 +484,7 @@ end
       <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-02-10-fe-three-houses"/>
       <id>tag:r7kamura.com,2019:/articles/2020-02-10-fe-three-houses</id>
       <published>2020-02-10T00:00:00+00:00</published>
-      <updated>2020-09-17T20:32:32+00:00</updated>
+      <updated>2020-09-19T00:16:52+00:00</updated>
       <content type="html">&lt;p&gt;&lt;a href=&quot;/images/2020-02-10-fe-three-houses.jpg&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/images/2020-02-10-fe-three-houses.jpg&quot; alt=&quot;&quot;&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;ようやく3つの学級をクリアしたので感想を書ける。&lt;/p&gt;
@@ -489,7 +524,7 @@ end
       <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-01-27-void-trrlm"/>
       <id>tag:r7kamura.com,2019:/articles/2020-01-27-void-trrlm</id>
       <published>2020-01-27T00:00:00+00:00</published>
-      <updated>2020-09-17T20:32:32+00:00</updated>
+      <updated>2020-09-19T00:16:52+00:00</updated>
       <content type="html">&lt;p&gt;&lt;a href=&quot;/images/2020-01-27-void-trrlm.jpg&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/images/2020-01-27-void-trrlm.jpg&quot; alt=&quot;&quot;&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;日本一ソフトウェアの『void tRrLM(); // ボイド・テラリウム』をやった。たまごっちと不思議のダンジョンを同時にやるような作品で、終末世界で見つけた女の子のお世話をしながら、ダンジョンを探索して食糧や建築資材を集めてくることになる。&lt;/p&gt;
@@ -513,7 +548,7 @@ end
       <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-01-23-13sar"/>
       <id>tag:r7kamura.com,2019:/articles/2020-01-23-13sar</id>
       <published>2020-01-23T00:00:00+00:00</published>
-      <updated>2020-09-17T20:32:32+00:00</updated>
+      <updated>2020-09-19T00:16:52+00:00</updated>
       <content type="html">&lt;p&gt;先週末からやっていた『十三機兵防衛圏』を遂にクリアした。思い出しのために、ネタバレを避けつつ歯切れの悪い感想を残しておく。&lt;/p&gt;
 
 &lt;p&gt;&lt;a href=&quot;https://13sar.jp/&quot;&gt;https://13sar.jp/&lt;/a&gt;&lt;/p&gt;
@@ -533,7 +568,7 @@ end
       <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-01-21-nameteki"/>
       <id>tag:r7kamura.com,2019:/articles/2020-01-21-nameteki</id>
       <published>2020-01-21T00:00:00+00:00</published>
-      <updated>2020-09-17T20:32:32+00:00</updated>
+      <updated>2020-09-19T00:16:52+00:00</updated>
       <content type="html">&lt;p&gt;&lt;a href=&quot;https://images-fe.ssl-images-amazon.com/images/I/51osytbqqVL.jpg&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;https://images-fe.ssl-images-amazon.com/images/I/51osytbqqVL.jpg&quot; alt=&quot;&quot;&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;伴名 練の『なめらかな世界と、その敵』を読んだ。表題作に加えて、&lt;/p&gt;
@@ -561,7 +596,7 @@ end
       <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-01-19-atelier-ryza"/>
       <id>tag:r7kamura.com,2019:/articles/2020-01-19-atelier-ryza</id>
       <published>2020-01-19T00:00:00+00:00</published>
-      <updated>2020-09-17T20:32:32+00:00</updated>
+      <updated>2020-09-19T00:16:52+00:00</updated>
       <content type="html">&lt;p&gt;&lt;a href=&quot;/images/2020-01-19-atelier-ryza.jpg&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/images/2020-01-19-atelier-ryza.jpg&quot; alt=&quot;&quot;&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;ライザのアトリエがSteamで30%オフで売られていたので、購入した勢いで一気にクリアした。&lt;/p&gt;
@@ -581,7 +616,7 @@ end
       <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-01-12-gen-gen-kusano"/>
       <id>tag:r7kamura.com,2019:/articles/2020-01-12-gen-gen-kusano</id>
       <published>2020-01-12T00:00:00+00:00</published>
-      <updated>2020-09-17T20:32:32+00:00</updated>
+      <updated>2020-09-19T00:16:52+00:00</updated>
       <content type="html">&lt;p&gt;&lt;a href=&quot;https://images-fe.ssl-images-amazon.com/images/I/615-PsNiAsL.jpg&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;https://images-fe.ssl-images-amazon.com/images/I/615-PsNiAsL.jpg&quot; alt=&quot;&quot;&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;新人SF作家 草野原々による短編集『最後にして最初のアイドル』を読んだ。表題作に加え、『エヴォリューションがーるず』と『暗黒声優』の計三篇が含まれている。&lt;/p&gt;
@@ -599,34 +634,6 @@ end
 &lt;p&gt;Apple Smart Keyboard Folioを購入し、昨日からiPad Proを使って文章を書いている。この文章もそう。メモ帳に下書きを書いたあと、GitHubのテキストエリアにコピペして、最後に少しだけ手直ししている。かなり体験が良い。&lt;/p&gt;
 
 &lt;p&gt;打鍵感も悪くないし、複数のアプリケーションを行き来しづらい分、目の前の作業に集中できる。これなら全然iPadだけで作業が完結するし、何なら文章を書く作業だけなら、MacよりiPadの方が良いまである。&lt;/p&gt;
-</content>
-    </entry>
-  
-    <entry>
-      <title>『Broken Reality』をやった</title>
-      <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-01-10-broken-reality"/>
-      <id>tag:r7kamura.com,2019:/articles/2020-01-10-broken-reality</id>
-      <published>2020-01-10T00:00:00+00:00</published>
-      <updated>2020-09-17T20:32:32+00:00</updated>
-      <content type="html">&lt;p&gt;&lt;a href=&quot;/images/2020-01-10-broken-reality-1.jpg&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/images/2020-01-10-broken-reality-1.jpg&quot; alt=&quot;&quot;&gt;&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;遂に『Broken Reality』をクリアした。短いようでいて、ものすごく長い時間に感じられた。だがやり遂げた。&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://store.steampowered.com/app/757480/Broken_Reality/&quot;&gt;https://store.steampowered.com/app/757480/Broken_Reality/&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;あなたは仮想世界にログインし、Likeを集め、いけてるプレイヤーになることを目指す。Likeは、そのへんに落ちているものを拾ったり、人々のお願いを聞いたり、悪質なウィルスをカタナでぶった切ったりすることで手に入る。Likeを沢山持っていると、豪華客船やホテルのVIPルームに入れたりする。&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;/images/2020-01-10-broken-reality-2.jpg&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/images/2020-01-10-broken-reality-2.jpg&quot; alt=&quot;&quot;&gt;&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;90年代のインターネットを思わせるヴェイパーウェイヴ風の世界で、いいねやアイテムを探して歩き回ることになる。のだけど、世界の構成要素がサイケデリックすぎるのと、ポケモンショックのようなエフェクトも演出としてたまに入ってくるので、1時間ほどプレイするとすぐに画面に酔ってしまうのはつらかった。&lt;/p&gt;
-
-&lt;p&gt;最初は画面酔いの体験の悪さからプレイをやめようとしたのだけど、謎解きをやっているとなんとなく、作者が大事にしていそうなところへの愛着が湧いてきて、結局最後までやり遂げてしまった。&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;/images/2020-01-10-broken-reality-4.jpg&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/images/2020-01-10-broken-reality-4.jpg&quot; alt=&quot;&quot;&gt;&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;どう表現したらいいものか分からないけれど、NINTENDO64やプレイステーション時代のゲームに通ずるものへのオマージュが確かにあって、そこに温かみを感じる作品だった。&lt;/p&gt;
-
-&lt;p&gt;個人的にこのゲームからは『バンジョーとカズーイの大冒険』を強く感じた。ヴェイパーウェイヴな世界観に圧倒されてエモみが爆発しているところが目を引きがちな一方で、ゲーム内での探索パートにも幾多のゲームのエッセンスが詰まっていると思う。&lt;/p&gt;
 </content>
     </entry>
   
