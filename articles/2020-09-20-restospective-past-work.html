@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width">
+  <title>最近のRails関係の仕事内容</title>
+  <link href="https://r7kamura.com/articles/2020-09-20-restospective-past-work" rel="canonical">
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="search" type="application/opensearchdescription+xml" title="r7kamura.com" href="/opensearch.xml">
+  <link rel="alternate" type="application/rss+xml" href="/feed.xml">
+  
+  <meta property="description" content="RubyやRailsのアップグレードを主なマイルストーンとしつつ全体的に開発体験を良くしていくというタイプの仕事を請けることが多いのですが、仕事を依頼する側の視点に立ってみると「実際のところ業務に参加するとどういうことが行われるのか？」というのがやはり気になると思います。">
+  <meta property="og:description" content="RubyやRailsのアップグレードを主なマイルストーンとしつつ全体的に開発体験を良くしていくというタイプの仕事を請けることが多いのですが、仕事を依頼する側の視点に立ってみると「実際のところ業務に参加するとどういうことが行われるのか？」というのがやはり気になると思います。">
+  
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="最近のRails関係の仕事内容">
+  <meta property="og:url" content="https://r7kamura.com/articles/2020-09-20-restospective-past-work">
+  
+  <meta property="og:image" content="https://r7kamura.com/default_og_image.jpg">
+  <meta property="twitter:card" content="summary">
+  
+</head>
+<body>
+  <header>
+    <nav>
+      <a href="/">r7kamura</a>
+      <ul>
+        <li>
+          <a href="/articles">記事一覧</a>
+        </li>
+        <li>
+          <a href="https://google.com/search?q=site:r7kamura.com">検索</a>
+        </li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <article>
+  <h1>最近のRails関係の仕事内容</h1>
+  <footer>
+    <p>
+      <time datetime="2020-09-20T00:00:00+00:00">2020年09月20日</time>
+    </p>
+  </footer>
+  <div>
+    <p>RubyやRailsのアップグレードを主なマイルストーンとしつつ全体的に開発体験を良くしていくというタイプの仕事を請けることが多いのですが、仕事を依頼する側の視点に立ってみると「実際のところ業務に参加するとどういうことが行われるのか？」というのがやはり気になると思います。</p>
+
+<p>実際、最近の打ち合わせでもその手の不安について相談されることがあったので、ここ1ヶ月でのそれ系の仕事で出したPull Requestを元に、実際に何をやっていたかの例を挙げてみたいと思います。</p>
+
+<ul>
+<li>開発環境構築手順や説明方法の改善</li>
+<li>荒れたRuboCopの改善</li>
+<li>.rubocop.ymlからTargetRailsVersionを取り除く</li>
+<li>DEPRECATION WARNING対応いろいろ</li>
+<li>既存のメソッドと名前が被っているスコープを別名に変更</li>
+<li>RSpecのpositional-argumentsを置換</li>
+<li>activerecord-importでTIME型のカラムにはStringを避ける</li>
+<li>ApplicationControllerとApplicationRecordを用意</li>
+<li>テストではconfig.active_job.queue_adapterを:inlineに</li>
+<li>image_tagにnilを渡さない</li>
+<li>renderの古いオプションを置換</li>
+<li>uniqをdistinctに</li>
+<li>条件付きdestroy_allをwhereで代替</li>
+<li>not_to + raise_errorで例外クラス指定を除去</li>
+<li>paramsに.to_h.with_indifferent_accessを</li>
+<li>feature-specでDB connectionを共有するハックをやめる</li>
+<li>mailerで使われている_pathを_urlに置換</li>
+<li>success?をsuccessful?に置換</li>
+<li>ActiveModel::Dirtyの変更に対応</li>
+<li>UniquenessValidatorにcase_sensitivityを付ける</li>
+<li>if/unlessオプションのString指定をやめる</li>
+<li>gem groupの最適化</li>
+<li>Gemfileの並び替え</li>
+<li>Gemfileのrequireオプションの最適化</li>
+<li>CIでのbundle installのオプション最適化</li>
+<li>eager_load_pathsの最適化</li>
+<li>timecop gemの廃止</li>
+<li>不要なgemの除去</li>
+<li>RSpecの設定の最適化</li>
+<li>CircleCIへの移行</li>
+<li>テスト環境でのshow_exceptionsの有効化</li>
+<li>where.notの互換性対応</li>
+<li>.rubocop_todo.ymlへの全対応</li>
+<li>不要なルーティングの除去</li>
+<li>bootsnapの導入</li>
+<li>テストされていないエンドポイントへのrequest-specの追加</li>
+<li>CIのRSpecのログから標準出力を除去</li>
+<li>たまに失敗するテストに対応</li>
+<li>redirect_backの互換性対応</li>
+<li>CIでyarn installに--prefer-offlineを付ける</li>
+<li>CIのキャッシュキーの最適化</li>
+<li>Docker環境向けのdata-volumeの最適化</li>
+<li>jbuilderからas_jsonベースの単純なJSON生成の仕組みへ移行</li>
+<li>各種gemの最新化</li>
+<li>Zeitwerk対応</li>
+<li>force_ssl有効化</li>
+<li>Ruby 2.6へ移行</li>
+<li>Rails起動時間の削減</li>
+<li>不要なRails.envの廃止</li>
+<li>ファイルの二重読み込み問題に対処</li>
+<li>bin/setupの改善</li>
+<li>ActiveSupport::Concernの良くない使い方に対処</li>
+</ul>
+
+<p>まあなんかガチャガチャと色々やっていっています。特定のアプリケーションの実装に依存する話 (要はFooモデルのbazメソッドの実装が良くないとか) についてはここに含んでいなくて、実際にはそういうところが一番のホットスポットで改善に効いてくることが多いんですが、そういうのは置いといて汎用性のありそうなタスクだけ抽出してみました。</p>
+
+  </div>
+</article>
+
+  </main>
+</body>
+</html>

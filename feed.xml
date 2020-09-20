@@ -3,18 +3,87 @@
   <title>r7kamura.com</title>
   <link rel="self" type="application/atom+xml" href="https://r7kamura.com/feed.xml"/>
   <link rel="alternate" type="text/html" href="https://r7kamura.com/"/>
-  <updated>2020-09-20T06:33:36+00:00</updated>
+  <updated>2020-09-20T08:04:33+00:00</updated>
   <author>
     <name>Ryo Nakamura</name>
   </author>
   <id>tag:r7kamura.com,2019:/</id>
   
     <entry>
+      <title>最近のRails関係の仕事内容</title>
+      <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-09-20-restospective-past-work"/>
+      <id>tag:r7kamura.com,2019:/articles/2020-09-20-restospective-past-work</id>
+      <published>2020-09-20T00:00:00+00:00</published>
+      <updated>2020-09-20T08:04:03+00:00</updated>
+      <content type="html">&lt;p&gt;RubyやRailsのアップグレードを主なマイルストーンとしつつ全体的に開発体験を良くしていくというタイプの仕事を請けることが多いのですが、仕事を依頼する側の視点に立ってみると「実際のところ業務に参加するとどういうことが行われるのか？」というのがやはり気になると思います。&lt;/p&gt;
+
+&lt;p&gt;実際、最近の打ち合わせでもその手の不安について相談されることがあったので、ここ1ヶ月でのそれ系の仕事で出したPull Requestを元に、実際に何をやっていたかの例を挙げてみたいと思います。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;開発環境構築手順や説明方法の改善&lt;/li&gt;
+&lt;li&gt;荒れたRuboCopの改善&lt;/li&gt;
+&lt;li&gt;.rubocop.ymlからTargetRailsVersionを取り除く&lt;/li&gt;
+&lt;li&gt;DEPRECATION WARNING対応いろいろ&lt;/li&gt;
+&lt;li&gt;既存のメソッドと名前が被っているスコープを別名に変更&lt;/li&gt;
+&lt;li&gt;RSpecのpositional-argumentsを置換&lt;/li&gt;
+&lt;li&gt;activerecord-importでTIME型のカラムにはStringを避ける&lt;/li&gt;
+&lt;li&gt;ApplicationControllerとApplicationRecordを用意&lt;/li&gt;
+&lt;li&gt;テストではconfig.active_job.queue_adapterを:inlineに&lt;/li&gt;
+&lt;li&gt;image_tagにnilを渡さない&lt;/li&gt;
+&lt;li&gt;renderの古いオプションを置換&lt;/li&gt;
+&lt;li&gt;uniqをdistinctに&lt;/li&gt;
+&lt;li&gt;条件付きdestroy_allをwhereで代替&lt;/li&gt;
+&lt;li&gt;not_to + raise_errorで例外クラス指定を除去&lt;/li&gt;
+&lt;li&gt;paramsに.to_h.with_indifferent_accessを&lt;/li&gt;
+&lt;li&gt;feature-specでDB connectionを共有するハックをやめる&lt;/li&gt;
+&lt;li&gt;mailerで使われている_pathを_urlに置換&lt;/li&gt;
+&lt;li&gt;success?をsuccessful?に置換&lt;/li&gt;
+&lt;li&gt;ActiveModel::Dirtyの変更に対応&lt;/li&gt;
+&lt;li&gt;UniquenessValidatorにcase_sensitivityを付ける&lt;/li&gt;
+&lt;li&gt;if/unlessオプションのString指定をやめる&lt;/li&gt;
+&lt;li&gt;gem groupの最適化&lt;/li&gt;
+&lt;li&gt;Gemfileの並び替え&lt;/li&gt;
+&lt;li&gt;Gemfileのrequireオプションの最適化&lt;/li&gt;
+&lt;li&gt;CIでのbundle installのオプション最適化&lt;/li&gt;
+&lt;li&gt;eager_load_pathsの最適化&lt;/li&gt;
+&lt;li&gt;timecop gemの廃止&lt;/li&gt;
+&lt;li&gt;不要なgemの除去&lt;/li&gt;
+&lt;li&gt;RSpecの設定の最適化&lt;/li&gt;
+&lt;li&gt;CircleCIへの移行&lt;/li&gt;
+&lt;li&gt;テスト環境でのshow_exceptionsの有効化&lt;/li&gt;
+&lt;li&gt;where.notの互換性対応&lt;/li&gt;
+&lt;li&gt;.rubocop_todo.ymlへの全対応&lt;/li&gt;
+&lt;li&gt;不要なルーティングの除去&lt;/li&gt;
+&lt;li&gt;bootsnapの導入&lt;/li&gt;
+&lt;li&gt;テストされていないエンドポイントへのrequest-specの追加&lt;/li&gt;
+&lt;li&gt;CIのRSpecのログから標準出力を除去&lt;/li&gt;
+&lt;li&gt;たまに失敗するテストに対応&lt;/li&gt;
+&lt;li&gt;redirect_backの互換性対応&lt;/li&gt;
+&lt;li&gt;CIでyarn installに--prefer-offlineを付ける&lt;/li&gt;
+&lt;li&gt;CIのキャッシュキーの最適化&lt;/li&gt;
+&lt;li&gt;Docker環境向けのdata-volumeの最適化&lt;/li&gt;
+&lt;li&gt;jbuilderからas_jsonベースの単純なJSON生成の仕組みへ移行&lt;/li&gt;
+&lt;li&gt;各種gemの最新化&lt;/li&gt;
+&lt;li&gt;Zeitwerk対応&lt;/li&gt;
+&lt;li&gt;force_ssl有効化&lt;/li&gt;
+&lt;li&gt;Ruby 2.6へ移行&lt;/li&gt;
+&lt;li&gt;Rails起動時間の削減&lt;/li&gt;
+&lt;li&gt;不要なRails.envの廃止&lt;/li&gt;
+&lt;li&gt;ファイルの二重読み込み問題に対処&lt;/li&gt;
+&lt;li&gt;bin/setupの改善&lt;/li&gt;
+&lt;li&gt;ActiveSupport::Concernの良くない使い方に対処&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;まあなんかガチャガチャと色々やっていっています。特定のアプリケーションの実装に依存する話 (要はFooモデルのbazメソッドの実装が良くないとか) についてはここに含んでいなくて、実際にはそういうところが一番のホットスポットで改善に効いてくることが多いんですが、そういうのは置いといて汎用性のありそうなタスクだけ抽出してみました。&lt;/p&gt;
+</content>
+    </entry>
+  
+    <entry>
       <title>RSpecから不要なtypeを取り除く</title>
       <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-09-20-rspec-type-metadata"/>
       <id>tag:r7kamura.com,2019:/articles/2020-09-20-rspec-type-metadata</id>
       <published>2020-09-20T00:00:00+00:00</published>
-      <updated>2020-09-20T06:33:03+00:00</updated>
+      <updated>2020-09-20T08:04:03+00:00</updated>
       <content type="html">&lt;p&gt;&lt;code&gt;config.infer_spec_type_from_file_location!&lt;/code&gt; を指定することで不要になる &lt;code&gt;metadata[:type]&lt;/code&gt; を取り除こうというスクリプト。&lt;/p&gt;
 
 &lt;pre&gt;&lt;code class=&quot;ruby&quot;&gt;require &#39;pathname&#39;
@@ -72,7 +141,7 @@ RSpec.describe User do
       <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-09-19-list-articles-minor-change"/>
       <id>tag:r7kamura.com,2019:/articles/2020-09-19-list-articles-minor-change</id>
       <published>2020-09-19T00:00:00+00:00</published>
-      <updated>2020-09-20T06:33:03+00:00</updated>
+      <updated>2020-09-20T08:04:03+00:00</updated>
       <content type="html">&lt;p&gt;変更対象は、グローバルヘッダーのリンクと記事一覧ページの見出し。&lt;/p&gt;
 
 &lt;p&gt;「記事」という表記は、記事ではないもの…例えば写真など…が存在していて初めて「記事」という表記である妥当性が生まれるはずで、現状このウェブサイトには記事しかコンテンツが無い。そうであれば、一覧であるということを押し出して「記事一覧」と表記した方が分かりやすいだろう、という意図でこう変更した。&lt;/p&gt;
@@ -112,7 +181,7 @@ RSpec.describe User do
       <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-09-19-anker-usb-hub"/>
       <id>tag:r7kamura.com,2019:/articles/2020-09-19-anker-usb-hub</id>
       <published>2020-09-19T00:00:00+00:00</published>
-      <updated>2020-09-20T06:33:03+00:00</updated>
+      <updated>2020-09-20T08:04:03+00:00</updated>
       <content type="html">&lt;p&gt;&lt;a href=&quot;/images/2020-09-19-anker-usb-hub.jpg&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/images/2020-09-19-anker-usb-hub.jpg&quot; alt=&quot;&quot;&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;『&lt;a href=&quot;https://www.amazon.co.jp/dp/B087TB7YM7?tag=r7kamura07-22&quot;&gt;Anker PowerExpand 8-in-1 USB-C PD 10Gbps データ ハブ&lt;/a&gt;』を買った。&lt;/p&gt;
@@ -147,7 +216,7 @@ RSpec.describe User do
       <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-09-18-link-image"/>
       <id>tag:r7kamura.com,2019:/articles/2020-09-18-link-image</id>
       <published>2020-09-18T00:00:00+00:00</published>
-      <updated>2020-09-20T06:33:03+00:00</updated>
+      <updated>2020-09-20T08:04:03+00:00</updated>
       <content type="html">&lt;p&gt;これで画像をクリックすると大きく表示できるようになった。&lt;/p&gt;
 
 &lt;p&gt;&lt;a href=&quot;/images/2020-09-18-link-image.jpg&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/images/2020-09-18-link-image.jpg&quot; alt=&quot;&quot;&gt;&lt;/a&gt;&lt;/p&gt;
@@ -177,7 +246,7 @@ RSpec.describe User do
       <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-09-17-empty-test-files"/>
       <id>tag:r7kamura.com,2019:/articles/2020-09-17-empty-test-files</id>
       <published>2020-09-17T00:00:00+00:00</published>
-      <updated>2020-09-20T06:33:03+00:00</updated>
+      <updated>2020-09-20T08:04:03+00:00</updated>
       <content type="html">&lt;p&gt;雑なスクリプトを書いて空のテストファイルを消したという話。&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;require &#39;pathname&#39;
@@ -202,7 +271,7 @@ end
       <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-09-16-gaming-mouse-pad"/>
       <id>tag:r7kamura.com,2019:/articles/2020-09-16-gaming-mouse-pad</id>
       <published>2020-09-16T00:00:00+00:00</published>
-      <updated>2020-09-20T06:33:03+00:00</updated>
+      <updated>2020-09-20T08:04:03+00:00</updated>
       <content type="html">&lt;p&gt;RazerのGoliathus Chroma Extendedというマウスパッドを買った。&lt;/p&gt;
 
 &lt;p&gt;&lt;a href=&quot;/images/2020-09-16-gaming-mouse-pad-light.jpg&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/images/2020-09-16-gaming-mouse-pad-light.jpg&quot; alt=&quot;&quot;&gt;&lt;/a&gt;&lt;/p&gt;
@@ -220,7 +289,7 @@ end
       <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-09-16-color-change"/>
       <id>tag:r7kamura.com,2019:/articles/2020-09-16-color-change</id>
       <published>2020-09-16T00:00:00+00:00</published>
-      <updated>2020-09-20T06:33:03+00:00</updated>
+      <updated>2020-09-20T08:04:03+00:00</updated>
       <content type="html">&lt;p&gt;&lt;a href=&quot;/images/2020-09-16-color-change.png&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/images/2020-09-16-color-change.png&quot; alt=&quot;&quot;&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;コントラストが高すぎてどぎつい感じがしてきたので、テキストの色を &lt;code&gt;#111111&lt;/code&gt; から &lt;code&gt;#333333&lt;/code&gt; に変更した。&lt;/p&gt;
@@ -234,7 +303,7 @@ end
       <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-09-16-blue-microphones-compass"/>
       <id>tag:r7kamura.com,2019:/articles/2020-09-16-blue-microphones-compass</id>
       <published>2020-09-16T00:00:00+00:00</published>
-      <updated>2020-09-20T06:33:03+00:00</updated>
+      <updated>2020-09-20T08:04:03+00:00</updated>
       <content type="html">&lt;p&gt;&lt;a href=&quot;/images/2020-09-16-blue-microphones-compass.jpg&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/images/2020-09-16-blue-microphones-compass.jpg&quot; alt=&quot;&quot;&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;Blue MicrophonesのCompassというマイクスタンドを購入して取り付けた。&lt;/p&gt;
@@ -252,7 +321,7 @@ end
       <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-09-13-mac-movie-edit"/>
       <id>tag:r7kamura.com,2019:/articles/2020-09-13-mac-movie-edit</id>
       <published>2020-09-13T00:00:00+00:00</published>
-      <updated>2020-09-20T06:33:03+00:00</updated>
+      <updated>2020-09-20T08:04:03+00:00</updated>
       <content type="html">&lt;p&gt;iMovieの話。&lt;/p&gt;
 
 &lt;p&gt;GeForce Experienceの録画機能で、ゲーム中の動画を録画した。録画された200MBほどの動画ファイルの保存先はDropboxになっており、今はたまたまMacでそのファイルを見ているのだが、これを小さいファイルサイズの動画にしてDiscordに貼り付けたい。&lt;/p&gt;
@@ -270,7 +339,7 @@ end
       <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-09-13-terraria"/>
       <id>tag:r7kamura.com,2019:/articles/2020-09-13-terraria</id>
       <published>2020-09-13T00:00:00+00:00</published>
-      <updated>2020-09-20T06:33:03+00:00</updated>
+      <updated>2020-09-20T08:04:03+00:00</updated>
       <content type="html">&lt;p&gt;Terrariaで&lt;a href=&quot;https://terraria.gamepedia.com/Pirate_Map&quot;&gt;Pirate Map&lt;/a&gt;を放置しながら集めるための狩場について。&lt;/p&gt;
 
 &lt;p&gt;&lt;a href=&quot;/images/2020-09-13-terraria.png&quot;&gt;&lt;img src=&quot;/images/2020-09-13-terraria.png&quot; alt=&quot;&quot;&gt;&lt;/a&gt;&lt;/p&gt;
@@ -314,7 +383,7 @@ end
       <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-09-12-activerecord-enum-translation"/>
       <id>tag:r7kamura.com,2019:/articles/2020-09-12-activerecord-enum-translation</id>
       <published>2020-09-12T00:00:00+00:00</published>
-      <updated>2020-09-20T06:33:03+00:00</updated>
+      <updated>2020-09-20T08:04:03+00:00</updated>
       <content type="html">&lt;p&gt;ActiveRecordのenumにI18n用の機能を提供するgemをつくった。&lt;/p&gt;
 
 &lt;p&gt;&lt;a href=&quot;https://github.com/r7kamura/activerecord-enum_translation&quot;&gt;https://github.com/r7kamura/activerecord-enum_translation&lt;/a&gt;&lt;/p&gt;
@@ -408,7 +477,7 @@ end
       <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-09-11-vscode-disable-suggestion"/>
       <id>tag:r7kamura.com,2019:/articles/2020-09-11-vscode-disable-suggestion</id>
       <published>2020-09-11T00:00:00+00:00</published>
-      <updated>2020-09-20T06:33:03+00:00</updated>
+      <updated>2020-09-20T08:04:03+00:00</updated>
       <content type="html">&lt;p&gt;VSCodeで文字を入力している最中に「もしかしてこれじゃない？」って補完候補をポップアップしてくれるやつがすごく鬱陶しいので、無効化した。&lt;/p&gt;
 
 &lt;pre&gt;&lt;code class=&quot;json&quot;&gt;{
@@ -436,7 +505,7 @@ end
       <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-04-18-diary"/>
       <id>tag:r7kamura.com,2019:/articles/2020-04-18-diary</id>
       <published>2020-04-18T00:00:00+00:00</published>
-      <updated>2020-09-20T06:33:03+00:00</updated>
+      <updated>2020-09-20T08:04:03+00:00</updated>
       <content type="html">&lt;p&gt;最近について。&lt;/p&gt;
 
 &lt;h2&gt;AtomからVSCodeへ&lt;/h2&gt;
@@ -507,7 +576,7 @@ end
       <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-02-28-marcotogingaryu"/>
       <id>tag:r7kamura.com,2019:/articles/2020-02-28-marcotogingaryu</id>
       <published>2020-02-28T00:00:00+00:00</published>
-      <updated>2020-09-20T06:33:03+00:00</updated>
+      <updated>2020-09-20T08:04:03+00:00</updated>
       <content type="html">&lt;p&gt;&lt;a href=&quot;/images/2020-02-28-marcotogingaryu.jpg&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/images/2020-02-28-marcotogingaryu.jpg&quot; alt=&quot;&quot;&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;前々から気になってた『マルコと銀河竜』が遂に発売されたので、購入してそのままエンディングまで駆け抜けてしまった。&lt;/p&gt;
@@ -527,7 +596,7 @@ end
       <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-02-25-kakutei"/>
       <id>tag:r7kamura.com,2019:/articles/2020-02-25-kakutei</id>
       <published>2020-02-25T00:00:00+00:00</published>
-      <updated>2020-09-20T06:33:03+00:00</updated>
+      <updated>2020-09-20T08:04:03+00:00</updated>
       <content type="html">&lt;p&gt;2019年分の確定申告書類を提出した。今年で3年目。今年も郵送。予定納税分以外の税金の払込はこれから。&lt;/p&gt;
 
 &lt;ul&gt;
@@ -558,7 +627,7 @@ end
       <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-02-17-my-protein"/>
       <id>tag:r7kamura.com,2019:/articles/2020-02-17-my-protein</id>
       <published>2020-02-17T00:00:00+00:00</published>
-      <updated>2020-09-20T06:33:03+00:00</updated>
+      <updated>2020-09-20T08:04:03+00:00</updated>
       <content type="html">&lt;p&gt;&lt;a href=&quot;/images/2020-02-17-my-protein.jpg&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/images/2020-02-17-my-protein.jpg&quot; alt=&quot;&quot;&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;マイプロテインというスポーツ栄養ブランドのホエイプロテインが送料無料で1kg 1890円だったので、チョコレートブラウニー味のやつを買ってみた。&lt;/p&gt;
@@ -582,7 +651,7 @@ end
       <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-02-10-fe-three-houses"/>
       <id>tag:r7kamura.com,2019:/articles/2020-02-10-fe-three-houses</id>
       <published>2020-02-10T00:00:00+00:00</published>
-      <updated>2020-09-20T06:33:03+00:00</updated>
+      <updated>2020-09-20T08:04:03+00:00</updated>
       <content type="html">&lt;p&gt;&lt;a href=&quot;/images/2020-02-10-fe-three-houses.jpg&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/images/2020-02-10-fe-three-houses.jpg&quot; alt=&quot;&quot;&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;ようやく3つの学級をクリアしたので感想を書ける。&lt;/p&gt;
@@ -622,7 +691,7 @@ end
       <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-01-27-void-trrlm"/>
       <id>tag:r7kamura.com,2019:/articles/2020-01-27-void-trrlm</id>
       <published>2020-01-27T00:00:00+00:00</published>
-      <updated>2020-09-20T06:33:03+00:00</updated>
+      <updated>2020-09-20T08:04:03+00:00</updated>
       <content type="html">&lt;p&gt;&lt;a href=&quot;/images/2020-01-27-void-trrlm.jpg&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/images/2020-01-27-void-trrlm.jpg&quot; alt=&quot;&quot;&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;日本一ソフトウェアの『void tRrLM(); // ボイド・テラリウム』をやった。たまごっちと不思議のダンジョンを同時にやるような作品で、終末世界で見つけた女の子のお世話をしながら、ダンジョンを探索して食糧や建築資材を集めてくることになる。&lt;/p&gt;
@@ -646,7 +715,7 @@ end
       <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-01-23-13sar"/>
       <id>tag:r7kamura.com,2019:/articles/2020-01-23-13sar</id>
       <published>2020-01-23T00:00:00+00:00</published>
-      <updated>2020-09-20T06:33:03+00:00</updated>
+      <updated>2020-09-20T08:04:03+00:00</updated>
       <content type="html">&lt;p&gt;先週末からやっていた『十三機兵防衛圏』を遂にクリアした。思い出しのために、ネタバレを避けつつ歯切れの悪い感想を残しておく。&lt;/p&gt;
 
 &lt;p&gt;&lt;a href=&quot;https://13sar.jp/&quot;&gt;https://13sar.jp/&lt;/a&gt;&lt;/p&gt;
@@ -658,34 +727,6 @@ end
 &lt;p&gt;クリアした今でも、挿入歌の入るシーンは何度もプレイしたくなってしまう。あれは超時空要塞マクロスのリン・ミンメイを意識したものなんだろうと勝手に思っている。こういう調子で、作中は色々なSF作品を意識しているであろう素材がてんこ盛りで、やりたいことを全部やっているなという印象を受ける。SF好きな人ほど余分に楽しめるはず。&lt;/p&gt;
 
 &lt;p&gt;これだけの素材を完璧に料理しきっている手腕にも、驚きを隠せない。全体を通して綻び無く仕上がっているところも、プレイ後の満足感に大きく貢献していて、爽やかな気持ちで振り返ることができる。そう、プレイ後の気持ちを「爽やか」という言葉が一番よく表せていると思う。これだけの作品が生まれるのは奇跡のようなことなので、もっと多くの人にプレイされてほしい。&lt;/p&gt;
-</content>
-    </entry>
-  
-    <entry>
-      <title>『なめらかな世界と、その敵』を読んだ</title>
-      <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-01-21-nameteki"/>
-      <id>tag:r7kamura.com,2019:/articles/2020-01-21-nameteki</id>
-      <published>2020-01-21T00:00:00+00:00</published>
-      <updated>2020-09-20T06:33:03+00:00</updated>
-      <content type="html">&lt;p&gt;&lt;a href=&quot;https://images-fe.ssl-images-amazon.com/images/I/51osytbqqVL.jpg&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;https://images-fe.ssl-images-amazon.com/images/I/51osytbqqVL.jpg&quot; alt=&quot;&quot;&gt;&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;伴名 練の『なめらかな世界と、その敵』を読んだ。表題作に加えて、&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;『ゼロ年代の臨界点』&lt;/li&gt;
-&lt;li&gt;『美亜羽へ贈る拳銃』&lt;/li&gt;
-&lt;li&gt;『ホーリーアイアンメイデン』&lt;/li&gt;
-&lt;li&gt;『シンギュラリティ・ソヴィエト』&lt;/li&gt;
-&lt;li&gt;『ひかりより速く、ゆるやかに』&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;の計6篇の話が含まれている。&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://www.amazon.co.jp/dp/B07WHSZMFC&quot;&gt;https://www.amazon.co.jp/dp/B07WHSZMFC&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;SF的な世界観が土台にありつつも、繊細に描写された人の感情が話の核となっていて、どれも読み応えがあった。それに、どの話も読み手への優しさを感じる文章だった。最近読んできたSF作品の中でも、かなり読みやすい方だと思う。&lt;/p&gt;
-
-&lt;p&gt;昨日から始めた『十三機兵防衛圏』も序盤の雰囲気だけで相当期待できそうな作品だし、ここ最近は良い作品に沢山巡り会えて本当に嬉しい。&lt;/p&gt;
 </content>
     </entry>
   
