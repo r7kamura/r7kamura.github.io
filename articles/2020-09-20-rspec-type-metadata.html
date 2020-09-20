@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width">
+  <title>RSpecから不要なtypeを取り除く</title>
+  <link href="https://r7kamura.com/articles/2020-09-20-rspec-type-metadata" rel="canonical">
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="search" type="application/opensearchdescription+xml" title="r7kamura.com" href="/opensearch.xml">
+  <link rel="alternate" type="application/rss+xml" href="/feed.xml">
+  
+  <meta property="description" content="config.infer_spec_type_from_file_location! を指定することで不要になる metadata[:type] を取り除こうというスクリプト。">
+  <meta property="og:description" content="config.infer_spec_type_from_file_location! を指定することで不要になる metadata[:type] を取り除こうというスクリプト。">
+  
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="RSpecから不要なtypeを取り除く">
+  <meta property="og:url" content="https://r7kamura.com/articles/2020-09-20-rspec-type-metadata">
+  
+  <meta property="og:image" content="https://r7kamura.com/default_og_image.jpg">
+  <meta property="twitter:card" content="summary">
+  
+</head>
+<body>
+  <header>
+    <nav>
+      <a href="/">r7kamura</a>
+      <ul>
+        <li>
+          <a href="/articles">記事一覧</a>
+        </li>
+        <li>
+          <a href="https://google.com/search?q=site:r7kamura.com">検索</a>
+        </li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <article>
+  <h1>RSpecから不要なtypeを取り除く</h1>
+  <footer>
+    <p>
+      <time datetime="2020-09-20T00:00:00+00:00">2020年09月20日</time>
+    </p>
+  </footer>
+  <div>
+    <p><code>config.infer_spec_type_from_file_location!</code> を指定することで不要になる <code>metadata[:type]</code> を取り除こうというスクリプト。</p>
+
+<pre><code class="ruby">require 'pathname'
+
+%w[
+  api spec/requests
+  controller spec/controllers
+  feature spec/features
+  helper spec/helpers
+  integration spec/requests
+  job spec/jobs
+  mailer spec/mailers
+  model spec/models
+  request spec/requests
+  routing spec/routing
+  system spec/system
+  view spec/views
+].each_slice(2) do |type, directory_path|
+  Pathname.glob("#{directory_path}/**/*_spec.rb").each do |pathname|
+    pathname.write(
+      pathname.read.gsub(/, type: :#{type}/, '')
+    )
+  end
+end
+</code></pre>
+
+<p>sedを使いながらシェルスクリプトで書いても良かったけど、対象がRSpecで書かれたコードということで対象読者のことを考えてRubyで書くことに。</p>
+
+<p>以下は不要な <code>metadata[:type]</code> の例。</p>
+
+<pre><code class="ruby"># spec/models/user_spec.rb
+RSpec.describe User, type: :model do
+</code></pre>
+
+<p>以下のように置換される。</p>
+
+<pre><code class="ruby"># spec/models/user_spec.rb
+RSpec.describe User do
+</code></pre>
+
+<hr>
+
+<p>RSpecのディレクトリ構成に関するドキュメントは以下から。</p>
+
+<p><a href="https://relishapp.com/rspec/rspec-rails/docs/directory-structure">https://relishapp.com/rspec/rspec-rails/docs/directory-structure</a></p>
+
+<p>typeとディレクトリパスの対応関係の定義は以下から。<code>|</code> を使って1つのStringに構造を詰め込んでいるところが正直言ってダサいと思う。</p>
+
+<p><a href="https://github.com/rspec/rspec-rails/blob/e5cbfde4635fca69f9fe0cafc4df7a075a4ce990/lib/rspec/rails/configuration.rb#L25-L40">https://github.com/rspec/rspec-rails/blob/e5cbfde4635fca69f9fe0cafc4df7a075a4ce990/lib/rspec/rails/configuration.rb#L25-L40</a></p>
+
+  </div>
+</article>
+
+  </main>
+</body>
+</html>
