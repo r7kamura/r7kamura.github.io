@@ -3,7 +3,7 @@
   <title>r7kamura.com</title>
   <link rel="self" type="application/atom+xml" href="https://r7kamura.com/feed.xml"/>
   <link rel="alternate" type="text/html" href="https://r7kamura.com/"/>
-  <updated>2020-09-21T12:12:55+00:00</updated>
+  <updated>2020-09-21T13:12:47+00:00</updated>
   <author>
     <name>Ryo Nakamura</name>
   </author>
@@ -14,7 +14,7 @@
       <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-09-21-personal-website"/>
       <id>tag:r7kamura.com,2019:/articles/2020-09-21-personal-website</id>
       <published>2020-09-21T00:00:00+00:00</published>
-      <updated>2020-09-21T12:12:27+00:00</updated>
+      <updated>2020-09-21T13:12:15+00:00</updated>
       <content type="html">&lt;p&gt;なぜ個人でウェブサイトを運用しているのかについて、整理しておきたい。&lt;/p&gt;
 
 &lt;p&gt;要約すると、以下の理由でやっている。&lt;/p&gt;
@@ -96,11 +96,106 @@
     </entry>
   
     <entry>
+      <title>PCデスクの機器と配線の計画</title>
+      <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-09-21-cable-dependencies"/>
+      <id>tag:r7kamura.com,2019:/articles/2020-09-21-cable-dependencies</id>
+      <published>2020-09-21T00:00:00+00:00</published>
+      <updated>2020-09-21T13:12:15+00:00</updated>
+      <content type="html">&lt;p&gt;PCデスクを買い換えることにしたので、機器と配線について整理する。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;/images/2020-09-21-cable-dependencies.jpg&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/images/2020-09-21-cable-dependencies.jpg&quot; alt=&quot;&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2&gt;機器&lt;/h2&gt;
+
+&lt;p&gt;PCデスク周りに現状置いてるものを並べてみる。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;デスクトップPC&lt;/li&gt;
+&lt;li&gt;MacBook Pro&lt;/li&gt;
+&lt;li&gt;マウスパッド1&lt;/li&gt;
+&lt;li&gt;マウスパッド2&lt;/li&gt;
+&lt;li&gt;無線ヘッドホンアンプ&lt;/li&gt;
+&lt;li&gt;USBオーディオインターフェース&lt;/li&gt;
+&lt;li&gt;USBマイク&lt;/li&gt;
+&lt;li&gt;USBハブ&lt;/li&gt;
+&lt;li&gt;USB充電器&lt;/li&gt;
+&lt;li&gt;キーボード&lt;/li&gt;
+&lt;li&gt;ルーター&lt;/li&gt;
+&lt;li&gt;ディスプレイ1&lt;/li&gt;
+&lt;li&gt;ディスプレイ2&lt;/li&gt;
+&lt;li&gt;クリップライト1&lt;/li&gt;
+&lt;li&gt;クリップライト2&lt;/li&gt;
+&lt;li&gt;スピーカー&lt;/li&gt;
+&lt;li&gt;Webカメラ&lt;/li&gt;
+&lt;li&gt;Hueブリッジ&lt;/li&gt;
+&lt;li&gt;キャプチャボード&lt;/li&gt;
+&lt;li&gt;HDMIセレクタ&lt;/li&gt;
+&lt;li&gt;Nintendo Switch&lt;/li&gt;
+&lt;li&gt;Nintendo Switch Proコントローラー&lt;/li&gt;
+&lt;li&gt;PS4&lt;/li&gt;
+&lt;li&gt;PS4 コントローラー&lt;/li&gt;
+&lt;li&gt;無線ヘッドホン&lt;/li&gt;
+&lt;li&gt;有線ヘッドホン&lt;/li&gt;
+&lt;li&gt;iPad Pro&lt;/li&gt;
+&lt;li&gt;iPhone&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;うわあ多い。しかし機器の個数が無限ではないことが分かって安心。&lt;/p&gt;
+
+&lt;h2&gt;電源タップ&lt;/h2&gt;
+
+&lt;p&gt;合計14個の電源が必要になる。&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;机の天板の裏面に貼り付けられる形状 (重量と接地面の制約)&lt;/li&gt;
+&lt;li&gt;黒色&lt;/li&gt;
+&lt;li&gt;ケーブル長2m&lt;/li&gt;
+&lt;li&gt;物理スイッチ無し (使わないし事故が怖いから)&lt;/li&gt;
+&lt;li&gt;ACアダプタが衝突しにくいやつ&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;以上の条件を満たす電源タップを考えたところ、エレコムの6個口のやつをデスクの左右裏面に合計3つ配置するのが良さそうということに。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://www.amazon.co.jp/dp/B01MU9YGSD/?tag=r7kamura07-22&quot;&gt;エレコム 電源タップ T-NSLK-2610BK&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;電源タップなどの操作しない機器は、デスク下に配線トレーを付けて収納する。金網よりもメッシュタイプの方が良さそうなので、これを利用する。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://www.amazon.co.jp/dp/B01N6B5ST9/?tag=r7kamura07-22&quot;&gt;サンワサプライ ケーブル配線トレー CB-CT5&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;配線トレーに入れるには大きすぎるものについては、デスクの裏面にマグネットシートで貼り付ける。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://www.amazon.co.jp/dp/B0012R2OIQ/?tag=r7kamura07-22&quot;&gt;コクヨ マグネットシート マク-S340&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2&gt;USB給電&lt;/h2&gt;
+
+&lt;p&gt;コントローラや無線ヘッドホンなど、USBで給電したい機器が5つあるので、いま持っているAnkerのこれを使う。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://www.amazon.co.jp/dp/B072KBG9W4/?tag=r7kamura07-22&quot;&gt;Anker 充電器 AK-A2056511&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;マグネット式で接続できるやつが便利なので、この辺のアダプタ類を使う。正直平型より丸形の方が構造的に刺しやすそうだし、買い替えを検討してみている。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://www.amazon.co.jp/dp/B077PRD1FT/?tag=r7kamura07-22&quot;&gt;ZRSE マグネット式充電アダプタ&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;iPad Proは気難しく、充電できない製品が多いが、この製品では使える。接続時に照明が光らないので、本当に接続できてるのかどうか不安なところが不満だけど、iPad Proで使えるというだけで嬉しい。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://www.amazon.co.jp/dp/B07GGCSV45/?tag=r7kamura07-22&quot;&gt;Stouchi マグネット式充電アダプタ&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;iPhoneは&lt;a href=&quot;http://localhost:9292/articles/2018-10-31-iphone-xs-max-cb840d595fae&quot;&gt;2年ほど前から&lt;/a&gt;ロジクールの白い充電スタンドをベッドサイドで使っていて、安定感があるし充電量的にも寝るときだけ充電する問題は無いのだけど、デスクでもiPhoneの定位置が欲しいので新しいのを買うかも。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://www.amazon.co.jp/dp/B07QB62131/?tag=r7kamura07-22&quot;&gt;ロジクール 無線充電スタンド iD20WH&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2&gt;参考情報&lt;/h2&gt;
+
+&lt;p&gt;Go Andoさんという方が &lt;a href=&quot;https://note.com/goando/m/me3ed2026f6ac&quot;&gt;デスクをすっきりさせるマガジン&lt;/a&gt; というページで関連記事をまとめてくださっている。デスク周りの配線についての知見が詰まっている、おすすめの情報源。&lt;/p&gt;
+</content>
+    </entry>
+  
+    <entry>
       <title>最近のRails関係の仕事内容</title>
       <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-09-20-restospective-past-work"/>
       <id>tag:r7kamura.com,2019:/articles/2020-09-20-restospective-past-work</id>
       <published>2020-09-20T00:00:00+00:00</published>
-      <updated>2020-09-21T12:12:27+00:00</updated>
+      <updated>2020-09-21T13:12:15+00:00</updated>
       <content type="html">&lt;p&gt;RubyやRailsのアップグレードを主なマイルストーンとしつつ全体的に開発体験を良くしていくというタイプの仕事を請けることが多いのですが、仕事を依頼する側の視点に立ってみると「実際のところ業務に参加するとどういうことが行われるのか？」というのがやはり気になると思います。&lt;/p&gt;
 
 &lt;p&gt;実際、最近の打ち合わせでもその手の不安について相談されることがあったので、ここ1ヶ月でそれ系の仕事で出したPull Requestを元に、実際に何をやっていたかの例を挙げてみたいと思います。&lt;/p&gt;
@@ -169,7 +264,7 @@
       <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-09-20-rspec-type-metadata"/>
       <id>tag:r7kamura.com,2019:/articles/2020-09-20-rspec-type-metadata</id>
       <published>2020-09-20T00:00:00+00:00</published>
-      <updated>2020-09-21T12:12:27+00:00</updated>
+      <updated>2020-09-21T13:12:15+00:00</updated>
       <content type="html">&lt;p&gt;&lt;code&gt;config.infer_spec_type_from_file_location!&lt;/code&gt; を指定することで不要になる &lt;code&gt;metadata[:type]&lt;/code&gt; を取り除こうというスクリプト。&lt;/p&gt;
 
 &lt;pre&gt;&lt;code class=&quot;ruby&quot;&gt;require &#39;pathname&#39;
@@ -227,7 +322,7 @@ RSpec.describe User do
       <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-09-19-list-articles-minor-change"/>
       <id>tag:r7kamura.com,2019:/articles/2020-09-19-list-articles-minor-change</id>
       <published>2020-09-19T00:00:00+00:00</published>
-      <updated>2020-09-21T12:12:27+00:00</updated>
+      <updated>2020-09-21T13:12:15+00:00</updated>
       <content type="html">&lt;p&gt;変更対象は、グローバルヘッダーのリンクと記事一覧ページの見出し。&lt;/p&gt;
 
 &lt;p&gt;「記事」という表記は、記事ではないもの…例えば写真など…が存在していて初めて「記事」という表記である妥当性が生まれるはずで、現状このウェブサイトには記事しかコンテンツが無い。そうであれば、一覧であるということを押し出して「記事一覧」と表記した方が分かりやすいだろう、という意図でこう変更した。&lt;/p&gt;
@@ -267,7 +362,7 @@ RSpec.describe User do
       <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-09-19-anker-usb-hub"/>
       <id>tag:r7kamura.com,2019:/articles/2020-09-19-anker-usb-hub</id>
       <published>2020-09-19T00:00:00+00:00</published>
-      <updated>2020-09-21T12:12:27+00:00</updated>
+      <updated>2020-09-21T13:12:15+00:00</updated>
       <content type="html">&lt;p&gt;&lt;a href=&quot;/images/2020-09-19-anker-usb-hub.jpg&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/images/2020-09-19-anker-usb-hub.jpg&quot; alt=&quot;&quot;&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;『&lt;a href=&quot;https://www.amazon.co.jp/dp/B087TB7YM7?tag=r7kamura07-22&quot;&gt;Anker PowerExpand 8-in-1 USB-C PD 10Gbps データ ハブ&lt;/a&gt;』を買った。&lt;/p&gt;
@@ -302,7 +397,7 @@ RSpec.describe User do
       <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-09-18-link-image"/>
       <id>tag:r7kamura.com,2019:/articles/2020-09-18-link-image</id>
       <published>2020-09-18T00:00:00+00:00</published>
-      <updated>2020-09-21T12:12:27+00:00</updated>
+      <updated>2020-09-21T13:12:15+00:00</updated>
       <content type="html">&lt;p&gt;これで画像をクリックすると大きく表示できるようになった。&lt;/p&gt;
 
 &lt;p&gt;&lt;a href=&quot;/images/2020-09-18-link-image.jpg&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/images/2020-09-18-link-image.jpg&quot; alt=&quot;&quot;&gt;&lt;/a&gt;&lt;/p&gt;
@@ -332,7 +427,7 @@ RSpec.describe User do
       <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-09-17-empty-test-files"/>
       <id>tag:r7kamura.com,2019:/articles/2020-09-17-empty-test-files</id>
       <published>2020-09-17T00:00:00+00:00</published>
-      <updated>2020-09-21T12:12:27+00:00</updated>
+      <updated>2020-09-21T13:12:15+00:00</updated>
       <content type="html">&lt;p&gt;雑なスクリプトを書いて空のテストファイルを消したという話。&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;require &#39;pathname&#39;
@@ -357,7 +452,7 @@ end
       <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-09-16-gaming-mouse-pad"/>
       <id>tag:r7kamura.com,2019:/articles/2020-09-16-gaming-mouse-pad</id>
       <published>2020-09-16T00:00:00+00:00</published>
-      <updated>2020-09-21T12:12:27+00:00</updated>
+      <updated>2020-09-21T13:12:15+00:00</updated>
       <content type="html">&lt;p&gt;Razerの&lt;a href=&quot;https://www.amazon.co.jp/dp/B07JJ4RG2T/r7kamura07-22&quot;&gt;Goliathus Chroma Extended&lt;/a&gt;というマウスパッドを買った。&lt;/p&gt;
 
 &lt;p&gt;&lt;a href=&quot;/images/2020-09-16-gaming-mouse-pad-light.jpg&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/images/2020-09-16-gaming-mouse-pad-light.jpg&quot; alt=&quot;&quot;&gt;&lt;/a&gt;&lt;/p&gt;
@@ -375,7 +470,7 @@ end
       <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-09-16-color-change"/>
       <id>tag:r7kamura.com,2019:/articles/2020-09-16-color-change</id>
       <published>2020-09-16T00:00:00+00:00</published>
-      <updated>2020-09-21T12:12:27+00:00</updated>
+      <updated>2020-09-21T13:12:15+00:00</updated>
       <content type="html">&lt;p&gt;&lt;a href=&quot;/images/2020-09-16-color-change.png&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/images/2020-09-16-color-change.png&quot; alt=&quot;&quot;&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;コントラストが高すぎてどぎつい感じがしてきたので、テキストの色を &lt;code&gt;#111111&lt;/code&gt; から &lt;code&gt;#333333&lt;/code&gt; に変更した。&lt;/p&gt;
@@ -389,7 +484,7 @@ end
       <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-09-16-blue-microphones-compass"/>
       <id>tag:r7kamura.com,2019:/articles/2020-09-16-blue-microphones-compass</id>
       <published>2020-09-16T00:00:00+00:00</published>
-      <updated>2020-09-21T12:12:27+00:00</updated>
+      <updated>2020-09-21T13:12:15+00:00</updated>
       <content type="html">&lt;p&gt;&lt;a href=&quot;/images/2020-09-16-blue-microphones-compass.jpg&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/images/2020-09-16-blue-microphones-compass.jpg&quot; alt=&quot;&quot;&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;Blue MicrophonesのCompassというマイクスタンドを購入して取り付けた。&lt;/p&gt;
@@ -407,7 +502,7 @@ end
       <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-09-13-mac-movie-edit"/>
       <id>tag:r7kamura.com,2019:/articles/2020-09-13-mac-movie-edit</id>
       <published>2020-09-13T00:00:00+00:00</published>
-      <updated>2020-09-21T12:12:27+00:00</updated>
+      <updated>2020-09-21T13:12:15+00:00</updated>
       <content type="html">&lt;p&gt;iMovieの話。&lt;/p&gt;
 
 &lt;p&gt;GeForce Experienceの録画機能で、ゲーム中の動画を録画した。録画された200MBほどの動画ファイルの保存先はDropboxになっており、今はたまたまMacでそのファイルを見ているのだが、これを小さいファイルサイズの動画にしてDiscordに貼り付けたい。&lt;/p&gt;
@@ -425,7 +520,7 @@ end
       <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-09-13-terraria"/>
       <id>tag:r7kamura.com,2019:/articles/2020-09-13-terraria</id>
       <published>2020-09-13T00:00:00+00:00</published>
-      <updated>2020-09-21T12:12:27+00:00</updated>
+      <updated>2020-09-21T13:12:15+00:00</updated>
       <content type="html">&lt;p&gt;Terrariaで&lt;a href=&quot;https://terraria.gamepedia.com/Pirate_Map&quot;&gt;Pirate Map&lt;/a&gt;を放置しながら集めるための狩場について。&lt;/p&gt;
 
 &lt;p&gt;&lt;a href=&quot;/images/2020-09-13-terraria.png&quot;&gt;&lt;img src=&quot;/images/2020-09-13-terraria.png&quot; alt=&quot;&quot;&gt;&lt;/a&gt;&lt;/p&gt;
@@ -469,7 +564,7 @@ end
       <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-09-12-activerecord-enum-translation"/>
       <id>tag:r7kamura.com,2019:/articles/2020-09-12-activerecord-enum-translation</id>
       <published>2020-09-12T00:00:00+00:00</published>
-      <updated>2020-09-21T12:12:27+00:00</updated>
+      <updated>2020-09-21T13:12:15+00:00</updated>
       <content type="html">&lt;p&gt;ActiveRecordのenumにI18n用の機能を提供するgemをつくった。&lt;/p&gt;
 
 &lt;p&gt;&lt;a href=&quot;https://github.com/r7kamura/activerecord-enum_translation&quot;&gt;https://github.com/r7kamura/activerecord-enum_translation&lt;/a&gt;&lt;/p&gt;
@@ -563,7 +658,7 @@ end
       <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-09-11-vscode-disable-suggestion"/>
       <id>tag:r7kamura.com,2019:/articles/2020-09-11-vscode-disable-suggestion</id>
       <published>2020-09-11T00:00:00+00:00</published>
-      <updated>2020-09-21T12:12:27+00:00</updated>
+      <updated>2020-09-21T13:12:15+00:00</updated>
       <content type="html">&lt;p&gt;VSCodeで文字を入力している最中に「もしかしてこれじゃない？」って補完候補をポップアップしてくれるやつがすごく鬱陶しいので、無効化した。&lt;/p&gt;
 
 &lt;pre&gt;&lt;code class=&quot;json&quot;&gt;{
@@ -591,7 +686,7 @@ end
       <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-04-18-diary"/>
       <id>tag:r7kamura.com,2019:/articles/2020-04-18-diary</id>
       <published>2020-04-18T00:00:00+00:00</published>
-      <updated>2020-09-21T12:12:27+00:00</updated>
+      <updated>2020-09-21T13:12:15+00:00</updated>
       <content type="html">&lt;p&gt;最近について。&lt;/p&gt;
 
 &lt;h2&gt;AtomからVSCodeへ&lt;/h2&gt;
@@ -662,7 +757,7 @@ end
       <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-02-28-marcotogingaryu"/>
       <id>tag:r7kamura.com,2019:/articles/2020-02-28-marcotogingaryu</id>
       <published>2020-02-28T00:00:00+00:00</published>
-      <updated>2020-09-21T12:12:27+00:00</updated>
+      <updated>2020-09-21T13:12:15+00:00</updated>
       <content type="html">&lt;p&gt;&lt;a href=&quot;/images/2020-02-28-marcotogingaryu.jpg&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/images/2020-02-28-marcotogingaryu.jpg&quot; alt=&quot;&quot;&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;前々から気になってた『マルコと銀河竜』が遂に発売されたので、購入してそのままエンディングまで駆け抜けてしまった。&lt;/p&gt;
@@ -682,7 +777,7 @@ end
       <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-02-25-kakutei"/>
       <id>tag:r7kamura.com,2019:/articles/2020-02-25-kakutei</id>
       <published>2020-02-25T00:00:00+00:00</published>
-      <updated>2020-09-21T12:12:27+00:00</updated>
+      <updated>2020-09-21T13:12:15+00:00</updated>
       <content type="html">&lt;p&gt;2019年分の確定申告書類を提出した。今年で3年目。今年も郵送。予定納税分以外の税金の払込はこれから。&lt;/p&gt;
 
 &lt;ul&gt;
@@ -713,7 +808,7 @@ end
       <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-02-17-my-protein"/>
       <id>tag:r7kamura.com,2019:/articles/2020-02-17-my-protein</id>
       <published>2020-02-17T00:00:00+00:00</published>
-      <updated>2020-09-21T12:12:27+00:00</updated>
+      <updated>2020-09-21T13:12:15+00:00</updated>
       <content type="html">&lt;p&gt;&lt;a href=&quot;/images/2020-02-17-my-protein.jpg&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/images/2020-02-17-my-protein.jpg&quot; alt=&quot;&quot;&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;マイプロテインというスポーツ栄養ブランドのホエイプロテインが送料無料で1kg 1890円だったので、チョコレートブラウニー味のやつを買ってみた。&lt;/p&gt;
@@ -737,7 +832,7 @@ end
       <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-02-10-fe-three-houses"/>
       <id>tag:r7kamura.com,2019:/articles/2020-02-10-fe-three-houses</id>
       <published>2020-02-10T00:00:00+00:00</published>
-      <updated>2020-09-21T12:12:27+00:00</updated>
+      <updated>2020-09-21T13:12:15+00:00</updated>
       <content type="html">&lt;p&gt;&lt;a href=&quot;/images/2020-02-10-fe-three-houses.jpg&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/images/2020-02-10-fe-three-houses.jpg&quot; alt=&quot;&quot;&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;ようやく3つの学級をクリアしたので感想を書ける。&lt;/p&gt;
@@ -769,30 +864,6 @@ end
 &lt;h2&gt;おわり&lt;/h2&gt;
 
 &lt;p&gt;総じて傑作だった。去年2学級分だけ終わらせて力尽きていたのを、気合を入れて再開できて本当に良かった。&lt;/p&gt;
-</content>
-    </entry>
-  
-    <entry>
-      <title>『ボイド・テラリウム』をやった</title>
-      <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-01-27-void-trrlm"/>
-      <id>tag:r7kamura.com,2019:/articles/2020-01-27-void-trrlm</id>
-      <published>2020-01-27T00:00:00+00:00</published>
-      <updated>2020-09-21T12:12:27+00:00</updated>
-      <content type="html">&lt;p&gt;&lt;a href=&quot;/images/2020-01-27-void-trrlm.jpg&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/images/2020-01-27-void-trrlm.jpg&quot; alt=&quot;&quot;&gt;&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;日本一ソフトウェアの『void tRrLM(); // ボイド・テラリウム』をやった。たまごっちと不思議のダンジョンを同時にやるような作品で、終末世界で見つけた女の子のお世話をしながら、ダンジョンを探索して食糧や建築資材を集めてくることになる。&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://nippon1.jp/consumer/trrlm/&quot;&gt;https://nippon1.jp/consumer/trrlm/&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;100点満点で点数を付けるなら、20点。他人にはおすすめできない。テラリウム周りのアートワークは良いけれど、語りがチープで勿体ないし、システムは不具合だらけで、出来は相当に酷い印象だった。&lt;/p&gt;
-
-&lt;p&gt;ゲームは頻繁にエラーで強制終了するし、大事なボス戦でアイテムもスキルも使えなくなる不具合が出るし、ラストバトルで操作を受け付けなくなって、ゲームを終了するしかなくなるような問題も起きた。クリアまで漕ぎ着けられて良かったと思う。レスポンスもやけに悪く、操作も快適とは言い難い状況だった。風来のシレンなどの不思議のダンジョン系の操作感と比較してはいけない。&lt;/p&gt;
-
-&lt;p&gt;良いところ探しをすると、レベルアップ時にランダムなスキルが発現するシステムはとても良かった。『Slay the Spire』でデッキを組むときのような楽しさがある。このゲームで最も光っている点がこれ。ストーリー上で、ロボットがランダムに進化していく設定への裏付けなどがあるともっと嬉しかったかもしれない。&lt;/p&gt;
-
-&lt;p&gt;それから、FF14でハウジング要素をそこそこやり込んでいたせいか、テラリウムの内装を飾り付けられる機能はとても楽しめた。苔や花、岩や家具などをかなり細かく設置でき、自分で箱庭を演出できる。儚げで美しいアートワークや世界設定と相まって、雰囲気のあるテラリウムを組み立てられる。自己満足であることを薄々自覚しつつ、愛玩用に動物を飼うことについて感じるような居心地の悪さを覚えながらも、せめてこの子が楽しく過ごせるようにと工夫を凝らしているときの感覚はたまらない。&lt;/p&gt;
-
-&lt;p&gt;しかし全体を振り返ってみると、光る要素が何個もあるものの、どれもいまいち上手く相互作用しておらず、重ねてシステムの酷い出来栄えで全てが台無しになっている、惜しい作品だと感じた。&lt;/p&gt;
 </content>
     </entry>
   
