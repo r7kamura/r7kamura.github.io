@@ -3,7 +3,7 @@
   <title>r7kamura.com</title>
   <link rel="self" type="application/atom+xml" href="https://r7kamura.com/feed.xml"/>
   <link rel="alternate" type="text/html" href="https://r7kamura.com/"/>
-  <updated>2020-09-22T08:49:24+00:00</updated>
+  <updated>2020-09-22T09:38:12+00:00</updated>
   <author>
     <name>Ryo Nakamura</name>
   </author>
@@ -14,7 +14,7 @@
       <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-09-22-markdown-caption"/>
       <id>tag:r7kamura.com,2019:/articles/2020-09-22-markdown-caption</id>
       <published>2020-09-22T00:00:00+00:00</published>
-      <updated>2020-09-22T08:48:50+00:00</updated>
+      <updated>2020-09-22T09:37:40+00:00</updated>
       <content type="html">&lt;p&gt;FF14のスクリーンショットを久しぶりに見返していた。&lt;/p&gt;
 
 &lt;figure&gt;&lt;a href=&quot;/images/2020-09-22-markdown-caption-back.png&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/images/2020-09-22-markdown-caption-back.png&quot; alt=&quot;&quot;&gt;&lt;/a&gt;&lt;figcaption&gt;猫耳や尻尾があるミコッテという種族&lt;/figcaption&gt;&lt;/figure&gt;
@@ -74,11 +74,39 @@
     </entry>
   
     <entry>
+      <title>Markdownと記事の説明文</title>
+      <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-09-22-markdown-summary"/>
+      <id>tag:r7kamura.com,2019:/articles/2020-09-22-markdown-summary</id>
+      <published>2020-09-22T00:00:00+00:00</published>
+      <updated>2020-09-22T09:37:40+00:00</updated>
+      <content type="html">&lt;figure&gt;&lt;a href=&quot;/images/2020-09-22-summary-detection.jpg&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/images/2020-09-22-summary-detection.jpg&quot; alt=&quot;&quot;&gt;&lt;/a&gt;&lt;figcaption&gt;何の関係も無いサメのぬいぐるみの画像&lt;/figcaption&gt;&lt;/figure&gt;
+
+&lt;p&gt;記事の説明文を抽出する方法を変更した。あまり目に触れる機会は無いけど、SNSやフィードなどで利用される。&lt;/p&gt;
+
+&lt;p&gt;これまでは「なるべく記事の先頭の方で要約を置きたい」という背景から「最初に表れるテキストの先頭の一文をその記事の説明文として扱う」という作戦でやっていた。しかし、&lt;a href=&quot;/articles/2020-09-22-markdown-caption&quot;&gt;画像にキャプションを付けられるようにした&lt;/a&gt;おかげで、アイキャッチとして記事の先頭に画像を置き、そこにキャプションが書かれるというケースも今後出てくるはず。そうなるとこの作戦は上手くいかない。&lt;/p&gt;
+
+&lt;p&gt;この記事でも、過去のやり方で失敗する例として、先頭にキャプション付きの画像を配置している。これまでの方法だと、この記事の説明文は以下のようになっていた。&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;何の関係も無いサメのぬいぐるみの画像&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;新しい作戦として用意したのは「最初の子がテキストである段落要素の最初の一文をその記事の説明文として扱う」というもの。この方法だと、説明文は以下のようになる。&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;記事の説明文を抽出する方法を変更した。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;ソースコードの変更は &lt;a href=&quot;https://github.com/r7kamura/r7kamura.com/commit/b287e37bdec6f3c08091c4746166554b6395bf75&quot;&gt;https://github.com/r7kamura/r7kamura.com/commit/b287e37bdec6f3c08091c4746166554b6395bf75&lt;/a&gt; のようになった。フィルタの仕組みは、変換だけでなく、メタデータの収集にも利用できる。この手法は、例えば &lt;code&gt;@r7kamura&lt;/code&gt; のように文章内でmentionする機能をつくるときなんかに、mentionをリンクに変換しつつ通知先のアカウント名を収集する、といった感じでよく使われる。&lt;/p&gt;
+</content>
+    </entry>
+  
+    <entry>
       <title>個人サイトについて</title>
       <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-09-21-personal-website"/>
       <id>tag:r7kamura.com,2019:/articles/2020-09-21-personal-website</id>
       <published>2020-09-21T00:00:00+00:00</published>
-      <updated>2020-09-22T08:48:50+00:00</updated>
+      <updated>2020-09-22T09:37:40+00:00</updated>
       <content type="html">&lt;p&gt;なぜ個人でウェブサイトを運用しているのかについて、整理しておきたい。&lt;/p&gt;
 
 &lt;p&gt;要約すると、以下の理由でやっている。&lt;/p&gt;
@@ -164,7 +192,7 @@
       <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-09-21-cable-dependencies"/>
       <id>tag:r7kamura.com,2019:/articles/2020-09-21-cable-dependencies</id>
       <published>2020-09-21T00:00:00+00:00</published>
-      <updated>2020-09-22T08:48:50+00:00</updated>
+      <updated>2020-09-22T09:37:40+00:00</updated>
       <content type="html">&lt;p&gt;PCデスクを買い換えることにしたので、機器と配線について整理する。&lt;/p&gt;
 
 &lt;p&gt;&lt;a href=&quot;/images/2020-09-21-cable-dependencies.jpg&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/images/2020-09-21-cable-dependencies.jpg&quot; alt=&quot;&quot;&gt;&lt;/a&gt;&lt;/p&gt;
@@ -259,7 +287,7 @@
       <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-09-20-restospective-past-work"/>
       <id>tag:r7kamura.com,2019:/articles/2020-09-20-restospective-past-work</id>
       <published>2020-09-20T00:00:00+00:00</published>
-      <updated>2020-09-22T08:48:50+00:00</updated>
+      <updated>2020-09-22T09:37:40+00:00</updated>
       <content type="html">&lt;p&gt;RubyやRailsのアップグレードを主なマイルストーンとしつつ全体的に開発体験を良くしていくというタイプの仕事を請けることが多いのですが、仕事を依頼する側の視点に立ってみると「実際のところ業務に参加するとどういうことが行われるのか？」というのがやはり気になると思います。&lt;/p&gt;
 
 &lt;p&gt;実際、最近の打ち合わせでもその手の不安について相談されることがあったので、ここ1ヶ月でそれ系の仕事で出したPull Requestを元に、実際に何をやっていたかの例を挙げてみたいと思います。&lt;/p&gt;
@@ -328,7 +356,7 @@
       <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-09-20-rspec-type-metadata"/>
       <id>tag:r7kamura.com,2019:/articles/2020-09-20-rspec-type-metadata</id>
       <published>2020-09-20T00:00:00+00:00</published>
-      <updated>2020-09-22T08:48:50+00:00</updated>
+      <updated>2020-09-22T09:37:40+00:00</updated>
       <content type="html">&lt;p&gt;&lt;code&gt;config.infer_spec_type_from_file_location!&lt;/code&gt; を指定することで不要になる &lt;code&gt;metadata[:type]&lt;/code&gt; を取り除こうというスクリプト。&lt;/p&gt;
 
 &lt;pre&gt;&lt;code class=&quot;ruby&quot;&gt;require &#39;pathname&#39;
@@ -386,7 +414,7 @@ RSpec.describe User do
       <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-09-19-list-articles-minor-change"/>
       <id>tag:r7kamura.com,2019:/articles/2020-09-19-list-articles-minor-change</id>
       <published>2020-09-19T00:00:00+00:00</published>
-      <updated>2020-09-22T08:48:50+00:00</updated>
+      <updated>2020-09-22T09:37:40+00:00</updated>
       <content type="html">&lt;p&gt;変更対象は、グローバルヘッダーのリンクと記事一覧ページの見出し。&lt;/p&gt;
 
 &lt;p&gt;「記事」という表記は、記事ではないもの…例えば写真など…が存在していて初めて「記事」という表記である妥当性が生まれるはずで、現状このウェブサイトには記事しかコンテンツが無い。そうであれば、一覧であるということを押し出して「記事一覧」と表記した方が分かりやすいだろう、という意図でこう変更した。&lt;/p&gt;
@@ -426,7 +454,7 @@ RSpec.describe User do
       <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-09-19-anker-usb-hub"/>
       <id>tag:r7kamura.com,2019:/articles/2020-09-19-anker-usb-hub</id>
       <published>2020-09-19T00:00:00+00:00</published>
-      <updated>2020-09-22T08:48:50+00:00</updated>
+      <updated>2020-09-22T09:37:40+00:00</updated>
       <content type="html">&lt;p&gt;&lt;a href=&quot;/images/2020-09-19-anker-usb-hub.jpg&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/images/2020-09-19-anker-usb-hub.jpg&quot; alt=&quot;&quot;&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;『&lt;a href=&quot;https://www.amazon.co.jp/dp/B087TB7YM7?tag=r7kamura07-22&quot;&gt;Anker PowerExpand 8-in-1 USB-C PD 10Gbps データ ハブ&lt;/a&gt;』を買った。&lt;/p&gt;
@@ -461,7 +489,7 @@ RSpec.describe User do
       <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-09-18-link-image"/>
       <id>tag:r7kamura.com,2019:/articles/2020-09-18-link-image</id>
       <published>2020-09-18T00:00:00+00:00</published>
-      <updated>2020-09-22T08:48:50+00:00</updated>
+      <updated>2020-09-22T09:37:40+00:00</updated>
       <content type="html">&lt;p&gt;これで画像をクリックすると大きく表示できるようになった。&lt;/p&gt;
 
 &lt;p&gt;&lt;a href=&quot;/images/2020-09-18-link-image.jpg&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/images/2020-09-18-link-image.jpg&quot; alt=&quot;&quot;&gt;&lt;/a&gt;&lt;/p&gt;
@@ -491,7 +519,7 @@ RSpec.describe User do
       <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-09-17-empty-test-files"/>
       <id>tag:r7kamura.com,2019:/articles/2020-09-17-empty-test-files</id>
       <published>2020-09-17T00:00:00+00:00</published>
-      <updated>2020-09-22T08:48:50+00:00</updated>
+      <updated>2020-09-22T09:37:40+00:00</updated>
       <content type="html">&lt;p&gt;雑なスクリプトを書いて空のテストファイルを消したという話。&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;require &#39;pathname&#39;
@@ -516,7 +544,7 @@ end
       <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-09-16-gaming-mouse-pad"/>
       <id>tag:r7kamura.com,2019:/articles/2020-09-16-gaming-mouse-pad</id>
       <published>2020-09-16T00:00:00+00:00</published>
-      <updated>2020-09-22T08:48:50+00:00</updated>
+      <updated>2020-09-22T09:37:40+00:00</updated>
       <content type="html">&lt;p&gt;Razerの&lt;a href=&quot;https://www.amazon.co.jp/dp/B07JJ4RG2T/r7kamura07-22&quot;&gt;Goliathus Chroma Extended&lt;/a&gt;というマウスパッドを買った。&lt;/p&gt;
 
 &lt;p&gt;&lt;a href=&quot;/images/2020-09-16-gaming-mouse-pad-light.jpg&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/images/2020-09-16-gaming-mouse-pad-light.jpg&quot; alt=&quot;&quot;&gt;&lt;/a&gt;&lt;/p&gt;
@@ -534,7 +562,7 @@ end
       <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-09-16-color-change"/>
       <id>tag:r7kamura.com,2019:/articles/2020-09-16-color-change</id>
       <published>2020-09-16T00:00:00+00:00</published>
-      <updated>2020-09-22T08:48:50+00:00</updated>
+      <updated>2020-09-22T09:37:40+00:00</updated>
       <content type="html">&lt;p&gt;&lt;a href=&quot;/images/2020-09-16-color-change.png&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/images/2020-09-16-color-change.png&quot; alt=&quot;&quot;&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;コントラストが高すぎてどぎつい感じがしてきたので、テキストの色を &lt;code&gt;#111111&lt;/code&gt; から &lt;code&gt;#333333&lt;/code&gt; に変更した。&lt;/p&gt;
@@ -548,7 +576,7 @@ end
       <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-09-16-blue-microphones-compass"/>
       <id>tag:r7kamura.com,2019:/articles/2020-09-16-blue-microphones-compass</id>
       <published>2020-09-16T00:00:00+00:00</published>
-      <updated>2020-09-22T08:48:50+00:00</updated>
+      <updated>2020-09-22T09:37:40+00:00</updated>
       <content type="html">&lt;p&gt;&lt;a href=&quot;/images/2020-09-16-blue-microphones-compass.jpg&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/images/2020-09-16-blue-microphones-compass.jpg&quot; alt=&quot;&quot;&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;Blue MicrophonesのCompassというマイクスタンドを購入して取り付けた。&lt;/p&gt;
@@ -566,7 +594,7 @@ end
       <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-09-13-mac-movie-edit"/>
       <id>tag:r7kamura.com,2019:/articles/2020-09-13-mac-movie-edit</id>
       <published>2020-09-13T00:00:00+00:00</published>
-      <updated>2020-09-22T08:48:50+00:00</updated>
+      <updated>2020-09-22T09:37:40+00:00</updated>
       <content type="html">&lt;p&gt;iMovieの話。&lt;/p&gt;
 
 &lt;p&gt;GeForce Experienceの録画機能で、ゲーム中の動画を録画した。録画された200MBほどの動画ファイルの保存先はDropboxになっており、今はたまたまMacでそのファイルを見ているのだが、これを小さいファイルサイズの動画にしてDiscordに貼り付けたい。&lt;/p&gt;
@@ -584,7 +612,7 @@ end
       <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-09-13-terraria"/>
       <id>tag:r7kamura.com,2019:/articles/2020-09-13-terraria</id>
       <published>2020-09-13T00:00:00+00:00</published>
-      <updated>2020-09-22T08:48:50+00:00</updated>
+      <updated>2020-09-22T09:37:40+00:00</updated>
       <content type="html">&lt;p&gt;Terrariaで&lt;a href=&quot;https://terraria.gamepedia.com/Pirate_Map&quot;&gt;Pirate Map&lt;/a&gt;を放置しながら集めるための狩場について。&lt;/p&gt;
 
 &lt;p&gt;&lt;a href=&quot;/images/2020-09-13-terraria.png&quot;&gt;&lt;img src=&quot;/images/2020-09-13-terraria.png&quot; alt=&quot;&quot;&gt;&lt;/a&gt;&lt;/p&gt;
@@ -628,7 +656,7 @@ end
       <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-09-12-activerecord-enum-translation"/>
       <id>tag:r7kamura.com,2019:/articles/2020-09-12-activerecord-enum-translation</id>
       <published>2020-09-12T00:00:00+00:00</published>
-      <updated>2020-09-22T08:48:50+00:00</updated>
+      <updated>2020-09-22T09:37:40+00:00</updated>
       <content type="html">&lt;p&gt;ActiveRecordのenumにI18n用の機能を提供するgemをつくった。&lt;/p&gt;
 
 &lt;p&gt;&lt;a href=&quot;https://github.com/r7kamura/activerecord-enum_translation&quot;&gt;https://github.com/r7kamura/activerecord-enum_translation&lt;/a&gt;&lt;/p&gt;
@@ -722,7 +750,7 @@ end
       <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-09-11-vscode-disable-suggestion"/>
       <id>tag:r7kamura.com,2019:/articles/2020-09-11-vscode-disable-suggestion</id>
       <published>2020-09-11T00:00:00+00:00</published>
-      <updated>2020-09-22T08:48:50+00:00</updated>
+      <updated>2020-09-22T09:37:40+00:00</updated>
       <content type="html">&lt;p&gt;VSCodeで文字を入力している最中に「もしかしてこれじゃない？」って補完候補をポップアップしてくれるやつがすごく鬱陶しいので、無効化した。&lt;/p&gt;
 
 &lt;pre&gt;&lt;code class=&quot;json&quot;&gt;{
@@ -750,7 +778,7 @@ end
       <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-04-18-diary"/>
       <id>tag:r7kamura.com,2019:/articles/2020-04-18-diary</id>
       <published>2020-04-18T00:00:00+00:00</published>
-      <updated>2020-09-22T08:48:50+00:00</updated>
+      <updated>2020-09-22T09:37:40+00:00</updated>
       <content type="html">&lt;p&gt;最近について。&lt;/p&gt;
 
 &lt;h2&gt;AtomからVSCodeへ&lt;/h2&gt;
@@ -821,7 +849,7 @@ end
       <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-02-28-marcotogingaryu"/>
       <id>tag:r7kamura.com,2019:/articles/2020-02-28-marcotogingaryu</id>
       <published>2020-02-28T00:00:00+00:00</published>
-      <updated>2020-09-22T08:48:50+00:00</updated>
+      <updated>2020-09-22T09:37:40+00:00</updated>
       <content type="html">&lt;p&gt;&lt;a href=&quot;/images/2020-02-28-marcotogingaryu.jpg&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/images/2020-02-28-marcotogingaryu.jpg&quot; alt=&quot;&quot;&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;前々から気になってた『マルコと銀河竜』が遂に発売されたので、購入してそのままエンディングまで駆け抜けてしまった。&lt;/p&gt;
@@ -841,7 +869,7 @@ end
       <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-02-25-kakutei"/>
       <id>tag:r7kamura.com,2019:/articles/2020-02-25-kakutei</id>
       <published>2020-02-25T00:00:00+00:00</published>
-      <updated>2020-09-22T08:48:50+00:00</updated>
+      <updated>2020-09-22T09:37:40+00:00</updated>
       <content type="html">&lt;p&gt;2019年分の確定申告書類を提出した。今年で3年目。今年も郵送。予定納税分以外の税金の払込はこれから。&lt;/p&gt;
 
 &lt;ul&gt;
@@ -864,30 +892,6 @@ end
 &lt;p&gt;ぐらいのものだった。もうちょっと頑張れば経費に出来そうなものが幾らかありそうだけど、その労力で働いた方が収支は相当プラスになるのではという気持ちが強く、なかなか頑張れない。&lt;/p&gt;
 
 &lt;p&gt;今年は計上や印刷や郵送などに合計2時間ぐらい掛かった。2019年中に、経費に計上する支払いに利用する銀行口座を全て一箇所にまとめたりしたので、来年の計上はもう少し楽になるかも。しかし次回から消費税の納税も始まってしまう…。&lt;/p&gt;
-</content>
-    </entry>
-  
-    <entry>
-      <title>マイプロテインのプロテインを買った</title>
-      <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-02-17-my-protein"/>
-      <id>tag:r7kamura.com,2019:/articles/2020-02-17-my-protein</id>
-      <published>2020-02-17T00:00:00+00:00</published>
-      <updated>2020-09-22T08:48:50+00:00</updated>
-      <content type="html">&lt;p&gt;&lt;a href=&quot;/images/2020-02-17-my-protein.jpg&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/images/2020-02-17-my-protein.jpg&quot; alt=&quot;&quot;&gt;&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;マイプロテインというスポーツ栄養ブランドのホエイプロテインが送料無料で1kg 1890円だったので、チョコレートブラウニー味のやつを買ってみた。&lt;/p&gt;
-
-&lt;p&gt;実は去年末から &lt;a href=&quot;https://github.com/sponsors/r7kamura&quot;&gt;https://github.com/sponsors/r7kamura&lt;/a&gt; でスポンサーしていただいているお金が幾らかある。これの使い道を考えていたのだけど、筋肉にするのが良いだろうと思い、このお金でプロテインを買っていくことにした。&lt;/p&gt;
-
-&lt;p&gt;毎日朝食後に30分ぐらいリングフィットアドベンチャーをやっていて、以前までは運動後に気分次第でゆで卵を食べていたのを、代わりにプロテインを飲むようにした。&lt;/p&gt;
-
-&lt;p&gt;味はかなり美味しい。牛乳で割って飲んでいる。1画面に入り切らないぐらい味の選択肢があってすごい。チョコレートブラウニー味は、カントリーマアムのココア味を食べながら牛乳を飲んでるみたいな味。ダイエット効果や筋肥大がどうとかはあまり考えて無くて、普通に甘くて美味しいし、昼食までのつなぎにちょうど良い。&lt;/p&gt;
-
-&lt;p&gt;自分は粉っぽさが無くなるまで振るのが面倒なので、最近は&lt;a href=&quot;https://www.amazon.co.jp/dp/B07W98PD4X&quot;&gt;安めの電動ミキサー&lt;/a&gt;で数秒かき混ぜて飲んでるんだけど、プロテインに付属しているボール付きシェイカーもわりと使いやすいと思う。&lt;/p&gt;
-
-&lt;p&gt;これまでなんかガチっぽい感じがしてプロテインを飲む習慣は持ってなかったけど、普通に美味しいというだけで飲む気になれて良かった。「せっかく運動したのに次の食事まで時間が空いてしまった…」ということが以前にも何度かあったので、そういうのが無くなるというのは良いですね。運動のタイミングと食事のタイミングをそこまで合わせなくても良くなるので、自由度が上がるというのも良い。&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://www.myprotein.jp&quot;&gt;https://www.myprotein.jp&lt;/a&gt; の友達紹介コード &lt;code&gt;KANV-R3&lt;/code&gt; があるので貼っときます。友達じゃなくても使って大丈夫です。&lt;/p&gt;
 </content>
     </entry>
   
