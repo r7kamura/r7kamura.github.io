@@ -3,17 +3,17 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width">
-  <title>Markdownと記事の説明文</title>
+  <title>記事の説明文</title>
   <link href="https://r7kamura.com/articles/2020-09-22-markdown-summary" rel="canonical">
   <link rel="stylesheet" href="/css/main.css">
   <link rel="search" type="application/opensearchdescription+xml" title="r7kamura.com" href="/opensearch.xml">
   <link rel="alternate" type="application/rss+xml" href="/feed.xml">
   
-  <meta property="description" content="何の関係も無いサメのぬいぐるみの画像">
-  <meta property="og:description" content="何の関係も無いサメのぬいぐるみの画像">
+  <meta property="description" content="記事の説明文を抽出する方法を変更した。">
+  <meta property="og:description" content="記事の説明文を抽出する方法を変更した。">
   
   <meta property="og:type" content="website">
-  <meta property="og:title" content="Markdownと記事の説明文">
+  <meta property="og:title" content="記事の説明文">
   <meta property="og:url" content="https://r7kamura.com/articles/2020-09-22-markdown-summary">
   
   <meta property="og:image" content="https://r7kamura.com/images/2020-09-22-summary-detection.jpg">
@@ -36,7 +36,7 @@
   </header>
   <main>
     <article>
-  <h1>Markdownと記事の説明文</h1>
+  <h1>記事の説明文</h1>
   <footer>
     <p>
       <time datetime="2020-09-22T00:00:00+00:00">2020年09月22日</time>
@@ -45,7 +45,7 @@
   <div>
     <figure><a href="/images/2020-09-22-summary-detection.jpg" target="_blank"><img src="/images/2020-09-22-summary-detection.jpg" alt=""></a><figcaption>何の関係も無いサメのぬいぐるみの画像</figcaption></figure>
 
-<p>記事の説明文を抽出する方法を変更した。あまり目に触れる機会は無いけど、SNSやフィードなどで利用される。</p>
+<p>記事の説明文を抽出する方法を変更した。あまり目に触れる機会は無いが、SNSやフィードなどで利用される。</p>
 
 <p>これまでは「なるべく記事の先頭の方で要約を置きたい」という背景から「最初に表れるテキストの先頭の一文をその記事の説明文として扱う」という作戦でやっていた。しかし、<a href="/articles/2020-09-22-markdown-caption">画像にキャプションを付けられるようにした</a>おかげで、アイキャッチとして記事の先頭に画像を置き、そこにキャプションが書かれるというケースも今後出てくるはず。そうなるとこの作戦は上手くいかない。</p>
 
@@ -61,7 +61,7 @@
 <p>記事の説明文を抽出する方法を変更した。</p>
 </blockquote>
 
-<p>ソースコードの変更は <a href="https://github.com/r7kamura/r7kamura.com/commit/b287e37bdec6f3c08091c4746166554b6395bf75">https://github.com/r7kamura/r7kamura.com/commit/b287e37bdec6f3c08091c4746166554b6395bf75</a> のようになった。フィルタの仕組みは、変換だけでなく、メタデータの収集にも利用できる。この手法は、例えば <code>@r7kamura</code> のように文章内でmentionする機能をつくるときなんかに、mentionをリンクに変換しつつ通知先のアカウント名を収集する、といった感じでよく使われる。</p>
+<p>ソースコードの変更は <a href="https://github.com/r7kamura/r7kamura.com/commit/637bcc8f52db48ab7fd38cbe28ef55d75a2e1ad2">https://github.com/r7kamura/r7kamura.com/commit/637bcc8f52db48ab7fd38cbe28ef55d75a2e1ad2</a> のようになった。フィルタの仕組みは、変換だけでなく、メタデータの収集にも利用できる。この手法は、例えば <code>@r7kamura</code> のように文章内でmentionする機能をつくるときなんかに、mentionをリンクに変換しつつ通知先のアカウント名を収集する、といった感じでよく使われる。</p>
 
   </div>
 </article>
