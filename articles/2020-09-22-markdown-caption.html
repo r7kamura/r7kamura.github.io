@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Markdownと画像のキャプション</title>
+  <link href="https://r7kamura.com/articles/2020-09-22-markdown-caption" rel="canonical">
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="search" type="application/opensearchdescription+xml" title="r7kamura.com" href="/opensearch.xml">
+  <link rel="alternate" type="application/rss+xml" href="/feed.xml">
+  
+  <meta property="description" content="FF14のスクリーンショットを久しぶりに見返していた。">
+  <meta property="og:description" content="FF14のスクリーンショットを久しぶりに見返していた。">
+  
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Markdownと画像のキャプション">
+  <meta property="og:url" content="https://r7kamura.com/articles/2020-09-22-markdown-caption">
+  
+  <meta property="og:image" content="https://r7kamura.com/images/2020-09-22-markdown-caption-back.png">
+  <meta property="twitter:card" content="summary_large_image">
+  
+</head>
+<body>
+  <header>
+    <nav>
+      <a href="/">r7kamura</a>
+      <ul>
+        <li>
+          <a href="/articles">記事一覧</a>
+        </li>
+        <li>
+          <a href="https://google.com/search?q=site:r7kamura.com">検索</a>
+        </li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <article>
+  <h1>Markdownと画像のキャプション</h1>
+  <footer>
+    <p>
+      <time datetime="2020-09-22T00:00:00+00:00">2020年09月22日</time>
+    </p>
+  </footer>
+  <div>
+    <p>FF14のスクリーンショットを久しぶりに見返していた。</p>
+
+<figure><a href="/images/2020-09-22-markdown-caption-back.png" target="_blank"><img src="/images/2020-09-22-markdown-caption-back.png" alt=""></a><figcaption>猫耳や尻尾があるミコッテという種族</figcaption></figure>
+
+<figure><a href="/images/2020-09-22-markdown-caption-monster.png" target="_blank"><img src="/images/2020-09-22-markdown-caption-monster.png" alt=""></a><figcaption>山岳エリアに居るサボテンの敵</figcaption></figure>
+
+<figure><a href="/images/2020-09-22-markdown-caption-whale.png" target="_blank"><img src="/images/2020-09-22-markdown-caption-whale.png" alt=""></a><figcaption>移動するときによく乗るクジラ</figcaption></figure>
+
+<figure><a href="/images/2020-09-22-markdown-caption-boss.png" target="_blank"><img src="/images/2020-09-22-markdown-caption-boss.png" alt=""></a><figcaption>めちゃくちゃ大きいボスから味方を守っている</figcaption></figure>
+
+<figure><a href="/images/2020-09-22-markdown-caption-namazuo.png" target="_blank"><img src="/images/2020-09-22-markdown-caption-namazuo.png" alt=""></a><figcaption>人語を話す変な生きもの</figcaption></figure>
+
+<figure><a href="/images/2020-09-22-markdown-caption-myroom.png" target="_blank"><img src="/images/2020-09-22-markdown-caption-myroom.png" alt=""></a><figcaption>ギルドハウス内につくった自室</figcaption></figure>
+
+<figure><a href="/images/2020-09-22-markdown-caption-myroom-2.png" target="_blank"><img src="/images/2020-09-22-markdown-caption-myroom-2.png" alt=""></a><figcaption>疲れて縁側で寝ている</figcaption></figure>
+
+<hr>
+
+<p>この記事を書くにあたり、ソースをMarkdownで書きながらも画像にキャプションを付けられるようにしてみた。画像とテキストだけで構成される段落を見つけたら、テキストをその画像のキャプションとする――という作戦。</p>
+
+<p>次のような過程で変換されていく。</p>
+
+<pre><code>吾輩は猫である。名前はまだ無い。
+
+![](/images/cat.jpg)
+無名の猫
+
+どこで生まれたかとんと見当がつかぬ。
+</code></pre>
+
+<pre><code>&lt;p&gt;吾輩は猫である。名前はまだ無い。&lt;/p&gt;
+
+&lt;a href="/images/cat.png" target="_blank"&gt;
+  &lt;img src="/images/cat.png" alt=""&gt;
+&lt;/a&gt;
+無名の猫
+
+&lt;p&gt;どこで生まれたかとんと見当がつかぬ。&lt;/p&gt;
+</code></pre>
+
+<pre><code>&lt;p&gt;吾輩は猫である。名前はまだ無い。&lt;/p&gt;
+
+&lt;figure&gt;
+  &lt;a href="/images/cat.png" target="_blank"&gt;
+    &lt;img src="/images/cat.png" alt=""&gt;
+  &lt;/a&gt;
+  &lt;figcaption&gt;無名の猫&lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;どこで生まれたかとんと見当がつかぬ。&lt;/p&gt;
+</code></pre>
+
+  </div>
+</article>
+
+  </main>
+</body>
+</html>

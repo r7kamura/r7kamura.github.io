@@ -1,4 +1,5 @@
 :root {
+  --color-light: #666;
   --width-main: 36rem;
 }
 
@@ -44,12 +45,26 @@ hr {
   margin: 2rem;
 }
 
+figure {
+  margin: 0;
+}
+
+figcaption {
+  color: var(--color-light);
+  font-size: 0.8rem;
+  font-weight: 300;
+  text-align: center;
+  margin-top: 0.25rem;
+}
+
 img {
+  display: block;
+  margin-top: 2rem;
   max-width: 100%;
 }
 
 p {
-  margin-top: 0.2rem;
+  margin-top: 1rem;
 }
 
 ol,
@@ -60,7 +75,7 @@ ul {
 code {
   border-radius: 0.2rem;
   font-family: monospace;
-  font-size: 0.9rem;
+  font-size: 0.8rem;
   background-color: #eee;
   padding: 0.2rem 0.4rem;
 }
@@ -90,7 +105,7 @@ blockquote {
 }
 
 time {
-  color: #666;
+  color: var(--color-light);
   display: block;
   font-size: 0.8rem;
 }
