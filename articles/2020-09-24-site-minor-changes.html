@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width">
+  <title>グローバルヘッダーとトップページの微調整</title>
+  <link href="https://r7kamura.com/articles/2020-09-24-site-minor-changes" rel="canonical">
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="search" type="application/opensearchdescription+xml" title="r7kamura.com" href="/opensearch.xml">
+  <link rel="alternate" type="application/rss+xml" href="/feed.xml">
+  
+  <meta property="description" content="最近よくこのサイトに手を加えている。">
+  <meta property="og:description" content="最近よくこのサイトに手を加えている。">
+  
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="グローバルヘッダーとトップページの微調整">
+  <meta property="og:url" content="https://r7kamura.com/articles/2020-09-24-site-minor-changes">
+  
+  <meta property="og:image" content="https://r7kamura.com/default_og_image.jpg">
+  <meta property="twitter:card" content="summary">
+  
+</head>
+<body>
+  <header>
+    <nav>
+      <a href="/">r7kamura.com</a>
+      <ul>
+        <li>
+          <a href="/articles">一覧</a>
+        </li>
+        <li>
+          <a href="https://www.google.com/?as_sitesearch=r7kamura.com">検索</a>
+        </li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <article>
+  <h1>グローバルヘッダーとトップページの微調整</h1>
+  <footer>
+    <p>
+      <time datetime="2020-09-24T00:00:00+00:00">2020年09月24日</time>
+    </p>
+  </footer>
+  <div>
+    <p>最近よくこのサイトに手を加えている。最初からそうだったかのように見えていれば、大体成功と言える。</p>
+
+<h2>グローバルヘッダー</h2>
+
+<p>グローバルヘッダーを少し変えた。</p>
+
+<ul>
+<li>「記事一覧」から「一覧」へ</li>
+<li>「r7kamura」から「r7kamura.com」へ</li>
+</ul>
+
+<p>記事一覧だと四文字もあって、ここに置くといかついなと前々から感じていた。どうせ記事しかコンテンツがないので、一覧`で伝わるに違いない。情報として完全ではないことを恐れていたが、100%の情報を伝えられる語句などそもそも存在しない、という前提に立つことで諦めることができた。</p>
+
+<p>このサイト上ではr7kamuraは人物の名前であるということしか説明していないので、左上にr7kamuraとか書いているのはおかしい。ということで、r7kamura.comというサイト名を左上に置くことにした。そもそも、「このサイトはr7kamura.comという名前です」と説明はしていないし、そう名付けた訳でもないが、title要素とドメインがr7kamura.comであることを基準にそういう前提がつくられるだろうと思い、とりあえずこうした。本当は適切なサイト名があると嬉しい。</p>
+
+<h2>このサイトについて</h2>
+
+<p>「このサイトについて」のコンテンツを少し変えた。</p>
+
+<p>まずウェブサイトという表現をやめてサイトと呼ぶことにした。ウェブサイトの方が完全だが、長い。メールアドレスをアドレスと呼ぶような感覚があるが、いまの気分的にはサイトなのでサイトにした。個人サイトと呼んだときのサイトの語感が気に入っている。</p>
+
+<p>「このサイトについて」という専用のページを別途設けるかどうか一度考えたが、トップページで説明されている方が収まりが良いだろうということで、この案は没。</p>
+
+<p>これまでサイトの作者について説明するセクションを設けていたが、サイトの説明に作者名をそれとなく含ませることでこれを取り除いた。経歴を書いたりソーシャルネットワークのアカウントを掲載したりということも特にするつもりはないし、あえてセクションを設けるほどでもない。</p>
+
+<h2>リンク集</h2>
+
+<p>新たにリンクというセクションを用意し、これまで個々にセクションを割いていたものをここに押し込むことに成功した。</p>
+
+<p>将来、他のサイトへのリンクを置きたくなってもひと安心。相互リンク文化も復活させられる。昔は無断リンクという文化があったなと思い出していたら、Wikipediaのページがなかなか面白かったので、<a href="https://ja.wikipedia.org/wiki/%E7%84%A1%E6%96%AD%E3%83%AA%E3%83%B3%E3%82%AF">無断リンク</a>しておく。</p>
+
+<p>リンクの記述に、dl要素で説明リストを利用してみることにした。順序無しリストだとデフォルトの箇条書きライクなスタイルを打ち消す必要があって面倒だし、その点定義リストのデフォルトスタイルは完全にマッチしていて、用途としても実装としてもほど良さそうに見える。リンク先自体の説明をしている訳ではなく、なぜそのリンクを載せているのかという説明をしてしまっているところが、若干気になってはいる。</p>
+
+  </div>
+</article>
+
+  </main>
+</body>
+</html>
