@@ -3,18 +3,104 @@
   <title>r7kamura.com</title>
   <link rel="self" type="application/atom+xml" href="https://r7kamura.com/feed.xml"/>
   <link rel="alternate" type="text/html" href="https://r7kamura.com/"/>
-  <updated>2020-09-23T15:57:14+00:00</updated>
+  <updated>2020-09-23T16:48:45+00:00</updated>
   <author>
     <name>Ryo Nakamura</name>
   </author>
   <id>tag:r7kamura.com,2019:/</id>
   
     <entry>
+      <title>このサイトの実装 2020年版</title>
+      <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-09-23-this-site-setup-2020"/>
+      <id>tag:r7kamura.com,2019:/articles/2020-09-23-this-site-setup-2020</id>
+      <published>2020-09-23T00:00:00+00:00</published>
+      <updated>2020-09-23T16:48:14+00:00</updated>
+      <content type="html">&lt;p&gt;このサイトの2020年時点での実装のまとめ。振り返り用。&lt;/p&gt;
+
+&lt;h2&gt;ホスティング&lt;/h2&gt;
+
+&lt;p&gt;GitHub Pagesで静的ファイルを配信している。&lt;/p&gt;
+
+&lt;p&gt;当たり前に思うかもしれないが、&lt;code&gt;articles.html&lt;/code&gt; というファイルを配置したときに、&lt;code&gt;/articles.html&lt;/code&gt; だけでなく &lt;code&gt;/articles&lt;/code&gt; というURLでもアクセスできて嬉しい。後者に統一している。&lt;/p&gt;
+
+&lt;p&gt;画像もGitHub Pagesにホスティングしてもらっている。特別にカメラも持っていないし、今のところ枚数も知れている。しかし以下のように制限もあるので、写真が好きな人や、制作物を紹介するポートフォリオのようなものを用意したい場合には少し注意が必要だろう。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;ファイルあたり100MBの制限&lt;/li&gt;
+&lt;li&gt;サイトあたり1GBの制限&lt;/li&gt;
+&lt;li&gt;月あたり100GBの帯域幅制限&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;利用する場合は、一度&lt;a href=&quot;https://docs.github.com/ja/github/working-with-github-pages/about-github-pages&quot;&gt;ガイドライン&lt;/a&gt;を読んでおこう。&lt;/p&gt;
+
+&lt;h2&gt;ドメイン&lt;/h2&gt;
+
+&lt;p&gt;Amazon Route53でドメインを管理している。&lt;/p&gt;
+
+&lt;p&gt;このウェブサイトにおいて唯一継続的にお金が掛かっているところでもある。最初の数日だけ &lt;code&gt;r7kamura.github.io&lt;/code&gt; で運営していたこともあったが、試験用途でも無い限り、.comドメインぐらいの価格で済むなら明らかにドメインはあった方が良い。&lt;/p&gt;
+
+&lt;p&gt;ただの記録にも関わらずアドバイス的な形式でわざわざ書いているのは、学生の頃、自分のウェブサイトをつくろうとしたのにドメインを取るのに躊躇してやめた過去があるから。面白半分で良いから、興味があるなら自分にお金を掛けてみるべきだ。&lt;/p&gt;
+
+&lt;h2&gt;ビルド&lt;/h2&gt;
+
+&lt;p&gt;GitHub Actionsで静的ファイルを自動生成している。&lt;/p&gt;
+
+&lt;p&gt;このウェブサイトは動的なRackアプリケーションとして実装されていて、ビルド毎に全ページのスナップショットが静的ファイルとして出力される、という設計にしている。多分このサイトの実装で一番面白いところだろう。&lt;/p&gt;
+
+&lt;p&gt;この仕組みの良いところの一つは、普段利用しているアプリケーション開発の知識を静的なウェブサイトの開発にも適用できるところ。例えば、Railsを使っても良いし、Hanamiを使ってみても良いし、自分で最強のウェブアプリケーションフレームワークをつくってみるという遊び方をしても良い。&lt;/p&gt;
+
+&lt;h2&gt;デザイン&lt;/h2&gt;
+
+&lt;p&gt;気になったときにHTMLテンプレートやCSSを盆栽のようにいじっている。&lt;/p&gt;
+
+&lt;p&gt;試してみていることを幾つか挙げる。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;覚えるべきことを減らす
+
+&lt;ul&gt;
+&lt;li&gt;デフォルトを尊重する&lt;/li&gt;
+&lt;li&gt;同じスタイルを再利用する&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;実装しない
+
+&lt;ul&gt;
+&lt;li&gt;ブラウザに任せる&lt;/li&gt;
+&lt;li&gt;Googleに任せる&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2&gt;記事の書き方&lt;/h2&gt;
+
+&lt;p&gt;Markdownベースの何かで記事を書いている。&lt;/p&gt;
+
+&lt;p&gt;例えばこの記事は、&lt;code&gt;articles/2020-09-23-personal-website-setup-2020.md&lt;/code&gt; に以下のように記述している。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;frontmatter&quot;&gt;---
+title: このウェブサイトの実装 2020年版
+---
+
+毎年記録していきたい、このウェブサイトの実装方法のまとめ。
+
+## ホスティング
+
+静的ファイルだけ配信していて、GitHub Pagesを使っている。
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;この辺りの考え方の話をすると長くなるので、また別の機会に触れたい。&lt;/p&gt;
+
+&lt;p&gt;記事を書いたら、&lt;code&gt;git push&lt;/code&gt; するとよしなにやってくれる。ブラウザでGitHubを開いてエディタで書くこともできる。とはいえ外出時にたまたま気になってiPhoneから編集したことがある程度で、今のところPCのエディタで書くことがほとんど。&lt;/p&gt;
+</content>
+    </entry>
+  
+    <entry>
       <title>記事の説明文</title>
       <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-09-22-markdown-summary"/>
       <id>tag:r7kamura.com,2019:/articles/2020-09-22-markdown-summary</id>
       <published>2020-09-22T00:00:00+00:00</published>
-      <updated>2020-09-23T15:56:41+00:00</updated>
+      <updated>2020-09-23T16:48:14+00:00</updated>
       <content type="html">&lt;figure&gt;&lt;a href=&quot;/images/2020-09-22-summary-detection.jpg&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/images/2020-09-22-summary-detection.jpg&quot; alt=&quot;&quot;&gt;&lt;/a&gt;&lt;figcaption&gt;何の関係も無いサメのぬいぐるみの画像&lt;/figcaption&gt;&lt;/figure&gt;
 
 &lt;p&gt;記事の説明文を抽出する方法を変更した。あまり目に触れる機会は無いが、SNSやフィードなどで利用される。&lt;/p&gt;
@@ -42,7 +128,7 @@
       <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-09-22-markdown-caption"/>
       <id>tag:r7kamura.com,2019:/articles/2020-09-22-markdown-caption</id>
       <published>2020-09-22T00:00:00+00:00</published>
-      <updated>2020-09-23T15:56:41+00:00</updated>
+      <updated>2020-09-23T16:48:14+00:00</updated>
       <content type="html">&lt;p&gt;FF14のスクリーンショットを久しぶりに見返していた。&lt;/p&gt;
 
 &lt;figure&gt;&lt;a href=&quot;/images/2020-09-22-markdown-caption-back.png&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/images/2020-09-22-markdown-caption-back.png&quot; alt=&quot;&quot;&gt;&lt;/a&gt;&lt;figcaption&gt;猫耳や尻尾があるミコッテという種族&lt;/figcaption&gt;&lt;/figure&gt;
@@ -106,7 +192,7 @@
       <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-09-21-personal-website"/>
       <id>tag:r7kamura.com,2019:/articles/2020-09-21-personal-website</id>
       <published>2020-09-21T00:00:00+00:00</published>
-      <updated>2020-09-23T15:56:41+00:00</updated>
+      <updated>2020-09-23T16:48:14+00:00</updated>
       <content type="html">&lt;p&gt;なぜ個人でウェブサイトを運用しているのかについて、整理しておきたい。&lt;/p&gt;
 
 &lt;p&gt;要約すると、以下の理由でやっている。&lt;/p&gt;
@@ -192,7 +278,7 @@
       <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-09-21-cable-dependencies"/>
       <id>tag:r7kamura.com,2019:/articles/2020-09-21-cable-dependencies</id>
       <published>2020-09-21T00:00:00+00:00</published>
-      <updated>2020-09-23T15:56:41+00:00</updated>
+      <updated>2020-09-23T16:48:14+00:00</updated>
       <content type="html">&lt;p&gt;PCデスクを買い換えることにしたので、機器と配線について整理する。&lt;/p&gt;
 
 &lt;p&gt;&lt;a href=&quot;/images/2020-09-21-cable-dependencies.jpg&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/images/2020-09-21-cable-dependencies.jpg&quot; alt=&quot;&quot;&gt;&lt;/a&gt;&lt;/p&gt;
@@ -287,7 +373,7 @@
       <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-09-20-rspec-type-metadata"/>
       <id>tag:r7kamura.com,2019:/articles/2020-09-20-rspec-type-metadata</id>
       <published>2020-09-20T00:00:00+00:00</published>
-      <updated>2020-09-23T15:56:41+00:00</updated>
+      <updated>2020-09-23T16:48:14+00:00</updated>
       <content type="html">&lt;p&gt;&lt;code&gt;config.infer_spec_type_from_file_location!&lt;/code&gt; を指定することで不要になる &lt;code&gt;metadata[:type]&lt;/code&gt; を取り除こうというスクリプト。&lt;/p&gt;
 
 &lt;pre&gt;&lt;code class=&quot;ruby&quot;&gt;require &#39;pathname&#39;
@@ -345,7 +431,7 @@ RSpec.describe User do
       <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-09-20-restospective-past-work"/>
       <id>tag:r7kamura.com,2019:/articles/2020-09-20-restospective-past-work</id>
       <published>2020-09-20T00:00:00+00:00</published>
-      <updated>2020-09-23T15:56:41+00:00</updated>
+      <updated>2020-09-23T16:48:14+00:00</updated>
       <content type="html">&lt;p&gt;RubyやRailsのアップグレードを主なマイルストーンとしつつ全体的に開発体験を良くしていくというタイプの仕事を請けることが多いのですが、仕事を依頼する側の視点に立ってみると「実際のところ業務に参加するとどういうことが行われるのか？」というのがやはり気になると思います。&lt;/p&gt;
 
 &lt;p&gt;実際、最近の打ち合わせでもその手の不安について相談されることがあったので、ここ1ヶ月でそれ系の仕事で出したPull Requestを元に、実際に何をやっていたかの例を挙げてみたいと思います。&lt;/p&gt;
@@ -414,7 +500,7 @@ RSpec.describe User do
       <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-09-19-list-articles-minor-change"/>
       <id>tag:r7kamura.com,2019:/articles/2020-09-19-list-articles-minor-change</id>
       <published>2020-09-19T00:00:00+00:00</published>
-      <updated>2020-09-23T15:56:41+00:00</updated>
+      <updated>2020-09-23T16:48:14+00:00</updated>
       <content type="html">&lt;p&gt;変更対象は、グローバルヘッダーのリンクと記事一覧ページの見出し。&lt;/p&gt;
 
 &lt;p&gt;「記事」という表記は、記事ではないもの…例えば写真など…が存在していて初めて「記事」という表記である妥当性が生まれるはずで、現状このウェブサイトには記事しかコンテンツが無い。そうであれば、一覧であるということを押し出して「記事一覧」と表記した方が分かりやすいだろう、という意図でこう変更した。&lt;/p&gt;
@@ -454,7 +540,7 @@ RSpec.describe User do
       <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-09-19-anker-usb-hub"/>
       <id>tag:r7kamura.com,2019:/articles/2020-09-19-anker-usb-hub</id>
       <published>2020-09-19T00:00:00+00:00</published>
-      <updated>2020-09-23T15:56:41+00:00</updated>
+      <updated>2020-09-23T16:48:14+00:00</updated>
       <content type="html">&lt;p&gt;&lt;a href=&quot;/images/2020-09-19-anker-usb-hub.jpg&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/images/2020-09-19-anker-usb-hub.jpg&quot; alt=&quot;&quot;&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;『&lt;a href=&quot;https://www.amazon.co.jp/dp/B087TB7YM7?tag=r7kamura07-22&quot;&gt;Anker PowerExpand 8-in-1 USB-C PD 10Gbps データ ハブ&lt;/a&gt;』を買った。&lt;/p&gt;
@@ -489,7 +575,7 @@ RSpec.describe User do
       <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-09-18-link-image"/>
       <id>tag:r7kamura.com,2019:/articles/2020-09-18-link-image</id>
       <published>2020-09-18T00:00:00+00:00</published>
-      <updated>2020-09-23T15:56:41+00:00</updated>
+      <updated>2020-09-23T16:48:14+00:00</updated>
       <content type="html">&lt;p&gt;これで画像をクリックすると大きく表示できるようになった。&lt;/p&gt;
 
 &lt;p&gt;&lt;a href=&quot;/images/2020-09-18-link-image.jpg&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/images/2020-09-18-link-image.jpg&quot; alt=&quot;&quot;&gt;&lt;/a&gt;&lt;/p&gt;
@@ -519,7 +605,7 @@ RSpec.describe User do
       <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-09-17-empty-test-files"/>
       <id>tag:r7kamura.com,2019:/articles/2020-09-17-empty-test-files</id>
       <published>2020-09-17T00:00:00+00:00</published>
-      <updated>2020-09-23T15:56:41+00:00</updated>
+      <updated>2020-09-23T16:48:14+00:00</updated>
       <content type="html">&lt;p&gt;雑なスクリプトを書いて空のテストファイルを消したという話。&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;require &#39;pathname&#39;
@@ -544,7 +630,7 @@ end
       <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-09-16-gaming-mouse-pad"/>
       <id>tag:r7kamura.com,2019:/articles/2020-09-16-gaming-mouse-pad</id>
       <published>2020-09-16T00:00:00+00:00</published>
-      <updated>2020-09-23T15:56:41+00:00</updated>
+      <updated>2020-09-23T16:48:14+00:00</updated>
       <content type="html">&lt;p&gt;Razerの&lt;a href=&quot;https://www.amazon.co.jp/dp/B07JJ4RG2T/r7kamura07-22&quot;&gt;Goliathus Chroma Extended&lt;/a&gt;というマウスパッドを買った。&lt;/p&gt;
 
 &lt;p&gt;&lt;a href=&quot;/images/2020-09-16-gaming-mouse-pad-light.jpg&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/images/2020-09-16-gaming-mouse-pad-light.jpg&quot; alt=&quot;&quot;&gt;&lt;/a&gt;&lt;/p&gt;
@@ -562,7 +648,7 @@ end
       <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-09-16-color-change"/>
       <id>tag:r7kamura.com,2019:/articles/2020-09-16-color-change</id>
       <published>2020-09-16T00:00:00+00:00</published>
-      <updated>2020-09-23T15:56:41+00:00</updated>
+      <updated>2020-09-23T16:48:14+00:00</updated>
       <content type="html">&lt;p&gt;&lt;a href=&quot;/images/2020-09-16-color-change.png&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/images/2020-09-16-color-change.png&quot; alt=&quot;&quot;&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;コントラストが高すぎてどぎつい感じがしてきたので、テキストの色を &lt;code&gt;#111111&lt;/code&gt; から &lt;code&gt;#333333&lt;/code&gt; に変更した。&lt;/p&gt;
@@ -576,7 +662,7 @@ end
       <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-09-16-blue-microphones-compass"/>
       <id>tag:r7kamura.com,2019:/articles/2020-09-16-blue-microphones-compass</id>
       <published>2020-09-16T00:00:00+00:00</published>
-      <updated>2020-09-23T15:56:41+00:00</updated>
+      <updated>2020-09-23T16:48:14+00:00</updated>
       <content type="html">&lt;p&gt;&lt;a href=&quot;/images/2020-09-16-blue-microphones-compass.jpg&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/images/2020-09-16-blue-microphones-compass.jpg&quot; alt=&quot;&quot;&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;Blue MicrophonesのCompassというマイクスタンドを購入して取り付けた。&lt;/p&gt;
@@ -594,7 +680,7 @@ end
       <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-09-13-terraria"/>
       <id>tag:r7kamura.com,2019:/articles/2020-09-13-terraria</id>
       <published>2020-09-13T00:00:00+00:00</published>
-      <updated>2020-09-23T15:56:41+00:00</updated>
+      <updated>2020-09-23T16:48:14+00:00</updated>
       <content type="html">&lt;p&gt;Terrariaで&lt;a href=&quot;https://terraria.gamepedia.com/Pirate_Map&quot;&gt;Pirate Map&lt;/a&gt;を放置しながら集めるための狩場について。&lt;/p&gt;
 
 &lt;p&gt;&lt;a href=&quot;/images/2020-09-13-terraria.png&quot;&gt;&lt;img src=&quot;/images/2020-09-13-terraria.png&quot; alt=&quot;&quot;&gt;&lt;/a&gt;&lt;/p&gt;
@@ -638,7 +724,7 @@ end
       <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-09-13-mac-movie-edit"/>
       <id>tag:r7kamura.com,2019:/articles/2020-09-13-mac-movie-edit</id>
       <published>2020-09-13T00:00:00+00:00</published>
-      <updated>2020-09-23T15:56:41+00:00</updated>
+      <updated>2020-09-23T16:48:14+00:00</updated>
       <content type="html">&lt;p&gt;iMovieの話。&lt;/p&gt;
 
 &lt;p&gt;GeForce Experienceの録画機能で、ゲーム中の動画を録画した。録画された200MBほどの動画ファイルの保存先はDropboxになっており、今はたまたまMacでそのファイルを見ているのだが、これを小さいファイルサイズの動画にしてDiscordに貼り付けたい。&lt;/p&gt;
@@ -656,7 +742,7 @@ end
       <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-09-12-activerecord-enum-translation"/>
       <id>tag:r7kamura.com,2019:/articles/2020-09-12-activerecord-enum-translation</id>
       <published>2020-09-12T00:00:00+00:00</published>
-      <updated>2020-09-23T15:56:41+00:00</updated>
+      <updated>2020-09-23T16:48:14+00:00</updated>
       <content type="html">&lt;p&gt;ActiveRecordのenumにI18n用の機能を提供するgemをつくった。&lt;/p&gt;
 
 &lt;p&gt;&lt;a href=&quot;https://github.com/r7kamura/activerecord-enum_translation&quot;&gt;https://github.com/r7kamura/activerecord-enum_translation&lt;/a&gt;&lt;/p&gt;
@@ -750,7 +836,7 @@ end
       <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-09-11-vscode-disable-suggestion"/>
       <id>tag:r7kamura.com,2019:/articles/2020-09-11-vscode-disable-suggestion</id>
       <published>2020-09-11T00:00:00+00:00</published>
-      <updated>2020-09-23T15:56:41+00:00</updated>
+      <updated>2020-09-23T16:48:14+00:00</updated>
       <content type="html">&lt;p&gt;VSCodeで文字を入力している最中に「もしかしてこれじゃない？」って補完候補をポップアップしてくれるやつがすごく鬱陶しいので、無効化した。&lt;/p&gt;
 
 &lt;pre&gt;&lt;code class=&quot;json&quot;&gt;{
@@ -778,7 +864,7 @@ end
       <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-04-18-diary"/>
       <id>tag:r7kamura.com,2019:/articles/2020-04-18-diary</id>
       <published>2020-04-18T00:00:00+00:00</published>
-      <updated>2020-09-23T15:56:41+00:00</updated>
+      <updated>2020-09-23T16:48:14+00:00</updated>
       <content type="html">&lt;p&gt;最近について。&lt;/p&gt;
 
 &lt;h2&gt;AtomからVSCodeへ&lt;/h2&gt;
@@ -849,7 +935,7 @@ end
       <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-02-28-marcotogingaryu"/>
       <id>tag:r7kamura.com,2019:/articles/2020-02-28-marcotogingaryu</id>
       <published>2020-02-28T00:00:00+00:00</published>
-      <updated>2020-09-23T15:56:41+00:00</updated>
+      <updated>2020-09-23T16:48:14+00:00</updated>
       <content type="html">&lt;p&gt;&lt;a href=&quot;/images/2020-02-28-marcotogingaryu.jpg&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/images/2020-02-28-marcotogingaryu.jpg&quot; alt=&quot;&quot;&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;前々から気になってた『マルコと銀河竜』が遂に発売されたので、購入してそのままエンディングまで駆け抜けてしまった。&lt;/p&gt;
@@ -861,37 +947,6 @@ end
 &lt;p&gt;とにかくテンポ良く話が進んでいって、その先にどんどん吸い込まれていってしまう。言葉や演出の端々にいろんな作品へのオマージュが利いていて、そこでいちいち笑わせられるのも良かった。個人的には、泥棒をトレジャーハンターと言い直すシーンが好き。&lt;/p&gt;
 
 &lt;p&gt;数時間でクリアしてしまったけれど、凝縮されたグラフィックとテキストと音の中を駆け抜けた数時間の冒険だった。退屈という言葉の反対側にある作品だと思う。&lt;/p&gt;
-</content>
-    </entry>
-  
-    <entry>
-      <title>2019年分の確定申告をやった</title>
-      <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-02-25-kakutei"/>
-      <id>tag:r7kamura.com,2019:/articles/2020-02-25-kakutei</id>
-      <published>2020-02-25T00:00:00+00:00</published>
-      <updated>2020-09-23T15:56:41+00:00</updated>
-      <content type="html">&lt;p&gt;2019年分の確定申告書類を提出した。今年で3年目。今年も郵送。予定納税分以外の税金の払込はこれから。&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;1年目: 窓口で提出&lt;/li&gt;
-&lt;li&gt;2年目: 郵送で提出&lt;/li&gt;
-&lt;li&gt;3年目: 郵送で提出&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;今回は2月18日に郵送したのだけど、書類の押印とマイナンバー記入を忘れるという不備があり、2月25日に再提出した。受付期間内であれば、最後に提出したものが利用されるらしい。そしてこの再提出行為には、訂正申告という名前が付いているらしい。&lt;/p&gt;
-
-&lt;p&gt;今年も経費はほぼ無くて、経費と控除に含んだものと言えば、&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;家賃&lt;/li&gt;
-&lt;li&gt;電気代&lt;/li&gt;
-&lt;li&gt;通信費&lt;/li&gt;
-&lt;li&gt;国民健康保険の控除&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;ぐらいのものだった。もうちょっと頑張れば経費に出来そうなものが幾らかありそうだけど、その労力で働いた方が収支は相当プラスになるのではという気持ちが強く、なかなか頑張れない。&lt;/p&gt;
-
-&lt;p&gt;今年は計上や印刷や郵送などに合計2時間ぐらい掛かった。2019年中に、経費に計上する支払いに利用する銀行口座を全て一箇所にまとめたりしたので、来年の計上はもう少し楽になるかも。しかし次回から消費税の納税も始まってしまう…。&lt;/p&gt;
 </content>
     </entry>
   
