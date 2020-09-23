@@ -69,21 +69,23 @@
 
 <h3>1. sitespecをGemfileに追加する</h3>
 
-<pre><code class="rb:Gemfile">gem "sitespec"
+<figure><pre><code class="rb">gem "sitespec"
 </code></pre>
+<figcaption>Gemfile</figcaption></figure>
 
 <h3>2. テスト内で sitespec/rspec を読み込む</h3>
 
 <p>これを読み込むことで、特定の条件下でテストが成功したときに静的ファイルを生成するフックが設定されます。</p>
 
-<pre><code class="rb:spec/spec_helper.rb">require "sitespec/rspec"
+<figure><pre><code class="rb">require "sitespec/rspec"
 </code></pre>
+<figcaption>spec/spec_helper.rb</figcaption></figure>
 
 <h3>3. <code>:sitespec</code> というメタデータを持ったテストケースを書く</h3>
 
 <p>Sitespecは、RSpecで <code>:sitespec</code> というメタデータを持ったテストケースを実行したときに静的ファイルを生成します。このメタデータが設定されたテストケース内では、<a href="https://github.com/brynary/rack-test">rack-test</a> が利用できるように設定されています。<code>:sitespec</code> を設定し、rack-testを利用して1つのテストケースで1つのリクエストを検証するようなテストを書くことが、Sitespecを利用する上で守らなければならない制約です。</p>
 
-<pre><code class="rb:spec/site_spec.rb">describe "Sitespec" do
+<figure><pre><code class="rb">describe "Sitespec" do
   let(:app) do
     MyRackApp
   end
@@ -101,6 +103,7 @@
   end
 end
 </code></pre>
+<figcaption>spec/site_spec.rb</figcaption></figure>
 
 <h3>4. テストを実行する</h3>
 
@@ -151,7 +154,7 @@ $ travis encrypt GITHUB_ACCESS_TOKEN="..." --add
 
 <p>Travis CI上でgit-commitを利用するには、Gitのcommiterとauthorの設定が必須ですが、これらは環境変数で指定できます。あとは、テストが全て成功したときにgit-pushを実行するようなスクリプトを追加すれば完成です。実際に利用している .travis.yml の内容がこれです。</p>
 
-<pre><code class="yaml:.travis.yml">language: ruby
+<figure><pre><code class="yaml">language: ruby
 env:
   global:
     - GIT_COMMITTER_NAME: "r7kamura"
@@ -173,6 +176,7 @@ branches:
   only:
     - source
 </code></pre>
+<figcaption>.travis.yml</figcaption></figure>
 
 <h2>背景</h2>
 

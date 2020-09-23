@@ -62,7 +62,7 @@
 
 <p>Vagrantfileの中で <code>config.plugin.add_dependency(name, version = nil)</code> という風に利用するプラグインを定義できます。今回は、例としてプロビジョニングツールの1つの<a href="https://github.com/r7kamura/serverkit">Serverkit</a> を使うためのプラグイン <a href="https://github.com/r7kamura/vagrant-serverkit">vagrant-serverkit</a> と、それからServerkitでrbenvを扱うためのプラグインである <a href="https://github.com/r7kamura/serverkit-rbenv">serverkit-rbenv</a> を利用することにします。</p>
 
-<pre><code class="rb:Vagrantfile">Vagrant.configure("2") do |config|
+<figure><pre><code class="rb">Vagrant.configure("2") do |config|
   config.vm.box = "ubuntu/trusty64"
 
   config.plugin.add_dependency "vagrant-serverkit"
@@ -73,6 +73,7 @@
   end
 end
 </code></pre>
+<figcaption>Vagrantfile</figcaption></figure>
 
 <p>この状態で <code>vagrant up</code> を利用すると、自動的にvagrant-serverkitとserverkit-rbenv (v0.0.2) がインストールされ、その後Serverkitを利用してProvisionが実行されます。使い方は以上です。</p>
 

@@ -79,12 +79,13 @@
 
 <p>試しにYAMLで簡単なレシピを書いてみましょう。以下の例は、Mac OS Xでhomebrewを利用してMySQLとRedisがインストールされているという状態を表現したレシピです。レシピは、resourcesプロパティをもったHashとして表現できます。resourcesプロパティの値はHashの配列であり、これらの要素のことをリソースと呼びます。それぞれのリソースは必ずtypeプロパティを持ち、typeプロパティの内容により追加で幾つかのプロパティを持ちます。packageリソースでは、どのパッケージをインストールするかを表すためにnameプロパティが必要です。</p>
 
-<pre><code class="yaml:recipe.yml">resources:
+<figure><pre><code class="yaml">resources:
   - type: package
     name: mysql
   - type: package
     name: redis
 </code></pre>
+<figcaption>recipe.yml</figcaption></figure>
 
 <h2>レシピの適用</h2>
 
@@ -99,7 +100,7 @@
 
 <p>homebrewでインストールしたいパッケージの数が増えてくると、いちいちリソースを記述するのが面倒に感じられるかもしれません。serverkitでは、レシピにERBテンプレートを利用でき、またERBテンプレートで利用できる変数を記述した別のファイルを与えることもできます。これを利用すると、レシピの記述を少し簡略化できます。Serverkitでは、与えられたファイルの拡張子が .erb だった場合、そのファイルをERBテンプレートとして解釈します。以下の例では、variables.yml というファイルでパッケージ名の配列を定義し、recipe.yml.erb でその配列を元に複数のリソースを定義しています。</p>
 
-<pre><code class="yaml:variables.yml">homebrew_package_names:
+<figure><pre><code class="yaml">homebrew_package_names:
   - cmake
   - mysql
   - node
@@ -108,13 +109,15 @@
   - redis
   - ruby-build
 </code></pre>
+<figcaption>variables.yml</figcaption></figure>
 
-<pre><code class="yaml:recipe.yml.erb">resources:
+<figure><pre><code class="yaml">resources:
   &lt;%- homebrew_package_names.each do |homebrew_package_name| -%&gt;
   - type: package
     name: &lt;%= homebrew_package_name %&gt;
   &lt;%- end -%&gt;
 </code></pre>
+<figcaption>recipe.yml.erb</figcaption></figure>
 
 <p>実行時に <code>--variables=</code> というコマンドラインオプションを与えれば、変数を定義したファイルを指定できます。</p>
 
@@ -185,7 +188,7 @@
 
 <p>上記の例ではtypeプロパティに <code>"package"</code> が指定されたリソースしか利用していませんでしたが、他にも symlink や git、command など、いろいろな種類のリソースが用意されています。symlinkは、指定したパスから他に指定したパスに対してシンボリックリンクを作成するリソース、gitは、指定したレポジトリを git-clone してくるのリソース、commandは、指定したシェルスクリプトを実行するリソースです。例えば以下のレシピを適用すると、<a href="https://github.com/r7kamura/dotfiles">r7kamura/dotfiles</a> からレポジトリがgit-cloneされ、.zshrc に対してシンボリックリンクが作成され、ログインシェルが /bin/zsh に設定されていなければ chsh を利用して変更されます。</p>
 
-<pre><code class="yaml:recipe.yml">resources:
+<figure><pre><code class="yaml">resources:
   - type: git
     repository: git@github.com:r7kamura/dotfiles.git
     path: /Users/r7kamura/src/github.com/r7kamura/dotfiles
@@ -196,21 +199,24 @@
     check_script: "finger -l | grep -E 'Shell: /bin/zsh$'"
     script: sudo chsh -s /bin/zsh r7kamura
 </code></pre>
+<figcaption>recipe.yml</figcaption></figure>
 
 <h2>プラグインの利用</h2>
 
 <p>Serverkitは外部のプラグインを読み込むための特殊な機能は備えていませんが、手元にGemfileがあれば、実行時にGemfileに定義されたGemを読み込むようになっています。そのため、任意のGemを作成して読み込ませることで、Serverkitの機能を拡張することができます。例えば、serverkit-defaultsを読み込むとdefaultsというリソースが使えるようになり、defaults(1) を利用した設定の管理が可能になります。以下の例では、defaultsリソースを利用してスクリーンキャプチャの出力する画像形式をpngに変更しています。</p>
 
-<pre><code class="rb:Gemfile">gem "serverkit"
+<figure><pre><code class="rb">gem "serverkit"
 gem "serverkit-defaults"
 </code></pre>
+<figcaption>Gemfile</figcaption></figure>
 
-<pre><code class="yaml:recipe.yml">resources:
+<figure><pre><code class="yaml">resources:
   - type: defaults
     domain: com.apple.screencapture
     key: type
     value: png
 </code></pre>
+<figcaption>recipe.yml</figcaption></figure>
 
 <pre><code>$ bundle install
 $ bundle exec serverkit apply recipe.yml.erb --variables=variables.yml

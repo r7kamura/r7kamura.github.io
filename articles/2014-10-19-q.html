@@ -81,10 +81,11 @@ csscomb app/assets/stylesheets/**/*.scss
 
 <p>scss-lintにはRakeタスクが付属しているので、特にCIではこれを利用するのが良いでしょう。.scss-lint.ymlに<code>scss_files</code>という設定があれば、<code>rake scss_lint</code> を実行することでscss-lintを実行できます。シェルのグロブの機能を利用できないCI等で役に立つかもしれません。なお、このRakeタスクは現在最新のv0.29.0では未だ満足に動作しないので、利用する場合はGitHub上のmasterブランチなどを利用しましょう。</p>
 
-<pre><code class="rb:Rakefile"># Define `rake scss_lint`
+<figure><pre><code class="rb"># Define `rake scss_lint`
 require 'scss_lint/rake_task'
 SCSSLint::RakeTask.new
 </code></pre>
+<figcaption>Rakefile</figcaption></figure>
 
 <h2>終わりに :bow:</h2>
 
