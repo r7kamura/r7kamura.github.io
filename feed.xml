@@ -3,18 +3,61 @@
   <title>r7kamura.com</title>
   <link rel="self" type="application/atom+xml" href="https://r7kamura.com/feed.xml"/>
   <link rel="alternate" type="text/html" href="https://r7kamura.com/"/>
-  <updated>2020-09-25T20:22:10+00:00</updated>
+  <updated>2020-09-25T23:32:34+00:00</updated>
   <author>
     <name>Ryo Nakamura</name>
   </author>
   <id>tag:r7kamura.com,2019:/</id>
   
     <entry>
+      <title>Rails 設計 最強</title>
+      <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-09-26-rails-architecture-strongest"/>
+      <id>tag:r7kamura.com,2019:/articles/2020-09-26-rails-architecture-strongest</id>
+      <published>2020-09-26T00:00:00+00:00</published>
+      <updated>2020-09-25T23:31:56+00:00</updated>
+      <content type="html">&lt;p&gt;自分が目指したいRailsアプリの形とは何か、ということについて考えていた。&lt;/p&gt;
+
+&lt;p&gt;常日頃から考えていたRailsアプリでの不満をこの議論に合流させた結果、「Rubyを書くときに当たり前にやるようなことを、Railsアプリを書くときでも当たり前のようにやる」というところが肝で、自分が目指したいRailsアプリの形はその先にあるのではないか、と一旦結論付けてみることにした。&lt;/p&gt;
+
+&lt;p&gt;「普通にRubyでコードを書くときはやらないけど、Railsだったらこう書く」という何かが存在していることが、さまざまな失敗の原因をつくっていると思う。
+RubyとRailsが地続きに繋がっていないというか、どこかで断絶があり、そこから筋の悪い設計が生まれている ―あるいは持ち込めるはずの良い設計を持ち込めていない― のではないか、という話。&lt;/p&gt;
+
+&lt;hr&gt;
+
+&lt;p&gt;実際にはどの辺りが気になっているのか？という例を挙げると、氷山の一角を指摘するだけなのでこのトピック自体にはあまり強い関心を持たないでほしいのだけど、例えば「定数名の名前空間おかしいやろ」という話がある。具体的には、「なんでトップレベルに定数生やしまくるわけ？config/application.rb で &lt;code&gt;MyApp&lt;/code&gt; みたいな良さそうなmodule定義しとるんやから、&lt;code&gt;MyApp::Controllers::ApplicationController&lt;/code&gt; みたいにその下に生やしていくようにすべきなんちゃうん」という話。&lt;/p&gt;
+
+&lt;p&gt;要は、ユーザに書かせようとしているコントローラとかモデルとか諸々のコードの方向性が若干おかしいのではないかという話。というか基本的に、Railsのライブラリ側のコードはものすごく考え抜かれた設計になっていて、そこは完全に偉大なコードだと思っていて、不満があるのはユーザに書かせるコードの話である。&lt;/p&gt;
+
+&lt;p&gt;そういう、「確かにキー入力量を削減しながら多くの機能を実装できるけどスケールはしなそう」というコードを書かせるライブラリで本当に良いのか？それで「開発の生産性が著しく向上することに気付くでしょう」とか言って良いのか？という。&lt;/p&gt;
+
+&lt;p&gt;正直、Railsの利用者のプログラミング能力として想定されているレベル感が結構ナメられているというか……少なくとも、それがあまりにも低く見積もられすぎていた時代があって、その感覚のまま今でもそれが提供され続けていたりするのではないかと思っている。知らんけど。&lt;/p&gt;
+
+&lt;p&gt;あるいは、それが「右も左も分からないようなRuby初心者にも使ってもらうための戦略である」というのであれば、その戦略単体では結構なことなのだけど、それはRailsが前提としている「何かをなすうえで最善の方法というものが1つだけある」という仮定と両立しないと思う。&lt;/p&gt;
+
+&lt;p&gt;この仮定の上だと、タイプ量は少なくてイージーだがスケールはしなそうな実装方法が「これが全てのRailsアプリにおいて見習うべきスタンダードでRails Wayなコードである」と扱われるので、郷に入っては郷に従え的感覚であらゆる状況でそういうコードを書かされることになるが、正直これはあまり良い状況ではないと思う。&lt;/p&gt;
+
+&lt;p&gt;そういう状況になっていると、早々に破綻するような勉強用のチュートリアルみたいな規模のアプリケーションをタイプ量を抑えながら高速に量産することしかできないので、「Railsでは規模に耐えきれなくなってきたのでマイクロサービス化を期に○○で書き換えたら上手くいきました」とか言わせてしまうのではないですか。&lt;/p&gt;
+
+&lt;p&gt;もちろん、スケールできるように個々人が要所要所で工夫を凝らしていくことは可能で、実際にそういう努力がそこかしこで行われているのだけど、根っこのところでそれが志向されていないせいで、改善より速いスピードで新しいレガシーコードが生まれていったり、巨大な不安を感じなから手探りで拡張していくことになったりといったように、苦し目の状況になっているんじゃないかと思う。&lt;/p&gt;
+
+&lt;hr&gt;
+
+&lt;p&gt;じゃあどうすれば良いのか？という話なんですが、まずRails側がこうなっていたら理想だなという個人的な希望を言うと、「何かをなすうえで最善の方法というものが1つだけある」という仮定、つまり「最善の開発方法というものを1つに定める」というRailsの根底にある判断はそのままにしておきながら、もっと利用者の学習能力・行動力を高く見積もった上での「最善の方法」が模索されてほしい。&lt;/p&gt;
+
+&lt;p&gt;現状提供されている方法は、「短い文字数のコードで動く」というところに最善たる評価基準が置かれすぎていると思う。もし「短い文字数のコードで動くアプリをつくることがRailsの存在意義である」とか言われたらもう諦めるしかないんですが、そうではないと思うので、それが堅牢になるかどうかという評価基準をもっと重視するように適宜変えていくと、いずれ「Rubyを初めて触るような入門者には一見難しく見えるかもしれないが、分かってくると確かにそれが正しかったなと信じられるような実装」が提供されるやり方になるのではないか。&lt;/p&gt;
+
+&lt;p&gt;とはいえ別にRailsがそうなっていくかとかは全く分からないので、Railsアプリをつくる側は現状どうしていけば良いのかという話を考えると、「現状のRails Wayってやつは哲学はともかく実現方法としてはもっと上手くやる余地があるやり方なので、盲目的に信じてみるのはやめて、一歩引いて &quot;普通にRubyだったらどう書くか？&quot; という考え方を重視する」という方向に考えを変えてみるのが良いのかもしれない。これは思考実験から出てきた一つの案なので、特に確証がある話ではないけれども。&lt;/p&gt;
+
+&lt;p&gt;これらの話が、冒頭に述べた「Rubyを書くときに当たり前にやるようなことを、Railsアプリを書くときでも当たり前のようにやる」という話に繋がってくると思い、自分が目指したいRailsアプリの形がこの先にあるのではないかと一旦結論付けることにした。&lt;/p&gt;
+</content>
+    </entry>
+  
+    <entry>
       <title>PCデスク周りの情報源</title>
       <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-09-25-workspace-pictures"/>
       <id>tag:r7kamura.com,2019:/articles/2020-09-25-workspace-pictures</id>
       <published>2020-09-25T00:00:00+00:00</published>
-      <updated>2020-09-25T20:21:33+00:00</updated>
+      <updated>2020-09-25T23:31:56+00:00</updated>
       <content type="html">&lt;p&gt;他人の作業環境を見るという趣味があり、最近はこの辺を観測している。&lt;/p&gt;
 
 &lt;h2&gt;お前らのpcデスク周り晒して(い)け&lt;/h2&gt;
@@ -68,7 +111,7 @@
       <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-09-25-notes"/>
       <id>tag:r7kamura.com,2019:/articles/2020-09-25-notes</id>
       <published>2020-09-25T00:00:00+00:00</published>
-      <updated>2020-09-25T20:21:33+00:00</updated>
+      <updated>2020-09-25T23:31:56+00:00</updated>
       <content type="html">&lt;p&gt;文字について考えることが多い一日だった。&lt;/p&gt;
 
 &lt;h2&gt;キーボード&lt;/h2&gt;
@@ -106,7 +149,7 @@
       <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-09-24-site-minor-changes"/>
       <id>tag:r7kamura.com,2019:/articles/2020-09-24-site-minor-changes</id>
       <published>2020-09-24T00:00:00+00:00</published>
-      <updated>2020-09-25T20:21:33+00:00</updated>
+      <updated>2020-09-25T23:31:56+00:00</updated>
       <content type="html">&lt;p&gt;最近よくこのサイトに手を加えている。最初からそうだったかのように見えていれば、おおよそ成功と言える。&lt;/p&gt;
 
 &lt;h2&gt;グローバルヘッダー&lt;/h2&gt;
@@ -147,7 +190,7 @@
       <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-09-23-this-site-setup-2020"/>
       <id>tag:r7kamura.com,2019:/articles/2020-09-23-this-site-setup-2020</id>
       <published>2020-09-23T00:00:00+00:00</published>
-      <updated>2020-09-25T20:21:33+00:00</updated>
+      <updated>2020-09-25T23:31:56+00:00</updated>
       <content type="html">&lt;p&gt;このサイトの2020年時点での実装のまとめ。振り返り用。&lt;/p&gt;
 
 &lt;h2&gt;ホスティング&lt;/h2&gt;
@@ -232,7 +275,7 @@ GitHub Pagesで静的ファイルを配信している。
       <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-09-23-notes"/>
       <id>tag:r7kamura.com,2019:/articles/2020-09-23-notes</id>
       <published>2020-09-23T00:00:00+00:00</published>
-      <updated>2020-09-25T20:21:33+00:00</updated>
+      <updated>2020-09-25T23:31:56+00:00</updated>
       <content type="html">&lt;p&gt;雑記のタイトルでは、話題を羅列するというパターンが気に入っている。技術系ポッドキャストの説明文で、似たような表現を見ることが多い。&lt;/p&gt;
 
 &lt;figure&gt;&lt;a href=&quot;/images/2020-09-23-notes-camera.jpg&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/images/2020-09-23-notes-camera.jpg&quot; alt=&quot;&quot;&gt;&lt;/a&gt;&lt;figcaption&gt;ウェブカメラとディスプレイ&lt;/figcaption&gt;&lt;/figure&gt;
@@ -283,7 +326,7 @@ end
       <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-09-22-markdown-summary"/>
       <id>tag:r7kamura.com,2019:/articles/2020-09-22-markdown-summary</id>
       <published>2020-09-22T00:00:00+00:00</published>
-      <updated>2020-09-25T20:21:33+00:00</updated>
+      <updated>2020-09-25T23:31:56+00:00</updated>
       <content type="html">&lt;figure&gt;&lt;a href=&quot;/images/2020-09-22-summary-detection.jpg&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/images/2020-09-22-summary-detection.jpg&quot; alt=&quot;&quot;&gt;&lt;/a&gt;&lt;figcaption&gt;何の関係も無いサメのぬいぐるみの画像&lt;/figcaption&gt;&lt;/figure&gt;
 
 &lt;p&gt;記事の説明文を抽出する方法を変更した。あまり目に触れる機会は無いが、SNSやフィードなどで利用される。&lt;/p&gt;
@@ -311,7 +354,7 @@ end
       <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-09-22-markdown-caption"/>
       <id>tag:r7kamura.com,2019:/articles/2020-09-22-markdown-caption</id>
       <published>2020-09-22T00:00:00+00:00</published>
-      <updated>2020-09-25T20:21:33+00:00</updated>
+      <updated>2020-09-25T23:31:56+00:00</updated>
       <content type="html">&lt;p&gt;FF14のスクリーンショットを久しぶりに見返していた。&lt;/p&gt;
 
 &lt;figure&gt;&lt;a href=&quot;/images/2020-09-22-markdown-caption-back.png&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/images/2020-09-22-markdown-caption-back.png&quot; alt=&quot;&quot;&gt;&lt;/a&gt;&lt;figcaption&gt;猫耳や尻尾があるミコッテという種族&lt;/figcaption&gt;&lt;/figure&gt;
@@ -375,7 +418,7 @@ end
       <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-09-21-personal-website"/>
       <id>tag:r7kamura.com,2019:/articles/2020-09-21-personal-website</id>
       <published>2020-09-21T00:00:00+00:00</published>
-      <updated>2020-09-25T20:21:33+00:00</updated>
+      <updated>2020-09-25T23:31:56+00:00</updated>
       <content type="html">&lt;p&gt;なぜ個人でウェブサイトを運用しているのかについて、整理しておきたい。&lt;/p&gt;
 
 &lt;p&gt;要約すると、以下の理由でやっている。&lt;/p&gt;
@@ -461,7 +504,7 @@ end
       <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-09-21-cable-dependencies"/>
       <id>tag:r7kamura.com,2019:/articles/2020-09-21-cable-dependencies</id>
       <published>2020-09-21T00:00:00+00:00</published>
-      <updated>2020-09-25T20:21:33+00:00</updated>
+      <updated>2020-09-25T23:31:56+00:00</updated>
       <content type="html">&lt;p&gt;PCデスクを買い換えることにしたので、機器と配線について整理する。&lt;/p&gt;
 
 &lt;p&gt;&lt;a href=&quot;/images/2020-09-21-cable-dependencies.jpg&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/images/2020-09-21-cable-dependencies.jpg&quot; alt=&quot;&quot;&gt;&lt;/a&gt;&lt;/p&gt;
@@ -556,7 +599,7 @@ end
       <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-09-20-rspec-type-metadata"/>
       <id>tag:r7kamura.com,2019:/articles/2020-09-20-rspec-type-metadata</id>
       <published>2020-09-20T00:00:00+00:00</published>
-      <updated>2020-09-25T20:21:33+00:00</updated>
+      <updated>2020-09-25T23:31:56+00:00</updated>
       <content type="html">&lt;p&gt;RSpecを使うテストコードから不要なtypeを取り除く作業をした。&lt;/p&gt;
 
 &lt;p&gt;&lt;code&gt;config.infer_spec_type_from_file_location!&lt;/code&gt; を指定することで不要になる &lt;code&gt;metadata[:type]&lt;/code&gt; を取り除こうというスクリプト。&lt;/p&gt;
@@ -616,7 +659,7 @@ RSpec.describe User do
       <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-09-20-restospective-past-work"/>
       <id>tag:r7kamura.com,2019:/articles/2020-09-20-restospective-past-work</id>
       <published>2020-09-20T00:00:00+00:00</published>
-      <updated>2020-09-25T20:21:33+00:00</updated>
+      <updated>2020-09-25T23:31:56+00:00</updated>
       <content type="html">&lt;p&gt;RubyやRailsのアップグレードを主なマイルストーンとしつつ全体的に開発体験を良くしていくというタイプの仕事を請けることが多いのですが、仕事を依頼する側の視点に立ってみると「実際のところ業務に参加するとどういうことが行われるのか？」というのがやはり気になると思います。&lt;/p&gt;
 
 &lt;p&gt;実際、最近の打ち合わせでもその手の不安について相談されることがあったので、ここ1ヶ月でそれ系の仕事で出したPull Requestを元に、実際に何をやっていたかの例を挙げてみたいと思います。&lt;/p&gt;
@@ -685,7 +728,7 @@ RSpec.describe User do
       <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-09-19-list-articles-minor-change"/>
       <id>tag:r7kamura.com,2019:/articles/2020-09-19-list-articles-minor-change</id>
       <published>2020-09-19T00:00:00+00:00</published>
-      <updated>2020-09-25T20:21:33+00:00</updated>
+      <updated>2020-09-25T23:31:56+00:00</updated>
       <content type="html">&lt;p&gt;ヘッダーのリンクと記事一覧ページの見出しを少し変えた。&lt;/p&gt;
 
 &lt;p&gt;「記事」という表記は、記事ではないもの…例えば写真など…が存在していて初めて「記事」という表記である妥当性が生まれるはずで、現状このウェブサイトには記事しかコンテンツが無い。そうであれば、一覧であるということを押し出して「記事一覧」と表記した方が分かりやすいだろう、という意図でこう変更した。&lt;/p&gt;
@@ -725,7 +768,7 @@ RSpec.describe User do
       <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-09-19-anker-usb-hub"/>
       <id>tag:r7kamura.com,2019:/articles/2020-09-19-anker-usb-hub</id>
       <published>2020-09-19T00:00:00+00:00</published>
-      <updated>2020-09-25T20:21:33+00:00</updated>
+      <updated>2020-09-25T23:31:56+00:00</updated>
       <content type="html">&lt;p&gt;AnkerのUSBハブを買った。&lt;/p&gt;
 
 &lt;p&gt;&lt;a href=&quot;https://www.amazon.co.jp/dp/B087TB7YM7?tag=r7kamura07-22&quot;&gt;Anker PowerExpand 8-in-1 USB-C PD 10Gbps データ ハブ&lt;/a&gt;&lt;/p&gt;
@@ -762,7 +805,7 @@ RSpec.describe User do
       <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-09-18-link-image"/>
       <id>tag:r7kamura.com,2019:/articles/2020-09-18-link-image</id>
       <published>2020-09-18T00:00:00+00:00</published>
-      <updated>2020-09-25T20:21:33+00:00</updated>
+      <updated>2020-09-25T23:31:56+00:00</updated>
       <content type="html">&lt;p&gt;記事内の画像にリンクを付けた。クリックして拡大できるように。&lt;/p&gt;
 
 &lt;figure&gt;&lt;a href=&quot;/images/2020-09-18-link-image.jpg&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/images/2020-09-18-link-image.jpg&quot; alt=&quot;&quot;&gt;&lt;/a&gt;&lt;figcaption&gt;特に脈絡の無いサメのぬいぐるみの画像&lt;/figcaption&gt;&lt;/figure&gt;
@@ -790,7 +833,7 @@ RSpec.describe User do
       <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-09-17-empty-test-files"/>
       <id>tag:r7kamura.com,2019:/articles/2020-09-17-empty-test-files</id>
       <published>2020-09-17T00:00:00+00:00</published>
-      <updated>2020-09-25T20:21:33+00:00</updated>
+      <updated>2020-09-25T23:31:56+00:00</updated>
       <content type="html">&lt;p&gt;何も書かれていなさそうなテストファイルを消す作業をした。&lt;/p&gt;
 
 &lt;pre&gt;&lt;code class=&quot;ruby&quot;&gt;require &#39;pathname&#39;
@@ -815,7 +858,7 @@ end
       <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-09-16-gaming-mouse-pad"/>
       <id>tag:r7kamura.com,2019:/articles/2020-09-16-gaming-mouse-pad</id>
       <published>2020-09-16T00:00:00+00:00</published>
-      <updated>2020-09-25T20:21:33+00:00</updated>
+      <updated>2020-09-25T23:31:56+00:00</updated>
       <content type="html">&lt;p&gt;Razerの光るマウスパッドを買った。&lt;/p&gt;
 
 &lt;p&gt;&lt;a href=&quot;https://www.amazon.co.jp/dp/B07JJ4RG2T/?tag=r7kamura07-22&quot;&gt;Razer マウスパッド Goliathus Chroma Extended&lt;/a&gt;&lt;/p&gt;
@@ -835,7 +878,7 @@ end
       <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-09-16-color-change"/>
       <id>tag:r7kamura.com,2019:/articles/2020-09-16-color-change</id>
       <published>2020-09-16T00:00:00+00:00</published>
-      <updated>2020-09-25T20:21:33+00:00</updated>
+      <updated>2020-09-25T23:31:56+00:00</updated>
       <content type="html">&lt;p&gt;このサイトの、文字とコードブロックの色を変えた。&lt;/p&gt;
 
 &lt;figure&gt;&lt;a href=&quot;/images/2020-09-16-color-change.png&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/images/2020-09-16-color-change.png&quot; alt=&quot;&quot;&gt;&lt;/a&gt;&lt;figcaption&gt;変更前後の様子&lt;/figcaption&gt;&lt;/figure&gt;
@@ -851,7 +894,7 @@ end
       <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-09-16-blue-microphones-compass"/>
       <id>tag:r7kamura.com,2019:/articles/2020-09-16-blue-microphones-compass</id>
       <published>2020-09-16T00:00:00+00:00</published>
-      <updated>2020-09-25T20:21:33+00:00</updated>
+      <updated>2020-09-25T23:31:56+00:00</updated>
       <content type="html">&lt;p&gt;新しいマイクスタンドを買った。&lt;/p&gt;
 
 &lt;p&gt;&lt;a href=&quot;https://www.amazon.co.jp/dp/B0822PPK7P/?tag=r7kamura07-22&quot;&gt;Blue Microphones マイクスタンド Compass BA100CBK&lt;/a&gt;&lt;/p&gt;
@@ -869,7 +912,7 @@ end
       <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-09-13-terraria"/>
       <id>tag:r7kamura.com,2019:/articles/2020-09-13-terraria</id>
       <published>2020-09-13T00:00:00+00:00</published>
-      <updated>2020-09-25T20:21:33+00:00</updated>
+      <updated>2020-09-25T23:31:56+00:00</updated>
       <content type="html">&lt;p&gt;Terrariaで&lt;a href=&quot;https://terraria.gamepedia.com/Pirate_Map&quot;&gt;Pirate Map&lt;/a&gt;を放置しながら集めるための狩場について。&lt;/p&gt;
 
 &lt;p&gt;&lt;a href=&quot;/images/2020-09-13-terraria.png&quot;&gt;&lt;img src=&quot;/images/2020-09-13-terraria.png&quot; alt=&quot;&quot;&gt;&lt;/a&gt;&lt;/p&gt;
@@ -905,24 +948,6 @@ end
 &lt;p&gt;今回自分はHardmode突入直後を想定して実装することにしたので、紹介されているものと違い、Teleportが用意されていない。また、Templeにはまだ行けないのでトラップもDart Trapしか使えない。なので、敵は召喚装備で倒すことになる。そうなると敵が勝手に遠くで倒されてしまうことになるので、放置ではなかなかドロップアイテムが集まりにくかったりする。強いトラップを入手すれば将来的に解決できる問題ではある。&lt;/p&gt;
 
 &lt;p&gt;今回の設計だと、近くで倒してもアイテムが拾えない範囲が出てくるので、Treasure Magnetを装備するのが望ましい。&lt;/p&gt;
-</content>
-    </entry>
-  
-    <entry>
-      <title>Mac 標準 動画 サイズ変更 最強</title>
-      <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-09-13-mac-movie-edit"/>
-      <id>tag:r7kamura.com,2019:/articles/2020-09-13-mac-movie-edit</id>
-      <published>2020-09-13T00:00:00+00:00</published>
-      <updated>2020-09-25T20:21:33+00:00</updated>
-      <content type="html">&lt;p&gt;iMovieの話。&lt;/p&gt;
-
-&lt;p&gt;GeForce Experienceの録画機能で、ゲーム中の動画を録画した。録画された200MBほどの動画ファイルの保存先はDropboxになっており、今はたまたまMacでそのファイルを見ているのだが、これを小さいファイルサイズの動画にしてDiscordに貼り付けたい。&lt;/p&gt;
-
-&lt;p&gt;こういうのは新規にフリーソフトを入れる方法を覚えるより、標準の状態でやる方法を覚える方が役に立つことが多い。そこで「Mac 標準 動画 サイズ変更 最強」みたいなキーワードで調べた結果、Macで最初から入っているiMovieがこの用途に適していそうということが分かった。&lt;/p&gt;
-
-&lt;p&gt;iMovieは「プロジェクト」という単位で各動画を管理しているので、まずプロジェクトを新規作成して、そこに編集したい動画を放り込んで、トリミングしたい場合は適当にやって、ファイルに出力するときにカスタムな品質に設定してファイルサイズを調整する、ということをやると良い。&lt;/p&gt;
-
-&lt;p&gt;ちなみに、Windowsだと標準で付いてるフォトで同様のことができて、これも雑に動画編集する上ではたいへん重宝する。&lt;/p&gt;
 </content>
     </entry>
   
