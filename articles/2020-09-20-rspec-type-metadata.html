@@ -3,17 +3,17 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width">
-  <title>RSpecから不要なtypeを取り除く</title>
+  <title>RSpecの不要なtype</title>
   <link href="https://r7kamura.com/articles/2020-09-20-rspec-type-metadata" rel="canonical">
   <link rel="stylesheet" href="/css/main.css">
   <link rel="search" type="application/opensearchdescription+xml" title="r7kamura.com" href="/opensearch.xml">
   <link rel="alternate" type="application/rss+xml" href="/feed.xml">
   
-  <meta property="description" content="sedを使いながらシェルスクリプトで書いても良かったけど、RSpecで書かれたコードということで対象読者的にRubyで書くことに。">
-  <meta property="og:description" content="sedを使いながらシェルスクリプトで書いても良かったけど、RSpecで書かれたコードということで対象読者的にRubyで書くことに。">
+  <meta property="description" content="RSpecを使うテストコードから不要なtypeを取り除く作業をした。">
+  <meta property="og:description" content="RSpecを使うテストコードから不要なtypeを取り除く作業をした。">
   
   <meta property="og:type" content="website">
-  <meta property="og:title" content="RSpecから不要なtypeを取り除く">
+  <meta property="og:title" content="RSpecの不要なtype">
   <meta property="og:url" content="https://r7kamura.com/articles/2020-09-20-rspec-type-metadata">
   
   <meta property="og:image" content="https://r7kamura.com/default_og_image.jpg">
@@ -36,14 +36,16 @@
   </header>
   <main>
     <article>
-  <h1>RSpecから不要なtypeを取り除く</h1>
+  <h1>RSpecの不要なtype</h1>
   <footer>
     <p>
       <time datetime="2020-09-20T00:00:00+00:00">2020年09月20日</time>
     </p>
   </footer>
   <div>
-    <p><code>config.infer_spec_type_from_file_location!</code> を指定することで不要になる <code>metadata[:type]</code> を取り除こうというスクリプト。</p>
+    <p>RSpecを使うテストコードから不要なtypeを取り除く作業をした。</p>
+
+<p><code>config.infer_spec_type_from_file_location!</code> を指定することで不要になる <code>metadata[:type]</code> を取り除こうというスクリプト。</p>
 
 <pre><code class="ruby">require 'pathname'
 
