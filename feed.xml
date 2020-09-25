@@ -3,7 +3,7 @@
   <title>r7kamura.com</title>
   <link rel="self" type="application/atom+xml" href="https://r7kamura.com/feed.xml"/>
   <link rel="alternate" type="text/html" href="https://r7kamura.com/"/>
-  <updated>2020-09-24T22:48:11+00:00</updated>
+  <updated>2020-09-25T19:47:43+00:00</updated>
   <author>
     <name>Ryo Nakamura</name>
   </author>
@@ -14,7 +14,7 @@
       <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-09-25-workspace-pictures"/>
       <id>tag:r7kamura.com,2019:/articles/2020-09-25-workspace-pictures</id>
       <published>2020-09-25T00:00:00+00:00</published>
-      <updated>2020-09-24T22:47:38+00:00</updated>
+      <updated>2020-09-25T19:47:10+00:00</updated>
       <content type="html">&lt;p&gt;他人の作業環境を見るという趣味があり、最近はこの辺を観測している。&lt;/p&gt;
 
 &lt;h2&gt;お前らのpcデスク周り晒して(い)け&lt;/h2&gt;
@@ -64,11 +64,45 @@
     </entry>
   
     <entry>
+      <title>キーボード、節記号、フルーロン</title>
+      <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-09-25-notes"/>
+      <id>tag:r7kamura.com,2019:/articles/2020-09-25-notes</id>
+      <published>2020-09-25T00:00:00+00:00</published>
+      <updated>2020-09-25T19:47:10+00:00</updated>
+      <content type="html">&lt;h2&gt;キーボード&lt;/h2&gt;
+
+&lt;p&gt;ロジクールの新作キーボードが格好良くて、欲しくなってしまっている。ゲーマー以外にもおすすめできそうな、良い塩梅のものが出てきてしまった。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://www.amazon.co.jp/dp/B08FT88853/?tag=r7kamura07-22&quot;&gt;ロジクール キーボード G913-TKL-TCWH&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;自分が底打ち派・テンキーレス派なので、機能性というところでも気に入っている。白色も黒色もどちらにも良さがある。キートップの可愛さと、素材表面の金属削り出しっぽい格好良さが、上手く同居している。自分だとほとんどの手持ちのガジェットが黒色なので、買うなら黒色になっちゃいそうだけど、あえて白色を使ってみたい気持ちもある。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;/articles/2018-12-16-keyboards&quot;&gt;キーボード遍歴&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;これまで使っていたキーボードについての話を発掘したので、書式や体裁を少し整えた。あれから幾らかキーボード環境も更新されているし、そろそろこれの新しい版を書きたい。&lt;/p&gt;
+
+&lt;h2&gt;節記号&lt;/h2&gt;
+
+&lt;p&gt;「§」という記号について、アンカー用のリンクとして使われているのをたまに見たことはあったが、初めてその詳しい説明を読んだ。Google IMEだと、例えば「だんらく」で変換候補として出る模様。「¶」も同様。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://ja.wikipedia.org/wiki/%E7%AF%80%E8%A8%98%E5%8F%B7&quot;&gt;節記号 - Wikipedia&lt;/a&gt;&lt;/p&gt;
+
+&lt;figure&gt;&lt;a href=&quot;/images/2020-09-25-notes.png&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/images/2020-09-25-notes.png&quot; alt=&quot;&quot;&gt;&lt;/a&gt;&lt;figcaption&gt;節記号がアンカーとして使われている例&lt;/figcaption&gt;&lt;/figure&gt;
+
+&lt;hr&gt;
+
+&lt;p&gt;段落記号について調べていたら、フルーロン大好き期が再来したので、罫線のスタイルもまた変更した。そこまで論理的ではない決め方をしたので、またそのうち、装飾イヤイヤ期みたいなものが発生しそう。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://ja.wikipedia.org/wiki/%E3%83%95%E3%83%AB%E3%83%BC%E3%83%AD%E3%83%B3&quot;&gt;フルーロン - Wikipedia&lt;/a&gt;&lt;/p&gt;
+</content>
+    </entry>
+  
+    <entry>
       <title>グローバルヘッダーとトップページの微調整</title>
       <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-09-24-site-minor-changes"/>
       <id>tag:r7kamura.com,2019:/articles/2020-09-24-site-minor-changes</id>
       <published>2020-09-24T00:00:00+00:00</published>
-      <updated>2020-09-24T22:47:38+00:00</updated>
+      <updated>2020-09-25T19:47:10+00:00</updated>
       <content type="html">&lt;p&gt;最近よくこのサイトに手を加えている。最初からそうだったかのように見えていれば、おおよそ成功と言える。&lt;/p&gt;
 
 &lt;h2&gt;グローバルヘッダー&lt;/h2&gt;
@@ -109,7 +143,7 @@
       <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-09-23-this-site-setup-2020"/>
       <id>tag:r7kamura.com,2019:/articles/2020-09-23-this-site-setup-2020</id>
       <published>2020-09-23T00:00:00+00:00</published>
-      <updated>2020-09-24T22:47:38+00:00</updated>
+      <updated>2020-09-25T19:47:10+00:00</updated>
       <content type="html">&lt;p&gt;このサイトの2020年時点での実装のまとめ。振り返り用。&lt;/p&gt;
 
 &lt;h2&gt;ホスティング&lt;/h2&gt;
@@ -194,7 +228,7 @@ GitHub Pagesで静的ファイルを配信している。
       <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-09-23-notes"/>
       <id>tag:r7kamura.com,2019:/articles/2020-09-23-notes</id>
       <published>2020-09-23T00:00:00+00:00</published>
-      <updated>2020-09-24T22:47:38+00:00</updated>
+      <updated>2020-09-25T19:47:10+00:00</updated>
       <content type="html">&lt;p&gt;雑記のタイトルでは、話題を羅列するというパターンが気に入っている。技術系ポッドキャストの説明文で、似たような表現を見ることが多い。&lt;/p&gt;
 
 &lt;figure&gt;&lt;a href=&quot;/images/2020-09-23-notes-camera.jpg&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/images/2020-09-23-notes-camera.jpg&quot; alt=&quot;&quot;&gt;&lt;/a&gt;&lt;figcaption&gt;ウェブカメラとディスプレイ&lt;/figcaption&gt;&lt;/figure&gt;
@@ -245,7 +279,7 @@ end
       <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-09-22-markdown-summary"/>
       <id>tag:r7kamura.com,2019:/articles/2020-09-22-markdown-summary</id>
       <published>2020-09-22T00:00:00+00:00</published>
-      <updated>2020-09-24T22:47:38+00:00</updated>
+      <updated>2020-09-25T19:47:10+00:00</updated>
       <content type="html">&lt;figure&gt;&lt;a href=&quot;/images/2020-09-22-summary-detection.jpg&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/images/2020-09-22-summary-detection.jpg&quot; alt=&quot;&quot;&gt;&lt;/a&gt;&lt;figcaption&gt;何の関係も無いサメのぬいぐるみの画像&lt;/figcaption&gt;&lt;/figure&gt;
 
 &lt;p&gt;記事の説明文を抽出する方法を変更した。あまり目に触れる機会は無いが、SNSやフィードなどで利用される。&lt;/p&gt;
@@ -273,7 +307,7 @@ end
       <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-09-22-markdown-caption"/>
       <id>tag:r7kamura.com,2019:/articles/2020-09-22-markdown-caption</id>
       <published>2020-09-22T00:00:00+00:00</published>
-      <updated>2020-09-24T22:47:38+00:00</updated>
+      <updated>2020-09-25T19:47:10+00:00</updated>
       <content type="html">&lt;p&gt;FF14のスクリーンショットを久しぶりに見返していた。&lt;/p&gt;
 
 &lt;figure&gt;&lt;a href=&quot;/images/2020-09-22-markdown-caption-back.png&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/images/2020-09-22-markdown-caption-back.png&quot; alt=&quot;&quot;&gt;&lt;/a&gt;&lt;figcaption&gt;猫耳や尻尾があるミコッテという種族&lt;/figcaption&gt;&lt;/figure&gt;
@@ -337,7 +371,7 @@ end
       <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-09-21-personal-website"/>
       <id>tag:r7kamura.com,2019:/articles/2020-09-21-personal-website</id>
       <published>2020-09-21T00:00:00+00:00</published>
-      <updated>2020-09-24T22:47:38+00:00</updated>
+      <updated>2020-09-25T19:47:10+00:00</updated>
       <content type="html">&lt;p&gt;なぜ個人でウェブサイトを運用しているのかについて、整理しておきたい。&lt;/p&gt;
 
 &lt;p&gt;要約すると、以下の理由でやっている。&lt;/p&gt;
@@ -423,7 +457,7 @@ end
       <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-09-21-cable-dependencies"/>
       <id>tag:r7kamura.com,2019:/articles/2020-09-21-cable-dependencies</id>
       <published>2020-09-21T00:00:00+00:00</published>
-      <updated>2020-09-24T22:47:38+00:00</updated>
+      <updated>2020-09-25T19:47:10+00:00</updated>
       <content type="html">&lt;p&gt;PCデスクを買い換えることにしたので、機器と配線について整理する。&lt;/p&gt;
 
 &lt;p&gt;&lt;a href=&quot;/images/2020-09-21-cable-dependencies.jpg&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/images/2020-09-21-cable-dependencies.jpg&quot; alt=&quot;&quot;&gt;&lt;/a&gt;&lt;/p&gt;
@@ -518,7 +552,7 @@ end
       <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-09-20-rspec-type-metadata"/>
       <id>tag:r7kamura.com,2019:/articles/2020-09-20-rspec-type-metadata</id>
       <published>2020-09-20T00:00:00+00:00</published>
-      <updated>2020-09-24T22:47:38+00:00</updated>
+      <updated>2020-09-25T19:47:10+00:00</updated>
       <content type="html">&lt;p&gt;&lt;code&gt;config.infer_spec_type_from_file_location!&lt;/code&gt; を指定することで不要になる &lt;code&gt;metadata[:type]&lt;/code&gt; を取り除こうというスクリプト。&lt;/p&gt;
 
 &lt;pre&gt;&lt;code class=&quot;ruby&quot;&gt;require &#39;pathname&#39;
@@ -576,7 +610,7 @@ RSpec.describe User do
       <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-09-20-restospective-past-work"/>
       <id>tag:r7kamura.com,2019:/articles/2020-09-20-restospective-past-work</id>
       <published>2020-09-20T00:00:00+00:00</published>
-      <updated>2020-09-24T22:47:38+00:00</updated>
+      <updated>2020-09-25T19:47:10+00:00</updated>
       <content type="html">&lt;p&gt;RubyやRailsのアップグレードを主なマイルストーンとしつつ全体的に開発体験を良くしていくというタイプの仕事を請けることが多いのですが、仕事を依頼する側の視点に立ってみると「実際のところ業務に参加するとどういうことが行われるのか？」というのがやはり気になると思います。&lt;/p&gt;
 
 &lt;p&gt;実際、最近の打ち合わせでもその手の不安について相談されることがあったので、ここ1ヶ月でそれ系の仕事で出したPull Requestを元に、実際に何をやっていたかの例を挙げてみたいと思います。&lt;/p&gt;
@@ -645,7 +679,7 @@ RSpec.describe User do
       <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-09-19-list-articles-minor-change"/>
       <id>tag:r7kamura.com,2019:/articles/2020-09-19-list-articles-minor-change</id>
       <published>2020-09-19T00:00:00+00:00</published>
-      <updated>2020-09-24T22:47:38+00:00</updated>
+      <updated>2020-09-25T19:47:10+00:00</updated>
       <content type="html">&lt;p&gt;変更対象は、グローバルヘッダーのリンクと記事一覧ページの見出し。&lt;/p&gt;
 
 &lt;p&gt;「記事」という表記は、記事ではないもの…例えば写真など…が存在していて初めて「記事」という表記である妥当性が生まれるはずで、現状このウェブサイトには記事しかコンテンツが無い。そうであれば、一覧であるということを押し出して「記事一覧」と表記した方が分かりやすいだろう、という意図でこう変更した。&lt;/p&gt;
@@ -685,7 +719,7 @@ RSpec.describe User do
       <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-09-19-anker-usb-hub"/>
       <id>tag:r7kamura.com,2019:/articles/2020-09-19-anker-usb-hub</id>
       <published>2020-09-19T00:00:00+00:00</published>
-      <updated>2020-09-24T22:47:38+00:00</updated>
+      <updated>2020-09-25T19:47:10+00:00</updated>
       <content type="html">&lt;p&gt;&lt;a href=&quot;/images/2020-09-19-anker-usb-hub.jpg&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/images/2020-09-19-anker-usb-hub.jpg&quot; alt=&quot;&quot;&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;『&lt;a href=&quot;https://www.amazon.co.jp/dp/B087TB7YM7?tag=r7kamura07-22&quot;&gt;Anker PowerExpand 8-in-1 USB-C PD 10Gbps データ ハブ&lt;/a&gt;』を買った。&lt;/p&gt;
@@ -720,7 +754,7 @@ RSpec.describe User do
       <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-09-18-link-image"/>
       <id>tag:r7kamura.com,2019:/articles/2020-09-18-link-image</id>
       <published>2020-09-18T00:00:00+00:00</published>
-      <updated>2020-09-24T22:47:38+00:00</updated>
+      <updated>2020-09-25T19:47:10+00:00</updated>
       <content type="html">&lt;p&gt;これで画像をクリックすると大きく表示できるようになった。&lt;/p&gt;
 
 &lt;p&gt;&lt;a href=&quot;/images/2020-09-18-link-image.jpg&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/images/2020-09-18-link-image.jpg&quot; alt=&quot;&quot;&gt;&lt;/a&gt;&lt;/p&gt;
@@ -750,7 +784,7 @@ RSpec.describe User do
       <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-09-17-empty-test-files"/>
       <id>tag:r7kamura.com,2019:/articles/2020-09-17-empty-test-files</id>
       <published>2020-09-17T00:00:00+00:00</published>
-      <updated>2020-09-24T22:47:38+00:00</updated>
+      <updated>2020-09-25T19:47:10+00:00</updated>
       <content type="html">&lt;p&gt;雑なスクリプトを書いて空のテストファイルを消したという話。&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;require &#39;pathname&#39;
@@ -775,7 +809,7 @@ end
       <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-09-16-gaming-mouse-pad"/>
       <id>tag:r7kamura.com,2019:/articles/2020-09-16-gaming-mouse-pad</id>
       <published>2020-09-16T00:00:00+00:00</published>
-      <updated>2020-09-24T22:47:38+00:00</updated>
+      <updated>2020-09-25T19:47:10+00:00</updated>
       <content type="html">&lt;p&gt;Razerの&lt;a href=&quot;https://www.amazon.co.jp/dp/B07JJ4RG2T/r7kamura07-22&quot;&gt;Goliathus Chroma Extended&lt;/a&gt;というマウスパッドを買った。&lt;/p&gt;
 
 &lt;p&gt;&lt;a href=&quot;/images/2020-09-16-gaming-mouse-pad-light.jpg&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/images/2020-09-16-gaming-mouse-pad-light.jpg&quot; alt=&quot;&quot;&gt;&lt;/a&gt;&lt;/p&gt;
@@ -793,7 +827,7 @@ end
       <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-09-16-color-change"/>
       <id>tag:r7kamura.com,2019:/articles/2020-09-16-color-change</id>
       <published>2020-09-16T00:00:00+00:00</published>
-      <updated>2020-09-24T22:47:38+00:00</updated>
+      <updated>2020-09-25T19:47:10+00:00</updated>
       <content type="html">&lt;p&gt;&lt;a href=&quot;/images/2020-09-16-color-change.png&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/images/2020-09-16-color-change.png&quot; alt=&quot;&quot;&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;コントラストが高すぎてどぎつい感じがしてきたので、テキストの色を &lt;code&gt;#111111&lt;/code&gt; から &lt;code&gt;#333333&lt;/code&gt; に変更した。&lt;/p&gt;
@@ -807,7 +841,7 @@ end
       <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-09-16-blue-microphones-compass"/>
       <id>tag:r7kamura.com,2019:/articles/2020-09-16-blue-microphones-compass</id>
       <published>2020-09-16T00:00:00+00:00</published>
-      <updated>2020-09-24T22:47:38+00:00</updated>
+      <updated>2020-09-25T19:47:10+00:00</updated>
       <content type="html">&lt;p&gt;&lt;a href=&quot;/images/2020-09-16-blue-microphones-compass.jpg&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/images/2020-09-16-blue-microphones-compass.jpg&quot; alt=&quot;&quot;&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;Blue MicrophonesのCompassというマイクスタンドを購入して取り付けた。&lt;/p&gt;
@@ -825,7 +859,7 @@ end
       <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-09-13-terraria"/>
       <id>tag:r7kamura.com,2019:/articles/2020-09-13-terraria</id>
       <published>2020-09-13T00:00:00+00:00</published>
-      <updated>2020-09-24T22:47:38+00:00</updated>
+      <updated>2020-09-25T19:47:10+00:00</updated>
       <content type="html">&lt;p&gt;Terrariaで&lt;a href=&quot;https://terraria.gamepedia.com/Pirate_Map&quot;&gt;Pirate Map&lt;/a&gt;を放置しながら集めるための狩場について。&lt;/p&gt;
 
 &lt;p&gt;&lt;a href=&quot;/images/2020-09-13-terraria.png&quot;&gt;&lt;img src=&quot;/images/2020-09-13-terraria.png&quot; alt=&quot;&quot;&gt;&lt;/a&gt;&lt;/p&gt;
@@ -869,7 +903,7 @@ end
       <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-09-13-mac-movie-edit"/>
       <id>tag:r7kamura.com,2019:/articles/2020-09-13-mac-movie-edit</id>
       <published>2020-09-13T00:00:00+00:00</published>
-      <updated>2020-09-24T22:47:38+00:00</updated>
+      <updated>2020-09-25T19:47:10+00:00</updated>
       <content type="html">&lt;p&gt;iMovieの話。&lt;/p&gt;
 
 &lt;p&gt;GeForce Experienceの録画機能で、ゲーム中の動画を録画した。録画された200MBほどの動画ファイルの保存先はDropboxになっており、今はたまたまMacでそのファイルを見ているのだが、これを小さいファイルサイズの動画にしてDiscordに貼り付けたい。&lt;/p&gt;
@@ -879,100 +913,6 @@ end
 &lt;p&gt;iMovieは「プロジェクト」という単位で各動画を管理しているので、まずプロジェクトを新規作成して、そこに編集したい動画を放り込んで、トリミングしたい場合は適当にやって、ファイルに出力するときにカスタムな品質に設定してファイルサイズを調整する、ということをやると良い。&lt;/p&gt;
 
 &lt;p&gt;ちなみに、Windowsだと標準で付いてるフォトで同様のことができて、これも雑に動画編集する上ではたいへん重宝する。&lt;/p&gt;
-</content>
-    </entry>
-  
-    <entry>
-      <title>ActiveRecord::EnumのI18n</title>
-      <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-09-12-activerecord-enum-translation"/>
-      <id>tag:r7kamura.com,2019:/articles/2020-09-12-activerecord-enum-translation</id>
-      <published>2020-09-12T00:00:00+00:00</published>
-      <updated>2020-09-24T22:47:38+00:00</updated>
-      <content type="html">&lt;p&gt;ActiveRecordのenumにI18n用の機能を提供するgemをつくった。&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://github.com/r7kamura/activerecord-enum_translation&quot;&gt;https://github.com/r7kamura/activerecord-enum_translation&lt;/a&gt;&lt;/p&gt;
-
-&lt;h2&gt;どういうものか&lt;/h2&gt;
-
-&lt;p&gt;Userがenumを利用したstatusというカラムを持っているとすると、I18n用の辞書としてこういう風なデータを用意しておけば…&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&quot;yaml&quot;&gt;ja:
-  activerecord:
-    attributes:
-      user:
-        name: 名前
-        status:
-          active: 利用中
-          inactive: 停止中
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;次のようにメソッドを呼び出すことで、翻訳された辞書が利用できるようになる、というやつ。&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&quot;ruby&quot;&gt;user.human_enum_name_for(:status) #=&amp;gt; &quot;利用中&quot;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;技術的な難題の解決とかは全く狙っていなくて、どちらかと言うと、この手の仕組みにルールが無くてアプリ内のいろんなところにこれ系のいろんな実装が書かれがちなので、決まりを用意して仕組み化しましょうというのだけを狙って書いてみたところが大きい。&lt;/p&gt;
-
-&lt;h2&gt;ある程度コード量が増えても良いので明示的にやる&lt;/h2&gt;
-
-&lt;p&gt;同じ問題を解決するためのgemとして、昔からenum_helpというものがあるので、これを使っても良い。あとここでは紹介しないけれど似たようなものが幾つかあります。&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://github.com/zmbacker/enum_help&quot;&gt;https://github.com/zmbacker/enum_help&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;解決策としてもちろん知ってはいたのだけれど、個人的にはあまり気に入らなくて、別のものを自作してしまった。せっかくだから、気に入らなかったところなどについて書いてみる。&lt;/p&gt;
-
-&lt;p&gt;例えば、何もしなくても済むようにデフォルトでわりと色々な機能を用意してくれる結果、コード中に足掛かりが何も生まれないところとかは、長年さまざまなRailsアプリの面倒を見てきた結果、かなり嫌いな要素になっている。&lt;/p&gt;
-
-&lt;p&gt;enum_helpも、Railtieを利用して、ActiveRecord::Baseに勝手にmoduleをincludeして、&lt;code&gt;enum&lt;/code&gt; を上書きして、enum利用時に勝手に便利メソッドが追加で生える…という、まあRails用のプラグインとしてはよくある仕組みで実装されているのだけど、できる限りこういうのも明示的にやりたい。&lt;/p&gt;
-
-&lt;p&gt;ライブラリ側はmoduleを提供するので、ユーザにはそれをincludeしてもらって、includeするということはインスタンスメソッドが提供されるということが想定できて、想定通り単純で素直なインスタンスメソッドが提供される。それも何かマジカルな仕組みで動的に定義されたメソッドとかではなく普通のものが提供される。そういう単純な感じであってほしい。&lt;/p&gt;
-
-&lt;p&gt;とはいえ便利なメソッドが動的に定義される方が便利やん、という意見があり、例えば前述のコードは以下のように引数の不要な形で書けるともっと嬉しい。&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&quot;ruby&quot;&gt;user.human_enum_name_for_status #=&amp;gt; &quot;利用中&quot;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;今回書いたやつでは、こういうのが欲しいときは &lt;code&gt;human_enum_reader_for&lt;/code&gt; というメソッドでわざわざ宣言させるようにしている。まあこの特異メソッドが呼び出せるようにするために、結局include時に若干マジカルなことをしてはいるんだけども。&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&quot;ruby&quot;&gt;class User &amp;lt; ApplicationRecord
-  enum status: %i[active inactive]
-  human_enum_reader_for :status
-end
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;こういう風に明示的にしておくと何が良いかというと、例えばこの機能から撤退しようということになったときに、「アプリ内の全てのこの機能について使われてるかどうか調べなきゃいけないじゃん……ほぼ無理だろ……」と途方に暮れる可能性が少しだけ減って、使われてそうなところに当たりがつけられるようになるので、少し希望的になる。今回の例について言えばまだなんとかなったりする範疇なので、言いたいことの例としてあまり良いものではないんだけど、まあなんか言わんとしてることは伝わってほしいです。&lt;/p&gt;
-
-&lt;h2&gt;既存の翻訳辞書との兼ね合い&lt;/h2&gt;
-
-&lt;p&gt;他に気になるところとして、既存の翻訳辞書に新たにenum用の値を追加するときに、例えばこういう定義場所が離れるような感じにしたくないという気持ちが少しあった。&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&quot;yaml&quot;&gt;ja:
-  activerecord:
-    attributes:
-      user:
-        name: 名前
-  enums:
-    user:
-      status:
-        active: 利用中
-        inactive: 停止中
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;これはかなり単純化された例なので、実際にはattributesのところに既存の項目が沢山並んでいて、実際にはenum用のデータはかなり遠く離れたところに置かれることになる感じ。&lt;/p&gt;
-
-&lt;p&gt;まあそれでも賛否両論あると思っていて、既存の辞書内にenum用の値を上手く忍ばせているせいで、逆にこのgemを廃止してenum用のデータだけ取り除きたくなったときに「もはやenum用のものかどうか分からん状況になっとるやんけこいつセンスねえな」と思うケースもあるかも。&lt;/p&gt;
-
-&lt;p&gt;普段Railsのコード読んでて勘の良い人なら実装読むと分かると思うけど、今回書いたやつはほぼActiveModel::Translationの仕様と実装に寄せて書いている。&lt;/p&gt;
-
-&lt;p&gt;仕様についてどの辺が寄せられているかというと、(READMEには書いてないけど) 例えば全てのモデルについてのデフォルト値を書きたい場合は以下のように書けたりもするし、&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&quot;yaml&quot;&gt;ja:
-  attributes:
-    status:
-      active: 利用中
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;直接のクラス名について該当する翻訳が無かった場合は親クラスに遡ったりもするし、何も無かった場合は &lt;code&gt;String#humanize&lt;/code&gt; で代替の値が用意されたりするし、defaultオプションでその値を外から指定できたりもする。&lt;/p&gt;
 </content>
     </entry>
   
