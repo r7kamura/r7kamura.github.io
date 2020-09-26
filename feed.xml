@@ -3,18 +3,34 @@
   <title>r7kamura.com</title>
   <link rel="self" type="application/atom+xml" href="https://r7kamura.com/feed.xml"/>
   <link rel="alternate" type="text/html" href="https://r7kamura.com/"/>
-  <updated>2020-09-26T18:52:05+00:00</updated>
+  <updated>2020-09-26T19:21:05+00:00</updated>
   <author>
     <name>Ryo Nakamura</name>
   </author>
   <id>tag:r7kamura.com,2019:/</id>
   
     <entry>
+      <title>記事の日付の位置</title>
+      <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-09-27-article-date-position"/>
+      <id>tag:r7kamura.com,2019:/articles/2020-09-27-article-date-position</id>
+      <published>2020-09-27T00:00:00+00:00</published>
+      <updated>2020-09-26T19:20:24+00:00</updated>
+      <content type="html">&lt;p&gt;常に記事タイトルの下に日付が置かれるように変更した。&lt;/p&gt;
+
+&lt;figure&gt;&lt;a href=&quot;/images/2020-09-27-date-before.png&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/images/2020-09-27-date-before.png&quot; alt=&quot;&quot;&gt;&lt;/a&gt;&lt;figcaption&gt;変更前&lt;/figcaption&gt;&lt;/figure&gt;
+
+&lt;figure&gt;&lt;a href=&quot;/images/2020-09-27-date-after.png&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/images/2020-09-27-date-after.png&quot; alt=&quot;&quot;&gt;&lt;/a&gt;&lt;figcaption&gt;変更後&lt;/figcaption&gt;&lt;/figure&gt;
+
+&lt;p&gt;記事単体のページでは既に日付が下にくるようになっているし、一覧でもパターンを統一しておきたいと思ったため。統一する前提で話すと、日付を上に置くつもりは今のところない。日記であればそうしたと思うが、どちらかと言うとエッセイ寄りというか、記事に日付が従属している状態にしておきたい。&lt;/p&gt;
+</content>
+    </entry>
+  
+    <entry>
       <title>Rails 設計 最強</title>
       <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-09-26-rails-architecture-strongest"/>
       <id>tag:r7kamura.com,2019:/articles/2020-09-26-rails-architecture-strongest</id>
       <published>2020-09-26T00:00:00+00:00</published>
-      <updated>2020-09-26T18:51:31+00:00</updated>
+      <updated>2020-09-26T19:20:24+00:00</updated>
       <content type="html">&lt;p&gt;自分が目指したいRailsアプリの形とは何か、ということについて考えていた。&lt;/p&gt;
 
 &lt;p&gt;常日頃から考えていたRailsアプリでの不満をこの議論に合流させた結果、「Rubyを書くときに当たり前にやるようなことを、Railsアプリを書くときでも当たり前のようにやる」というところが肝で、自分が目指したいRailsアプリの形はその先にあるのではないか、と一旦結論付けてみることにした。&lt;/p&gt;
@@ -57,7 +73,7 @@ RubyとRailsが地続きに繋がっていないというか、どこかで断�
       <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-09-25-workspace-pictures"/>
       <id>tag:r7kamura.com,2019:/articles/2020-09-25-workspace-pictures</id>
       <published>2020-09-25T00:00:00+00:00</published>
-      <updated>2020-09-26T18:51:31+00:00</updated>
+      <updated>2020-09-26T19:20:24+00:00</updated>
       <content type="html">&lt;p&gt;他人の作業環境を見るという趣味があり、最近はこの辺を観測している。&lt;/p&gt;
 
 &lt;h2&gt;お前らのpcデスク周り晒して(い)け&lt;/h2&gt;
@@ -111,7 +127,7 @@ RubyとRailsが地続きに繋がっていないというか、どこかで断�
       <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-09-25-notes"/>
       <id>tag:r7kamura.com,2019:/articles/2020-09-25-notes</id>
       <published>2020-09-25T00:00:00+00:00</published>
-      <updated>2020-09-26T18:51:31+00:00</updated>
+      <updated>2020-09-26T19:20:24+00:00</updated>
       <content type="html">&lt;p&gt;文字について考えることが多い一日だった。&lt;/p&gt;
 
 &lt;h2&gt;キーボード&lt;/h2&gt;
@@ -149,7 +165,7 @@ RubyとRailsが地続きに繋がっていないというか、どこかで断�
       <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-09-24-site-minor-changes"/>
       <id>tag:r7kamura.com,2019:/articles/2020-09-24-site-minor-changes</id>
       <published>2020-09-24T00:00:00+00:00</published>
-      <updated>2020-09-26T18:51:31+00:00</updated>
+      <updated>2020-09-26T19:20:24+00:00</updated>
       <content type="html">&lt;p&gt;最近よくこのサイトに手を加えている。最初からそうだったかのように見えていれば、おおよそ成功と言える。&lt;/p&gt;
 
 &lt;h2&gt;グローバルヘッダー&lt;/h2&gt;
@@ -190,7 +206,7 @@ RubyとRailsが地続きに繋がっていないというか、どこかで断�
       <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-09-23-this-site-setup-2020"/>
       <id>tag:r7kamura.com,2019:/articles/2020-09-23-this-site-setup-2020</id>
       <published>2020-09-23T00:00:00+00:00</published>
-      <updated>2020-09-26T18:51:31+00:00</updated>
+      <updated>2020-09-26T19:20:24+00:00</updated>
       <content type="html">&lt;p&gt;このサイトの2020年時点での実装のまとめ。振り返り用。&lt;/p&gt;
 
 &lt;h2&gt;ホスティング&lt;/h2&gt;
@@ -275,7 +291,7 @@ GitHub Pagesで静的ファイルを配信している。
       <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-09-23-notes"/>
       <id>tag:r7kamura.com,2019:/articles/2020-09-23-notes</id>
       <published>2020-09-23T00:00:00+00:00</published>
-      <updated>2020-09-26T18:51:31+00:00</updated>
+      <updated>2020-09-26T19:20:24+00:00</updated>
       <content type="html">&lt;p&gt;雑記のタイトルでは、話題を羅列するというパターンが気に入っている。技術系ポッドキャストの説明文で、似たような表現を見ることが多い。&lt;/p&gt;
 
 &lt;figure&gt;&lt;a href=&quot;/images/2020-09-23-notes-camera.jpg&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/images/2020-09-23-notes-camera.jpg&quot; alt=&quot;&quot;&gt;&lt;/a&gt;&lt;figcaption&gt;ウェブカメラとディスプレイ&lt;/figcaption&gt;&lt;/figure&gt;
@@ -326,7 +342,7 @@ end
       <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-09-22-markdown-summary"/>
       <id>tag:r7kamura.com,2019:/articles/2020-09-22-markdown-summary</id>
       <published>2020-09-22T00:00:00+00:00</published>
-      <updated>2020-09-26T18:51:31+00:00</updated>
+      <updated>2020-09-26T19:20:24+00:00</updated>
       <content type="html">&lt;figure&gt;&lt;a href=&quot;/images/2020-09-22-summary-detection.jpg&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/images/2020-09-22-summary-detection.jpg&quot; alt=&quot;&quot;&gt;&lt;/a&gt;&lt;figcaption&gt;何の関係も無いサメのぬいぐるみの画像&lt;/figcaption&gt;&lt;/figure&gt;
 
 &lt;p&gt;記事の説明文を抽出する方法を変更した。あまり目に触れる機会は無いが、SNSやフィードなどで利用される。&lt;/p&gt;
@@ -354,7 +370,7 @@ end
       <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-09-22-markdown-caption"/>
       <id>tag:r7kamura.com,2019:/articles/2020-09-22-markdown-caption</id>
       <published>2020-09-22T00:00:00+00:00</published>
-      <updated>2020-09-26T18:51:31+00:00</updated>
+      <updated>2020-09-26T19:20:24+00:00</updated>
       <content type="html">&lt;p&gt;FF14のスクリーンショットを久しぶりに見返していた。&lt;/p&gt;
 
 &lt;figure&gt;&lt;a href=&quot;/images/2020-09-22-markdown-caption-back.png&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/images/2020-09-22-markdown-caption-back.png&quot; alt=&quot;&quot;&gt;&lt;/a&gt;&lt;figcaption&gt;猫耳や尻尾があるミコッテという種族&lt;/figcaption&gt;&lt;/figure&gt;
@@ -418,7 +434,7 @@ end
       <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-09-21-personal-website"/>
       <id>tag:r7kamura.com,2019:/articles/2020-09-21-personal-website</id>
       <published>2020-09-21T00:00:00+00:00</published>
-      <updated>2020-09-26T18:51:31+00:00</updated>
+      <updated>2020-09-26T19:20:24+00:00</updated>
       <content type="html">&lt;p&gt;なぜ個人でウェブサイトを運用しているのかについて、整理しておきたい。&lt;/p&gt;
 
 &lt;p&gt;要約すると、以下の理由でやっている。&lt;/p&gt;
@@ -504,7 +520,7 @@ end
       <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-09-21-cable-dependencies"/>
       <id>tag:r7kamura.com,2019:/articles/2020-09-21-cable-dependencies</id>
       <published>2020-09-21T00:00:00+00:00</published>
-      <updated>2020-09-26T18:51:31+00:00</updated>
+      <updated>2020-09-26T19:20:24+00:00</updated>
       <content type="html">&lt;p&gt;PCデスクを買い換えることにしたので、機器と配線について整理する。&lt;/p&gt;
 
 &lt;p&gt;&lt;a href=&quot;/images/2020-09-21-cable-dependencies.jpg&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/images/2020-09-21-cable-dependencies.jpg&quot; alt=&quot;&quot;&gt;&lt;/a&gt;&lt;/p&gt;
@@ -599,7 +615,7 @@ end
       <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-09-20-rspec-type-metadata"/>
       <id>tag:r7kamura.com,2019:/articles/2020-09-20-rspec-type-metadata</id>
       <published>2020-09-20T00:00:00+00:00</published>
-      <updated>2020-09-26T18:51:31+00:00</updated>
+      <updated>2020-09-26T19:20:24+00:00</updated>
       <content type="html">&lt;p&gt;RSpecを使うテストコードから不要なtypeを取り除く作業をした。&lt;/p&gt;
 
 &lt;p&gt;&lt;code&gt;config.infer_spec_type_from_file_location!&lt;/code&gt; を指定することで不要になる &lt;code&gt;metadata[:type]&lt;/code&gt; を取り除こうというスクリプト。&lt;/p&gt;
@@ -659,7 +675,7 @@ RSpec.describe User do
       <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-09-20-restospective-past-work"/>
       <id>tag:r7kamura.com,2019:/articles/2020-09-20-restospective-past-work</id>
       <published>2020-09-20T00:00:00+00:00</published>
-      <updated>2020-09-26T18:51:31+00:00</updated>
+      <updated>2020-09-26T19:20:24+00:00</updated>
       <content type="html">&lt;p&gt;RubyやRailsのアップグレードを主なマイルストーンとしつつ全体的に開発体験を良くしていくというタイプの仕事を請けることが多いのですが、仕事を依頼する側の視点に立ってみると「実際のところ業務に参加するとどういうことが行われるのか？」というのがやはり気になると思います。&lt;/p&gt;
 
 &lt;p&gt;実際、最近の打ち合わせでもその手の不安について相談されることがあったので、ここ1ヶ月でそれ系の仕事で出したPull Requestを元に、実際に何をやっていたかの例を挙げてみたいと思います。&lt;/p&gt;
@@ -728,7 +744,7 @@ RSpec.describe User do
       <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-09-19-list-articles-minor-change"/>
       <id>tag:r7kamura.com,2019:/articles/2020-09-19-list-articles-minor-change</id>
       <published>2020-09-19T00:00:00+00:00</published>
-      <updated>2020-09-26T18:51:31+00:00</updated>
+      <updated>2020-09-26T19:20:24+00:00</updated>
       <content type="html">&lt;p&gt;ヘッダーのリンクと記事一覧ページの見出しを少し変えた。&lt;/p&gt;
 
 &lt;p&gt;「記事」という表記は、記事ではないもの…例えば写真など…が存在していて初めて「記事」という表記である妥当性が生まれるはずで、現状このウェブサイトには記事しかコンテンツが無い。そうであれば、一覧であるということを押し出して「記事一覧」と表記した方が分かりやすいだろう、という意図でこう変更した。&lt;/p&gt;
@@ -768,7 +784,7 @@ RSpec.describe User do
       <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-09-19-anker-usb-hub"/>
       <id>tag:r7kamura.com,2019:/articles/2020-09-19-anker-usb-hub</id>
       <published>2020-09-19T00:00:00+00:00</published>
-      <updated>2020-09-26T18:51:31+00:00</updated>
+      <updated>2020-09-26T19:20:24+00:00</updated>
       <content type="html">&lt;p&gt;AnkerのUSBハブを買った。&lt;/p&gt;
 
 &lt;p&gt;&lt;a href=&quot;https://www.amazon.co.jp/dp/B087TB7YM7?tag=r7kamura07-22&quot;&gt;Anker PowerExpand 8-in-1 USB-C PD 10Gbps データ ハブ&lt;/a&gt;&lt;/p&gt;
@@ -805,7 +821,7 @@ RSpec.describe User do
       <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-09-18-link-image"/>
       <id>tag:r7kamura.com,2019:/articles/2020-09-18-link-image</id>
       <published>2020-09-18T00:00:00+00:00</published>
-      <updated>2020-09-26T18:51:31+00:00</updated>
+      <updated>2020-09-26T19:20:24+00:00</updated>
       <content type="html">&lt;p&gt;記事内の画像にリンクを付けた。クリックして拡大できるように。&lt;/p&gt;
 
 &lt;figure&gt;&lt;a href=&quot;/images/2020-09-18-link-image.jpg&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/images/2020-09-18-link-image.jpg&quot; alt=&quot;&quot;&gt;&lt;/a&gt;&lt;figcaption&gt;特に脈絡の無いサメのぬいぐるみの画像&lt;/figcaption&gt;&lt;/figure&gt;
@@ -833,7 +849,7 @@ RSpec.describe User do
       <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-09-17-empty-test-files"/>
       <id>tag:r7kamura.com,2019:/articles/2020-09-17-empty-test-files</id>
       <published>2020-09-17T00:00:00+00:00</published>
-      <updated>2020-09-26T18:51:31+00:00</updated>
+      <updated>2020-09-26T19:20:24+00:00</updated>
       <content type="html">&lt;p&gt;何も書かれていなさそうなテストファイルを消す作業をした。&lt;/p&gt;
 
 &lt;pre&gt;&lt;code class=&quot;ruby&quot;&gt;require &#39;pathname&#39;
@@ -858,7 +874,7 @@ end
       <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-09-16-gaming-mouse-pad"/>
       <id>tag:r7kamura.com,2019:/articles/2020-09-16-gaming-mouse-pad</id>
       <published>2020-09-16T00:00:00+00:00</published>
-      <updated>2020-09-26T18:51:31+00:00</updated>
+      <updated>2020-09-26T19:20:24+00:00</updated>
       <content type="html">&lt;p&gt;Razerの光るマウスパッドを買った。&lt;/p&gt;
 
 &lt;p&gt;&lt;a href=&quot;https://www.amazon.co.jp/dp/B07JJ4RG2T/?tag=r7kamura07-22&quot;&gt;Razer マウスパッド Goliathus Chroma Extended&lt;/a&gt;&lt;/p&gt;
@@ -878,7 +894,7 @@ end
       <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-09-16-color-change"/>
       <id>tag:r7kamura.com,2019:/articles/2020-09-16-color-change</id>
       <published>2020-09-16T00:00:00+00:00</published>
-      <updated>2020-09-26T18:51:31+00:00</updated>
+      <updated>2020-09-26T19:20:24+00:00</updated>
       <content type="html">&lt;p&gt;このサイトの、文字とコードブロックの色を変えた。&lt;/p&gt;
 
 &lt;figure&gt;&lt;a href=&quot;/images/2020-09-16-color-change.png&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/images/2020-09-16-color-change.png&quot; alt=&quot;&quot;&gt;&lt;/a&gt;&lt;figcaption&gt;変更前後の様子&lt;/figcaption&gt;&lt;/figure&gt;
@@ -894,7 +910,7 @@ end
       <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-09-16-blue-microphones-compass"/>
       <id>tag:r7kamura.com,2019:/articles/2020-09-16-blue-microphones-compass</id>
       <published>2020-09-16T00:00:00+00:00</published>
-      <updated>2020-09-26T18:51:31+00:00</updated>
+      <updated>2020-09-26T19:20:24+00:00</updated>
       <content type="html">&lt;p&gt;新しいマイクスタンドを買った。&lt;/p&gt;
 
 &lt;p&gt;&lt;a href=&quot;https://www.amazon.co.jp/dp/B0822PPK7P/?tag=r7kamura07-22&quot;&gt;Blue Microphones マイクスタンド Compass BA100CBK&lt;/a&gt;&lt;/p&gt;
@@ -904,50 +920,6 @@ end
 &lt;p&gt;使わないときに回転させて端の方に追いやっておく…という操作がやりやすく、そういうことをしてもしっかりと角度が保存されている。本体の中に深めのケーブルガイドがあるのも地味に嬉しいところ。&lt;/p&gt;
 
 &lt;p&gt;前まで使っていたものは、どうしてもYetiの重量に耐え切れず、良い感じの角度で止まらないことが多かった。それでも工夫すれば普通に使えてはいたので、前のやつもそこまで悪くはなかったと思う。今はヘッドホンスタンドとして第二の人生を歩み始めてもらっている。&lt;/p&gt;
-</content>
-    </entry>
-  
-    <entry>
-      <title>Terraria Pirate Map AFK Farm</title>
-      <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-09-13-terraria"/>
-      <id>tag:r7kamura.com,2019:/articles/2020-09-13-terraria</id>
-      <published>2020-09-13T00:00:00+00:00</published>
-      <updated>2020-09-26T18:51:31+00:00</updated>
-      <content type="html">&lt;p&gt;Terrariaで&lt;a href=&quot;https://terraria.gamepedia.com/Pirate_Map&quot;&gt;Pirate Map&lt;/a&gt;を放置しながら集めるための狩場について。&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;/images/2020-09-13-terraria.png&quot;&gt;&lt;img src=&quot;/images/2020-09-13-terraria.png&quot; alt=&quot;&quot;&gt;&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://www.reddit.com/r/Terraria/comments/gr6a6i/14_i_made_a_new_afk_arapaima_pirate_map_farm/&quot;&gt;https://www.reddit.com/r/Terraria/comments/gr6a6i/14_i_made_a_new_afk_arapaima_pirate_map_farm/&lt;/a&gt; で紹介されていた方法を真似してみたら上手くいったので、実装で理解できたところについて、後続用にメモを残しておく。ちなみに検証時のバージョンは1.4.0。&lt;/p&gt;
-
-&lt;hr&gt;
-
-&lt;p&gt;そもそもPirate MapはPirate Invasionというイベントを起こすために必要なアイテムで、Pirate Invasionでは低確率で貴重なアイテムが入手できるため、このイベントは何度も起こす価値がある。そのためにはPirate Mapを沢山集めないといけない。&lt;/p&gt;
-
-&lt;p&gt;しかしPirate Mapのドロップ条件は「Oceanで敵を倒したときに1%の確率でドロップ」というものなので、OceanでPirate Invasionを発生させるようにすれば、少し運が良ければ大体無限に続けられる。なので、狩場をつくってまで何個も集める必要は無いのでは、と最初は思っていた。&lt;/p&gt;
-
-&lt;p&gt;しかししかし、実はPirate Mapの狩場は、Lucky Coinを利用してお金を荒稼ぎする狩場としても再利用できる。そしてLucky CoinはPirate Invasion中に低確率でドロップするアイテムなので、この狩場とシナジーがある。この狩場があると嬉しいのは、そういう背景から。&lt;/p&gt;
-
-&lt;hr&gt;
-
-&lt;p&gt;Terrariaでは、プレイヤーを中心とした168×94タイルの壁またはブロックが無いところに敵が発生する。そのため、狩場をつくるときは最低でもそのくらいの広い空間を用意する。また、見えない部分にもこの範囲内であれば敵が湧いてしまうので、地下の空間等もブロックで埋めておくことが望ましい。この辺の基本的な情報は &lt;a href=&quot;https://terraria.gamepedia.com/Guide:Enemy_farming#Farming_Area&quot;&gt;https://terraria.gamepedia.com/Guide:Enemy_farming#Farming_Area&lt;/a&gt; を読むのが分かりやすい。&lt;/p&gt;
-
-&lt;p&gt;今回はOceanなので、画面端の方で海底を掘ったり埋めたりしていい感じに平坦な空間を用意することになる。ちなみに砂を掘るときは、最序盤から手に入る超絶便利ツール &lt;a href=&quot;https://terraria.gamepedia.com/Gravedigger%27s_Shovel&quot;&gt;Gravedigger&#39;s Shovel&lt;/a&gt; を使うと効率がとても良い。&lt;/p&gt;
-
-&lt;p&gt;近くにNPCが居ると敵が湧きづらくなってしまうので、狩場の近くにNPCは配置しない。&lt;/p&gt;
-
-&lt;p&gt;ダンジョンで見つかる&lt;a href=&quot;https://terraria.gamepedia.com/Water_Candle&quot;&gt;Water Candle&lt;/a&gt;を近くに配置すると、敵がよく湧いて効率が良くなる。他に、Heart LanternやCampfireなんかがあると、体力自動回復効果が促進されて事故が起こりにくくなる。Wrathなんかは壁を貫通して襲ってくるので、基本的に召喚装備で対応するのだけど、他の敵の対処で忙しいと倒し切る前に攻撃されることもある。&lt;/p&gt;
-
-&lt;p&gt;水中の敵は、自分が水中に居て、かつ視界が通っているときにしか寄ってこない。しかし水中では呼吸が出来なくて死んでしまうし、直接敵が寄ってこられる経路があると放置してると死んでしまう。よって、水面に軽く触れる程度のところに立ち、敵が通れないながらも視界は通る程度の穴を開けておくのが望ましい。&lt;/p&gt;
-
-&lt;p&gt;Party Girlが売ってくれるBubbleを使うと、プレイヤーや敵が通過することが出来るが、水没はしないという空間をつくることができる。この性質を利用すると、今回のように海底にゾンビ対策用の溶岩を敷いたり、魚を水中に閉じ込めるための空間を用意したりできる。魚のジャンプ力は低いので、この程度の高さがあれば下から攻撃されることはない。&lt;/p&gt;
-
-&lt;p&gt;既に水があるところにBubbleを埋め込むようにして配置しても上手くいかないので、予め適当なブロックで真空状態をつくってバケツか何かで内部の水を抜いたあとでBubbleを配置するという手間は必要になると思う。&lt;/p&gt;
-
-&lt;p&gt;今回狙う&lt;a href=&quot;https://terraria.gamepedia.com/Arapaima&quot;&gt;Arapaima&lt;/a&gt;という魚の敵はジャングルバイオームにしか沸かないので、付近に140タイル分のジャングル用ブロックを設置してジャングル化させる。ちなみにこのブロックは、繋がったMud BlockにJungle Grass Seedを適当に植えることで生成できる。&lt;/p&gt;
-
-&lt;p&gt;今回自分はHardmode突入直後を想定して実装することにしたので、紹介されているものと違い、Teleportが用意されていない。また、Templeにはまだ行けないのでトラップもDart Trapしか使えない。なので、敵は召喚装備で倒すことになる。そうなると敵が勝手に遠くで倒されてしまうことになるので、放置ではなかなかドロップアイテムが集まりにくかったりする。強いトラップを入手すれば将来的に解決できる問題ではある。&lt;/p&gt;
-
-&lt;p&gt;今回の設計だと、近くで倒してもアイテムが拾えない範囲が出てくるので、Treasure Magnetを装備するのが望ましい。&lt;/p&gt;
 </content>
     </entry>
   
