@@ -61,8 +61,7 @@
 
 <p>簡単に試すだけであれば、SQLite が便利に使えます。SQLite のデータベース名 (SQLite 的にはファイル名) として :memory: を指定すると、ファイルを用意することなく、メモリ上で動作するデータベースを用意できます。プロセス終了時にこのデータベースは揮発するため、簡単な実験では役に立ちます。</p>
 
-<p><a href="https://www.sqlite.org/inmemorydb.html" title="https://www.sqlite.org/inmemorydb.html"><strong>In-Memory Databases</strong><br>
-_When this is done, no disk file is opened. Instead, a new database is created purely in memory. The database ceases to…_www.sqlite.org</a><a href="https://www.sqlite.org/inmemorydb.html"></a></p>
+<p><a href="https://www.sqlite.org/inmemorydb.html">In-Memory Databases</a></p>
 
 <h2>ActiveRecord::Schema.define</h2>
 
@@ -78,8 +77,7 @@ _When this is done, no disk file is opened. Instead, a new database is created p
 
 <p>下記の例では、rails/rails への Pull Request において、期待する動作と実際の動作との違いを説明するために利用しています。</p>
 
-<p><a href="https://github.com/rails/rails/pull/32576" title="https://github.com/rails/rails/pull/32576"><strong>Add missing `require "benchmark"` by r7kamura · Pull Request #32576 · rails/rails</strong><br>
-_Summary Added require "benchmark" at the head of lib/active_record/migration.rb. This is because it may raise NameError…_github.com</a><a href="https://github.com/rails/rails/pull/32576"></a></p>
+<p><a href="https://github.com/rails/rails/pull/32576">Add missing `require "benchmark"` by r7kamura · Pull Request #32576 · rails/rails</a></p>
 
 <p>「active_record/base.rb を読み込む前に ActiveRecord::Schema.define を使おうとしたら NameError が出るんだけど、本来ここは ActiveRecord::ConnectionNotEstablished が出るべき場所なんじゃないの？」というテストケースになっています。</p>
 
