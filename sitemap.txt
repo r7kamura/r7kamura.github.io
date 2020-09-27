@@ -1,3 +1,4 @@
+https://r7kamura.com/articles/2020-09-28-development-on-windows
 https://r7kamura.com/articles/2020-09-27-list-style
 https://r7kamura.com/articles/2020-09-27-article-date-position
 https://r7kamura.com/articles/2020-09-26-rails-architecture-strongest
