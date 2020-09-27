@@ -63,7 +63,7 @@
 
 <p>WindowsがWSL2に対応したバージョンになっていることを確認した後、<a href="https://docs.microsoft.com/ja-jp/windows/wsl/install-win10">Windows Subsystem for Linux (WSL) を Windows 10 にインストールする</a> というガイドを見ながら、以下のコマンドで、WSL2の有効化と、仮想マシンプラットフォームの有効化というやつを試みる。</p>
 
-<p>初めに書いておくが、破壊的変更をもたらすようなコマンドは管理者権限で起動した端末を利用しないと実行できないので、その点は注意。</p>
+<p>全体を通して言えることだが、破壊的変更をもたらすようなコマンドは管理者権限で起動した端末を利用しないと実行できないので、その点は注意。</p>
 
 <pre><code>dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /norestart
 dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /norestart
@@ -94,6 +94,8 @@ dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /nores
 <p>Dockerを活用するために、Docker Desktop for Windowsを入れる。</p>
 
 <p>Dockerが専用のエンジンで動くようになり、WindowsやLinux環境では <code>docker</code> コマンド経由でそこに対して命令を出す形になる。Windowsとの間でネットワークをいい感じにブリッジしてくれたりして非常に便利。</p>
+
+<p>基本的に、開発で必要なソフトウェアはDockerイメージとして用意するように配慮して、開発用のLinuxディストリビューション側は、gitやtmuxなどの、汎用的なファイル操作や端末操作のためのソフトウェアを入れるに留めたい。</p>
 
 <h2>Windows Package Manager</h2>
 
@@ -126,9 +128,11 @@ dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /nores
 
 <h2>Visual Studio Code</h2>
 
-<p>エディタにはVisual Studio Codeを使っている。</p>
+<p>主なエディタとしてVisual Studio Codeを使っている。</p>
 
-<p>こういう環境のためにリモート機能が提供されていて、Linux側とWindows側のそれぞれのVisual Studio Codeのプロセスが協調し、ファイルをWindows側のGUIで編集したり、コマンドをLinux側で処理させたりできる。Linux側で <code>code</code> コマンドを使ってワークスペースを編集しようとすると、Windows側のGUIでそれが開き、適当に編集するだけで基本上手くいく。</p>
+<p>Visual Studio Codeではこの手の環境のためにリモート機能が提供されていて、Linux側とWindows側のそれぞれのVisual Studio Codeのプロセスが協調し、ファイルをWindows側のGUIで編集したり、コマンドをLinux側で処理させたりできる。</p>
+
+<p>Linux側で <code>code</code> コマンドを使ってワークスペースを編集しようとすると、Windows側のGUIでそれが開き、適当に編集するだけで基本上手くいく。</p>
 
 <pre><code>winget install "Visual Studio Code"
 </code></pre>
@@ -137,7 +141,9 @@ dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /nores
 
 <hr>
 
-<p>これでWindows環境に依存した話はおしまい。あとは開発用に用意したLinuxディストリビューションをいい感じに整えていくだけだ。</p>
+<p>これでWindowsに依存した部分の環境構築は一段落。あとは開発用に用意したUbuntuをいい感じに整えていくだけだ。</p>
+
+<p><a href="https://github.com/r7kamura/r7kamura.com">このサイトのリポジトリ</a>でもDocker環境を用意していたので、試しにUbuntu側にリポジトリをcloneしてきて、Visual Studio Codeで編集し、DockerでRubyのサーバを動かし、Windows側でプレビューする、ということをやりながらこの記事を書いてみた。</p>
 
   </div>
 </article>
