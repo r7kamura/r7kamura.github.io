@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width">
+  <title>PowerToysで豪遊</title>
+  <link href="https://r7kamura.com/articles/2020-09-28-power-toys" rel="canonical">
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="search" type="application/opensearchdescription+xml" title="r7kamura.com" href="/opensearch.xml">
+  <link rel="alternate" type="application/rss+xml" href="/feed.xml">
+  
+  <meta property="description" content="Winodws用にPowerToysというのを教えてもらって、使ってみたら思いの外よかったという話。">
+  <meta property="og:description" content="Winodws用にPowerToysというのを教えてもらって、使ってみたら思いの外よかったという話。">
+  
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="PowerToysで豪遊">
+  <meta property="og:url" content="https://r7kamura.com/articles/2020-09-28-power-toys">
+  
+  <meta property="og:image" content="https://r7kamura.com/images/2020-09-28-power-toys-run.png">
+  <meta property="twitter:card" content="summary_large_image">
+  
+</head>
+<body>
+  <header>
+    <nav>
+      <a href="/">r7kamura.com</a>
+      <ul>
+        <li>
+          <a href="/articles">一覧</a>
+        </li>
+        <li>
+          <a href="https://www.google.com/?as_sitesearch=r7kamura.com">検索</a>
+        </li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <article>
+  <h1>PowerToysで豪遊</h1>
+  <footer>
+    <p>
+      <time datetime="2020-09-28T00:00:00+00:00">2020年09月28日</time>
+    </p>
+  </footer>
+  <div>
+    <p>Winodws用にPowerToysというのを教えてもらって、使ってみたら思いの外よかったという話。</p>
+
+<p><a href="https://github.com/microsoft/PowerToys">https://github.com/microsoft/PowerToys</a></p>
+
+<h2>PowerToys Run</h2>
+
+<p>PowerToysというのは、Microsoftが提供している、Windowsをより便利にする機能群をまとめたアプリケーションらしい。Windowsのスナップ機能なんかは元々、PowerToysに実装されていたものがポーティングされてきたものなんだとか。</p>
+
+<pre><code>winget install PowerToys
+</code></pre>
+
+<p>wingetで入れられるので試しに入れてみて、その中のPowerToys Runという機能を常用してみることにした。</p>
+
+<figure><a href="/images/2020-09-28-power-toys-run.png" target="_blank"><img src="/images/2020-09-28-power-toys-run.png" alt=""></a><figcaption>PowerToys Runsの様子</figcaption></figure>
+
+<p>Macの<a href="https://www.alfredapp.com/">Alfred</a>と使用感がかなり似ていて、使い心地もわりと良い。似たようなことはWinodwsキーを押したあとに使える検索機能でも代替可能なのだけど、こちらの方が使い勝手が少し良い。</p>
+
+<p>デフォルトはAlt + Spaceなのだけど、Windowsの機能と競合することも多いので、Ctrl + Spaceに割り当てることにした。このショートカットキーはGoogle IMEで入力ソースを切り替えるためのショートカットキーとして登録されているので、設定でこれを取り除くなどの操作も加えた。</p>
+
+<h2>PowerToys FancyZones</h2>
+
+<p>FancyZonesという機能も、人によってはかなり活用できると思う。自分は画面は常に2分割しかしない派なので、Windowsのスナップ機能で間に合っており、今のところは間に合っていそう。</p>
+
+<p>スナップ機能については、もともと気に入らない挙動があったので困っていたところ、amagiさんが教えてくれたおかげで解決できた。設定 &gt; マルチタスク から「ウィンドウをスナップしたときに、横に配置できるものを表示する」という機能をオフにできるらしい。</p>
+
+<h2>システムの復元</h2>
+
+<p>PowerToysのKeyboard Managerを試してみたら、キーマップを登録して戻す操作をしても永続的に元に戻らなくなってしまい、システムの復元という機能で数時間前の状態に戻ることで事なきを得た。</p>
+
+<p>キーボードのレジストリ書き換え部分の実装が甘いのかもしれない。そして、いつからかWindowsではレジストリの自動バックアップを取らなくなってしまっていた。ともあれ復元できて安心した。</p>
+
+  </div>
+</article>
+
+  </main>
+</body>
+</html>
