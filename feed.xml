@@ -3,18 +3,45 @@
   <title>r7kamura.com</title>
   <link rel="self" type="application/atom+xml" href="https://r7kamura.com/feed.xml"/>
   <link rel="alternate" type="text/html" href="https://r7kamura.com/"/>
-  <updated>2020-09-28T19:30:58+00:00</updated>
+  <updated>2020-09-29T22:57:21+00:00</updated>
   <author>
     <name>Ryo Nakamura</name>
   </author>
   <id>tag:r7kamura.com,2019:/</id>
   
     <entry>
+      <title>dotfilesの整理</title>
+      <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-09-30-dotfiles"/>
+      <id>tag:r7kamura.com,2019:/articles/2020-09-30-dotfiles</id>
+      <published>2020-09-30T00:00:00+00:00</published>
+      <updated>2020-09-29T22:56:43+00:00</updated>
+      <content type="html">&lt;p&gt;主な開発環境がUbuntuに移ったということもあり、&lt;a href=&quot;https://github.com/r7kamura/dotfiles&quot;&gt;dotfiles&lt;/a&gt;を整理していた。&lt;/p&gt;
+
+&lt;figure&gt;&lt;a href=&quot;https://raw.githubusercontent.com/serverkit/serverkit/master/images/server.png&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;https://raw.githubusercontent.com/serverkit/serverkit/master/images/server.png&quot; alt=&quot;&quot;&gt;&lt;/a&gt;&lt;figcaption&gt;serverkitの象徴 / 1041uuuさんに描いてもらった&lt;/figcaption&gt;&lt;/figure&gt;
+
+&lt;p&gt;かなり放置気味のリポジトリだったので、4年ぶりに更新することになった。以前は豪華なインストーラを付けたりして、Xcodeインストール済みのMacをコマンド1発でセットアップできるというところに価値を置いていた。&lt;/p&gt;
+
+&lt;p&gt;このために&lt;a href=&quot;https://github.com/serverkit/serverkit&quot;&gt;serverkit&lt;/a&gt;というツールも自作していて、全面的にそれを利用するようなつくりになっていた。
+YAMLで設定を書いたら適用出来るというやつ。AnsibleのRuby版みたいなもの。内部がかなりプラグイン化されていて、自分の用途の都合上、Macの設定を変えるようなプラグインが多い。例えば、Dockの設定を変えたり、Homebrewの管理をしたり。&lt;/p&gt;
+
+&lt;p&gt;当時サバにハマってて、Twitterで「サバッッッ」とか言ってたら1041uuuさんがサバの絵を上げてくれて、使っていいとのことだったので、ありがたくserverkitの絵として使わせてもらっている。正直サバの絵が嬉しかったので当時開発を続けていたようなところはある。&lt;/p&gt;
+
+&lt;hr&gt;
+
+&lt;p&gt;当時の様子とは打って変わって、2020年のdotfilesにはほとんど中身が無くなってしまった。プロンプトの簡単な設定と、手癖になってしまっているalias群。それから、GitとTigの設定がおまけ程度にあるぐらい。&lt;/p&gt;
+
+&lt;figure&gt;&lt;a href=&quot;/images/2020-09-30-dotfiles-terminal.png&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/images/2020-09-30-dotfiles-terminal.png&quot; alt=&quot;&quot;&gt;&lt;/a&gt;&lt;figcaption&gt;現在の端末の様子&lt;/figcaption&gt;&lt;/figure&gt;
+
+&lt;p&gt;こだわりや熱量が無くなったわけではなくて、思考を妨げないクリーンな環境や、長く生き残れる単純で強い環境に、これまでと比べてより執着するようになってきているのだと思う。&lt;/p&gt;
+</content>
+    </entry>
+  
+    <entry>
       <title>原神、Windowsの思い出し</title>
       <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-09-29-genshin-windows"/>
       <id>tag:r7kamura.com,2019:/articles/2020-09-29-genshin-windows</id>
       <published>2020-09-29T00:00:00+00:00</published>
-      <updated>2020-09-28T19:30:20+00:00</updated>
+      <updated>2020-09-29T22:56:43+00:00</updated>
       <content type="html">&lt;p&gt;Winodowsで遊びながら、ゲームで癒やされる一日だった。&lt;/p&gt;
 
 &lt;h2&gt;原神&lt;/h2&gt;
@@ -38,7 +65,7 @@
       <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-09-29-genshin-1st-impression"/>
       <id>tag:r7kamura.com,2019:/articles/2020-09-29-genshin-1st-impression</id>
       <published>2020-09-29T00:00:00+00:00</published>
-      <updated>2020-09-28T19:30:20+00:00</updated>
+      <updated>2020-09-29T22:56:43+00:00</updated>
       <content type="html">&lt;figure&gt;&lt;a href=&quot;/images/2020-09-29-genshin-night.png&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/images/2020-09-29-genshin-night.png&quot; alt=&quot;&quot;&gt;&lt;/a&gt;&lt;figcaption&gt;最初に訪れる街の夜&lt;/figcaption&gt;&lt;/figure&gt;
 
 &lt;p&gt;2020年9月28日にリリースされたゲーム『&lt;a href=&quot;https://genshin.mihoyo.com/ja&quot;&gt;原神&lt;/a&gt;』を早速やりはじめた。&lt;/p&gt;
@@ -53,7 +80,7 @@
 
 &lt;p&gt;UIのデザインは、最近の異世界系アニメ内の表現に見られるようなフラットなもので、『ソードアート・オンライン』や『盾の勇者の成り上がり』の中に出てくるような表現に近しさを感じた。どちらかと言うとWebのコンテキストのデザインに近いものを感じて、なんというか全体的に安心する。&lt;/p&gt;
 
-&lt;p&gt;手を止めていろんなものを眺めてみると、アニメーションや意匠などを含めて、とにかく細部へのこだわりを感じる。ステータス画面ひとつ取ってみても、受け入れやすい見た目でありながら、格好良さと可愛さの調和が取れたデザインになっていると思う。&lt;/p&gt;
+&lt;p&gt;手を止めていろんなものを眺めてみると、アニメーションや意匠などを含めて、とにかく細部へのこだわりを感じる。ステータス画面ひとつ取ってみても、受け入れやすい見た目でありながら、格好良さと可愛さの調和が取れたデザインになっている。&lt;/p&gt;
 
 &lt;figure&gt;
 &lt;div style=&quot;padding:41.87% 0 0 0;position:relative;&quot;&gt;&lt;iframe src=&quot;https://player.vimeo.com/video/462735403?title=0&amp;amp;byline=0&amp;amp;portrait=0&quot; style=&quot;position:absolute;top:0;left:0;width:100%;height:100%;&quot; frameborder=&quot;0&quot; allow=&quot;autoplay; fullscreen&quot; allowfullscreen&gt;&lt;/iframe&gt;&lt;/div&gt;
@@ -62,7 +89,7 @@
 
 &lt;script src=&quot;https://player.vimeo.com/api/player.js&quot;&gt;&lt;/script&gt;
 
-&lt;p&gt;そこまで期待していなかったにも関わらず、戦闘や探索も、魔法の組み合わせでいろいろ試すのが思っていたより楽しい。ゼルダの伝説やSpell Breakをプレイしたときにも感じたことだけど、こういう、小さくてシンプルな要素を組み合わせて大きな力を発生させるタイプの仕組みは、賢く立ち回ることで健康的な達成感が得られて、非常に良いと思う。UNIX哲学的な感じで、プログラミングにおける達成感に近いものがある。&lt;/p&gt;
+&lt;p&gt;そこまで期待していなかったにも関わらず、戦闘や探索も、魔法の組み合わせでいろいろ試すのが思っていたより楽しい。ゼルダの伝説やSpell Breakをプレイしたときにも感じたことだけど、こういう、小さくてシンプルな要素を組み合わせて大きな力を発生させるタイプの仕組みは、賢く立ち回ることで健康的な達成感が得られて、非常に良い。UNIX哲学的な感じで、プログラミングにおける達成感に近いものがある。&lt;/p&gt;
 
 &lt;p&gt;プレイ前はゼルダの伝説ライクな見た目だなと言う印象が強かったものの、プレイしてみると、数多のゲームの要素が取り入れられていることが分かる。洋ゲーとかにありがちなこの要素をこうデザインするのか…イケてる…といった感想が沢山出てくるので、そういう見方でプレイしていても非常に楽しい。&lt;/p&gt;
 
@@ -75,7 +102,7 @@
       <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-09-28-power-toys"/>
       <id>tag:r7kamura.com,2019:/articles/2020-09-28-power-toys</id>
       <published>2020-09-28T00:00:00+00:00</published>
-      <updated>2020-09-28T19:30:20+00:00</updated>
+      <updated>2020-09-29T22:56:43+00:00</updated>
       <content type="html">&lt;p&gt;Windows用にPowerToysというのを教えてもらって、使ってみたら思いの外よかったという話。&lt;/p&gt;
 
 &lt;p&gt;&lt;a href=&quot;https://github.com/microsoft/PowerToys&quot;&gt;https://github.com/microsoft/PowerToys&lt;/a&gt;&lt;/p&gt;
@@ -116,7 +143,7 @@
       <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-09-28-development-on-windows"/>
       <id>tag:r7kamura.com,2019:/articles/2020-09-28-development-on-windows</id>
       <published>2020-09-28T00:00:00+00:00</published>
-      <updated>2020-09-28T19:30:20+00:00</updated>
+      <updated>2020-09-29T22:56:43+00:00</updated>
       <content type="html">&lt;p&gt;Windowsで開発環境を整えた。&lt;/p&gt;
 
 &lt;h2&gt;背景&lt;/h2&gt;
@@ -232,7 +259,7 @@ dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /nores
       <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-09-27-list-style"/>
       <id>tag:r7kamura.com,2019:/articles/2020-09-27-list-style</id>
       <published>2020-09-27T00:00:00+00:00</published>
-      <updated>2020-09-28T19:30:20+00:00</updated>
+      <updated>2020-09-29T22:56:43+00:00</updated>
       <content type="html">&lt;p&gt;記事一覧も順序付きリストなのだから、&lt;code&gt;list-style-type: none&lt;/code&gt; で数字を消さず、自然状態にしておく方が良いかもしれない。そう思って実験してみたが、うるさすぎて没にした。&lt;/p&gt;
 
 &lt;figure&gt;&lt;a href=&quot;/images/2020-09-27-list-style-1.png&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/images/2020-09-27-list-style-1.png&quot; alt=&quot;&quot;&gt;&lt;/a&gt;&lt;figcaption&gt;没案・上部&lt;/figcaption&gt;&lt;/figure&gt;
@@ -263,7 +290,7 @@ dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /nores
       <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-09-27-article-date-position"/>
       <id>tag:r7kamura.com,2019:/articles/2020-09-27-article-date-position</id>
       <published>2020-09-27T00:00:00+00:00</published>
-      <updated>2020-09-28T19:30:20+00:00</updated>
+      <updated>2020-09-29T22:56:43+00:00</updated>
       <content type="html">&lt;p&gt;常に記事タイトルの下に日付が置かれるように変更した。&lt;/p&gt;
 
 &lt;figure&gt;&lt;a href=&quot;/images/2020-09-27-date-before.png&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/images/2020-09-27-date-before.png&quot; alt=&quot;&quot;&gt;&lt;/a&gt;&lt;figcaption&gt;変更前&lt;/figcaption&gt;&lt;/figure&gt;
@@ -279,7 +306,7 @@ dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /nores
       <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-09-26-rails-architecture-strongest"/>
       <id>tag:r7kamura.com,2019:/articles/2020-09-26-rails-architecture-strongest</id>
       <published>2020-09-26T00:00:00+00:00</published>
-      <updated>2020-09-28T19:30:20+00:00</updated>
+      <updated>2020-09-29T22:56:43+00:00</updated>
       <content type="html">&lt;p&gt;自分が目指したいRailsアプリの形とは何か、ということについて考えていた。&lt;/p&gt;
 
 &lt;p&gt;常日頃から考えていたRailsアプリでの不満をこの議論に合流させた結果、「Rubyを書くときに当たり前にやるようなことを、Railsアプリを書くときでも当たり前のようにやる」というところが肝で、自分が目指したいRailsアプリの形はその先にあるのではないか、と一旦結論付けてみることにした。&lt;/p&gt;
@@ -322,7 +349,7 @@ RubyとRailsが地続きに繋がっていないというか、どこかで断�
       <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-09-25-workspace-pictures"/>
       <id>tag:r7kamura.com,2019:/articles/2020-09-25-workspace-pictures</id>
       <published>2020-09-25T00:00:00+00:00</published>
-      <updated>2020-09-28T19:30:20+00:00</updated>
+      <updated>2020-09-29T22:56:43+00:00</updated>
       <content type="html">&lt;p&gt;他人の作業環境を見るという趣味があり、最近はこの辺を観測している。&lt;/p&gt;
 
 &lt;h2&gt;お前らのpcデスク周り晒して(い)け&lt;/h2&gt;
@@ -376,7 +403,7 @@ RubyとRailsが地続きに繋がっていないというか、どこかで断�
       <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-09-25-notes"/>
       <id>tag:r7kamura.com,2019:/articles/2020-09-25-notes</id>
       <published>2020-09-25T00:00:00+00:00</published>
-      <updated>2020-09-28T19:30:20+00:00</updated>
+      <updated>2020-09-29T22:56:43+00:00</updated>
       <content type="html">&lt;p&gt;文字について考えることが多い一日だった。&lt;/p&gt;
 
 &lt;h2&gt;キーボード&lt;/h2&gt;
@@ -414,7 +441,7 @@ RubyとRailsが地続きに繋がっていないというか、どこかで断�
       <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-09-24-site-minor-changes"/>
       <id>tag:r7kamura.com,2019:/articles/2020-09-24-site-minor-changes</id>
       <published>2020-09-24T00:00:00+00:00</published>
-      <updated>2020-09-28T19:30:20+00:00</updated>
+      <updated>2020-09-29T22:56:43+00:00</updated>
       <content type="html">&lt;p&gt;最近よくこのサイトに手を加えている。最初からそうだったかのように見えていれば、おおよそ成功と言える。&lt;/p&gt;
 
 &lt;h2&gt;グローバルヘッダー&lt;/h2&gt;
@@ -455,7 +482,7 @@ RubyとRailsが地続きに繋がっていないというか、どこかで断�
       <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-09-23-this-site-setup-2020"/>
       <id>tag:r7kamura.com,2019:/articles/2020-09-23-this-site-setup-2020</id>
       <published>2020-09-23T00:00:00+00:00</published>
-      <updated>2020-09-28T19:30:20+00:00</updated>
+      <updated>2020-09-29T22:56:43+00:00</updated>
       <content type="html">&lt;p&gt;このサイトの2020年時点での実装のまとめ。振り返り用。&lt;/p&gt;
 
 &lt;h2&gt;ホスティング&lt;/h2&gt;
@@ -540,7 +567,7 @@ GitHub Pagesで静的ファイルを配信している。
       <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-09-23-notes"/>
       <id>tag:r7kamura.com,2019:/articles/2020-09-23-notes</id>
       <published>2020-09-23T00:00:00+00:00</published>
-      <updated>2020-09-28T19:30:20+00:00</updated>
+      <updated>2020-09-29T22:56:43+00:00</updated>
       <content type="html">&lt;p&gt;雑記のタイトルでは、話題を羅列するというパターンが気に入っている。技術系ポッドキャストの説明文で、似たような表現を見ることが多い。&lt;/p&gt;
 
 &lt;figure&gt;&lt;a href=&quot;/images/2020-09-23-notes-camera.jpg&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/images/2020-09-23-notes-camera.jpg&quot; alt=&quot;&quot;&gt;&lt;/a&gt;&lt;figcaption&gt;ウェブカメラとディスプレイ&lt;/figcaption&gt;&lt;/figure&gt;
@@ -591,7 +618,7 @@ end
       <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-09-22-markdown-summary"/>
       <id>tag:r7kamura.com,2019:/articles/2020-09-22-markdown-summary</id>
       <published>2020-09-22T00:00:00+00:00</published>
-      <updated>2020-09-28T19:30:20+00:00</updated>
+      <updated>2020-09-29T22:56:43+00:00</updated>
       <content type="html">&lt;figure&gt;&lt;a href=&quot;/images/2020-09-22-summary-detection.jpg&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/images/2020-09-22-summary-detection.jpg&quot; alt=&quot;&quot;&gt;&lt;/a&gt;&lt;figcaption&gt;何の関係も無いサメのぬいぐるみの画像&lt;/figcaption&gt;&lt;/figure&gt;
 
 &lt;p&gt;記事の説明文を抽出する方法を変更した。あまり目に触れる機会は無いが、SNSやフィードなどで利用される。&lt;/p&gt;
@@ -619,7 +646,7 @@ end
       <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-09-22-markdown-caption"/>
       <id>tag:r7kamura.com,2019:/articles/2020-09-22-markdown-caption</id>
       <published>2020-09-22T00:00:00+00:00</published>
-      <updated>2020-09-28T19:30:20+00:00</updated>
+      <updated>2020-09-29T22:56:43+00:00</updated>
       <content type="html">&lt;p&gt;FF14のスクリーンショットを久しぶりに見返していた。&lt;/p&gt;
 
 &lt;figure&gt;&lt;a href=&quot;/images/2020-09-22-markdown-caption-back.png&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/images/2020-09-22-markdown-caption-back.png&quot; alt=&quot;&quot;&gt;&lt;/a&gt;&lt;figcaption&gt;猫耳や尻尾があるミコッテという種族&lt;/figcaption&gt;&lt;/figure&gt;
@@ -683,7 +710,7 @@ end
       <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-09-21-personal-website"/>
       <id>tag:r7kamura.com,2019:/articles/2020-09-21-personal-website</id>
       <published>2020-09-21T00:00:00+00:00</published>
-      <updated>2020-09-28T19:30:20+00:00</updated>
+      <updated>2020-09-29T22:56:43+00:00</updated>
       <content type="html">&lt;p&gt;なぜ個人でウェブサイトを運用しているのかについて、整理しておきたい。&lt;/p&gt;
 
 &lt;p&gt;要約すると、以下の理由でやっている。&lt;/p&gt;
@@ -769,7 +796,7 @@ end
       <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-09-21-cable-dependencies"/>
       <id>tag:r7kamura.com,2019:/articles/2020-09-21-cable-dependencies</id>
       <published>2020-09-21T00:00:00+00:00</published>
-      <updated>2020-09-28T19:30:20+00:00</updated>
+      <updated>2020-09-29T22:56:43+00:00</updated>
       <content type="html">&lt;p&gt;PCデスクを買い換えることにしたので、機器と配線について整理する。&lt;/p&gt;
 
 &lt;p&gt;&lt;a href=&quot;/images/2020-09-21-cable-dependencies.jpg&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/images/2020-09-21-cable-dependencies.jpg&quot; alt=&quot;&quot;&gt;&lt;/a&gt;&lt;/p&gt;
@@ -864,7 +891,7 @@ end
       <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-09-20-rspec-type-metadata"/>
       <id>tag:r7kamura.com,2019:/articles/2020-09-20-rspec-type-metadata</id>
       <published>2020-09-20T00:00:00+00:00</published>
-      <updated>2020-09-28T19:30:20+00:00</updated>
+      <updated>2020-09-29T22:56:43+00:00</updated>
       <content type="html">&lt;p&gt;RSpecを使うテストコードから不要なtypeを取り除く作業をした。&lt;/p&gt;
 
 &lt;p&gt;&lt;code&gt;config.infer_spec_type_from_file_location!&lt;/code&gt; を指定することで不要になる &lt;code&gt;metadata[:type]&lt;/code&gt; を取り除こうというスクリプト。&lt;/p&gt;
@@ -924,7 +951,7 @@ RSpec.describe User do
       <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-09-20-restospective-past-work"/>
       <id>tag:r7kamura.com,2019:/articles/2020-09-20-restospective-past-work</id>
       <published>2020-09-20T00:00:00+00:00</published>
-      <updated>2020-09-28T19:30:20+00:00</updated>
+      <updated>2020-09-29T22:56:43+00:00</updated>
       <content type="html">&lt;p&gt;RubyやRailsのアップグレードを主なマイルストーンとしつつ全体的に開発体験を良くしていくというタイプの仕事を請けることが多いのですが、仕事を依頼する側の視点に立ってみると「実際のところ業務に参加するとどういうことが行われるのか？」というのがやはり気になると思います。&lt;/p&gt;
 
 &lt;p&gt;実際、最近の打ち合わせでもその手の不安について相談されることがあったので、ここ1ヶ月でそれ系の仕事で出したPull Requestを元に、実際に何をやっていたかの例を挙げてみたいと思います。&lt;/p&gt;
@@ -993,7 +1020,7 @@ RSpec.describe User do
       <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-09-19-list-articles-minor-change"/>
       <id>tag:r7kamura.com,2019:/articles/2020-09-19-list-articles-minor-change</id>
       <published>2020-09-19T00:00:00+00:00</published>
-      <updated>2020-09-28T19:30:20+00:00</updated>
+      <updated>2020-09-29T22:56:43+00:00</updated>
       <content type="html">&lt;p&gt;ヘッダーのリンクと記事一覧ページの見出しを少し変えた。&lt;/p&gt;
 
 &lt;p&gt;「記事」という表記は、記事ではないもの…例えば写真など…が存在していて初めて「記事」という表記である妥当性が生まれるはずで、現状このウェブサイトには記事しかコンテンツが無い。そうであれば、一覧であるということを押し出して「記事一覧」と表記した方が分かりやすいだろう、という意図でこう変更した。&lt;/p&gt;
@@ -1025,43 +1052,6 @@ RSpec.describe User do
 &lt;/blockquote&gt;
 
 &lt;p&gt;新しい説明はこのようにした。&lt;/p&gt;
-</content>
-    </entry>
-  
-    <entry>
-      <title>AnkerのUSBハブ</title>
-      <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-09-19-anker-usb-hub"/>
-      <id>tag:r7kamura.com,2019:/articles/2020-09-19-anker-usb-hub</id>
-      <published>2020-09-19T00:00:00+00:00</published>
-      <updated>2020-09-28T19:30:20+00:00</updated>
-      <content type="html">&lt;p&gt;AnkerのUSBハブを買った。&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://www.amazon.co.jp/dp/B087TB7YM7?tag=r7kamura07-22&quot;&gt;Anker PowerExpand 8-in-1 USB-C PD 10Gbps データ ハブ&lt;/a&gt;&lt;/p&gt;
-
-&lt;figure&gt;&lt;a href=&quot;/images/2020-09-19-anker-usb-hub.jpg&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/images/2020-09-19-anker-usb-hub.jpg&quot; alt=&quot;&quot;&gt;&lt;/a&gt;&lt;figcaption&gt;デスクの配線が地獄&lt;/figcaption&gt;&lt;/figure&gt;
-
-&lt;p&gt;MacBook Proへの配線を1つにまとめるために、以下の用途で使っている。&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;USB Type-Aでコンデンサマイクと繋ぐ&lt;/li&gt;
-&lt;li&gt;USB Type-Aでオーディオインターフェースと繋ぐ&lt;/li&gt;
-&lt;li&gt;USB Type-CでWebカメラと繋ぐ&lt;/li&gt;
-&lt;li&gt;USB Type-Cで給電する&lt;/li&gt;
-&lt;li&gt;HDMIで外部ディスプレイと繋ぐ&lt;/li&gt;
-&lt;li&gt;Ethernetでルータと繋ぐ&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;やりたいことが全部満たせて概ね満足。&lt;/p&gt;
-
-&lt;p&gt;電源周りについての注意点。MacBook Pro 13inch用の純正電源アダプタを使うと、13inchに接続しても電力が足りないのか給電されなかった。たまたま持っていた15inch用の電源アダプタを使ったら上手くいった。15Wがハブへの給電に利用されると書いてあるので、余裕のある電源アダプタじゃないと駄目みたい。&lt;/p&gt;
-
-&lt;hr&gt;
-
-&lt;p&gt;ところで、これはこのUSBハブの話とは全く関係無い話なのだけど、電源アダプタ、ミキサー、USBマイクに繋いだMacBook Proからアナログ音声出力を取ろうとすると、自分の環境だとうるさいくらいのノイズが乗ってしまうという問題に遭遇した。&lt;/p&gt;
-
-&lt;p&gt;調査を進めた結果、2つのPC間でマイクとミキサーを経由してグラウンドループが発生していることが判明。過去にもたまに同じ問題に遭遇することがあって不思議に思っていたけど、原因がようやく判明してスッキリ。&lt;/p&gt;
-
-&lt;p&gt;グラウンドループはなかなか気付きづらい問題で、例えばキャプチャーボードに繋いだSwitchから音声をアナログ出力経由で取ろうとすると、同様の問題が起こったりする。解決策としては、経路の一部をアナログ音声からデジタル音声経由に変えたり、音質が多少損なわれても良い場合はグラウンドループ・アイソレーターを間に挟んだりする方法がある。&lt;/p&gt;
 </content>
     </entry>
   
