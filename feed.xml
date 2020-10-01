@@ -3,18 +3,69 @@
   <title>r7kamura.com</title>
   <link rel="self" type="application/atom+xml" href="https://r7kamura.com/feed.xml"/>
   <link rel="alternate" type="text/html" href="https://r7kamura.com/"/>
-  <updated>2020-09-30T04:37:58+00:00</updated>
+  <updated>2020-10-01T00:51:31+00:00</updated>
   <author>
     <name>Ryo Nakamura</name>
   </author>
   <id>tag:r7kamura.com,2019:/</id>
   
     <entry>
+      <title>Bashのプロンプトと非印刷文字の幅計算</title>
+      <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-10-01-bash-prompt"/>
+      <id>tag:r7kamura.com,2019:/articles/2020-10-01-bash-prompt</id>
+      <published>2020-10-01T00:00:00+00:00</published>
+      <updated>2020-10-01T00:50:57+00:00</updated>
+      <content type="html">&lt;p&gt;Bashでプロンプトをカスタマイズしようとしてはまったが解決した。&lt;/p&gt;
+
+&lt;h2&gt;Bashのプロンプトで使える制御文字&lt;/h2&gt;
+
+&lt;p&gt;Bashでプロンプトを指定する際には、&lt;a href=&quot;https://www.gnu.org/savannah-checkouts/gnu/bash/manual/bash.html#Controlling-the-Prompt&quot;&gt;Bashのマニュアルのプロンプト制御の項目&lt;/a&gt;にも記載されているように、幾つかの制御文字列が利用できるようになっている。この中で、ANSIエスケープシーケンスのような非印刷文字をプロンプトで利用するとき、プロンプトの幅を正しく計算させるために、&lt;code&gt;\[&lt;/code&gt; と &lt;code&gt;\]&lt;/code&gt; という制御文字が提供されている。&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;&lt;code&gt;\[&lt;/code&gt;
+Begin a sequence of non-printing characters. This could be used to embed a terminal control sequence into the prompt.&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;\]&lt;/code&gt;
+End a sequence of non-printing characters.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;このように &lt;code&gt;\[&lt;/code&gt; と &lt;code&gt;\]&lt;/code&gt; で非印刷文字を囲ってあげることで、プロンプトを扱うBashが上手く幅を計算してくれるようになる。逆にこれをやらないと、例えば端末での折返し時や、カーソル位置を動かすような処理（例えばコマンド履歴のインクリメンタル検索など）で表示が崩れてしまうことになる。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;export PS1=&#39;\[\033[01;33m$\033[00m\] &#39;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2&gt;関数内での制御文字の利用&lt;/h2&gt;
+
+&lt;p&gt;さて、ここで実装を分かりやすくするために処理を関数にまとめようとしたところ、&lt;code&gt;\[&lt;/code&gt; と &lt;code&gt;\]&lt;/code&gt; が制御文字として扱われてくれないというところで困った。関数の中で同じように文字列を出力しようとすると、&lt;code&gt;\[$\]&lt;/code&gt; のような見た目のプロンプトになってしまう。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;prompt() {
+  echo -e &#39;\[\033[01;33m$\033[00m\] &#39;
+}
+
+export PS1=&#39;$(prompt)&#39;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;解決策としては、&lt;a href=&quot;https://stackoverflow.com/questions/24839271/bash-ps1-line-wrap-issue-with-non-printing-characters-from-an-external-command&quot;&gt;同様の問題へのStackOverflowでの回答&lt;/a&gt;を参考に、&lt;code&gt;\[&lt;/code&gt; と &lt;code&gt;\]&lt;/code&gt; の代わりに &lt;code&gt;\001&lt;/code&gt; と &lt;code&gt;\002&lt;/code&gt; を使うことで解決した。ちなみに、同回答で提案されていた &lt;code&gt;PROMPT_COMMAND&lt;/code&gt; を使う方法でも同様に解決することは確認できたが、前者の解決策の方が分かりやすそうだったのでこちらを使うことに。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;prompt() {
+  echo -e &#39;\001\033[01;33m$\033[00m\002 &#39;
+}
+
+export PS1=&#39;$(prompt)&#39;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;hr&gt;
+
+&lt;p&gt;何が原因かよくわからない状態でとりあえず表示が崩れて困っている旨をTwitterに投稿したところ、丁寧に教えてくれたhirose31さんに感謝。&lt;/p&gt;
+</content>
+    </entry>
+  
+    <entry>
       <title>dotfilesの整理</title>
       <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-09-30-dotfiles"/>
       <id>tag:r7kamura.com,2019:/articles/2020-09-30-dotfiles</id>
       <published>2020-09-30T00:00:00+00:00</published>
-      <updated>2020-09-30T04:37:19+00:00</updated>
+      <updated>2020-10-01T00:50:57+00:00</updated>
       <content type="html">&lt;p&gt;主な開発環境がUbuntuに移ったということもあり、&lt;a href=&quot;https://github.com/r7kamura/dotfiles&quot;&gt;dotfiles&lt;/a&gt;を整理していた。&lt;/p&gt;
 
 &lt;figure&gt;&lt;a href=&quot;https://raw.githubusercontent.com/serverkit/serverkit/master/images/server.png&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;https://raw.githubusercontent.com/serverkit/serverkit/master/images/server.png&quot; alt=&quot;&quot;&gt;&lt;/a&gt;&lt;figcaption&gt;serverkitの象徴 / 1041uuuさんに描いてもらった&lt;/figcaption&gt;&lt;/figure&gt;
@@ -41,7 +92,7 @@ YAMLで設定を書いたら適用出来るというやつ。AnsibleのRuby版�
       <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-09-29-genshin-windows"/>
       <id>tag:r7kamura.com,2019:/articles/2020-09-29-genshin-windows</id>
       <published>2020-09-29T00:00:00+00:00</published>
-      <updated>2020-09-30T04:37:19+00:00</updated>
+      <updated>2020-10-01T00:50:57+00:00</updated>
       <content type="html">&lt;p&gt;Winodowsで遊びながら、ゲームで癒やされる一日だった。&lt;/p&gt;
 
 &lt;h2&gt;原神&lt;/h2&gt;
@@ -65,7 +116,7 @@ YAMLで設定を書いたら適用出来るというやつ。AnsibleのRuby版�
       <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-09-29-genshin-1st-impression"/>
       <id>tag:r7kamura.com,2019:/articles/2020-09-29-genshin-1st-impression</id>
       <published>2020-09-29T00:00:00+00:00</published>
-      <updated>2020-09-30T04:37:19+00:00</updated>
+      <updated>2020-10-01T00:50:57+00:00</updated>
       <content type="html">&lt;figure&gt;&lt;a href=&quot;/images/2020-09-29-genshin-night.png&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/images/2020-09-29-genshin-night.png&quot; alt=&quot;&quot;&gt;&lt;/a&gt;&lt;figcaption&gt;最初に訪れる街の夜&lt;/figcaption&gt;&lt;/figure&gt;
 
 &lt;p&gt;2020年9月28日にリリースされたゲーム『&lt;a href=&quot;https://genshin.mihoyo.com/ja&quot;&gt;原神&lt;/a&gt;』を早速やりはじめた。&lt;/p&gt;
@@ -102,7 +153,7 @@ YAMLで設定を書いたら適用出来るというやつ。AnsibleのRuby版�
       <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-09-28-power-toys"/>
       <id>tag:r7kamura.com,2019:/articles/2020-09-28-power-toys</id>
       <published>2020-09-28T00:00:00+00:00</published>
-      <updated>2020-09-30T04:37:19+00:00</updated>
+      <updated>2020-10-01T00:50:57+00:00</updated>
       <content type="html">&lt;p&gt;Windows用にPowerToysというのを教えてもらって、使ってみたら思いの外よかったという話。&lt;/p&gt;
 
 &lt;p&gt;&lt;a href=&quot;https://github.com/microsoft/PowerToys&quot;&gt;https://github.com/microsoft/PowerToys&lt;/a&gt;&lt;/p&gt;
@@ -143,7 +194,7 @@ YAMLで設定を書いたら適用出来るというやつ。AnsibleのRuby版�
       <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-09-28-development-on-windows"/>
       <id>tag:r7kamura.com,2019:/articles/2020-09-28-development-on-windows</id>
       <published>2020-09-28T00:00:00+00:00</published>
-      <updated>2020-09-30T04:37:19+00:00</updated>
+      <updated>2020-10-01T00:50:57+00:00</updated>
       <content type="html">&lt;p&gt;Windowsで開発環境を整えた。&lt;/p&gt;
 
 &lt;h2&gt;背景&lt;/h2&gt;
@@ -259,7 +310,7 @@ dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /nores
       <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-09-27-list-style"/>
       <id>tag:r7kamura.com,2019:/articles/2020-09-27-list-style</id>
       <published>2020-09-27T00:00:00+00:00</published>
-      <updated>2020-09-30T04:37:19+00:00</updated>
+      <updated>2020-10-01T00:50:57+00:00</updated>
       <content type="html">&lt;p&gt;記事一覧も順序付きリストなのだから、&lt;code&gt;list-style-type: none&lt;/code&gt; で数字を消さず、自然状態にしておく方が良いかもしれない。そう思って実験してみたが、うるさすぎて没にした。&lt;/p&gt;
 
 &lt;figure&gt;&lt;a href=&quot;/images/2020-09-27-list-style-1.png&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/images/2020-09-27-list-style-1.png&quot; alt=&quot;&quot;&gt;&lt;/a&gt;&lt;figcaption&gt;没案・上部&lt;/figcaption&gt;&lt;/figure&gt;
@@ -290,7 +341,7 @@ dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /nores
       <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-09-27-article-date-position"/>
       <id>tag:r7kamura.com,2019:/articles/2020-09-27-article-date-position</id>
       <published>2020-09-27T00:00:00+00:00</published>
-      <updated>2020-09-30T04:37:19+00:00</updated>
+      <updated>2020-10-01T00:50:57+00:00</updated>
       <content type="html">&lt;p&gt;常に記事タイトルの下に日付が置かれるように変更した。&lt;/p&gt;
 
 &lt;figure&gt;&lt;a href=&quot;/images/2020-09-27-date-before.png&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/images/2020-09-27-date-before.png&quot; alt=&quot;&quot;&gt;&lt;/a&gt;&lt;figcaption&gt;変更前&lt;/figcaption&gt;&lt;/figure&gt;
@@ -306,7 +357,7 @@ dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /nores
       <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-09-26-rails-architecture-strongest"/>
       <id>tag:r7kamura.com,2019:/articles/2020-09-26-rails-architecture-strongest</id>
       <published>2020-09-26T00:00:00+00:00</published>
-      <updated>2020-09-30T04:37:19+00:00</updated>
+      <updated>2020-10-01T00:50:57+00:00</updated>
       <content type="html">&lt;p&gt;自分が目指したいRailsアプリの形とは何か、ということについて考えていた。&lt;/p&gt;
 
 &lt;p&gt;常日頃から考えていたRailsアプリでの不満をこの議論に合流させた結果、「Rubyを書くときに当たり前にやるようなことを、Railsアプリを書くときでも当たり前のようにやる」というところが肝で、自分が目指したいRailsアプリの形はその先にあるのではないか、と一旦結論付けてみることにした。&lt;/p&gt;
@@ -349,7 +400,7 @@ RubyとRailsが地続きに繋がっていないというか、どこかで断�
       <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-09-25-workspace-pictures"/>
       <id>tag:r7kamura.com,2019:/articles/2020-09-25-workspace-pictures</id>
       <published>2020-09-25T00:00:00+00:00</published>
-      <updated>2020-09-30T04:37:19+00:00</updated>
+      <updated>2020-10-01T00:50:57+00:00</updated>
       <content type="html">&lt;p&gt;他人の作業環境を見るという趣味があり、最近はこの辺を観測している。&lt;/p&gt;
 
 &lt;h2&gt;お前らのpcデスク周り晒して(い)け&lt;/h2&gt;
@@ -403,7 +454,7 @@ RubyとRailsが地続きに繋がっていないというか、どこかで断�
       <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-09-25-notes"/>
       <id>tag:r7kamura.com,2019:/articles/2020-09-25-notes</id>
       <published>2020-09-25T00:00:00+00:00</published>
-      <updated>2020-09-30T04:37:19+00:00</updated>
+      <updated>2020-10-01T00:50:57+00:00</updated>
       <content type="html">&lt;p&gt;文字について考えることが多い一日だった。&lt;/p&gt;
 
 &lt;h2&gt;キーボード&lt;/h2&gt;
@@ -441,7 +492,7 @@ RubyとRailsが地続きに繋がっていないというか、どこかで断�
       <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-09-24-site-minor-changes"/>
       <id>tag:r7kamura.com,2019:/articles/2020-09-24-site-minor-changes</id>
       <published>2020-09-24T00:00:00+00:00</published>
-      <updated>2020-09-30T04:37:19+00:00</updated>
+      <updated>2020-10-01T00:50:57+00:00</updated>
       <content type="html">&lt;p&gt;最近よくこのサイトに手を加えている。最初からそうだったかのように見えていれば、おおよそ成功と言える。&lt;/p&gt;
 
 &lt;h2&gt;グローバルヘッダー&lt;/h2&gt;
@@ -482,7 +533,7 @@ RubyとRailsが地続きに繋がっていないというか、どこかで断�
       <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-09-23-this-site-setup-2020"/>
       <id>tag:r7kamura.com,2019:/articles/2020-09-23-this-site-setup-2020</id>
       <published>2020-09-23T00:00:00+00:00</published>
-      <updated>2020-09-30T04:37:19+00:00</updated>
+      <updated>2020-10-01T00:50:57+00:00</updated>
       <content type="html">&lt;p&gt;このサイトの2020年時点での実装のまとめ。振り返り用。&lt;/p&gt;
 
 &lt;h2&gt;ホスティング&lt;/h2&gt;
@@ -567,7 +618,7 @@ GitHub Pagesで静的ファイルを配信している。
       <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-09-23-notes"/>
       <id>tag:r7kamura.com,2019:/articles/2020-09-23-notes</id>
       <published>2020-09-23T00:00:00+00:00</published>
-      <updated>2020-09-30T04:37:19+00:00</updated>
+      <updated>2020-10-01T00:50:57+00:00</updated>
       <content type="html">&lt;p&gt;雑記のタイトルでは、話題を羅列するというパターンが気に入っている。技術系ポッドキャストの説明文で、似たような表現を見ることが多い。&lt;/p&gt;
 
 &lt;figure&gt;&lt;a href=&quot;/images/2020-09-23-notes-camera.jpg&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/images/2020-09-23-notes-camera.jpg&quot; alt=&quot;&quot;&gt;&lt;/a&gt;&lt;figcaption&gt;ウェブカメラとディスプレイ&lt;/figcaption&gt;&lt;/figure&gt;
@@ -618,7 +669,7 @@ end
       <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-09-22-markdown-summary"/>
       <id>tag:r7kamura.com,2019:/articles/2020-09-22-markdown-summary</id>
       <published>2020-09-22T00:00:00+00:00</published>
-      <updated>2020-09-30T04:37:19+00:00</updated>
+      <updated>2020-10-01T00:50:57+00:00</updated>
       <content type="html">&lt;figure&gt;&lt;a href=&quot;/images/2020-09-22-summary-detection.jpg&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/images/2020-09-22-summary-detection.jpg&quot; alt=&quot;&quot;&gt;&lt;/a&gt;&lt;figcaption&gt;何の関係も無いサメのぬいぐるみの画像&lt;/figcaption&gt;&lt;/figure&gt;
 
 &lt;p&gt;記事の説明文を抽出する方法を変更した。あまり目に触れる機会は無いが、SNSやフィードなどで利用される。&lt;/p&gt;
@@ -646,7 +697,7 @@ end
       <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-09-22-markdown-caption"/>
       <id>tag:r7kamura.com,2019:/articles/2020-09-22-markdown-caption</id>
       <published>2020-09-22T00:00:00+00:00</published>
-      <updated>2020-09-30T04:37:19+00:00</updated>
+      <updated>2020-10-01T00:50:57+00:00</updated>
       <content type="html">&lt;p&gt;FF14のスクリーンショットを久しぶりに見返していた。&lt;/p&gt;
 
 &lt;figure&gt;&lt;a href=&quot;/images/2020-09-22-markdown-caption-back.png&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/images/2020-09-22-markdown-caption-back.png&quot; alt=&quot;&quot;&gt;&lt;/a&gt;&lt;figcaption&gt;猫耳や尻尾があるミコッテという種族&lt;/figcaption&gt;&lt;/figure&gt;
@@ -710,7 +761,7 @@ end
       <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-09-21-personal-website"/>
       <id>tag:r7kamura.com,2019:/articles/2020-09-21-personal-website</id>
       <published>2020-09-21T00:00:00+00:00</published>
-      <updated>2020-09-30T04:37:19+00:00</updated>
+      <updated>2020-10-01T00:50:57+00:00</updated>
       <content type="html">&lt;p&gt;なぜ個人でウェブサイトを運用しているのかについて、整理しておきたい。&lt;/p&gt;
 
 &lt;p&gt;要約すると、以下の理由でやっている。&lt;/p&gt;
@@ -796,7 +847,7 @@ end
       <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-09-21-cable-dependencies"/>
       <id>tag:r7kamura.com,2019:/articles/2020-09-21-cable-dependencies</id>
       <published>2020-09-21T00:00:00+00:00</published>
-      <updated>2020-09-30T04:37:19+00:00</updated>
+      <updated>2020-10-01T00:50:57+00:00</updated>
       <content type="html">&lt;p&gt;PCデスクを買い換えることにしたので、機器と配線について整理する。&lt;/p&gt;
 
 &lt;p&gt;&lt;a href=&quot;/images/2020-09-21-cable-dependencies.jpg&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/images/2020-09-21-cable-dependencies.jpg&quot; alt=&quot;&quot;&gt;&lt;/a&gt;&lt;/p&gt;
@@ -891,7 +942,7 @@ end
       <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-09-20-rspec-type-metadata"/>
       <id>tag:r7kamura.com,2019:/articles/2020-09-20-rspec-type-metadata</id>
       <published>2020-09-20T00:00:00+00:00</published>
-      <updated>2020-09-30T04:37:19+00:00</updated>
+      <updated>2020-10-01T00:50:57+00:00</updated>
       <content type="html">&lt;p&gt;RSpecを使うテストコードから不要なtypeを取り除く作業をした。&lt;/p&gt;
 
 &lt;p&gt;&lt;code&gt;config.infer_spec_type_from_file_location!&lt;/code&gt; を指定することで不要になる &lt;code&gt;metadata[:type]&lt;/code&gt; を取り除こうというスクリプト。&lt;/p&gt;
@@ -951,7 +1002,7 @@ RSpec.describe User do
       <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-09-20-restospective-past-work"/>
       <id>tag:r7kamura.com,2019:/articles/2020-09-20-restospective-past-work</id>
       <published>2020-09-20T00:00:00+00:00</published>
-      <updated>2020-09-30T04:37:19+00:00</updated>
+      <updated>2020-10-01T00:50:57+00:00</updated>
       <content type="html">&lt;p&gt;RubyやRailsのアップグレードを主なマイルストーンとしつつ全体的に開発体験を良くしていくというタイプの仕事を請けることが多いのですが、仕事を依頼する側の視点に立ってみると「実際のところ業務に参加するとどういうことが行われるのか？」というのがやはり気になると思います。&lt;/p&gt;
 
 &lt;p&gt;実際、最近の打ち合わせでもその手の不安について相談されることがあったので、ここ1ヶ月でそれ系の仕事で出したPull Requestを元に、実際に何をやっていたかの例を挙げてみたいと思います。&lt;/p&gt;
@@ -1012,46 +1063,6 @@ RSpec.describe User do
 &lt;/ul&gt;
 
 &lt;p&gt;まあなんかガチャガチャと色々やっていっています。特定のアプリケーションの実装に依存する話 (要はFooモデルのbazメソッドの実装が良くないとか) についてはここに含んでいなくて、実際にはそういうところが一番のホットスポットで改善に効いてくることが多いんですが、そういうのは置いといて汎用性のありそうなタスクだけ抽出してみました。&lt;/p&gt;
-</content>
-    </entry>
-  
-    <entry>
-      <title>「記事」から「記事一覧」へ</title>
-      <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-09-19-list-articles-minor-change"/>
-      <id>tag:r7kamura.com,2019:/articles/2020-09-19-list-articles-minor-change</id>
-      <published>2020-09-19T00:00:00+00:00</published>
-      <updated>2020-09-30T04:37:19+00:00</updated>
-      <content type="html">&lt;p&gt;ヘッダーのリンクと記事一覧ページの見出しを少し変えた。&lt;/p&gt;
-
-&lt;p&gt;「記事」という表記は、記事ではないもの…例えば写真など…が存在していて初めて「記事」という表記である妥当性が生まれるはずで、現状このウェブサイトには記事しかコンテンツが無い。そうであれば、一覧であるということを押し出して「記事一覧」と表記した方が分かりやすいだろう、という意図でこう変更した。&lt;/p&gt;
-
-&lt;p&gt;別案として「過去の記事」という表記も考えた。トップページには「最近の記事」として直近5件の記事を載せているので、ここと対称性を持たせてはどうかという案。しかしこうすると、ある記事に関するパンくずリストを考えたときに、次のような構造になってしまう。&lt;/p&gt;
-
-&lt;ol&gt;
-&lt;li&gt;トップページ&lt;/li&gt;
-&lt;li&gt;過去の記事&lt;/li&gt;
-&lt;li&gt;その記事&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;そうなると、「記事」が「過去の記事」に包含される、という構造はあまりよろしくないし、やはり「記事一覧」が良いのではと考えた。&lt;/p&gt;
-
-&lt;p&gt;英語だと &quot;articles&quot; で済むので良いけれど、日本語だとなかなか表記が難しい。これまでの「記事」「検索」という二文字ずつの構成のサイズ感が気に入っていただけに、「記事一覧」というゴツい見た目になってしまったのは少し惜しい気持ちがある。&lt;/p&gt;
-
-&lt;hr&gt;
-
-&lt;p&gt;他に関連する変更として、記事一覧ページに掲載されていた以下の説明を書き換えた。&lt;/p&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;このウェブサイトでは、日々の生活やプログラミングなどに関する、個人的な文章を公開しています。&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;見返してみると、ここでこのウェブサイトが何であるかについて説明する必要はやはり無い。ここにこの文言を追加したときは頭がおかしくなっていたのだろうか。&lt;/p&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;すべての過去記事へのリンクを、最近書かれた順に並べています。&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;新しい説明はこのようにした。&lt;/p&gt;
 </content>
     </entry>
   
