@@ -1,3 +1,4 @@
+https://r7kamura.com/articles/2020-10-02-notes
 https://r7kamura.com/articles/2020-10-01-coffee
 https://r7kamura.com/articles/2020-10-01-bash-prompt
 https://r7kamura.com/articles/2020-09-30-dotfiles
