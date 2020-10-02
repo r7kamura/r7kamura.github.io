@@ -59,6 +59,23 @@
 
 <p>あまり切迫した状況になっておらず、適当に散策していても世界への申し訳無さを感じないところが良い。FF14で光の戦士をやっていた頃は、世界を救わなければならないという焦燥感みたいなものを、心のどこかで常に感じていた。</p>
 
+<hr>
+
+<p>Twitterカードで画像が展開されないなと思って詳しく調べたら、<a href="https://developer.twitter.com/en/docs/twitter-for-websites/cards/overview/summary-card-with-large-image">Twitterカードのドキュメント</a>に画像は最大5MBまでと書かれており、配信している画像を調べてみたら幾つかの画像がそれを超過していた。</p>
+
+<blockquote>
+<p>Images for this Card support an aspect ratio of 2:1 with minimum dimensions of 300x157 or maximum of 4096x4096 pixels. Images must be less than 5MB in size. JPG, PNG, WEBP and GIF formats are supported.</p>
+</blockquote>
+
+<p>サイズが上位20件以内の画像を見つけ、最大幅1920pxに変換することで、適当にやりすごすことにした。</p>
+
+<pre><code>du -k static/images/* \
+  | sort -rn \
+  | head -n 20 \
+  | cut -f 2 \
+  | xargs mogrify -resize 1920x
+</code></pre>
+
   </div>
 </article>
 

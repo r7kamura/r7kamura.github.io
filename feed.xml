@@ -3,7 +3,7 @@
   <title>r7kamura.com</title>
   <link rel="self" type="application/atom+xml" href="https://r7kamura.com/feed.xml"/>
   <link rel="alternate" type="text/html" href="https://r7kamura.com/"/>
-  <updated>2020-10-02T03:58:44+00:00</updated>
+  <updated>2020-10-02T05:49:10+00:00</updated>
   <author>
     <name>Ryo Nakamura</name>
   </author>
@@ -14,7 +14,7 @@
       <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-10-02-notes"/>
       <id>tag:r7kamura.com,2019:/articles/2020-10-02-notes</id>
       <published>2020-10-02T00:00:00+00:00</published>
-      <updated>2020-10-02T03:58:05+00:00</updated>
+      <updated>2020-10-02T05:48:33+00:00</updated>
       <content type="html">&lt;p&gt;雑多な日記。&lt;/p&gt;
 
 &lt;h2&gt;日付の位置&lt;/h2&gt;
@@ -32,6 +32,23 @@
 &lt;p&gt;『&lt;a href=&quot;https://genshin.mihoyo.com/ja&quot;&gt;原神&lt;/a&gt;』をゆっくり進めている。攻略に目がない人達が落としてくれたお金で開発が進む、ものすごく高品質な箱庭ゲームだと捉えている節がある。世界を救う旅人というよりは、街で生活するカメラが好きな一般人として過ごしている。&lt;/p&gt;
 
 &lt;p&gt;あまり切迫した状況になっておらず、適当に散策していても世界への申し訳無さを感じないところが良い。FF14で光の戦士をやっていた頃は、世界を救わなければならないという焦燥感みたいなものを、心のどこかで常に感じていた。&lt;/p&gt;
+
+&lt;hr&gt;
+
+&lt;p&gt;Twitterカードで画像が展開されないなと思って詳しく調べたら、&lt;a href=&quot;https://developer.twitter.com/en/docs/twitter-for-websites/cards/overview/summary-card-with-large-image&quot;&gt;Twitterカードのドキュメント&lt;/a&gt;に画像は最大5MBまでと書かれており、配信している画像を調べてみたら幾つかの画像がそれを超過していた。&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Images for this Card support an aspect ratio of 2:1 with minimum dimensions of 300x157 or maximum of 4096x4096 pixels. Images must be less than 5MB in size. JPG, PNG, WEBP and GIF formats are supported.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;サイズが上位20件以内の画像を見つけ、最大幅1920pxに変換することで、適当にやりすごすことにした。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;du -k static/images/* \
+  | sort -rn \
+  | head -n 20 \
+  | cut -f 2 \
+  | xargs mogrify -resize 1920x
+&lt;/code&gt;&lt;/pre&gt;
 </content>
     </entry>
   
@@ -40,7 +57,7 @@
       <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-10-01-coffee"/>
       <id>tag:r7kamura.com,2019:/articles/2020-10-01-coffee</id>
       <published>2020-10-01T00:00:00+00:00</published>
-      <updated>2020-10-02T03:58:05+00:00</updated>
+      <updated>2020-10-02T05:48:33+00:00</updated>
       <content type="html">&lt;figure&gt;&lt;a href=&quot;/images/2020-10-01-coffee.jpg&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/images/2020-10-01-coffee.jpg&quot; alt=&quot;&quot;&gt;&lt;/a&gt;&lt;figcaption&gt;水出しコーヒーを入れた様子&lt;/figcaption&gt;&lt;/figure&gt;
 
 &lt;p&gt;水出しコーヒーをもっと沢山つくりたいと思い、Amazonで&lt;a href=&quot;https://www.amazon.co.jp/dp/B079YRR9ZM/?tag=r7kamura07-22&quot;&gt;HARIOのガラス製のポット&lt;/a&gt;を買った。洗いやすさを重視して、中にフィルターなどが含まれていないタイプにした。これくらいの容量になると、重さもあるので、取っ手が付いている方が使いやすい。&lt;/p&gt;
@@ -56,7 +73,7 @@
       <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-10-01-bash-prompt"/>
       <id>tag:r7kamura.com,2019:/articles/2020-10-01-bash-prompt</id>
       <published>2020-10-01T00:00:00+00:00</published>
-      <updated>2020-10-02T03:58:05+00:00</updated>
+      <updated>2020-10-02T05:48:33+00:00</updated>
       <content type="html">&lt;p&gt;Bashでプロンプトをカスタマイズしようとしてはまったが解決した。&lt;/p&gt;
 
 &lt;h2&gt;Bashのプロンプトで使える制御文字&lt;/h2&gt;
@@ -107,7 +124,7 @@ export PS1=&#39;$(prompt)&#39;
       <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-09-30-dotfiles"/>
       <id>tag:r7kamura.com,2019:/articles/2020-09-30-dotfiles</id>
       <published>2020-09-30T00:00:00+00:00</published>
-      <updated>2020-10-02T03:58:05+00:00</updated>
+      <updated>2020-10-02T05:48:33+00:00</updated>
       <content type="html">&lt;p&gt;主な開発環境がUbuntuに移ったということもあり、&lt;a href=&quot;https://github.com/r7kamura/dotfiles&quot;&gt;dotfiles&lt;/a&gt;を整理していた。&lt;/p&gt;
 
 &lt;figure&gt;&lt;a href=&quot;https://raw.githubusercontent.com/serverkit/serverkit/master/images/server.png&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;https://raw.githubusercontent.com/serverkit/serverkit/master/images/server.png&quot; alt=&quot;&quot;&gt;&lt;/a&gt;&lt;figcaption&gt;serverkitの象徴 / 1041uuuさんに描いてもらった&lt;/figcaption&gt;&lt;/figure&gt;
@@ -134,7 +151,7 @@ YAMLで設定を書いたら適用出来るというやつ。AnsibleのRuby版�
       <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-09-29-genshin-windows"/>
       <id>tag:r7kamura.com,2019:/articles/2020-09-29-genshin-windows</id>
       <published>2020-09-29T00:00:00+00:00</published>
-      <updated>2020-10-02T03:58:05+00:00</updated>
+      <updated>2020-10-02T05:48:33+00:00</updated>
       <content type="html">&lt;p&gt;Winodowsで遊びながら、ゲームで癒やされる一日だった。&lt;/p&gt;
 
 &lt;h2&gt;原神&lt;/h2&gt;
@@ -158,7 +175,7 @@ YAMLで設定を書いたら適用出来るというやつ。AnsibleのRuby版�
       <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-09-29-genshin-1st-impression"/>
       <id>tag:r7kamura.com,2019:/articles/2020-09-29-genshin-1st-impression</id>
       <published>2020-09-29T00:00:00+00:00</published>
-      <updated>2020-10-02T03:58:05+00:00</updated>
+      <updated>2020-10-02T05:48:33+00:00</updated>
       <content type="html">&lt;figure&gt;&lt;a href=&quot;/images/2020-09-29-genshin-night.png&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/images/2020-09-29-genshin-night.png&quot; alt=&quot;&quot;&gt;&lt;/a&gt;&lt;figcaption&gt;最初に訪れる街の夜&lt;/figcaption&gt;&lt;/figure&gt;
 
 &lt;p&gt;2020年9月28日にリリースされたゲーム『&lt;a href=&quot;https://genshin.mihoyo.com/ja&quot;&gt;原神&lt;/a&gt;』を早速やりはじめた。&lt;/p&gt;
@@ -195,7 +212,7 @@ YAMLで設定を書いたら適用出来るというやつ。AnsibleのRuby版�
       <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-09-28-power-toys"/>
       <id>tag:r7kamura.com,2019:/articles/2020-09-28-power-toys</id>
       <published>2020-09-28T00:00:00+00:00</published>
-      <updated>2020-10-02T03:58:05+00:00</updated>
+      <updated>2020-10-02T05:48:33+00:00</updated>
       <content type="html">&lt;p&gt;Windows用にPowerToysというのを教えてもらって、使ってみたら思いの外よかったという話。&lt;/p&gt;
 
 &lt;p&gt;&lt;a href=&quot;https://github.com/microsoft/PowerToys&quot;&gt;https://github.com/microsoft/PowerToys&lt;/a&gt;&lt;/p&gt;
@@ -236,7 +253,7 @@ YAMLで設定を書いたら適用出来るというやつ。AnsibleのRuby版�
       <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-09-28-development-on-windows"/>
       <id>tag:r7kamura.com,2019:/articles/2020-09-28-development-on-windows</id>
       <published>2020-09-28T00:00:00+00:00</published>
-      <updated>2020-10-02T03:58:05+00:00</updated>
+      <updated>2020-10-02T05:48:33+00:00</updated>
       <content type="html">&lt;p&gt;Windowsで開発環境を整えた。&lt;/p&gt;
 
 &lt;h2&gt;背景&lt;/h2&gt;
@@ -352,7 +369,7 @@ dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /nores
       <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-09-27-list-style"/>
       <id>tag:r7kamura.com,2019:/articles/2020-09-27-list-style</id>
       <published>2020-09-27T00:00:00+00:00</published>
-      <updated>2020-10-02T03:58:05+00:00</updated>
+      <updated>2020-10-02T05:48:33+00:00</updated>
       <content type="html">&lt;p&gt;記事一覧も順序付きリストなのだから、&lt;code&gt;list-style-type: none&lt;/code&gt; で数字を消さず、自然状態にしておく方が良いかもしれない。そう思って実験してみたが、うるさすぎて没にした。&lt;/p&gt;
 
 &lt;figure&gt;&lt;a href=&quot;/images/2020-09-27-list-style-1.png&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/images/2020-09-27-list-style-1.png&quot; alt=&quot;&quot;&gt;&lt;/a&gt;&lt;figcaption&gt;没案・上部&lt;/figcaption&gt;&lt;/figure&gt;
@@ -383,7 +400,7 @@ dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /nores
       <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-09-27-article-date-position"/>
       <id>tag:r7kamura.com,2019:/articles/2020-09-27-article-date-position</id>
       <published>2020-09-27T00:00:00+00:00</published>
-      <updated>2020-10-02T03:58:05+00:00</updated>
+      <updated>2020-10-02T05:48:33+00:00</updated>
       <content type="html">&lt;p&gt;常に記事タイトルの下に日付が置かれるように変更した。&lt;/p&gt;
 
 &lt;figure&gt;&lt;a href=&quot;/images/2020-09-27-date-before.png&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/images/2020-09-27-date-before.png&quot; alt=&quot;&quot;&gt;&lt;/a&gt;&lt;figcaption&gt;変更前&lt;/figcaption&gt;&lt;/figure&gt;
@@ -399,7 +416,7 @@ dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /nores
       <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-09-26-rails-architecture-strongest"/>
       <id>tag:r7kamura.com,2019:/articles/2020-09-26-rails-architecture-strongest</id>
       <published>2020-09-26T00:00:00+00:00</published>
-      <updated>2020-10-02T03:58:05+00:00</updated>
+      <updated>2020-10-02T05:48:33+00:00</updated>
       <content type="html">&lt;p&gt;自分が目指したいRailsアプリの形とは何か、ということについて考えていた。&lt;/p&gt;
 
 &lt;p&gt;常日頃から考えていたRailsアプリでの不満をこの議論に合流させた結果、「Rubyを書くときに当たり前にやるようなことを、Railsアプリを書くときでも当たり前のようにやる」というところが肝で、自分が目指したいRailsアプリの形はその先にあるのではないか、と一旦結論付けてみることにした。&lt;/p&gt;
@@ -442,7 +459,7 @@ RubyとRailsが地続きに繋がっていないというか、どこかで断�
       <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-09-25-workspace-pictures"/>
       <id>tag:r7kamura.com,2019:/articles/2020-09-25-workspace-pictures</id>
       <published>2020-09-25T00:00:00+00:00</published>
-      <updated>2020-10-02T03:58:05+00:00</updated>
+      <updated>2020-10-02T05:48:33+00:00</updated>
       <content type="html">&lt;p&gt;他人の作業環境を見るという趣味があり、最近はこの辺を観測している。&lt;/p&gt;
 
 &lt;h2&gt;お前らのpcデスク周り晒して(い)け&lt;/h2&gt;
@@ -496,7 +513,7 @@ RubyとRailsが地続きに繋がっていないというか、どこかで断�
       <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-09-25-notes"/>
       <id>tag:r7kamura.com,2019:/articles/2020-09-25-notes</id>
       <published>2020-09-25T00:00:00+00:00</published>
-      <updated>2020-10-02T03:58:05+00:00</updated>
+      <updated>2020-10-02T05:48:33+00:00</updated>
       <content type="html">&lt;p&gt;文字について考えることが多い一日だった。&lt;/p&gt;
 
 &lt;h2&gt;キーボード&lt;/h2&gt;
@@ -534,7 +551,7 @@ RubyとRailsが地続きに繋がっていないというか、どこかで断�
       <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-09-24-site-minor-changes"/>
       <id>tag:r7kamura.com,2019:/articles/2020-09-24-site-minor-changes</id>
       <published>2020-09-24T00:00:00+00:00</published>
-      <updated>2020-10-02T03:58:05+00:00</updated>
+      <updated>2020-10-02T05:48:33+00:00</updated>
       <content type="html">&lt;p&gt;最近よくこのサイトに手を加えている。最初からそうだったかのように見えていれば、おおよそ成功と言える。&lt;/p&gt;
 
 &lt;h2&gt;グローバルヘッダー&lt;/h2&gt;
@@ -575,7 +592,7 @@ RubyとRailsが地続きに繋がっていないというか、どこかで断�
       <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-09-23-this-site-setup-2020"/>
       <id>tag:r7kamura.com,2019:/articles/2020-09-23-this-site-setup-2020</id>
       <published>2020-09-23T00:00:00+00:00</published>
-      <updated>2020-10-02T03:58:05+00:00</updated>
+      <updated>2020-10-02T05:48:33+00:00</updated>
       <content type="html">&lt;p&gt;このサイトの2020年時点での実装のまとめ。振り返り用。&lt;/p&gt;
 
 &lt;h2&gt;ホスティング&lt;/h2&gt;
@@ -660,7 +677,7 @@ GitHub Pagesで静的ファイルを配信している。
       <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-09-23-notes"/>
       <id>tag:r7kamura.com,2019:/articles/2020-09-23-notes</id>
       <published>2020-09-23T00:00:00+00:00</published>
-      <updated>2020-10-02T03:58:05+00:00</updated>
+      <updated>2020-10-02T05:48:33+00:00</updated>
       <content type="html">&lt;p&gt;雑記のタイトルでは、話題を羅列するというパターンが気に入っている。技術系ポッドキャストの説明文で、似たような表現を見ることが多い。&lt;/p&gt;
 
 &lt;figure&gt;&lt;a href=&quot;/images/2020-09-23-notes-camera.jpg&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/images/2020-09-23-notes-camera.jpg&quot; alt=&quot;&quot;&gt;&lt;/a&gt;&lt;figcaption&gt;ウェブカメラとディスプレイ&lt;/figcaption&gt;&lt;/figure&gt;
@@ -711,7 +728,7 @@ end
       <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-09-22-markdown-summary"/>
       <id>tag:r7kamura.com,2019:/articles/2020-09-22-markdown-summary</id>
       <published>2020-09-22T00:00:00+00:00</published>
-      <updated>2020-10-02T03:58:05+00:00</updated>
+      <updated>2020-10-02T05:48:33+00:00</updated>
       <content type="html">&lt;figure&gt;&lt;a href=&quot;/images/2020-09-22-summary-detection.jpg&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/images/2020-09-22-summary-detection.jpg&quot; alt=&quot;&quot;&gt;&lt;/a&gt;&lt;figcaption&gt;何の関係も無いサメのぬいぐるみの画像&lt;/figcaption&gt;&lt;/figure&gt;
 
 &lt;p&gt;記事の説明文を抽出する方法を変更した。あまり目に触れる機会は無いが、SNSやフィードなどで利用される。&lt;/p&gt;
@@ -739,7 +756,7 @@ end
       <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-09-22-markdown-caption"/>
       <id>tag:r7kamura.com,2019:/articles/2020-09-22-markdown-caption</id>
       <published>2020-09-22T00:00:00+00:00</published>
-      <updated>2020-10-02T03:58:05+00:00</updated>
+      <updated>2020-10-02T05:48:33+00:00</updated>
       <content type="html">&lt;p&gt;FF14のスクリーンショットを久しぶりに見返していた。&lt;/p&gt;
 
 &lt;figure&gt;&lt;a href=&quot;/images/2020-09-22-markdown-caption-back.png&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/images/2020-09-22-markdown-caption-back.png&quot; alt=&quot;&quot;&gt;&lt;/a&gt;&lt;figcaption&gt;猫耳や尻尾があるミコッテという種族&lt;/figcaption&gt;&lt;/figure&gt;
@@ -803,7 +820,7 @@ end
       <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-09-21-personal-website"/>
       <id>tag:r7kamura.com,2019:/articles/2020-09-21-personal-website</id>
       <published>2020-09-21T00:00:00+00:00</published>
-      <updated>2020-10-02T03:58:05+00:00</updated>
+      <updated>2020-10-02T05:48:33+00:00</updated>
       <content type="html">&lt;p&gt;なぜ個人でウェブサイトを運用しているのかについて、整理しておきたい。&lt;/p&gt;
 
 &lt;p&gt;要約すると、以下の理由でやっている。&lt;/p&gt;
@@ -889,7 +906,7 @@ end
       <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-09-21-cable-dependencies"/>
       <id>tag:r7kamura.com,2019:/articles/2020-09-21-cable-dependencies</id>
       <published>2020-09-21T00:00:00+00:00</published>
-      <updated>2020-10-02T03:58:05+00:00</updated>
+      <updated>2020-10-02T05:48:33+00:00</updated>
       <content type="html">&lt;p&gt;PCデスクを買い換えることにしたので、機器と配線について整理する。&lt;/p&gt;
 
 &lt;p&gt;&lt;a href=&quot;/images/2020-09-21-cable-dependencies.jpg&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/images/2020-09-21-cable-dependencies.jpg&quot; alt=&quot;&quot;&gt;&lt;/a&gt;&lt;/p&gt;
