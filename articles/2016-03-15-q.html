@@ -36,12 +36,10 @@
   </header>
   <main>
     <article>
-  <h1>ActiveRecordであるカラムとあるカラムが同じ値になるのを防ぐようなValidationを定義する</h1>
-  <footer>
-    <p>
-      <time datetime="2016-03-15T00:00:00+00:00">2016年03月15日</time>
-    </p>
-  </footer>
+  <header>
+    <time datetime="2016-03-15T00:00:00+00:00">2016年03月15日</time>
+    <h1>ActiveRecordであるカラムとあるカラムが同じ値になるのを防ぐようなValidationを定義する</h1>
+  </header>
   <div>
     <p>例えば、GitHubの通知やTwitterの通知、あるいはQiitaの通知のような機能を実現するためにActiveRecordを利用する例を考えます。このとき「通知元のユーザと通知先のユーザは被ってほしくないなあ」という制約を実現するめに、<a href="http://edgeguides.rubyonrails.org/active_record_validations.html#exclusion">ExclusionValidator</a> が利用できます。<code>exclusion: { in: :xxx }</code> のように <code>:in</code> オプションにSymbolを与えると、その名前のインスタンスメソッドの実行結果に対して重複していないかどうか検査してくれるので、これを利用します。下の例では <code>#invalid_receivers</code> というインスタンスメソッドを定義しています。</p>
 

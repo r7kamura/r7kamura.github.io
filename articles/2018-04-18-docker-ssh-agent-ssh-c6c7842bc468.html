@@ -36,12 +36,10 @@
   </header>
   <main>
     <article>
-  <h1>Dockerコンテナからホストのssh-agentを介してSSHで接続する</h1>
-  <footer>
-    <p>
-      <time datetime="2018-04-18T00:00:00+00:00">2018年04月18日</time>
-    </p>
-  </footer>
+  <header>
+    <time datetime="2018-04-18T00:00:00+00:00">2018年04月18日</time>
+    <h1>Dockerコンテナからホストのssh-agentを介してSSHで接続する</h1>
+  </header>
   <div>
     <p>外部のプロセスとやり取りするために、ssh-agent がソケットファイルを提供しており、このパスが環境変数 SSH_AUTH_SOCK に設定されています。例えば ssh-add などがこの環境変数を利用しています。このファイルをマウントしつつ環境変数 SSH_AUTH_SOCK をマウントしたパスに指定してあげることで、対象の Docker コンテナからホストの ssh-agent を forward して通信できるようになります。</p>
 

@@ -36,12 +36,10 @@
   </header>
   <main>
     <article>
-  <h1>RailsのView開発用にViewSourceMap.gemつくった</h1>
-  <footer>
-    <p>
-      <time datetime="2012-12-04T00:00:00+00:00">2012年12月04日</time>
-    </p>
-  </footer>
+  <header>
+    <time datetime="2012-12-04T00:00:00+00:00">2012年12月04日</time>
+    <h1>RailsのView開発用にViewSourceMap.gemつくった</h1>
+  </header>
   <div>
     <p>@todesking氏の<a href="http://d.hatena.ne.jp/gnarl/20121130/1354284297">Rails、レンダリングされたHTMLのどこがどのpartialから来たのかをコメントとして埋める</a>が良かったので、完全にパクって、改良して相対パス名表示するようにして、config/initializers/以下に置いたら開発環境でのみ働くようにしてみた。ここのテキストちょっと弄りたいけどどのファイルに書いてあるの...みたいなケース多いので、ChromeのInspectorとかで見たらHTMLコメントでファイル名分かって便利。render layout: "wrapper" do ... という風にrenderを呼んだときに上手くパス名を取得する方法が分からないので、どなたかよろしくお願いします。</p><br>
 <p></p><blockquote class="twitter-tweet" data-lang="HASH(0xa8f1d30)">

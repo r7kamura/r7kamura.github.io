@@ -36,12 +36,10 @@
   </header>
   <main>
     <article>
-  <h1>HerokuのつくってるAPI関係の便利なやつ</h1>
-  <footer>
-    <p>
-      <time datetime="2014-06-03T00:00:00+00:00">2014年06月03日</time>
-    </p>
-  </footer>
+  <header>
+    <time datetime="2014-06-03T00:00:00+00:00">2014年06月03日</time>
+    <h1>HerokuのつくってるAPI関係の便利なやつ</h1>
+  </header>
   <div>
     <p><a href="https://blog.heroku.com/archives/2014/1/8/json_schema_for_heroku_platform_api">JSON Schema for the Heroku Platform API</a>でも紹介されているように、HerokuのAPIはJSON schemaで記述されたAPIの仕様を返すようなAPIがあって(ややこしい)、<a href="https://blog.heroku.com/archives/2014/1/9/auto_generating_a_go_api_client_for_heroku">Auto-generating a Go API client for Heroku</a>のようにこれを利用してAPIクライアントを自動生成するようなこともやってる(単なるアート作品じゃなくて実際に運用されているので偉い)。Herokuが出してるAPI関連作品の1つにcommittieというのがあって、JSON schemaを利用してAPIの仕様を定義して、それをRack middlewareで利用しようというもの。前に試しに<a href="https://github.com/r7kamura/rack-spec">似たようなの</a>つくってたので良いのが出てきて良かった。</p>
 
