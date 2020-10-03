@@ -11,7 +11,7 @@
     
     <item>
       <title><![CDATA[Atom 1.0からRSS 2.0に移行]]></title>
-      <description><![CDATA[既にフィードを購読中の方は、直近で最大20件の記事が未読状態に戻ってしまうかもしれません。]]></description>
+      <description><![CDATA[このサイトのフィードをAtom 1.0からRSS 2.0に移行した。]]></description>
       <link>https://r7kamura.com/articles/2020-10-04-rss</link>
       <pubDate>Sun, 04 Oct 2020 00:00:00 +0900</pubDate>
       <content:encoded><![CDATA[<p><a href="/images/2020-10-04-rss.png" target="_blank"><img src="/images/2020-10-04-rss.png" alt=""></a></p>
