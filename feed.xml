@@ -10,7 +10,7 @@
       <title><![CDATA[active_record-connection_proxy]]></title>
       <description><![CDATA[ActiveRecordで複数DBというか複数の接続設定に対応するために、active_record-connection_proxyというライブラリをつくった。]]></description>
       <link>https://r7kamura.com/articles/2020-10-03-active-record-connection-proxy</link>
-      <pubDate>Sat, 03 Oct 2020 00:00:00 +0000</pubDate>
+      <pubDate>Sat, 03 Oct 2020 00:00:00 +0900</pubDate>
       <content:encoded><![CDATA[<p>ActiveRecordで複数DBというか複数の接続設定に対応するために、<a href="https://github.com/r7kamura/active_record-connection_proxy">active_record-connection_proxy</a>というライブラリをつくった。</p>
 
 <p>元々は、とあるアプリのRails 4.2から5.0へのアップグレードで必要になってつくった実装だったが、せっかくなのでライブラリ化して公開することにした。</p>
@@ -35,7 +35,7 @@
       <title><![CDATA[日付の位置、ウェブページへの言及、原神]]></title>
       <description><![CDATA[雑多な日記。]]></description>
       <link>https://r7kamura.com/articles/2020-10-02-notes</link>
-      <pubDate>Fri, 02 Oct 2020 00:00:00 +0000</pubDate>
+      <pubDate>Fri, 02 Oct 2020 00:00:00 +0900</pubDate>
       <content:encoded><![CDATA[<p>雑多な日記。</p>
 
 <h2>日付の位置</h2>
@@ -78,7 +78,7 @@
       <title><![CDATA[水出しコーヒー、ポット、シロップ]]></title>
       <description><![CDATA[水出しコーヒーをもっと沢山つくりたいと思い、AmazonでHARIOのガラス製のポットを買った。]]></description>
       <link>https://r7kamura.com/articles/2020-10-01-coffee</link>
-      <pubDate>Thu, 01 Oct 2020 00:00:00 +0000</pubDate>
+      <pubDate>Thu, 01 Oct 2020 00:00:00 +0900</pubDate>
       <content:encoded><![CDATA[<figure><a href="/images/2020-10-01-coffee.jpg" target="_blank"><img src="/images/2020-10-01-coffee.jpg" alt=""></a><figcaption>水出しコーヒーを入れた様子</figcaption></figure>
 
 <p>水出しコーヒーをもっと沢山つくりたいと思い、Amazonで<a href="https://www.amazon.co.jp/dp/B079YRR9ZM/?tag=r7kamura07-22">HARIOのガラス製のポット</a>を買った。洗いやすさを重視して、中にフィルターなどが含まれていないタイプにした。これくらいの容量になると、重さもあるので、取っ手が付いている方が使いやすい。</p>
@@ -94,7 +94,7 @@
       <title><![CDATA[Bashのプロンプトと非印刷文字の幅計算]]></title>
       <description><![CDATA[Bashでプロンプトをカスタマイズしようとしてはまったが解決した。]]></description>
       <link>https://r7kamura.com/articles/2020-10-01-bash-prompt</link>
-      <pubDate>Thu, 01 Oct 2020 00:00:00 +0000</pubDate>
+      <pubDate>Thu, 01 Oct 2020 00:00:00 +0900</pubDate>
       <content:encoded><![CDATA[<p>Bashでプロンプトをカスタマイズしようとしてはまったが解決した。</p>
 
 <h2>Bashのプロンプトで使える制御文字</h2>
@@ -145,7 +145,7 @@ export PS1='$(prompt)'
       <title><![CDATA[dotfilesの整理]]></title>
       <description><![CDATA[主な開発環境がUbuntuに移ったということもあり、dotfilesを整理していた。]]></description>
       <link>https://r7kamura.com/articles/2020-09-30-dotfiles</link>
-      <pubDate>Wed, 30 Sep 2020 00:00:00 +0000</pubDate>
+      <pubDate>Wed, 30 Sep 2020 00:00:00 +0900</pubDate>
       <content:encoded><![CDATA[<p>主な開発環境がUbuntuに移ったということもあり、<a href="https://github.com/r7kamura/dotfiles">dotfiles</a>を整理していた。</p>
 
 <figure><a href="https://raw.githubusercontent.com/serverkit/serverkit/master/images/server.png" target="_blank"><img src="https://raw.githubusercontent.com/serverkit/serverkit/master/images/server.png" alt=""></a><figcaption>serverkitの象徴 / 1041uuuさんに描いてもらった</figcaption></figure>
@@ -172,7 +172,7 @@ YAMLで設定を書いたら適用出来るというやつ。AnsibleのRuby版�
       <title><![CDATA[原神、Windowsの思い出し]]></title>
       <description><![CDATA[Winodowsで遊びながら、ゲームで癒やされる一日だった。]]></description>
       <link>https://r7kamura.com/articles/2020-09-29-genshin-windows</link>
-      <pubDate>Tue, 29 Sep 2020 00:00:00 +0000</pubDate>
+      <pubDate>Tue, 29 Sep 2020 00:00:00 +0900</pubDate>
       <content:encoded><![CDATA[<p>Winodowsで遊びながら、ゲームで癒やされる一日だった。</p>
 
 <h2>原神</h2>
@@ -196,7 +196,7 @@ YAMLで設定を書いたら適用出来るというやつ。AnsibleのRuby版�
       <title><![CDATA[『原神』第一印象]]></title>
       <description><![CDATA[2020年9月28日にリリースされたゲーム『原神』を早速やりはじめた。]]></description>
       <link>https://r7kamura.com/articles/2020-09-29-genshin-1st-impression</link>
-      <pubDate>Tue, 29 Sep 2020 00:00:00 +0000</pubDate>
+      <pubDate>Tue, 29 Sep 2020 00:00:00 +0900</pubDate>
       <content:encoded><![CDATA[<figure><a href="/images/2020-09-29-genshin-night.png" target="_blank"><img src="/images/2020-09-29-genshin-night.png" alt=""></a><figcaption>最初に訪れる街の夜</figcaption></figure>
 
 <p>2020年9月28日にリリースされたゲーム『<a href="https://genshin.mihoyo.com/ja">原神</a>』を早速やりはじめた。</p>
@@ -233,7 +233,7 @@ YAMLで設定を書いたら適用出来るというやつ。AnsibleのRuby版�
       <title><![CDATA[PowerToysで豪遊]]></title>
       <description><![CDATA[Windows用にPowerToysというのを教えてもらって、使ってみたら思いの外よかったという話。]]></description>
       <link>https://r7kamura.com/articles/2020-09-28-power-toys</link>
-      <pubDate>Mon, 28 Sep 2020 00:00:00 +0000</pubDate>
+      <pubDate>Mon, 28 Sep 2020 00:00:00 +0900</pubDate>
       <content:encoded><![CDATA[<p>Windows用にPowerToysというのを教えてもらって、使ってみたら思いの外よかったという話。</p>
 
 <p><a href="https://github.com/microsoft/PowerToys">https://github.com/microsoft/PowerToys</a></p>
@@ -274,7 +274,7 @@ YAMLで設定を書いたら適用出来るというやつ。AnsibleのRuby版�
       <title><![CDATA[Windowsで開発]]></title>
       <description><![CDATA[Windowsで開発環境を整えた。]]></description>
       <link>https://r7kamura.com/articles/2020-09-28-development-on-windows</link>
-      <pubDate>Mon, 28 Sep 2020 00:00:00 +0000</pubDate>
+      <pubDate>Mon, 28 Sep 2020 00:00:00 +0900</pubDate>
       <content:encoded><![CDATA[<p>Windowsで開発環境を整えた。</p>
 
 <h2>背景</h2>
@@ -390,7 +390,7 @@ dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /nores
       <title><![CDATA[記事一覧と順序付きリスト]]></title>
       <description><![CDATA[記事一覧も順序付きリストなのだから、list-style-type: none で数字を消さず、自然状態にしておく方が良いかもしれない。]]></description>
       <link>https://r7kamura.com/articles/2020-09-27-list-style</link>
-      <pubDate>Sun, 27 Sep 2020 00:00:00 +0000</pubDate>
+      <pubDate>Sun, 27 Sep 2020 00:00:00 +0900</pubDate>
       <content:encoded><![CDATA[<p>記事一覧も順序付きリストなのだから、<code>list-style-type: none</code> で数字を消さず、自然状態にしておく方が良いかもしれない。そう思って実験してみたが、うるさすぎて没にした。</p>
 
 <figure><a href="/images/2020-09-27-list-style-1.png" target="_blank"><img src="/images/2020-09-27-list-style-1.png" alt=""></a><figcaption>没案・上部</figcaption></figure>
@@ -421,7 +421,7 @@ dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /nores
       <title><![CDATA[記事の日付の位置]]></title>
       <description><![CDATA[常に記事タイトルの下に日付が置かれるように変更した。]]></description>
       <link>https://r7kamura.com/articles/2020-09-27-article-date-position</link>
-      <pubDate>Sun, 27 Sep 2020 00:00:00 +0000</pubDate>
+      <pubDate>Sun, 27 Sep 2020 00:00:00 +0900</pubDate>
       <content:encoded><![CDATA[<p>常に記事タイトルの下に日付が置かれるように変更した。</p>
 
 <figure><a href="/images/2020-09-27-date-before.png" target="_blank"><img src="/images/2020-09-27-date-before.png" alt=""></a><figcaption>変更前</figcaption></figure>
@@ -437,7 +437,7 @@ dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /nores
       <title><![CDATA[Rails 設計 最強]]></title>
       <description><![CDATA[自分が目指したいRailsアプリの形とは何か、ということについて考えていた。]]></description>
       <link>https://r7kamura.com/articles/2020-09-26-rails-architecture-strongest</link>
-      <pubDate>Sat, 26 Sep 2020 00:00:00 +0000</pubDate>
+      <pubDate>Sat, 26 Sep 2020 00:00:00 +0900</pubDate>
       <content:encoded><![CDATA[<p>自分が目指したいRailsアプリの形とは何か、ということについて考えていた。</p>
 
 <p>常日頃から考えていたRailsアプリでの不満をこの議論に合流させた結果、「Rubyを書くときに当たり前にやるようなことを、Railsアプリを書くときでも当たり前のようにやる」というところが肝で、自分が目指したいRailsアプリの形はその先にあるのではないか、と一旦結論付けてみることにした。</p>
@@ -480,7 +480,7 @@ RubyとRailsが地続きに繋がっていないというか、どこかで断�
       <title><![CDATA[PCデスク周りの情報源]]></title>
       <description><![CDATA[他人の作業環境を見るという趣味があり、最近はこの辺を観測している。]]></description>
       <link>https://r7kamura.com/articles/2020-09-25-workspace-pictures</link>
-      <pubDate>Fri, 25 Sep 2020 00:00:00 +0000</pubDate>
+      <pubDate>Fri, 25 Sep 2020 00:00:00 +0900</pubDate>
       <content:encoded><![CDATA[<p>他人の作業環境を見るという趣味があり、最近はこの辺を観測している。</p>
 
 <h2>お前らのpcデスク周り晒して(い)け</h2>
@@ -534,7 +534,7 @@ RubyとRailsが地続きに繋がっていないというか、どこかで断�
       <title><![CDATA[キーボード、節記号、フルーロン]]></title>
       <description><![CDATA[文字について考えることが多い一日だった。]]></description>
       <link>https://r7kamura.com/articles/2020-09-25-notes</link>
-      <pubDate>Fri, 25 Sep 2020 00:00:00 +0000</pubDate>
+      <pubDate>Fri, 25 Sep 2020 00:00:00 +0900</pubDate>
       <content:encoded><![CDATA[<p>文字について考えることが多い一日だった。</p>
 
 <h2>キーボード</h2>
@@ -572,7 +572,7 @@ RubyとRailsが地続きに繋がっていないというか、どこかで断�
       <title><![CDATA[グローバルヘッダーとトップページの微調整]]></title>
       <description><![CDATA[最近よくこのサイトに手を加えている。]]></description>
       <link>https://r7kamura.com/articles/2020-09-24-site-minor-changes</link>
-      <pubDate>Thu, 24 Sep 2020 00:00:00 +0000</pubDate>
+      <pubDate>Thu, 24 Sep 2020 00:00:00 +0900</pubDate>
       <content:encoded><![CDATA[<p>最近よくこのサイトに手を加えている。最初からそうだったかのように見えていれば、おおよそ成功と言える。</p>
 
 <h2>グローバルヘッダー</h2>
@@ -613,7 +613,7 @@ RubyとRailsが地続きに繋がっていないというか、どこかで断�
       <title><![CDATA[このサイトの実装 2020年版]]></title>
       <description><![CDATA[このサイトの2020年時点での実装のまとめ。]]></description>
       <link>https://r7kamura.com/articles/2020-09-23-this-site-setup-2020</link>
-      <pubDate>Wed, 23 Sep 2020 00:00:00 +0000</pubDate>
+      <pubDate>Wed, 23 Sep 2020 00:00:00 +0900</pubDate>
       <content:encoded><![CDATA[<p>このサイトの2020年時点での実装のまとめ。振り返り用。</p>
 
 <h2>ホスティング</h2>
@@ -698,7 +698,7 @@ GitHub Pagesで静的ファイルを配信している。
       <title><![CDATA[ウェブカメラ、LOST ARK、コードの説明]]></title>
       <description><![CDATA[ウェブカメラを買ったり、新しいMMORPGを試したり、サイトをいじったりした。]]></description>
       <link>https://r7kamura.com/articles/2020-09-23-notes</link>
-      <pubDate>Wed, 23 Sep 2020 00:00:00 +0000</pubDate>
+      <pubDate>Wed, 23 Sep 2020 00:00:00 +0900</pubDate>
       <content:encoded><![CDATA[<p>ウェブカメラを買ったり、新しいMMORPGを試したり、サイトをいじったりした。</p>
 
 <figure><a href="/images/2020-09-23-notes-camera.jpg" target="_blank"><img src="/images/2020-09-23-notes-camera.jpg" alt=""></a><figcaption>ウェブカメラとディスプレイ</figcaption></figure>
@@ -751,7 +751,7 @@ end
       <title><![CDATA[記事の説明文]]></title>
       <description><![CDATA[記事の説明文を抽出する方法を変更した。]]></description>
       <link>https://r7kamura.com/articles/2020-09-22-markdown-summary</link>
-      <pubDate>Tue, 22 Sep 2020 00:00:00 +0000</pubDate>
+      <pubDate>Tue, 22 Sep 2020 00:00:00 +0900</pubDate>
       <content:encoded><![CDATA[<figure><a href="/images/2020-09-22-summary-detection.jpg" target="_blank"><img src="/images/2020-09-22-summary-detection.jpg" alt=""></a><figcaption>何の関係も無いサメのぬいぐるみの画像</figcaption></figure>
 
 <p>記事の説明文を抽出する方法を変更した。あまり目に触れる機会は無いが、SNSやフィードなどで利用される。</p>
@@ -779,7 +779,7 @@ end
       <title><![CDATA[画像のキャプション]]></title>
       <description><![CDATA[FF14のスクリーンショットを久しぶりに見返していた。]]></description>
       <link>https://r7kamura.com/articles/2020-09-22-markdown-caption</link>
-      <pubDate>Tue, 22 Sep 2020 00:00:00 +0000</pubDate>
+      <pubDate>Tue, 22 Sep 2020 00:00:00 +0900</pubDate>
       <content:encoded><![CDATA[<p>FF14のスクリーンショットを久しぶりに見返していた。</p>
 
 <figure><a href="/images/2020-09-22-markdown-caption-back.png" target="_blank"><img src="/images/2020-09-22-markdown-caption-back.png" alt=""></a><figcaption>猫耳や尻尾があるミコッテという種族</figcaption></figure>
@@ -843,7 +843,7 @@ end
       <title><![CDATA[個人サイトについて]]></title>
       <description><![CDATA[なぜ個人でウェブサイトを運用しているのかについて、整理しておきたい。]]></description>
       <link>https://r7kamura.com/articles/2020-09-21-personal-website</link>
-      <pubDate>Mon, 21 Sep 2020 00:00:00 +0000</pubDate>
+      <pubDate>Mon, 21 Sep 2020 00:00:00 +0900</pubDate>
       <content:encoded><![CDATA[<p>なぜ個人でウェブサイトを運用しているのかについて、整理しておきたい。</p>
 
 <p>要約すると、以下の理由でやっている。</p>
