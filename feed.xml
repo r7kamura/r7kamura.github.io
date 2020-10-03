@@ -217,11 +217,11 @@ YAMLで設定を書いたら適用出来るというやつ。AnsibleのRuby版�
 <p>手を止めていろんなものを眺めてみると、アニメーションや意匠などを含めて、とにかく細部へのこだわりを感じる。ステータス画面ひとつ取ってみても、受け入れやすい見た目でありながら、格好良さと可愛さの調和が取れたデザインになっている。</p>
 
 <figure>
-<div style="padding:41.87% 0 0 0;position:relative;"></div>
+<div style="padding:41.87% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/462735403?title=0&amp;byline=0&amp;portrait=0" style="position:absolute;top:0;left:0;width:100%;height:100%;" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe></div>
 <figcaption>ステータス画面</figcaption>
 </figure>
 
-
+<script src="https://player.vimeo.com/api/player.js"></script>
 
 <p>そこまで期待していなかったにも関わらず、戦闘や探索も、魔法の組み合わせでいろいろ試すのが思っていたより楽しい。ゼルダの伝説やSpell Breakをプレイしたときにも感じたことだけど、こういう、小さくてシンプルな要素を組み合わせて大きな力を発生させるタイプの仕組みは、賢く立ち回ることで健康的な達成感が得られて、非常に良い。UNIX哲学的な感じで、プログラミングにおける達成感に近いものがある。</p>
 
