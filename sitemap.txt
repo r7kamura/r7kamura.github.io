@@ -1,3 +1,4 @@
+https://r7kamura.com/articles/2020-10-03-active-record-connection-proxy
 https://r7kamura.com/articles/2020-10-02-notes
 https://r7kamura.com/articles/2020-10-01-coffee
 https://r7kamura.com/articles/2020-10-01-bash-prompt

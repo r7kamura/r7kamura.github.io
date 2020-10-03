@@ -3,18 +3,43 @@
   <title>r7kamura.com</title>
   <link rel="self" type="application/atom+xml" href="https://r7kamura.com/feed.xml"/>
   <link rel="alternate" type="text/html" href="https://r7kamura.com/"/>
-  <updated>2020-10-03T00:24:37+00:00</updated>
+  <updated>2020-10-03T11:01:56+00:00</updated>
   <author>
     <name>Ryo Nakamura</name>
   </author>
   <id>tag:r7kamura.com,2019:/</id>
   
     <entry>
+      <title>active_record-connection_proxy</title>
+      <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-10-03-active-record-connection-proxy"/>
+      <id>tag:r7kamura.com,2019:/articles/2020-10-03-active-record-connection-proxy</id>
+      <published>2020-10-03T00:00:00+00:00</published>
+      <updated>2020-10-03T11:01:22+00:00</updated>
+      <content type="html">&lt;p&gt;ActiveRecordで複数DBというか複数の接続設定に対応するために、&lt;a href=&quot;https://github.com/r7kamura/active_record-connection_proxy&quot;&gt;active_record-connection_proxy&lt;/a&gt;というライブラリをつくった。&lt;/p&gt;
+
+&lt;p&gt;元々は、とあるアプリのRails 4.2から5.0へのアップグレードで必要になってつくった実装だったが、せっかくなのでライブラリ化して公開することにした。&lt;/p&gt;
+
+&lt;p&gt;ちなみに、このライブラリは以下の問題意識を背景につくられた。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Rails 6.0の複数DB用対応はRails 6.0からしか使えない&lt;/li&gt;
+&lt;li&gt;巷のライブラリはreadとwriteの二択にしか対応していないものが多い&lt;/li&gt;
+&lt;li&gt;コード量が多いライブラリだといざというときやめにくい&lt;/li&gt;
+&lt;li&gt;ブロック形式だとメソッドチェーン方式の既存コードを移行しにくい&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;かなり雑なつくりになっていて笑っちゃうんだけど、贔屓目にとらえると、パーツだけ提供して、組み立ては利用者にやってもらうという形式が面白いところだと思う。ライブラリを読み込むだけでいい感じに全部やってくれたりすることはないので、自分で組み立てる楽しさと安心感を利用者に感じてもらいたい。&lt;/p&gt;
+
+&lt;p&gt;実際のところ、ライブラリはProxyというクラスだけを提供していて、実質30行ぐらいしか実装が無い。ではこのライブラリが本質的に何を提供しているのかというと、connectionを他のモデルから借りてくるだけで上手くいくんじゃない？というアイデアを提供しているのだと思う。そして、実際のところはしっかりやろうとするとクエリキャッシュの管理で上手くいかないかったりする。&lt;/p&gt;
+</content>
+    </entry>
+  
+    <entry>
       <title>日付の位置、ウェブページへの言及、原神</title>
       <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-10-02-notes"/>
       <id>tag:r7kamura.com,2019:/articles/2020-10-02-notes</id>
       <published>2020-10-02T00:00:00+00:00</published>
-      <updated>2020-10-03T00:23:54+00:00</updated>
+      <updated>2020-10-03T11:01:22+00:00</updated>
       <content type="html">&lt;p&gt;雑多な日記。&lt;/p&gt;
 
 &lt;h2&gt;日付の位置&lt;/h2&gt;
@@ -57,7 +82,7 @@
       <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-10-01-coffee"/>
       <id>tag:r7kamura.com,2019:/articles/2020-10-01-coffee</id>
       <published>2020-10-01T00:00:00+00:00</published>
-      <updated>2020-10-03T00:23:54+00:00</updated>
+      <updated>2020-10-03T11:01:22+00:00</updated>
       <content type="html">&lt;figure&gt;&lt;a href=&quot;/images/2020-10-01-coffee.jpg&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/images/2020-10-01-coffee.jpg&quot; alt=&quot;&quot;&gt;&lt;/a&gt;&lt;figcaption&gt;水出しコーヒーを入れた様子&lt;/figcaption&gt;&lt;/figure&gt;
 
 &lt;p&gt;水出しコーヒーをもっと沢山つくりたいと思い、Amazonで&lt;a href=&quot;https://www.amazon.co.jp/dp/B079YRR9ZM/?tag=r7kamura07-22&quot;&gt;HARIOのガラス製のポット&lt;/a&gt;を買った。洗いやすさを重視して、中にフィルターなどが含まれていないタイプにした。これくらいの容量になると、重さもあるので、取っ手が付いている方が使いやすい。&lt;/p&gt;
@@ -73,7 +98,7 @@
       <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-10-01-bash-prompt"/>
       <id>tag:r7kamura.com,2019:/articles/2020-10-01-bash-prompt</id>
       <published>2020-10-01T00:00:00+00:00</published>
-      <updated>2020-10-03T00:23:54+00:00</updated>
+      <updated>2020-10-03T11:01:22+00:00</updated>
       <content type="html">&lt;p&gt;Bashでプロンプトをカスタマイズしようとしてはまったが解決した。&lt;/p&gt;
 
 &lt;h2&gt;Bashのプロンプトで使える制御文字&lt;/h2&gt;
@@ -124,7 +149,7 @@ export PS1=&#39;$(prompt)&#39;
       <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-09-30-dotfiles"/>
       <id>tag:r7kamura.com,2019:/articles/2020-09-30-dotfiles</id>
       <published>2020-09-30T00:00:00+00:00</published>
-      <updated>2020-10-03T00:23:54+00:00</updated>
+      <updated>2020-10-03T11:01:22+00:00</updated>
       <content type="html">&lt;p&gt;主な開発環境がUbuntuに移ったということもあり、&lt;a href=&quot;https://github.com/r7kamura/dotfiles&quot;&gt;dotfiles&lt;/a&gt;を整理していた。&lt;/p&gt;
 
 &lt;figure&gt;&lt;a href=&quot;https://raw.githubusercontent.com/serverkit/serverkit/master/images/server.png&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;https://raw.githubusercontent.com/serverkit/serverkit/master/images/server.png&quot; alt=&quot;&quot;&gt;&lt;/a&gt;&lt;figcaption&gt;serverkitの象徴 / 1041uuuさんに描いてもらった&lt;/figcaption&gt;&lt;/figure&gt;
@@ -151,7 +176,7 @@ YAMLで設定を書いたら適用出来るというやつ。AnsibleのRuby版�
       <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-09-29-genshin-windows"/>
       <id>tag:r7kamura.com,2019:/articles/2020-09-29-genshin-windows</id>
       <published>2020-09-29T00:00:00+00:00</published>
-      <updated>2020-10-03T00:23:54+00:00</updated>
+      <updated>2020-10-03T11:01:22+00:00</updated>
       <content type="html">&lt;p&gt;Winodowsで遊びながら、ゲームで癒やされる一日だった。&lt;/p&gt;
 
 &lt;h2&gt;原神&lt;/h2&gt;
@@ -175,7 +200,7 @@ YAMLで設定を書いたら適用出来るというやつ。AnsibleのRuby版�
       <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-09-29-genshin-1st-impression"/>
       <id>tag:r7kamura.com,2019:/articles/2020-09-29-genshin-1st-impression</id>
       <published>2020-09-29T00:00:00+00:00</published>
-      <updated>2020-10-03T00:23:54+00:00</updated>
+      <updated>2020-10-03T11:01:22+00:00</updated>
       <content type="html">&lt;figure&gt;&lt;a href=&quot;/images/2020-09-29-genshin-night.png&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/images/2020-09-29-genshin-night.png&quot; alt=&quot;&quot;&gt;&lt;/a&gt;&lt;figcaption&gt;最初に訪れる街の夜&lt;/figcaption&gt;&lt;/figure&gt;
 
 &lt;p&gt;2020年9月28日にリリースされたゲーム『&lt;a href=&quot;https://genshin.mihoyo.com/ja&quot;&gt;原神&lt;/a&gt;』を早速やりはじめた。&lt;/p&gt;
@@ -212,7 +237,7 @@ YAMLで設定を書いたら適用出来るというやつ。AnsibleのRuby版�
       <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-09-28-power-toys"/>
       <id>tag:r7kamura.com,2019:/articles/2020-09-28-power-toys</id>
       <published>2020-09-28T00:00:00+00:00</published>
-      <updated>2020-10-03T00:23:54+00:00</updated>
+      <updated>2020-10-03T11:01:22+00:00</updated>
       <content type="html">&lt;p&gt;Windows用にPowerToysというのを教えてもらって、使ってみたら思いの外よかったという話。&lt;/p&gt;
 
 &lt;p&gt;&lt;a href=&quot;https://github.com/microsoft/PowerToys&quot;&gt;https://github.com/microsoft/PowerToys&lt;/a&gt;&lt;/p&gt;
@@ -253,7 +278,7 @@ YAMLで設定を書いたら適用出来るというやつ。AnsibleのRuby版�
       <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-09-28-development-on-windows"/>
       <id>tag:r7kamura.com,2019:/articles/2020-09-28-development-on-windows</id>
       <published>2020-09-28T00:00:00+00:00</published>
-      <updated>2020-10-03T00:23:54+00:00</updated>
+      <updated>2020-10-03T11:01:22+00:00</updated>
       <content type="html">&lt;p&gt;Windowsで開発環境を整えた。&lt;/p&gt;
 
 &lt;h2&gt;背景&lt;/h2&gt;
@@ -369,7 +394,7 @@ dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /nores
       <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-09-27-list-style"/>
       <id>tag:r7kamura.com,2019:/articles/2020-09-27-list-style</id>
       <published>2020-09-27T00:00:00+00:00</published>
-      <updated>2020-10-03T00:23:54+00:00</updated>
+      <updated>2020-10-03T11:01:22+00:00</updated>
       <content type="html">&lt;p&gt;記事一覧も順序付きリストなのだから、&lt;code&gt;list-style-type: none&lt;/code&gt; で数字を消さず、自然状態にしておく方が良いかもしれない。そう思って実験してみたが、うるさすぎて没にした。&lt;/p&gt;
 
 &lt;figure&gt;&lt;a href=&quot;/images/2020-09-27-list-style-1.png&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/images/2020-09-27-list-style-1.png&quot; alt=&quot;&quot;&gt;&lt;/a&gt;&lt;figcaption&gt;没案・上部&lt;/figcaption&gt;&lt;/figure&gt;
@@ -400,7 +425,7 @@ dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /nores
       <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-09-27-article-date-position"/>
       <id>tag:r7kamura.com,2019:/articles/2020-09-27-article-date-position</id>
       <published>2020-09-27T00:00:00+00:00</published>
-      <updated>2020-10-03T00:23:54+00:00</updated>
+      <updated>2020-10-03T11:01:22+00:00</updated>
       <content type="html">&lt;p&gt;常に記事タイトルの下に日付が置かれるように変更した。&lt;/p&gt;
 
 &lt;figure&gt;&lt;a href=&quot;/images/2020-09-27-date-before.png&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/images/2020-09-27-date-before.png&quot; alt=&quot;&quot;&gt;&lt;/a&gt;&lt;figcaption&gt;変更前&lt;/figcaption&gt;&lt;/figure&gt;
@@ -416,7 +441,7 @@ dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /nores
       <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-09-26-rails-architecture-strongest"/>
       <id>tag:r7kamura.com,2019:/articles/2020-09-26-rails-architecture-strongest</id>
       <published>2020-09-26T00:00:00+00:00</published>
-      <updated>2020-10-03T00:23:54+00:00</updated>
+      <updated>2020-10-03T11:01:22+00:00</updated>
       <content type="html">&lt;p&gt;自分が目指したいRailsアプリの形とは何か、ということについて考えていた。&lt;/p&gt;
 
 &lt;p&gt;常日頃から考えていたRailsアプリでの不満をこの議論に合流させた結果、「Rubyを書くときに当たり前にやるようなことを、Railsアプリを書くときでも当たり前のようにやる」というところが肝で、自分が目指したいRailsアプリの形はその先にあるのではないか、と一旦結論付けてみることにした。&lt;/p&gt;
@@ -459,7 +484,7 @@ RubyとRailsが地続きに繋がっていないというか、どこかで断�
       <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-09-25-workspace-pictures"/>
       <id>tag:r7kamura.com,2019:/articles/2020-09-25-workspace-pictures</id>
       <published>2020-09-25T00:00:00+00:00</published>
-      <updated>2020-10-03T00:23:54+00:00</updated>
+      <updated>2020-10-03T11:01:22+00:00</updated>
       <content type="html">&lt;p&gt;他人の作業環境を見るという趣味があり、最近はこの辺を観測している。&lt;/p&gt;
 
 &lt;h2&gt;お前らのpcデスク周り晒して(い)け&lt;/h2&gt;
@@ -513,7 +538,7 @@ RubyとRailsが地続きに繋がっていないというか、どこかで断�
       <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-09-25-notes"/>
       <id>tag:r7kamura.com,2019:/articles/2020-09-25-notes</id>
       <published>2020-09-25T00:00:00+00:00</published>
-      <updated>2020-10-03T00:23:54+00:00</updated>
+      <updated>2020-10-03T11:01:22+00:00</updated>
       <content type="html">&lt;p&gt;文字について考えることが多い一日だった。&lt;/p&gt;
 
 &lt;h2&gt;キーボード&lt;/h2&gt;
@@ -551,7 +576,7 @@ RubyとRailsが地続きに繋がっていないというか、どこかで断�
       <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-09-24-site-minor-changes"/>
       <id>tag:r7kamura.com,2019:/articles/2020-09-24-site-minor-changes</id>
       <published>2020-09-24T00:00:00+00:00</published>
-      <updated>2020-10-03T00:23:54+00:00</updated>
+      <updated>2020-10-03T11:01:22+00:00</updated>
       <content type="html">&lt;p&gt;最近よくこのサイトに手を加えている。最初からそうだったかのように見えていれば、おおよそ成功と言える。&lt;/p&gt;
 
 &lt;h2&gt;グローバルヘッダー&lt;/h2&gt;
@@ -592,7 +617,7 @@ RubyとRailsが地続きに繋がっていないというか、どこかで断�
       <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-09-23-this-site-setup-2020"/>
       <id>tag:r7kamura.com,2019:/articles/2020-09-23-this-site-setup-2020</id>
       <published>2020-09-23T00:00:00+00:00</published>
-      <updated>2020-10-03T00:23:54+00:00</updated>
+      <updated>2020-10-03T11:01:22+00:00</updated>
       <content type="html">&lt;p&gt;このサイトの2020年時点での実装のまとめ。振り返り用。&lt;/p&gt;
 
 &lt;h2&gt;ホスティング&lt;/h2&gt;
@@ -677,7 +702,7 @@ GitHub Pagesで静的ファイルを配信している。
       <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-09-23-notes"/>
       <id>tag:r7kamura.com,2019:/articles/2020-09-23-notes</id>
       <published>2020-09-23T00:00:00+00:00</published>
-      <updated>2020-10-03T00:23:54+00:00</updated>
+      <updated>2020-10-03T11:01:22+00:00</updated>
       <content type="html">&lt;p&gt;ウェブカメラを買ったり、新しいMMORPGを試したり、サイトをいじったりした。&lt;/p&gt;
 
 &lt;figure&gt;&lt;a href=&quot;/images/2020-09-23-notes-camera.jpg&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/images/2020-09-23-notes-camera.jpg&quot; alt=&quot;&quot;&gt;&lt;/a&gt;&lt;figcaption&gt;ウェブカメラとディスプレイ&lt;/figcaption&gt;&lt;/figure&gt;
@@ -730,7 +755,7 @@ end
       <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-09-22-markdown-summary"/>
       <id>tag:r7kamura.com,2019:/articles/2020-09-22-markdown-summary</id>
       <published>2020-09-22T00:00:00+00:00</published>
-      <updated>2020-10-03T00:23:54+00:00</updated>
+      <updated>2020-10-03T11:01:22+00:00</updated>
       <content type="html">&lt;figure&gt;&lt;a href=&quot;/images/2020-09-22-summary-detection.jpg&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/images/2020-09-22-summary-detection.jpg&quot; alt=&quot;&quot;&gt;&lt;/a&gt;&lt;figcaption&gt;何の関係も無いサメのぬいぐるみの画像&lt;/figcaption&gt;&lt;/figure&gt;
 
 &lt;p&gt;記事の説明文を抽出する方法を変更した。あまり目に触れる機会は無いが、SNSやフィードなどで利用される。&lt;/p&gt;
@@ -758,7 +783,7 @@ end
       <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-09-22-markdown-caption"/>
       <id>tag:r7kamura.com,2019:/articles/2020-09-22-markdown-caption</id>
       <published>2020-09-22T00:00:00+00:00</published>
-      <updated>2020-10-03T00:23:54+00:00</updated>
+      <updated>2020-10-03T11:01:22+00:00</updated>
       <content type="html">&lt;p&gt;FF14のスクリーンショットを久しぶりに見返していた。&lt;/p&gt;
 
 &lt;figure&gt;&lt;a href=&quot;/images/2020-09-22-markdown-caption-back.png&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/images/2020-09-22-markdown-caption-back.png&quot; alt=&quot;&quot;&gt;&lt;/a&gt;&lt;figcaption&gt;猫耳や尻尾があるミコッテという種族&lt;/figcaption&gt;&lt;/figure&gt;
@@ -822,7 +847,7 @@ end
       <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-09-21-personal-website"/>
       <id>tag:r7kamura.com,2019:/articles/2020-09-21-personal-website</id>
       <published>2020-09-21T00:00:00+00:00</published>
-      <updated>2020-10-03T00:23:54+00:00</updated>
+      <updated>2020-10-03T11:01:22+00:00</updated>
       <content type="html">&lt;p&gt;なぜ個人でウェブサイトを運用しているのかについて、整理しておきたい。&lt;/p&gt;
 
 &lt;p&gt;要約すると、以下の理由でやっている。&lt;/p&gt;
@@ -900,101 +925,6 @@ end
 &lt;p&gt;それで良いと思う人もいると思う。「お前がそう思うんならそうなんだろう、お前の中ではな」だ。自分の信じる最高のサービスにコンテンツを預けて、自分は文章を書くことに集中できる。それもまた理想だ。むしろ、自分もそう思いたかったとさえ感じる。&lt;/p&gt;
 
 &lt;p&gt;多くの人にとって、ウェブの技術は魔法だ。少し指を動かすだけで、世界中の人に自分の声を届けられる。しかし自分にとって、ウェブの技術はもはや魔法ではない。知ってしまった以上、使いこなしたいと思うのが人の性というもの。もちろん、他の人には強要しない。技術者としては、出来る限り、他の人の中ではそれが魔法であってほしいと思う。&lt;/p&gt;
-</content>
-    </entry>
-  
-    <entry>
-      <title>PCデスクの機器と配線の計画</title>
-      <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-09-21-cable-dependencies"/>
-      <id>tag:r7kamura.com,2019:/articles/2020-09-21-cable-dependencies</id>
-      <published>2020-09-21T00:00:00+00:00</published>
-      <updated>2020-10-03T00:23:54+00:00</updated>
-      <content type="html">&lt;p&gt;PCデスクを買い換えることにしたので、機器と配線について整理する。&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;/images/2020-09-21-cable-dependencies.jpg&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/images/2020-09-21-cable-dependencies.jpg&quot; alt=&quot;&quot;&gt;&lt;/a&gt;&lt;/p&gt;
-
-&lt;h2&gt;機器&lt;/h2&gt;
-
-&lt;p&gt;PCデスク周りに現状置いてるものを並べてみる。&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;デスクトップPC&lt;/li&gt;
-&lt;li&gt;MacBook Pro&lt;/li&gt;
-&lt;li&gt;マウスパッド1&lt;/li&gt;
-&lt;li&gt;マウスパッド2&lt;/li&gt;
-&lt;li&gt;無線ヘッドホンアンプ&lt;/li&gt;
-&lt;li&gt;USBオーディオインターフェース&lt;/li&gt;
-&lt;li&gt;USBマイク&lt;/li&gt;
-&lt;li&gt;USBハブ&lt;/li&gt;
-&lt;li&gt;USB充電器&lt;/li&gt;
-&lt;li&gt;キーボード&lt;/li&gt;
-&lt;li&gt;ルーター&lt;/li&gt;
-&lt;li&gt;ディスプレイ1&lt;/li&gt;
-&lt;li&gt;ディスプレイ2&lt;/li&gt;
-&lt;li&gt;クリップライト1&lt;/li&gt;
-&lt;li&gt;クリップライト2&lt;/li&gt;
-&lt;li&gt;スピーカー&lt;/li&gt;
-&lt;li&gt;Webカメラ&lt;/li&gt;
-&lt;li&gt;Hueブリッジ&lt;/li&gt;
-&lt;li&gt;キャプチャボード&lt;/li&gt;
-&lt;li&gt;HDMIセレクタ&lt;/li&gt;
-&lt;li&gt;Nintendo Switch&lt;/li&gt;
-&lt;li&gt;Nintendo Switch Proコントローラー&lt;/li&gt;
-&lt;li&gt;PS4&lt;/li&gt;
-&lt;li&gt;PS4 コントローラー&lt;/li&gt;
-&lt;li&gt;無線ヘッドホン&lt;/li&gt;
-&lt;li&gt;有線ヘッドホン&lt;/li&gt;
-&lt;li&gt;iPad Pro&lt;/li&gt;
-&lt;li&gt;iPhone&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;うわあ多い。しかし機器の個数が無限ではないことが分かって安心。&lt;/p&gt;
-
-&lt;h2&gt;電源タップ&lt;/h2&gt;
-
-&lt;p&gt;合計14個の電源が必要になる。&lt;/p&gt;
-
-&lt;ol&gt;
-&lt;li&gt;机の天板の裏面に貼り付けられる形状 (重量と接地面の制約)&lt;/li&gt;
-&lt;li&gt;黒色&lt;/li&gt;
-&lt;li&gt;ケーブル長2m&lt;/li&gt;
-&lt;li&gt;物理スイッチ無し (使わないし事故が怖いから)&lt;/li&gt;
-&lt;li&gt;ACアダプタが衝突しにくいやつ&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;以上の条件を満たす電源タップを考えたところ、エレコムの6個口のやつをデスクの左右裏面に合計3つ配置するのが良さそうということに。&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://www.amazon.co.jp/dp/B01MU9YGSD/?tag=r7kamura07-22&quot;&gt;エレコム 電源タップ T-NSLK-2610BK&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;電源タップなどの操作しない機器は、デスク下に配線トレーを付けて収納する。金網よりもメッシュタイプの方が良さそうなので、これを利用する。&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://www.amazon.co.jp/dp/B01N6B5ST9/?tag=r7kamura07-22&quot;&gt;サンワサプライ ケーブル配線トレー CB-CT5&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;配線トレーに入れるには大きすぎるものについては、デスクの裏面にマグネットシートで貼り付ける。&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://www.amazon.co.jp/dp/B0012R2OIQ/?tag=r7kamura07-22&quot;&gt;コクヨ マグネットシート マク-S340&lt;/a&gt;&lt;/p&gt;
-
-&lt;h2&gt;USB給電&lt;/h2&gt;
-
-&lt;p&gt;コントローラや無線ヘッドホンなど、USBで給電したい機器が5つあるので、いま持っているAnkerのこれを使う。&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://www.amazon.co.jp/dp/B072KBG9W4/?tag=r7kamura07-22&quot;&gt;Anker 充電器 AK-A2056511&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;マグネット式で接続できるやつが便利なので、この辺のアダプタ類を使う。正直平型より丸形の方が構造的に刺しやすそうだし、買い替えを検討してみている。&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://www.amazon.co.jp/dp/B077PRD1FT/?tag=r7kamura07-22&quot;&gt;ZRSE マグネット式充電アダプタ&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;iPad Proは気難しく、充電できない製品が多いが、この製品では使える。接続時に照明が光らないので、本当に接続できてるのかどうか不安なところが不満だけど、iPad Proで使えるというだけで嬉しい。&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://www.amazon.co.jp/dp/B07GGCSV45/?tag=r7kamura07-22&quot;&gt;Stouchi マグネット式充電アダプタ&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;iPhoneは&lt;a href=&quot;http://localhost:9292/articles/2018-10-31-iphone-xs-max-cb840d595fae&quot;&gt;2年ほど前から&lt;/a&gt;ロジクールの白い充電スタンドをベッドサイドで使っていて、安定感があるし充電量的にも寝るときだけ充電する問題は無いのだけど、デスクでもiPhoneの定位置が欲しいので新しいのを買うかも。&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://www.amazon.co.jp/dp/B07QB62131/?tag=r7kamura07-22&quot;&gt;ロジクール 無線充電スタンド iD20WH&lt;/a&gt;&lt;/p&gt;
-
-&lt;h2&gt;参考情報&lt;/h2&gt;
-
-&lt;p&gt;Go Andoさんという方が &lt;a href=&quot;https://note.com/goando/m/me3ed2026f6ac&quot;&gt;デスクをすっきりさせるマガジン&lt;/a&gt; というページで関連記事をまとめてくださっている。デスク周りの配線についての知見が詰まっている、おすすめの情報源。&lt;/p&gt;
 </content>
     </entry>
   
