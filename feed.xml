@@ -10,7 +10,7 @@
     <managingEditor>r7kamura@gmail.com (Ryo Nakamura)</managingEditor>
     
     <item>
-      <title><![CDATA[RSS 2.0]]></title>
+      <title><![CDATA[Atom 1.0からRSS 2.0に移行]]></title>
       <description><![CDATA[既にフィードを購読中の方は、直近で最大20件の記事が未読状態に戻ってしまうかもしれません。]]></description>
       <link>https://r7kamura.com/articles/2020-10-04-rss</link>
       <pubDate>Sun, 04 Oct 2020 00:00:00 +0900</pubDate>
