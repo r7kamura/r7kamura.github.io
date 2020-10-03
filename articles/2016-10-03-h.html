@@ -58,86 +58,20 @@
 
 <p>具体的には、以下のようなクラスをつくっている。これは最近つくっている掲示板での例で、<code>Megaboard::Resources::Comment</code> はコメントのJSON表現のためのクラスである。いわばコメントのJSON表現におけるViewがこのクラスということになる。</p>
 
-<pre class="code" data-lang="" data-unlink>module Megaboard
-  module Resources
-    class Base
-      include ::JsonWorld::DSL
-
-      def initialize(model = nil, current_user: nil)
-        @current_user = current_user
-        @model = model
-      end
-
-      private
-
-      def current_user
-        @current_user
-      end
-
-      def model
-        @model
-      end
-    end
-  end
-end</pre>
+<pre><code>module Megaboard module Resources class Base include ::JsonWorld::DSL def initialize(model = nil, current\_user: nil) @current\_user = current\_user @model = model end private def current\_user @current\_user end def model @model end end end end
+</code></pre>
 
 <p>上記のものは共通部分を集めた基底クラスで、実際にはこれを継承した具象クラスを定義して利用する。</p>
 
-<pre class="code" data-lang="" data-unlink>module Megaboard
-  module Resources
-    class Comment &lt; Base
-      property :body
-      property :created_at
-      property :deletable
-      property :editable
-      property :fullpath
-      property :incremental_id
-      property :liked
-      property :likes_count
-      property :rendered_body
-      property :topic
-      property :user
-
-      delegate(
-        :body,
-        :created_at,
-        :incremental_id,
-        :likes_count,
-        :rendered_body,
-        :topic,
-        :user,
-        to: :model,
-      )
-
-      def deletable
-        model.deletable_by?(current_user)
-      end
-
-      def editable
-        model.editable_by?(current_user)
-      end
-
-      def fullpath
-        "#{::Rails.application.routes.url_helpers.topic_path(model.topic)}#comment-#{model.incremental_id}"
-      end
-
-      def liked
-        model.liked_by?(current_user)
-      end
-    end
-  end
-end</pre>
+<pre><code>module Megaboard module Resources class Comment \&lt; Base property :body property :created\_at property :deletable property :editable property :fullpath property :incremental\_id property :liked property :likes\_count property :rendered\_body property :topic property :user delegate( :body, :created\_at, :incremental\_id, :likes\_count, :rendered\_body, :topic, :user, to: :model, ) def deletable model.deletable\_by?(current\_user) end def editable model.editable\_by?(current\_user) end def fullpath "#{::Rails.application.routes.url\_helpers.topic\_path(model.topic)}#comment-#{model.incremental\_id}" end def liked model.liked\_by?(current\_user) end end end end
+</code></pre>
 
 <h2>使い方</h2>
 
 <p>雑多な部分は取り除いてあるが、例えばRailsでコメントのJSONを返すactionを定義したい場合はこういう風にして使う。Railsの <code>render(json: ...)</code> では内部でJSONを生成するときに勝手に <code>#to_json</code> が呼ばれるが、このときに <code>#as_json</code> が利用される。</p>
 
-<pre class="code" data-lang="" data-unlink>class CommentsController &lt; ApplicationController
-  def show
-    comment = ::Comment.find(params[:comment_id])
-    render json: ::Megaboard::Resources::Comment.new(comment, current_user: current_user)
-  end
-end</pre>
+<pre><code>class CommentsController \&lt; ApplicationController def show comment = ::Comment.find(params[:comment\_id]) render json: ::Megaboard::Resources::Comment.new(comment, current\_user: current\_user) end end
+</code></pre>
 
 <h2>JsonWorld::DSL</h2>
 
@@ -163,17 +97,29 @@ end</pre>
 
 <h2>追記1</h2>
 
-<p></p><blockquote class="twitter-tweet" data-lang="HASH(0xaa94438)">
-<p lang="ja" dir="ltr">to_jsonは予約語だし as_json で react用の値を返すのは誰にとってのjsonか明示されないからやめてほしいという気持ちがある</p>— 現場の声 (@mizchi) <a href="https://twitter.com/mizchi/status/782602137129799680">October 2, 2016</a>
-</blockquote><script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+<blockquote>
+<p>to_jsonは予約語だし as_json で react用の値を返すのは誰にとってのjsonか明示されないからやめてほしいという気持ちがある</p>
 
-<p></p><blockquote class="twitter-tweet" data-lang="HASH(0xaa94438)">
-<p lang="ja" dir="ltr">to_react_props だったらわかるけどそもそも mutable で時系列で値が変わるようなオブジェクトは他の方法でそれを明示してほしい</p>— 現場の声 (@mizchi) <a href="https://twitter.com/mizchi/status/782602495105171456">October 2, 2016</a>
-</blockquote><script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+<p>— 現場の声 (@mizchi) <a href="https://twitter.com/mizchi/status/782602137129799680">October 2, 2016</a></p>
+</blockquote>
 
-<p></p><blockquote class="twitter-tweet" data-lang="HASH(0xaa94438)">
-<p lang="ja" dir="ltr">誰にとってのJSONかというのは .to_react_propsみたいな方法より、目的ごとにクラスを用意して表現した方がいいと思う。React用(?)のJSONが欲しいのであれば Reactyounomodel#to_json とか <a href="https://t.co/dtXMu6gIzr">https://t.co/dtXMu6gIzr</a></p>— ホームページビルダー (@r7kamura) <a href="https://twitter.com/r7kamura/status/782605589188710400">October 2, 2016</a>
-</blockquote><script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+<blockquote>
+<p>to_react_props だったらわかるけどそもそも mutable で時系列で値が変わるようなオブジェクトは他の方法でそれを明示してほしい</p>
+
+<p>— 現場の声 (@mizchi) <a href="https://twitter.com/mizchi/status/782602495105171456">October 2, 2016</a></p>
+</blockquote>
+
+<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+<blockquote>
+<p>誰にとってのJSONかというのは .to_react_propsみたいな方法より、目的ごとにクラスを用意して表現した方がいいと思う。React用(?)のJSONが欲しいのであれば Reactyounomodel#to_json とか <a href="https://t.co/dtXMu6gIzr">https://t.co/dtXMu6gIzr</a></p>
+
+<p>— ホームページビルダー (@r7kamura) <a href="https://twitter.com/r7kamura/status/782605589188710400">October 2, 2016</a></p>
+</blockquote>
+
+<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
 
 <p>あるオブジェクトをJSONとして表現するときにどう表現したいかというのは、例に挙げたcurrent_userの他に、用途によってもかなり変わってくる。例えば簡単な例だと、内部用APIと3rd Party用REST APIでは恐らく表現方法が異なってくる。<code>User#to_json</code> を定義してAPI用のレスポンスに使うようなやり方は考えられる限りほぼ最悪の実装方法だと思うが、無理矢理Reactを導入する都合で対応しようとした結果、<code>User#to_react_props</code> みたいなものが生やされてしまう例も稀によく見る。<code>User#to_api_hash</code>、<code>User#to_api_v2_json</code> とか。他にも、1つのJSONのObjectを生成するのに複数のモデルが必要な場合もあって、モデル自体に定義しようとすると厄介なケースが多い。</p>
 

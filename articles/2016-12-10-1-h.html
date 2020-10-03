@@ -43,7 +43,7 @@
   <div>
     <p><a href="http://r7kamura.hatenablog.com/entry/2016/12/09/201115">amakanでRuby 2.3.3を使うようにした - ✘╹◡╹✘</a> に引き続き、amakan に改善を加えた。</p>
 
-<p></p><hr>
+<hr>
 
 <p>Rails 4.2.6 で動いていた <a href="https://amakan.net/">https://amakan.net/</a> を Rails 5.0.0.1 に移行した。前回 Ruby 2.3.3 に移行したという記事で、「Rails 5 にすれば Ruby 2.4.0-preview3 が使えるのにな」という話をしたのでその伏線回収。</p>
 
@@ -88,25 +88,18 @@
 
 <p>また一見気付きづらい変更の1つに、ActiveRecord の enum の変更がある。</p>
 
-<pre class="code" data-lang="" data-unlink>class Book &lt; ApplicationRecord
-  enum(
-    category: %i(
-      comic
-      light_novel
-      business
-      ...
-    )
-  )
-end</pre>
+<pre><code>class Book \&lt; ApplicationRecord enum( category: %i( comic light\_novel business ... ) ) end
+</code></pre>
 
 <p>Rails 4 以前では、こういう挙動をしていた。</p>
 
-<pre class="code" data-lang="" data-unlink>Book.first[:category] #=&gt; 0</pre>
+<pre><code>Book.first[:category] #=\&gt; 0
+</code></pre>
 
 <p>Rails 5 以降では、こういう挙動になる。</p>
 
-<pre class="code" data-lang="" data-unlink>Book.first[:category] #=&gt; "comic"
-Book.first.category_before_type_cast #=&gt; 0</pre>
+<pre><code>Book.first[:category] #=\&gt; "comic" Book.first.category\_before\_type\_cast #=\&gt; 0
+</code></pre>
 
 <h2>おわり</h2>
 

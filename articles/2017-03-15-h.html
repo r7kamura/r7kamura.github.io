@@ -76,31 +76,8 @@
 
 <p>Router コンポーネントは、実際のコードでは以下のようなルーティング定義を参照している。例えば新しいページを追加したいときは、まずこの Object に値を追加し、対応する action と React コンポーネントをそれぞれ用意することになる。</p>
 
-<pre class="code lang-javascript" data-lang="javascript" data-unlink><span class="synIdentifier">{</span>
-  <span class="synConstant">"video_casts#show"</span>: VideoCast,
-  <span class="synConstant">"video_monthly_rankings#show"</span>: VideoRankingMonthly,
-  <span class="synConstant">"video_programs#index"</span>: VideoPrograms,
-  <span class="synConstant">"video_search_results#show"</span>: VideoSearchResult,
-  <span class="synConstant">"video_season_works#index"</span>: VideoSeasonWorks,
-  <span class="synConstant">"video_settings_channels#index"</span>: VideoSettingsChannels,
-  <span class="synConstant">"video_staffs#show"</span>: VideoStaff,
-  <span class="synConstant">"video_timelines#show"</span>: VideoTimeline,
-  <span class="synConstant">"video_user_followees#index"</span>: VideoUserFollowees,
-  <span class="synConstant">"video_user_followers#index"</span>: VideoUserFollowers,
-  <span class="synConstant">"video_user_likes#index"</span>: VideoUserLikes,
-  <span class="synConstant">"video_user_tasted_works#index"</span>: VideoUserTastedWorks,
-  <span class="synConstant">"video_user_tastes#index"</span>: VideoUserTastes,
-  <span class="synConstant">"video_users#show"</span>: VideoUser,
-  <span class="synConstant">"video_weekly_rankings#show"</span>: VideoRankingWeekly,
-  <span class="synConstant">"video_work_episodes#index"</span>: VideoWorkEpisodes,
-  <span class="synConstant">"video_work_episodes#show"</span>: VideoWorkEpisode,
-  <span class="synConstant">"video_work_subscribers#index"</span>: VideoWorkSubscribers,
-  <span class="synConstant">"video_work_tasters#index"</span>: VideoWorkTasters,
-  <span class="synConstant">"video_works#show"</span>: VideoWork,
-  <span class="synConstant">"video_yearly_rankings#show"</span>: VideoRankingYearly,
-  ...
-<span class="synIdentifier">}</span>
-</pre>
+<pre><code>{"video\_casts#show": VideoCast, "video\_monthly\_rankings#show": VideoRankingMonthly, "video\_programs#index": VideoPrograms, "video\_search\_results#show": VideoSearchResult, "video\_season\_works#index": VideoSeasonWorks, "video\_settings\_channels#index": VideoSettingsChannels, "video\_staffs#show": VideoStaff, "video\_timelines#show": VideoTimeline, "video\_user\_followees#index": VideoUserFollowees, "video\_user\_followers#index": VideoUserFollowers, "video\_user\_likes#index": VideoUserLikes, "video\_user\_tasted\_works#index": VideoUserTastedWorks, "video\_user\_tastes#index": VideoUserTastes, "video\_users#show": VideoUser, "video\_weekly\_rankings#show": VideoRankingWeekly, "video\_work\_episodes#index": VideoWorkEpisodes, "video\_work\_episodes#show": VideoWorkEpisode, "video\_work\_subscribers#index": VideoWorkSubscribers, "video\_work\_tasters#index": VideoWorkTasters, "video\_works#show": VideoWork, "video\_yearly\_rankings#show": VideoRankingYearly, ...}
+</code></pre>
 
 <p>ちなみに識者のために与太話をすると、コンポーネントの数があまりにも大きくなってきてコードを分割したくなってきたら (1つのファイルに全てのコンポーネントを含めると巨大になりすぎるので分割したいという話)、ここのルーティングロジックを少し弄って、ある程度の粒度で dynamic import するようにすれば良いと思う。</p>
 
@@ -110,39 +87,8 @@
 
 <p>面倒なので client/components/VideoPrograms.jsx の2017年3月15日時点でのコードを掲載する。</p>
 
-<pre class="code lang-javascript" data-lang="javascript" data-unlink><span class="synStatement">import</span> Layout from <span class="synConstant">"../components/Layout.jsx"</span>;
-<span class="synStatement">import</span> Pagination from <span class="synConstant">"../components/Pagination.jsx"</span>;
-<span class="synStatement">import</span> React from <span class="synConstant">"react"</span>;
-<span class="synStatement">import</span> VideoProgramListGroup from <span class="synConstant">"../components/VideoProgramListGroup.jsx"</span>;
-<span class="synStatement">import</span> VideoTopPageSidebar from <span class="synConstant">"../components/VideoTopPageSidebar.jsx"</span>;
-<span class="synStatement">import</span> VideoTopPageTabs from <span class="synConstant">"../components/VideoTopPageTabs.jsx"</span>;
-
-<span class="synStatement">export</span> <span class="synStatement">default</span> <span class="synStatement">class</span> VideoPrograms <span class="synStatement">extends</span> React.Component <span class="synIdentifier">{</span>
-  render() <span class="synIdentifier">{</span>
-    <span class="synStatement">return</span>(
-      &lt;Layout&gt;
-        &lt;div className=<span class="synConstant">"row"</span>&gt;
-          &lt;div className=<span class="synConstant">"column-small-9"</span>&gt;
-            &lt;section className=<span class="synConstant">"card"</span>&gt;
-              &lt;VideoTopPageTabs/&gt;
-              &lt;VideoProgramListGroup videoPrograms=<span class="synIdentifier">{this</span>.props.video_programs<span class="synIdentifier">}</span>/&gt;
-              &lt;Pagination
-                currentPage=<span class="synIdentifier">{this</span>.props.current_page<span class="synIdentifier">}</span>
-                hasNextPage=<span class="synIdentifier">{this</span>.props.has_next_page<span class="synIdentifier">}</span>
-                hasPreviousPage=<span class="synIdentifier">{this</span>.props.has_previous_page<span class="synIdentifier">}</span>
-                totalPages=<span class="synIdentifier">{this</span>.props.total_pages<span class="synIdentifier">}</span>
-              /&gt;
-            &lt;/section&gt;
-          &lt;/div&gt;
-          &lt;div className=<span class="synConstant">"column-small-3"</span>&gt;
-            &lt;VideoTopPageSidebar/&gt;
-          &lt;/div&gt;
-        &lt;/div&gt;
-      &lt;/Layout&gt;
-    );
-  <span class="synIdentifier">}</span>
-<span class="synIdentifier">}</span>
-</pre>
+<pre><code>import Layout from "../components/Layout.jsx";import Pagination from "../components/Pagination.jsx";import React from "react";import VideoProgramListGroup from "../components/VideoProgramListGroup.jsx";import VideoTopPageSidebar from "../components/VideoTopPageSidebar.jsx";import VideoTopPageTabs from "../components/VideoTopPageTabs.jsx";export default class VideoPrograms extends React.Component { render() {return( \&lt;Layout\&gt; \&lt;div className="row"\&gt; \&lt;div className="column-small-9"\&gt; \&lt;section className="card"\&gt; \&lt;VideoTopPageTabs/\&gt; \&lt;VideoProgramListGroup videoPrograms={this.props.video\_programs}/\&gt; \&lt;Pagination currentPage={this.props.current\_page} hasNextPage={this.props.has\_next\_page} hasPreviousPage={this.props.has\_previous\_page} totalPages={this.props.total\_pages} /\&gt; \&lt;/section\&gt; \&lt;/div\&gt; \&lt;div className="column-small-3"\&gt; \&lt;VideoTopPageSidebar/\&gt; \&lt;/div\&gt; \&lt;/div\&gt; \&lt;/Layout\&gt; ); }}
+</code></pre>
 
 <p>VideoPrograms や VideoCast など、action と対応する全てのコンポーネントは、Layout コンポーネントを描画するしきたりになっている。Layout コンポーネントは、</p>
 
@@ -152,7 +98,7 @@
 <li>フッターの描画</li>
 </ul>
 
-<p>を担当するコンポーネントで、全ページに共通する HTML の描画を担当してくれる便利なコンポーネントである。上例はたまたまトップページを表現するコンポーネントなので記述されていないが、Layout コンポーネントに title や imageUrl などの props を渡すと、ページタイトルや <del>OPG</del> OGP 用の要素を適切に変更してくれるようになっている (トップページでは何も渡していないのでデフォルトの値が利用される)。</p>
+<p>を担当するコンポーネントで、全ページに共通する HTML の描画を担当してくれる便利なコンポーネントである。上例はたまたまトップページを表現するコンポーネントなので記述されていないが、Layout コンポーネントに title や imageUrl などの props を渡すと、ページタイトルや ~~OPG~~ OGP 用の要素を適切に変更してくれるようになっている (トップページでは何も渡していないのでデフォルトの値が利用される)。</p>
 
 <h2>ページ遷移の実現方法</h2>
 
@@ -160,13 +106,13 @@
 
 <p>例えば、トップページにタイムラインページへのリンクを配置するとき、通常であれば以下のように a 要素を配置することだろう。</p>
 
-<pre class="code lang-html" data-lang="html" data-unlink><span class="synIdentifier">&lt;</span><span class="synStatement">a</span><span class="synIdentifier"> </span><span class="synType">href</span><span class="synIdentifier">=</span><span class="synConstant">"/timeline"</span><span class="synIdentifier">&gt;</span><span class="synUnderlined">タイムライン</span><span class="synIdentifier">&lt;/</span><span class="synStatement">a</span><span class="synIdentifier">&gt;</span>
-</pre>
+<pre><code>\&lt;a href="/timeline"\&gt;タイムライン\&lt;/a\&gt;
+</code></pre>
 
 <p>しかし amakan では、サイト内リンクの場合、以下のように Link コンポーネントを配置する。</p>
 
-<pre class="code lang-html" data-lang="html" data-unlink><span class="synIdentifier">&lt;</span><span class="synStatement">Link</span><span class="synIdentifier"> </span><span class="synType">href</span><span class="synIdentifier">=</span><span class="synConstant">"/timeline"</span><span class="synIdentifier">&gt;</span>タイムライン<span class="synIdentifier">&lt;/</span><span class="synStatement">Link</span><span class="synIdentifier">&gt;</span>
-</pre>
+<pre><code>\&lt;Link href="/timeline"\&gt;タイムライン\&lt;/Link\&gt;
+</code></pre>
 
 <p>Link コンポーネントは、Web ブラウザでページ遷移を行う代わりに指定された URL に XHR でリクエストを送り、レスポンスの内容で Router の状態を差し替えるという振る舞いをする。さて、amakan のサーバサイドの action は、以下のように実装されている。</p>
 

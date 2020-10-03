@@ -9,8 +9,8 @@
   <link rel="search" type="application/opensearchdescription+xml" title="r7kamura.com" href="/opensearch.xml">
   <link rel="alternate" type="application/rss+xml" href="/feed.xml">
   
-  <meta property="description" content="rubocop-hq/rubocop#6475 を書いたときの話。">
-  <meta property="og:description" content="rubocop-hq/rubocop#6475 を書いたときの話。">
+  <meta property="description" content="Ruby には Kernel.#lambda というメソッドがあって、これにブロックを渡すと Proc クラスのインスタンスをつくれる。">
+  <meta property="og:description" content="Ruby には Kernel.#lambda というメソッドがあって、これにブロックを渡すと Proc クラスのインスタンスをつくれる。">
   
   <meta property="og:type" content="website">
   <meta property="og:title" content="RuboCopのStyle/Lambdaの改善を試みた話">
@@ -41,7 +41,7 @@
     <h1>RuboCopのStyle/Lambdaの改善を試みた話</h1>
   </header>
   <div>
-    <p>rubocop-hq/rubocop#6475 を書いたときの話。</p>
+    <p><a href="https://github.com/rubocop-hq/rubocop/pull/6475">rubocop-hq/rubocop#6475</a> を書いたときの話。</p>
 
 <h2>Ruby の lambda</h2>
 
@@ -57,7 +57,7 @@
 <li>複数行にまたがるときだけ lambda を使う (version 0.60.0 ではこれが default)</li>
 </ul>
 
-<h1>Style/Lambda の autocorrect の課題</h1>
+<h2>Style/Lambda の autocorrect の課題</h2>
 
 <p>RuboCop の Style/Lambda のための実装には自動修正機能が付いていて、設定したスタイルに応じてある程度は自動修正してくれるのだけど、括弧の省略されたメソッド呼び出しの引数として書かれた -&gt; は lambda に変換できないという課題がある。</p>
 

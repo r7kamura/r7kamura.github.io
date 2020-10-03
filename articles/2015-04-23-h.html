@@ -47,14 +47,11 @@
 
 <p>/etc/sudoers の編集は失敗すると誰もsudoできなくなるので、一般的にはvisudoというコマンドで検証しながら保存する。それをServerkitでもやるために、lineリソースにvalidation_scriptという属性を指定できるようにした。これが指定されていると、更新予定のファイルがひとまず /tmp ディレクトリに作成されて、その後指定されたコマンドを実行して成功したときだけ更新を行うようになる。開発途中で幾つか困って、例えば一時ディレクトリを /tmp の決め打ちにするのは良くないとか、cygwinだと環境変数TMP_DIRが違うとか、BSD系だとmktempに -t オプションが必須だがGNU系だとそうではないとか、あとファイル上書き時に前のowner:groupの情報保持するの忘れたりしてて、まあ色々あったものの実装完了してめでたい。こういう風に書いて実行できる。</p>
 
-<pre class="code" data-lang="" data-unlink># recipe.yml
-resources:
-  - type: line
-    path: /etc/sudoers
-    line: "%wheel ALL=(ALL) ALL"
-    validation_script: visudo -cf %{path}</pre>
+<pre><code># recipe.yml resources: - type: line path: /etc/sudoers line: "%wheel ALL=(ALL) ALL" validation\_script: visudo -cf %{path}
+</code></pre>
 
-<pre class="code" data-lang="" data-unlink>$ serverkit apply recipe.yml</pre>
+<pre><code>$ serverkit apply recipe.yml
+</code></pre>
 
 <p>databag的なやつの暗号化方法と利用者用ドキュメントが提供できたらv1.0.0出して適当にチュートリアル記事書くなどしたい。一応Mac用のチュートリアルは <a href="http://qiita.com/r7kamura/items/591e96861f025fb22998">ServerkitでMacの環境構築を自動化する - Qiita</a> にもある。ドキュメントをどういう形で見せようか、あるいはプラグインを書いてもらう人にどういうルールでドキュメントを書いてもらおうかというところで迷ってて、GitHub Pagesで静的サイトつくったりするのもいいし、GitHubのWikiで雑にやってもいいし、もっと雑にレポジトリ内の/docsにMarkdownファイル突っ込むだけでもいいなとも思ってる (Pull Requestとかに含められるのでそっちの方が楽だったりする)。</p>
 

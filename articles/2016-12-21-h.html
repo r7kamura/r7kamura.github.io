@@ -56,15 +56,8 @@
 
 <p>docker が動く環境なら、git clone して bin/setup を叩けば開発が始められる。</p>
 
-<pre class="code" data-lang="" data-unlink>$ cat bin/setup
-#!/bin/bash
-set -ex
-
-docker-compose up -d
-docker-compose run --rm node yarn install
-docker-compose run --rm puma bundle install
-docker-compose run --rm puma bundle exec rake db:create db:load:schema
-docker-compose up -d</pre>
+<pre><code>$ cat bin/setup #!/bin/bash set -ex docker-compose up -d docker-compose run --rm node yarn install docker-compose run --rm puma bundle install docker-compose run --rm puma bundle exec rake db:create db:load:schema docker-compose up -d
+</code></pre>
 
 <p>やっているのはこういう処理。</p>
 
@@ -83,9 +76,8 @@ docker-compose up -d</pre>
 
 <p>docker-compose ps で様子を見られる。</p>
 
-<pre class="code" data-lang="" data-unlink>$ docker-compose ps
-      Name                    Command               State               Ports
----------------------------------------------------------------------------------</pre>
+<pre><code>$ docker-compose ps Name Command State Ports ---------------------------------------------------------------------------------
+</code></pre>
 
   </div>
 </article>

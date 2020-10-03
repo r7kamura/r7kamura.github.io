@@ -43,9 +43,9 @@
   <div>
     <p>この文章は <a href="https://github.com/r7kamura/keyworks/">https://github.com/r7kamura/keyworks/</a> の製作記である。Keyworksはキーボードショートカットをカスタマイズするための凡庸なブラウザ拡張であり、つい先日、思いつきによりつくられた。</p>
 
-<p></p><hr>
+<hr>
 
-<p>いま見ているページをTwitterで共有するとき、あるいはMarkdownで書いた文書にページのリンクを載せるとき、皆どのようなツールを利用しているのだろう。この話題を出すと、それ専用のChrome拡張や、秘蔵のブックマークレット、VimやEmacs風のキーバインドを実現するツールのプラグインなど、みな懐から様々なツールを取り出して楽しませてくれる。自分はというと、これまで<strong>Keyconfig</strong>というChrome拡張を使っていた。</p>
+<p>いま見ているページをTwitterで共有するとき、あるいはMarkdownで書いた文書にページのリンクを載せるとき、皆どのようなツールを利用しているのだろう。この話題を出すと、それ専用のChrome拡張や、秘蔵のブックマークレット、VimやEmacs風のキーバインドを実現するツールのプラグインなど、みな懐から様々なツールを取り出して楽しませてくれる。自分はというと、これまで <strong>Keyconfig</strong> というChrome拡張を使っていた。</p>
 
 <ul>
 <li><a href="https://chrome.google.com/webstore/detail/empty-title/okneonigbfnolfkmfgjmaeniipdjkgkl?hl=ja">Keyconfig - Chromeウェブストア</a></li>
@@ -74,16 +74,8 @@
 
 <p>かくして <a href="https://github.com/r7kamura/keyworks/">https://github.com/r7kamura/keyworks/</a> というものが出来た。こんなものは重い腰さえ上がればすぐ出来上がる。設定画面で設定することで、ブラウザ内に以下のようなデータが保存される。</p>
 
-<pre class="code lang-json" data-lang="json" data-unlink><span class="synSpecial">{</span>
-  "<span class="synStatement">Backspace</span>": <span class="synSpecial">{</span>
-    "<span class="synStatement">type</span>": "<span class="synConstant">GoBack</span>"
-  <span class="synSpecial">}</span>,
-  "<span class="synStatement">Ctrl+L</span>": <span class="synSpecial">{</span>
-    "<span class="synStatement">type</span>": "<span class="synConstant">CopyToClipboard</span>",
-    "<span class="synStatement">value</span>": "<span class="synConstant">${title} ${url}</span>"
-  <span class="synSpecial">}</span>
-<span class="synSpecial">}</span>
-</pre>
+<pre><code>{ "Backspace": { "type": "GoBack" }, "Ctrl+L": { "type": "CopyToClipboard", "value": "${title} ${url}" }}
+</code></pre>
 
 <p>content.js というJavaScriptが全てのページで実行されるようになり、キーの押下が監視され、押されたキーに対応する操作が定義されていれば、それが実行される。現在 v0.1.0 では、以下の操作が用意されている。</p>
 
@@ -127,7 +119,7 @@
 
 <p><a href="http://blog.hatena.ne.jp/moznion/">id:moznion</a> へ、寒い日が続きますがお元気ですか。ともあれChrome拡張を1つこさえれば、大の大人が寄ってたかってモダンと言い合う類のものが一通り学べるだろうと思います。</p>
 
-<p></p><hr>
+<hr>
 
 <p>この文章で紹介したChrome拡張は <a href="https://chrome.google.com/webstore/detail/keyworks/chmkmpahmlgaaincbbdfnplohkkkapdl?hl=ja">Keyworks - Chromeウェブストア</a> からインストールできる。</p>
 

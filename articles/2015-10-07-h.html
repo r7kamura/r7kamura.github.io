@@ -45,13 +45,8 @@
 
 <p>これはクライアントサイドのアプリケーションの例で、Modelの背後でWeb APIやonpopstate/pushStateを利用しており、Modelが太くなってる様子。</p>
 
-<pre class="code" data-lang="" data-unlink>                  HTTP    History
-                  |  ^     |  ^
-                  |  |     |  |
-                  v  |     v  |
-   .---- View &lt;-- M  o  d  e  l &lt;-- Intent &lt;--.
-   |                                          |
-    `----------------&gt; DOM -------------------'</pre>
+<pre><code>HTTP History | ^ | ^ | | | | v | v | .---- View \&lt;-- M o d e l \&lt;-- Intent \&lt;--. | | `----------------\&gt; DOM -------------------'
+</code></pre>
 
 <h2>変更後</h2>
 
@@ -62,11 +57,8 @@
 <li><a href="https://github.com/r7kamura/cycle-fetcher-driver">r7kamura/cycle-fetcher-driver</a></li>
 </ul>
 
-<pre class="code" data-lang="" data-unlink>   .---- View &lt;-- Model &lt;-- Intent &lt;--.
-   |                                  |
-   |------------&gt; DOM ----------------|
-   |------------&gt; History ------------|
-    `-----------&gt; HTTP ---------------'</pre>
+<pre><code>.---- View \&lt;-- Model \&lt;-- Intent \&lt;--. | | |------------\&gt; DOM ----------------| |------------\&gt; History ------------| `-----------\&gt; HTTP ---------------'
+</code></pre>
 
 <h2>参考</h2>
 

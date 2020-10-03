@@ -49,38 +49,18 @@
 
 <p>例えば <a href="https://github.com/petitest/petitest">Petitest</a> で <code>Rake::TestTask</code> を使って <code>rake test</code> で全てのテストが実行されるようにするには、例えば Rakefile に以下のような定義を行う。</p>
 
-<pre class="code lang-ruby" data-lang="ruby" data-unlink><span class="synPreProc">require</span> <span class="synSpecial">"</span><span class="synConstant">rake/testtask</span><span class="synSpecial">"</span>
-<span class="synType">Rake</span>::<span class="synType">TestTask</span>.new
-</pre>
+<pre><code>require "rake/testtask"Rake::TestTask.new
+</code></pre>
 
 <p>実行する。</p>
 
-<pre class="code" data-lang="" data-unlink>rake test</pre>
+<pre><code>rake test
+</code></pre>
 
 <p>標準出力の出力結果。</p>
 
-<pre class="code" data-lang="" data-unlink>TestRunner
-  #test_description
-  #test_full_description
-TestSimple
-  #test_one_plus_one_to_be_two
-TestTest
-  #test_assertion_with_truthy_block_to_pass
-  #test_assertion_with_truthy_value_to_pass
-
-
-Counts:
-
-  5 tests
-  5 passes
-  0 failures
-  0 skips
-
-Times:
-
-  Started:  2017-03-26T15:02:46.401250+09:00
-  Finished: 2017-03-26T15:02:46.404074+09:00
-  Total:    0.002824s</pre>
+<pre><code>TestRunner #test\_description #test\_full\_description TestSimple #test\_one\_plus\_one\_to\_be\_two TestTest #test\_assertion\_with\_truthy\_block\_to\_pass #test\_assertion\_with\_truthy\_value\_to\_pass Counts: 5 tests 5 passes 0 failures 0 skips Times: Started: 2017-03-26T15:02:46.401250+09:00 Finished: 2017-03-26T15:02:46.404074+09:00 Total: 0.002824s
+</code></pre>
 
 <h2>テストのファイルパスとクラス名</h2>
 

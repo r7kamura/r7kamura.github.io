@@ -97,28 +97,27 @@
 
 <p>例えば、10桁表記の ISBN コードが「4041054443」の本のタイトルをライブラリを利用して調べてみる。</p>
 
-<pre class="code lang-ruby" data-lang="ruby" data-unlink><span class="synPreProc">require</span> <span class="synSpecial">"</span><span class="synConstant">rapa</span><span class="synSpecial">"</span>
-client = <span class="synType">Rapa</span>::<span class="synType">Client</span>.new(<span class="synConstant">access_key_id</span>: <span class="synSpecial">"</span><span class="synConstant">...</span><span class="synSpecial">"</span>, <span class="synConstant">secret_access_key</span>: <span class="synSpecial">"</span><span class="synConstant">...</span><span class="synSpecial">"</span>, <span class="synConstant">associate_tag</span>: <span class="synSpecial">"</span><span class="synConstant">...</span><span class="synSpecial">"</span>)
-response = client.list_items(<span class="synConstant">domain</span>: <span class="synSpecial">"</span><span class="synConstant">co.jp</span><span class="synSpecial">"</span>, <span class="synConstant">asins</span>: [<span class="synSpecial">"</span><span class="synConstant">4041054443</span><span class="synSpecial">"</span>])
-</pre>
+<pre><code>require "rapa"client = Rapa::Client.new(access\_key\_id: "...", secret\_access\_key: "...", associate\_tag: "...") response = client.list\_items(domain: "co.jp", asins: ["4041054443"])
+</code></pre>
 
 <p>Amazon Product Advertising API の利用には、アクセスキー ID、シークレットアクセスキー、アソシエイトタグの発行が必要になる。これらはどれも、Amazon アソシエイトの管理画面から発行できる。</p>
 
 <p>domain に <code>"co.jp"</code> という値を渡しているが、これは日本の Amazon (amazon.co.jp) を対象に検索するように命令しており、この指定は必須である。ASIN コードは asins という名前で配列で指定しているが、1度のリクエストで最大 10 件までの検索結果を取得できるため、配列で指定するようなインターフェースになっている。</p>
 
-<pre class="code lang-ruby" data-lang="ruby" data-unlink>item = response.first
-</pre>
+<pre><code>item = response.first
+</code></pre>
 
 <p>レスポンスは、商品の集合として扱いやすいように、 <a href="https://docs.ruby-lang.org/ja/latest/class/Enumerable.html">Enumerable</a> のインターフェースを実装している。今回は結果は 1 件しか存在しないはずなので、先頭の要素を取り出すことにする。</p>
 
-<pre class="code lang-ruby" data-lang="ruby" data-unlink>puts item.title
-</pre>
+<pre><code>puts item.title
+</code></pre>
 
 <p>商品のタイトルは <code>#title</code> メソッドで取り出せる。出力結果は以下の通り。</p>
 
-<pre class="code" data-lang="" data-unlink>けものフレンズBD付オフィシャルガイドブック (1)</pre>
+<pre><code>けものフレンズBD付オフィシャルガイドブック (1)
+</code></pre>
 
-<p></p><a href="http://www.amazon.co.jp/exec/obidos/ASIN/4041054443/r7kamura07-22/">けものフレンズBD付オフィシャルガイドブック (1)</a>
+<p><a href="http://www.amazon.co.jp/exec/obidos/ASIN/4041054443/r7kamura07-22/">けものフレンズBD付オフィシャルガイドブック (1)</a></p>
 
 <h2>キーワードを与えて検索する</h2>
 
@@ -126,28 +125,20 @@ response = client.list_items(<span class="synConstant">domain</span>: <span clas
 
 <p>先程の例とは逆に、今度は「けものフレンズBD付オフィシャルガイドブック」というキーワードを元に商品を検索してみる。</p>
 
-<pre class="code lang-ruby" data-lang="ruby" data-unlink>response = client.search_items(<span class="synConstant">domain</span>: <span class="synSpecial">"</span><span class="synConstant">co.jp</span><span class="synSpecial">"</span>, <span class="synConstant">keywords</span>: [<span class="synSpecial">"</span><span class="synConstant">けものフレンズBD付オフィシャルガイドブック</span><span class="synSpecial">"</span>])
-</pre>
+<pre><code>response = client.search\_items(domain: "co.jp", keywords: ["けものフレンズBD付オフィシャルガイドブック"])
+</code></pre>
 
 <p>今回は <code>#search_items</code> というメソッドを利用し、<code>keywords</code> という値で検索キーワードを与えている。さて、検索結果は複数件になるが、前述の通りレスポンスは <code>Enumerable</code> のインターフェースを実装しているということで、ここでは <code>Enumerable#map</code> を利用してタイトルだけを羅列してみることする。</p>
 
-<pre class="code lang-ruby" data-lang="ruby" data-unlink>puts response.map(&amp;<span class="synConstant">:title</span>)
-</pre>
+<pre><code>puts response.map(&amp;:title)
+</code></pre>
 
 <p>結果は以下の通り。</p>
 
-<pre class="code" data-lang="" data-unlink>けものフレンズBD付オフィシャルガイドブック (1)
-けものフレンズBD付オフィシャルガイドブック (2)
-けものフレンズBD付オフィシャルガイドブック (3)
-けものフレンズBD付オフィシャルガイドブック (6)
-けものフレンズBD付オフィシャルガイドブック (5)
-けものフレンズBD付オフィシャルガイドブック (4)
-けものフレンズBD付オフィシャルガイドブック (1)(Blu-ray Disc)
-けものフレンズ ‐ようこそジャパリパークへ！‐(1)&lt;けものフレンズ　‐ようこそジャパリパークへ！‐&gt; (角川コミックス・エース)
-ようこそジャパリパークへ(初回限定盤)
-ようこそジャパリパークへ(通常盤)</pre>
+<pre><code>けものフレンズBD付オフィシャルガイドブック (1) けものフレンズBD付オフィシャルガイドブック (2) けものフレンズBD付オフィシャルガイドブック (3) けものフレンズBD付オフィシャルガイドブック (6) けものフレンズBD付オフィシャルガイドブック (5) けものフレンズBD付オフィシャルガイドブック (4) けものフレンズBD付オフィシャルガイドブック (1)(Blu-ray Disc) けものフレンズ ‐ようこそジャパリパークへ！‐(1)\&lt;けものフレンズ　‐ようこそジャパリパークへ！‐\&gt; (角川コミックス・エース) ようこそジャパリパークへ(初回限定盤) ようこそジャパリパークへ(通常盤)
+</code></pre>
 
-<p></p><a href="http://www.amazon.co.jp/exec/obidos/ASIN/B01NAGGOQI/r7kamura07-22/">けものフレンズ ‐ようこそジャパリパークへ！‐(1) (角川コミックス・エース)</a>
+<p><a href="http://www.amazon.co.jp/exec/obidos/ASIN/B01NAGGOQI/r7kamura07-22/">けものフレンズ ‐ようこそジャパリパークへ！‐(1) (角川コミックス・エース)</a></p>
 
 <h2>利用にあたっての前提・仮定など</h2>
 

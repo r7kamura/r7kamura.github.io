@@ -47,8 +47,8 @@
 
 <p>Gitレポジトリ内のファイルを適当なアプリケーションで開く。雑なので分かりやすくて良い。</p>
 
-<pre class="code lang-sh" data-lang="sh" data-unlink><span class="synStatement">alias</span> <span class="synIdentifier">o</span>=<span class="synStatement">'</span><span class="synConstant">git ls-files | peco | xargs open</span><span class="synStatement">'</span>
-</pre>
+<pre><code>alias o='git ls-files | peco | xargs open'
+</code></pre>
 
 <h3>e</h3>
 
@@ -56,18 +56,15 @@
 
 <p>あとこれもよく使った。手元のマシン内のレポジトリに移動する。</p>
 
-<pre class="code lang-sh" data-lang="sh" data-unlink><span class="synStatement">alias</span> <span class="synIdentifier">e</span>=<span class="synStatement">'</span><span class="synConstant">cd $(ghq list -p | peco)</span><span class="synStatement">'</span>
-</pre>
+<pre><code>alias e='cd $(ghq list -p | peco)'
+</code></pre>
 
 <h3>p</h3>
 
-<p><a href="http://r7kamura.com/2014/06/21/ghq.html">GHQ - r7km/s</a>にも書いたけど、
-o と e で「pecoを使って絞り込んだ結果を他のコマンドに渡す」という処理が被ってしまったので p を用意した。</p>
+<p><a href="http://r7kamura.com/2014/06/21/ghq.html">GHQ - r7km/s</a>にも書いたけど、 o と e で「pecoを使って絞り込んだ結果を他のコマンドに渡す」という処理が被ってしまったので p を用意した。</p>
 
-<pre class="code lang-sh" data-lang="sh" data-unlink><span class="synIdentifier">p() {</span> peco <span class="synStatement">|</span> <span class="synStatement">while read LINE; do</span> <span class="synPreProc">$@</span> <span class="synPreProc">$LINE</span><span class="synStatement">;</span> <span class="synStatement">done</span> <span class="synIdentifier">}</span>
-<span class="synStatement">alias</span> <span class="synIdentifier">o</span>=<span class="synStatement">'</span><span class="synConstant">git ls-files | p open</span><span class="synStatement">'</span>
-<span class="synStatement">alias</span> <span class="synIdentifier">e</span>=<span class="synStatement">'</span><span class="synConstant">ghq list -p | p cd</span><span class="synStatement">'</span>
-</pre>
+<pre><code>p() { peco | while read LINE; do $@ $LINE; done }alias o='git ls-files | p open'alias e='ghq list -p | p cd'
+</code></pre>
 
   </div>
 </article>

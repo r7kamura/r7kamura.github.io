@@ -64,7 +64,7 @@
 
 <p>ということで、丁度1袋1缶で行けるこれに変更した。</p>
 
-<p></p><a href="http://www.amazon.co.jp/exec/obidos/ASIN/B01D4GJ2O6/r7kamura07-22/">コカ・コーラ ジョージア コールドブリューコーヒー カフェラテ 265ml ボトル缶×30本</a>
+<p><a href="http://www.amazon.co.jp/exec/obidos/ASIN/B01D4GJ2O6/r7kamura07-22/">コカ・コーラ ジョージア コールドブリューコーヒー カフェラテ 265ml ボトル缶×30本</a></p>
 
 <h2>日記が四日間続いた</h2>
 
@@ -74,8 +74,8 @@
 
 <p><a href="https://github.com/winebarrel/faraday_middleware-aws-signers-v4/pull/7">https://github.com/winebarrel/faraday_middleware-aws-signers-v4/pull/7</a> を送ったところ merge されて嬉しい。</p>
 
-<pre class="code lang-ruby" data-lang="ruby" data-unlink>gem <span class="synSpecial">"</span><span class="synConstant">faraday_middleware-aws-signers-v4</span><span class="synSpecial">"</span>
-</pre>
+<pre><code>gem "faraday\_middleware-aws-signers-v4"
+</code></pre>
 
 <p>と書いただけで、<code>Bundler.require</code> が適当なファイルを読み込んでくれるようになるというやつです。適当なファイルは Gem の名前から推測されるのだけど、faraday_middleware-aws-signers-v4 という名前が慣習的ではない命名なので、それに対応させる必要があった。幾つかやり方はあるのだけど、今回はこの Pull Request のような対処にした、という感じ。</p>
 

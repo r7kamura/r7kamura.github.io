@@ -43,34 +43,27 @@
   <div>
     <p>3分ぐらいでできる。</p>
 
-<div class="section">
 <h3>GUI</h3>
-<p>1. <a href="http://ballrw.web.fc2.com/tex/install_lion_new.html" target="_blank">Ball-RW</a>を入れる<br>
-2. 起動してTeXShop以外にチェックしてインストールする<br>
-3. UpTeXにtexファイルをD&amp;DすればPDFが生成される</p>
 
+<ol>
+<li>
+<a href="http://ballrw.web.fc2.com/tex/install_lion_new.html">Ball-RW</a>を入れる<br>
+</li>
+<li>起動してTeXShop以外にチェックしてインストールする<br>
+</li>
+<li>UpTeXにtexファイルをD&amp;DすればPDFが生成される</li>
+</ol>
 
-</div><div class="section">
 <h3>CUI</h3>
-<p>1. /Applications/UpTeX.app/teTeX/bin にPATHを通す<br>
-2. 適当に関数でも書いてショートカットつくる</p>
-<pre class="code lang-txt" data-lang="txt" data-unlink>$ vim .bashrc
-$ .   .bashrc
-$ cat .bashrc
 
-export PATH="/Applications/UpTeX.app/teTeX/bin:$PATH"
-function tex(){
-  platex -kanji=utf8 $1.tex
-  jbitex -kanji=utf8 $1
-  platex -kanji=utf8 $1.tex
-  platex -kanji=utf8 $1.tex
-  dvipdfmx $1.dvi
-  open $1.pdf
-}
+<ol>
+<li>/Applications/UpTeX.app/teTeX/bin にPATHを通す<br>
+</li>
+<li>適当に関数でも書いてショートカットつくる</li>
+</ol>
 
-$ tex fooooobaaaar.tex</pre>
-
-</div>
+<pre><code>$ vim .bashrc $ . .bashrc $ cat .bashrc export PATH="/Applications/UpTeX.app/teTeX/bin:$PATH" function tex(){ platex -kanji=utf8 $1.tex jbitex -kanji=utf8 $1 platex -kanji=utf8 $1.tex platex -kanji=utf8 $1.tex dvipdfmx $1.dvi open $1.pdf } $ tex fooooobaaaar.tex
+</code></pre>
 
   </div>
 </article>

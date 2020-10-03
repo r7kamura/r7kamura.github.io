@@ -45,32 +45,13 @@
 
 <p>Amazon API GatewayとAmazon Lambdaを一緒に管理できるようなツールをつくろうとしてて、とりあえずサンプルアプリをつくりながら徐々にツールに切り出していこうという方針でやってみている。</p>
 
-<pre class="code" data-lang="" data-unlink>.
-|-- README.md
-|-- functions
-|   |-- function1
-|   |   |-- package.json
-|   |   `-- src
-|   |       `-- index.js
-|   `-- function2
-|       |-- package.json
-|       `-- src
-|           `-- index.js
-|-- gulpfile.js
-`-- package.json</pre>
+<pre><code>. |-- README.md |-- functions | |-- function1 | | |-- package.json | | `-- src | | `-- index.js | `-- function2 | |-- package.json | `-- src | `-- index.js |-- gulpfile.js `-- package.json
+</code></pre>
 
 <p>サンプルアプリは手短に言うと上のようなファイル構成になっていて、作成したいAmazon Lambdaの関数ごとにfunctionsディレクトリ内に更にディレクトリをつくっていくルールにしてある。<code>npm run &lt;command&gt;</code> で実行できるコマンドが幾つか定義されている。</p>
 
-<pre class="code" data-lang="" data-unlink>$ npm run
-Scripts available in api-gateway-lambda-example via `npm run-script`:
-  bundle
-    gulp bundle
-  compile
-    gulp compile
-  upload
-    gulp upload
-  zip
-    gulp zip</pre>
+<pre><code>$ npm run Scripts available in api-gateway-lambda-example via `npm run-script`: bundle gulp bundle compile gulp compile upload gulp upload zip gulp zip
+</code></pre>
 
 <p>個々のfunctionごとにpackage.jsonが用意されていて、<code>npm run bundle</code> を使うと必要なnode_modulesがそれぞれインストールされる。<code>npm run compile</code> を使うと、個々のfunctionのsrcディレクトリ内のJavaScriptがコンパイルされて、それぞれのdistディレクトリにまとめられる。<code>npm run zip</code> を使うと、distディレクトリの内容がdist.zipに圧縮される。Amazon LambdaにコードをアップロードするためにZIPにしている。<code>npm run upload</code> を使うと、個々のdist.zipをAmazon Lambdaにアップロードしてくれるようになっている。諸々のタスクを実行するとこういうのが出来上がる。</p>
 

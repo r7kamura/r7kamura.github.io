@@ -55,9 +55,9 @@
 <li><a href="http://r7kamura.hatenablog.com/entry/2017/01/02/223425">amakanをDocker化した感想 - ✘╹◡╹✘</a></li>
 </ul>
 
-<p></p><hr>
+<hr>
 
-<p><span itemscope itemtype="http://schema.org/Photograph"><a href="https://cdn-ak.f.st-hatena.com/images/fotolife/r/r7kamura/20170114/20170114143123.png" target="_blank"><img src="https://cdn-ak.f.st-hatena.com/images/fotolife/r/r7kamura/20170114/20170114143123.png" alt="f:id:r7kamura:20170114143123p:plain" title="f:id:r7kamura:20170114143123p:plain" class="hatena-fotolife" itemprop="image"></a></span></p>
+<p><a href="https://cdn-ak.f.st-hatena.com/images/fotolife/r/r7kamura/20170114/20170114143123.png" target="_blank"><img src="https://cdn-ak.f.st-hatena.com/images/fotolife/r/r7kamura/20170114/20170114143123.png" alt="f:id:r7kamura:20170114143123p:plain" title="f:id:r7kamura:20170114143123p:plain"></a></p>
 
 <h2>CircleCIからShippableに移行した</h2>
 
@@ -94,44 +94,8 @@
 
 <p>amakanのshippable.ymlです。</p>
 
-<pre class="code lang-yaml" data-lang="yaml" data-unlink><span class="synIdentifier">language</span><span class="synSpecial">:</span> none
-<span class="synIdentifier">build</span><span class="synSpecial">:</span>
-  <span class="synIdentifier">pre_ci_boot</span><span class="synSpecial">:</span>
-    <span class="synIdentifier">options</span><span class="synSpecial">:</span> -v /app/public/assets
-  <span class="synIdentifier">ci</span><span class="synSpecial">:</span>
-    <span class="synStatement">- </span>export DOCKER_TAG=${ECR_REPOSITORY_URL}:${BUILD_NUMBER}
-    <span class="synStatement">- </span>docker build --file ./docker/node/Dockerfile --tag amakan_node .
-    <span class="synStatement">- </span>docker run amakan_node yarn run test
-    <span class="synStatement">- </span>docker run --volumes-from ${SHIPPABLE_CONTAINER_NAME} amakan_node yarn run build
-    <span class="synStatement">- </span>cp /app/public/assets/* public/assets/
-    <span class="synStatement">- </span>docker build --file ./docker/rails/Dockerfile --tag ${DOCKER_TAG} .
-    <span class="synStatement">- </span>docker run ${DOCKER_TAG} bundle exec rake test
-  <span class="synIdentifier">post_ci</span><span class="synSpecial">:</span>
-    <span class="synStatement">- </span>&gt;
-      if <span class="synSpecial">[[</span> <span class="synConstant">"${BRANCH}"</span> == <span class="synConstant">"master"</span> <span class="synSpecial">]]</span>; then
-        sudo docker push ${DOCKER_TAG}
-      fi
-<span class="synIdentifier">integrations</span><span class="synSpecial">:</span>
-  <span class="synIdentifier">hub</span><span class="synSpecial">:</span>
-    <span class="synStatement">- </span><span class="synIdentifier">integrationName</span><span class="synSpecial">:</span> ecr
-      <span class="synIdentifier">type</span><span class="synSpecial">:</span> ecr
-      <span class="synIdentifier">region</span><span class="synSpecial">:</span> ap-northeast-1
-      <span class="synIdentifier">branches</span><span class="synSpecial">:</span>
-        <span class="synIdentifier">only</span><span class="synSpecial">:</span>
-          <span class="synStatement">- </span>master
-  <span class="synIdentifier">notifications</span><span class="synSpecial">:</span>
-    <span class="synStatement">- </span><span class="synIdentifier">integrationName</span><span class="synSpecial">:</span> email
-      <span class="synIdentifier">type</span><span class="synSpecial">:</span> email
-      <span class="synIdentifier">on_success</span><span class="synSpecial">:</span> never
-      <span class="synIdentifier">on_failure</span><span class="synSpecial">:</span> never
-      <span class="synIdentifier">on_pull_request</span><span class="synSpecial">:</span> never
-    <span class="synStatement">- </span><span class="synIdentifier">integrationName</span><span class="synSpecial">:</span> slack
-      <span class="synIdentifier">type</span><span class="synSpecial">:</span> slack
-      <span class="synIdentifier">on_failure</span><span class="synSpecial">:</span> always
-      <span class="synIdentifier">on_success</span><span class="synSpecial">:</span> always
-      <span class="synIdentifier">recipients</span><span class="synSpecial">:</span>
-        <span class="synStatement">- </span><span class="synConstant">"#shippable"</span>
-</pre>
+<pre><code>language: nonebuild:pre\_ci\_boot:options: -v /app/public/assets ci:- export DOCKER\_TAG=${ECR\_REPOSITORY\_URL}:${BUILD\_NUMBER} - docker build --file ./docker/node/Dockerfile --tag amakan\_node . - docker run amakan\_node yarn run test - docker run --volumes-from ${SHIPPABLE\_CONTAINER\_NAME} amakan\_node yarn run build - cp /app/public/assets/\* public/assets/ - docker build --file ./docker/rails/Dockerfile --tag ${DOCKER\_TAG} . - docker run ${DOCKER\_TAG} bundle exec rake test post\_ci:- \&gt; if [["${BRANCH}" == "master"]]; then sudo docker push ${DOCKER\_TAG} fiintegrations:hub:- integrationName: ecr type: ecr region: ap-northeast-1 branches:only:- master notifications:- integrationName: email type: email on\_success: never on\_failure: never on\_pull\_request: never - integrationName: slack type: slack on\_failure: always on\_success: always recipients:- "#shippable"
+</code></pre>
 
   </div>
 </article>

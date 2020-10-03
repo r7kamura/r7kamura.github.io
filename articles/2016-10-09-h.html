@@ -97,92 +97,41 @@
 
 <p><code>somemoji</code> というコマンドラインツールが同梱されていて、これを利用して絵文字画像を手元にダウンロードしてくることができます。例えば、デプロイ前にAmazon S3に絵文字画像を配置するときに利用したりします。なお、絵文字セットによってはMaxCDNなどから配信されている絵文字画像が利用できたりするので、Webサービスで利用する場合は必ずしもダウンロードしてくる必要はありません。</p>
 
-<pre class="code" data-lang="" data-unlink>$ somemoji --help
-Usage: somemoji extract [options]
-    -p, --provider     (required) apple, emoji_one, noto, or twemoji
-    -d, --destination  (required) directory path to locate extracted image files
-    -f, --format       png or svg (default: png)
-    -s, --size         Some providers have different size image files
-    -h, --help         Display this help message</pre>
-
+<pre><code>$ somemoji --help Usage: somemoji extract [options] -p, --provider (required) apple, emoji\_one, noto, or twemoji -d, --destination (required) directory path to locate extracted image files -f, --format png or svg (default: png) -s, --size Some providers have different size image files -h, --help Display this help message
+</code></pre>
 
 <p>Twemojiの画像データを <code>./images/emoji</code> 以下に持ってくるにはこう。</p>
 
-<pre class="code" data-lang="" data-unlink>somemoji extract --provider=twemoji --destination=./images/emoji</pre>
-
+<pre><code>somemoji extract --provider=twemoji --destination=./images/emoji
+</code></pre>
 
 <h3>文中に含まれる絵文字コードを画像に置換する</h3>
 
 <p><code>"I :heart: Emoji"</code> の <code>heart</code> の部分の名前のことを絵文字コードと言ったりするんですが (主にSlackなどはそう呼称している)、文中に含まれる絵文字コードをHTMLのimg要素に置き換えてみるというコードの例がこれです。EmojiOneで利用可能な絵文字について、置換を試みています。</p>
 
-<pre class="code lang-ruby" data-lang="ruby" data-unlink><span class="synType">Somemoji</span>.emoji_one_emoji_collection.replace_code(<span class="synSpecial">"</span><span class="synConstant">I :heart: Emoji</span><span class="synSpecial">"</span>) <span class="synStatement">do</span> |<span class="synIdentifier">emoji</span>|
-  <span class="synSpecial">%(</span><span class="synConstant">&lt;img alt="</span><span class="synSpecial">#{</span>emoji.character<span class="synSpecial">}</span><span class="synConstant">" class="emoji" src="/assets/emoji/</span><span class="synSpecial">#{</span>emoji.base_path<span class="synSpecial">}</span><span class="synConstant">.png"&gt;</span><span class="synSpecial">)</span>
-<span class="synStatement">end</span>
-<span class="synComment">#=&gt; 'I &lt;img alt="❤" class="emoji" src="/assets/emoji/unicode/2764.png"&gt; Emoji'</span>
-</pre>
+<pre><code>Somemoji.emoji\_one\_emoji\_collection.replace\_code("I :heart: Emoji") do |emoji| %(\&lt;img alt="#{emoji.character}" class="emoji" src="/assets/emoji/#{emoji.base\_path}.png"\&gt;)end#=\&gt; 'I \&lt;img alt="❤" class="emoji" src="/assets/emoji/unicode/2764.png"\&gt; Emoji'
+</code></pre>
 
 <h3>文中に含まれる絵文字を画像に置換する</h3>
 
 <p>文中に含まれる絵文字を、先述の例と同様にimg要素に置き換えてみるというコードの例がこれです。例えば、サービス上で表示する絵文字は全てTwitterの絵文字画像に統一したいなあ、みたいなときに使えます。</p>
 
-<pre class="code lang-ruby" data-lang="ruby" data-unlink><span class="synType">Somemoji</span>.twemoji_emoji_collection.replace_character(<span class="synSpecial">"</span><span class="synConstant">I 💗 Emoji</span><span class="synSpecial">"</span>) <span class="synStatement">do</span> |<span class="synIdentifier">emoji</span>|
-  <span class="synSpecial">%(</span><span class="synConstant">&lt;img alt="</span><span class="synSpecial">#{</span>emoji.character<span class="synSpecial">}</span><span class="synConstant">" class="emoji" src="/assets/emoji/</span><span class="synSpecial">#{</span>emoji.base_path<span class="synSpecial">}</span><span class="synConstant">.png"&gt;</span><span class="synSpecial">)</span>
-<span class="synStatement">end</span>
-<span class="synComment">#=&gt; 'I &lt;img alt="💗" class="emoji" src="/assets/emoji/unicode/1f497.png"&gt; Emoji'</span>
-</pre>
+<pre><code>Somemoji.twemoji\_emoji\_collection.replace\_character("I 💗 Emoji") do |emoji| %(\&lt;img alt="#{emoji.character}" class="emoji" src="/assets/emoji/#{emoji.base\_path}.png"\&gt;)end#=\&gt; 'I \&lt;img alt="💗" class="emoji" src="/assets/emoji/unicode/1f497.png"\&gt; Emoji'
+</code></pre>
 
 <h3>独自の絵文字を追加する</h3>
 
 <p>サービスによっては、自社のアイコンなど独自の絵文字を追加したい場合もあると思います。そういう場合のために、ランタイムで絵文字を追加できるような機能を持っています。</p>
 
-<pre class="code lang-ruby" data-lang="ruby" data-unlink>custom_emoji_collection = <span class="synType">Somemoji</span>.emoji_one_emoji_collection + <span class="synType">Somemoji</span>::<span class="synType">EmojiCollection</span>.new(
-  [
-    <span class="synType">Somemoji</span>::<span class="synType">Emoji</span>.new(<span class="synConstant">code</span>: <span class="synSpecial">"</span><span class="synConstant">foo</span><span class="synSpecial">"</span>),
-    <span class="synType">Somemoji</span>::<span class="synType">Emoji</span>.new(<span class="synConstant">code</span>: <span class="synSpecial">"</span><span class="synConstant">bar</span><span class="synSpecial">"</span>),
-  ]
-)
-custom_emoji_collection.find_by_code(<span class="synSpecial">"</span><span class="synConstant">foo</span><span class="synSpecial">"</span>).class <span class="synComment">#=&gt; Somemoji::Emoji</span>
-custom_emoji_collection.find_by_code(<span class="synSpecial">"</span><span class="synConstant">bar</span><span class="synSpecial">"</span>).class <span class="synComment">#=&gt; Somemoji::Emoji</span>
-custom_emoji_collection.find_by_code(<span class="synSpecial">"</span><span class="synConstant">100</span><span class="synSpecial">"</span>).class <span class="synComment">#=&gt; Somemoji::Emoji</span>
-custom_emoji_collection.replace_code(<span class="synSpecial">"</span><span class="synConstant">I :bar: Emoji</span><span class="synSpecial">"</span>) <span class="synStatement">do</span> |<span class="synIdentifier">emoji</span>|
-  <span class="synSpecial">%(</span><span class="synConstant">&lt;img alt="</span><span class="synSpecial">#{</span>emoji.character || emoji.code<span class="synSpecial">}</span><span class="synConstant">" class="emoji" src="/images/emoji/</span><span class="synSpecial">#{</span>emoji.base_path<span class="synSpecial">}</span><span class="synConstant">.png"&gt;</span><span class="synSpecial">)</span>
-<span class="synStatement">end</span> <span class="synComment">#=&gt; 'I &lt;img alt="bar" class="emoji" src="/images/emoji/bar.png"&gt; Emoji'</span>
-</pre>
+<pre><code>custom\_emoji\_collection = Somemoji.emoji\_one\_emoji\_collection + Somemoji::EmojiCollection.new( [Somemoji::Emoji.new(code: "foo"), Somemoji::Emoji.new(code: "bar"),] ) custom\_emoji\_collection.find\_by\_code("foo").class #=\&gt; Somemoji::Emojicustom\_emoji\_collection.find\_by\_code("bar").class #=\&gt; Somemoji::Emojicustom\_emoji\_collection.find\_by\_code("100").class #=\&gt; Somemoji::Emojicustom\_emoji\_collection.replace\_code("I :bar: Emoji") do |emoji| %(\&lt;img alt="#{emoji.character || emoji.code}" class="emoji" src="/images/emoji/#{emoji.base\_path}.png"\&gt;)end #=\&gt; 'I \&lt;img alt="bar" class="emoji" src="/images/emoji/bar.png"\&gt; Emoji'
+</code></pre>
 
 <h3>Markdown内の絵文字を置換する</h3>
 
 <p>RubyでMarkdownの変換処理を構造的にやる場合、恐らく <a href="https://github.com/jch/html-pipeline">HTML::Pipeline</a> を使うことになると思います。絵文字コードを置換するようなHTML::Pipelineのフィルターを書くのも、以下のように実現できます。HTML::Pipelineについては <a href="/articles/2014-10-16-q">Markdownを拡張して独自記法をつくる</a> という記事を前に書いたので良ければご覧ください。</p>
 
-<pre class="code lang-ruby" data-lang="ruby" data-unlink><span class="synPreProc">class</span> <span class="synType">EmojiFilter</span> &lt; ::<span class="synType">HTML</span>::<span class="synType">Pipeline</span>::<span class="synType">Filter</span>
-  <span class="synType">IGNORED_ANCESTOR_ELEMENT_NAMES</span> = <span class="synSpecial">%w(</span>
-<span class="synConstant">    code</span>
-<span class="synConstant">    pre</span>
-<span class="synConstant">    tt</span>
-<span class="synConstant">  </span><span class="synSpecial">)</span>
-
-  <span class="synComment"># @note Implementation for HTML::Pipeline::Filter</span>
-  <span class="synPreProc">def</span> <span class="synIdentifier">call</span>
-    doc.search(<span class="synSpecial">"</span><span class="synConstant">.//text()</span><span class="synSpecial">"</span>).each <span class="synStatement">do</span> |<span class="synIdentifier">node</span>|
-      <span class="synStatement">unless</span> has_ancestor?(node, <span class="synType">IGNORED_ANCESTOR_ELEMENT_NAMES</span>)
-        node.replace(
-          ::<span class="synType">Somemoji</span>.twemoji_emoji_collection.replace_code(node.to_html) <span class="synStatement">do</span> |<span class="synIdentifier">emoji</span>|
-            <span class="synSpecial">%W(</span>
-<span class="synConstant">              &lt;img</span>
-<span class="synConstant">                alt="</span><span class="synSpecial">#{</span>emoji.code<span class="synSpecial">}</span><span class="synConstant">"</span>
-<span class="synConstant">                class="emoji"</span>
-<span class="synConstant">                height="20"</span>
-<span class="synConstant">                src="/images/emoji/</span><span class="synSpecial">#{</span>emoji.base_path<span class="synSpecial">}</span><span class="synConstant">.png"</span>
-<span class="synConstant">                title=":</span><span class="synSpecial">#{</span>emoji.code<span class="synSpecial">}</span><span class="synConstant">:"</span>
-<span class="synConstant">                width="20"&gt;</span>
-<span class="synConstant">            </span><span class="synSpecial">)</span>.join(<span class="synSpecial">"</span><span class="synConstant"> </span><span class="synSpecial">"</span>)
-          <span class="synStatement">end</span>
-        )
-      <span class="synStatement">end</span>
-    <span class="synStatement">end</span>
-    doc
-  <span class="synPreProc">end</span>
-<span class="synPreProc">end</span>
-</pre>
+<pre><code>class EmojiFilter \&lt; ::HTML::Pipeline::FilterIGNORED\_ANCESTOR\_ELEMENT\_NAMES = %w( code pre tt)# @note Implementation for HTML::Pipeline::Filterdef call doc.search(".//text()").each do |node| unless has\_ancestor?(node, IGNORED\_ANCESTOR\_ELEMENT\_NAMES) node.replace( ::Somemoji.twemoji\_emoji\_collection.replace\_code(node.to\_html) do |emoji| %W( \&lt;img alt="#{emoji.code}" class="emoji" height="20" src="/images/emoji/#{emoji.base\_path}.png" title=":#{emoji.code}:" width="20"\&gt;).join(" ") end ) endend doc endend
+</code></pre>
 
 <h2>おわり</h2>
 
@@ -190,8 +139,10 @@ custom_emoji_collection.replace_code(<span class="synSpecial">"</span><span clas
 
 <h2>追記</h2>
 
-<blockquote class="twitter-tweet" data-lang="ja">
-<p lang="ja" dir="ltr">Somemojiつかって掲示板に絵文字切り替え機能つけてみた <a href="https://t.co/T9RPI9zlVI">pic.twitter.com/T9RPI9zlVI</a></p>— 完全週休七日制 (@r7kamura) <a href="https://twitter.com/r7kamura/status/785078578174042112">2016年10月9日</a>
+<blockquote>
+<p>Somemojiつかって掲示板に絵文字切り替え機能つけてみた <a href="https://t.co/T9RPI9zlVI">pic.twitter.com/T9RPI9zlVI</a></p>
+
+<p>— 完全週休七日制 (@r7kamura) <a href="https://twitter.com/r7kamura/status/785078578174042112">2016年10月9日</a></p>
 </blockquote>
 
 <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>

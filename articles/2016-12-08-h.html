@@ -43,7 +43,7 @@
   <div>
     <p><a href="http://r7kamura.hatenablog.com/entry/2016/12/08/001413">amakanをUnicornからPumaに移行した - ✘╹◡╹✘</a> に引き続き、小さい改善を加えた。</p>
 
-<p></p><hr>
+<hr>
 
 <h2>変更の概要</h2>
 
@@ -64,29 +64,8 @@
 
 <p>結果的にcircle.ymlはこういうコードに。</p>
 
-<pre class="code" data-lang="" data-unlink>machine:
-  environment:
-    YARN_VERSION: 0.18.0
-  node:
-    version: 6.9.1
-  post:
-    - if [[ $(yarn --version 2&gt;/dev/null) != "${YARN_VERSION}" ]]; then curl -o- -L https://yarnpkg.com/install.sh | bash -s -- --version $YARN_VERSION; fi
-dependencies:
-  cache_directories:
-    - "~/.cache/yarn"
-    - /home/ubuntu/nvm/versions/node/v6.9.1/bin
-    - /home/ubuntu/nvm/versions/node/v6.9.1/lib/node_modules
-  override:
-    - bundle install --jobs 4 --path vendor/bundle
-    - yarn install --prefer-offline
-deployment:
-  production:
-    branch: production
-    commands:
-      - bundle exec cap production deploy
-test:
-  override:
-    - yarn run test</pre>
+<pre><code>machine: environment: YARN\_VERSION: 0.18.0 node: version: 6.9.1 post: - if [[$(yarn --version 2\&gt;/dev/null) != "${YARN\_VERSION}"]]; then curl -o- -L https://yarnpkg.com/install.sh | bash -s -- --version $YARN\_VERSION; fi dependencies: cache\_directories: - "~/.cache/yarn" - /home/ubuntu/nvm/versions/node/v6.9.1/bin - /home/ubuntu/nvm/versions/node/v6.9.1/lib/node\_modules override: - bundle install --jobs 4 --path vendor/bundle - yarn install --prefer-offline deployment: production: branch: production commands: - bundle exec cap production deploy test: override: - yarn run test
+</code></pre>
 
 <p>必要なときだけyarnをインストールする、という設定に少し手こずった。</p>
 
@@ -96,9 +75,8 @@ test:
 
 <p>このために <a href="https://github.com/j-arnaiz/capistrano-yarn">https://github.com/j-arnaiz/capistrano-yarn</a> を使った。これは元々 capistrano-npm を利用していたので、ほとんどそのGemを入れ替えるだけで済んだ。amakanで手を加えたところとして、<code>:app</code> と <code>:resque</code> の2種類のデプロイ対象のサーバがあるので、node_modulesが必要な <code>:app</code> でだけ <code>yarn install</code> を実行するようにしたこと。それから、高速化のために <code>--prefer-offline</code> のオプションを追加した。</p>
 
-<pre class="code" data-lang="" data-unlink># config/deploy.rb
-set :yarn_flags, "--prefer-offline --production"
-set :yarn_roles, :app</pre>
+<pre><code># config/deploy.rb set :yarn\_flags, "--prefer-offline --production" set :yarn\_roles, :app
+</code></pre>
 
 <h2>yarnに移行した感想</h2>
 

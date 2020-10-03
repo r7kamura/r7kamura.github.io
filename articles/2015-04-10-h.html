@@ -51,39 +51,22 @@
 
 <p>Mac OS Xには標準で defaults(1) というコマンドが用意されていて、このコマンドを利用するとMac OS X上のアプリケーションの設定を読み書きすることができる。serverkit-defaultsはこれをserverkitのリソースとして利用するためのプラグインで、「このドメインのこのキーにこの値が設定されていますように」という状態を定義できるようになる。設定値はYAMLやJSONで記述されるわけだけど、それをdefaultsで使える形式に変換するために色々やっている。その辺りの話は <a href="http://qiita.com/r7kamura/items/bc9b6084c1ed7bba45c4">defaults(1) の出力内容をRubyで扱う - Qiita</a> という記事に書いたりした。例えばこのレシピでDockが自動的に隠れる設定が有効化されてDockが再起動される。</p>
 
-<pre class="code" data-lang="" data-unlink>resources:
-  - type: defaults
-    domain: com.apple.dock
-    key: autohide
-    value: 1
-  - id: restart_dock
-    type: command
-    script: killall Dock</pre>
+<pre><code>resources: - type: defaults domain: com.apple.dock key: autohide value: 1 - id: restart\_dock type: command script: killall Dock
+</code></pre>
 
 <h2>serverkit-rbenv</h2>
 
 <p>名前の通り、rbenvをserverkitで扱うためのプラグイン。rbenvが手元にインストールされていることを前提として、rbenvで任意のバージョンのRubyをインストールしたり、それをグローバルに使うRubyとして設定したりする。とりあえずまあ簡単な記述で適当なバージョンのRubyが入れられればええやろぐらいの気持ちでやってるので、細かいオプションとかは無いけど、必要になれば追加する構え。例えばこのレシピで、Ruby 2.2.0が入る。</p>
 
-<pre class="code" data-lang="" data-unlink>resources:
-  - type: rbenv_ruby
-    version: 2.2.0
-    global: true</pre>
+<pre><code>resources: - type: rbenv\_ruby version: 2.2.0 global: true
+</code></pre>
 
 <h2>Notify</h2>
 
 <p>ChefやAnsibleと同じようにNotifyの機能を入れたので、「このリソースに変更があったときにだけこのリソースを理想の状態にしてくれ」というのが実現できるようになった。例えばDockの設定を変えるとDockの再起動が必要なのだけど、変更されたときしか再起動してほしくないと思う。リソースのnotifyプロパティに配列でidを指定しておくと、resourcesプロパティに書かれたリソースの適用がひと通り完了した後に、今度はhandlersに書かれたのそのidを持つリソースが適用される。handlersに書かれるのは主に再起動とかなので、複数のリソースから同じnotifyが指定されていたとしても1度しか実行しないし、変更されていないリソースについてはhandlerを呼び出さない。</p>
 
-<pre class="code" data-lang="" data-unlink>resources:
-  - type: defaults
-    domain: com.apple.dock
-    key: autohide
-    value: 1
-    notify:
-      - restart_dock
-handlers:
-  - id: restart_dock
-    type: command
-    script: killall Dock</pre>
+<pre><code>resources: - type: defaults domain: com.apple.dock key: autohide value: 1 notify: - restart\_dock handlers: - id: restart\_dock type: command script: killall Dock
+</code></pre>
 
 <h2>今後</h2>
 

@@ -43,38 +43,16 @@
   <div>
     <p>Webtailを使って僕の考えた最強のTwitterクライアントをつくりました。</p>
 
-<p></p><pre class="code" data-unlink>✘╹◡╹✘ cat twitter.rb
+<pre><code>✘╹◡╹✘ cat twitter.rb # encoding: utf-8 require "user\_stream" UserStream.configure do |config| config.consumer\_key = "..." config.consumer\_secret = "..." config.oauth\_token = "..." config.oauth\_token\_secret = "..." end UserStream.client.user do |status| STDOUT.puts "#{status.user.name}: #{status.text}" STDOUT.flush end ✘╹◡╹✘ cat ~/.webtailrc last.text(text.replace(/[ァ-ンー]{2,}/gi, 'ゆのっち')); ✘╹◡╹✘ gem install webtail ✘╹◡╹✘ gem install userstream ✘╹◡╹✘ ruby twitter.rb | webtail
+</code></pre>
 
-<h1>encoding: utf-8</h1>
+<p><a href="http://dl.dropbox.com/u/5978869/image/20120805_012055.png" target="_blank"><img src="http://dl.dropbox.com/u/5978869/image/20120805_012055.png" alt=""></a><br>
+ <a href="http://dl.dropbox.com/u/5978869/image/20120805_030219.png" target="_blank"><img src="http://dl.dropbox.com/u/5978869/image/20120805_030219.png" alt=""></a></p>
 
-<p>require "user_stream"</p>
+<h3>See Also</h3>
 
-<p>UserStream.configure do |config|
-  config.consumer_key       = "..."
-  config.consumer_secret    = "..."
-  config.oauth_token        = "..."
-  config.oauth_token_secret = "..."
-end</p>
-
-<p>UserStream.client.user do |status|
-  STDOUT.puts "#{status.user.name}: #{status.text}"
-  STDOUT.flush
-end</p>
-
-<p>✘╹◡╹✘ cat ~/.webtailrc
-last.text(text.replace(/[ァ-ンー]{2,}/gi, 'ゆのっち'));</p>
-
-<p>✘╹◡╹✘ gem install webtail
-✘╹◡╹✘ gem install userstream
-✘╹◡╹✘ ruby twitter.rb | webtail</p></pre><p><a href="http://dl.dropbox.com/u/5978869/image/20120805_012055.png" target="_blank"><img src="http://dl.dropbox.com/u/5978869/image/20120805_012055.png"></a><br>
-<a href="http://dl.dropbox.com/u/5978869/image/20120805_030219.png" target="_blank"><img src="http://dl.dropbox.com/u/5978869/image/20120805_030219.png"></a></p><p></p>
-
-<div class="section">
-    <h3>See Also</h3>
-    <p><a href="http://r7kamura.hatenablog.com/entry/2012/08/04/091448">Webtail - ✘╹◡╹✘</a><br>
+<p><a href="http://r7kamura.hatenablog.com/entry/2012/08/04/091448">Webtail - ✘╹◡╹✘</a><br>
 <a href="http://let.hatelabo.jp/cho45/let/gYC-xojZm7SmBQ">バズワード総ゆのっち化 - Hatena::Let</a></p>
-
-</div>
 
   </div>
 </article>

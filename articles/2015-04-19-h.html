@@ -47,37 +47,21 @@
 
 <p><a href="https://github.com/r7kamura/vagrant-serverkit">vagrant-serverkit</a> というのをつくりました。これでVagrantで仮想マシンを立ち上げるときに、自動的にServerkitでプロビジョニングを行えます。プラグインの管理をうまくやるためにVagrantのコードを追ったり、~/.ssh/config を書き換えなくても動作するように色々苦労しましたが、期待通り動くものができたと言えます。使い方はこういう感じ。プラグインをインストールするとserverkitという名前のprovisionerが定義されて、適切な設定を与えると動作します。</p>
 
-<pre class="code" data-lang="" data-unlink># Vagrantfile
-Vagrant.configure("2") do |config|
-  config.vm.box = "ubuntu/trusty64"
+<pre><code># Vagrantfile Vagrant.configure("2") do |config| config.vm.box = "ubuntu/trusty64" config.vm.provision :serverkit do |serverkit\_config| serverkit\_config.recipe\_path = "recipe.yml.erb" serverkit\_config.variables\_path = "variables.yml" end end
+</code></pre>
 
-  config.vm.provision :serverkit do |serverkit_config|
-    serverkit_config.recipe_path = "recipe.yml.erb"
-    serverkit_config.variables_path = "variables.yml"
-  end
-end</pre>
-
-<pre class="code" data-lang="" data-unlink>$ vagrant plugin install vagrant-serverkit
-$ vagrant up</pre>
+<pre><code>$ vagrant plugin install vagrant-serverkit $ vagrant up
+</code></pre>
 
 <h2>vagrant-multiplug</h2>
 
 <p>Serverkitで利用するプラグインをVagrantの環境上でも利用できるようにするため、<a href="https://github.com/r7kamura/vagrant-multiplug">vagrant-multiplug</a> というのもつくりました。Vagrantfileの中に利用するプラグイン (というか実体はGem) の名前を書いておくと、そのプラグインがまだVagrantに同梱されているRuby環境にインストールされていない場合に勝手にインストールしてくれるというものです。この辺りの話については、<a href="http://qiita.com/r7kamura/items/4221035fe23c549c288f">Vagrantfileで使うプラグインを定義する - Qiita</a> という記事にまとめました。使い方としてはこんな感じで、vagrant-serverkitやserverkit-rbenvなどのGemを利用するという旨をVagrantfileに書く感じです。</p>
 
-<pre class="code" data-lang="" data-unlink># Vagrantfile
-Vagrant.configure("2") do |config|
-  config.vm.box = "ubuntu/trusty64"
+<pre><code># Vagrantfile Vagrant.configure("2") do |config| config.vm.box = "ubuntu/trusty64" config.plugin.add\_dependency "vagrant-serverkit" config.plugin.add\_dependency "serverkit-rbenv", "0.0.2" config.vm.provision :serverkit do |config| config.recipe\_path = "recipe.yml" end end
+</code></pre>
 
-  config.plugin.add_dependency "vagrant-serverkit"
-  config.plugin.add_dependency "serverkit-rbenv", "0.0.2"
-
-  config.vm.provision :serverkit do |config|
-    config.recipe_path = "recipe.yml"
-  end
-end</pre>
-
-<pre class="code" data-lang="" data-unlink>$ vagrant plugin install vagrant-multiplug
-$ vagrant up</pre>
+<pre><code>$ vagrant plugin install vagrant-multiplug $ vagrant up
+</code></pre>
 
 <h2>dotfiles</h2>
 
@@ -89,24 +73,15 @@ $ vagrant up</pre>
 
 <p>Atom.appのプラグインを管理するために、<a href="https://github.com/r7kamura/serverkit-atom">serverkit-atom</a> というServerkit用のプラグインをつくってみました。 Atomに同梱されているapmを利用しています。こういう感じでレシピを書いて適用すると、そのプラグインが入った状態になります。</p>
 
-<pre class="code" data-lang="" data-unlink># recipe.yml
-resources:
-  - type: atom_package
-    name: sort-lines
-  - type: atom_package
-    name: vim-mode
-    version: 0.43.0</pre>
+<pre><code># recipe.yml resources: - type: atom\_package name: sort-lines - type: atom\_package name: vim-mode version: 0.43.0
+</code></pre>
 
 <h2>serverkit-homebrew</h2>
 
 <p>homebrewやhomebrew cask関係のリソースを <a href="https://github.com/r7kamura/serverkit-homebrew">serverkit-homebrew</a> といプラグインに分けました。同じコマンド体系を使っているのでlinuxbrewなどでも動くようです。使い方はこういう感じ。</p>
 
-<pre class="code" data-lang="" data-unlink>resources:
-  - type: homebrew_package
-    name: zsh
-  - type: homebrew_package
-    name: rbenv
-    options: --HEAD</pre>
+<pre><code>resources: - type: homebrew\_package name: zsh - type: homebrew\_package name: rbenv options: --HEAD
+</code></pre>
 
 <h2>--log-level</h2>
 

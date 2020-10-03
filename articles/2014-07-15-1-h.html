@@ -71,25 +71,17 @@
 
 <p>scheman diffというコマンドを実装した。</p>
 
-<p>これは変更前後の二つのスキーマの差分を標準出力するコマンド。
-変更前後のスキーマはファイルパスで指定できるほか、変更前のスキーマは標準入力からでも入力できる。
-また、変更後のスキーマのパスは指定しなければデフォルトで./schema.sqlを利用する。
-例えば、以下の行は全て同じ挙動になる。</p>
+<p>これは変更前後の二つのスキーマの差分を標準出力するコマンド。 変更前後のスキーマはファイルパスで指定できるほか、変更前のスキーマは標準入力からでも入力できる。 また、変更後のスキーマのパスは指定しなければデフォルトで./schema.sqlを利用する。 例えば、以下の行は全て同じ挙動になる。</p>
 
-<pre class="code" data-unlink>$ scheman diff --before before.sql --after schema.sql
-$ cat before.sql | scheman diff --after schema.sql
-$ cat before.sql | scheman diff</pre>
+<pre><code>$ scheman diff --before before.sql --after schema.sql $ cat before.sql | scheman diff --after schema.sql $ cat before.sql | scheman diff
+</code></pre>
 
 <h3>with mysqldump</h3>
 
-<p>標準入力経由でスキーマを入力できるので、例えばmysqldumpの出力をschemanに入力できる。
-mysqldumpは--no-dataと--compactオプションを付ければ、ほぼCREATE TABLEだけを生成するようになる。
-これを現状のスキーマとして扱い、./schema.sqlを理想のスキーマとして扱うと、
-以下のコマンドにより「理想のスキーマに変更するためにはどんなSQLを実行すれば良いか」が分かる。
-更に、出力したSQLをmysqlコマンドに渡せば変更内容を適用できる。</p>
+<p>標準入力経由でスキーマを入力できるので、例えばmysqldumpの出力をschemanに入力できる。 mysqldumpは--no-dataと--compactオプションを付ければ、ほぼCREATE TABLEだけを生成するようになる。 これを現状のスキーマとして扱い、./schema.sqlを理想のスキーマとして扱うと、 以下のコマンドにより「理想のスキーマに変更するためにはどんなSQLを実行すれば良いか」が分かる。 更に、出力したSQLをmysqlコマンドに渡せば変更内容を適用できる。</p>
 
-<pre class="code" data-unlink>$ mysqldump --no-data --compact db_name | scheman diff
-$ mysqldump --no-data --compact db_name | scheman diff | mysql db_name</pre>
+<pre><code>$ mysqldump --no-data --compact db\_name | scheman diff $ mysqldump --no-data --compact db\_name | scheman diff | mysql db\_name
+</code></pre>
 
 <h3>難しいところ</h3>
 

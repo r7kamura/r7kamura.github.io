@@ -9,6 +9,9 @@
   <link rel="search" type="application/opensearchdescription+xml" title="r7kamura.com" href="/opensearch.xml">
   <link rel="alternate" type="application/rss+xml" href="/feed.xml">
   
+  <meta property="description" content="aliasを無効化">
+  <meta property="og:description" content="aliasを無効化">
+  
   <meta property="og:type" content="website">
   <meta property="og:title" content="zshのautoload">
   <meta property="og:url" content="https://r7kamura.com/articles/2012-11-25-h">
@@ -38,27 +41,20 @@
     <h1>zshのautoload</h1>
   </header>
   <div>
-    <p></p><blockquote class="twitter-tweet" lang="ja">
-<p>zsh autoload 意味</p>— 人月さん (@r7kamura) <a href="https://twitter.com/r7kamura/status/272647087177469952" data-datetime="2012-11-25T10:25:05+00:00">11月 25, 2012</a>
-</blockquote><script src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+    <blockquote>
+<p>zsh autoload 意味</p>
 
-<div class="section">
-    <h3>使い方</h3>
-    <pre class="code" data-unlink>% echo $fpath
-/usr/local/Cellar/zsh/4.3.12/share/zsh/functions
-/usr/local/Cellar/zsh/4.3.12/share/zsh/site-functions
+<p>— 人月さん (@r7kamura) <a href="https://twitter.com/r7kamura/status/272647087177469952">11月 25, 2012</a></p>
+</blockquote>
 
+<script src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
 
-% cat  $fpath[1]/a
-echo 1
+<h3>使い方</h3>
 
+<pre><code>% echo $fpath /usr/local/Cellar/zsh/4.3.12/share/zsh/functions /usr/local/Cellar/zsh/4.3.12/share/zsh/site-functions % cat $fpath[1]/a echo 1 % autoload a % a 1
+</code></pre>
 
-% autoload a
-% a
-1</pre>
-</div>
-<div class="section">
-    <h3>仕組み</h3>
+<h3>仕組み</h3>
 
 <ol>
 <li>autoload aが呼び出される</li>
@@ -69,33 +65,24 @@ echo 1
 <li>ファイルaの中身を関数aの実装としてメモリ上に読み込む</li>
 <li>関数aが実行される</li>
 </ol>
-</div>
-<div class="section">
-    <h3>-U オプション</h3>
-    <p>aliasを無効化</p>
 
-<pre class="code" data-unlink>% alias echo='shutdown -h now'
-% autoload a
-% a #=&gt; 死</pre>
+<h3>-U オプション</h3>
 
-<pre class="code" data-unlink>% alias echo='shutdown -h now'
-% autoload -U a
-% a
-1</pre>
+<p>aliasを無効化</p>
 
-<p></p>
-</div>
-<div class="section">
-    <h3>参考</h3>
+<pre><code>% alias echo='shutdown -h now' % autoload a % a #=\&gt; 死
+</code></pre>
+
+<pre><code>% alias echo='shutdown -h now' % autoload -U a % a 1
+</code></pre>
+
+<h3>参考</h3>
 
 <ul>
 <li><a href="http://zsh.sourceforge.net/Doc/Release/Functions.html#Autoloading-Functions">http://zsh.sourceforge.net/Doc/Release/Functions.html#Autoloading-Functions</a></li>
 <li><a href="http://zsh.sourceforge.net/Guide/zshguide03.html#l48">http://zsh.sourceforge.net/Guide/zshguide03.html#l48</a></li>
 <li>zshbuiltins(1)</li>
 </ul>
-
-<p></p>
-</div>
 
   </div>
 </article>

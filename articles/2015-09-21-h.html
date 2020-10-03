@@ -47,41 +47,20 @@
 
 <p>KeyStringDetectorクラスのインスタンスを作成して、<code>KeyStringDetector#detect(event)</code> を実行すると文字列が得られる。</p>
 
-<pre class="code" data-lang="" data-unlink>const keyStringDetector = new KeyStringDetector();
-keyStringDetector.detect(event1) // =&gt; 'F'
-keyStringDetector.detect(event2) // =&gt; 'Ctrl+Return'
-keyStringDetector.detect(event3) // =&gt; 'Alt+Shift+Down'</pre>
+<pre><code>const keyStringDetector = new KeyStringDetector(); keyStringDetector.detect(event1) // =\&gt; 'F' keyStringDetector.detect(event2) // =\&gt; 'Ctrl+Return' keyStringDetector.detect(event3) // =\&gt; 'Alt+Shift+Down'
+</code></pre>
 
 <h2>アプリケーション上での使われ方</h2>
 
 <p>例えば、JキーとKキーで記事リスト内の要素を選択するというUIをつくりたいときは、雑にやるならまずキーが押下されたときに発火するようなEventEmitterをつくって、そのイベントを購読したりすることが多い。</p>
 
-<pre class="code" data-lang="" data-unlink>// keyboard-event-publisher.js
-import EventEmitter from 'events'
-import KeyStringDetector from 'key-string'
-
-const eventEmitter = new EventEmitter();
-const keyStringDetector = new KeyStringDetector();
-
-document.addEventListener('keydown', (event) =&gt; {
-  if (event.target === document.body) {
-    eventEmitter.emit(keyStringDetector(event), event);
-  }
-});
-
-export default eventEmitter;</pre>
+<pre><code>// keyboard-event-publisher.js import EventEmitter from 'events' import KeyStringDetector from 'key-string' const eventEmitter = new EventEmitter(); const keyStringDetector = new KeyStringDetector(); document.addEventListener('keydown', (event) =\&gt; { if (event.target === document.body) { eventEmitter.emit(keyStringDetector(event), event); } }); export default eventEmitter;
+</code></pre>
 
 <p>例えばこういう風に使う。</p>
 
-<pre class="code" data-lang="" data-unlink>import keyboardEventPublisher from './keyboard-event-publisher'
-
-keyboardEventPublisher.on('J', (event) =&gt; {
-  // select next element...
-}).on('K', (event) =&gt; {
-  // select previous element...
-}).on('Esc', (event) =&gt; {
-  // clear selection...
-});</pre>
+<pre><code>import keyboardEventPublisher from './keyboard-event-publisher' keyboardEventPublisher.on('J', (event) =\&gt; { // select next element... }).on('K', (event) =\&gt; { // select previous element... }).on('Esc', (event) =\&gt; { // clear selection... });
+</code></pre>
 
 <h2>キー名などの仕様</h2>
 

@@ -43,28 +43,26 @@
   <div>
     <p>次のようなコードを書いて、</p>
 
-<pre class="code" data-lang="" data-unlink>import React from "react"
-export default () =&gt; &lt;div&gt;Hello!&lt;/div&gt;</pre>
+<pre><code>import React from "react" export default () =\&gt; \&lt;div\&gt;Hello!\&lt;/div\&gt;
+</code></pre>
 
 <p>次のようなコマンドを叩くと、</p>
 
-<pre class="code" data-lang="" data-unlink>katatema build</pre>
+<pre><code>katatema build
+</code></pre>
 
 <p>次のようなファイルが生成されるという、<a href="https://github.com/r7kamura/katatema">katatema</a> というツールをつくった。</p>
 
-<pre class="code" data-lang="" data-unlink>&lt;!DOCTYPE html&gt;
-&lt;html&gt;
-  &lt;head&gt;
-  &lt;/head&gt;
-&lt;body&gt;
-  &lt;div&gt;Hello!&lt;/div&gt;
-&lt;/body&gt;</pre>
+<pre><code>\&lt;!DOCTYPE html\&gt; \&lt;html\&gt; \&lt;head\&gt; \&lt;/head\&gt; \&lt;body\&gt; \&lt;div\&gt;Hello!\&lt;/div\&gt; \&lt;/body\&gt;
+</code></pre>
 
 <h2>最先端の消耗</h2>
 
 <p>前に <a href="http://r7kamura.hatenablog.com/entry/2016/11/10/090029">キーボードショートカットをカスタマイズするブラウザ拡張 - ✘╹◡╹✘</a> で、こういうことを書いた。</p>
 
-<blockquote><p><a href="http://blog.hatena.ne.jp/moznion/">id:moznion</a> へ、寒い日が続きますがお元気ですか。ともあれChrome拡張を1つこさえれば、大の大人が寄ってたかってモダンと言い合う類のものが一通り学べるだろうと思います。</p></blockquote>
+<blockquote>
+<p><a href="http://blog.hatena.ne.jp/moznion/">id:moznion</a> へ、寒い日が続きますがお元気ですか。ともあれChrome拡張を1つこさえれば、大の大人が寄ってたかってモダンと言い合う類のものが一通り学べるだろうと思います。</p>
+</blockquote>
 
 <p>最近のJavaScriptの周辺環境は大変で、何をやるにしても、本格的にコードを書きはじめるにはやれBrowserifyだWebpackだGulpだGruntだBabelだと色々なものを (そのときの最新の流行を察しながら) 導入していかなければならない。こういう調子では、本腰を入れてJavaScriptと向き合う機会に恵まれない職種の人達が簡単には参入できず、ReactやWebpackなどのプロダクトが例え良いものであったとしても、なかなか一般に普及しづらい状況にあると思う。</p>
 
@@ -93,15 +91,15 @@ export default () =&gt; &lt;div&gt;Hello!&lt;/div&gt;</pre>
 
 <p>同様に、FTP全盛期の、HTMLファイルを置いたパスにアクセスすればコンテンツが見られるような単純さも好きだった。間に複雑なルーティングのロジックなどが入らず、ファイルシステムをAPIとして利用するというのも、やはり分かりやすくて良い。まあ静的サイトジェネレータつくると大体そういう感じに落ち着くんだけれども、katatemaでも <code>pages/xxx.js</code> を置けば <code>docs/xxx.html</code> が生成されるということになっていて、この辺りは単純で分かりやすくて良いなと思っている。</p>
 
-<pre class="code" data-lang="" data-unlink>./pages/index.js  ---converted---&gt;  ./docs/index.html
-./pages/about.js  ---converted---&gt;  ./docs/about.html
-./pages/usage.js  ---converted---&gt;  ./docs/usage.html</pre>
+<pre><code>./pages/index.js ---converted---\&gt; ./docs/index.html ./pages/about.js ---converted---\&gt; ./docs/about.html ./pages/usage.js ---converted---\&gt; ./docs/usage.html
+</code></pre>
 
 <h2>画面の更新</h2>
 
 <p>HTMLファイルを生成する機能だけでなく、開発時に使うためのプレビュー用サーバも用意している。次のようなコマンドでプレビュー用サーバが起動し、<code>pages/index.js</code> から生成されたHTMLが <a href="http://localhost:3000/">http://localhost:3000/</a> で、<code>pages/foo.js</code> から生成されたHTMLが <a href="http://localhost:3000/foo.html">http://localhost:3000/foo.html</a> で閲覧できるようになっている。</p>
 
-<pre class="code" data-lang="" data-unlink>katatema serve</pre>
+<pre><code>katatema serve
+</code></pre>
 
 <p>katatemaでのプレビュー時には、ソースコードを書き換えるとページがリロードされることなく画面の一部がヌルリと書き換わるようになっている。勿論ページだけでなく、ページで利用しているCSSを書き換えたときも、同様に新しいスタイルが適用されるようになっている。めちゃくちゃ便利で、デザイン作業とかだとこれが無いと正直やってられない。</p>
 

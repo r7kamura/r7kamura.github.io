@@ -9,6 +9,9 @@
   <link rel="search" type="application/opensearchdescription+xml" title="r7kamura.com" href="/opensearch.xml">
   <link rel="alternate" type="application/rss+xml" href="/feed.xml">
   
+  <meta property="description" content="spec_helper.rbでこういう感じで設定すると使えるようになる。">
+  <meta property="og:description" content="spec_helper.rbでこういう感じで設定すると使えるようになる。">
+  
   <meta property="og:type" content="website">
   <meta property="og:title" content="ResponseCodeMatchers.gem">
   <meta property="og:url" content="https://r7kamura.com/articles/2012-11-28-h">
@@ -39,71 +42,33 @@
   </header>
   <div>
     <p><a href="https://github.com/r7kamura/response_code_matchers">https://github.com/r7kamura/response_code_matchers</a><br>
-夕方ぐらいにControllerのspecを書いていて「subject.code.should == "422"...」みたいなコードを書いていて、急に思い立って初めてCustom MatcherをつくってGemにした。</p><p></p>
+夕方ぐらいにControllerのspecを書いていて「subject.code.should == "422"...」みたいなコードを書いていて、急に思い立って初めてCustom MatcherをつくってGemにした。</p>
 
-<div class="section">
-    <h3>使い方</h3>
-    <p>spec_helper.rbでこういう感じで設定すると使えるようになる。</p>
-<pre class="code" data-unlink># spec/spec_helper.rb
-require "response_code_matchers"
+<h3>使い方</h3>
 
-RSpec.configure do |config|
-  config.include ResponseCodeMatchers
-end</pre>
-<p><br>
-今まではresponse.code.should == "422"って書いてたのを、こういう風に書けるようになる。Railsのcontrollerのspecだと、postやgetがresponseオブジェクトを返す。自分は大体subjectでpostやgetを呼ぶことが多いので、そういうときに良い感じに書ける。</p>
-<p></p>
-<pre class="code" data-unlink># spec/controllers/blogs_controller.rb
-describe BlogsController do
-  describe "#create" do
-    subject do
-      post :create, params
-    end
+<p>spec_helper.rbでこういう感じで設定すると使えるようになる。</p>
 
-    let(:params) do
-      { :title =&gt; "title", :body =&gt; "body", :token =&gt; "token", :user_id =&gt; 1 }
-    end
+<pre><code># spec/spec\_helper.rb require "response\_code\_matchers" RSpec.configure do |config| config.include ResponseCodeMatchers end
+</code></pre>
 
-    # 201
-    context "with valid token" do
-      it { should be_created }
-    end
+<p>今まではresponse.code.should == "422"って書いてたのを、こういう風に書けるようになる。Railsのcontrollerのspecだと、postやgetがresponseオブジェクトを返す。自分は大体subjectでpostやgetを呼ぶことが多いので、そういうときに良い感じに書ける。</p>
 
-    # 400
-    context "without user_id" do
-      before do
-        params.delete(:user_id)
-      end
+<pre><code># spec/controllers/blogs\_controller.rb describe BlogsController do describe "#create" do subject do post :create, params end let(:params) do { :title =\&gt; "title", :body =\&gt; "body", :token =\&gt; "token", :user\_id =\&gt; 1 } end # 201 context "with valid token" do it { should be\_created } end # 400 context "without user\_id" do before do params.delete(:user\_id) end it { should be\_bad\_request } end # 401 context "with invalid token" do before do params[:token] = "invalid" end it { should be\_unauthorized } end end end
+</code></pre>
 
-      it { should be_bad_request }
-    end
+<h3>実装</h3>
 
-    # 401
-    context "with invalid token" do
-      before do
-        params[:token] = "invalid"
-      end
-
-      it { should be_unauthorized }
-    end
-  end
-end</pre>
-</div>
-
-<div class="section">
-    <h3>実装</h3>
-    <p>RackがHTTPステータスコードと名前の対応表を持っているので、それを利用してMatcherをつくる。<br>
+<p>RackがHTTPステータスコードと名前の対応表を持っているので、それを利用してMatcherをつくる。<br>
 <a href="https://github.com/rack/rack/blob/master/lib/rack/utils.rb#L548">https://github.com/rack/rack/blob/master/lib/rack/utils.rb#L548</a></p>
+
 <p>CustomMatcherは2通りの作り方がある。<br>
 1つはRSpec::Matchers.defineで簡単につくる方法。<br>
 1つはMatcher用のmodule + classを用意してあげる方法。</p>
-<pre class="code" data-unlink>RSpec::Matchers.define :be_a_multiple_of do |expected|
-  match do |actual|
-    actual % expected == 0
-  end
-end</pre>
-<p><br>
-Matchersモジュールは、Matcherクラスのインスタンスを返すようなmatcherメソッドを定義すれば良い。<br>
+
+<pre><code>RSpec::Matchers.define :be\_a\_multiple\_of do |expected| match do |actual| actual % expected == 0 end end
+</code></pre>
+
+<p>Matchersモジュールは、Matcherクラスのインスタンスを返すようなmatcherメソッドを定義すれば良い。<br>
 Matcherクラスは、以下のメソッドを持っていれば良い。</p>
 
 <ul>
@@ -112,41 +77,9 @@ Matcherクラスは、以下のメソッドを持っていれば良い。</p>
 <li>#failure_message</li>
 <li>#negative_failure_message</li>
 </ul>
-<pre class="code" data-unlink>require "rack"
 
-module ResponseCodeMatchers
-  Rack::Utils::SYMBOL_TO_STATUS_CODE.each do |name, code|
-    name = name.to_s.gsub("'", "")
-    define_method("be_#{name}") do
-      ResponseCodeMatcher.new(code.to_s, name)
-    end
-  end
-
-  class ResponseCodeMatcher
-    def initialize(expected, name)
-      @expected    = expected
-      @description = name.to_s.gsub("_", " ")
-    end
-
-    def matches?(response)
-      @actual = response.code
-      @actual == @expected
-    end
-
-    def description
-      "be #@description"
-    end
-
-    def failure_message
-      "expected response code to be #@expected, but #@actual"
-    end
-
-    def negative_failure_message
-      "expected response code not to be #@expected, but #@actual"
-    end
-  end
-end</pre>
-</div>
+<pre><code>require "rack" module ResponseCodeMatchers Rack::Utils::SYMBOL\_TO\_STATUS\_CODE.each do |name, code| name = name.to\_s.gsub("'", "") define\_method("be\_#{name}") do ResponseCodeMatcher.new(code.to\_s, name) end end class ResponseCodeMatcher def initialize(expected, name) @expected = expected @description = name.to\_s.gsub("\_", " ") end def matches?(response) @actual = response.code @actual == @expected end def description "be #@description" end def failure\_message "expected response code to be #@expected, but #@actual" end def negative\_failure\_message "expected response code not to be #@expected, but #@actual" end end end
+</code></pre>
 
   </div>
 </article>

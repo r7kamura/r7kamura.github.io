@@ -57,47 +57,8 @@
 
 <h2>構築される環境</h2>
 
-<pre class="code" data-lang="" data-unlink>┌---------------┐
-|  Web Browser  |
-└---------------┘
-▲               ▲
-|               |
-(HTTPS)         (WebSocket)
-|               |
-▼               |
-┌------------┐  |
-| CloudFront |  |
-└------------┘  |
-▲               |
-|               |
-(HTTP)          |
-|               |
-▼               ▼
-┌---------------┐
-|      ALB      |
-└---------------┘
-▲               ▲
-|               |
-(HTTP)          (WebSocket)
-|               |
-▼               ▼
-┌------------------------┐
-| ┌-Docker-┐ ┌-Docker--┐ |
-| |  Puma  | | Express | |
-| └--------┘ └---------┘ |
-| ┌-Docker--┐            |
-| | Sidekiq |     EC2    |
-| └---------┘            |
-└------------------------┘
-▲                  ▲
-|                  |
-▼                  ▼
-┌----------------┐ ┌-------------┐
-| ┌------------┐ | |  ┌-------┐  |
-| | PostgreSQL | | |  | Redis |  |
-| └------------┘ | |  └-------┘  |
-|       RDS      | | Elasticache |
-└----------------┘ └-------------┘</pre>
+<pre><code>┌---------------┐ | Web Browser | └---------------┘ ▲ ▲ | | (HTTPS) (WebSocket) | | ▼ | ┌------------┐ | | CloudFront | | └------------┘ | ▲ | | | (HTTP) | | | ▼ ▼ ┌---------------┐ | ALB | └---------------┘ ▲ ▲ | | (HTTP) (WebSocket) | | ▼ ▼ ┌------------------------┐ | ┌-Docker-┐ ┌-Docker--┐ | | | Puma | | Express | | | └--------┘ └---------┘ | | ┌-Docker--┐ | | | Sidekiq | EC2 | | └---------┘ | └------------------------┘ ▲ ▲ | | ▼ ▼ ┌----------------┐ ┌-------------┐ | ┌------------┐ | | ┌-------┐ | | | PostgreSQL | | | | Redis | | | └------------┘ | | └-------┘ | | RDS | | Elasticache | └----------------┘ └-------------┘
+</code></pre>
 
 <p>静的ファイルのキャッシュ用に前段に CloudFront が居て、後ろに ALB (ロードバランサー) が居て、EC2 で Docker が動いてて、Docker で Puma (Web サーバ)、Express (WebSocket サーバ)、Sidekiq (Job Worker) が動いていて、更に RDS で PostgreSQL、Elasticache で Redis が動いている、という構成。</p>
 
@@ -115,8 +76,7 @@
 
 <p>Puma から静的ファイルを配信する必要があるので、Docker イメージの中に precompile された assets を含めてしまっている。これは、まず Mastodon の Docker イメージをビルドしたあと、ビルドしたイメージを利用して public/assets ディレクトリをマウントしながら assets:precompile を実行し、更に precompile された assets が配置された状態で再度 Docker イメージをビルドしている。</p>
 
-<p>この辺の処理は <a href="https://github.com/r7kamura/mastodon-docker">https://github.com/r7kamura/mastodon-docker</a> で実現していて、CircleCI を利用して自動的にそういう Docker イメージがビルドされるようにしてある。本家の Mastodon のコードが頻繁に更新されるので、新しいコードを取り込みたくなったら、 まず
- Docker イメージをビルドして、それからビルドされたイメージのタグを mastodon-terraform で指定する、という運用になる。インフラのコードとアプリケーションのコードでは変更サイクルが異なるので、リポジトリも分けておいた方が良いと思ってこういう形になった。</p>
+<p>この辺の処理は <a href="https://github.com/r7kamura/mastodon-docker">https://github.com/r7kamura/mastodon-docker</a> で実現していて、CircleCI を利用して自動的にそういう Docker イメージがビルドされるようにしてある。本家の Mastodon のコードが頻繁に更新されるので、新しいコードを取り込みたくなったら、 まず Docker イメージをビルドして、それからビルドされたイメージのタグを mastodon-terraform で指定する、という運用になる。インフラのコードとアプリケーションのコードでは変更サイクルが異なるので、リポジトリも分けておいた方が良いと思ってこういう形になった。</p>
 
 <h2>改善中のところ</h2>
 

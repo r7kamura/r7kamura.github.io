@@ -56,7 +56,7 @@
 <li><a href="http://r7kamura.hatenablog.com/entry/2017/01/14/143025">amakanのCIをShippableに移行した - ✘╹◡╹✘</a></li>
 </ul>
 
-<p></p><hr>
+<hr>
 
 <p>amakan の CSS は勘で書いていて、何となく気が向いたので stylelint を導入してみた。</p>
 
@@ -68,7 +68,8 @@
 
 <p>とりあえずインストール。</p>
 
-<pre class="code" data-lang="" data-unlink>yarn add stylelint --dev</pre>
+<pre><code>yarn add stylelint --dev
+</code></pre>
 
 <h2>stylelint-config-standard</h2>
 
@@ -76,50 +77,41 @@
 
 <p><a href="https://github.com/stylelint/stylelint-config-standard">https://github.com/stylelint/stylelint-config-standard</a></p>
 
-<pre class="code" data-lang="" data-unlink>yarn add stylelint-config-standard --dev</pre>
+<pre><code>yarn add stylelint-config-standard --dev
+</code></pre>
 
 <h2>.stylelintrc</h2>
 
 <p>.stylelintrc というファイルにこう書いたら良いとのことなので書いた。</p>
 
-<pre class="code lang-json" data-lang="json" data-unlink><span class="synSpecial">{</span>
-  "<span class="synStatement">extends</span>": "<span class="synConstant">stylelint-config-standard</span>"
-<span class="synSpecial">}</span>
-</pre>
+<pre><code>{ "extends": "stylelint-config-standard"}
+</code></pre>
 
 <h2>docker-compose.yml</h2>
 
 <p>stylelint は Node.js 用のコンテナで動かす。.stylelintrc という設定ファイルを利用するので、これはホスト側からコンテナ側にマウントする必要がある。そのために docker-compose.yml に追記した。</p>
 
-<pre class="code lang-yaml" data-lang="yaml" data-unlink><span class="synIdentifier">node</span><span class="synSpecial">:</span>
-  <span class="synIdentifier">volumes</span><span class="synSpecial">:</span>
-    <span class="synStatement">- </span>./.stylelintrc:/app/.stylelintrc
-</pre>
+<pre><code>node:volumes:- ./.stylelintrc:/app/.stylelintrc
+</code></pre>
 
 <h2>package.json</h2>
 
 <p><code>yarn run lint</code> で呼び出されるように適当に設定した。</p>
 
-<pre class="code lang-json" data-lang="json" data-unlink><span class="synSpecial">{</span>
-  "<span class="synStatement">scripts</span>": <span class="synSpecial">{</span>
-    "<span class="synStatement">lint</span>": "<span class="synConstant">yarn run lint:javascript &amp;&amp; yarn run lint:stylesheet</span>",
-    "<span class="synStatement">lint:javascript</span>": "<span class="synConstant">eslint 'client/**/*.{js,jsx}'</span>",
-    "<span class="synStatement">lint:stylesheet</span>": "<span class="synConstant">stylelint 'client/stylesheets/**/*.scss'</span>"<span class="synError">,</span>
-<span class="synError">  }</span>
-<span class="synSpecial">}</span>
-</pre>
+<pre><code>{ "scripts": { "lint": "yarn run lint:javascript &amp;&amp; yarn run lint:stylesheet", "lint:javascript": "eslint 'client/\*\*/\*.{js,jsx}'", "lint:stylesheet": "stylelint 'client/stylesheets/\*\*/\*.scss'", }}
+</code></pre>
 
 <h2>NG集</h2>
 
 <p>あとはエラーが出るので直した。200 箇所ぐらい。</p>
 
-<p><span itemscope itemtype="http://schema.org/Photograph"><a href="https://cdn-ak.f.st-hatena.com/images/fotolife/r/r7kamura/20170127/20170127233333.png" target="_blank"><img src="https://cdn-ak.f.st-hatena.com/images/fotolife/r/r7kamura/20170127/20170127233333.png" alt="f:id:r7kamura:20170127233333p:plain" title="f:id:r7kamura:20170127233333p:plain" class="hatena-fotolife" itemprop="image"></a></span></p>
+<p><a href="https://cdn-ak.f.st-hatena.com/images/fotolife/r/r7kamura/20170127/20170127233333.png" target="_blank"><img src="https://cdn-ak.f.st-hatena.com/images/fotolife/r/r7kamura/20170127/20170127233333.png" alt="f:id:r7kamura:20170127233333p:plain" title="f:id:r7kamura:20170127233333p:plain"></a></p>
 
-<p><span itemscope itemtype="http://schema.org/Photograph"><a href="https://cdn-ak.f.st-hatena.com/images/fotolife/r/r7kamura/20170127/20170127233359.png" target="_blank"><img src="https://cdn-ak.f.st-hatena.com/images/fotolife/r/r7kamura/20170127/20170127233359.png" alt="f:id:r7kamura:20170127233359p:plain" title="f:id:r7kamura:20170127233359p:plain" class="hatena-fotolife" itemprop="image"></a></span></p>
+<p><a href="https://cdn-ak.f.st-hatena.com/images/fotolife/r/r7kamura/20170127/20170127233359.png" target="_blank"><img src="https://cdn-ak.f.st-hatena.com/images/fotolife/r/r7kamura/20170127/20170127233359.png" alt="f:id:r7kamura:20170127233359p:plain" title="f:id:r7kamura:20170127233359p:plain"></a></p>
 
-<p><span itemscope itemtype="http://schema.org/Photograph"><a href="https://cdn-ak.f.st-hatena.com/images/fotolife/r/r7kamura/20170127/20170127233408.png" target="_blank"><img src="https://cdn-ak.f.st-hatena.com/images/fotolife/r/r7kamura/20170127/20170127233408.png" alt="f:id:r7kamura:20170127233408p:plain" title="f:id:r7kamura:20170127233408p:plain" class="hatena-fotolife" itemprop="image"></a></span></p>
+<p><a href="https://cdn-ak.f.st-hatena.com/images/fotolife/r/r7kamura/20170127/20170127233408.png" target="_blank"><img src="https://cdn-ak.f.st-hatena.com/images/fotolife/r/r7kamura/20170127/20170127233408.png" alt="f:id:r7kamura:20170127233408p:plain" title="f:id:r7kamura:20170127233408p:plain"></a></p>
 
-<p><span itemscope itemtype="http://schema.org/Photograph"><a href="https://cdn-ak.f.st-hatena.com/images/fotolife/r/r7kamura/20170127/20170127233418.png" target="_blank"><img src="https://cdn-ak.f.st-hatena.com/images/fotolife/r/r7kamura/20170127/20170127233418.png" alt="f:id:r7kamura:20170127233418p:plain" title="f:id:r7kamura:20170127233418p:plain" class="hatena-fotolife" itemprop="image"></a></span></p>
+<p><a href="https://cdn-ak.f.st-hatena.com/images/fotolife/r/r7kamura/20170127/20170127233418.png" target="_blank"><img src="https://cdn-ak.f.st-hatena.com/images/fotolife/r/r7kamura/20170127/20170127233418.png" alt="f:id:r7kamura:20170127233418p:plain" title="f:id:r7kamura:20170127233418p:plain"></a></p>
 
 <h2>感想</h2>
 
@@ -134,29 +126,53 @@
 
 <h2>様子</h2>
 
-<p></p><p></p><blockquote class="twitter-tweet" data-lang="ja">
-<p lang="ja" dir="ltr">amakanのCSSも勘で書いてるしStylelintとかいうの導入してみようかな</p>— ホームページビルダー (@r7kamura) <a href="https://twitter.com/r7kamura/status/824979547690934272">2017年1月27日</a>
-</blockquote><script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+<blockquote>
+<p>amakanのCSSも勘で書いてるしStylelintとかいうの導入してみようかな</p>
 
-<p></p><p></p><blockquote class="twitter-tweet" data-lang="ja">
-<p lang="ja" dir="ltr">とりあえず stylelint と stylelint-config-standard というの入れたけど何なのか分かってない</p>— ホームページビルダー (@r7kamura) <a href="https://twitter.com/r7kamura/status/824979734291378177">2017年1月27日</a>
-</blockquote><script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+<p>— ホームページビルダー (@r7kamura) <a href="https://twitter.com/r7kamura/status/824979547690934272">2017年1月27日</a></p>
+</blockquote>
 
-<p></p><p></p><blockquote class="twitter-tweet" data-lang="ja">
-<p lang="ja" dir="ltr">JSON で .stylelintrc というの書いて Node.js 用のコンテナにマウントして動かしてみたが ✖ がいっぱい出た</p>— ホームページビルダー (@r7kamura) <a href="https://twitter.com/r7kamura/status/824980079264436225">2017年1月27日</a>
-</blockquote><script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
 
-<p></p><p></p><blockquote class="twitter-tweet" data-lang="ja">
-<p lang="ja" dir="ltr">とりあえずamakanにstylelint導入してstylelint-config-standardのルールでエラー出ないようにしてみたところ、不要なファイルが5つ見つかり、300行ほどCSSが減って良かった</p>— ホームページビルダー (@r7kamura) <a href="https://twitter.com/r7kamura/status/824985768409993218">2017年1月27日</a>
-</blockquote><script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+<blockquote>
+<p>とりあえず stylelint と stylelint-config-standard というの入れたけど何なのか分かってない</p>
 
-<p></p><p></p><blockquote class="twitter-tweet" data-lang="ja">
-<p lang="ja" dir="ltr">日記 / amakanにstylelintを導入した - ✘╹◡╹✘ <a href="https://t.co/624BepLbGr"></a><a href="https://t.co/624BepLbGr">https://t.co/624BepLbGr</a></p>— ホームページビルダー (@r7kamura) <a href="https://twitter.com/r7kamura/status/824990400116977665">2017年1月27日</a>
-</blockquote><script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+<p>— ホームページビルダー (@r7kamura) <a href="https://twitter.com/r7kamura/status/824979734291378177">2017年1月27日</a></p>
+</blockquote>
 
-<p></p><p></p><blockquote class="twitter-tweet" data-lang="ja">
-<p lang="ja" dir="ltr">ほんとうに雰囲気でやっていてこんなんで大丈夫化</p>— ホームページビルダー (@r7kamura) <a href="https://twitter.com/r7kamura/status/824990865189789696">2017年1月27日</a>
-</blockquote><script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+<blockquote>
+<p>JSON で .stylelintrc というの書いて Node.js 用のコンテナにマウントして動かしてみたが ✖ がいっぱい出た</p>
+
+<p>— ホームページビルダー (@r7kamura) <a href="https://twitter.com/r7kamura/status/824980079264436225">2017年1月27日</a></p>
+</blockquote>
+
+<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+<blockquote>
+<p>とりあえずamakanにstylelint導入してstylelint-config-standardのルールでエラー出ないようにしてみたところ、不要なファイルが5つ見つかり、300行ほどCSSが減って良かった</p>
+
+<p>— ホームページビルダー (@r7kamura) <a href="https://twitter.com/r7kamura/status/824985768409993218">2017年1月27日</a></p>
+</blockquote>
+
+<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+<blockquote>
+<p>日記 / amakanにstylelintを導入した - ✘╹◡╹✘ <a href="https://t.co/624BepLbGr">https://t.co/624BepLbGr</a></p>
+
+<p>— ホームページビルダー (@r7kamura) <a href="https://twitter.com/r7kamura/status/824990400116977665">2017年1月27日</a></p>
+</blockquote>
+
+<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+<blockquote>
+<p>ほんとうに雰囲気でやっていてこんなんで大丈夫化</p>
+
+<p>— ホームページビルダー (@r7kamura) <a href="https://twitter.com/r7kamura/status/824990865189789696">2017年1月27日</a></p>
+</blockquote>
+
+<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
 
   </div>
 </article>

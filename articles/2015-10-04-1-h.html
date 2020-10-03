@@ -61,10 +61,8 @@
 
 <p><code>domDriver()</code> というのはDOMとのやりとりを抽象化してイベントソースとして扱えるように変換してくれるやつで、この処理はどのWebブラウザ用のアプリケーションにも共通しているので、何らかのフレームワークとして提供できる。で、我々アプリケーションを開発する側としては、上図の <code>main()</code> の部分を実装すると良い。具体的には、<code>domDriver()</code> を使って得られるイベントソースをもとに、いろいろ振る舞ったのちに新しい描画イベントを発火するようなイベントソースを <code>domDriver()</code> に返す、という処理を書けばよい。言い換えると、<code>domDriver()</code> から受け取ったイベントソースを別のイベントソースに変換して返す、ということになる。つまり、<code>main()</code> はイベントソースを受け取ってイベントソースを返す関数になるし、<code>domDriver()</code> もまたイベントソースを受け取ってイベントソースを返す関数である。</p>
 
-<pre class="code" data-lang="" data-unlink>function main(domEventSource) {
-  const renderingEventSource = ourApplicationLogic(domEventSource);
-  return renderingEventSource;
-}</pre>
+<pre><code>function main(domEventSource) { const renderingEventSource = ourApplicationLogic(domEventSource); return renderingEventSource; }
+</code></pre>
 
 <h2>Model-View-Intent</h2>
 
@@ -74,20 +72,8 @@
 
 <p>Model・View・Intentのそれぞれの責務を説明しておくと、IntentはDOM経由で発生したイベントをユーザが何を意図してそうしたのかに変換するやつで、ModelはIntentのイベントをもとにいろいろ振る舞ってアプリケーションの状態が更新されたことを伝えるやつで、Viewは更新された新しい状態をもとに新しい (Virtual) DOMを描画するやつ。例えば、削除ボタンがクリックされると、削除したいらしいというイベントにIntentで変換されて、削除された結果アプリケーションの状態がModelで更新されて、その結果新しいDOMがViewで生成されるという具合。実際に、アプリの <code>main()</code> のコードはこうなっている。</p>
 
-<pre class="code" data-lang="" data-unlink>import { makeDOMDriver } from '@cycle/dom';
-import Cycle from '@cycle/core'
-import intent from './intent'
-import model from './model'
-import view from './view'
-
-Cycle.run(
-  ({ DOM }) =&gt; {
-    return { DOM: view(model(intent(DOM))) };
-  },
-  {
-    DOM: makeDOMDriver('body')
-  }
-);</pre>
+<pre><code>import { makeDOMDriver } from '@cycle/dom'; import Cycle from '@cycle/core' import intent from './intent' import model from './model' import view from './view' Cycle.run( ({ DOM }) =\&gt; { return { DOM: view(model(intent(DOM))) }; }, { DOM: makeDOMDriver('body') } );
+</code></pre>
 
 <h2>フラクタル懐かしいですね</h2>
 
@@ -99,29 +85,53 @@ Cycle.run(
 
 <p>ReactやReduxでの描画とイベントハンドラの責務の分離の話が出てちょっと会話したので参考に載せとく。</p>
 
-<p></p><p></p><blockquote class="twitter-tweet" lang="ja">
-<p lang="ja" dir="ltr">Reduxでconnectするとdispatchが手に入るのでComponentの中でバンバン使っちゃうけど、できればmapDispatchToPropsをうまく使ってComponentはほぼDumbな状態にするべきなんだろうな</p>— 稚魚 (@questbeat) <a href="https://twitter.com/questbeat/status/650329970133209088">2015, 10月 3</a>
-</blockquote><script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+<blockquote>
+<p>Reduxでconnectするとdispatchが手に入るのでComponentの中でバンバン使っちゃうけど、できればmapDispatchToPropsをうまく使ってComponentはほぼDumbな状態にするべきなんだろうな</p>
 
-<p></p><p></p><blockquote class="twitter-tweet" lang="ja">
-<p lang="ja" dir="ltr"><a href="https://twitter.com/r7kamura">@r7kamura</a> view-event-publisherってやつですか？これ正直どうかと思います…</p>— 稚魚 (@questbeat) <a href="https://twitter.com/questbeat/status/650333765181411328">2015, 10月 3</a>
-</blockquote><script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+<p>— 稚魚 (@questbeat) <a href="https://twitter.com/questbeat/status/650329970133209088">2015, 10月 3</a></p>
+</blockquote>
 
-<p></p><p></p><blockquote class="twitter-tweet" lang="ja">
-<p lang="ja" dir="ltr"><a href="https://twitter.com/r7kamura">@r7kamura</a> <a href="https://twitter.com/questbeat">@questbeat</a> 理性捨てて this.props.actions.clip.addClip() とかやってる……</p>— 偽名 (@amagitakayosi) <a href="https://twitter.com/amagitakayosi/status/650335270273847298">2015, 10月 3</a>
-</blockquote><script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
 
-<p></p><p></p><blockquote class="twitter-tweet" lang="ja">
-<p lang="ja" dir="ltr"><a href="https://twitter.com/amagitakayosi">@amagitakayosi</a> <a href="https://twitter.com/questbeat">@questbeat</a> 完全に理性捨てると祖先のコンポーネントのstateにactions渡すだけでたら自動的に末代まで知れ渡るぞ <a href="http://t.co/XSHRAgTqoj"></a><a href="http://t.co/XSHRAgTqoj">http://t.co/XSHRAgTqoj</a></p>— CSSセレクタ設計技師 (@r7kamura) <a href="https://twitter.com/r7kamura/status/650335755319951361">2015, 10月 3</a>
-</blockquote><script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+<blockquote>
+<p><a href="https://twitter.com/r7kamura">@r7kamura</a> view-event-publisherってやつですか？これ正直どうかと思います…</p>
 
-<p></p><p></p><blockquote class="twitter-tweet" lang="ja">
-<p lang="ja" dir="ltr"><a href="https://twitter.com/r7kamura">@r7kamura</a> <a href="https://twitter.com/amagitakayosi">@amagitakayosi</a> 最初全く理解できなかったんですが読んでるうちに理解してきて良さそうに思えてきました</p>— 稚魚 (@questbeat) <a href="https://twitter.com/questbeat/status/650343426865565698">2015, 10月 3</a>
-</blockquote><script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+<p>— 稚魚 (@questbeat) <a href="https://twitter.com/questbeat/status/650333765181411328">2015, 10月 3</a></p>
+</blockquote>
 
-<p></p><p></p><blockquote class="twitter-tweet" lang="ja">
-<p lang="ja" dir="ltr"><a href="https://twitter.com/r7kamura">@r7kamura</a> これならViewはテンプレートエンジンから出力しても困らなそうですね</p>— 偽名 (@amagitakayosi) <a href="https://twitter.com/amagitakayosi/status/650342394173362176">2015, 10月 3</a>
-</blockquote><script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+<blockquote>
+<p><a href="https://twitter.com/r7kamura">@r7kamura</a> <a href="https://twitter.com/questbeat">@questbeat</a> 理性捨てて this.props.actions.clip.addClip() とかやってる……</p>
+
+<p>— 偽名 (@amagitakayosi) <a href="https://twitter.com/amagitakayosi/status/650335270273847298">2015, 10月 3</a></p>
+</blockquote>
+
+<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+<blockquote>
+<p><a href="https://twitter.com/amagitakayosi">@amagitakayosi</a> <a href="https://twitter.com/questbeat">@questbeat</a> 完全に理性捨てると祖先のコンポーネントのstateにactions渡すだけでたら自動的に末代まで知れ渡るぞ <a href="http://t.co/XSHRAgTqoj">http://t.co/XSHRAgTqoj</a></p>
+
+<p>— CSSセレクタ設計技師 (@r7kamura) <a href="https://twitter.com/r7kamura/status/650335755319951361">2015, 10月 3</a></p>
+</blockquote>
+
+<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+<blockquote>
+<p><a href="https://twitter.com/r7kamura">@r7kamura</a> <a href="https://twitter.com/amagitakayosi">@amagitakayosi</a> 最初全く理解できなかったんですが読んでるうちに理解してきて良さそうに思えてきました</p>
+
+<p>— 稚魚 (@questbeat) <a href="https://twitter.com/questbeat/status/650343426865565698">2015, 10月 3</a></p>
+</blockquote>
+
+<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+<blockquote>
+<p><a href="https://twitter.com/r7kamura">@r7kamura</a> これならViewはテンプレートエンジンから出力しても困らなそうですね</p>
+
+<p>— 偽名 (@amagitakayosi) <a href="https://twitter.com/amagitakayosi/status/650342394173362176">2015, 10月 3</a></p>
+</blockquote>
+
+<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
 
 <h2>その他リンク</h2>
 

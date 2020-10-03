@@ -53,10 +53,7 @@
 <li>rake db:schema:apply でSQLを適用して差分を埋める</li>
 </ol>
 
-<p>基本的にはこれの繰り返しで、開発者は理想的な db/schema.sql を保つことに集中していれば良いという世界観。
-DBスキーマどういう構成だったったっけという場合にもこのファイルを見れば良いのでちょっと楽。
-導入時に既にDBが存在するときは、いちいちdb/schema.sqlを書くのはだるいので適当に
-mysqldump --no-data --compact の結果を貼り付けとけば良いかもしれない。</p>
+<p>基本的にはこれの繰り返しで、開発者は理想的な db/schema.sql を保つことに集中していれば良いという世界観。 DBスキーマどういう構成だったったっけという場合にもこのファイルを見れば良いのでちょっと楽。 導入時に既にDBが存在するときは、いちいちdb/schema.sqlを書くのはだるいので適当に mysqldump --no-data --compact の結果を貼り付けとけば良いかもしれない。</p>
 
 <h3>解決されそうな問題</h3>
 
@@ -69,9 +66,7 @@ mysqldump --no-data --compact の結果を貼り付けとけば良いかもし�
 
 <h3>Rails用につくった理由</h3>
 
-<p>強い理由は特に無し。
-既存のDBのスキーマを参照するためにDBへの接続情報 (例: host, username, password, database) が必要になるが、
-Railsはconfig/database.ymlにこれを書く規約になってるので、その前提であれば簡単にDBへの接続情報を参照できるから。</p>
+<p>強い理由は特に無し。 既存のDBのスキーマを参照するためにDBへの接続情報 (例: host, username, password, database) が必要になるが、 Railsはconfig/database.ymlにこれを書く規約になってるので、その前提であれば簡単にDBへの接続情報を参照できるから。</p>
 
 <h3>問題が出るとしたらこの辺</h3>
 

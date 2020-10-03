@@ -41,47 +41,31 @@
     <h1>Vimで挿入モードから抜ける時に英数入力に切り替える</h1>
   </header>
   <div>
-    <p>昨日からHHKBを使い始めたついでに、キー設定を色々入れ替えるため<a href="http://pqrs.org/macosx/keyremap4macbook/index.html.ja">KeyRemap4MacBook</a>というアプリを使い始めました。『Vimで挿入モードから抜ける時に英数入力に切り替える』というのが前からやりたくて、KaoriYaさんのMacVimだとそういう設定がvimrcで出来たんですが、CUIのvimではIMを操作する良い方法が分からずに設定できていませんでした。このアプリで無理やり実現出来たので快適です。</p><p></p>
+    <p>昨日からHHKBを使い始めたついでに、キー設定を色々入れ替えるため<a href="http://pqrs.org/macosx/keyremap4macbook/index.html.ja">KeyRemap4MacBook</a>というアプリを使い始めました。『Vimで挿入モードから抜ける時に英数入力に切り替える』というのが前からやりたくて、KaoriYaさんのMacVimだとそういう設定がvimrcで出来たんですが、CUIのvimではIMを操作する良い方法が分からずに設定できていませんでした。このアプリで無理やり実現出来たので快適です。</p>
 
-<div class="section">
-    <h4>設定方法</h4>
-    <p>KeyRemap4MacBookは独自でXMLを書いて、あるキーを特定のキーと結び付けることが出来ます。またその設定が有効になるアプリも選択できます。今回の場合は、Terminal上でEscキーをEscキー+英数キーという設定にすればOKですね。Ctrl+Cも使うので同時に設定しておきます。</p>
-<br>
+<h4>設定方法</h4>
+
+<p>KeyRemap4MacBookは独自でXMLを書いて、あるキーを特定のキーと結び付けることが出来ます。またその設定が有効になるアプリも選択できます。今回の場合は、Terminal上でEscキーをEscキー+英数キーという設定にすればOKですね。Ctrl+Cも使うので同時に設定しておきます。</p>
+
 <p>まずKeyRemap4MacBook Preference Paneからprivate.xmlを開いて編集します。<br>
-<a href="http://gyazo.com/8de082a21dcfa348d7a68d9bf6fd5ca1.png" target="_blank"><img src="http://gyazo.com/8de082a21dcfa348d7a68d9bf6fd5ca1.png" alt=""></a></p>
-<br>
-<p>autogenのKeyToKeyに、変換前キー(, Ctrl等の修飾キー), 変換後キー1, 変換後キー2, ... という感じでキーを渡します。 </p>
-<pre class="code lang-sh" data-lang="sh" data-unlink><span class="synStatement">&lt;</span>?xml <span class="synIdentifier">version</span>=<span class="synStatement">"</span><span class="synConstant">1.0</span><span class="synStatement">"</span>?<span class="synStatement">&gt;</span>
-<span class="synStatement">&lt;</span>root<span class="synStatement">&gt;</span>
-  <span class="synStatement">&lt;</span>list<span class="synStatement">&gt;</span>
-    <span class="synStatement">&lt;</span>item<span class="synStatement">&gt;</span>
-      <span class="synStatement">&lt;</span>name<span class="synStatement">&gt;</span>LeaveInsMode with EISUU<span class="synStatement">(</span>Terminal<span class="synStatement">)&lt;</span>/name<span class="synStatement">&gt;</span>
-      <span class="synStatement">&lt;</span>identifier<span class="synStatement">&gt;</span>private.app_terminal_esc_with_eisuu<span class="synStatement">&lt;</span>/identifier<span class="synStatement">&gt;</span>
-      <span class="synStatement">&lt;</span>only<span class="synStatement">&gt;</span>TERMINAL<span class="synStatement">&lt;</span>/only<span class="synStatement">&gt;</span>
-      <span class="synStatement">&lt;</span>autogen<span class="synStatement">&gt;</span>--KeyToKey-- KeyCode::ESCAPE, KeyCode::ESCAPE, KeyCode::JIS_EISUU<span class="synStatement">&lt;</span>/autogen<span class="synStatement">&gt;</span>
-      <span class="synStatement">&lt;</span>autogen<span class="synStatement">&gt;</span>--KeyToKey-- KeyCode::C, VK_CONTROL, KeyCode::C, VK_CONTROL, KeyCode::JIS_EISUU<span class="synStatement">&lt;</span>/autogen<span class="synStatement">&gt;</span>
-    <span class="synStatement">&lt;</span>/item<span class="synStatement">&gt;</span>
-  <span class="synStatement">&lt;</span>/list<span class="synStatement">&gt;</span>
-<span class="synStatement">&lt;</span>/root<span class="synStatement">&gt;</span>
-</pre>
-<p><br>
-あとはReloadXMLを押せば作成した設定が表示されるので有効化します。<br>
-<a href="http://gyazo.com/65f09955d4d7607f2fa1be820bc9a83b.png" target="_blank"><img src="http://gyazo.com/65f09955d4d7607f2fa1be820bc9a83b.png" alt=""></a></p>
-<br>
+ <a href="http://gyazo.com/8de082a21dcfa348d7a68d9bf6fd5ca1.png" target="_blank"><img src="http://gyazo.com/8de082a21dcfa348d7a68d9bf6fd5ca1.png" alt=""></a></p>
+
+<p>autogenのKeyToKeyに、変換前キー(, Ctrl等の修飾キー), 変換後キー1, 変換後キー2, ... という感じでキーを渡します。</p>
+
+<pre><code>\&lt;?xml version="1.0"?\&gt;\&lt;root\&gt;\&lt;list\&gt;\&lt;item\&gt;\&lt;name\&gt;LeaveInsMode with EISUU(Terminal)\&lt;/name\&gt;\&lt;identifier\&gt;private.app\_terminal\_esc\_with\_eisuu\&lt;/identifier\&gt;\&lt;only\&gt;TERMINAL\&lt;/only\&gt;\&lt;autogen\&gt;--KeyToKey-- KeyCode::ESCAPE, KeyCode::ESCAPE, KeyCode::JIS\_EISUU\&lt;/autogen\&gt;\&lt;autogen\&gt;--KeyToKey-- KeyCode::C, VK\_CONTROL, KeyCode::C, VK\_CONTROL, KeyCode::JIS\_EISUU\&lt;/autogen\&gt;\&lt;/item\&gt;\&lt;/list\&gt;\&lt;/root\&gt;
+</code></pre>
+
+<p>あとはReloadXMLを押せば作成した設定が表示されるので有効化します。<br>
+ <a href="http://gyazo.com/65f09955d4d7607f2fa1be820bc9a83b.png" target="_blank"><img src="http://gyazo.com/65f09955d4d7607f2fa1be820bc9a83b.png" alt=""></a></p>
+
 <p><a href="http://gyazo.com/d29f860b295c9d2634af945a31f07d74.png" target="_blank"><img src="http://gyazo.com/d29f860b295c9d2634af945a31f07d74.png" alt=""></a></p>
-<br>
-<p></p>
 
-</div>
-
-<div class="section">
-    <h4>参考</h4>
+<h4>参考</h4>
 
 <ul>
 <li><a href="http://pqrs.org/macosx/keyremap4macbook/index.html.ja">KeyRemap4MacBook</a></li>
 <li><a href="http://hg.pqrs.org/KeyRemap4MacBook/index.cgi/file/tip/src/core/bridge/keycode/data/KeyCode.data">KeyRemap4MacBook: キーコード対応一覧</a></li>
 </ul>
-</div>
 
   </div>
 </article>

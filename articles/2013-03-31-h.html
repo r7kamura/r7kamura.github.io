@@ -9,8 +9,8 @@
   <link rel="search" type="application/opensearchdescription+xml" title="r7kamura.com" href="/opensearch.xml">
   <link rel="alternate" type="application/rss+xml" href="/feed.xml">
   
-  <meta property="description" content="CoffeeScriptで開発しているmmd.js">
-  <meta property="og:description" content="CoffeeScriptで開発しているmmd.js">
+  <meta property="description" content="CoffeeScriptで開発しているmmd.jsにドキュメントを書こうと思って色々ツールを探した結果、Doccoが良かった。">
+  <meta property="og:description" content="CoffeeScriptで開発しているmmd.jsにドキュメントを書こうと思って色々ツールを探した結果、Doccoが良かった。">
   
   <meta property="og:type" content="website">
   <meta property="og:title" content="Haah Doccoy">
@@ -41,22 +41,15 @@
     <h1>Haah Doccoy</h1>
   </header>
   <div>
-    <p><a href="http://dl.dropbox.com/u/5978869/image/20130331_011101.png" target="_blank"><img src="http://dl.dropbox.com/u/5978869/image/20130331_011101.png"></a></p>
+    <p><a href="http://dl.dropbox.com/u/5978869/image/20130331_011101.png" target="_blank"><img src="http://dl.dropbox.com/u/5978869/image/20130331_011101.png" alt=""></a></p>
 
 <p><a href="http://r7kamura.github.com/mmd.js/docs/parser.html">http://r7kamura.github.com/mmd.js/docs/parser.html</a><br>
 <a href="https://github.com/r7kamura/mmd.js/blob/master/coffee/mmd/parser.coffee">https://github.com/r7kamura/mmd.js/blob/master/coffee/mmd/parser.coffee</a></p>
 
-<p>CoffeeScriptで開発している<a href="https://github.com/r7kamura/mmd.js">mmd.js</a>
-にドキュメントを書こうと思って色々ツールを探した結果、<a href="http://jashkenas.github.com/docco/">Docco</a>が良かった。
-書くコストが低く、ある程度フォーマットが統一され、
-エディタとブラウザでそれぞれに適したフォーマットで読める、というものを探していた。
-他にはJSDoc、YUIDoc等を見た。
-Doccoは新しく覚えることが少ない点が良かった。
-HTML形式で出力してくれる奴は、github-pagesとも相性が良い。
-コードリーディングの時に過程を残しておく用途にも良いかもしれない。</p>
+<p>CoffeeScriptで開発している<a href="https://github.com/r7kamura/mmd.js">mmd.js</a>にドキュメントを書こうと思って色々ツールを探した結果、<a href="http://jashkenas.github.com/docco/">Docco</a>が良かった。 書くコストが低く、ある程度フォーマットが統一され、 エディタとブラウザでそれぞれに適したフォーマットで読める、というものを探していた。 他にはJSDoc、YUIDoc等を見た。 Doccoは新しく覚えることが少ない点が良かった。 HTML形式で出力してくれる奴は、github-pagesとも相性が良い。 コードリーディングの時に過程を残しておく用途にも良いかもしれない。</p>
 
-<pre class="code" data-unlink>$ npm install -g docco
-$ docco **/*.coffee</pre>
+<pre><code>$ npm install -g docco $ docco \*\*/\*.coffee
+</code></pre>
 
 <p>コメントを書かないで良いくらい分かりやすいコードを書きましょうという話があるけど、<br>
 コメントを書かないで良いくらい分かりやすいコードを書けたことがないので精進したい。</p>

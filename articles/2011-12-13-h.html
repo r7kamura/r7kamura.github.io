@@ -43,33 +43,24 @@
   <div>
     <p>ErbとかのHTMLテンプレート言語で、インデントをどうしたらいいのか困ってる。</p>
 
-<p></p><ul>
+<ul>
 <li>Aだとインデントのおかげで処理のまとまりが分かりやすい</li>
 <li>Bだと生成されるHTMLタグのインデントが整う</li>
-</ul><p>あくまで主役はユーザに見せる部分のコードだと言うことはわかるけど、部分テンプレートとか使えば部分的にどうせずれるのだし、開発時に分かりやすいようにしてバグのないコード書いてる方がマシかもしれない。</p>
+</ul>
 
-<div class="section">
-    <h4>A: インデントする</h4>
+<p>あくまで主役はユーザに見せる部分のコードだと言うことはわかるけど、部分テンプレートとか使えば部分的にどうせずれるのだし、開発時に分かりやすいようにしてバグのないコード書いてる方がマシかもしれない。</p>
 
-    <pre class="code lang-txt" data-lang="txt">&lt;ul&gt;
-  &lt;% @entries.each do |entry| %&gt;
-    &lt;li&gt;&lt;%= entry.body %&gt;&lt;/li&gt;
-  &lt;% end %&gt;
-&lt;/ul&gt;</pre>
+<h4>A: インデントする</h4>
 
-</div>
+<pre><code>\&lt;ul\&gt; \&lt;% @entries.each do |entry| %\&gt; \&lt;li\&gt;\&lt;%= entry.body %\&gt;\&lt;/li\&gt; \&lt;% end %\&gt; \&lt;/ul\&gt;
+</code></pre>
 
-<div class="section">
-    <h4>B: インデントしない</h4>
+<h4>B: インデントしない</h4>
 
-    <pre class="code lang-txt" data-lang="txt">&lt;ul&gt;
-  &lt;% @entries.each do |entry| %&gt;
-  &lt;li&gt;&lt;%= entry.body %&gt;&lt;/li&gt;
-  &lt;% end %&gt;
-&lt;/ul&gt;</pre>
+<pre><code>\&lt;ul\&gt; \&lt;% @entries.each do |entry| %\&gt; \&lt;li\&gt;\&lt;%= entry.body %\&gt;\&lt;/li\&gt; \&lt;% end %\&gt; \&lt;/ul\&gt;
+</code></pre>
+
 <p>あと、長い1つのタグが1行100文字ぐらいで横たわってるとき、80文字くらいで改行したいけどどうしたらいいのか困ってる。</p>
-
-</div>
 
   </div>
 </article>

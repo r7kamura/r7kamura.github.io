@@ -45,18 +45,10 @@
 
 <h3>名前が"?"で終わるメソッドは必ずtrueまたはfalseのどちらかを返す</h3>
 
-<p>trueとfalse以外(例えばnil)が返る可能性がある場合は、必ず式の先頭に!!を付けてtrueかfalseになるようにしてる。
-このパターンを守ることがとても大事だという風には全く考えていないけど、もしhas_user?がuserを返すとして、has_user?という名前のメソッドがUserオブジェクトを返すというのは一体どういう意味を持っているのだろうということに対して良い回答が出来る自信がない。</p>
+<p>trueとfalse以外(例えばnil)が返る可能性がある場合は、必ず式の先頭に!!を付けてtrueかfalseになるようにしてる。 このパターンを守ることがとても大事だという風には全く考えていないけど、もしhas_user?がuserを返すとして、has_user?という名前のメソッドがUserオブジェクトを返すというのは一体どういう意味を持っているのだろうということに対して良い回答が出来る自信がない。</p>
 
-<pre class="code" data-lang="" data-unlink>class Entry
-  def has_user?
-    !!user
-  end
-
-  def user
-    User.find_by(id: user_id)
-  end
-end</pre>
+<pre><code>class Entry def has\_user? !!user end def user User.find\_by(id: user\_id) end end
+</code></pre>
 
 <h3>名前が"?"で終わるメソッド名は"形容詞(句)?"か"has_名詞(句)?"</h3>
 
@@ -74,9 +66,7 @@ end</pre>
 
 <h3>特に順序に意味が無い場合はABC順に書く</h3>
 
-<p>特に何もルールが無いような場合、アルファベット順というのは非常に合意が取りやすく、また機械的な判定も行いやすい。
-要素が1行ずつ書かれている場合などには、編集しやすいという利便性もある。
-コードを書くとき「このコードは機械にとって書きやすいだろうか」ということを判断材料にすることが多い。</p>
+<p>特に何もルールが無いような場合、アルファベット順というのは非常に合意が取りやすく、また機械的な判定も行いやすい。 要素が1行ずつ書かれている場合などには、編集しやすいという利便性もある。 コードを書くとき「このコードは機械にとって書きやすいだろうか」ということを判断材料にすることが多い。</p>
 
 <ul>
 <li>例えば、メソッドの定義順序。</li>
@@ -86,43 +76,10 @@ end</pre>
 
 <h3>Overrideしてほしいメソッドの実装にNotImplementedErrorを利用する</h3>
 
-<p>このメソッドは必ず子クラスにおいて実装して欲しいという意図を示すために、NotImplementedErrorをraiseするメソッドを書く。
-コードは少し冗長性になるが、例外時のメッセージは毎度書いている。
-(NotImplementedErrorのデフォルトメッセージこうなってほしい)
-表題とは関係無いけど、親クラスと子クラスの2つを実装する場合、クラス名の付け方は下記のコードのようにすることが多い。
-複数形のmodule名を名前空間として、抽象クラスの名前をBaseとする。
-具象クラスの名前はFooCachersではなくFooとする。
-名前空間名でクラスの責任を表現させ、具象クラスの名前でその責任の中での種類を表現させることが多い。</p>
+<p>このメソッドは必ず子クラスにおいて実装して欲しいという意図を示すために、NotImplementedErrorをraiseするメソッドを書く。 コードは少し冗長性になるが、例外時のメッセージは毎度書いている。 (NotImplementedErrorのデフォルトメッセージこうなってほしい) 表題とは関係無いけど、親クラスと子クラスの2つを実装する場合、クラス名の付け方は下記のコードのようにすることが多い。 複数形のmodule名を名前空間として、抽象クラスの名前をBaseとする。 具象クラスの名前はFooCachersではなくFooとする。 名前空間名でクラスの責任を表現させ、具象クラスの名前でその責任の中での種類を表現させることが多い。</p>
 
-<pre class="code" data-lang="" data-unlink>module Cachers
-  class Base
-    def initialize(env)
-      @env = env
-    end
-
-    def call
-      if cached?
-        store.fetch(key, options) { yield }
-      else
-        yield
-      end
-    end
-
-    private
-
-    def cached?
-      raise NotImplementedError, "You must implement #{self.class}##{__method__}"
-    end
-
-    def key
-      raise NotImplementedError, "You must implement #{self.class}##{__method__}"
-    end
-
-    def store
-      raise NotImplementedError, "You must implement #{self.class}##{__method__}"
-    end
-  end
-end</pre>
+<pre><code>module Cachers class Base def initialize(env) @env = env end def call if cached? store.fetch(key, options) { yield } else yield end end private def cached? raise NotImplementedError, "You must implement #{self.class}##{\_\_method\_\_}" end def key raise NotImplementedError, "You must implement #{self.class}##{\_\_method\_\_}" end def store raise NotImplementedError, "You must implement #{self.class}##{\_\_method\_\_}" end end end
+</code></pre>
 
   </div>
 </article>

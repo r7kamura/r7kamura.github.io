@@ -53,19 +53,8 @@
 
 <p>host1上のappコンテナをhost2上のdbコンテナに接続させる様子を図示すると下図のようになる。各ホストごとにambassadorというコンテナが動作しており、TCP接続を適切なコンテナにプロキシする。appコンテナからdbコンテナに接続する場合、2つのambassadorコンテナを経由することになる。1つ目はambassador1コンテナであり、dbコンテナに接続するためのアドレスとポート番号を知っている。接続先はambassador1起動時に環境変数として教える必要がある。なお、ambassador1はこの接続先がdbコンテナのものだと認識しているが実際にはambassador2のものである。2つ目はambassador2コンテナであり、dbコンテナのポート番号を知っている (これは同一ホスト上の接続なのでコンテナの名前で解決できる)。</p>
 
-<pre class="code" data-lang="" data-unlink>network
-|
-|-host1
-| |
-| `ambassador1
-|  |
-|  `-app
-|
-`-host2
-  |
-  `ambassador2
-   |
-   `-db</pre>
+<pre><code>network | |-host1 | | | `ambassador1 | | | `-app | `-host2 | `ambassador2 | `-db
+</code></pre>
 
 <p>DockerHubにホスティングされている<a href="https://registry.hub.docker.com/u/svendowideit/ambassador/">svendowideit/ambassador</a>というDockerイメージを使えば、上述の構成を簡単に実現できる。このイメージはコンテナ起動時に渡した環境変数を解析し、socatを利用して適当なリバースプロキシを起動してくれるというもの。</p>
 

@@ -43,8 +43,7 @@
   <div>
     <p><a href="http://cdn-ak.f.st-hatena.com/images/fotolife/r/r7kamura/20140407/20140407004740.png" target="_blank"><img src="http://cdn-ak.f.st-hatena.com/images/fotolife/r/r7kamura/20140407/20140407004740.png" alt="4/6 API納品"></a></p>
 
-<p>ChefやAnsible、Puppet、Itamaeなどの構成管理ツールをあまり使ったことがなく、勉強のために<a href="https://github.com/r7kamura/serverkit">Serverkit</a>というのをつくってみたので、現状こういう感じでやってみましたというのを書き残しておく。作り手の気持ちになればこそわかるものがあるだろうと思う。
-ところで去年も<a href="http://r7kamura.hatenablog.com/entry/2014/04/06/023344">似たような記事</a>を書いた。</p>
+<p>ChefやAnsible、Puppet、Itamaeなどの構成管理ツールをあまり使ったことがなく、勉強のために<a href="https://github.com/r7kamura/serverkit">Serverkit</a>というのをつくってみたので、現状こういう感じでやってみましたというのを書き残しておく。作り手の気持ちになればこそわかるものがあるだろうと思う。 ところで去年も<a href="http://r7kamura.hatenablog.com/entry/2014/04/06/023344">似たような記事</a>を書いた。</p>
 
 <h2>概要</h2>
 
@@ -54,92 +53,36 @@
 
 <p>serverkit checkコマンドを使うと、レシピに書かれた理想の状態とマシンの状態を比較して、変更が必要そうな箇所を一覧できる。例えば対象がMacbookで、homebrewでMySQLが入っていてほしい旨のレシピが書かれていた場合、MySQLがインストールされているかどうかを調べることになる。他の構成管理ツールのdry-runに似ているかもしれない。serverkit applyコマンドを使うと、実際にその変更を埋めるための処理を適用できる。先述した例であれば、もしMySQLがhomebrewでインストールされていなければ <code>homebrew install mysql</code> が実行されることになる。</p>
 
-<pre class="code" data-lang="" data-unlink>$ serverkit check recipe.yml
-$ serverkit apply recipe.yml</pre>
+<pre><code>$ serverkit check recipe.yml $ serverkit apply recipe.yml
+</code></pre>
 
 <h2>レシピ</h2>
 
 <p>レシピはYAML、JSON、あるいはJSONを出力する実行可能ファイルや、それらを出力するERBテンプレートとして記述できる。例えば単純な形式で書くと以下のような感じになる。resourcesプロパティの配列の要素をresourceと呼ぶが、各resourceにはtypeプロパティが必須で、例えばtypeがhomebrewであれば、nameで指定された名前のパッケージがインストールされているという状態を表現できる。また、typeがgitであれば、repositoryで指定されたURLのGitレポジトリが、pathで指定されたディレクトリにgit-cloneされているという状態を表現できる。</p>
 
-<pre class="code" data-lang="" data-unlink>{
-  "resources": [
-    {
-      "id": "install_mysql",
-      "type": "homebrew",
-      "name": "mysql"
-    },
-    {
-      "id": "clone_dotfiles",
-      "type": "git",
-      "repository": "git@github.com:r7kamura/dotfiles.git",
-      "path": "/Users/r7kamura/src/github.com/r7kamura/dotfiles"
-    }
-  ]
-}</pre>
+<pre><code>{ "resources": [{ "id": "install\_mysql", "type": "homebrew", "name": "mysql" }, { "id": "clone\_dotfiles", "type": "git", "repository": "git@github.com:r7kamura/dotfiles.git", "path": "/Users/r7kamura/src/github.com/r7kamura/dotfiles" }] }
+</code></pre>
 
 <h2>レシピの指定</h2>
 
 <p>実行時には、コマンドの引数でレシピのパスを与える。また、レシピを記述したファイルパスの代わりにディレクトリのパスを指定することもでき、この場合ディレクトリ内部のレシピが再帰的に読み込まれることになる。例えばカレントディレクトリから見て以下のようにファイルが配置されていた場合、上から順にレシピが読み込まれ、全てのresourcesが1つの配列にまとめられた状態で実行されることになる。</p>
 
-<pre class="code" data-lang="" data-unlink>$ tree recipes -L 2 --charset unicode
-recipes
-|--a.yml
-|--b.json
-|--c.json.erb
-`--d
-   |--e.yml
-   `--f.json
-$ serverkit apply recipes</pre>
+<pre><code>$ tree recipes -L 2 --charset unicode recipes |--a.yml |--b.json |--c.json.erb `--d |--e.yml `--f.json $ serverkit apply recipes
+</code></pre>
 
 <h2>レシピの表示</h2>
 
 <p>ERBテンプレートや、実行可能ファイル、DSL、ディレクトリパスでの指定などを利用していると、最終的にどのような処理が実行されるのか、dry-runに相当するコマンドを利用してみるまで分からない、ということになりがち。そういう場合のために、それらのレシピを展開して最終的に1つのレシピにまとめたものをJSON形式で出力する <code>serverkit inspect</code> というコマンドを用意してみた。大規模になってきたら便利かもしれない。</p>
 
-<pre class="code" data-lang="" data-unlink>$ serverkit inspect recipes
-{
-  "resources": [
-    {
-      "id": "install_mysql",
-      "type": "homebrew",
-      "name": "mysql"
-    },
-    {
-      "id": "install_redis",
-      "type": "homebrew",
-      "name": "redis"
-    },
-    {
-      "id": "install_licecap",
-      "type": "homebrew_cask",
-      "name": "licecap"
-    },
-    {
-      "id": "install_alfred",
-      "type": "homebrew_cask",
-      "name": "alfred"
-    },
-    {
-      "id": "clone_dotfiles",
-      "type": "git",
-      "repository": "git@github.com:r7kamura/dotfiles.git",
-      "path": "/Users/r7kamura/src/github.com/r7kamura/dotfiles"
-    },
-    {
-      "id": "symlink_zshrc",
-      "type": "symlink",
-      "source": "/Users/r7kamura/.zshrc",
-      "destination": "/Users/r7kamura/src/github.com/r7kamura/dotfiles/linked/.zshrc"
-    }
-  ]
-}</pre>
+<pre><code>$ serverkit inspect recipes { "resources": [{ "id": "install\_mysql", "type": "homebrew", "name": "mysql" }, { "id": "install\_redis", "type": "homebrew", "name": "redis" }, { "id": "install\_licecap", "type": "homebrew\_cask", "name": "licecap" }, { "id": "install\_alfred", "type": "homebrew\_cask", "name": "alfred" }, { "id": "clone\_dotfiles", "type": "git", "repository": "git@github.com:r7kamura/dotfiles.git", "path": "/Users/r7kamura/src/github.com/r7kamura/dotfiles" }, { "id": "symlink\_zshrc", "type": "symlink", "source": "/Users/r7kamura/.zshrc", "destination": "/Users/r7kamura/src/github.com/r7kamura/dotfiles/linked/.zshrc" }] }
+</code></pre>
 
 <h2>レシピの検閲</h2>
 
 <p>レシピの内容に誤りがないか実行前に調べるために、<code>serverkit validate</code> というコマンドも用意してみた。例えば、レシピはHash型でArray型のresourcesプロパティを持ち、resourcesの各要素はHash、それぞれのresourceはtypeプロパティを持ち、typeがfileであればsourceとdestinationプロパティが必須、またsourceで指定されたパスには実際にファイルが存在している必要がある、といったルールに従い、違えていればエラーを出力してくれる。余談になるが、validationの定義にはRailsなどで使われているActiveModel::Validationsを利用した。<code>attribute :source, required: true, readable: true</code> のようにValidation定義が書けて、適切なエラーメッセージも用意されて便利。</p>
 
-<pre class="code" data-lang="" data-unlink>$ serverkit validate recipe.yml
-Error: source attribute is required in file resource
-Error: path attribute can't be unreadable path in recipe resource</pre>
+<pre><code>$ serverkit validate recipe.yml Error: source attribute is required in file resource Error: path attribute can't be unreadable path in recipe resource
+</code></pre>
 
 <h2>ERBテンプレートと変数</h2>
 
@@ -147,22 +90,14 @@ Error: path attribute can't be unreadable path in recipe resource</pre>
 
 <p>またERBテンプレートのために、レシピの外部から変数を与える方法も用意してみた。<code>--variables=</code> というコマンドラインオプションでパスを指定できて、レシピと同じようにYAMLやJSON、実行ファイル、ERBテンプレート、ディレクトリなどが指定できるようになっている。使うときは以下のような感じで使える。ERBの中では、variables.yml で与えたHashのキーと同名のメソッドを参照できる。余談だが、こういう風に変数をメソッドとして参照できるようにするために Hashie::Mash を使ったりした。</p>
 
-<pre class="code" data-lang="" data-unlink>$ serverkit apply recipe.yml.erb --variables=variables.yml</pre>
+<pre><code>$ serverkit apply recipe.yml.erb --variables=variables.yml
+</code></pre>
 
-<pre class="code" data-lang="" data-unlink># variables.yml
-dotfiles_repository: r7kamura/dotfiles
-user: r7kamura</pre>
+<pre><code># variables.yml dotfiles\_repository: r7kamura/dotfiles user: r7kamura
+</code></pre>
 
-<pre class="code" data-lang="" data-unlink># recipe.yml.erb
-resources:
-  - id: clone_dotfiles
-    type: git
-    repository: git@github.com:&lt;%= dotfiles_repository %&gt;.git
-    path: /Users/&lt;%= user %&gt;/src/github.com/&lt;%= dotfiles_repository %&gt;
-  - id: symlink_zshrc
-    type: symlink
-    source: /Users/&lt;%= user %&gt;/.zshrc
-    destination: /Users/&lt;%= user %&gt;/src/github.com/&lt;%= dotfiles_repository %&gt;/.zshrc</pre>
+<pre><code># recipe.yml.erb resources: - id: clone\_dotfiles type: git repository: git@github.com:\&lt;%= dotfiles\_repository %\&gt;.git path: /Users/\&lt;%= user %\&gt;/src/github.com/\&lt;%= dotfiles\_repository %\&gt; - id: symlink\_zshrc type: symlink source: /Users/\&lt;%= user %\&gt;/.zshrc destination: /Users/\&lt;%= user %\&gt;/src/github.com/\&lt;%= dotfiles\_repository %\&gt;/.zshrc
+</code></pre>
 
 <h2>リソース</h2>
 
@@ -183,17 +118,8 @@ resources:
 
 <p>過度に複雑性が増すことを恐れて、ChefのRoleやNodeのような高機能なものは用意しなかった。ただ、複数のresourcesの定義を機能ごとにまとめたいとか (例えばnginx関係をまとめるとか)、外部から与える変数によって利用するレシピを変えたいとか (例えば検証用環境と本番環境で少し変えるとか)、そういう要件があるのは理解できるので、代わりに「他のレシピをincludeできるresource」というのを用意してみた。これで特定の関心事の単位でresourcesをある程度まとめられて、variablesとERBテンプレートを利用して利用するレシピを変えるというのもできるようになる。</p>
 
-<pre class="code" data-lang="" data-unlink># recipe.yml
-resources:
-  - id: install_homebrew_packages
-    type: recipe
-    path: homebrew.yml
-  - id: install_homebrew_cask_packages
-    type: recipe
-    path: homebrew_cask.yml
-  - id: install_dotfiles
-    type: recipe
-    path: dotfiles.yml.erb</pre>
+<pre><code># recipe.yml resources: - id: install\_homebrew\_packages type: recipe path: homebrew.yml - id: install\_homebrew\_cask\_packages type: recipe path: homebrew\_cask.yml - id: install\_dotfiles type: recipe path: dotfiles.yml.erb
+</code></pre>
 
 <h2>おわり</h2>
 

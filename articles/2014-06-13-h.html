@@ -45,15 +45,12 @@
 
 <p><a href="https://github.com/r7kamura/plz">https://github.com/r7kamura/plz</a></p>
 
-<p>13日の金曜日ということで、JSON Schemaを読み込んで動作するCLI HTTP Clientをつくった。
-手元にschema.jsonかschema.ymlがあればそこに定義されてるコマンドが使える。</p>
+<p>13日の金曜日ということで、JSON Schemaを読み込んで動作するCLI HTTP Clientをつくった。 手元にschema.jsonかschema.ymlがあればそこに定義されてるコマンドが使える。</p>
 
-<pre class="code" data-unlink>$ gem install plz
-$ curl tqchain.herokuapp.com &gt; schema.json
-$ plz list user</pre>
+<pre><code>$ gem install plz $ curl tqchain.herokuapp.com \&gt; schema.json $ plz list user
+</code></pre>
 
-<p>サンプルで tqchain.herokuapp.com というAPIサーバをHerokuに置いてみてる。
-schema.jsonを返すAPIも生やしているので、それを手元に持ってきてplzでAPIを叩いている。<br>
+<p>サンプルで tqchain.herokuapp.com というAPIサーバをHerokuに置いてみてる。 schema.jsonを返すAPIも生やしているので、それを手元に持ってきてplzでAPIを叩いている。<br>
 APIサーバの実装はここ <a href="https://github.com/r7kamura/tqchain">https://github.com/r7kamura/tqchain</a></p>
 
   </div>

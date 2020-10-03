@@ -43,11 +43,8 @@
   <div>
     <p><a href="https://github.com/r7kamura/fluct">https://github.com/r7kamura/fluct</a> でHTMLを返すようなエンドポイントを簡単に作成できるようになった。index.jsにコードを書いてデプロイコマンドを叩くだけで適当に動くので、正直簡単なページであればHerokuとかにデプロイするより楽。デフォルトで生成される雛形もHTMLを返すようなものになっている。Amazon API Gatewayの用途はどちらかと言うとJSONを返すREST APIをつくるための用途として期待されているように見えるけれど、HTMLを返すようなエンドポイントを提供することもできる。</p>
 
-<pre class="code" data-lang="" data-unlink>$ fluct new myapp
-$ cd myapp
-$ vi package.json
-$ fluct generate action show_dummy_page
-$ fluct deploy</pre>
+<pre><code>$ fluct new myapp $ cd myapp $ vi package.json $ fluct generate action show\_dummy\_page $ fluct deploy
+</code></pre>
 
 <p>myappをつくって、package.jsonでRoleを設定して (※ まだ自動化できていないので手で編集する必要がある)、show_dummy_pageという名前でactionをつくって、デプロイする。これで <code>GET /dummy</code> から "Hello, world!" を <code>Content-Type: text/html</code> で返すようなエンドポイントを公開できる。適当なテンプレートエンジンをつかってまともなWebページを返すようなデモがあるといいかも。</p>
 
