@@ -1,685 +1,684 @@
-<?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom">
-  <title>r7kamura.com</title>
-  <link rel="self" type="application/atom+xml" href="https://r7kamura.com/feed.xml"/>
-  <link rel="alternate" type="text/html" href="https://r7kamura.com/"/>
-  <updated>2020-10-03T13:37:26+00:00</updated>
-  <author>
-    <name>Ryo Nakamura</name>
-  </author>
-  <id>tag:r7kamura.com,2019:/</id>
-  
-    <entry>
-      <title>active_record-connection_proxy</title>
-      <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-10-03-active-record-connection-proxy"/>
-      <id>tag:r7kamura.com,2019:/articles/2020-10-03-active-record-connection-proxy</id>
-      <published>2020-10-03T00:00:00+00:00</published>
-      <updated>2020-10-03T13:36:52+00:00</updated>
-      <content type="html">&lt;p&gt;ActiveRecordで複数DBというか複数の接続設定に対応するために、&lt;a href=&quot;https://github.com/r7kamura/active_record-connection_proxy&quot;&gt;active_record-connection_proxy&lt;/a&gt;というライブラリをつくった。&lt;/p&gt;
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0"
+  xmlns:atom="http://www.w3.org/2005/Atom"
+  xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <description>このサイトでは、Ryo Nakamura（@r7kamura）が、日々の生活やプログラミングに関する文章を公開しています。</description>
+    <link>https://r7kamura.com/</link>
+    <title>r7kamura.com</title>
+    <managingEditor>r7kamura@gmail.com (Ryo Nakamura)</managingEditor>
+    <atom:link href="https://r7kamura.com/feed.xml" rel="self"/>
+    
+    <item>
+      <title><![CDATA[active_record-connection_proxy]]></title>
+      <description><![CDATA[ActiveRecordで複数DBというか複数の接続設定に対応するために、active_record-connection_proxyというライブラリをつくった。]]></description>
+      <link>https://r7kamura.com/articles/2020-10-03-active-record-connection-proxy</link>
+      <pubDate>Sat, 03 Oct 2020 00:00:00 +0000</pubDate>
+      <content:encoded><![CDATA[<p>ActiveRecordで複数DBというか複数の接続設定に対応するために、<a href="https://github.com/r7kamura/active_record-connection_proxy">active_record-connection_proxy</a>というライブラリをつくった。</p>
 
-&lt;p&gt;元々は、とあるアプリのRails 4.2から5.0へのアップグレードで必要になってつくった実装だったが、せっかくなのでライブラリ化して公開することにした。&lt;/p&gt;
+<p>元々は、とあるアプリのRails 4.2から5.0へのアップグレードで必要になってつくった実装だったが、せっかくなのでライブラリ化して公開することにした。</p>
 
-&lt;p&gt;ちなみに、このライブラリは以下の問題意識を背景につくられた。&lt;/p&gt;
+<p>ちなみに、このライブラリは以下の問題意識を背景につくられた。</p>
 
-&lt;ul&gt;
-&lt;li&gt;Rails 6.0の複数DB用対応はRails 6.0からしか使えない&lt;/li&gt;
-&lt;li&gt;巷のライブラリはreadとwriteの二択にしか対応していないものが多い&lt;/li&gt;
-&lt;li&gt;コード量が多いライブラリだといざというときやめにくい&lt;/li&gt;
-&lt;li&gt;ブロック形式だとメソッドチェーン方式の既存コードを移行しにくい&lt;/li&gt;
-&lt;/ul&gt;
+<ul>
+<li>Rails 6.0の複数DB用対応はRails 6.0からしか使えない</li>
+<li>巷のライブラリはreadとwriteの二択にしか対応していないものが多い</li>
+<li>コード量が多いライブラリだといざというときやめにくい</li>
+<li>ブロック形式だとメソッドチェーン方式の既存コードを移行しにくい</li>
+</ul>
 
-&lt;p&gt;かなり雑なつくりになっていて笑っちゃうんだけど、贔屓目にとらえると、パーツだけ提供して、組み立ては利用者にやってもらうという形式が面白いところだと思う。ライブラリを読み込むだけでいい感じに全部やってくれたりすることはないので、自分で組み立てる楽しさと安心感を利用者に感じてもらいたい。&lt;/p&gt;
+<p>かなり雑なつくりになっていて笑っちゃうんだけど、贔屓目にとらえると、パーツだけ提供して、組み立ては利用者にやってもらうという形式が面白いところだと思う。ライブラリを読み込むだけでいい感じに全部やってくれたりすることはないので、自分で組み立てる楽しさと安心感を利用者に感じてもらいたい。</p>
 
-&lt;p&gt;実際のところ、ライブラリはProxyというクラスだけを提供していて、実質30行ぐらいしか実装が無い。ではこのライブラリが本質的に何を提供しているのかというと、connectionを他のモデルから借りてくるだけで上手くいくんじゃない？というアイデアを提供しているのだと思う。そして、実際のところはしっかりやろうとするとクエリキャッシュの管理で上手くいかないかったりする。&lt;/p&gt;
-</content>
-    </entry>
-  
-    <entry>
-      <title>日付の位置、ウェブページへの言及、原神</title>
-      <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-10-02-notes"/>
-      <id>tag:r7kamura.com,2019:/articles/2020-10-02-notes</id>
-      <published>2020-10-02T00:00:00+00:00</published>
-      <updated>2020-10-03T13:36:52+00:00</updated>
-      <content type="html">&lt;p&gt;雑多な日記。&lt;/p&gt;
+<p>実際のところ、ライブラリはProxyというクラスだけを提供していて、実質30行ぐらいしか実装が無い。ではこのライブラリが本質的に何を提供しているのかというと、connectionを他のモデルから借りてくるだけで上手くいくんじゃない？というアイデアを提供しているのだと思う。そして、実際のところはしっかりやろうとするとクエリキャッシュの管理で上手くいかないかったりする。</p>
+]]></content:encoded>
+      <guid>https://r7kamura.com/articles/2020-10-03-active-record-connection-proxy</guid>
+    </item>
+    
+    <item>
+      <title><![CDATA[日付の位置、ウェブページへの言及、原神]]></title>
+      <description><![CDATA[雑多な日記。]]></description>
+      <link>https://r7kamura.com/articles/2020-10-02-notes</link>
+      <pubDate>Fri, 02 Oct 2020 00:00:00 +0000</pubDate>
+      <content:encoded><![CDATA[<p>雑多な日記。</p>
 
-&lt;h2&gt;日付の位置&lt;/h2&gt;
+<h2>日付の位置</h2>
 
-&lt;p&gt;朝起きて自分のサイトを見たら急に発作が起き、気持ち悪くなって日付の位置を移動させた。日付を移動させると、いつの間にか発作は収まっていた。不思議なこともあるものだ。二度寝した後でコミットログを読むと、「ブログにおいてはそれがいつ書かれたかが特に重要であることに気付いた」とか調子のいいことが書かれていた。&lt;/p&gt;
+<p>朝起きて自分のサイトを見たら急に発作が起き、気持ち悪くなって日付の位置を移動させた。日付を移動させると、いつの間にか発作は収まっていた。不思議なこともあるものだ。二度寝した後でコミットログを読むと、「ブログにおいてはそれがいつ書かれたかが特に重要であることに気付いた」とか調子のいいことが書かれていた。</p>
 
-&lt;h2&gt;ウェブページへの言及&lt;/h2&gt;
+<h2>ウェブページへの言及</h2>
 
-&lt;p&gt;&lt;a href=&quot;https://hail2u.net&quot;&gt;hail2uさんのサイト&lt;/a&gt;みたいに、その日見たウェブページに関する簡単なコメントをまとめておくための独立したページが欲しくなってきた。というのも、SNSなどで言及するには何か温度感が違いすぎるような感じがするし、かといって日記で細かく言及しようとすると下手に悪目立ちしそうで、何となく躊躇してしまっているため。現状零れ落ちてしまっている何かが、そこですくい取れるかもしれない。&lt;/p&gt;
+<p><a href="https://hail2u.net">hail2uさんのサイト</a>みたいに、その日見たウェブページに関する簡単なコメントをまとめておくための独立したページが欲しくなってきた。というのも、SNSなどで言及するには何か温度感が違いすぎるような感じがするし、かといって日記で細かく言及しようとすると下手に悪目立ちしそうで、何となく躊躇してしまっているため。現状零れ落ちてしまっている何かが、そこですくい取れるかもしれない。</p>
 
-&lt;h2&gt;原神&lt;/h2&gt;
+<h2>原神</h2>
 
-&lt;figure&gt;&lt;a href=&quot;/images/2020-10-02-genshin.png&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/images/2020-10-02-genshin.png&quot; alt=&quot;&quot;&gt;&lt;/a&gt;&lt;figcaption&gt;原神・モンド城下町&lt;/figcaption&gt;&lt;/figure&gt;
+<figure><a href="/images/2020-10-02-genshin.png" target="_blank"><img src="/images/2020-10-02-genshin.png" alt=""></a><figcaption>原神・モンド城下町</figcaption></figure>
 
-&lt;p&gt;『&lt;a href=&quot;https://genshin.mihoyo.com/ja&quot;&gt;原神&lt;/a&gt;』をゆっくり進めている。攻略に目がない人達が落としてくれたお金で開発が進む、ものすごく高品質な箱庭ゲームだと捉えている節がある。世界を救う旅人というよりは、街で生活するカメラが好きな一般人として過ごしている。&lt;/p&gt;
+<p>『<a href="https://genshin.mihoyo.com/ja">原神</a>』をゆっくり進めている。攻略に目がない人達が落としてくれたお金で開発が進む、ものすごく高品質な箱庭ゲームだと捉えている節がある。世界を救う旅人というよりは、街で生活するカメラが好きな一般人として過ごしている。</p>
 
-&lt;p&gt;あまり切迫した状況になっておらず、適当に散策していても世界への申し訳無さを感じないところが良い。FF14で光の戦士をやっていた頃は、世界を救わなければならないという焦燥感みたいなものを、心のどこかで常に感じていた。&lt;/p&gt;
+<p>あまり切迫した状況になっておらず、適当に散策していても世界への申し訳無さを感じないところが良い。FF14で光の戦士をやっていた頃は、世界を救わなければならないという焦燥感みたいなものを、心のどこかで常に感じていた。</p>
 
-&lt;hr&gt;
+<hr>
 
-&lt;p&gt;Twitterカードで画像が展開されないなと思って詳しく調べたら、&lt;a href=&quot;https://developer.twitter.com/en/docs/twitter-for-websites/cards/overview/summary-card-with-large-image&quot;&gt;Twitterカードのドキュメント&lt;/a&gt;に画像は最大5MBまでと書かれており、配信している画像を調べてみたら幾つかの画像がそれを超過していた。&lt;/p&gt;
+<p>Twitterカードで画像が展開されないなと思って詳しく調べたら、<a href="https://developer.twitter.com/en/docs/twitter-for-websites/cards/overview/summary-card-with-large-image">Twitterカードのドキュメント</a>に画像は最大5MBまでと書かれており、配信している画像を調べてみたら幾つかの画像がそれを超過していた。</p>
 
-&lt;blockquote&gt;
-&lt;p&gt;Images for this Card support an aspect ratio of 2:1 with minimum dimensions of 300x157 or maximum of 4096x4096 pixels. Images must be less than 5MB in size. JPG, PNG, WEBP and GIF formats are supported.&lt;/p&gt;
-&lt;/blockquote&gt;
+<blockquote>
+<p>Images for this Card support an aspect ratio of 2:1 with minimum dimensions of 300x157 or maximum of 4096x4096 pixels. Images must be less than 5MB in size. JPG, PNG, WEBP and GIF formats are supported.</p>
+</blockquote>
 
-&lt;p&gt;サイズが上位20件以内の画像を見つけ、最大幅1920pxに変換することで、適当にやりすごすことにした。&lt;/p&gt;
+<p>サイズが上位20件以内の画像を見つけ、最大幅1920pxに変換することで、適当にやりすごすことにした。</p>
 
-&lt;pre&gt;&lt;code&gt;du -k static/images/* \
+<pre><code>du -k static/images/* \
   | sort -rn \
   | head -n 20 \
   | cut -f 2 \
   | xargs mogrify -resize 1920x
-&lt;/code&gt;&lt;/pre&gt;
-</content>
-    </entry>
-  
-    <entry>
-      <title>水出しコーヒー、ポット、シロップ</title>
-      <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-10-01-coffee"/>
-      <id>tag:r7kamura.com,2019:/articles/2020-10-01-coffee</id>
-      <published>2020-10-01T00:00:00+00:00</published>
-      <updated>2020-10-03T13:36:52+00:00</updated>
-      <content type="html">&lt;figure&gt;&lt;a href=&quot;/images/2020-10-01-coffee.jpg&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/images/2020-10-01-coffee.jpg&quot; alt=&quot;&quot;&gt;&lt;/a&gt;&lt;figcaption&gt;水出しコーヒーを入れた様子&lt;/figcaption&gt;&lt;/figure&gt;
+</code></pre>
+]]></content:encoded>
+      <guid>https://r7kamura.com/articles/2020-10-02-notes</guid>
+    </item>
+    
+    <item>
+      <title><![CDATA[水出しコーヒー、ポット、シロップ]]></title>
+      <description><![CDATA[水出しコーヒーをもっと沢山つくりたいと思い、AmazonでHARIOのガラス製のポットを買った。]]></description>
+      <link>https://r7kamura.com/articles/2020-10-01-coffee</link>
+      <pubDate>Thu, 01 Oct 2020 00:00:00 +0000</pubDate>
+      <content:encoded><![CDATA[<figure><a href="/images/2020-10-01-coffee.jpg" target="_blank"><img src="/images/2020-10-01-coffee.jpg" alt=""></a><figcaption>水出しコーヒーを入れた様子</figcaption></figure>
 
-&lt;p&gt;水出しコーヒーをもっと沢山つくりたいと思い、Amazonで&lt;a href=&quot;https://www.amazon.co.jp/dp/B079YRR9ZM/?tag=r7kamura07-22&quot;&gt;HARIOのガラス製のポット&lt;/a&gt;を買った。洗いやすさを重視して、中にフィルターなどが含まれていないタイプにした。これくらいの容量になると、重さもあるので、取っ手が付いている方が使いやすい。&lt;/p&gt;
+<p>水出しコーヒーをもっと沢山つくりたいと思い、Amazonで<a href="https://www.amazon.co.jp/dp/B079YRR9ZM/?tag=r7kamura07-22">HARIOのガラス製のポット</a>を買った。洗いやすさを重視して、中にフィルターなどが含まれていないタイプにした。これくらいの容量になると、重さもあるので、取っ手が付いている方が使いやすい。</p>
 
-&lt;p&gt;コーヒーバッグには、&lt;a href=&quot;https://www.amazon.co.jp/dp/B085D1F221/?tag=r7kamura07-22&quot;&gt;キーコーヒーの香味まろやか水出し珈琲&lt;/a&gt;というやつを使っている。一つ一つのパックがプラスチックの袋で個包装されているので、ジップを丁寧に締めたりする必要がないところが気に入っている。前は更に美味しい粉が無いか探していたこともあったが、いまは手に入りやすいキーコーヒーのやつを買うようにしている。規格化された、いつも変わらない味が良い。&lt;/p&gt;
+<p>コーヒーバッグには、<a href="https://www.amazon.co.jp/dp/B085D1F221/?tag=r7kamura07-22">キーコーヒーの香味まろやか水出し珈琲</a>というやつを使っている。一つ一つのパックがプラスチックの袋で個包装されているので、ジップを丁寧に締めたりする必要がないところが気に入っている。前は更に美味しい粉が無いか探していたこともあったが、いまは手に入りやすいキーコーヒーのやつを買うようにしている。規格化された、いつも変わらない味が良い。</p>
 
-&lt;p&gt;ここ最近、&lt;a href=&quot;https://www.amazon.co.jp/dp/B002XCT5FY/?tag=r7kamura07-22&quot;&gt;明治屋のガムシロップ&lt;/a&gt;を試してみている。少し良いガムシロップを入れるだけでかなり体験が良い、ということが分かった。瓶の見た目はかっこいいのたけど、この構造だと入れたあと口から液が垂れる可能性があるところが不満点。次の作戦として、&lt;a href=&quot;https://www.amazon.co.jp/dp/B001HM3FFM/?tag=r7kamura07-22&quot;&gt;モナンのバニラシロップ&lt;/a&gt;を買って、&lt;a href=&quot;https://www.amazon.co.jp/dp/B00DJ551LG/?tag=r7kamura07-22&quot;&gt;専用のポンプ&lt;/a&gt;を付けて使おうかなと考えてみている。&lt;/p&gt;
-</content>
-    </entry>
-  
-    <entry>
-      <title>Bashのプロンプトと非印刷文字の幅計算</title>
-      <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-10-01-bash-prompt"/>
-      <id>tag:r7kamura.com,2019:/articles/2020-10-01-bash-prompt</id>
-      <published>2020-10-01T00:00:00+00:00</published>
-      <updated>2020-10-03T13:36:52+00:00</updated>
-      <content type="html">&lt;p&gt;Bashでプロンプトをカスタマイズしようとしてはまったが解決した。&lt;/p&gt;
+<p>ここ最近、<a href="https://www.amazon.co.jp/dp/B002XCT5FY/?tag=r7kamura07-22">明治屋のガムシロップ</a>を試してみている。少し良いガムシロップを入れるだけでかなり体験が良い、ということが分かった。瓶の見た目はかっこいいのたけど、この構造だと入れたあと口から液が垂れる可能性があるところが不満点。次の作戦として、<a href="https://www.amazon.co.jp/dp/B001HM3FFM/?tag=r7kamura07-22">モナンのバニラシロップ</a>を買って、<a href="https://www.amazon.co.jp/dp/B00DJ551LG/?tag=r7kamura07-22">専用のポンプ</a>を付けて使おうかなと考えてみている。</p>
+]]></content:encoded>
+      <guid>https://r7kamura.com/articles/2020-10-01-coffee</guid>
+    </item>
+    
+    <item>
+      <title><![CDATA[Bashのプロンプトと非印刷文字の幅計算]]></title>
+      <description><![CDATA[Bashでプロンプトをカスタマイズしようとしてはまったが解決した。]]></description>
+      <link>https://r7kamura.com/articles/2020-10-01-bash-prompt</link>
+      <pubDate>Thu, 01 Oct 2020 00:00:00 +0000</pubDate>
+      <content:encoded><![CDATA[<p>Bashでプロンプトをカスタマイズしようとしてはまったが解決した。</p>
 
-&lt;h2&gt;Bashのプロンプトで使える制御文字&lt;/h2&gt;
+<h2>Bashのプロンプトで使える制御文字</h2>
 
-&lt;p&gt;Bashでプロンプトを指定する際には、&lt;a href=&quot;https://www.gnu.org/savannah-checkouts/gnu/bash/manual/bash.html#Controlling-the-Prompt&quot;&gt;Bashのマニュアルのプロンプト制御の項目&lt;/a&gt;にも記載されているように、幾つかの制御文字が利用できるようになっている。この中で、例えばANSIエスケープシーケンスのような非印刷文字をプロンプトで利用するとき、プロンプトの幅を正しく計算させるために、&lt;code&gt;\[&lt;/code&gt; と &lt;code&gt;\]&lt;/code&gt; という制御文字が提供されている。&lt;/p&gt;
+<p>Bashでプロンプトを指定する際には、<a href="https://www.gnu.org/savannah-checkouts/gnu/bash/manual/bash.html#Controlling-the-Prompt">Bashのマニュアルのプロンプト制御の項目</a>にも記載されているように、幾つかの制御文字が利用できるようになっている。この中で、例えばANSIエスケープシーケンスのような非印刷文字をプロンプトで利用するとき、プロンプトの幅を正しく計算させるために、<code>\[</code> と <code>\]</code> という制御文字が提供されている。</p>
 
-&lt;blockquote&gt;
-&lt;p&gt;&lt;code&gt;\[&lt;/code&gt;
-Begin a sequence of non-printing characters. This could be used to embed a terminal control sequence into the prompt.&lt;/p&gt;
+<blockquote>
+<p><code>\[</code>
+Begin a sequence of non-printing characters. This could be used to embed a terminal control sequence into the prompt.</p>
 
-&lt;p&gt;&lt;code&gt;\]&lt;/code&gt;
-End a sequence of non-printing characters.&lt;/p&gt;
-&lt;/blockquote&gt;
+<p><code>\]</code>
+End a sequence of non-printing characters.</p>
+</blockquote>
 
-&lt;p&gt;このように &lt;code&gt;\[&lt;/code&gt; と &lt;code&gt;\]&lt;/code&gt; で非印刷文字を囲ってあげることで、プロンプトを扱うBashが上手く幅を計算してくれるようになる。逆にこれをやらないと、例えば端末での折返し時や、カーソル位置を動かすような処理（例えばコマンド履歴のインクリメンタル検索など）で表示が崩れてしまうことになる。&lt;/p&gt;
+<p>このように <code>\[</code> と <code>\]</code> で非印刷文字を囲ってあげることで、プロンプトを扱うBashが上手く幅を計算してくれるようになる。逆にこれをやらないと、例えば端末での折返し時や、カーソル位置を動かすような処理（例えばコマンド履歴のインクリメンタル検索など）で表示が崩れてしまうことになる。</p>
 
-&lt;pre&gt;&lt;code&gt;export PS1=&#39;\[\033[01;33m$\033[00m\] &#39;
-&lt;/code&gt;&lt;/pre&gt;
+<pre><code>export PS1='\[\033[01;33m$\033[00m\] '
+</code></pre>
 
-&lt;h2&gt;関数内での制御文字の利用&lt;/h2&gt;
+<h2>関数内での制御文字の利用</h2>
 
-&lt;p&gt;さて、ここで実装を分かりやすくするために処理を関数にまとめようとしたところ、&lt;code&gt;\[&lt;/code&gt; と &lt;code&gt;\]&lt;/code&gt; が制御文字として扱われてくれないというところで困った。関数の中で同じように文字列を出力しようとすると、&lt;code&gt;\[$\]&lt;/code&gt; のような見た目のプロンプトになってしまう。&lt;/p&gt;
+<p>さて、ここで実装を分かりやすくするために処理を関数にまとめようとしたところ、<code>\[</code> と <code>\]</code> が制御文字として扱われてくれないというところで困った。関数の中で同じように文字列を出力しようとすると、<code>\[$\]</code> のような見た目のプロンプトになってしまう。</p>
 
-&lt;pre&gt;&lt;code&gt;prompt() {
-  echo -e &#39;\[\033[01;33m$\033[00m\] &#39;
+<pre><code>prompt() {
+  echo -e '\[\033[01;33m$\033[00m\] '
 }
 
-export PS1=&#39;$(prompt)&#39;
-&lt;/code&gt;&lt;/pre&gt;
+export PS1='$(prompt)'
+</code></pre>
 
-&lt;p&gt;解決策としては、&lt;a href=&quot;https://stackoverflow.com/questions/24839271/bash-ps1-line-wrap-issue-with-non-printing-characters-from-an-external-command&quot;&gt;同様の問題へのStackOverflowでの回答&lt;/a&gt;を参考に、&lt;code&gt;\[&lt;/code&gt; と &lt;code&gt;\]&lt;/code&gt; の代わりに &lt;code&gt;\001&lt;/code&gt; と &lt;code&gt;\002&lt;/code&gt; を使うことで解決した。ちなみに、同回答で提案されていた &lt;code&gt;PROMPT_COMMAND&lt;/code&gt; を使う方法でも同様に解決することは確認できたが、前者の解決策の方が分かりやすそうだったのでこちらを使うことに。&lt;/p&gt;
+<p>解決策としては、<a href="https://stackoverflow.com/questions/24839271/bash-ps1-line-wrap-issue-with-non-printing-characters-from-an-external-command">同様の問題へのStackOverflowでの回答</a>を参考に、<code>\[</code> と <code>\]</code> の代わりに <code>\001</code> と <code>\002</code> を使うことで解決した。ちなみに、同回答で提案されていた <code>PROMPT_COMMAND</code> を使う方法でも同様に解決することは確認できたが、前者の解決策の方が分かりやすそうだったのでこちらを使うことに。</p>
 
-&lt;pre&gt;&lt;code&gt;prompt() {
-  echo -e &#39;\001\033[01;33m$\033[00m\002 &#39;
+<pre><code>prompt() {
+  echo -e '\001\033[01;33m$\033[00m\002 '
 }
 
-export PS1=&#39;$(prompt)&#39;
-&lt;/code&gt;&lt;/pre&gt;
+export PS1='$(prompt)'
+</code></pre>
 
-&lt;hr&gt;
+<hr>
 
-&lt;p&gt;何が原因かよくわからない状態でとりあえず表示が崩れて困っている旨をTwitterに投稿したところ、丁寧に教えてくれたhirose31さんに感謝。&lt;/p&gt;
-</content>
-    </entry>
-  
-    <entry>
-      <title>dotfilesの整理</title>
-      <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-09-30-dotfiles"/>
-      <id>tag:r7kamura.com,2019:/articles/2020-09-30-dotfiles</id>
-      <published>2020-09-30T00:00:00+00:00</published>
-      <updated>2020-10-03T13:36:52+00:00</updated>
-      <content type="html">&lt;p&gt;主な開発環境がUbuntuに移ったということもあり、&lt;a href=&quot;https://github.com/r7kamura/dotfiles&quot;&gt;dotfiles&lt;/a&gt;を整理していた。&lt;/p&gt;
+<p>何が原因かよくわからない状態でとりあえず表示が崩れて困っている旨をTwitterに投稿したところ、丁寧に教えてくれたhirose31さんに感謝。</p>
+]]></content:encoded>
+      <guid>https://r7kamura.com/articles/2020-10-01-bash-prompt</guid>
+    </item>
+    
+    <item>
+      <title><![CDATA[dotfilesの整理]]></title>
+      <description><![CDATA[主な開発環境がUbuntuに移ったということもあり、dotfilesを整理していた。]]></description>
+      <link>https://r7kamura.com/articles/2020-09-30-dotfiles</link>
+      <pubDate>Wed, 30 Sep 2020 00:00:00 +0000</pubDate>
+      <content:encoded><![CDATA[<p>主な開発環境がUbuntuに移ったということもあり、<a href="https://github.com/r7kamura/dotfiles">dotfiles</a>を整理していた。</p>
 
-&lt;figure&gt;&lt;a href=&quot;https://raw.githubusercontent.com/serverkit/serverkit/master/images/server.png&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;https://raw.githubusercontent.com/serverkit/serverkit/master/images/server.png&quot; alt=&quot;&quot;&gt;&lt;/a&gt;&lt;figcaption&gt;serverkitの象徴 / 1041uuuさんに描いてもらった&lt;/figcaption&gt;&lt;/figure&gt;
+<figure><a href="https://raw.githubusercontent.com/serverkit/serverkit/master/images/server.png" target="_blank"><img src="https://raw.githubusercontent.com/serverkit/serverkit/master/images/server.png" alt=""></a><figcaption>serverkitの象徴 / 1041uuuさんに描いてもらった</figcaption></figure>
 
-&lt;p&gt;かなり放置気味のリポジトリだったので、4年ぶりに更新することになった。以前は豪華なインストーラを付けたりして、Xcodeインストール済みのMacをコマンド1発でセットアップできるというところに価値を置いていた。&lt;/p&gt;
+<p>かなり放置気味のリポジトリだったので、4年ぶりに更新することになった。以前は豪華なインストーラを付けたりして、Xcodeインストール済みのMacをコマンド1発でセットアップできるというところに価値を置いていた。</p>
 
-&lt;p&gt;このために&lt;a href=&quot;https://github.com/serverkit/serverkit&quot;&gt;serverkit&lt;/a&gt;というツールも自作していて、全面的にそれを利用するようなつくりになっていた。
-YAMLで設定を書いたら適用出来るというやつ。AnsibleのRuby版みたいなもの。内部がかなりプラグイン化されていて、自分の用途の都合上、Macの設定を変えるようなプラグインが多い。例えば、Dockの設定を変えたり、Homebrewの管理をしたり。&lt;/p&gt;
+<p>このために<a href="https://github.com/serverkit/serverkit">serverkit</a>というツールも自作していて、全面的にそれを利用するようなつくりになっていた。
+YAMLで設定を書いたら適用出来るというやつ。AnsibleのRuby版みたいなもの。内部がかなりプラグイン化されていて、自分の用途の都合上、Macの設定を変えるようなプラグインが多い。例えば、Dockの設定を変えたり、Homebrewの管理をしたり。</p>
 
-&lt;p&gt;当時サバにハマってて、Twitterで「サバッッッ」とか言ってたら1041uuuさんがサバの絵を上げてくれて、使っていいとのことだったので、ありがたくserverkitの絵として使わせてもらっている。正直サバの絵が嬉しかったので当時開発を続けていたようなところはある。&lt;/p&gt;
+<p>当時サバにハマってて、Twitterで「サバッッッ」とか言ってたら1041uuuさんがサバの絵を上げてくれて、使っていいとのことだったので、ありがたくserverkitの絵として使わせてもらっている。正直サバの絵が嬉しかったので当時開発を続けていたようなところはある。</p>
 
-&lt;hr&gt;
+<hr>
 
-&lt;p&gt;当時の様子とは打って変わって、2020年のdotfilesにはほとんど中身が無くなってしまった。プロンプトの簡単な設定と、手癖になってしまっているalias群。それから、GitとTigの設定がおまけ程度にあるぐらい。&lt;/p&gt;
+<p>当時の様子とは打って変わって、2020年のdotfilesにはほとんど中身が無くなってしまった。プロンプトの簡単な設定と、手癖になってしまっているalias群。それから、GitとTigの設定がおまけ程度にあるぐらい。</p>
 
-&lt;figure&gt;&lt;a href=&quot;/images/2020-09-30-dotfiles-terminal.png&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/images/2020-09-30-dotfiles-terminal.png&quot; alt=&quot;&quot;&gt;&lt;/a&gt;&lt;figcaption&gt;現在の端末の様子&lt;/figcaption&gt;&lt;/figure&gt;
+<figure><a href="/images/2020-09-30-dotfiles-terminal.png" target="_blank"><img src="/images/2020-09-30-dotfiles-terminal.png" alt=""></a><figcaption>現在の端末の様子</figcaption></figure>
 
-&lt;p&gt;こだわりや熱量が無くなったわけではなくて、思考を妨げないクリーンな環境や、長く生き残れる単純で強い環境に、これまでと比べてより執着するようになってきているのだと思う。&lt;/p&gt;
-</content>
-    </entry>
-  
-    <entry>
-      <title>原神、Windowsの思い出し</title>
-      <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-09-29-genshin-windows"/>
-      <id>tag:r7kamura.com,2019:/articles/2020-09-29-genshin-windows</id>
-      <published>2020-09-29T00:00:00+00:00</published>
-      <updated>2020-10-03T13:36:52+00:00</updated>
-      <content type="html">&lt;p&gt;Winodowsで遊びながら、ゲームで癒やされる一日だった。&lt;/p&gt;
+<p>こだわりや熱量が無くなったわけではなくて、思考を妨げないクリーンな環境や、長く生き残れる単純で強い環境に、これまでと比べてより執着するようになってきているのだと思う。</p>
+]]></content:encoded>
+      <guid>https://r7kamura.com/articles/2020-09-30-dotfiles</guid>
+    </item>
+    
+    <item>
+      <title><![CDATA[原神、Windowsの思い出し]]></title>
+      <description><![CDATA[Winodowsで遊びながら、ゲームで癒やされる一日だった。]]></description>
+      <link>https://r7kamura.com/articles/2020-09-29-genshin-windows</link>
+      <pubDate>Tue, 29 Sep 2020 00:00:00 +0000</pubDate>
+      <content:encoded><![CDATA[<p>Winodowsで遊びながら、ゲームで癒やされる一日だった。</p>
 
-&lt;h2&gt;原神&lt;/h2&gt;
+<h2>原神</h2>
 
-&lt;p&gt;楽しみにしていたゲーム『原神』のリリース日だったので、仕事終わりにしばらくプレイしていた。最初は日記としてこの記事に感想を書いていたのだけど、せっかくなので&lt;a href=&quot;/articles/2020-09-29-genshin-1st-impression&quot;&gt;『原神』第一印象&lt;/a&gt;という記事にまとめることにした。&lt;/p&gt;
+<p>楽しみにしていたゲーム『原神』のリリース日だったので、仕事終わりにしばらくプレイしていた。最初は日記としてこの記事に感想を書いていたのだけど、せっかくなので<a href="/articles/2020-09-29-genshin-1st-impression">『原神』第一印象</a>という記事にまとめることにした。</p>
 
-&lt;p&gt;ある程度の規模の話題になると、あとから言及したくなることが多い。1つのURLに1つの話題が割り当てられている方が、リンクで参照しやすく、チャットに貼って盛り上がったりしやすい。&lt;/p&gt;
+<p>ある程度の規模の話題になると、あとから言及したくなることが多い。1つのURLに1つの話題が割り当てられている方が、リンクで参照しやすく、チャットに貼って盛り上がったりしやすい。</p>
 
-&lt;h2&gt;Windowsの思い出し&lt;/h2&gt;
+<h2>Windowsの思い出し</h2>
 
-&lt;p&gt;メインで利用する環境をMacからWindowsに移して、ようやく慣れつつある。&lt;/p&gt;
+<p>メインで利用する環境をMacからWindowsに移して、ようやく慣れつつある。</p>
 
-&lt;p&gt;Windowsは1990年代から2010年頃までメインで使っていたが、ここ10年間ほどはMacを使うばかりで、Windowsはほぼゲームを起動するだけの用途でしか使ってこなかった。今日も&lt;a href=&quot;https://r7kamura.com/articles/2020-09-28-power-toys&quot;&gt;PowerToysで豪遊&lt;/a&gt;してツールを入れたりぶっ壊したり復元したりしていたら、ようやく勘を取り戻してきた。&lt;/p&gt;
+<p>Windowsは1990年代から2010年頃までメインで使っていたが、ここ10年間ほどはMacを使うばかりで、Windowsはほぼゲームを起動するだけの用途でしか使ってこなかった。今日も<a href="https://r7kamura.com/articles/2020-09-28-power-toys">PowerToysで豪遊</a>してツールを入れたりぶっ壊したり復元したりしていたら、ようやく勘を取り戻してきた。</p>
 
-&lt;p&gt;MacのFinderもそうだったけど、エクスプローラの挙動にもなかなか癖があると思う。現代ではElectronみたいな手軽な実現方法もあることだし、お気に入りのファイラーを自作すべきなのかもしれない。&lt;/p&gt;
-</content>
-    </entry>
-  
-    <entry>
-      <title>『原神』第一印象</title>
-      <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-09-29-genshin-1st-impression"/>
-      <id>tag:r7kamura.com,2019:/articles/2020-09-29-genshin-1st-impression</id>
-      <published>2020-09-29T00:00:00+00:00</published>
-      <updated>2020-10-03T13:36:52+00:00</updated>
-      <content type="html">&lt;figure&gt;&lt;a href=&quot;/images/2020-09-29-genshin-night.png&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/images/2020-09-29-genshin-night.png&quot; alt=&quot;&quot;&gt;&lt;/a&gt;&lt;figcaption&gt;最初に訪れる街の夜&lt;/figcaption&gt;&lt;/figure&gt;
+<p>MacのFinderもそうだったけど、エクスプローラの挙動にもなかなか癖があると思う。現代ではElectronみたいな手軽な実現方法もあることだし、お気に入りのファイラーを自作すべきなのかもしれない。</p>
+]]></content:encoded>
+      <guid>https://r7kamura.com/articles/2020-09-29-genshin-windows</guid>
+    </item>
+    
+    <item>
+      <title><![CDATA[『原神』第一印象]]></title>
+      <description><![CDATA[2020年9月28日にリリースされたゲーム『原神』を早速やりはじめた。]]></description>
+      <link>https://r7kamura.com/articles/2020-09-29-genshin-1st-impression</link>
+      <pubDate>Tue, 29 Sep 2020 00:00:00 +0000</pubDate>
+      <content:encoded><![CDATA[<figure><a href="/images/2020-09-29-genshin-night.png" target="_blank"><img src="/images/2020-09-29-genshin-night.png" alt=""></a><figcaption>最初に訪れる街の夜</figcaption></figure>
 
-&lt;p&gt;2020年9月28日にリリースされたゲーム『&lt;a href=&quot;https://genshin.mihoyo.com/ja&quot;&gt;原神&lt;/a&gt;』を早速やりはじめた。&lt;/p&gt;
+<p>2020年9月28日にリリースされたゲーム『<a href="https://genshin.mihoyo.com/ja">原神</a>』を早速やりはじめた。</p>
 
-&lt;p&gt;少しプレイした感触では、個人的にかなりの好印象。体験の質が良くなるように努力されている要素が多いのを感じる。こういう、作り手のやりたいことが理解でき、その努力が少し透けて見えるような作品は好き。好きな要素もあり、嫌いな要素もあるが、好きな要素が一つでも見つけられればそれで良い。&lt;/p&gt;
+<p>少しプレイした感触では、個人的にかなりの好印象。体験の質が良くなるように努力されている要素が多いのを感じる。こういう、作り手のやりたいことが理解でき、その努力が少し透けて見えるような作品は好き。好きな要素もあり、嫌いな要素もあるが、好きな要素が一つでも見つけられればそれで良い。</p>
 
-&lt;p&gt;一方で、競争心に駆られると途端につまらなくなる可能性のある作品だと思ったので、たくさん休憩しながら一人でまったりやろうかなと思っている。ゲーム内のキャラクター達もひたすらに休憩を勧めてくる。&lt;/p&gt;
+<p>一方で、競争心に駆られると途端につまらなくなる可能性のある作品だと思ったので、たくさん休憩しながら一人でまったりやろうかなと思っている。ゲーム内のキャラクター達もひたすらに休憩を勧めてくる。</p>
 
-&lt;p&gt;ゲーム内のUIやカメラワークの設計、モデルの細かい意匠なんかを延々と眺めていたら、ゲーム序盤の街にたどり着くまで数時間も掛かっており、ストーリーが全く進んでいない。しかしそれで良いのかもしれない。&lt;/p&gt;
+<p>ゲーム内のUIやカメラワークの設計、モデルの細かい意匠なんかを延々と眺めていたら、ゲーム序盤の街にたどり着くまで数時間も掛かっており、ストーリーが全く進んでいない。しかしそれで良いのかもしれない。</p>
 
-&lt;figure&gt;&lt;a href=&quot;/images/2020-09-29-genshin-evening.png&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/images/2020-09-29-genshin-evening.png&quot; alt=&quot;&quot;&gt;&lt;/a&gt;&lt;figcaption&gt;休憩して夕焼けを見ている&lt;/figcaption&gt;&lt;/figure&gt;
+<figure><a href="/images/2020-09-29-genshin-evening.png" target="_blank"><img src="/images/2020-09-29-genshin-evening.png" alt=""></a><figcaption>休憩して夕焼けを見ている</figcaption></figure>
 
-&lt;p&gt;UIのデザインは、最近の異世界系アニメ内の表現に見られるようなフラットなもので、『ソードアート・オンライン』や『盾の勇者の成り上がり』の中に出てくるような表現に近しさを感じた。どちらかと言うとWebのコンテキストのデザインに近いものを感じて、なんというか全体的に安心する。&lt;/p&gt;
+<p>UIのデザインは、最近の異世界系アニメ内の表現に見られるようなフラットなもので、『ソードアート・オンライン』や『盾の勇者の成り上がり』の中に出てくるような表現に近しさを感じた。どちらかと言うとWebのコンテキストのデザインに近いものを感じて、なんというか全体的に安心する。</p>
 
-&lt;p&gt;手を止めていろんなものを眺めてみると、アニメーションや意匠などを含めて、とにかく細部へのこだわりを感じる。ステータス画面ひとつ取ってみても、受け入れやすい見た目でありながら、格好良さと可愛さの調和が取れたデザインになっている。&lt;/p&gt;
+<p>手を止めていろんなものを眺めてみると、アニメーションや意匠などを含めて、とにかく細部へのこだわりを感じる。ステータス画面ひとつ取ってみても、受け入れやすい見た目でありながら、格好良さと可愛さの調和が取れたデザインになっている。</p>
 
-&lt;figure&gt;
-&lt;div style=&quot;padding:41.87% 0 0 0;position:relative;&quot;&gt;&lt;iframe src=&quot;https://player.vimeo.com/video/462735403?title=0&amp;amp;byline=0&amp;amp;portrait=0&quot; style=&quot;position:absolute;top:0;left:0;width:100%;height:100%;&quot; frameborder=&quot;0&quot; allow=&quot;autoplay; fullscreen&quot; allowfullscreen&gt;&lt;/iframe&gt;&lt;/div&gt;
-&lt;figcaption&gt;ステータス画面&lt;/figcaption&gt;
-&lt;/figure&gt;
+<figure>
+<div style="padding:41.87% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/462735403?title=0&amp;byline=0&amp;portrait=0" style="position:absolute;top:0;left:0;width:100%;height:100%;" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe></div>
+<figcaption>ステータス画面</figcaption>
+</figure>
 
-&lt;script src=&quot;https://player.vimeo.com/api/player.js&quot;&gt;&lt;/script&gt;
+<script src="https://player.vimeo.com/api/player.js"></script>
 
-&lt;p&gt;そこまで期待していなかったにも関わらず、戦闘や探索も、魔法の組み合わせでいろいろ試すのが思っていたより楽しい。ゼルダの伝説やSpell Breakをプレイしたときにも感じたことだけど、こういう、小さくてシンプルな要素を組み合わせて大きな力を発生させるタイプの仕組みは、賢く立ち回ることで健康的な達成感が得られて、非常に良い。UNIX哲学的な感じで、プログラミングにおける達成感に近いものがある。&lt;/p&gt;
+<p>そこまで期待していなかったにも関わらず、戦闘や探索も、魔法の組み合わせでいろいろ試すのが思っていたより楽しい。ゼルダの伝説やSpell Breakをプレイしたときにも感じたことだけど、こういう、小さくてシンプルな要素を組み合わせて大きな力を発生させるタイプの仕組みは、賢く立ち回ることで健康的な達成感が得られて、非常に良い。UNIX哲学的な感じで、プログラミングにおける達成感に近いものがある。</p>
 
-&lt;p&gt;プレイ前はゼルダの伝説ライクな見た目だなと言う印象が強かったものの、プレイしてみると、数多のゲームの要素が取り入れられていることが分かる。洋ゲーとかにありがちなこの要素をこうデザインするのか…イケてる…といった感想が沢山出てくるので、そういう見方でプレイしていても非常に楽しい。&lt;/p&gt;
+<p>プレイ前はゼルダの伝説ライクな見た目だなと言う印象が強かったものの、プレイしてみると、数多のゲームの要素が取り入れられていることが分かる。洋ゲーとかにありがちなこの要素をこうデザインするのか…イケてる…といった感想が沢山出てくるので、そういう見方でプレイしていても非常に楽しい。</p>
 
-&lt;p&gt;これら盛り沢山な要素を、多少の綻びはあれど破綻無く上手くまとめられているバランス感覚の良さ、総じてアリと言わせるレベルの品質に持っていけている技術力の高さこそ褒められるべきところだと思う。&lt;/p&gt;
-</content>
-    </entry>
-  
-    <entry>
-      <title>PowerToysで豪遊</title>
-      <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-09-28-power-toys"/>
-      <id>tag:r7kamura.com,2019:/articles/2020-09-28-power-toys</id>
-      <published>2020-09-28T00:00:00+00:00</published>
-      <updated>2020-10-03T13:36:52+00:00</updated>
-      <content type="html">&lt;p&gt;Windows用にPowerToysというのを教えてもらって、使ってみたら思いの外よかったという話。&lt;/p&gt;
+<p>これら盛り沢山な要素を、多少の綻びはあれど破綻無く上手くまとめられているバランス感覚の良さ、総じてアリと言わせるレベルの品質に持っていけている技術力の高さこそ褒められるべきところだと思う。</p>
+]]></content:encoded>
+      <guid>https://r7kamura.com/articles/2020-09-29-genshin-1st-impression</guid>
+    </item>
+    
+    <item>
+      <title><![CDATA[PowerToysで豪遊]]></title>
+      <description><![CDATA[Windows用にPowerToysというのを教えてもらって、使ってみたら思いの外よかったという話。]]></description>
+      <link>https://r7kamura.com/articles/2020-09-28-power-toys</link>
+      <pubDate>Mon, 28 Sep 2020 00:00:00 +0000</pubDate>
+      <content:encoded><![CDATA[<p>Windows用にPowerToysというのを教えてもらって、使ってみたら思いの外よかったという話。</p>
 
-&lt;p&gt;&lt;a href=&quot;https://github.com/microsoft/PowerToys&quot;&gt;https://github.com/microsoft/PowerToys&lt;/a&gt;&lt;/p&gt;
+<p><a href="https://github.com/microsoft/PowerToys">https://github.com/microsoft/PowerToys</a></p>
 
-&lt;h2&gt;PowerToys Run&lt;/h2&gt;
+<h2>PowerToys Run</h2>
 
-&lt;p&gt;PowerToysというのは、Windowsをより便利にする機能群をまとめたアプリケーション。&lt;/p&gt;
+<p>PowerToysというのは、Windowsをより便利にする機能群をまとめたアプリケーション。</p>
 
-&lt;pre&gt;&lt;code&gt;winget install PowerToys
-&lt;/code&gt;&lt;/pre&gt;
+<pre><code>winget install PowerToys
+</code></pre>
 
-&lt;p&gt;wingetで入れられるので試しに入れてみて、その中のPowerToys Runという機能を常用してみることにした。&lt;/p&gt;
+<p>wingetで入れられるので試しに入れてみて、その中のPowerToys Runという機能を常用してみることにした。</p>
 
-&lt;figure&gt;&lt;a href=&quot;/images/2020-09-28-power-toys-run.png&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/images/2020-09-28-power-toys-run.png&quot; alt=&quot;&quot;&gt;&lt;/a&gt;&lt;figcaption&gt;PowerToys Runsの様子&lt;/figcaption&gt;&lt;/figure&gt;
+<figure><a href="/images/2020-09-28-power-toys-run.png" target="_blank"><img src="/images/2020-09-28-power-toys-run.png" alt=""></a><figcaption>PowerToys Runsの様子</figcaption></figure>
 
-&lt;p&gt;Macの&lt;a href=&quot;https://www.alfredapp.com/&quot;&gt;Alfred&lt;/a&gt;と使用感がかなり似ていて、使い心地もわりと良い。似たようなことはWinodwsキーを押したあとに使える検索機能でも代替可能なのだけど、こちらの方が使い勝手が少し良い。&lt;/p&gt;
+<p>Macの<a href="https://www.alfredapp.com/">Alfred</a>と使用感がかなり似ていて、使い心地もわりと良い。似たようなことはWinodwsキーを押したあとに使える検索機能でも代替可能なのだけど、こちらの方が使い勝手が少し良い。</p>
 
-&lt;p&gt;デフォルトはAlt + Spaceなのだけど、Windowsの機能と競合することも多いので、Ctrl + Spaceに割り当てることにした。このショートカットキーはGoogle IMEで入力ソースを切り替えるためのショートカットキーとして登録されているので、設定でこれを取り除くなどの操作も加えた。&lt;/p&gt;
+<p>デフォルトはAlt + Spaceなのだけど、Windowsの機能と競合することも多いので、Ctrl + Spaceに割り当てることにした。このショートカットキーはGoogle IMEで入力ソースを切り替えるためのショートカットキーとして登録されているので、設定でこれを取り除くなどの操作も加えた。</p>
 
-&lt;h2&gt;PowerToys FancyZones&lt;/h2&gt;
+<h2>PowerToys FancyZones</h2>
 
-&lt;p&gt;一応他の機能の例も紹介しておくと、FancyZonesという機能も、人によっては活用できることが多いと思う。自分は画面は常に2分割しかしない派なので、Windowsのスナップ機能で間に合っており、今のところは間に合っている。&lt;/p&gt;
+<p>一応他の機能の例も紹介しておくと、FancyZonesという機能も、人によっては活用できることが多いと思う。自分は画面は常に2分割しかしない派なので、Windowsのスナップ機能で間に合っており、今のところは間に合っている。</p>
 
-&lt;figure&gt;&lt;a href=&quot;/images/2020-09-28-power-toys-fancy-zones.png&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/images/2020-09-28-power-toys-fancy-zones.png&quot; alt=&quot;&quot;&gt;&lt;/a&gt;&lt;figcaption&gt;FancyZonesの設定画面&lt;/figcaption&gt;&lt;/figure&gt;
+<figure><a href="/images/2020-09-28-power-toys-fancy-zones.png" target="_blank"><img src="/images/2020-09-28-power-toys-fancy-zones.png" alt=""></a><figcaption>FancyZonesの設定画面</figcaption></figure>
 
-&lt;p&gt;スナップ機能については、もともと気に入らない挙動があったので困っていたところ、amagiさんが教えてくれたおかげで解決できた。設定 &amp;gt; マルチタスク から「ウィンドウをスナップしたときに、横に配置できるものを表示する」という機能をオフにできるらしい。&lt;/p&gt;
+<p>スナップ機能については、もともと気に入らない挙動があったので困っていたところ、amagiさんが教えてくれたおかげで解決できた。設定 &gt; マルチタスク から「ウィンドウをスナップしたときに、横に配置できるものを表示する」という機能をオフにできるらしい。</p>
 
-&lt;h2&gt;システムの復元&lt;/h2&gt;
+<h2>システムの復元</h2>
 
-&lt;p&gt;PowerToysのKeyboard Managerを試してみたら、キーマップを登録して戻す操作をしても永続的に元に戻らなくなってしまい、システムの復元という機能で数時間前の状態に戻ることで事なきを得た。&lt;/p&gt;
+<p>PowerToysのKeyboard Managerを試してみたら、キーマップを登録して戻す操作をしても永続的に元に戻らなくなってしまい、システムの復元という機能で数時間前の状態に戻ることで事なきを得た。</p>
 
-&lt;p&gt;キーボードのレジストリ書き換え部分の実装が甘いのかもしれない。そして、いつからかWindowsではレジストリの自動バックアップを取らなくなってしまっていた。ともあれ復元できて安心した。&lt;/p&gt;
-</content>
-    </entry>
-  
-    <entry>
-      <title>Windowsで開発</title>
-      <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-09-28-development-on-windows"/>
-      <id>tag:r7kamura.com,2019:/articles/2020-09-28-development-on-windows</id>
-      <published>2020-09-28T00:00:00+00:00</published>
-      <updated>2020-10-03T13:36:52+00:00</updated>
-      <content type="html">&lt;p&gt;Windowsで開発環境を整えた。&lt;/p&gt;
+<p>キーボードのレジストリ書き換え部分の実装が甘いのかもしれない。そして、いつからかWindowsではレジストリの自動バックアップを取らなくなってしまっていた。ともあれ復元できて安心した。</p>
+]]></content:encoded>
+      <guid>https://r7kamura.com/articles/2020-09-28-power-toys</guid>
+    </item>
+    
+    <item>
+      <title><![CDATA[Windowsで開発]]></title>
+      <description><![CDATA[Windowsで開発環境を整えた。]]></description>
+      <link>https://r7kamura.com/articles/2020-09-28-development-on-windows</link>
+      <pubDate>Mon, 28 Sep 2020 00:00:00 +0000</pubDate>
+      <content:encoded><![CDATA[<p>Windowsで開発環境を整えた。</p>
 
-&lt;h2&gt;背景&lt;/h2&gt;
+<h2>背景</h2>
 
-&lt;p&gt;開発環境を改善しようと思い、PCデスクの見直しなどをやっていたら、Windowsでも開発できるようにしようと思い至った。新しい環境を試してみたい気持ちが1割と、新しいゲーミングPCを組みたい気持ちが9割だ。&lt;/p&gt;
+<p>開発環境を改善しようと思い、PCデスクの見直しなどをやっていたら、Windowsでも開発できるようにしようと思い至った。新しい環境を試してみたい気持ちが1割と、新しいゲーミングPCを組みたい気持ちが9割だ。</p>
 
-&lt;hr&gt;
+<hr>
 
-&lt;h2&gt;エディション&lt;/h2&gt;
+<h2>エディション</h2>
 
-&lt;p&gt;Windows 10 Homeエディションを利用している。&lt;/p&gt;
+<p>Windows 10 Homeエディションを利用している。</p>
 
-&lt;p&gt;Windows 10 ProにはHyper-Vという仮想化機能を直接利用できる利点があるが、WSL2で同じようなことをより便利に実現できるようになったおかげで、この点においてPro版の必要性は薄れてきている。今のところ自分のやりたいことはWindows 10 Homeですべて実現できている。&lt;/p&gt;
+<p>Windows 10 ProにはHyper-Vという仮想化機能を直接利用できる利点があるが、WSL2で同じようなことをより便利に実現できるようになったおかげで、この点においてPro版の必要性は薄れてきている。今のところ自分のやりたいことはWindows 10 Homeですべて実現できている。</p>
 
-&lt;h2&gt;Windows Update&lt;/h2&gt;
+<h2>Windows Update</h2>
 
-&lt;p&gt;WSL2を使うために、Windowsをバージョン2004・ビルド19041に更新した。&lt;/p&gt;
+<p>WSL2を使うために、Windowsをバージョン2004・ビルド19041に更新した。</p>
 
-&lt;p&gt;日々の自動更新ではバージョン1903で止まっていて、まだ自動では2004に上がらない状態だったので、&lt;a href=&quot;https://www.microsoft.com/ja-jp/software-download/windows10&quot;&gt;Windows 10 のダウンロード&lt;/a&gt; というページにアクセスし、最新版への移行アシスタントをダウンロードして実行。最近のやつに上げると、WSL2が有効化できるようになる。&lt;/p&gt;
+<p>日々の自動更新ではバージョン1903で止まっていて、まだ自動では2004に上がらない状態だったので、<a href="https://www.microsoft.com/ja-jp/software-download/windows10">Windows 10 のダウンロード</a> というページにアクセスし、最新版への移行アシスタントをダウンロードして実行。最近のやつに上げると、WSL2が有効化できるようになる。</p>
 
-&lt;h2&gt;WSL2&lt;/h2&gt;
+<h2>WSL2</h2>
 
-&lt;p&gt;Linuxディストリビューションを入れるために、WSL2を入れる。&lt;/p&gt;
+<p>Linuxディストリビューションを入れるために、WSL2を入れる。</p>
 
-&lt;p&gt;WindowsがWSL2に対応したバージョンになっていることを確認した後、&lt;a href=&quot;https://docs.microsoft.com/ja-jp/windows/wsl/install-win10&quot;&gt;Windows Subsystem for Linux (WSL) を Windows 10 にインストールする&lt;/a&gt; というガイドを見ながら、以下のコマンドで、WSL2の有効化と、仮想マシンプラットフォームの有効化というやつを試みる。&lt;/p&gt;
+<p>WindowsがWSL2に対応したバージョンになっていることを確認した後、<a href="https://docs.microsoft.com/ja-jp/windows/wsl/install-win10">Windows Subsystem for Linux (WSL) を Windows 10 にインストールする</a> というガイドを見ながら、以下のコマンドで、WSL2の有効化と、仮想マシンプラットフォームの有効化というやつを試みる。</p>
 
-&lt;p&gt;全体を通して言えることだが、破壊的変更をもたらすようなコマンドは管理者権限で起動した端末を利用しないと実行できないので、その点は注意。&lt;/p&gt;
+<p>全体を通して言えることだが、破壊的変更をもたらすようなコマンドは管理者権限で起動した端末を利用しないと実行できないので、その点は注意。</p>
 
-&lt;pre&gt;&lt;code&gt;dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /norestart
+<pre><code>dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /norestart
 dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /norestart
-&lt;/code&gt;&lt;/pre&gt;
+</code></pre>
 
-&lt;p&gt;有効化後、再起動するとWSLがインストールされており、コマンドプロンプトやPowerShellなどで &lt;code&gt;wsl&lt;/code&gt; コマンドが使えるようになっている。WSL1とWSL2が入るので、デフォルトでWSL2を使うように設定しておく。&lt;/p&gt;
+<p>有効化後、再起動するとWSLがインストールされており、コマンドプロンプトやPowerShellなどで <code>wsl</code> コマンドが使えるようになっている。WSL1とWSL2が入るので、デフォルトでWSL2を使うように設定しておく。</p>
 
-&lt;pre&gt;&lt;code&gt;wsl --set-default-version 2
-&lt;/code&gt;&lt;/pre&gt;
+<pre><code>wsl --set-default-version 2
+</code></pre>
 
-&lt;h2&gt;Ubuntu 20.04 LTS&lt;/h2&gt;
+<h2>Ubuntu 20.04 LTS</h2>
 
-&lt;p&gt;開発環境として使うためのLinuxディストリビューションを入れる。&lt;/p&gt;
+<p>開発環境として使うためのLinuxディストリビューションを入れる。</p>
 
-&lt;p&gt;Windowsに標準搭載されているMicrosoft Storeというアプリで、Linuxディストリビューション（をターミナル付きで起動できていい感じにWSL2と連携するようにラップしてくれたアプリケーション）が無料で配布されている。今回はUbuntu 20.04 LTSを選択した。&lt;/p&gt;
+<p>Windowsに標準搭載されているMicrosoft Storeというアプリで、Linuxディストリビューション（をターミナル付きで起動できていい感じにWSL2と連携するようにラップしてくれたアプリケーション）が無料で配布されている。今回はUbuntu 20.04 LTSを選択した。</p>
 
-&lt;p&gt;インストールして起動すると、PowerShell 7っぽい見た目のターミナルで初回のユーザ作成プロセスが立ち上がり、完了するとUbuntuの中に放り出される。&lt;/p&gt;
+<p>インストールして起動すると、PowerShell 7っぽい見た目のターミナルで初回のユーザ作成プロセスが立ち上がり、完了するとUbuntuの中に放り出される。</p>
 
-&lt;p&gt;Windows側の端末で &lt;code&gt;wsl&lt;/code&gt; コマンドを使うと、管理しているLinuxディストリビューションが増えていることが確認できる。&lt;/p&gt;
+<p>Windows側の端末で <code>wsl</code> コマンドを使うと、管理しているLinuxディストリビューションが増えていることが確認できる。</p>
 
-&lt;pre&gt;&lt;code&gt;wsl --list --verbose
-&lt;/code&gt;&lt;/pre&gt;
+<pre><code>wsl --list --verbose
+</code></pre>
 
-&lt;p&gt;&lt;code&gt;wsl&lt;/code&gt; コマンドを引数無しでそのまま使うと、その端末の中でシームレスにLinuxディストリビューション側にログインできる。&lt;/p&gt;
+<p><code>wsl</code> コマンドを引数無しでそのまま使うと、その端末の中でシームレスにLinuxディストリビューション側にログインできる。</p>
 
-&lt;h2&gt;Docker Desktop for Windows&lt;/h2&gt;
+<h2>Docker Desktop for Windows</h2>
 
-&lt;p&gt;Dockerを活用するために、Docker Desktop for Windowsを入れる。&lt;/p&gt;
+<p>Dockerを活用するために、Docker Desktop for Windowsを入れる。</p>
 
-&lt;p&gt;Dockerが専用のエンジンで動くようになり、WindowsやLinux環境では &lt;code&gt;docker&lt;/code&gt; コマンド経由でそこに対して命令を出す形になる。Windowsとの間でネットワークをいい感じにブリッジしてくれたりして非常に便利。&lt;/p&gt;
+<p>Dockerが専用のエンジンで動くようになり、WindowsやLinux環境では <code>docker</code> コマンド経由でそこに対して命令を出す形になる。Windowsとの間でネットワークをいい感じにブリッジしてくれたりして非常に便利。</p>
 
-&lt;p&gt;基本的に、開発で必要なソフトウェアはDockerイメージとして用意するように配慮して、開発用のLinuxディストリビューション側は、gitやtmuxなどの、汎用的なファイル操作や端末操作のためのソフトウェアを入れるに留めたい。&lt;/p&gt;
+<p>基本的に、開発で必要なソフトウェアはDockerイメージとして用意するように配慮して、開発用のLinuxディストリビューション側は、gitやtmuxなどの、汎用的なファイル操作や端末操作のためのソフトウェアを入れるに留めたい。</p>
 
-&lt;h2&gt;Windows Package Manager&lt;/h2&gt;
+<h2>Windows Package Manager</h2>
 
-&lt;p&gt;エディタや端末など、Windowsで使うアプリを簡単に入れるために、公式のパッケージマネージャを入れる。&lt;/p&gt;
+<p>エディタや端末など、Windowsで使うアプリを簡単に入れるために、公式のパッケージマネージャを入れる。</p>
 
-&lt;p&gt;まだまだ未発展なところも多いものの、使ってみるとそれなりに便利。
-&lt;a href=&quot;https://github.com/microsoft/winget-cli/releases&quot;&gt;GitHubリポジトリで配布されているインストーラ&lt;/a&gt; を実行すると入れられる。完了すると、Windows側の端末で &lt;code&gt;winget&lt;/code&gt; というコマンドが使えるようになる。&lt;/p&gt;
+<p>まだまだ未発展なところも多いものの、使ってみるとそれなりに便利。
+<a href="https://github.com/microsoft/winget-cli/releases">GitHubリポジトリで配布されているインストーラ</a> を実行すると入れられる。完了すると、Windows側の端末で <code>winget</code> というコマンドが使えるようになる。</p>
 
-&lt;h2&gt;Windows Terminal&lt;/h2&gt;
+<h2>Windows Terminal</h2>
 
-&lt;p&gt;Windows公式の最強の端末を入れる。&lt;/p&gt;
+<p>Windows公式の最強の端末を入れる。</p>
 
-&lt;pre&gt;&lt;code&gt;winget install &quot;Windows Terminal&quot;
-&lt;/code&gt;&lt;/pre&gt;
+<pre><code>winget install "Windows Terminal"
+</code></pre>
 
-&lt;p&gt;これは全部盛りのアプリケーションで、内部でタブとしていろんな種類の端末を開けるようになっている。自分の環境では、コマンドプロンプト、PowerShell 5、PowerShell 7、Ubuntu用端末、Azure Cloud Shellなどの選択肢がある。色々考えるとそれなりに良い使い心地なので、端末はこれに落ち着いた。&lt;/p&gt;
+<p>これは全部盛りのアプリケーションで、内部でタブとしていろんな種類の端末を開けるようになっている。自分の環境では、コマンドプロンプト、PowerShell 5、PowerShell 7、Ubuntu用端末、Azure Cloud Shellなどの選択肢がある。色々考えるとそれなりに良い使い心地なので、端末はこれに落ち着いた。</p>
 
-&lt;p&gt;注意してほしいのが、アンチエイリアスやフレーム更新などの描画処理をこだわっているせいなのか、グラフィック周りが不安定になることがある。自分の場合、G-SYNCを有効化しているとこのアプリケーションがアクティブなときだけ画面全体がちらつくようになったので、アプリケーションが全画面化されているとき以外はG-SYNCを無効化することにした。&lt;/p&gt;
+<p>注意してほしいのが、アンチエイリアスやフレーム更新などの描画処理をこだわっているせいなのか、グラフィック周りが不安定になることがある。自分の場合、G-SYNCを有効化しているとこのアプリケーションがアクティブなときだけ画面全体がちらつくようになったので、アプリケーションが全画面化されているとき以外はG-SYNCを無効化することにした。</p>
 
-&lt;p&gt;デフォルトのフォントは日本語をサポートしていないので、ＭＳゴシックに変更する。設定を開くと settings.json がいきなり開くので、&lt;a href=&quot;https://docs.microsoft.com/ja-jp/windows/terminal/customize-settings/profile-settings&quot;&gt;Windows ターミナル プロファイルの設定&lt;/a&gt; を見ながら適当に編集する。&lt;/p&gt;
+<p>デフォルトのフォントは日本語をサポートしていないので、ＭＳゴシックに変更する。設定を開くと settings.json がいきなり開くので、<a href="https://docs.microsoft.com/ja-jp/windows/terminal/customize-settings/profile-settings">Windows ターミナル プロファイルの設定</a> を見ながら適当に編集する。</p>
 
-&lt;pre&gt;&lt;code class=&quot;json&quot;&gt;{
-  &quot;profiles&quot;: {
-    &quot;defaults&quot;: {
-      &quot;fontFace&quot;: &quot;ＭＳゴシック&quot;
+<pre><code class="json">{
+  "profiles": {
+    "defaults": {
+      "fontFace": "ＭＳゴシック"
     }
   }
 }
-&lt;/code&gt;&lt;/pre&gt;
+</code></pre>
 
-&lt;h2&gt;Visual Studio Code&lt;/h2&gt;
+<h2>Visual Studio Code</h2>
 
-&lt;p&gt;主なエディタとしてVisual Studio Codeを使っている。&lt;/p&gt;
+<p>主なエディタとしてVisual Studio Codeを使っている。</p>
 
-&lt;p&gt;Visual Studio Codeではこの手の環境のためにリモート機能が提供されていて、Linux側とWindows側のそれぞれのVisual Studio Codeのプロセスが協調し、ファイルをWindows側のGUIで編集したり、コマンドをLinux側で処理させたりできる。&lt;/p&gt;
+<p>Visual Studio Codeではこの手の環境のためにリモート機能が提供されていて、Linux側とWindows側のそれぞれのVisual Studio Codeのプロセスが協調し、ファイルをWindows側のGUIで編集したり、コマンドをLinux側で処理させたりできる。</p>
 
-&lt;p&gt;Linux側で &lt;code&gt;code&lt;/code&gt; コマンドを使ってワークスペースを編集しようとすると、Windows側のGUIでそれが開き、適当に編集するだけで基本上手くいく。&lt;/p&gt;
+<p>Linux側で <code>code</code> コマンドを使ってワークスペースを編集しようとすると、Windows側のGUIでそれが開き、適当に編集するだけで基本上手くいく。</p>
 
-&lt;pre&gt;&lt;code&gt;winget install &quot;Visual Studio Code&quot;
-&lt;/code&gt;&lt;/pre&gt;
+<pre><code>winget install "Visual Studio Code"
+</code></pre>
 
-&lt;p&gt;Windows側でインストールすれば、Linux側でも使える。&lt;/p&gt;
+<p>Windows側でインストールすれば、Linux側でも使える。</p>
 
-&lt;hr&gt;
+<hr>
 
-&lt;p&gt;これでWindowsに依存した部分の環境構築は一段落。あとは開発用に用意したUbuntuをいい感じに整えていくだけだ。&lt;/p&gt;
+<p>これでWindowsに依存した部分の環境構築は一段落。あとは開発用に用意したUbuntuをいい感じに整えていくだけだ。</p>
 
-&lt;p&gt;&lt;a href=&quot;https://github.com/r7kamura/r7kamura.com&quot;&gt;このサイトのリポジトリ&lt;/a&gt;でもDocker環境を用意していたので、試しにUbuntu側にリポジトリをcloneしてきて、Visual Studio Codeで編集し、DockerでRubyのサーバを動かし、Windows側でプレビューする、ということをやりながらこの記事を書いてみた。&lt;/p&gt;
-</content>
-    </entry>
-  
-    <entry>
-      <title>記事一覧と順序付きリスト</title>
-      <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-09-27-list-style"/>
-      <id>tag:r7kamura.com,2019:/articles/2020-09-27-list-style</id>
-      <published>2020-09-27T00:00:00+00:00</published>
-      <updated>2020-10-03T13:36:52+00:00</updated>
-      <content type="html">&lt;p&gt;記事一覧も順序付きリストなのだから、&lt;code&gt;list-style-type: none&lt;/code&gt; で数字を消さず、自然状態にしておく方が良いかもしれない。そう思って実験してみたが、うるさすぎて没にした。&lt;/p&gt;
+<p><a href="https://github.com/r7kamura/r7kamura.com">このサイトのリポジトリ</a>でもDocker環境を用意していたので、試しにUbuntu側にリポジトリをcloneしてきて、Visual Studio Codeで編集し、DockerでRubyのサーバを動かし、Windows側でプレビューする、ということをやりながらこの記事を書いてみた。</p>
+]]></content:encoded>
+      <guid>https://r7kamura.com/articles/2020-09-28-development-on-windows</guid>
+    </item>
+    
+    <item>
+      <title><![CDATA[記事一覧と順序付きリスト]]></title>
+      <description><![CDATA[記事一覧も順序付きリストなのだから、list-style-type: none で数字を消さず、自然状態にしておく方が良いかもしれない。]]></description>
+      <link>https://r7kamura.com/articles/2020-09-27-list-style</link>
+      <pubDate>Sun, 27 Sep 2020 00:00:00 +0000</pubDate>
+      <content:encoded><![CDATA[<p>記事一覧も順序付きリストなのだから、<code>list-style-type: none</code> で数字を消さず、自然状態にしておく方が良いかもしれない。そう思って実験してみたが、うるさすぎて没にした。</p>
 
-&lt;figure&gt;&lt;a href=&quot;/images/2020-09-27-list-style-1.png&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/images/2020-09-27-list-style-1.png&quot; alt=&quot;&quot;&gt;&lt;/a&gt;&lt;figcaption&gt;没案・上部&lt;/figcaption&gt;&lt;/figure&gt;
+<figure><a href="/images/2020-09-27-list-style-1.png" target="_blank"><img src="/images/2020-09-27-list-style-1.png" alt=""></a><figcaption>没案・上部</figcaption></figure>
 
-&lt;figure&gt;&lt;a href=&quot;/images/2020-09-27-list-style-2.png&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/images/2020-09-27-list-style-2.png&quot; alt=&quot;&quot;&gt;&lt;/a&gt;&lt;figcaption&gt;没案・下部&lt;/figcaption&gt;&lt;/figure&gt;
+<figure><a href="/images/2020-09-27-list-style-2.png" target="_blank"><img src="/images/2020-09-27-list-style-2.png" alt=""></a><figcaption>没案・下部</figcaption></figure>
 
-&lt;p&gt;良い感想もあったので記録しおく。&lt;/p&gt;
+<p>良い感想もあったので記録しおく。</p>
 
-&lt;ul&gt;
-&lt;li&gt;どこまで読んだか思い出しやすい&lt;/li&gt;
-&lt;li&gt;400番台にいい記事があった&lt;/li&gt;
-&lt;li&gt;いま1000件弱の記事があるのか&lt;/li&gt;
-&lt;li&gt;数字が大きくなっていくと格好良い&lt;/li&gt;
-&lt;/ul&gt;
+<ul>
+<li>どこまで読んだか思い出しやすい</li>
+<li>400番台にいい記事があった</li>
+<li>いま1000件弱の記事があるのか</li>
+<li>数字が大きくなっていくと格好良い</li>
+</ul>
 
-&lt;p&gt;うるさすぎなければ良いのかと言うと、それでも、今の構成的には無いなと思う。「第200話」みたいな捉え方だと良いのかもしれないが、CSSでやるとあくまでもいま現在表示されている要素の番号になるので、トップページでおかしなことになる。技術的には記事ごとにIDを振っていけば実現できるが…難しいことをやって実現すると、どういう論理でそうなっているのか分からなくて利用者が混乱しやすい。&lt;/p&gt;
+<p>うるさすぎなければ良いのかと言うと、それでも、今の構成的には無いなと思う。「第200話」みたいな捉え方だと良いのかもしれないが、CSSでやるとあくまでもいま現在表示されている要素の番号になるので、トップページでおかしなことになる。技術的には記事ごとにIDを振っていけば実現できるが…難しいことをやって実現すると、どういう論理でそうなっているのか分からなくて利用者が混乱しやすい。</p>
 
-&lt;p&gt;ポッドキャスト等ならそれで良いだろうが、そういうシリーズだと記事タイトル自体が元々そういう情報を持っているだろうし、スタイリングでこういうサロゲートキー的な数字を割り当てようとするのは良くないことなのかもしれない。&lt;/p&gt;
+<p>ポッドキャスト等ならそれで良いだろうが、そういうシリーズだと記事タイトル自体が元々そういう情報を持っているだろうし、スタイリングでこういうサロゲートキー的な数字を割り当てようとするのは良くないことなのかもしれない。</p>
 
-&lt;p&gt;数字が大きくなってくる何か格好良いというのは、新房昭之さんがシャフト制作のアニメでやっていたような静止画表現に対して抱く感覚に近いように感じた。例えば『化物語』の黒齣に付けている話数表現であるとか。&lt;/p&gt;
+<p>数字が大きくなってくる何か格好良いというのは、新房昭之さんがシャフト制作のアニメでやっていたような静止画表現に対して抱く感覚に近いように感じた。例えば『化物語』の黒齣に付けている話数表現であるとか。</p>
 
-&lt;p&gt;格好良くやらなければ（ある一定の閾値を超えなければ）ダサく、うるさく感じてしまう。ウェブでいろんな表示環境で常に良く見えるように考慮しながらそれをやるのは難しい。&lt;/p&gt;
-</content>
-    </entry>
-  
-    <entry>
-      <title>記事の日付の位置</title>
-      <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-09-27-article-date-position"/>
-      <id>tag:r7kamura.com,2019:/articles/2020-09-27-article-date-position</id>
-      <published>2020-09-27T00:00:00+00:00</published>
-      <updated>2020-10-03T13:36:52+00:00</updated>
-      <content type="html">&lt;p&gt;常に記事タイトルの下に日付が置かれるように変更した。&lt;/p&gt;
+<p>格好良くやらなければ（ある一定の閾値を超えなければ）ダサく、うるさく感じてしまう。ウェブでいろんな表示環境で常に良く見えるように考慮しながらそれをやるのは難しい。</p>
+]]></content:encoded>
+      <guid>https://r7kamura.com/articles/2020-09-27-list-style</guid>
+    </item>
+    
+    <item>
+      <title><![CDATA[記事の日付の位置]]></title>
+      <description><![CDATA[常に記事タイトルの下に日付が置かれるように変更した。]]></description>
+      <link>https://r7kamura.com/articles/2020-09-27-article-date-position</link>
+      <pubDate>Sun, 27 Sep 2020 00:00:00 +0000</pubDate>
+      <content:encoded><![CDATA[<p>常に記事タイトルの下に日付が置かれるように変更した。</p>
 
-&lt;figure&gt;&lt;a href=&quot;/images/2020-09-27-date-before.png&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/images/2020-09-27-date-before.png&quot; alt=&quot;&quot;&gt;&lt;/a&gt;&lt;figcaption&gt;変更前&lt;/figcaption&gt;&lt;/figure&gt;
+<figure><a href="/images/2020-09-27-date-before.png" target="_blank"><img src="/images/2020-09-27-date-before.png" alt=""></a><figcaption>変更前</figcaption></figure>
 
-&lt;figure&gt;&lt;a href=&quot;/images/2020-09-27-date-after.png&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/images/2020-09-27-date-after.png&quot; alt=&quot;&quot;&gt;&lt;/a&gt;&lt;figcaption&gt;変更後&lt;/figcaption&gt;&lt;/figure&gt;
+<figure><a href="/images/2020-09-27-date-after.png" target="_blank"><img src="/images/2020-09-27-date-after.png" alt=""></a><figcaption>変更後</figcaption></figure>
 
-&lt;p&gt;記事単体のページでは既に日付が下にくるようになっているし、一覧でもパターンを統一しておきたいと思ったため。統一する前提で話すと、日付を上に置くつもりは今のところない。日記であればそうしたと思うが、どちらかと言うとエッセイ寄りというか、記事に日付が従属している状態にしておきたい。&lt;/p&gt;
-</content>
-    </entry>
-  
-    <entry>
-      <title>Rails 設計 最強</title>
-      <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-09-26-rails-architecture-strongest"/>
-      <id>tag:r7kamura.com,2019:/articles/2020-09-26-rails-architecture-strongest</id>
-      <published>2020-09-26T00:00:00+00:00</published>
-      <updated>2020-10-03T13:36:52+00:00</updated>
-      <content type="html">&lt;p&gt;自分が目指したいRailsアプリの形とは何か、ということについて考えていた。&lt;/p&gt;
+<p>記事単体のページでは既に日付が下にくるようになっているし、一覧でもパターンを統一しておきたいと思ったため。統一する前提で話すと、日付を上に置くつもりは今のところない。日記であればそうしたと思うが、どちらかと言うとエッセイ寄りというか、記事に日付が従属している状態にしておきたい。</p>
+]]></content:encoded>
+      <guid>https://r7kamura.com/articles/2020-09-27-article-date-position</guid>
+    </item>
+    
+    <item>
+      <title><![CDATA[Rails 設計 最強]]></title>
+      <description><![CDATA[自分が目指したいRailsアプリの形とは何か、ということについて考えていた。]]></description>
+      <link>https://r7kamura.com/articles/2020-09-26-rails-architecture-strongest</link>
+      <pubDate>Sat, 26 Sep 2020 00:00:00 +0000</pubDate>
+      <content:encoded><![CDATA[<p>自分が目指したいRailsアプリの形とは何か、ということについて考えていた。</p>
 
-&lt;p&gt;常日頃から考えていたRailsアプリでの不満をこの議論に合流させた結果、「Rubyを書くときに当たり前にやるようなことを、Railsアプリを書くときでも当たり前のようにやる」というところが肝で、自分が目指したいRailsアプリの形はその先にあるのではないか、と一旦結論付けてみることにした。&lt;/p&gt;
+<p>常日頃から考えていたRailsアプリでの不満をこの議論に合流させた結果、「Rubyを書くときに当たり前にやるようなことを、Railsアプリを書くときでも当たり前のようにやる」というところが肝で、自分が目指したいRailsアプリの形はその先にあるのではないか、と一旦結論付けてみることにした。</p>
 
-&lt;p&gt;「普通にRubyでコードを書くときはやらないけど、Railsだったらこう書く」という何かが存在していることが、さまざまな失敗の原因をつくっていると思う。
-RubyとRailsが地続きに繋がっていないというか、どこかで断絶があり、そこから筋の悪い設計が生まれている ―あるいは持ち込めるはずの良い設計を持ち込めていない― のではないか、という話。&lt;/p&gt;
+<p>「普通にRubyでコードを書くときはやらないけど、Railsだったらこう書く」という何かが存在していることが、さまざまな失敗の原因をつくっていると思う。
+RubyとRailsが地続きに繋がっていないというか、どこかで断絶があり、そこから筋の悪い設計が生まれている ―あるいは持ち込めるはずの良い設計を持ち込めていない― のではないか、という話。</p>
 
-&lt;hr&gt;
+<hr>
 
-&lt;p&gt;実際にはどの辺りが気になっているのか？という例を挙げると、氷山の一角を指摘するだけなのでこのトピック自体にはあまり強い関心を持たないでほしいのだけど、例えば「定数名の名前空間おかしいやろ」という話がある。具体的には、「なんでトップレベルに定数生やしまくるわけ？config/application.rb で &lt;code&gt;MyApp&lt;/code&gt; みたいな良さそうなmodule定義しとるんやから、&lt;code&gt;MyApp::Controllers::ApplicationController&lt;/code&gt; みたいにその下に生やしていくようにすべきなんちゃうん」という話。&lt;/p&gt;
+<p>実際にはどの辺りが気になっているのか？という例を挙げると、氷山の一角を指摘するだけなのでこのトピック自体にはあまり強い関心を持たないでほしいのだけど、例えば「定数名の名前空間おかしいやろ」という話がある。具体的には、「なんでトップレベルに定数生やしまくるわけ？config/application.rb で <code>MyApp</code> みたいな良さそうなmodule定義しとるんやから、<code>MyApp::Controllers::ApplicationController</code> みたいにその下に生やしていくようにすべきなんちゃうん」という話。</p>
 
-&lt;p&gt;要は、ユーザに書かせようとしているコントローラとかモデルとか諸々のコードの方向性が若干おかしいのではないかという話。というか基本的に、Railsのライブラリ側のコードはものすごく考え抜かれた設計になっていて、そこは完全に偉大なコードだと思っていて、不満があるのはユーザに書かせるコードの話である。&lt;/p&gt;
+<p>要は、ユーザに書かせようとしているコントローラとかモデルとか諸々のコードの方向性が若干おかしいのではないかという話。というか基本的に、Railsのライブラリ側のコードはものすごく考え抜かれた設計になっていて、そこは完全に偉大なコードだと思っていて、不満があるのはユーザに書かせるコードの話である。</p>
 
-&lt;p&gt;そういう、「確かにキー入力量を削減しながら多くの機能を実装できるけどスケールはしなそう」というコードを書かせるライブラリで本当に良いのか？それで「開発の生産性が著しく向上することに気付くでしょう」とか言って良いのか？という。&lt;/p&gt;
+<p>そういう、「確かにキー入力量を削減しながら多くの機能を実装できるけどスケールはしなそう」というコードを書かせるライブラリで本当に良いのか？それで「開発の生産性が著しく向上することに気付くでしょう」とか言って良いのか？という。</p>
 
-&lt;p&gt;正直、Railsの利用者のプログラミング能力として想定されているレベル感が結構ナメられているというか……少なくとも、それがあまりにも低く見積もられすぎていた時代があって、その感覚のまま今でもそれが提供され続けていたりするのではないかと思っている。知らんけど。&lt;/p&gt;
+<p>正直、Railsの利用者のプログラミング能力として想定されているレベル感が結構ナメられているというか……少なくとも、それがあまりにも低く見積もられすぎていた時代があって、その感覚のまま今でもそれが提供され続けていたりするのではないかと思っている。知らんけど。</p>
 
-&lt;p&gt;あるいは、それが「右も左も分からないようなRuby初心者にも使ってもらうための戦略である」というのであれば、その戦略単体では結構なことなのだけど、それはRailsが前提としている「何かをなすうえで最善の方法というものが1つだけある」という仮定と両立しないと思う。&lt;/p&gt;
+<p>あるいは、それが「右も左も分からないようなRuby初心者にも使ってもらうための戦略である」というのであれば、その戦略単体では結構なことなのだけど、それはRailsが前提としている「何かをなすうえで最善の方法というものが1つだけある」という仮定と両立しないと思う。</p>
 
-&lt;p&gt;この仮定の上だと、タイプ量は少なくてイージーだがスケールはしなそうな実装方法が「これが全てのRailsアプリにおいて見習うべきスタンダードでRails Wayなコードである」と扱われるので、郷に入っては郷に従え的感覚であらゆる状況でそういうコードを書かされることになるが、正直これはあまり良い状況ではないと思う。&lt;/p&gt;
+<p>この仮定の上だと、タイプ量は少なくてイージーだがスケールはしなそうな実装方法が「これが全てのRailsアプリにおいて見習うべきスタンダードでRails Wayなコードである」と扱われるので、郷に入っては郷に従え的感覚であらゆる状況でそういうコードを書かされることになるが、正直これはあまり良い状況ではないと思う。</p>
 
-&lt;p&gt;そういう状況になっていると、早々に破綻するような勉強用のチュートリアルみたいな規模のアプリケーションをタイプ量を抑えながら高速に量産することしかできないので、「Railsでは規模に耐えきれなくなってきたのでマイクロサービス化を期に○○で書き換えたら上手くいきました」とか言わせてしまうのではないですか。&lt;/p&gt;
+<p>そういう状況になっていると、早々に破綻するような勉強用のチュートリアルみたいな規模のアプリケーションをタイプ量を抑えながら高速に量産することしかできないので、「Railsでは規模に耐えきれなくなってきたのでマイクロサービス化を期に○○で書き換えたら上手くいきました」とか言わせてしまうのではないですか。</p>
 
-&lt;p&gt;もちろん、スケールできるように個々人が要所要所で工夫を凝らしていくことは可能で、実際にそういう努力がそこかしこで行われているのだけど、根っこのところでそれが志向されていないせいで、改善より速いスピードで新しいレガシーコードが生まれていったり、巨大な不安を感じなから手探りで拡張していくことになったりといったように、苦し目の状況になっているんじゃないかと思う。&lt;/p&gt;
+<p>もちろん、スケールできるように個々人が要所要所で工夫を凝らしていくことは可能で、実際にそういう努力がそこかしこで行われているのだけど、根っこのところでそれが志向されていないせいで、改善より速いスピードで新しいレガシーコードが生まれていったり、巨大な不安を感じなから手探りで拡張していくことになったりといったように、苦し目の状況になっているんじゃないかと思う。</p>
 
-&lt;hr&gt;
+<hr>
 
-&lt;p&gt;じゃあどうすれば良いのか？という話なんですが、まずRails側がこうなっていたら理想だなという個人的な希望を言うと、「何かをなすうえで最善の方法というものが1つだけある」という仮定、つまり「最善の開発方法というものを1つに定める」というRailsの根底にある判断はそのままにしておきながら、もっと利用者の学習能力・行動力を高く見積もった上での「最善の方法」が模索されてほしい。&lt;/p&gt;
+<p>じゃあどうすれば良いのか？という話なんですが、まずRails側がこうなっていたら理想だなという個人的な希望を言うと、「何かをなすうえで最善の方法というものが1つだけある」という仮定、つまり「最善の開発方法というものを1つに定める」というRailsの根底にある判断はそのままにしておきながら、もっと利用者の学習能力・行動力を高く見積もった上での「最善の方法」が模索されてほしい。</p>
 
-&lt;p&gt;現状提供されている方法は、「短い文字数のコードで動く」というところに最善たる評価基準が置かれすぎていると思う。もし「短い文字数のコードで動くアプリをつくることがRailsの存在意義である」とか言われたらもう諦めるしかないんですが、そうではないと思うので、それが堅牢になるかどうかという評価基準をもっと重視するように適宜変えていくと、いずれ「Rubyを初めて触るような入門者には一見難しく見えるかもしれないが、分かってくると確かにそれが正しかったなと信じられるような実装」が提供されるやり方になるのではないか。&lt;/p&gt;
+<p>現状提供されている方法は、「短い文字数のコードで動く」というところに最善たる評価基準が置かれすぎていると思う。もし「短い文字数のコードで動くアプリをつくることがRailsの存在意義である」とか言われたらもう諦めるしかないんですが、そうではないと思うので、それが堅牢になるかどうかという評価基準をもっと重視するように適宜変えていくと、いずれ「Rubyを初めて触るような入門者には一見難しく見えるかもしれないが、分かってくると確かにそれが正しかったなと信じられるような実装」が提供されるやり方になるのではないか。</p>
 
-&lt;p&gt;とはいえ別にRailsがそうなっていくかとかは全く分からないので、Railsアプリをつくる側は現状どうしていけば良いのかという話を考えると、「現状のRails Wayってやつは哲学はともかく実現方法としてはもっと上手くやる余地があるやり方なので、盲目的に信じてみるのはやめて、一歩引いて &quot;普通にRubyだったらどう書くか？&quot; という考え方を重視する」という方向に考えを変えてみるのが良いのかもしれない。これは思考実験から出てきた一つの案なので、特に確証がある話ではないけれども。&lt;/p&gt;
+<p>とはいえ別にRailsがそうなっていくかとかは全く分からないので、Railsアプリをつくる側は現状どうしていけば良いのかという話を考えると、「現状のRails Wayってやつは哲学はともかく実現方法としてはもっと上手くやる余地があるやり方なので、盲目的に信じてみるのはやめて、一歩引いて "普通にRubyだったらどう書くか？" という考え方を重視する」という方向に考えを変えてみるのが良いのかもしれない。これは思考実験から出てきた一つの案なので、特に確証がある話ではないけれども。</p>
 
-&lt;p&gt;これらの話が、冒頭に述べた「Rubyを書くときに当たり前にやるようなことを、Railsアプリを書くときでも当たり前のようにやる」という話に繋がってくると思い、自分が目指したいRailsアプリの形がこの先にあるのではないかと一旦結論付けることにした。&lt;/p&gt;
-</content>
-    </entry>
-  
-    <entry>
-      <title>PCデスク周りの情報源</title>
-      <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-09-25-workspace-pictures"/>
-      <id>tag:r7kamura.com,2019:/articles/2020-09-25-workspace-pictures</id>
-      <published>2020-09-25T00:00:00+00:00</published>
-      <updated>2020-10-03T13:36:52+00:00</updated>
-      <content type="html">&lt;p&gt;他人の作業環境を見るという趣味があり、最近はこの辺を観測している。&lt;/p&gt;
+<p>これらの話が、冒頭に述べた「Rubyを書くときに当たり前にやるようなことを、Railsアプリを書くときでも当たり前のようにやる」という話に繋がってくると思い、自分が目指したいRailsアプリの形がこの先にあるのではないかと一旦結論付けることにした。</p>
+]]></content:encoded>
+      <guid>https://r7kamura.com/articles/2020-09-26-rails-architecture-strongest</guid>
+    </item>
+    
+    <item>
+      <title><![CDATA[PCデスク周りの情報源]]></title>
+      <description><![CDATA[他人の作業環境を見るという趣味があり、最近はこの辺を観測している。]]></description>
+      <link>https://r7kamura.com/articles/2020-09-25-workspace-pictures</link>
+      <pubDate>Fri, 25 Sep 2020 00:00:00 +0000</pubDate>
+      <content:encoded><![CDATA[<p>他人の作業環境を見るという趣味があり、最近はこの辺を観測している。</p>
 
-&lt;h2&gt;お前らのpcデスク周り晒して(い)け&lt;/h2&gt;
+<h2>お前らのpcデスク周り晒して(い)け</h2>
 
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;https://twitter.com/search?q=%23%E3%81%8A%E5%89%8D%E3%82%89%E3%81%AEpc%E3%83%87%E3%82%B9%E3%82%AF%E5%91%A8%E3%82%8A%E6%99%92%E3%81%97%E3%81%A6%E3%81%84%E3%81%91&quot;&gt;#お前らのpcデスク周り晒していけ - Twitter検索 / Twitter&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://twitter.com/hashtag/%E3%81%8A%E5%89%8D%E3%82%89%E3%81%AEpc%E3%83%87%E3%82%B9%E3%82%AF%E5%91%A8%E3%82%8A%E6%99%92%E3%81%97%E3%81%A6%E3%81%91&quot;&gt;#お前らのpcデスク周り晒してけ - Twitter検索 / Twitter&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
+<ul>
+<li><a href="https://twitter.com/search?q=%23%E3%81%8A%E5%89%8D%E3%82%89%E3%81%AEpc%E3%83%87%E3%82%B9%E3%82%AF%E5%91%A8%E3%82%8A%E6%99%92%E3%81%97%E3%81%A6%E3%81%84%E3%81%91">#お前らのpcデスク周り晒していけ - Twitter検索 / Twitter</a></li>
+<li><a href="https://twitter.com/hashtag/%E3%81%8A%E5%89%8D%E3%82%89%E3%81%AEpc%E3%83%87%E3%82%B9%E3%82%AF%E5%91%A8%E3%82%8A%E6%99%92%E3%81%97%E3%81%A6%E3%81%91">#お前らのpcデスク周り晒してけ - Twitter検索 / Twitter</a></li>
+</ul>
 
-&lt;p&gt;Twitterのハッシュタグ。この流れは元々2ch由来の文化に近く、純粋に自作PCにこだわる人やアニメが好きな人が多い。残念な表記揺れにより二つ存在してしまっているが、前者の方が情報量が多く、丁寧な印象を受ける。Twitterだと気軽に見られるし、投稿している人に興味も持ちやすい。&lt;/p&gt;
+<p>Twitterのハッシュタグ。この流れは元々2ch由来の文化に近く、純粋に自作PCにこだわる人やアニメが好きな人が多い。残念な表記揺れにより二つ存在してしまっているが、前者の方が情報量が多く、丁寧な印象を受ける。Twitterだと気軽に見られるし、投稿している人に興味も持ちやすい。</p>
 
-&lt;h2&gt;DIGITAL DIYer&lt;/h2&gt;
+<h2>DIGITAL DIYer</h2>
 
-&lt;p&gt;&lt;a href=&quot;https://digitaldiy.jp/diyer/&quot;&gt;DIGITAL DIYer - PCデスク周り晒しサイト！&lt;/a&gt;&lt;/p&gt;
+<p><a href="https://digitaldiy.jp/diyer/">DIGITAL DIYer - PCデスク周り晒しサイト！</a></p>
 
-&lt;p&gt;PCデスク周りの写真や説明を投稿できるサイト。上のハッシュタグを見ていても、このサイトを使っている人が多い。使っているデバイスや、デザインのポイントなどを書いてくれているユーザーさんが多くて助かる。&lt;/p&gt;
+<p>PCデスク周りの写真や説明を投稿できるサイト。上のハッシュタグを見ていても、このサイトを使っている人が多い。使っているデバイスや、デザインのポイントなどを書いてくれているユーザーさんが多くて助かる。</p>
 
-&lt;h2&gt;デスクをすっきりさせるマガジン&lt;/h2&gt;
+<h2>デスクをすっきりさせるマガジン</h2>
 
-&lt;p&gt;&lt;a href=&quot;https://note.com/goando/m/me3ed2026f6ac&quot;&gt;デスクをすっきりさせるマガジン｜Go Ando / THE GUILD｜note&lt;/a&gt;&lt;/p&gt;
+<p><a href="https://note.com/goando/m/me3ed2026f6ac">デスクをすっきりさせるマガジン｜Go Ando / THE GUILD｜note</a></p>
 
-&lt;p&gt;Go Ando氏がまとめてくださっている、noteの投稿集。本記事の中で、唯一これだけがゲーミング環境寄りではない情報源となっている。仕事環境寄りの話が多く、実務的で堅実、丁寧でミニマル志向な話が多い。&lt;/p&gt;
+<p>Go Ando氏がまとめてくださっている、noteの投稿集。本記事の中で、唯一これだけがゲーミング環境寄りではない情報源となっている。仕事環境寄りの話が多く、実務的で堅実、丁寧でミニマル志向な話が多い。</p>
 
-&lt;p&gt;基本的にPCデスクの話になると、仕事環境よりゲーミング環境の話題の方が圧倒的に情報量が多いので、まとまった仕事環境寄りの話題としては貴重な情報源だと思う。&lt;/p&gt;
+<p>基本的にPCデスクの話になると、仕事環境よりゲーミング環境の話題の方が圧倒的に情報量が多いので、まとまった仕事環境寄りの話題としては貴重な情報源だと思う。</p>
 
-&lt;h2&gt;r/battlestations&lt;/h2&gt;
+<h2>r/battlestations</h2>
 
-&lt;p&gt;&lt;a href=&quot;https://www.reddit.com/r/battlestations/&quot;&gt;https://www.reddit.com/r/battlestations/&lt;/a&gt;&lt;/p&gt;
+<p><a href="https://www.reddit.com/r/battlestations/">https://www.reddit.com/r/battlestations/</a></p>
 
-&lt;p&gt;メンバーの熱量がすこぶる高く、高品質な情報が多いsubreddit。もちろんゲーミング環境の話が多い。&lt;/p&gt;
+<p>メンバーの熱量がすこぶる高く、高品質な情報が多いsubreddit。もちろんゲーミング環境の話が多い。</p>
 
-&lt;p&gt;これと比べると流石に熱量は劣るが、以下のsubreddit達も現実的な着地点・非ゲーミング環境の情報源として参考になる。&lt;/p&gt;
+<p>これと比べると流石に熱量は劣るが、以下のsubreddit達も現実的な着地点・非ゲーミング環境の情報源として参考になる。</p>
 
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;https://www.reddit.com/r/Workspaces/&quot;&gt;https://www.reddit.com/r/Workspaces/&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://www.reddit.com/r/desksetup/&quot;&gt;https://www.reddit.com/r/desksetup/&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
+<ul>
+<li><a href="https://www.reddit.com/r/Workspaces/">https://www.reddit.com/r/Workspaces/</a></li>
+<li><a href="https://www.reddit.com/r/desksetup/">https://www.reddit.com/r/desksetup/</a></li>
+</ul>
 
-&lt;h2&gt;randomfrankp&lt;/h2&gt;
+<h2>randomfrankp</h2>
 
-&lt;p&gt;&lt;a href=&quot;https://www.youtube.com/playlist?list=PLMBgyT0oxOrsX5QbFFAdGKpKbl9Kw2ng5&quot;&gt;Room Tour Project Playlist - YouTube&lt;/a&gt;&lt;/p&gt;
+<p><a href="https://www.youtube.com/playlist?list=PLMBgyT0oxOrsX5QbFFAdGKpKbl9Kw2ng5">Room Tour Project Playlist - YouTube</a></p>
 
-&lt;p&gt;randomfrankp氏の動画シリーズ。いろんな人のゲーム用デスクを紹介する動画シリーズだが、粒揃いで、説明欄も充実しており、情報の品質が高い。現時点で200本超のシリーズになっていて、一生見ていられる。&lt;/p&gt;
+<p>randomfrankp氏の動画シリーズ。いろんな人のゲーム用デスクを紹介する動画シリーズだが、粒揃いで、説明欄も充実しており、情報の品質が高い。現時点で200本超のシリーズになっていて、一生見ていられる。</p>
 
-&lt;p&gt;ところで、&quot;setup&quot; はこの界隈でも使われることが多く、おさえておいた方が良い表現。&quot;my dream gaming setup 2020&quot; のように使われる。似たような意味で &quot;build&quot; も使われるが、よりゲーマー的・ヲタク的表現。&lt;/p&gt;
-</content>
-    </entry>
-  
-    <entry>
-      <title>キーボード、節記号、フルーロン</title>
-      <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-09-25-notes"/>
-      <id>tag:r7kamura.com,2019:/articles/2020-09-25-notes</id>
-      <published>2020-09-25T00:00:00+00:00</published>
-      <updated>2020-10-03T13:36:52+00:00</updated>
-      <content type="html">&lt;p&gt;文字について考えることが多い一日だった。&lt;/p&gt;
+<p>ところで、"setup" はこの界隈でも使われることが多く、おさえておいた方が良い表現。"my dream gaming setup 2020" のように使われる。似たような意味で "build" も使われるが、よりゲーマー的・ヲタク的表現。</p>
+]]></content:encoded>
+      <guid>https://r7kamura.com/articles/2020-09-25-workspace-pictures</guid>
+    </item>
+    
+    <item>
+      <title><![CDATA[キーボード、節記号、フルーロン]]></title>
+      <description><![CDATA[文字について考えることが多い一日だった。]]></description>
+      <link>https://r7kamura.com/articles/2020-09-25-notes</link>
+      <pubDate>Fri, 25 Sep 2020 00:00:00 +0000</pubDate>
+      <content:encoded><![CDATA[<p>文字について考えることが多い一日だった。</p>
 
-&lt;h2&gt;キーボード&lt;/h2&gt;
+<h2>キーボード</h2>
 
-&lt;figure&gt;&lt;a href=&quot;https://images-na.ssl-images-amazon.com/images/I/71vo-w1hWXL._AC_SL1500_.jpg&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;https://images-na.ssl-images-amazon.com/images/I/71vo-w1hWXL._AC_SL1500_.jpg&quot; alt=&quot;&quot;&gt;&lt;/a&gt;&lt;figcaption&gt;G913-TKL-TCWH&lt;/figcaption&gt;&lt;/figure&gt;
+<figure><a href="https://images-na.ssl-images-amazon.com/images/I/71vo-w1hWXL._AC_SL1500_.jpg" target="_blank"><img src="https://images-na.ssl-images-amazon.com/images/I/71vo-w1hWXL._AC_SL1500_.jpg" alt=""></a><figcaption>G913-TKL-TCWH</figcaption></figure>
 
-&lt;p&gt;ロジクールの新作キーボードが格好良くて、欲しくなってしまっている。ゲーマー以外にもおすすめできそうな、良い塩梅のものが出てきてしまった。&lt;/p&gt;
+<p>ロジクールの新作キーボードが格好良くて、欲しくなってしまっている。ゲーマー以外にもおすすめできそうな、良い塩梅のものが出てきてしまった。</p>
 
-&lt;p&gt;&lt;a href=&quot;https://www.amazon.co.jp/dp/B08FT88853/?tag=r7kamura07-22&quot;&gt;ロジクール キーボード G913-TKL-TCWH&lt;/a&gt;&lt;/p&gt;
+<p><a href="https://www.amazon.co.jp/dp/B08FT88853/?tag=r7kamura07-22">ロジクール キーボード G913-TKL-TCWH</a></p>
 
-&lt;p&gt;自分が底打ち派・テンキーレス派なので、機能面でも気に入っている。白色も黒色もどちらにも良さがある。キートップの可愛さと、素材表面の金属削り出しっぽい格好良さが、上手く同居している。自分だとほとんどの手持ちのガジェットが黒色なので、買うなら黒色になっちゃいそうだけど、あえて白色を使ってみたい気持ちもある。&lt;/p&gt;
+<p>自分が底打ち派・テンキーレス派なので、機能面でも気に入っている。白色も黒色もどちらにも良さがある。キートップの可愛さと、素材表面の金属削り出しっぽい格好良さが、上手く同居している。自分だとほとんどの手持ちのガジェットが黒色なので、買うなら黒色になっちゃいそうだけど、あえて白色を使ってみたい気持ちもある。</p>
 
-&lt;p&gt;&lt;a href=&quot;/articles/2018-12-16-keyboards&quot;&gt;キーボード遍歴&lt;/a&gt;&lt;/p&gt;
+<p><a href="/articles/2018-12-16-keyboards">キーボード遍歴</a></p>
 
-&lt;p&gt;これまで使っていたキーボードについての話を発掘したので、書式や体裁を少し整えた。あれから幾らかキーボード環境も更新されているし、そろそろこれの新しい版を書きたい。&lt;/p&gt;
+<p>これまで使っていたキーボードについての話を発掘したので、書式や体裁を少し整えた。あれから幾らかキーボード環境も更新されているし、そろそろこれの新しい版を書きたい。</p>
 
-&lt;h2&gt;節記号&lt;/h2&gt;
+<h2>節記号</h2>
 
-&lt;p&gt;「§」という記号について、アンカー用のリンクとして使われているのをたまに見たことはあったが、初めてその詳しい説明を読んだ。Google IMEだと、例えば「だんらく」で変換候補として出る模様。「¶」も同様。&lt;/p&gt;
+<p>「§」という記号について、アンカー用のリンクとして使われているのをたまに見たことはあったが、初めてその詳しい説明を読んだ。Google IMEだと、例えば「だんらく」で変換候補として出る模様。「¶」も同様。</p>
 
-&lt;p&gt;&lt;a href=&quot;https://ja.wikipedia.org/wiki/%E7%AF%80%E8%A8%98%E5%8F%B7&quot;&gt;節記号 - Wikipedia&lt;/a&gt;&lt;/p&gt;
+<p><a href="https://ja.wikipedia.org/wiki/%E7%AF%80%E8%A8%98%E5%8F%B7">節記号 - Wikipedia</a></p>
 
-&lt;figure&gt;&lt;a href=&quot;/images/2020-09-25-notes.png&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/images/2020-09-25-notes.png&quot; alt=&quot;&quot;&gt;&lt;/a&gt;&lt;figcaption&gt;節記号がアンカーとして使われている例&lt;/figcaption&gt;&lt;/figure&gt;
+<figure><a href="/images/2020-09-25-notes.png" target="_blank"><img src="/images/2020-09-25-notes.png" alt=""></a><figcaption>節記号がアンカーとして使われている例</figcaption></figure>
 
-&lt;hr&gt;
+<hr>
 
-&lt;p&gt;段落記号について調べていたら、フルーロン大好き期が再来したので、罫線のスタイルもまた変更した。そこまで論理的ではない決め方をしたので、またそのうち、装飾イヤイヤ期みたいなものが発生しそう。&lt;/p&gt;
+<p>段落記号について調べていたら、フルーロン大好き期が再来したので、罫線のスタイルもまた変更した。そこまで論理的ではない決め方をしたので、またそのうち、装飾イヤイヤ期みたいなものが発生しそう。</p>
 
-&lt;p&gt;&lt;a href=&quot;https://ja.wikipedia.org/wiki/%E3%83%95%E3%83%AB%E3%83%BC%E3%83%AD%E3%83%B3&quot;&gt;フルーロン - Wikipedia&lt;/a&gt;&lt;/p&gt;
-</content>
-    </entry>
-  
-    <entry>
-      <title>グローバルヘッダーとトップページの微調整</title>
-      <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-09-24-site-minor-changes"/>
-      <id>tag:r7kamura.com,2019:/articles/2020-09-24-site-minor-changes</id>
-      <published>2020-09-24T00:00:00+00:00</published>
-      <updated>2020-10-03T13:36:52+00:00</updated>
-      <content type="html">&lt;p&gt;最近よくこのサイトに手を加えている。最初からそうだったかのように見えていれば、おおよそ成功と言える。&lt;/p&gt;
+<p><a href="https://ja.wikipedia.org/wiki/%E3%83%95%E3%83%AB%E3%83%BC%E3%83%AD%E3%83%B3">フルーロン - Wikipedia</a></p>
+]]></content:encoded>
+      <guid>https://r7kamura.com/articles/2020-09-25-notes</guid>
+    </item>
+    
+    <item>
+      <title><![CDATA[グローバルヘッダーとトップページの微調整]]></title>
+      <description><![CDATA[最近よくこのサイトに手を加えている。]]></description>
+      <link>https://r7kamura.com/articles/2020-09-24-site-minor-changes</link>
+      <pubDate>Thu, 24 Sep 2020 00:00:00 +0000</pubDate>
+      <content:encoded><![CDATA[<p>最近よくこのサイトに手を加えている。最初からそうだったかのように見えていれば、おおよそ成功と言える。</p>
 
-&lt;h2&gt;グローバルヘッダー&lt;/h2&gt;
+<h2>グローバルヘッダー</h2>
 
-&lt;p&gt;グローバルヘッダーを少し変えた。&lt;/p&gt;
+<p>グローバルヘッダーを少し変えた。</p>
 
-&lt;ul&gt;
-&lt;li&gt;「記事一覧」から「一覧」へ&lt;/li&gt;
-&lt;li&gt;「r7kamura」から「r7kamura.com」へ&lt;/li&gt;
-&lt;/ul&gt;
+<ul>
+<li>「記事一覧」から「一覧」へ</li>
+<li>「r7kamura」から「r7kamura.com」へ</li>
+</ul>
 
-&lt;p&gt;記事一覧だと四文字もあって、ここに置くといかついなと前々から感じていた。どうせ記事しかコンテンツがないので、一覧で伝わるに違いない。情報として完全ではないことを恐れていたが、100%の情報を伝えられる語句などそもそも存在しない、という前提に立つことで諦めることができた。&lt;/p&gt;
+<p>記事一覧だと四文字もあって、ここに置くといかついなと前々から感じていた。どうせ記事しかコンテンツがないので、一覧で伝わるに違いない。情報として完全ではないことを恐れていたが、100%の情報を伝えられる語句などそもそも存在しない、という前提に立つことで諦めることができた。</p>
 
-&lt;p&gt;このサイト上ではr7kamuraは人物の名前であるということしか説明していないので、左上にr7kamuraとか書いているのはおかしい。ということで、r7kamura.comというサイト名を左上に置くことにした。そもそも、「このサイトはr7kamura.comという名前です」と説明はしていないし、そう名付けた訳でもないが、title要素とドメインがr7kamura.comであることを基準にそういう前提がつくられるだろうと思い、とりあえずこうした。本当は適切なサイト名があると嬉しい。&lt;/p&gt;
+<p>このサイト上ではr7kamuraは人物の名前であるということしか説明していないので、左上にr7kamuraとか書いているのはおかしい。ということで、r7kamura.comというサイト名を左上に置くことにした。そもそも、「このサイトはr7kamura.comという名前です」と説明はしていないし、そう名付けた訳でもないが、title要素とドメインがr7kamura.comであることを基準にそういう前提がつくられるだろうと思い、とりあえずこうした。本当は適切なサイト名があると嬉しい。</p>
 
-&lt;h2&gt;このサイトについて&lt;/h2&gt;
+<h2>このサイトについて</h2>
 
-&lt;p&gt;「このサイトについて」のコンテンツを少し変えた。&lt;/p&gt;
+<p>「このサイトについて」のコンテンツを少し変えた。</p>
 
-&lt;p&gt;まずウェブサイトという表現をやめてサイトと呼ぶことにした。ウェブサイトの方が完全だが、長い。メールアドレスをアドレスと呼ぶような感覚があるが、いまの気分的にはサイトなのでサイトにした。個人サイトと呼んだときのサイトの語感が気に入っている。&lt;/p&gt;
+<p>まずウェブサイトという表現をやめてサイトと呼ぶことにした。ウェブサイトの方が完全だが、長い。メールアドレスをアドレスと呼ぶような感覚があるが、いまの気分的にはサイトなのでサイトにした。個人サイトと呼んだときのサイトの語感が気に入っている。</p>
 
-&lt;p&gt;「このサイトについて」という専用のページを別途設けるかどうか一度考えたが、トップページで説明されている方が収まりが良いだろうということで、この案は没。&lt;/p&gt;
+<p>「このサイトについて」という専用のページを別途設けるかどうか一度考えたが、トップページで説明されている方が収まりが良いだろうということで、この案は没。</p>
 
-&lt;p&gt;これまでサイトの作者について説明するセクションを設けていたが、サイトの説明に作者名をそれとなく含ませることでこれを取り除いた。経歴を書いたりソーシャルネットワークのアカウントを掲載したりということも特にするつもりはないし、あえてセクションを設けるほどでもない。&lt;/p&gt;
+<p>これまでサイトの作者について説明するセクションを設けていたが、サイトの説明に作者名をそれとなく含ませることでこれを取り除いた。経歴を書いたりソーシャルネットワークのアカウントを掲載したりということも特にするつもりはないし、あえてセクションを設けるほどでもない。</p>
 
-&lt;h2&gt;リンク集&lt;/h2&gt;
+<h2>リンク集</h2>
 
-&lt;p&gt;新たにリンクというセクションを用意し、これまで個々にセクションを割いていたものをここに押し込むことに成功した。&lt;/p&gt;
+<p>新たにリンクというセクションを用意し、これまで個々にセクションを割いていたものをここに押し込むことに成功した。</p>
 
-&lt;p&gt;将来、他のサイトへのリンクを置きたくなってもひと安心。相互リンク文化も復活させられる。昔は無断リンクという文化があったなと思い出していたら、Wikipediaのページがなかなか面白かったので、&lt;a href=&quot;https://ja.wikipedia.org/wiki/%E7%84%A1%E6%96%AD%E3%83%AA%E3%83%B3%E3%82%AF&quot;&gt;無断リンク&lt;/a&gt;しておく。&lt;/p&gt;
+<p>将来、他のサイトへのリンクを置きたくなってもひと安心。相互リンク文化も復活させられる。昔は無断リンクという文化があったなと思い出していたら、Wikipediaのページがなかなか面白かったので、<a href="https://ja.wikipedia.org/wiki/%E7%84%A1%E6%96%AD%E3%83%AA%E3%83%B3%E3%82%AF">無断リンク</a>しておく。</p>
 
-&lt;p&gt;リンクの記述に、dl要素で説明リストを利用してみることにした。順序無しリストだとデフォルトの箇条書きライクなスタイルを打ち消す必要があって面倒だし、その点定義リストのデフォルトスタイルは完全にマッチしていて、用途としても実装としてもほど良さそうに見える。リンク先自体の説明をしている訳ではなく、なぜそのリンクを載せているのかという説明をしてしまっているところが、若干気になってはいる。&lt;/p&gt;
-</content>
-    </entry>
-  
-    <entry>
-      <title>このサイトの実装 2020年版</title>
-      <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-09-23-this-site-setup-2020"/>
-      <id>tag:r7kamura.com,2019:/articles/2020-09-23-this-site-setup-2020</id>
-      <published>2020-09-23T00:00:00+00:00</published>
-      <updated>2020-10-03T13:36:52+00:00</updated>
-      <content type="html">&lt;p&gt;このサイトの2020年時点での実装のまとめ。振り返り用。&lt;/p&gt;
+<p>リンクの記述に、dl要素で説明リストを利用してみることにした。順序無しリストだとデフォルトの箇条書きライクなスタイルを打ち消す必要があって面倒だし、その点定義リストのデフォルトスタイルは完全にマッチしていて、用途としても実装としてもほど良さそうに見える。リンク先自体の説明をしている訳ではなく、なぜそのリンクを載せているのかという説明をしてしまっているところが、若干気になってはいる。</p>
+]]></content:encoded>
+      <guid>https://r7kamura.com/articles/2020-09-24-site-minor-changes</guid>
+    </item>
+    
+    <item>
+      <title><![CDATA[このサイトの実装 2020年版]]></title>
+      <description><![CDATA[このサイトの2020年時点での実装のまとめ。]]></description>
+      <link>https://r7kamura.com/articles/2020-09-23-this-site-setup-2020</link>
+      <pubDate>Wed, 23 Sep 2020 00:00:00 +0000</pubDate>
+      <content:encoded><![CDATA[<p>このサイトの2020年時点での実装のまとめ。振り返り用。</p>
 
-&lt;h2&gt;ホスティング&lt;/h2&gt;
+<h2>ホスティング</h2>
 
-&lt;p&gt;GitHub Pagesで静的ファイルを配信している。&lt;/p&gt;
+<p>GitHub Pagesで静的ファイルを配信している。</p>
 
-&lt;p&gt;当たり前に思うかもしれないが、&lt;code&gt;articles.html&lt;/code&gt; というファイルを配置したときに、&lt;code&gt;/articles.html&lt;/code&gt; だけでなく &lt;code&gt;/articles&lt;/code&gt; というURLでもアクセスできて嬉しい。後者に統一している。&lt;/p&gt;
+<p>当たり前に思うかもしれないが、<code>articles.html</code> というファイルを配置したときに、<code>/articles.html</code> だけでなく <code>/articles</code> というURLでもアクセスできて嬉しい。後者に統一している。</p>
 
-&lt;p&gt;画像もGitHub Pagesにホスティングしてもらっている。特別にカメラも持っていないし、今のところ枚数も知れている。しかし以下のように制限もあるので、写真が好きな人や、制作物を紹介するポートフォリオのようなものを用意したい場合には少し注意が必要だろう。&lt;/p&gt;
+<p>画像もGitHub Pagesにホスティングしてもらっている。特別にカメラも持っていないし、今のところ枚数も知れている。しかし以下のように制限もあるので、写真が好きな人や、制作物を紹介するポートフォリオのようなものを用意したい場合には少し注意が必要だろう。</p>
 
-&lt;ul&gt;
-&lt;li&gt;ファイルあたり100MBの制限&lt;/li&gt;
-&lt;li&gt;サイトあたり1GBの制限&lt;/li&gt;
-&lt;li&gt;月あたり100GBの帯域幅制限&lt;/li&gt;
-&lt;/ul&gt;
+<ul>
+<li>ファイルあたり100MBの制限</li>
+<li>サイトあたり1GBの制限</li>
+<li>月あたり100GBの帯域幅制限</li>
+</ul>
 
-&lt;p&gt;利用する場合は、一度&lt;a href=&quot;https://docs.github.com/ja/github/working-with-github-pages/about-github-pages&quot;&gt;ガイドライン&lt;/a&gt;を読んでおこう。&lt;/p&gt;
+<p>利用する場合は、一度<a href="https://docs.github.com/ja/github/working-with-github-pages/about-github-pages">ガイドライン</a>を読んでおこう。</p>
 
-&lt;h2&gt;ドメイン&lt;/h2&gt;
+<h2>ドメイン</h2>
 
-&lt;p&gt;Amazon Route53でドメインを管理している。&lt;/p&gt;
+<p>Amazon Route53でドメインを管理している。</p>
 
-&lt;p&gt;このウェブサイトにおいて唯一継続的にお金が掛かっているところでもある。最初の数日だけ &lt;code&gt;r7kamura.github.io&lt;/code&gt; で運営していたこともあったが、試験用途でも無い限り、.comドメインぐらいの価格で済むなら明らかにドメインはあった方が良い。&lt;/p&gt;
+<p>このウェブサイトにおいて唯一継続的にお金が掛かっているところでもある。最初の数日だけ <code>r7kamura.github.io</code> で運営していたこともあったが、試験用途でも無い限り、.comドメインぐらいの価格で済むなら明らかにドメインはあった方が良い。</p>
 
-&lt;p&gt;ただの記録にも関わらずアドバイス的な形式でわざわざ書いているのは、学生の頃、自分のウェブサイトをつくろうとしたのにドメインを取るのに躊躇してやめた過去があるから。面白半分で良いから、興味があるなら自分にお金を掛けてみるべき。&lt;/p&gt;
+<p>ただの記録にも関わらずアドバイス的な形式でわざわざ書いているのは、学生の頃、自分のウェブサイトをつくろうとしたのにドメインを取るのに躊躇してやめた過去があるから。面白半分で良いから、興味があるなら自分にお金を掛けてみるべき。</p>
 
-&lt;h2&gt;ビルド&lt;/h2&gt;
+<h2>ビルド</h2>
 
-&lt;p&gt;GitHub Actionsで静的ファイルを自動生成している。&lt;/p&gt;
+<p>GitHub Actionsで静的ファイルを自動生成している。</p>
 
-&lt;p&gt;このウェブサイトは動的なRackアプリケーションとして実装されていて、ビルド毎に全ページのスナップショットが静的ファイルとして出力される、という設計にしている。多分このサイトの実装で一番面白いところだろう。&lt;/p&gt;
+<p>このウェブサイトは動的なRackアプリケーションとして実装されていて、ビルド毎に全ページのスナップショットが静的ファイルとして出力される、という設計にしている。多分このサイトの実装で一番面白いところだろう。</p>
 
-&lt;p&gt;この仕組みの良いところの一つは、普段利用しているアプリケーション開発の知識を静的なウェブサイトの開発にも適用できるところ。例えば、Railsを使っても良いし、Hanamiを使ってみても良いし、自分で最強のウェブアプリケーションフレームワークをつくってみるという遊び方をしても良い。&lt;/p&gt;
+<p>この仕組みの良いところの一つは、普段利用しているアプリケーション開発の知識を静的なウェブサイトの開発にも適用できるところ。例えば、Railsを使っても良いし、Hanamiを使ってみても良いし、自分で最強のウェブアプリケーションフレームワークをつくってみるという遊び方をしても良い。</p>
 
-&lt;h2&gt;デザイン&lt;/h2&gt;
+<h2>デザイン</h2>
 
-&lt;p&gt;気になったときにHTMLテンプレートやCSSを盆栽のようにいじっている。&lt;/p&gt;
+<p>気になったときにHTMLテンプレートやCSSを盆栽のようにいじっている。</p>
 
-&lt;p&gt;試してみていることを幾つか挙げる。&lt;/p&gt;
+<p>試してみていることを幾つか挙げる。</p>
 
-&lt;ul&gt;
-&lt;li&gt;覚えるべきことを減らす
+<ul>
+<li>覚えるべきことを減らす
 
-&lt;ul&gt;
-&lt;li&gt;デフォルトを尊重する&lt;/li&gt;
-&lt;li&gt;同じスタイルを再利用する&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;実装しない
+<ul>
+<li>デフォルトを尊重する</li>
+<li>同じスタイルを再利用する</li>
+</ul>
+</li>
+<li>実装しない
 
-&lt;ul&gt;
-&lt;li&gt;ブラウザに任せる&lt;/li&gt;
-&lt;li&gt;Googleに任せる&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
+<ul>
+<li>ブラウザに任せる</li>
+<li>Googleに任せる</li>
+</ul>
+</li>
+</ul>
 
-&lt;h2&gt;記事の書き方&lt;/h2&gt;
+<h2>記事の書き方</h2>
 
-&lt;p&gt;Markdownベースの何かで記事を書いている。&lt;/p&gt;
+<p>Markdownベースの何かで記事を書いている。</p>
 
-&lt;figure&gt;&lt;pre&gt;&lt;code&gt;---
+<figure><pre><code>---
 title: このウェブサイトの実装 2020年版
 ---
 
@@ -688,244 +687,246 @@ title: このウェブサイトの実装 2020年版
 ## ホスティング
 
 GitHub Pagesで静的ファイルを配信している。
-&lt;/code&gt;&lt;/pre&gt;
-&lt;figcaption&gt;記事のソースコードの例&lt;/figcaption&gt;&lt;/figure&gt;
+</code></pre>
+<figcaption>記事のソースコードの例</figcaption></figure>
 
-&lt;p&gt;「Markdownベースの何か」に関する話をすると長くなるので、また別の機会に触れたい。&lt;/p&gt;
+<p>「Markdownベースの何か」に関する話をすると長くなるので、また別の機会に触れたい。</p>
 
-&lt;p&gt;記事を書いたら、&lt;code&gt;git push&lt;/code&gt; するとよしなにやってくれる。ブラウザでGitHubを開いてエディタで書くこともできる。とはいえ外出時にたまたま気になってiPhoneから編集したことがある程度で、今のところPCのエディタで書くことがほとんど。&lt;/p&gt;
-</content>
-    </entry>
-  
-    <entry>
-      <title>ウェブカメラ、LOST ARK、コードの説明</title>
-      <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-09-23-notes"/>
-      <id>tag:r7kamura.com,2019:/articles/2020-09-23-notes</id>
-      <published>2020-09-23T00:00:00+00:00</published>
-      <updated>2020-10-03T13:36:52+00:00</updated>
-      <content type="html">&lt;p&gt;ウェブカメラを買ったり、新しいMMORPGを試したり、サイトをいじったりした。&lt;/p&gt;
+<p>記事を書いたら、<code>git push</code> するとよしなにやってくれる。ブラウザでGitHubを開いてエディタで書くこともできる。とはいえ外出時にたまたま気になってiPhoneから編集したことがある程度で、今のところPCのエディタで書くことがほとんど。</p>
+]]></content:encoded>
+      <guid>https://r7kamura.com/articles/2020-09-23-this-site-setup-2020</guid>
+    </item>
+    
+    <item>
+      <title><![CDATA[ウェブカメラ、LOST ARK、コードの説明]]></title>
+      <description><![CDATA[ウェブカメラを買ったり、新しいMMORPGを試したり、サイトをいじったりした。]]></description>
+      <link>https://r7kamura.com/articles/2020-09-23-notes</link>
+      <pubDate>Wed, 23 Sep 2020 00:00:00 +0000</pubDate>
+      <content:encoded><![CDATA[<p>ウェブカメラを買ったり、新しいMMORPGを試したり、サイトをいじったりした。</p>
 
-&lt;figure&gt;&lt;a href=&quot;/images/2020-09-23-notes-camera.jpg&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/images/2020-09-23-notes-camera.jpg&quot; alt=&quot;&quot;&gt;&lt;/a&gt;&lt;figcaption&gt;ウェブカメラとディスプレイ&lt;/figcaption&gt;&lt;/figure&gt;
+<figure><a href="/images/2020-09-23-notes-camera.jpg" target="_blank"><img src="/images/2020-09-23-notes-camera.jpg" alt=""></a><figcaption>ウェブカメラとディスプレイ</figcaption></figure>
 
-&lt;h2&gt;ウェブカメラ&lt;/h2&gt;
+<h2>ウェブカメラ</h2>
 
-&lt;p&gt;Google HangoutやZoomでウェブカメラを使う機会も増えてきたので、「ウェブカメラ 最強」で検索して、Amazonで&lt;a href=&quot;https://www.amazon.co.jp/dp/B086R71LGW/?tag=r7kamura07-22&quot;&gt;ロジクールのC980GR&lt;/a&gt;を買った。現状、ロジクールで発売されている中で最強クラスのやつ。これ以上良くするなら、良いデジカメをHDMIキャプチャボードで繋いだを付けた方が良い。&lt;/p&gt;
+<p>Google HangoutやZoomでウェブカメラを使う機会も増えてきたので、「ウェブカメラ 最強」で検索して、Amazonで<a href="https://www.amazon.co.jp/dp/B086R71LGW/?tag=r7kamura07-22">ロジクールのC980GR</a>を買った。現状、ロジクールで発売されている中で最強クラスのやつ。これ以上良くするなら、良いデジカメをHDMIキャプチャボードで繋いだを付けた方が良い。</p>
 
-&lt;p&gt;あまり明るくない部屋でも、顔が明るく映るのが嬉しい。普段ノートPCを閉じたまま使っているので、ミーティングのときだけカメラのために開くのが面倒だったし、メインディスプレイで共有された資料を見たいのにノートPCのカメラに顔を向けなければいけないという問題があった。今のところ一切の不満が無く、買って良かったと思う。&lt;/p&gt;
+<p>あまり明るくない部屋でも、顔が明るく映るのが嬉しい。普段ノートPCを閉じたまま使っているので、ミーティングのときだけカメラのために開くのが面倒だったし、メインディスプレイで共有された資料を見たいのにノートPCのカメラに顔を向けなければいけないという問題があった。今のところ一切の不満が無く、買って良かったと思う。</p>
 
-&lt;p&gt;ちなみに、&lt;a href=&quot;https://r7kamura.com/articles/2020-09-19-anker-usb-hub&quot;&gt;AnkerのUSBハブを買った&lt;/a&gt; のは、このウェブカメラを接続するにあたってUSBポートの数が足りなくなったから。&lt;/p&gt;
+<p>ちなみに、<a href="https://r7kamura.com/articles/2020-09-19-anker-usb-hub">AnkerのUSBハブを買った</a> のは、このウェブカメラを接続するにあたってUSBポートの数が足りなくなったから。</p>
 
-&lt;h2&gt;LOST ARK&lt;/h2&gt;
+<h2>LOST ARK</h2>
 
-&lt;figure&gt;&lt;a href=&quot;/images/2020-09-23-notes-lostark.png&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/images/2020-09-23-notes-lostark.png&quot; alt=&quot;&quot;&gt;&lt;/a&gt;&lt;figcaption&gt;ゲーム内の様子。普段は見下ろし型だがズームするとこうなる&lt;/figcaption&gt;&lt;/figure&gt;
+<figure><a href="/images/2020-09-23-notes-lostark.png" target="_blank"><img src="/images/2020-09-23-notes-lostark.png" alt=""></a><figcaption>ゲーム内の様子。普段は見下ろし型だがズームするとこうなる</figcaption></figure>
 
-&lt;p&gt;韓国で既にリリースされている人気のMMORPG。今日から日本での正式サービスが開始されるということで、少しだけプレイしたのだけど、正直期待していたより自分に合わなかったので残念。FF11やFF14をやりすぎたせいで、先入観が付き、贅沢になりすぎたのかもしれない。&lt;/p&gt;
+<p>韓国で既にリリースされている人気のMMORPG。今日から日本での正式サービスが開始されるということで、少しだけプレイしたのだけど、正直期待していたより自分に合わなかったので残念。FF11やFF14をやりすぎたせいで、先入観が付き、贅沢になりすぎたのかもしれない。</p>
 
-&lt;p&gt;スキル割り振りのプリセットによるビルドシステムや、ダイナミックに動くカメラワーク、大量の雑魚敵を上手く薙ぎ払う爽快感など、褒めたい要素は沢山あるのだけど、点と点が自分の中で全く噛み合っていないというか、MMORPG的な要素をそれぞれの部署が考えてそれぞれで最善を尽くしましたという感じで、「体験がデザインされている」という期待が感じられなかったのが自分に合わなかったところ。自分の感想は「勿体ない」に尽きる。&lt;/p&gt;
+<p>スキル割り振りのプリセットによるビルドシステムや、ダイナミックに動くカメラワーク、大量の雑魚敵を上手く薙ぎ払う爽快感など、褒めたい要素は沢山あるのだけど、点と点が自分の中で全く噛み合っていないというか、MMORPG的な要素をそれぞれの部署が考えてそれぞれで最善を尽くしましたという感じで、「体験がデザインされている」という期待が感じられなかったのが自分に合わなかったところ。自分の感想は「勿体ない」に尽きる。</p>
 
-&lt;h2&gt;コードの説明&lt;/h2&gt;
+<h2>コードの説明</h2>
 
-&lt;p&gt;コードを掲載しながら説明するとき、「以下は○○するコードである」と書いて相対参照するより、そのコードのキャプションでその旨を説明するか、コードの名前などを書いて絶対参照する方が良い。そこで、試しにコードブロック記法でキャプションを付けられるようにしてみた。&lt;/p&gt;
+<p>コードを掲載しながら説明するとき、「以下は○○するコードである」と書いて相対参照するより、そのコードのキャプションでその旨を説明するか、コードの名前などを書いて絶対参照する方が良い。そこで、試しにコードブロック記法でキャプションを付けられるようにしてみた。</p>
 
-&lt;figure&gt;&lt;pre&gt;&lt;code&gt;module Kernel
+<figure><pre><code>module Kernel
   alias_method :original_require, :require
 
   def require(path)
     time = ::Time.now
     original_require(path).tap do
-      puts &quot;%3.6f\t#{path}&quot; % (Time.now - time)
+      puts "%3.6f\t#{path}" % (Time.now - time)
     end
   end
 end
-&lt;/code&gt;&lt;/pre&gt;
-&lt;figcaption&gt;requireの処理時間を雑に測定するコード&lt;/figcaption&gt;&lt;/figure&gt;
+</code></pre>
+<figcaption>requireの処理時間を雑に測定するコード</figcaption></figure>
 
-&lt;p&gt;見た目はいい感じ。&lt;/p&gt;
+<p>見た目はいい感じ。</p>
 
-&lt;p&gt;実装方法には全く納得しておらず、キャプション文字列内に空白が入ると動かないとか色々不満はあるが、「コードにキャプションがあると嬉しいか？」を調べるためのプロトタイプとしては十分役割を果たしていると思う。&lt;/p&gt;
+<p>実装方法には全く納得しておらず、キャプション文字列内に空白が入ると動かないとか色々不満はあるが、「コードにキャプションがあると嬉しいか？」を調べるためのプロトタイプとしては十分役割を果たしていると思う。</p>
 
-&lt;hr&gt;
+<hr>
 
-&lt;p&gt;雑記のタイトルでは、話題を羅列するというパターンが気に入っている。技術系ポッドキャストの説明文で、似たような表現を見ることが多い。&lt;/p&gt;
-</content>
-    </entry>
-  
-    <entry>
-      <title>記事の説明文</title>
-      <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-09-22-markdown-summary"/>
-      <id>tag:r7kamura.com,2019:/articles/2020-09-22-markdown-summary</id>
-      <published>2020-09-22T00:00:00+00:00</published>
-      <updated>2020-10-03T13:36:52+00:00</updated>
-      <content type="html">&lt;figure&gt;&lt;a href=&quot;/images/2020-09-22-summary-detection.jpg&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/images/2020-09-22-summary-detection.jpg&quot; alt=&quot;&quot;&gt;&lt;/a&gt;&lt;figcaption&gt;何の関係も無いサメのぬいぐるみの画像&lt;/figcaption&gt;&lt;/figure&gt;
+<p>雑記のタイトルでは、話題を羅列するというパターンが気に入っている。技術系ポッドキャストの説明文で、似たような表現を見ることが多い。</p>
+]]></content:encoded>
+      <guid>https://r7kamura.com/articles/2020-09-23-notes</guid>
+    </item>
+    
+    <item>
+      <title><![CDATA[記事の説明文]]></title>
+      <description><![CDATA[記事の説明文を抽出する方法を変更した。]]></description>
+      <link>https://r7kamura.com/articles/2020-09-22-markdown-summary</link>
+      <pubDate>Tue, 22 Sep 2020 00:00:00 +0000</pubDate>
+      <content:encoded><![CDATA[<figure><a href="/images/2020-09-22-summary-detection.jpg" target="_blank"><img src="/images/2020-09-22-summary-detection.jpg" alt=""></a><figcaption>何の関係も無いサメのぬいぐるみの画像</figcaption></figure>
 
-&lt;p&gt;記事の説明文を抽出する方法を変更した。あまり目に触れる機会は無いが、SNSやフィードなどで利用される。&lt;/p&gt;
+<p>記事の説明文を抽出する方法を変更した。あまり目に触れる機会は無いが、SNSやフィードなどで利用される。</p>
 
-&lt;p&gt;これまでは「なるべく記事の先頭の方で要約を置きたい」という背景から「最初に表れるテキストの先頭の一文をその記事の説明文として扱う」という作戦でやっていた。しかし、&lt;a href=&quot;/articles/2020-09-22-markdown-caption&quot;&gt;画像にキャプションを付けられるようにした&lt;/a&gt;おかげで、アイキャッチとして記事の先頭に画像を置き、そこにキャプションが書かれるというケースも今後出てくるはず。そうなるとこの作戦は上手くいかない。&lt;/p&gt;
+<p>これまでは「なるべく記事の先頭の方で要約を置きたい」という背景から「最初に表れるテキストの先頭の一文をその記事の説明文として扱う」という作戦でやっていた。しかし、<a href="/articles/2020-09-22-markdown-caption">画像にキャプションを付けられるようにした</a>おかげで、アイキャッチとして記事の先頭に画像を置き、そこにキャプションが書かれるというケースも今後出てくるはず。そうなるとこの作戦は上手くいかない。</p>
 
-&lt;p&gt;この記事でも、過去のやり方で失敗する例として、先頭にキャプション付きの画像を配置している。これまでの方法だと、この記事の説明文は以下のようになっていた。&lt;/p&gt;
+<p>この記事でも、過去のやり方で失敗する例として、先頭にキャプション付きの画像を配置している。これまでの方法だと、この記事の説明文は以下のようになっていた。</p>
 
-&lt;blockquote&gt;
-&lt;p&gt;何の関係も無いサメのぬいぐるみの画像&lt;/p&gt;
-&lt;/blockquote&gt;
+<blockquote>
+<p>何の関係も無いサメのぬいぐるみの画像</p>
+</blockquote>
 
-&lt;p&gt;新しい作戦として用意したのは「最初の子がテキストである段落要素の最初の一文をその記事の説明文として扱う」というもの。この方法だと、説明文は以下のようになる。&lt;/p&gt;
+<p>新しい作戦として用意したのは「最初の子がテキストである段落要素の最初の一文をその記事の説明文として扱う」というもの。この方法だと、説明文は以下のようになる。</p>
 
-&lt;blockquote&gt;
-&lt;p&gt;記事の説明文を抽出する方法を変更した。&lt;/p&gt;
-&lt;/blockquote&gt;
+<blockquote>
+<p>記事の説明文を抽出する方法を変更した。</p>
+</blockquote>
 
-&lt;p&gt;ソースコードの変更は &lt;a href=&quot;https://github.com/r7kamura/r7kamura.com/commit/637bcc8f52db48ab7fd38cbe28ef55d75a2e1ad2&quot;&gt;https://github.com/r7kamura/r7kamura.com/commit/637bcc8f52db48ab7fd38cbe28ef55d75a2e1ad2&lt;/a&gt; のようになった。フィルタの仕組みは、変換だけでなく、メタデータの収集にも利用できる。この手法は、例えば &lt;code&gt;@r7kamura&lt;/code&gt; のように文章内でmentionする機能をつくるときなんかに、mentionをリンクに変換しつつ通知先のアカウント名を収集する、といった感じでよく使われる。&lt;/p&gt;
-</content>
-    </entry>
-  
-    <entry>
-      <title>画像のキャプション</title>
-      <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-09-22-markdown-caption"/>
-      <id>tag:r7kamura.com,2019:/articles/2020-09-22-markdown-caption</id>
-      <published>2020-09-22T00:00:00+00:00</published>
-      <updated>2020-10-03T13:36:52+00:00</updated>
-      <content type="html">&lt;p&gt;FF14のスクリーンショットを久しぶりに見返していた。&lt;/p&gt;
+<p>ソースコードの変更は <a href="https://github.com/r7kamura/r7kamura.com/commit/637bcc8f52db48ab7fd38cbe28ef55d75a2e1ad2">https://github.com/r7kamura/r7kamura.com/commit/637bcc8f52db48ab7fd38cbe28ef55d75a2e1ad2</a> のようになった。フィルタの仕組みは、変換だけでなく、メタデータの収集にも利用できる。この手法は、例えば <code>@r7kamura</code> のように文章内でmentionする機能をつくるときなんかに、mentionをリンクに変換しつつ通知先のアカウント名を収集する、といった感じでよく使われる。</p>
+]]></content:encoded>
+      <guid>https://r7kamura.com/articles/2020-09-22-markdown-summary</guid>
+    </item>
+    
+    <item>
+      <title><![CDATA[画像のキャプション]]></title>
+      <description><![CDATA[FF14のスクリーンショットを久しぶりに見返していた。]]></description>
+      <link>https://r7kamura.com/articles/2020-09-22-markdown-caption</link>
+      <pubDate>Tue, 22 Sep 2020 00:00:00 +0000</pubDate>
+      <content:encoded><![CDATA[<p>FF14のスクリーンショットを久しぶりに見返していた。</p>
 
-&lt;figure&gt;&lt;a href=&quot;/images/2020-09-22-markdown-caption-back.png&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/images/2020-09-22-markdown-caption-back.png&quot; alt=&quot;&quot;&gt;&lt;/a&gt;&lt;figcaption&gt;猫耳や尻尾があるミコッテという種族&lt;/figcaption&gt;&lt;/figure&gt;
+<figure><a href="/images/2020-09-22-markdown-caption-back.png" target="_blank"><img src="/images/2020-09-22-markdown-caption-back.png" alt=""></a><figcaption>猫耳や尻尾があるミコッテという種族</figcaption></figure>
 
-&lt;figure&gt;&lt;a href=&quot;/images/2020-09-22-markdown-caption-monster.png&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/images/2020-09-22-markdown-caption-monster.png&quot; alt=&quot;&quot;&gt;&lt;/a&gt;&lt;figcaption&gt;山岳エリアに居るサボテンの敵&lt;/figcaption&gt;&lt;/figure&gt;
+<figure><a href="/images/2020-09-22-markdown-caption-monster.png" target="_blank"><img src="/images/2020-09-22-markdown-caption-monster.png" alt=""></a><figcaption>山岳エリアに居るサボテンの敵</figcaption></figure>
 
-&lt;figure&gt;&lt;a href=&quot;/images/2020-09-22-markdown-caption-whale.png&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/images/2020-09-22-markdown-caption-whale.png&quot; alt=&quot;&quot;&gt;&lt;/a&gt;&lt;figcaption&gt;移動するときによく乗るクジラ&lt;/figcaption&gt;&lt;/figure&gt;
+<figure><a href="/images/2020-09-22-markdown-caption-whale.png" target="_blank"><img src="/images/2020-09-22-markdown-caption-whale.png" alt=""></a><figcaption>移動するときによく乗るクジラ</figcaption></figure>
 
-&lt;figure&gt;&lt;a href=&quot;/images/2020-09-22-markdown-caption-boss.png&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/images/2020-09-22-markdown-caption-boss.png&quot; alt=&quot;&quot;&gt;&lt;/a&gt;&lt;figcaption&gt;めちゃくちゃ大きいボスから味方を守っている&lt;/figcaption&gt;&lt;/figure&gt;
+<figure><a href="/images/2020-09-22-markdown-caption-boss.png" target="_blank"><img src="/images/2020-09-22-markdown-caption-boss.png" alt=""></a><figcaption>めちゃくちゃ大きいボスから味方を守っている</figcaption></figure>
 
-&lt;figure&gt;&lt;a href=&quot;/images/2020-09-22-markdown-caption-namazuo.png&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/images/2020-09-22-markdown-caption-namazuo.png&quot; alt=&quot;&quot;&gt;&lt;/a&gt;&lt;figcaption&gt;人語を話す変な生きもの&lt;/figcaption&gt;&lt;/figure&gt;
+<figure><a href="/images/2020-09-22-markdown-caption-namazuo.png" target="_blank"><img src="/images/2020-09-22-markdown-caption-namazuo.png" alt=""></a><figcaption>人語を話す変な生きもの</figcaption></figure>
 
-&lt;figure&gt;&lt;a href=&quot;/images/2020-09-22-markdown-caption-myroom.png&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/images/2020-09-22-markdown-caption-myroom.png&quot; alt=&quot;&quot;&gt;&lt;/a&gt;&lt;figcaption&gt;ギルドハウス内につくった自室&lt;/figcaption&gt;&lt;/figure&gt;
+<figure><a href="/images/2020-09-22-markdown-caption-myroom.png" target="_blank"><img src="/images/2020-09-22-markdown-caption-myroom.png" alt=""></a><figcaption>ギルドハウス内につくった自室</figcaption></figure>
 
-&lt;figure&gt;&lt;a href=&quot;/images/2020-09-22-markdown-caption-myroom-2.png&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/images/2020-09-22-markdown-caption-myroom-2.png&quot; alt=&quot;&quot;&gt;&lt;/a&gt;&lt;figcaption&gt;疲れて縁側で寝ている&lt;/figcaption&gt;&lt;/figure&gt;
+<figure><a href="/images/2020-09-22-markdown-caption-myroom-2.png" target="_blank"><img src="/images/2020-09-22-markdown-caption-myroom-2.png" alt=""></a><figcaption>疲れて縁側で寝ている</figcaption></figure>
 
-&lt;hr&gt;
+<hr>
 
-&lt;p&gt;この記事を書くにあたり、ソースをMarkdownで書きながらも画像にキャプションを付けられるようにしてみた。画像とテキストだけで構成される段落を見つけたら、テキストをその画像のキャプションとする――という作戦。&lt;/p&gt;
+<p>この記事を書くにあたり、ソースをMarkdownで書きながらも画像にキャプションを付けられるようにしてみた。画像とテキストだけで構成される段落を見つけたら、テキストをその画像のキャプションとする――という作戦。</p>
 
-&lt;p&gt;次のような過程で変換されていく。&lt;/p&gt;
+<p>次のような過程で変換されていく。</p>
 
-&lt;pre&gt;&lt;code&gt;吾輩は猫である。名前はまだ無い。
+<pre><code>吾輩は猫である。名前はまだ無い。
 
 ![](/images/cat.jpg)
 無名の猫
 
 どこで生まれたかとんと見当がつかぬ。
-&lt;/code&gt;&lt;/pre&gt;
+</code></pre>
 
-&lt;pre&gt;&lt;code&gt;&amp;lt;p&amp;gt;吾輩は猫である。名前はまだ無い。&amp;lt;/p&amp;gt;
+<pre><code>&lt;p&gt;吾輩は猫である。名前はまだ無い。&lt;/p&gt;
 
-&amp;lt;p&amp;gt;
-  &amp;lt;a href=&quot;/images/cat.png&quot; target=&quot;_blank&quot;&amp;gt;
-    &amp;lt;img src=&quot;/images/cat.png&quot; alt=&quot;&quot;&amp;gt;
-  &amp;lt;/a&amp;gt;
+&lt;p&gt;
+  &lt;a href="/images/cat.png" target="_blank"&gt;
+    &lt;img src="/images/cat.png" alt=""&gt;
+  &lt;/a&gt;
   無名の猫
-&amp;lt;/p&amp;gt;
+&lt;/p&gt;
 
-&amp;lt;p&amp;gt;どこで生まれたかとんと見当がつかぬ。&amp;lt;/p&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;どこで生まれたかとんと見当がつかぬ。&lt;/p&gt;
+</code></pre>
 
-&lt;pre&gt;&lt;code&gt;&amp;lt;p&amp;gt;吾輩は猫である。名前はまだ無い。&amp;lt;/p&amp;gt;
+<pre><code>&lt;p&gt;吾輩は猫である。名前はまだ無い。&lt;/p&gt;
 
-&amp;lt;figure&amp;gt;
-  &amp;lt;a href=&quot;/images/cat.png&quot; target=&quot;_blank&quot;&amp;gt;
-    &amp;lt;img src=&quot;/images/cat.png&quot; alt=&quot;&quot;&amp;gt;
-  &amp;lt;/a&amp;gt;
-  &amp;lt;figcaption&amp;gt;無名の猫&amp;lt;/figcaption&amp;gt;
-&amp;lt;/figure&amp;gt;
+&lt;figure&gt;
+  &lt;a href="/images/cat.png" target="_blank"&gt;
+    &lt;img src="/images/cat.png" alt=""&gt;
+  &lt;/a&gt;
+  &lt;figcaption&gt;無名の猫&lt;/figcaption&gt;
+&lt;/figure&gt;
 
-&amp;lt;p&amp;gt;どこで生まれたかとんと見当がつかぬ。&amp;lt;/p&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;どこで生まれたかとんと見当がつかぬ。&lt;/p&gt;
+</code></pre>
 
-&lt;p&gt;ちなみに、実際のソースコードの変更は &lt;a href=&quot;https://github.com/r7kamura/r7kamura.com/commit/51bf5289add41852c3b393b192e47393fb969133&quot;&gt;https://github.com/r7kamura/r7kamura.com/commit/51bf5289add41852c3b393b192e47393fb969133&lt;/a&gt; のようになった。変換フィルタによる抽象化の仕組みを入れておいたおかげで、やりたいことが簡単に記述できるようになって嬉しい。&lt;/p&gt;
-</content>
-    </entry>
-  
-    <entry>
-      <title>個人サイトについて</title>
-      <link rel="alternate" type="text/html" href="https://r7kamura.com/articles/2020-09-21-personal-website"/>
-      <id>tag:r7kamura.com,2019:/articles/2020-09-21-personal-website</id>
-      <published>2020-09-21T00:00:00+00:00</published>
-      <updated>2020-10-03T13:36:52+00:00</updated>
-      <content type="html">&lt;p&gt;なぜ個人でウェブサイトを運用しているのかについて、整理しておきたい。&lt;/p&gt;
+<p>ちなみに、実際のソースコードの変更は <a href="https://github.com/r7kamura/r7kamura.com/commit/51bf5289add41852c3b393b192e47393fb969133">https://github.com/r7kamura/r7kamura.com/commit/51bf5289add41852c3b393b192e47393fb969133</a> のようになった。変換フィルタによる抽象化の仕組みを入れておいたおかげで、やりたいことが簡単に記述できるようになって嬉しい。</p>
+]]></content:encoded>
+      <guid>https://r7kamura.com/articles/2020-09-22-markdown-caption</guid>
+    </item>
+    
+    <item>
+      <title><![CDATA[個人サイトについて]]></title>
+      <description><![CDATA[なぜ個人でウェブサイトを運用しているのかについて、整理しておきたい。]]></description>
+      <link>https://r7kamura.com/articles/2020-09-21-personal-website</link>
+      <pubDate>Mon, 21 Sep 2020 00:00:00 +0000</pubDate>
+      <content:encoded><![CDATA[<p>なぜ個人でウェブサイトを運用しているのかについて、整理しておきたい。</p>
 
-&lt;p&gt;要約すると、以下の理由でやっている。&lt;/p&gt;
+<p>要約すると、以下の理由でやっている。</p>
 
-&lt;ul&gt;
-&lt;li&gt;ウェブの技術を学べて費用対効果が高いから&lt;/li&gt;
-&lt;li&gt;表示されるコンテンツを制御したいから&lt;/li&gt;
-&lt;li&gt;フィードバックの場と適切な距離を置きたいから&lt;/li&gt;
-&lt;li&gt;かっこいいから&lt;/li&gt;
-&lt;/ul&gt;
+<ul>
+<li>ウェブの技術を学べて費用対効果が高いから</li>
+<li>表示されるコンテンツを制御したいから</li>
+<li>フィードバックの場と適切な距離を置きたいから</li>
+<li>かっこいいから</li>
+</ul>
 
-&lt;h2&gt;コスパが高い&lt;/h2&gt;
+<h2>コスパが高い</h2>
 
-&lt;p&gt;個人でウェブサイトを持って運用していくことは、学習意欲の高い多くの人にとって費用対効果の高い活動だと思う。&lt;/p&gt;
+<p>個人でウェブサイトを持って運用していくことは、学習意欲の高い多くの人にとって費用対効果の高い活動だと思う。</p>
 
-&lt;p&gt;ほとんどの技術が無料で利用できる時代になってきているので、ここで言う費用というのは時間や労力のことで、効果というのは得られる知識のこと。その仕組みを用意するにあたって、ウェブサイトというものがどういう仕組みで動くかということが、一通り理解できる。この辺の分野を本職とするような人であれば、こういうことは最低限理解しておいてほしいし、何なら採用面接でもこういったことを質問する・される機会がある。&lt;/p&gt;
+<p>ほとんどの技術が無料で利用できる時代になってきているので、ここで言う費用というのは時間や労力のことで、効果というのは得られる知識のこと。その仕組みを用意するにあたって、ウェブサイトというものがどういう仕組みで動くかということが、一通り理解できる。この辺の分野を本職とするような人であれば、こういうことは最低限理解しておいてほしいし、何なら採用面接でもこういったことを質問する・される機会がある。</p>
 
-&lt;p&gt;学習コストについて述べたけれど、経済的なコストパフォーマンスについてもそう。その時代においておおよそモダンとされる一通りの技術を利用してウェブサイトを運用できる程度の能力があれば、ウェブサイト自体がその証左となってくれるし、仕事のアテも比較的簡単に見つけられると思う。それを生業にしたいかどうかについては、また別の話になるだろうけれども。&lt;/p&gt;
+<p>学習コストについて述べたけれど、経済的なコストパフォーマンスについてもそう。その時代においておおよそモダンとされる一通りの技術を利用してウェブサイトを運用できる程度の能力があれば、ウェブサイト自体がその証左となってくれるし、仕事のアテも比較的簡単に見つけられると思う。それを生業にしたいかどうかについては、また別の話になるだろうけれども。</p>
 
-&lt;p&gt;一旦ウェブサイトを完成させたら終わりという訳でもない。移り変わりの激しいウェブ技術を継続的に運用していくことは、それだけで技術的にも精神的にも難しく、実践して学ぶ価値がある事柄だと思う。同じものをつくるにしてもやり方は一つではなく、無限の可能性がある。初学者にも熟練者にも居場所があり、学びの場として最高のコンテンツの一つだと思う。&lt;/p&gt;
+<p>一旦ウェブサイトを完成させたら終わりという訳でもない。移り変わりの激しいウェブ技術を継続的に運用していくことは、それだけで技術的にも精神的にも難しく、実践して学ぶ価値がある事柄だと思う。同じものをつくるにしてもやり方は一つではなく、無限の可能性がある。初学者にも熟練者にも居場所があり、学びの場として最高のコンテンツの一つだと思う。</p>
 
-&lt;h2&gt;表示されるコンテンツを制御したい&lt;/h2&gt;
+<h2>表示されるコンテンツを制御したい</h2>
 
-&lt;p&gt;どこまで個人で用意するかということについて、例えば以下のように考えていくことはできる。&lt;/p&gt;
+<p>どこまで個人で用意するかということについて、例えば以下のように考えていくことはできる。</p>
 
-&lt;ul&gt;
-&lt;li&gt;ブランドをあまり押し出してこないサービスであれば良いのか&lt;/li&gt;
-&lt;li&gt;ドメインさえ自前のものであれば良いのか&lt;/li&gt;
-&lt;li&gt;HTMLを完全に書き換えられるようなサービスは良いのか&lt;/li&gt;
-&lt;li&gt;静的ファイルをホスティングしてくれるサービスは良いのか&lt;/li&gt;
-&lt;li&gt;VPS借りてやるのは良いのか&lt;/li&gt;
-&lt;li&gt;論理インフラから構築していく必要があるのか&lt;/li&gt;
-&lt;li&gt;自宅に物理サーバ建てる必要があるのか&lt;/li&gt;
-&lt;/ul&gt;
+<ul>
+<li>ブランドをあまり押し出してこないサービスであれば良いのか</li>
+<li>ドメインさえ自前のものであれば良いのか</li>
+<li>HTMLを完全に書き換えられるようなサービスは良いのか</li>
+<li>静的ファイルをホスティングしてくれるサービスは良いのか</li>
+<li>VPS借りてやるのは良いのか</li>
+<li>論理インフラから構築していく必要があるのか</li>
+<li>自宅に物理サーバ建てる必要があるのか</li>
+</ul>
 
-&lt;p&gt;しかし、どこまでいけば個人でやっていると言えるのかというのは曖昧で、これはその時代の技術の発展具合によって変わってくるし、どこまでやっても終わりはない。こういう静的な基準で考えるよりも、方針や信条としてどの方向を向いているかという話で考えた方が良いと思う。&lt;/p&gt;
+<p>しかし、どこまでいけば個人でやっていると言えるのかというのは曖昧で、これはその時代の技術の発展具合によって変わってくるし、どこまでやっても終わりはない。こういう静的な基準で考えるよりも、方針や信条としてどの方向を向いているかという話で考えた方が良いと思う。</p>
 
-&lt;p&gt;「表示されるコンテンツが制御可能か」という基準を自分はよく考えている。例えば自分のウェブサイトだと、ソースコードやウェブサイトのホスティングもビルドも全部GitHubにやってもらっているけれど、勝手に広告が出たり、コンテンツの見せ方が変わったり、運営の都合で非公開にさせられたり、他人の文章が自分の書いた文章のすぐ隣に堂々と表示されたりはしないし、他の仕組みに乗り換えることも簡単にできる。公開するコンテンツも、まあ自分が書きたいような内容であれば完全に自由だ。&lt;/p&gt;
+<p>「表示されるコンテンツが制御可能か」という基準を自分はよく考えている。例えば自分のウェブサイトだと、ソースコードやウェブサイトのホスティングもビルドも全部GitHubにやってもらっているけれど、勝手に広告が出たり、コンテンツの見せ方が変わったり、運営の都合で非公開にさせられたり、他人の文章が自分の書いた文章のすぐ隣に堂々と表示されたりはしないし、他の仕組みに乗り換えることも簡単にできる。公開するコンテンツも、まあ自分が書きたいような内容であれば完全に自由だ。</p>
 
-&lt;p&gt;サービスが障害で落ちたりすることはあれど、大抵はすぐ元に戻ることが見込まれているし、コンテンツの内容が微妙に書き換わるというものではなく、コンテンツの配信に成功するか失敗するかの二択であるから、これは前述した話とは少し違う話だと思う。サービスが終了したりすることもあるけれど、最悪の場合でも別のサービスに一日もあれば乗り換えられるし、そういう意味だと技術的にロックインされているか、安心感があるかという話にも関わってくるのかもしれない。&lt;/p&gt;
+<p>サービスが障害で落ちたりすることはあれど、大抵はすぐ元に戻ることが見込まれているし、コンテンツの内容が微妙に書き換わるというものではなく、コンテンツの配信に成功するか失敗するかの二択であるから、これは前述した話とは少し違う話だと思う。サービスが終了したりすることもあるけれど、最悪の場合でも別のサービスに一日もあれば乗り換えられるし、そういう意味だと技術的にロックインされているか、安心感があるかという話にも関わってくるのかもしれない。</p>
 
-&lt;h2&gt;フィードバックと距離を置きたい&lt;/h2&gt;
+<h2>フィードバックと距離を置きたい</h2>
 
-&lt;p&gt;文章を書くときに、いいね中毒や、批判への恐怖に晒されたくないという気持ちがある。そういったものが滲み出た文章は、読むのも書くのも好きではない。他者からのフィードバックと適切に距離を置くことで、この気持ちは抑制できる。&lt;/p&gt;
+<p>文章を書くときに、いいね中毒や、批判への恐怖に晒されたくないという気持ちがある。そういったものが滲み出た文章は、読むのも書くのも好きではない。他者からのフィードバックと適切に距離を置くことで、この気持ちは抑制できる。</p>
 
-&lt;p&gt;文章の方向性として、内に向いたものか、外に向いたものかという話があると思う。要は主に自分のために書いているが他人が見てくれても構わないという体裁で書いたものか、外部の多くの人に読んでもらいたいという気持ちで書いたものかという、書く時のスタンスの話。&lt;/p&gt;
+<p>文章の方向性として、内に向いたものか、外に向いたものかという話があると思う。要は主に自分のために書いているが他人が見てくれても構わないという体裁で書いたものか、外部の多くの人に読んでもらいたいという気持ちで書いたものかという、書く時のスタンスの話。</p>
 
-&lt;p&gt;自分は、個人の書いたもので言えば、内向きに書いたものの方が読みたいと思うし、そういうものを書きたいとも思う。内向きに書いたものの方が、外部からの影響を受けず、ある意味その人の純粋な考えをより反映したものになって、多様性や希少価値が出て面白い。技術情報についても、そもそも技術情報ではまず一次情報をあたるべきだし、もし個人の書いた二次情報を見るのだとしても、内向きに書かれたものの方がやはり信頼性が高く、貴重な情報が多いと感じる。&lt;/p&gt;
+<p>自分は、個人の書いたもので言えば、内向きに書いたものの方が読みたいと思うし、そういうものを書きたいとも思う。内向きに書いたものの方が、外部からの影響を受けず、ある意味その人の純粋な考えをより反映したものになって、多様性や希少価値が出て面白い。技術情報についても、そもそも技術情報ではまず一次情報をあたるべきだし、もし個人の書いた二次情報を見るのだとしても、内向きに書かれたものの方がやはり信頼性が高く、貴重な情報が多いと感じる。</p>
 
-&lt;p&gt;なぜ個人の外向きの文章が好きではないかというと、その性質上フィードバックを受けやすく、結果的に出力されるものが外部からの影響を受けたものになりやすいからだと思う。&lt;/p&gt;
+<p>なぜ個人の外向きの文章が好きではないかというと、その性質上フィードバックを受けやすく、結果的に出力されるものが外部からの影響を受けたものになりやすいからだと思う。</p>
 
-&lt;p&gt;外の人が気持ちよく読めるような内容にしたい、という気持ち自体は嫌いではない。しかし、そのためには外の人の気持ちを理解して、内容に取り入れる必要がある。手っ取り早い方法として、いいねやブックマークの数を指標とする方法がある。いいねが沢山付いて、人気が出ると嬉しい。しかし、これは甘美な罠である。気合いを入れて書いた記事をそれとなく共有するとき、内心ではものすごく緊張しており、気付けば通知を無限に更新している自分が居て、期待よりいいねが付かないと落胆する。いいね中毒になると、いいねの付きそうな記事だけを書くようになり、逆にいいねの付きそうにない記事は書けなくなってしまう。これが本当に自分の書きたいものだったのだろうか。&lt;/p&gt;
+<p>外の人が気持ちよく読めるような内容にしたい、という気持ち自体は嫌いではない。しかし、そのためには外の人の気持ちを理解して、内容に取り入れる必要がある。手っ取り早い方法として、いいねやブックマークの数を指標とする方法がある。いいねが沢山付いて、人気が出ると嬉しい。しかし、これは甘美な罠である。気合いを入れて書いた記事をそれとなく共有するとき、内心ではものすごく緊張しており、気付けば通知を無限に更新している自分が居て、期待よりいいねが付かないと落胆する。いいね中毒になると、いいねの付きそうな記事だけを書くようになり、逆にいいねの付きそうにない記事は書けなくなってしまう。これが本当に自分の書きたいものだったのだろうか。</p>
 
-&lt;p&gt;褒めるフィードバックだけではなく、貶（けな）すフィードバックもある。インターネットでは、心無い誰かが匿名で暴論を吐いてくるということもしばしば起こり得る。こういう体験の多くは心に刺さるもので、一度恐怖に晒されると、次回からは怒られないものを書こうとしてしまう。&lt;/p&gt;
+<p>褒めるフィードバックだけではなく、貶（けな）すフィードバックもある。インターネットでは、心無い誰かが匿名で暴論を吐いてくるということもしばしば起こり得る。こういう体験の多くは心に刺さるもので、一度恐怖に晒されると、次回からは怒られないものを書こうとしてしまう。</p>
 
-&lt;p&gt;何がいけないのだろうか。思うに、以下の点が良くないのだろうと思う。&lt;/p&gt;
+<p>何がいけないのだろうか。思うに、以下の点が良くないのだろうと思う。</p>
 
-&lt;ol&gt;
-&lt;li&gt;信頼性の無いフィードバックを重視すること&lt;/li&gt;
-&lt;li&gt;フィードバックを強く受けすぎること&lt;/li&gt;
-&lt;/ol&gt;
+<ol>
+<li>信頼性の無いフィードバックを重視すること</li>
+<li>フィードバックを強く受けすぎること</li>
+</ol>
 
-&lt;p&gt;いいねやブックマークは、付ける側はものすごく手軽。他者が書いたものを貶すのも、褒めることに比べるとよほど簡単。こういうものを指標として文章を書くと、平均的な人達が簡単に賛同しやすいものを書いてしまいがちで、正直言って好ましくない。自分にとってウェブがつまらなくなる原因の一つであるとさえ感じる。&lt;/p&gt;
+<p>いいねやブックマークは、付ける側はものすごく手軽。他者が書いたものを貶すのも、褒めることに比べるとよほど簡単。こういうものを指標として文章を書くと、平均的な人達が簡単に賛同しやすいものを書いてしまいがちで、正直言って好ましくない。自分にとってウェブがつまらなくなる原因の一つであるとさえ感じる。</p>
 
-&lt;p&gt;コンテンツそのものと近い位置にこの手のフィードバックを受ける口があると、このフィードバックループが強まりがちになるが、一般的なブログプラットフォームでは、このコンテンツとフィードバックとの距離があまりにも近すぎると思う。自分のコンテンツを載せるページに他人のコメントがリアルタイムに追記されていくとか、他人がボタンを押すと自分の持てるデバイスすべてに通知が来るだとか、そういう機能がデフォルトになったものがあまりにも多い。&lt;/p&gt;
+<p>コンテンツそのものと近い位置にこの手のフィードバックを受ける口があると、このフィードバックループが強まりがちになるが、一般的なブログプラットフォームでは、このコンテンツとフィードバックとの距離があまりにも近すぎると思う。自分のコンテンツを載せるページに他人のコメントがリアルタイムに追記されていくとか、他人がボタンを押すと自分の持てるデバイスすべてに通知が来るだとか、そういう機能がデフォルトになったものがあまりにも多い。</p>
 
-&lt;p&gt;幸い、個人のウェブサイトではこういったものも自分で制御できる。自分は距離を置きたいので、今のところ自分のウェブサイトにソーシャルな窓口は設けていないし、フィードバックが欲しいときだけSNSに共有し、信頼できそうな人の直接的な言及しか参考にしないように気を付けている。一番嬉しいフィードバックは、信頼できる他人の記事内で自分の文章が言及されていて、それに伴って何かが書かれているというケースだと思う。いいねより言及してほしい。&lt;/p&gt;
+<p>幸い、個人のウェブサイトではこういったものも自分で制御できる。自分は距離を置きたいので、今のところ自分のウェブサイトにソーシャルな窓口は設けていないし、フィードバックが欲しいときだけSNSに共有し、信頼できそうな人の直接的な言及しか参考にしないように気を付けている。一番嬉しいフィードバックは、信頼できる他人の記事内で自分の文章が言及されていて、それに伴って何かが書かれているというケースだと思う。いいねより言及してほしい。</p>
 
-&lt;h2&gt;かっこよさ&lt;/h2&gt;
+<h2>かっこよさ</h2>
 
-&lt;p&gt;結局のところ、それがかっこいいと思うからやっている。&lt;/p&gt;
+<p>結局のところ、それがかっこいいと思うからやっている。</p>
 
-&lt;p&gt;長々とゴタクを述べたが、突き詰めて考えると結論はこうだ。周りの目を気にしながら文章を書いて、知らない誰かのサービスに預けて、よく分からない仕組みで公開されて、たまに見た目が変わったりして、いろんな情報が周りにベタベタ並んでいて、それでかっこいいと思うか？&lt;/p&gt;
+<p>長々とゴタクを述べたが、突き詰めて考えると結論はこうだ。周りの目を気にしながら文章を書いて、知らない誰かのサービスに預けて、よく分からない仕組みで公開されて、たまに見た目が変わったりして、いろんな情報が周りにベタベタ並んでいて、それでかっこいいと思うか？</p>
 
-&lt;p&gt;それで良いと思う人もいると思う。「お前がそう思うんならそうなんだろう、お前の中ではな」だ。自分の信じる最高のサービスにコンテンツを預けて、自分は文章を書くことに集中できる。それもまた理想だ。むしろ、自分もそう思いたかったとさえ感じる。&lt;/p&gt;
+<p>それで良いと思う人もいると思う。「お前がそう思うんならそうなんだろう、お前の中ではな」だ。自分の信じる最高のサービスにコンテンツを預けて、自分は文章を書くことに集中できる。それもまた理想だ。むしろ、自分もそう思いたかったとさえ感じる。</p>
 
-&lt;p&gt;多くの人にとって、ウェブの技術は魔法だ。少し指を動かすだけで、世界中の人に自分の声を届けられる。しかし自分にとって、ウェブの技術はもはや魔法ではない。知ってしまった以上、使いこなしたいと思うのが人の性というもの。もちろん、他の人には強要しない。技術者としては、出来る限り、他の人の中ではそれが魔法であってほしいと思う。&lt;/p&gt;
-</content>
-    </entry>
-  
-</feed>
+<p>多くの人にとって、ウェブの技術は魔法だ。少し指を動かすだけで、世界中の人に自分の声を届けられる。しかし自分にとって、ウェブの技術はもはや魔法ではない。知ってしまった以上、使いこなしたいと思うのが人の性というもの。もちろん、他の人には強要しない。技術者としては、出来る限り、他の人の中ではそれが魔法であってほしいと思う。</p>
+]]></content:encoded>
+      <guid>https://r7kamura.com/articles/2020-09-21-personal-website</guid>
+    </item>
+    
+  </channel>
+</rss>
