@@ -1,4 +1,5 @@
 https://r7kamura.com/articles/2020-10-04-rss
+https://r7kamura.com/articles/2020-10-04-ikinari-hackathon
 https://r7kamura.com/articles/2020-10-03-active-record-connection-proxy
 https://r7kamura.com/articles/2020-10-02-notes
 https://r7kamura.com/articles/2020-10-01-coffee
@@ -846,5 +847,4 @@ https://r7kamura.com/articles/2011-02-01-h
 https://r7kamura.com/articles/2010-11-25-h
 https://r7kamura.com/articles/2010-08-29-h
 https://r7kamura.com/articles/2010-07-24-h
-https://r7kamura.com/articles/2010-05-30-h
 https://r7kamura.com/articles/2009-11-11-h
