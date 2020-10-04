@@ -39,7 +39,6 @@
 <li>一部の画像のリンク切れを直した</li>
 <li>Amazonの商品ページへのリンクを一括で書き換えた</li>
 <li>古い記事のMarkdownの体裁を整えた</li>
-<li>公開日が同じ記事は編集日時が新しい方が上に表示されるようにした</li>
 <li><a href="/articles/2020-10-04-rss">フィードをAtom 1.0からRSS 2.0にした</a></li>
 <li>記事の先頭付近から説明文を抽出するロジックを改善した</li>
 <li>検索由来のアクセスが多そうな古い記事に追記を加えた</li>
@@ -289,6 +288,47 @@ YAMLで設定を書いたら適用出来るというやつ。AnsibleのRuby版�
     </item>
     
     <item>
+      <title><![CDATA[PowerToysで豪遊]]></title>
+      <description><![CDATA[Windows用にPowerToysというのを教えてもらって、使ってみたら思いの外よかったという話。]]></description>
+      <link>https://r7kamura.com/articles/2020-09-28-power-toys</link>
+      <pubDate>Mon, 28 Sep 2020 00:00:00 +0900</pubDate>
+      <content:encoded><![CDATA[<p>Windows用にPowerToysというのを教えてもらって、使ってみたら思いの外よかったという話。</p>
+
+<p><a href="https://github.com/microsoft/PowerToys">https://github.com/microsoft/PowerToys</a></p>
+
+<h2>PowerToys Run</h2>
+
+<p>PowerToysというのは、Windowsをより便利にする機能群をまとめたアプリケーション。</p>
+
+<pre><code>winget install PowerToys
+</code></pre>
+
+<p>wingetで入れられるので試しに入れてみて、その中のPowerToys Runという機能を常用してみることにした。</p>
+
+<figure><a href="/images/2020-09-28-power-toys-run.png" target="_blank"><img src="/images/2020-09-28-power-toys-run.png" alt=""></a><figcaption>PowerToys Runsの様子</figcaption></figure>
+
+<p>Macの<a href="https://www.alfredapp.com/">Alfred</a>と使用感がかなり似ていて、使い心地もわりと良い。似たようなことはWinodwsキーを押したあとに使える検索機能でも代替可能なのだけど、こちらの方が使い勝手が少し良い。</p>
+
+<p>デフォルトはAlt + Spaceなのだけど、Windowsの機能と競合することも多いので、Ctrl + Spaceに割り当てることにした。このショートカットキーはGoogle IMEで入力ソースを切り替えるためのショートカットキーとして登録されているので、設定でこれを取り除くなどの操作も加えた。</p>
+
+<h2>PowerToys FancyZones</h2>
+
+<p>一応他の機能の例も紹介しておくと、FancyZonesという機能も、人によっては活用できることが多いと思う。自分は画面は常に2分割しかしない派なので、Windowsのスナップ機能で間に合っており、今のところは間に合っている。</p>
+
+<figure><a href="/images/2020-09-28-power-toys-fancy-zones.png" target="_blank"><img src="/images/2020-09-28-power-toys-fancy-zones.png" alt=""></a><figcaption>FancyZonesの設定画面</figcaption></figure>
+
+<p>スナップ機能については、もともと気に入らない挙動があったので困っていたところ、amagiさんが教えてくれたおかげで解決できた。設定 &gt; マルチタスク から「ウィンドウをスナップしたときに、横に配置できるものを表示する」という機能をオフにできるらしい。</p>
+
+<h2>システムの復元</h2>
+
+<p>PowerToysのKeyboard Managerを試してみたら、キーマップを登録して戻す操作をしても永続的に元に戻らなくなってしまい、システムの復元という機能で数時間前の状態に戻ることで事なきを得た。</p>
+
+<p>キーボードのレジストリ書き換え部分の実装が甘いのかもしれない。そして、いつからかWindowsではレジストリの自動バックアップを取らなくなってしまっていた。ともあれ復元できて安心した。</p>
+]]></content:encoded>
+      <guid>https://r7kamura.com/articles/2020-09-28-power-toys</guid>
+    </item>
+    
+    <item>
       <title><![CDATA[Windowsで開発]]></title>
       <description><![CDATA[Windowsで開発環境を整えた。]]></description>
       <link>https://r7kamura.com/articles/2020-09-28-development-on-windows</link>
@@ -405,63 +445,6 @@ dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /nores
     </item>
     
     <item>
-      <title><![CDATA[PowerToysで豪遊]]></title>
-      <description><![CDATA[Windows用にPowerToysというのを教えてもらって、使ってみたら思いの外よかったという話。]]></description>
-      <link>https://r7kamura.com/articles/2020-09-28-power-toys</link>
-      <pubDate>Mon, 28 Sep 2020 00:00:00 +0900</pubDate>
-      <content:encoded><![CDATA[<p>Windows用にPowerToysというのを教えてもらって、使ってみたら思いの外よかったという話。</p>
-
-<p><a href="https://github.com/microsoft/PowerToys">https://github.com/microsoft/PowerToys</a></p>
-
-<h2>PowerToys Run</h2>
-
-<p>PowerToysというのは、Windowsをより便利にする機能群をまとめたアプリケーション。</p>
-
-<pre><code>winget install PowerToys
-</code></pre>
-
-<p>wingetで入れられるので試しに入れてみて、その中のPowerToys Runという機能を常用してみることにした。</p>
-
-<figure><a href="/images/2020-09-28-power-toys-run.png" target="_blank"><img src="/images/2020-09-28-power-toys-run.png" alt=""></a><figcaption>PowerToys Runsの様子</figcaption></figure>
-
-<p>Macの<a href="https://www.alfredapp.com/">Alfred</a>と使用感がかなり似ていて、使い心地もわりと良い。似たようなことはWinodwsキーを押したあとに使える検索機能でも代替可能なのだけど、こちらの方が使い勝手が少し良い。</p>
-
-<p>デフォルトはAlt + Spaceなのだけど、Windowsの機能と競合することも多いので、Ctrl + Spaceに割り当てることにした。このショートカットキーはGoogle IMEで入力ソースを切り替えるためのショートカットキーとして登録されているので、設定でこれを取り除くなどの操作も加えた。</p>
-
-<h2>PowerToys FancyZones</h2>
-
-<p>一応他の機能の例も紹介しておくと、FancyZonesという機能も、人によっては活用できることが多いと思う。自分は画面は常に2分割しかしない派なので、Windowsのスナップ機能で間に合っており、今のところは間に合っている。</p>
-
-<figure><a href="/images/2020-09-28-power-toys-fancy-zones.png" target="_blank"><img src="/images/2020-09-28-power-toys-fancy-zones.png" alt=""></a><figcaption>FancyZonesの設定画面</figcaption></figure>
-
-<p>スナップ機能については、もともと気に入らない挙動があったので困っていたところ、amagiさんが教えてくれたおかげで解決できた。設定 &gt; マルチタスク から「ウィンドウをスナップしたときに、横に配置できるものを表示する」という機能をオフにできるらしい。</p>
-
-<h2>システムの復元</h2>
-
-<p>PowerToysのKeyboard Managerを試してみたら、キーマップを登録して戻す操作をしても永続的に元に戻らなくなってしまい、システムの復元という機能で数時間前の状態に戻ることで事なきを得た。</p>
-
-<p>キーボードのレジストリ書き換え部分の実装が甘いのかもしれない。そして、いつからかWindowsではレジストリの自動バックアップを取らなくなってしまっていた。ともあれ復元できて安心した。</p>
-]]></content:encoded>
-      <guid>https://r7kamura.com/articles/2020-09-28-power-toys</guid>
-    </item>
-    
-    <item>
-      <title><![CDATA[記事の日付の位置]]></title>
-      <description><![CDATA[常に記事タイトルの下に日付が置かれるように変更した。]]></description>
-      <link>https://r7kamura.com/articles/2020-09-27-article-date-position</link>
-      <pubDate>Sun, 27 Sep 2020 00:00:00 +0900</pubDate>
-      <content:encoded><![CDATA[<p>常に記事タイトルの下に日付が置かれるように変更した。</p>
-
-<figure><a href="/images/2020-09-27-date-before.png" target="_blank"><img src="/images/2020-09-27-date-before.png" alt=""></a><figcaption>変更前</figcaption></figure>
-
-<figure><a href="/images/2020-09-27-date-after.png" target="_blank"><img src="/images/2020-09-27-date-after.png" alt=""></a><figcaption>変更後</figcaption></figure>
-
-<p>記事単体のページでは既に日付が下にくるようになっているし、一覧でもパターンを統一しておきたいと思ったため。統一する前提で話すと、日付を上に置くつもりは今のところない。日記であればそうしたと思うが、どちらかと言うとエッセイ寄りというか、記事に日付が従属している状態にしておきたい。</p>
-]]></content:encoded>
-      <guid>https://r7kamura.com/articles/2020-09-27-article-date-position</guid>
-    </item>
-    
-    <item>
       <title><![CDATA[記事一覧と順序付きリスト]]></title>
       <description><![CDATA[記事一覧も順序付きリストなのだから、list-style-type: none で数字を消さず、自然状態にしておく方が良いかもしれない。]]></description>
       <link>https://r7kamura.com/articles/2020-09-27-list-style</link>
@@ -490,6 +473,22 @@ dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /nores
 <p>格好良くやらなければ（ある一定の閾値を超えなければ）ダサく、うるさく感じてしまう。ウェブでいろんな表示環境で常に良く見えるように考慮しながらそれをやるのは難しい。</p>
 ]]></content:encoded>
       <guid>https://r7kamura.com/articles/2020-09-27-list-style</guid>
+    </item>
+    
+    <item>
+      <title><![CDATA[記事の日付の位置]]></title>
+      <description><![CDATA[常に記事タイトルの下に日付が置かれるように変更した。]]></description>
+      <link>https://r7kamura.com/articles/2020-09-27-article-date-position</link>
+      <pubDate>Sun, 27 Sep 2020 00:00:00 +0900</pubDate>
+      <content:encoded><![CDATA[<p>常に記事タイトルの下に日付が置かれるように変更した。</p>
+
+<figure><a href="/images/2020-09-27-date-before.png" target="_blank"><img src="/images/2020-09-27-date-before.png" alt=""></a><figcaption>変更前</figcaption></figure>
+
+<figure><a href="/images/2020-09-27-date-after.png" target="_blank"><img src="/images/2020-09-27-date-after.png" alt=""></a><figcaption>変更後</figcaption></figure>
+
+<p>記事単体のページでは既に日付が下にくるようになっているし、一覧でもパターンを統一しておきたいと思ったため。統一する前提で話すと、日付を上に置くつもりは今のところない。日記であればそうしたと思うが、どちらかと言うとエッセイ寄りというか、記事に日付が従属している状態にしておきたい。</p>
+]]></content:encoded>
+      <guid>https://r7kamura.com/articles/2020-09-27-article-date-position</guid>
     </item>
     
     <item>
@@ -533,44 +532,6 @@ RubyとRailsが地続きに繋がっていないというか、どこかで断�
 <p>これらの話が、冒頭に述べた「Rubyを書くときに当たり前にやるようなことを、Railsアプリを書くときでも当たり前のようにやる」という話に繋がってくると思い、自分が目指したいRailsアプリの形がこの先にあるのではないかと一旦結論付けることにした。</p>
 ]]></content:encoded>
       <guid>https://r7kamura.com/articles/2020-09-26-rails-architecture-strongest</guid>
-    </item>
-    
-    <item>
-      <title><![CDATA[キーボード、節記号、フルーロン]]></title>
-      <description><![CDATA[文字について考えることが多い一日だった。]]></description>
-      <link>https://r7kamura.com/articles/2020-09-25-notes</link>
-      <pubDate>Fri, 25 Sep 2020 00:00:00 +0900</pubDate>
-      <content:encoded><![CDATA[<p>文字について考えることが多い一日だった。</p>
-
-<h2>キーボード</h2>
-
-<figure><a href="https://images-na.ssl-images-amazon.com/images/I/71vo-w1hWXL._AC_SL1500_.jpg" target="_blank"><img src="https://images-na.ssl-images-amazon.com/images/I/71vo-w1hWXL._AC_SL1500_.jpg" alt=""></a><figcaption>G913-TKL-TCWH</figcaption></figure>
-
-<p>ロジクールの新作キーボードが格好良くて、欲しくなってしまっている。ゲーマー以外にもおすすめできそうな、良い塩梅のものが出てきてしまった。</p>
-
-<p><a href="https://www.amazon.co.jp/dp/B08FT88853/?tag=r7kamura07-22">ロジクール キーボード G913-TKL-TCWH</a></p>
-
-<p>自分が底打ち派・テンキーレス派なので、機能面でも気に入っている。白色も黒色もどちらにも良さがある。キートップの可愛さと、素材表面の金属削り出しっぽい格好良さが、上手く同居している。自分だとほとんどの手持ちのガジェットが黒色なので、買うなら黒色になっちゃいそうだけど、あえて白色を使ってみたい気持ちもある。</p>
-
-<p><a href="/articles/2018-12-16-keyboards">キーボード遍歴</a></p>
-
-<p>これまで使っていたキーボードについての話を発掘したので、書式や体裁を少し整えた。あれから幾らかキーボード環境も更新されているし、そろそろこれの新しい版を書きたい。</p>
-
-<h2>節記号</h2>
-
-<p>「§」という記号について、アンカー用のリンクとして使われているのをたまに見たことはあったが、初めてその詳しい説明を読んだ。Google IMEだと、例えば「だんらく」で変換候補として出る模様。「¶」も同様。</p>
-
-<p><a href="https://ja.wikipedia.org/wiki/%E7%AF%80%E8%A8%98%E5%8F%B7">節記号 - Wikipedia</a></p>
-
-<figure><a href="/images/2020-09-25-notes.png" target="_blank"><img src="/images/2020-09-25-notes.png" alt=""></a><figcaption>節記号がアンカーとして使われている例</figcaption></figure>
-
-<hr>
-
-<p>段落記号について調べていたら、フルーロン大好き期が再来したので、罫線のスタイルもまた変更した。そこまで論理的ではない決め方をしたので、またそのうち、装飾イヤイヤ期みたいなものが発生しそう。</p>
-
-<p><a href="https://ja.wikipedia.org/wiki/%E3%83%95%E3%83%AB%E3%83%BC%E3%83%AD%E3%83%B3">フルーロン - Wikipedia</a></p>
-]]></content:encoded>
-      <guid>https://r7kamura.com/articles/2020-09-25-notes</guid>
     </item>
     
     <item>
@@ -628,6 +589,44 @@ RubyとRailsが地続きに繋がっていないというか、どこかで断�
     </item>
     
     <item>
+      <title><![CDATA[キーボード、節記号、フルーロン]]></title>
+      <description><![CDATA[文字について考えることが多い一日だった。]]></description>
+      <link>https://r7kamura.com/articles/2020-09-25-notes</link>
+      <pubDate>Fri, 25 Sep 2020 00:00:00 +0900</pubDate>
+      <content:encoded><![CDATA[<p>文字について考えることが多い一日だった。</p>
+
+<h2>キーボード</h2>
+
+<figure><a href="https://images-na.ssl-images-amazon.com/images/I/71vo-w1hWXL._AC_SL1500_.jpg" target="_blank"><img src="https://images-na.ssl-images-amazon.com/images/I/71vo-w1hWXL._AC_SL1500_.jpg" alt=""></a><figcaption>G913-TKL-TCWH</figcaption></figure>
+
+<p>ロジクールの新作キーボードが格好良くて、欲しくなってしまっている。ゲーマー以外にもおすすめできそうな、良い塩梅のものが出てきてしまった。</p>
+
+<p><a href="https://www.amazon.co.jp/dp/B08FT88853/?tag=r7kamura07-22">ロジクール キーボード G913-TKL-TCWH</a></p>
+
+<p>自分が底打ち派・テンキーレス派なので、機能面でも気に入っている。白色も黒色もどちらにも良さがある。キートップの可愛さと、素材表面の金属削り出しっぽい格好良さが、上手く同居している。自分だとほとんどの手持ちのガジェットが黒色なので、買うなら黒色になっちゃいそうだけど、あえて白色を使ってみたい気持ちもある。</p>
+
+<p><a href="/articles/2018-12-16-keyboards">キーボード遍歴</a></p>
+
+<p>これまで使っていたキーボードについての話を発掘したので、書式や体裁を少し整えた。あれから幾らかキーボード環境も更新されているし、そろそろこれの新しい版を書きたい。</p>
+
+<h2>節記号</h2>
+
+<p>「§」という記号について、アンカー用のリンクとして使われているのをたまに見たことはあったが、初めてその詳しい説明を読んだ。Google IMEだと、例えば「だんらく」で変換候補として出る模様。「¶」も同様。</p>
+
+<p><a href="https://ja.wikipedia.org/wiki/%E7%AF%80%E8%A8%98%E5%8F%B7">節記号 - Wikipedia</a></p>
+
+<figure><a href="/images/2020-09-25-notes.png" target="_blank"><img src="/images/2020-09-25-notes.png" alt=""></a><figcaption>節記号がアンカーとして使われている例</figcaption></figure>
+
+<hr>
+
+<p>段落記号について調べていたら、フルーロン大好き期が再来したので、罫線のスタイルもまた変更した。そこまで論理的ではない決め方をしたので、またそのうち、装飾イヤイヤ期みたいなものが発生しそう。</p>
+
+<p><a href="https://ja.wikipedia.org/wiki/%E3%83%95%E3%83%AB%E3%83%BC%E3%83%AD%E3%83%B3">フルーロン - Wikipedia</a></p>
+]]></content:encoded>
+      <guid>https://r7kamura.com/articles/2020-09-25-notes</guid>
+    </item>
+    
+    <item>
       <title><![CDATA[グローバルヘッダーとトップページの微調整]]></title>
       <description><![CDATA[最近よくこのサイトに手を加えている。]]></description>
       <link>https://r7kamura.com/articles/2020-09-24-site-minor-changes</link>
@@ -666,59 +665,6 @@ RubyとRailsが地続きに繋がっていないというか、どこかで断�
 <p>リンクの記述に、dl要素で説明リストを利用してみることにした。順序無しリストだとデフォルトの箇条書きライクなスタイルを打ち消す必要があって面倒だし、その点定義リストのデフォルトスタイルは完全にマッチしていて、用途としても実装としてもほど良さそうに見える。リンク先自体の説明をしている訳ではなく、なぜそのリンクを載せているのかという説明をしてしまっているところが、若干気になってはいる。</p>
 ]]></content:encoded>
       <guid>https://r7kamura.com/articles/2020-09-24-site-minor-changes</guid>
-    </item>
-    
-    <item>
-      <title><![CDATA[ウェブカメラ、LOST ARK、コードの説明]]></title>
-      <description><![CDATA[ウェブカメラを買ったり、新しいMMORPGを試したり、サイトをいじったりした。]]></description>
-      <link>https://r7kamura.com/articles/2020-09-23-notes</link>
-      <pubDate>Wed, 23 Sep 2020 00:00:00 +0900</pubDate>
-      <content:encoded><![CDATA[<p>ウェブカメラを買ったり、新しいMMORPGを試したり、サイトをいじったりした。</p>
-
-<figure><a href="/images/2020-09-23-notes-camera.jpg" target="_blank"><img src="/images/2020-09-23-notes-camera.jpg" alt=""></a><figcaption>ウェブカメラとディスプレイ</figcaption></figure>
-
-<h2>ウェブカメラ</h2>
-
-<p>Google HangoutやZoomでウェブカメラを使う機会も増えてきたので、「ウェブカメラ 最強」で検索して、Amazonで<a href="https://www.amazon.co.jp/dp/B086R71LGW/?tag=r7kamura07-22">ロジクールのC980GR</a>を買った。現状、ロジクールで発売されている中で最強クラスのやつ。これ以上良くするなら、良いデジカメをHDMIキャプチャボードで繋いだを付けた方が良い。</p>
-
-<p>あまり明るくない部屋でも、顔が明るく映るのが嬉しい。普段ノートPCを閉じたまま使っているので、ミーティングのときだけカメラのために開くのが面倒だったし、メインディスプレイで共有された資料を見たいのにノートPCのカメラに顔を向けなければいけないという問題があった。今のところ一切の不満が無く、買って良かったと思う。</p>
-
-<p>ちなみに、<a href="https://r7kamura.com/articles/2020-09-19-anker-usb-hub">AnkerのUSBハブを買った</a> のは、このウェブカメラを接続するにあたってUSBポートの数が足りなくなったから。</p>
-
-<h2>LOST ARK</h2>
-
-<figure><a href="/images/2020-09-23-notes-lostark.png" target="_blank"><img src="/images/2020-09-23-notes-lostark.png" alt=""></a><figcaption>ゲーム内の様子。普段は見下ろし型だがズームするとこうなる</figcaption></figure>
-
-<p>韓国で既にリリースされている人気のMMORPG。今日から日本での正式サービスが開始されるということで、少しだけプレイしたのだけど、正直期待していたより自分に合わなかったので残念。FF11やFF14をやりすぎたせいで、先入観が付き、贅沢になりすぎたのかもしれない。</p>
-
-<p>スキル割り振りのプリセットによるビルドシステムや、ダイナミックに動くカメラワーク、大量の雑魚敵を上手く薙ぎ払う爽快感など、褒めたい要素は沢山あるのだけど、点と点が自分の中で全く噛み合っていないというか、MMORPG的な要素をそれぞれの部署が考えてそれぞれで最善を尽くしましたという感じで、「体験がデザインされている」という期待が感じられなかったのが自分に合わなかったところ。自分の感想は「勿体ない」に尽きる。</p>
-
-<h2>コードの説明</h2>
-
-<p>コードを掲載しながら説明するとき、「以下は○○するコードである」と書いて相対参照するより、そのコードのキャプションでその旨を説明するか、コードの名前などを書いて絶対参照する方が良い。そこで、試しにコードブロック記法でキャプションを付けられるようにしてみた。</p>
-
-<figure><pre><code>module Kernel
-  alias_method :original_require, :require
-
-  def require(path)
-    time = ::Time.now
-    original_require(path).tap do
-      puts "%3.6f\t#{path}" % (Time.now - time)
-    end
-  end
-end
-</code></pre>
-<figcaption>requireの処理時間を雑に測定するコード</figcaption></figure>
-
-<p>見た目はいい感じ。</p>
-
-<p>実装方法には全く納得しておらず、キャプション文字列内に空白が入ると動かないとか色々不満はあるが、「コードにキャプションがあると嬉しいか？」を調べるためのプロトタイプとしては十分役割を果たしていると思う。</p>
-
-<hr>
-
-<p>雑記のタイトルでは、話題を羅列するというパターンが気に入っている。技術系ポッドキャストの説明文で、似たような表現を見ることが多い。</p>
-]]></content:encoded>
-      <guid>https://r7kamura.com/articles/2020-09-23-notes</guid>
     </item>
     
     <item>
@@ -804,6 +750,59 @@ GitHub Pagesで静的ファイルを配信している。
 <p>記事を書いたら、<code>git push</code> するとよしなにやってくれる。ブラウザでGitHubを開いてエディタで書くこともできる。とはいえ外出時にたまたま気になってiPhoneから編集したことがある程度で、今のところPCのエディタで書くことがほとんど。</p>
 ]]></content:encoded>
       <guid>https://r7kamura.com/articles/2020-09-23-this-site-setup-2020</guid>
+    </item>
+    
+    <item>
+      <title><![CDATA[ウェブカメラ、LOST ARK、コードの説明]]></title>
+      <description><![CDATA[ウェブカメラを買ったり、新しいMMORPGを試したり、サイトをいじったりした。]]></description>
+      <link>https://r7kamura.com/articles/2020-09-23-notes</link>
+      <pubDate>Wed, 23 Sep 2020 00:00:00 +0900</pubDate>
+      <content:encoded><![CDATA[<p>ウェブカメラを買ったり、新しいMMORPGを試したり、サイトをいじったりした。</p>
+
+<figure><a href="/images/2020-09-23-notes-camera.jpg" target="_blank"><img src="/images/2020-09-23-notes-camera.jpg" alt=""></a><figcaption>ウェブカメラとディスプレイ</figcaption></figure>
+
+<h2>ウェブカメラ</h2>
+
+<p>Google HangoutやZoomでウェブカメラを使う機会も増えてきたので、「ウェブカメラ 最強」で検索して、Amazonで<a href="https://www.amazon.co.jp/dp/B086R71LGW/?tag=r7kamura07-22">ロジクールのC980GR</a>を買った。現状、ロジクールで発売されている中で最強クラスのやつ。これ以上良くするなら、良いデジカメをHDMIキャプチャボードで繋いだを付けた方が良い。</p>
+
+<p>あまり明るくない部屋でも、顔が明るく映るのが嬉しい。普段ノートPCを閉じたまま使っているので、ミーティングのときだけカメラのために開くのが面倒だったし、メインディスプレイで共有された資料を見たいのにノートPCのカメラに顔を向けなければいけないという問題があった。今のところ一切の不満が無く、買って良かったと思う。</p>
+
+<p>ちなみに、<a href="https://r7kamura.com/articles/2020-09-19-anker-usb-hub">AnkerのUSBハブを買った</a> のは、このウェブカメラを接続するにあたってUSBポートの数が足りなくなったから。</p>
+
+<h2>LOST ARK</h2>
+
+<figure><a href="/images/2020-09-23-notes-lostark.png" target="_blank"><img src="/images/2020-09-23-notes-lostark.png" alt=""></a><figcaption>ゲーム内の様子。普段は見下ろし型だがズームするとこうなる</figcaption></figure>
+
+<p>韓国で既にリリースされている人気のMMORPG。今日から日本での正式サービスが開始されるということで、少しだけプレイしたのだけど、正直期待していたより自分に合わなかったので残念。FF11やFF14をやりすぎたせいで、先入観が付き、贅沢になりすぎたのかもしれない。</p>
+
+<p>スキル割り振りのプリセットによるビルドシステムや、ダイナミックに動くカメラワーク、大量の雑魚敵を上手く薙ぎ払う爽快感など、褒めたい要素は沢山あるのだけど、点と点が自分の中で全く噛み合っていないというか、MMORPG的な要素をそれぞれの部署が考えてそれぞれで最善を尽くしましたという感じで、「体験がデザインされている」という期待が感じられなかったのが自分に合わなかったところ。自分の感想は「勿体ない」に尽きる。</p>
+
+<h2>コードの説明</h2>
+
+<p>コードを掲載しながら説明するとき、「以下は○○するコードである」と書いて相対参照するより、そのコードのキャプションでその旨を説明するか、コードの名前などを書いて絶対参照する方が良い。そこで、試しにコードブロック記法でキャプションを付けられるようにしてみた。</p>
+
+<figure><pre><code>module Kernel
+  alias_method :original_require, :require
+
+  def require(path)
+    time = ::Time.now
+    original_require(path).tap do
+      puts "%3.6f\t#{path}" % (Time.now - time)
+    end
+  end
+end
+</code></pre>
+<figcaption>requireの処理時間を雑に測定するコード</figcaption></figure>
+
+<p>見た目はいい感じ。</p>
+
+<p>実装方法には全く納得しておらず、キャプション文字列内に空白が入ると動かないとか色々不満はあるが、「コードにキャプションがあると嬉しいか？」を調べるためのプロトタイプとしては十分役割を果たしていると思う。</p>
+
+<hr>
+
+<p>雑記のタイトルでは、話題を羅列するというパターンが気に入っている。技術系ポッドキャストの説明文で、似たような表現を見ることが多い。</p>
+]]></content:encoded>
+      <guid>https://r7kamura.com/articles/2020-09-23-notes</guid>
     </item>
     
     <item>
