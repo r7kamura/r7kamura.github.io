@@ -30,6 +30,44 @@
     </item>
     
     <item>
+      <title><![CDATA[料理メモ]]></title>
+      <description><![CDATA[基本的に1.6L版のホットクックで自炊をしている。]]></description>
+      <link>https://r7kamura.com/articles/2020-10-05-cooking-memo</link>
+      <pubDate>Mon, 05 Oct 2020 00:00:00 +0900</pubDate>
+      <content:encoded><![CDATA[<p>基本的に<a href="https://www.amazon.co.jp/dp/B07TWPRHHJ/?tag=r7kamura07-22">1.6L版のホットクック</a>で自炊をしている。</p>
+
+<ul>
+<li>それだけ食べていてもそこそこ健康を保てる</li>
+<li>やる気が無くてもつくれる</li>
+<li>材料の入手性が高い</li>
+<li>買い物を増やさない</li>
+<li>再現性がある</li>
+<li>腐りにくい</li>
+</ul>
+
+<p>というレシピを模索している。より美味しくより綺麗にを志向した料理の話はよく見る一方、より怠惰により健康にを志向した料理の話はあまり見ないので、もっとそういう情報が欲しいと思っている。</p>
+
+<p>料理のレシピには、調理だけでなく買い物に関するワークフローまで含まれていてほしい。どちらかと言うと、買い物側が料理の本体であるとすら感じる。例えば、自作PCをつくろうとすると、パーツを選ぶところが9割みたいな状態になる。あれに近い感覚。</p>
+
+<p>今年からAmazonフレッシュを利用するようになったが、自分的にはこれのおかげで料理が革命的に楽になった。Amazonでは、フレッシュの商品も含めると大体この辺りによくお世話になっている。</p>
+
+<ul>
+<li><a href="https://www.amazon.co.jp/dp/B009AO9U0I/?tag=r7kamura07-22">大冷 カレー用野菜ミックス</a></li>
+<li><a href="https://www.amazon.co.jp/dp/B06W54PTGF/?tag=r7kamura07-22">ハウス きわだちカレー</a></li>
+<li><a href="https://www.amazon.co.jp/dp/B00BHOJY3M/?tag=r7kamura07-22">ニッスイ シーフードミックス</a></li>
+<li><a href="https://www.amazon.co.jp/dp/B00FQCHFBY/?tag=r7kamura07-22">マ・マー 早ゆで3分スパゲティ</a></li>
+<li><a href="https://www.amazon.co.jp/dp/B07DDC3HTT/?tag=r7kamura07-22">冷凍若鶏もも肉切り身</a></li>
+<li><a href="https://www.amazon.co.jp/dp/B07L2ZP2XT/?tag=r7kamura07-22">鍋用野菜セット</a></li>
+<li><a href="https://www.amazon.co.jp/dp/B01LXZARKE/?tag=r7kamura07-22">タカナシ 牛乳</a></li>
+<li><a href="https://www.amazon.co.jp/dp/B003H577UG/?tag=r7kamura07-22">小岩井 プレーンヨーグルト</a></li>
+</ul>
+
+<p>再利用性を高めるために、できるだけAmazonで揃えようとしている節がある。最低限生活を維持できるように環境を整えておくことで、料理自体を嫌いにならず、いわゆる趣味の料理とも付き合いやすくしようとしている。</p>
+]]></content:encoded>
+      <guid>https://r7kamura.com/articles/2020-10-05-cooking-memo</guid>
+    </item>
+    
+    <item>
       <title><![CDATA[Windowsへの回帰]]></title>
       <description><![CDATA[開発環境をMacからWindowsに切り替えたことについて、実際どうですかと聞かれることが何度かあったので、そのときも話した現在の所感みたいなものを書き残しておく。]]></description>
       <link>https://r7kamura.com/articles/2020-10-04-windows-revolution</link>
@@ -715,91 +753,6 @@ RubyとRailsが地続きに繋がっていないというか、どこかで断�
 <p>リンクの記述に、dl要素で説明リストを利用してみることにした。順序無しリストだとデフォルトの箇条書きライクなスタイルを打ち消す必要があって面倒だし、その点定義リストのデフォルトスタイルは完全にマッチしていて、用途としても実装としてもほど良さそうに見える。リンク先自体の説明をしている訳ではなく、なぜそのリンクを載せているのかという説明をしてしまっているところが、若干気になってはいる。</p>
 ]]></content:encoded>
       <guid>https://r7kamura.com/articles/2020-09-24-site-minor-changes</guid>
-    </item>
-    
-    <item>
-      <title><![CDATA[このサイトの実装 2020年版]]></title>
-      <description><![CDATA[このサイトの2020年時点での実装のまとめ。]]></description>
-      <link>https://r7kamura.com/articles/2020-09-23-this-site-setup-2020</link>
-      <pubDate>Wed, 23 Sep 2020 00:00:00 +0900</pubDate>
-      <content:encoded><![CDATA[<p>このサイトの2020年時点での実装のまとめ。振り返り用。</p>
-
-<h2>ホスティング</h2>
-
-<p>GitHub Pagesで静的ファイルを配信している。</p>
-
-<p>当たり前に思うかもしれないが、<code>articles.html</code> というファイルを配置したときに、<code>/articles.html</code> だけでなく <code>/articles</code> というURLでもアクセスできて嬉しい。後者に統一している。</p>
-
-<p>画像もGitHub Pagesにホスティングしてもらっている。特別にカメラも持っていないし、今のところ枚数も知れている。しかし以下のように制限もあるので、写真が好きな人や、制作物を紹介するポートフォリオのようなものを用意したい場合には少し注意が必要だろう。</p>
-
-<ul>
-<li>ファイルあたり100MBの制限</li>
-<li>サイトあたり1GBの制限</li>
-<li>月あたり100GBの帯域幅制限</li>
-</ul>
-
-<p>利用する場合は、一度<a href="https://docs.github.com/ja/github/working-with-github-pages/about-github-pages">ガイドライン</a>を読んでおこう。</p>
-
-<h2>ドメイン</h2>
-
-<p>Amazon Route53でドメインを管理している。</p>
-
-<p>このウェブサイトにおいて唯一継続的にお金が掛かっているところでもある。最初の数日だけ <code>r7kamura.github.io</code> で運営していたこともあったが、試験用途でも無い限り、.comドメインぐらいの価格で済むなら明らかにドメインはあった方が良い。</p>
-
-<p>ただの記録にも関わらずアドバイス的な形式でわざわざ書いているのは、学生の頃、自分のウェブサイトをつくろうとしたのにドメインを取るのに躊躇してやめた過去があるから。面白半分で良いから、興味があるなら自分にお金を掛けてみるべき。</p>
-
-<h2>ビルド</h2>
-
-<p>GitHub Actionsで静的ファイルを自動生成している。</p>
-
-<p>このウェブサイトは動的なRackアプリケーションとして実装されていて、ビルド毎に全ページのスナップショットが静的ファイルとして出力される、という設計にしている。多分このサイトの実装で一番面白いところだろう。</p>
-
-<p>この仕組みの良いところの一つは、普段利用しているアプリケーション開発の知識を静的なウェブサイトの開発にも適用できるところ。例えば、Railsを使っても良いし、Hanamiを使ってみても良いし、自分で最強のウェブアプリケーションフレームワークをつくってみるという遊び方をしても良い。</p>
-
-<h2>デザイン</h2>
-
-<p>気になったときにHTMLテンプレートやCSSを盆栽のようにいじっている。</p>
-
-<p>試してみていることを幾つか挙げる。</p>
-
-<ul>
-<li>覚えるべきことを減らす
-
-<ul>
-<li>デフォルトを尊重する</li>
-<li>同じスタイルを再利用する</li>
-</ul>
-</li>
-<li>実装しない
-
-<ul>
-<li>ブラウザに任せる</li>
-<li>Googleに任せる</li>
-</ul>
-</li>
-</ul>
-
-<h2>記事の書き方</h2>
-
-<p>Markdownベースの何かで記事を書いている。</p>
-
-<figure><pre><code>---
-title: このウェブサイトの実装 2020年版
----
-
-このサイトの2020年時点での実装のまとめ。振り返り用。
-
-## ホスティング
-
-GitHub Pagesで静的ファイルを配信している。
-</code></pre>
-<figcaption>記事のソースコードの例</figcaption></figure>
-
-<p>「Markdownベースの何か」に関する話をすると長くなるので、また別の機会に触れたい。</p>
-
-<p>記事を書いたら、<code>git push</code> するとよしなにやってくれる。ブラウザでGitHubを開いてエディタで書くこともできる。とはいえ外出時にたまたま気になってiPhoneから編集したことがある程度で、今のところPCのエディタで書くことがほとんど。</p>
-]]></content:encoded>
-      <guid>https://r7kamura.com/articles/2020-09-23-this-site-setup-2020</guid>
     </item>
     
   </channel>
