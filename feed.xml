@@ -10,6 +10,32 @@
     <managingEditor>r7kamura@gmail.com (Ryo Nakamura)</managingEditor>
     
     <item>
+      <title><![CDATA[かなでものの机]]></title>
+      <description><![CDATA[20年ぶりに机を新調した。]]></description>
+      <link>https://r7kamura.com/articles/2020-10-09-desk</link>
+      <pubDate>Fri, 09 Oct 2020 00:00:00 +0900</pubDate>
+      <content:encoded><![CDATA[<p>20年ぶりに机を新調した。</p>
+
+<p><a href="/images/2020-10-09-desk.jpg" target="_blank"><img src="/images/2020-10-09-desk.jpg" alt=""></a></p>
+
+<p><a href="https://kanademono.design/">かなでもの</a>の、幅180cm・奥行80cmのラバーウッドの天板と、X型の脚を組み合わせた。脚の形状が可愛いのが気に入っている。杉無垢材かラバーウッドかで迷ったが、落ち着いた見た目と硬い表面の使い勝手を優先し、ラバーウッドの天板を選択した。</p>
+
+<p><a href="/images/2020-10-09-desk-2.jpg" target="_blank"><img src="/images/2020-10-09-desk-2.jpg" alt=""></a></p>
+
+<p>天板の加工が優れていて、思っていたより表面や角のさわり心地が良い。購入前は少し大きすぎるかもしれないと思っていたが、使ってみるとそういうこともなかった。机が大きいと満足感がある。</p>
+
+<figure><a href="/images/2020-10-09-desk-old.jpg" target="_blank"><img src="/images/2020-10-09-desk-old.jpg" alt=""></a><figcaption>前まで使っていた机</figcaption></figure>
+
+<p>これまではGarageのFantoniという机を2枚繋げて使っていた。20年使ったが、丁寧に使えばもう20年ぐらいは使えたと思う。引っ越しが多く、業者による分解・組み立て作業が雑だったりしたこともあり、流石に脚の接合部のガタつき方が怪しくなってきていた。</p>
+
+<hr>
+
+<p>2014年までに使っていた机の情報は、<a href="/articles/2014-12-31-h">デスク遍歴</a>にもまとめてある。もう2020年なので、年末頃に一度まとめ直したい。</p>
+]]></content:encoded>
+      <guid>https://r7kamura.com/articles/2020-10-09-desk</guid>
+    </item>
+    
+    <item>
       <title><![CDATA[キッチンツールハンガー]]></title>
       <description><![CDATA[キッチン用品を吊りたいと思い、いろいろ調べてレックのステンレス製で伸縮式でレバー式吸盤のやつを買った。]]></description>
       <link>https://r7kamura.com/articles/2020-10-08-kitchen-tool-hanger</link>
@@ -684,60 +710,6 @@ RubyとRailsが地続きに繋がっていないというか、どこかで断�
 <p>これらの話が、冒頭に述べた「Rubyを書くときに当たり前にやるようなことを、Railsアプリを書くときでも当たり前のようにやる」という話に繋がってくると思い、自分が目指したいRailsアプリの形がこの先にあるのではないかと一旦結論付けることにした。</p>
 ]]></content:encoded>
       <guid>https://r7kamura.com/articles/2020-09-26-rails-architecture-strongest</guid>
-    </item>
-    
-    <item>
-      <title><![CDATA[PCデスク周りの情報源]]></title>
-      <description><![CDATA[他人の作業環境を見るという趣味があり、最近はこの辺を観測している。]]></description>
-      <link>https://r7kamura.com/articles/2020-09-25-workspace-pictures</link>
-      <pubDate>Fri, 25 Sep 2020 00:00:00 +0900</pubDate>
-      <content:encoded><![CDATA[<p>他人の作業環境を見るという趣味があり、最近はこの辺を観測している。</p>
-
-<h2>お前らのpcデスク周り晒して(い)け</h2>
-
-<ul>
-<li><a href="https://twitter.com/search?q=%23%E3%81%8A%E5%89%8D%E3%82%89%E3%81%AEpc%E3%83%87%E3%82%B9%E3%82%AF%E5%91%A8%E3%82%8A%E6%99%92%E3%81%97%E3%81%A6%E3%81%84%E3%81%91">#お前らのpcデスク周り晒していけ - Twitter検索 / Twitter</a></li>
-<li><a href="https://twitter.com/hashtag/%E3%81%8A%E5%89%8D%E3%82%89%E3%81%AEpc%E3%83%87%E3%82%B9%E3%82%AF%E5%91%A8%E3%82%8A%E6%99%92%E3%81%97%E3%81%A6%E3%81%91">#お前らのpcデスク周り晒してけ - Twitter検索 / Twitter</a></li>
-</ul>
-
-<p>Twitterのハッシュタグ。この流れは元々2ch由来の文化に近く、純粋に自作PCにこだわる人やアニメが好きな人が多い。残念な表記揺れにより二つ存在してしまっているが、前者の方が情報量が多く、丁寧な印象を受ける。Twitterだと気軽に見られるし、投稿している人に興味も持ちやすい。</p>
-
-<h2>DIGITAL DIYer</h2>
-
-<p><a href="https://digitaldiy.jp/diyer/">DIGITAL DIYer - PCデスク周り晒しサイト！</a></p>
-
-<p>PCデスク周りの写真や説明を投稿できるサイト。上のハッシュタグを見ていても、このサイトを使っている人が多い。使っているデバイスや、デザインのポイントなどを書いてくれているユーザーさんが多くて助かる。</p>
-
-<h2>デスクをすっきりさせるマガジン</h2>
-
-<p><a href="https://note.com/goando/m/me3ed2026f6ac">デスクをすっきりさせるマガジン｜Go Ando / THE GUILD｜note</a></p>
-
-<p>Go Ando氏がまとめてくださっている、noteの投稿集。本記事の中で、唯一これだけがゲーミング環境寄りではない情報源となっている。仕事環境寄りの話が多く、実務的で堅実、丁寧でミニマル志向な話が多い。</p>
-
-<p>基本的にPCデスクの話になると、仕事環境よりゲーミング環境の話題の方が圧倒的に情報量が多いので、まとまった仕事環境寄りの話題としては貴重な情報源だと思う。</p>
-
-<h2>r/battlestations</h2>
-
-<p><a href="https://www.reddit.com/r/battlestations/">https://www.reddit.com/r/battlestations/</a></p>
-
-<p>メンバーの熱量がすこぶる高く、高品質な情報が多いsubreddit。もちろんゲーミング環境の話が多い。</p>
-
-<p>これと比べると流石に熱量は劣るが、以下のsubreddit達も現実的な着地点・非ゲーミング環境の情報源として参考になる。</p>
-
-<ul>
-<li><a href="https://www.reddit.com/r/Workspaces/">https://www.reddit.com/r/Workspaces/</a></li>
-<li><a href="https://www.reddit.com/r/desksetup/">https://www.reddit.com/r/desksetup/</a></li>
-</ul>
-
-<h2>randomfrankp</h2>
-
-<p><a href="https://www.youtube.com/playlist?list=PLMBgyT0oxOrsX5QbFFAdGKpKbl9Kw2ng5">Room Tour Project Playlist - YouTube</a></p>
-
-<p>randomfrankp氏の動画シリーズ。いろんな人のゲーム用デスクを紹介する動画シリーズだが、粒揃いで、説明欄も充実しており、情報の品質が高い。現時点で200本超のシリーズになっていて、一生見ていられる。</p>
-
-<p>ところで、"setup" はこの界隈でも使われることが多く、おさえておいた方が良い表現。"my dream gaming setup 2020" のように使われる。似たような意味で "build" も使われるが、よりゲーマー的・ヲタク的表現。</p>
-]]></content:encoded>
-      <guid>https://r7kamura.com/articles/2020-09-25-workspace-pictures</guid>
     </item>
     
   </channel>
