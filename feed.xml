@@ -10,6 +10,41 @@
     <managingEditor>r7kamura@gmail.com (Ryo Nakamura)</managingEditor>
     
     <item>
+      <title><![CDATA[シャンプーとかを壁に吊る]]></title>
+      <description><![CDATA[風呂場の掃除を楽にするために、シャンプーとかを壁に吊ることにした。]]></description>
+      <link>https://r7kamura.com/articles/2020-10-11-hanging-shampoo</link>
+      <pubDate>Sun, 11 Oct 2020 00:00:00 +0900</pubDate>
+      <content:encoded><![CDATA[<p>風呂場の掃除を楽にするために、シャンプーとかを壁に吊ることにした。</p>
+
+<figure><a href="/images/2020-10-11-hanging-shampoo-main.jpg" target="_blank"><img src="/images/2020-10-11-hanging-shampoo-main.jpg" alt=""></a><figcaption>試行錯誤して吊っている様子</figcaption></figure>
+
+<ul>
+<li><a href="https://www.amazon.co.jp/dp/B07MCBSGDJ/?tag=r7kamura07-22">山崎実業のマグネット式のタオルハンガー</a></li>
+<li><a href="https://www.amazon.co.jp/dp/B0872TWRT2/?tag=r7kamura07-22">トスレのボトルハンギングフック</a></li>
+<li><a href="https://www.muji.com/jp/ja/store/cmdty/detail/4550002867928">無印良品のPET詰替ボトル</a></li>
+<li><a href="https://www.muji.com/jp/ja/store/cmdty/detail/4548076448341">無印良品の化粧水</a></li>
+</ul>
+
+<p>この辺のものを使うことにした。トスレのフックは、セリアに行ける人であればそこで買うほうが安く手に入れられるかも。無印良品は、最近になってAmazonでの販売もはじまったけど、まだまだレパートリーが少なかったり、値段設定が高かったりしてなかなか難しい。</p>
+
+<p>泡タイプの洗顔料だけボトルの口径が異なるので、あまり上手くいっていない。何か良い案があれば教えてほしい。スプレータイプの化粧水は、こういうところに雑に引っ掛けられるので便利。化粧水がなぜ洗面台ではなく風呂場にあるのかという謎は残るが、現状そういう運用になってしまっている。</p>
+
+<figure><a href="/images/2020-10-11-hanging-shampoo-items.jpg" target="_blank"><img src="/images/2020-10-11-hanging-shampoo-items.jpg" alt=""></a><figcaption>ついでに無印良品で色々買った</figcaption></figure>
+
+<p>掃除が上手く行かない理由として、</p>
+
+<ul>
+<li>性格が一致していない</li>
+<li>掃除が好きではない</li>
+<li>綺麗好きではない</li>
+</ul>
+
+<p>というところに原因を求めていた時期もあったが、どうやら掃除しやすい設計になっているかどうかが支配的な要因で、その手の知見を持っているかどうかが大事だということが分かってきた。その辺りの改善を楽しくやれるかどうかもまた、知識の有無に左右される。高等教育あたりですべてを教えてほしかった。</p>
+]]></content:encoded>
+      <guid>https://r7kamura.com/articles/2020-10-11-hanging-shampoo</guid>
+    </item>
+    
+    <item>
       <title><![CDATA[2020年に使った有料購読サービス]]></title>
       <description><![CDATA[今年も、利用した有料購読型サービスをまとめておく。]]></description>
       <link>https://r7kamura.com/articles/2020-10-10-subscriptions-2020</link>
@@ -787,22 +822,6 @@ dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /nores
 <p>格好良くやらなければ（ある一定の閾値を超えなければ）ダサく、うるさく感じてしまう。ウェブでいろんな表示環境で常に良く見えるように考慮しながらそれをやるのは難しい。</p>
 ]]></content:encoded>
       <guid>https://r7kamura.com/articles/2020-09-27-list-style</guid>
-    </item>
-    
-    <item>
-      <title><![CDATA[記事の日付の位置]]></title>
-      <description><![CDATA[常に記事タイトルの下に日付が置かれるように変更した。]]></description>
-      <link>https://r7kamura.com/articles/2020-09-27-article-date-position</link>
-      <pubDate>Sun, 27 Sep 2020 00:00:00 +0900</pubDate>
-      <content:encoded><![CDATA[<p>常に記事タイトルの下に日付が置かれるように変更した。</p>
-
-<figure><a href="/images/2020-09-27-date-before.png" target="_blank"><img src="/images/2020-09-27-date-before.png" alt=""></a><figcaption>変更前</figcaption></figure>
-
-<figure><a href="/images/2020-09-27-date-after.png" target="_blank"><img src="/images/2020-09-27-date-after.png" alt=""></a><figcaption>変更後</figcaption></figure>
-
-<p>記事単体のページでは既に日付が下にくるようになっているし、一覧でもパターンを統一しておきたいと思ったため。統一する前提で話すと、日付を上に置くつもりは今のところない。日記であればそうしたと思うが、どちらかと言うとエッセイ寄りというか、記事に日付が従属している状態にしておきたい。</p>
-]]></content:encoded>
-      <guid>https://r7kamura.com/articles/2020-09-27-article-date-position</guid>
     </item>
     
   </channel>
