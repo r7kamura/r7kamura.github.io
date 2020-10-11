@@ -106,11 +106,11 @@ query.to_sql</p>
 <p>Visitor の実装には、Arel::Visitors::ToSql クラスが使われます。これはArel::Visitors::Visitor を継承したクラスで、Arel::Visitors::Visitor クラスではノードを受理するときにどのメソッドを呼ぶかというロジックが定義され、Arel::Table に対しては #visit_Arel_Table というように、クラス名に対応するメソッドが呼ばれる仕組みが実装されています。そして Arel::Visitors::ToSql クラスでは、これらの各ノードに対応するメソッドがそれぞれ定義されています。今回のサンプルコードであれば、以下のメソッドが利用されることになります。</p>
 
 <ul>
-<li>  Arel::Visitors::ToSql#visit_Arel_Nodes_SelectStatement</li>
-<li>  Arel::Visitors::ToSql#visit_Arel_Nodes_SelectCore</li>
-<li>  Arel::Visitors::ToSql#visit_Arel_Nodes_SqlLiteral</li>
-<li>  Arel::Visitors::ToSql#visit_Arel_Nodes_JoinSource</li>
-<li>  Arel::Visitors::ToSql#visit_Arel_Table</li>
+<li>Arel::Visitors::ToSql#visit_Arel_Nodes_SelectStatement</li>
+<li>Arel::Visitors::ToSql#visit_Arel_Nodes_SelectCore</li>
+<li>Arel::Visitors::ToSql#visit_Arel_Nodes_SqlLiteral</li>
+<li>Arel::Visitors::ToSql#visit_Arel_Nodes_JoinSource</li>
+<li>Arel::Visitors::ToSql#visit_Arel_Table</li>
 </ul>
 
 <h2>Arel::Visitors::ToSql#visit_Arel_Nodes_SelectStatement</h2>
