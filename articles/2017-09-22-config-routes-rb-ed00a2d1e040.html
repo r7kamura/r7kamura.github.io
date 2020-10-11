@@ -50,22 +50,22 @@
 <ul>
 <li>resource(s) などの DSL の利用を避ける</li>
 <li>パスの辞書順に定義する</li>
-<li>HTTP メソッドの部分だけ特別にインデントする</li>
 </ul>
 
 <h2>具体例</h2>
 
 <p>こういう形の、素朴なルーティングがひたすらに羅列されていくコードになる。実際のコードでは数百行以上に及ぶ。基本的に1行に1つのルーティングが定義される。</p>
 
-<p>MyApp::Application.routes.draw do<br>
-  get    '/' =&gt; 'top_pages#show', as: :top_page<br>
-  delete '/api/applications/:applicaiton_id' =&gt; 'api_applications#destroy', as: :application<br>
-  get    '/api/applications/:applicaiton_id' =&gt; 'api_applications#show'<br>
-  patch  '/api/applications/:applicaiton_id' =&gt; 'api_applications#update'</p>
+<pre><code>MyApp::Application.routes.draw do
+  get '/' =&gt; 'top_pages#show', as: :top_page
+  delete '/api/applications/:application_id' =&gt; 'api_applications#destroy', as: :api_application
+  get '/api/applications/:application_id' =&gt; 'api_applications#show'
+  patch '/api/applications/:application_id' =&gt; 'api_applications#update'
 
-<p>...</p>
+  ...
 
-<p>end</p>
+end
+</code></pre>
 
 <h2>背景</h2>
 
