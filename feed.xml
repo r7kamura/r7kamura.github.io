@@ -10,6 +10,38 @@
     <managingEditor>r7kamura@gmail.com (Ryo Nakamura)</managingEditor>
     
     <item>
+      <title><![CDATA[二文字エイリアス]]></title>
+      <description><![CDATA[シェルの独自エイリアスを全て二文字に統一してみた。]]></description>
+      <link>https://r7kamura.com/articles/2020-10-15-alias</link>
+      <pubDate>Thu, 15 Oct 2020 00:00:00 +0900</pubDate>
+      <content:encoded><![CDATA[<p>シェルの独自エイリアスを全て二文字に統一してみた。</p>
+
+<pre><code>alias ga='git_fuzzy_stage_files; git status --short'
+alias gb='git branch'
+alias gc='git_fuzzy_branch_switch'
+alias gd='git diff HEAD'
+alias gg='git grep'
+alias gm='git_commit_with_arguments_message'
+alias gr='git_replace'
+alias gs='git status --short'
+alias gz='git_branch_delete_merged'
+alias pr='gh pr view -w || gh pr create -w'
+alias qe='ghq_fuzzy_switch'
+alias qf='ghq get -p'
+alias sb='source ~/.bashrc'
+alias ta='tmux_fuzzy_attach_session'
+alias tl='tmux_list_session'
+alias tn='tmux_create_new_session_from_pwd'
+</code></pre>
+
+<p>2020年10月15日時点での<a href="https://github.com/r7kamura/dotfiles">dotfiles</a>から抜粋。1文字目でカテゴリを、2文字目でコマンドを決めるような設計の命名を試してみている。ほとんどの作業がエディタで完結しているので、実際にはこの辺りの使い勝手の改善はほとんど遊びみたいなもの。</p>
+
+<p>ところで、最近は <code>-s</code> のようなショートオプションより、<code>--short</code> のようなロングオプションの方を好んで使うようになった。意図は曖昧だが、検索しやすさ、説明しやすさ、覚えやすさがあって嬉しい気がする。この話とエイリアスを二文字にした話は、一見して相反しそうなものの、意外と上手く落ち着いていて不思議。</p>
+]]></content:encoded>
+      <guid>https://r7kamura.com/articles/2020-10-15-alias</guid>
+    </item>
+    
+    <item>
       <title><![CDATA[プライムデー]]></title>
       <description><![CDATA[Amazonプライムデーが来たので色々買った。]]></description>
       <link>https://r7kamura.com/articles/2020-10-13-prime-day</link>
@@ -699,47 +731,6 @@ YAMLで設定を書いたら適用出来るというやつ。AnsibleのRuby版�
 <p>これら盛り沢山な要素を、多少の綻びはあれど破綻無く上手くまとめられているバランス感覚の良さ、総じてアリと言わせるレベルの品質に持っていけている技術力の高さこそ褒められるべきところだと思う。</p>
 ]]></content:encoded>
       <guid>https://r7kamura.com/articles/2020-09-29-genshin-1st-impression</guid>
-    </item>
-    
-    <item>
-      <title><![CDATA[PowerToysで豪遊]]></title>
-      <description><![CDATA[Windows用にPowerToysというのを教えてもらって、使ってみたら思いの外よかったという話。]]></description>
-      <link>https://r7kamura.com/articles/2020-09-28-power-toys</link>
-      <pubDate>Mon, 28 Sep 2020 00:00:00 +0900</pubDate>
-      <content:encoded><![CDATA[<p>Windows用にPowerToysというのを教えてもらって、使ってみたら思いの外よかったという話。</p>
-
-<p><a href="https://github.com/microsoft/PowerToys">https://github.com/microsoft/PowerToys</a></p>
-
-<h2>PowerToys Run</h2>
-
-<p>PowerToysというのは、Windowsをより便利にする機能群をまとめたアプリケーション。</p>
-
-<pre><code>winget install PowerToys
-</code></pre>
-
-<p>wingetで入れられるので試しに入れてみて、その中のPowerToys Runという機能を常用してみることにした。</p>
-
-<figure><a href="/images/2020-09-28-power-toys-run.png" target="_blank"><img src="/images/2020-09-28-power-toys-run.png" alt=""></a><figcaption>PowerToys Runsの様子</figcaption></figure>
-
-<p>Macの<a href="https://www.alfredapp.com/">Alfred</a>と使用感がかなり似ていて、使い心地もわりと良い。似たようなことはWinodwsキーを押したあとに使える検索機能でも代替可能なのだけど、こちらの方が使い勝手が少し良い。</p>
-
-<p>デフォルトはAlt + Spaceなのだけど、Windowsの機能と競合することも多いので、Ctrl + Spaceに割り当てることにした。このショートカットキーはGoogle IMEで入力ソースを切り替えるためのショートカットキーとして登録されているので、設定でこれを取り除くなどの操作も加えた。</p>
-
-<h2>PowerToys FancyZones</h2>
-
-<p>一応他の機能の例も紹介しておくと、FancyZonesという機能も、人によっては活用できることが多いと思う。自分は画面は常に2分割しかしない派なので、Windowsのスナップ機能で間に合っており、今のところは間に合っている。</p>
-
-<figure><a href="/images/2020-09-28-power-toys-fancy-zones.png" target="_blank"><img src="/images/2020-09-28-power-toys-fancy-zones.png" alt=""></a><figcaption>FancyZonesの設定画面</figcaption></figure>
-
-<p>スナップ機能については、もともと気に入らない挙動があったので困っていたところ、amagiさんが教えてくれたおかげで解決できた。設定 &gt; マルチタスク から「ウィンドウをスナップしたときに、横に配置できるものを表示する」という機能をオフにできるらしい。</p>
-
-<h2>システムの復元</h2>
-
-<p>PowerToysのKeyboard Managerを試してみたら、キーマップを登録して戻す操作をしても永続的に元に戻らなくなってしまい、システムの復元という機能で数時間前の状態に戻ることで事なきを得た。</p>
-
-<p>キーボードのレジストリ書き換え部分の実装が甘いのかもしれない。そして、いつからかWindowsではレジストリの自動バックアップを取らなくなってしまっていた。ともあれ復元できて安心した。</p>
-]]></content:encoded>
-      <guid>https://r7kamura.com/articles/2020-09-28-power-toys</guid>
     </item>
     
   </channel>
