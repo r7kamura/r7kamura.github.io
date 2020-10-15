@@ -10,6 +10,26 @@
     <managingEditor>r7kamura@gmail.com (Ryo Nakamura)</managingEditor>
     
     <item>
+      <title><![CDATA[洗濯ジェルボール]]></title>
+      <description><![CDATA[洗濯用洗剤を、液体洗剤からジェルボールに買い替えた。]]></description>
+      <link>https://r7kamura.com/articles/2020-10-16-sentaku-gelball</link>
+      <pubDate>Fri, 16 Oct 2020 00:00:00 +0900</pubDate>
+      <content:encoded><![CDATA[<p><a href="/images/2020-10-16-sentaku-gelball-bottle.jpg" target="_blank"><img src="/images/2020-10-16-sentaku-gelball-bottle.jpg" alt=""></a></p>
+
+<p>洗濯用洗剤を、液体洗剤からジェルボールに買い替えた。ジェルボールは基本的に香りが強めのものが多い。最近出たアリエールの<a href="https://www.amazon.co.jp/dp/B08CH9F47P/?tag=r7kamura07-22">微香タイプのジェルボール</a>は良さそうだったので、これを使うことにした。</p>
+
+<p>無印良品の500mlの<a href="https://www.muji.com/jp/ja/store/cmdty/detail/4547315759514">ソーダガラス密閉瓶</a>に入れて使っている。意外と小さかった。750mlの方が良かったかもしれない。高いところに置くので、深くない方が取り出しやすそうという理由で500mlにした記憶がある。無印良品なのにイタリア製の瓶らしくちょっとした豪華さを感じる。</p>
+
+<p><a href="/images/2020-10-16-sentaku-gelball-shelf.jpg" target="_blank"><img src="/images/2020-10-16-sentaku-gelball-shelf.jpg" alt=""></a></p>
+
+<p>洗濯機の上の棚に置いて使っている。洗剤、タオル、下着類は全部ここに収納していることになる。どうせここで着替えるのだからと思ってそうしているけど、一人暮らしでしか成立させにくいワザップだろう。</p>
+
+<p>最近、入浴後に必ず洗濯機を回すことにした。つまり毎日洗濯することにした。一人暮らしだとある程度溜まるまで溜めがちなのだけど、いつ洗濯すべきかという判断が自分に委ねられるよりも、何も考えず毎日同じタイミングで回す方が色々上手くいくことに最近気づいた。たとえ量が少なくても、光熱費が余計に掛かっても、機器の寿命が縮まるとしても、毎日回すほうが良いと感じる。</p>
+]]></content:encoded>
+      <guid>https://r7kamura.com/articles/2020-10-16-sentaku-gelball</guid>
+    </item>
+    
+    <item>
       <title><![CDATA[二文字エイリアス]]></title>
       <description><![CDATA[シェルの独自エイリアスを全て二文字に統一してみた。]]></description>
       <link>https://r7kamura.com/articles/2020-10-15-alias</link>
@@ -694,43 +714,6 @@ YAMLで設定を書いたら適用出来るというやつ。AnsibleのRuby版�
 <p>MacのFinderもそうだったけど、エクスプローラの挙動にもなかなか癖があると思う。現代ではElectronみたいな手軽な実現方法もあることだし、お気に入りのファイラーを自作すべきなのかもしれない。</p>
 ]]></content:encoded>
       <guid>https://r7kamura.com/articles/2020-09-29-genshin-windows</guid>
-    </item>
-    
-    <item>
-      <title><![CDATA[『原神』第一印象]]></title>
-      <description><![CDATA[2020年9月28日にリリースされたゲーム『原神』を早速やりはじめた。]]></description>
-      <link>https://r7kamura.com/articles/2020-09-29-genshin-1st-impression</link>
-      <pubDate>Tue, 29 Sep 2020 00:00:00 +0900</pubDate>
-      <content:encoded><![CDATA[<figure><a href="/images/2020-09-29-genshin-night.png" target="_blank"><img src="/images/2020-09-29-genshin-night.png" alt=""></a><figcaption>最初に訪れる街の夜</figcaption></figure>
-
-<p>2020年9月28日にリリースされたゲーム『<a href="https://genshin.mihoyo.com/ja">原神</a>』を早速やりはじめた。</p>
-
-<p>少しプレイした感触では、個人的にかなりの好印象。体験の質が良くなるように努力されている要素が多いのを感じる。こういう、作り手のやりたいことが理解でき、その努力が少し透けて見えるような作品は好き。好きな要素もあり、嫌いな要素もあるが、好きな要素が一つでも見つけられればそれで良い。</p>
-
-<p>一方で、競争心に駆られると途端につまらなくなる可能性のある作品だと思ったので、たくさん休憩しながら一人でまったりやろうかなと思っている。ゲーム内のキャラクター達もひたすらに休憩を勧めてくる。</p>
-
-<p>ゲーム内のUIやカメラワークの設計、モデルの細かい意匠なんかを延々と眺めていたら、ゲーム序盤の街にたどり着くまで数時間も掛かっており、ストーリーが全く進んでいない。しかしそれで良いのかもしれない。</p>
-
-<figure><a href="/images/2020-09-29-genshin-evening.png" target="_blank"><img src="/images/2020-09-29-genshin-evening.png" alt=""></a><figcaption>休憩して夕焼けを見ている</figcaption></figure>
-
-<p>UIのデザインは、最近の異世界系アニメ内の表現に見られるようなフラットなもので、『ソードアート・オンライン』や『盾の勇者の成り上がり』の中に出てくるような表現に近しさを感じた。どちらかと言うとWebのコンテキストのデザインに近いものを感じて、なんというか全体的に安心する。</p>
-
-<p>手を止めていろんなものを眺めてみると、アニメーションや意匠などを含めて、とにかく細部へのこだわりを感じる。ステータス画面ひとつ取ってみても、受け入れやすい見た目でありながら、格好良さと可愛さの調和が取れたデザインになっている。</p>
-
-<figure>
-<div style="padding:41.87% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/462735403?title=0&amp;byline=0&amp;portrait=0" style="position:absolute;top:0;left:0;width:100%;height:100%;" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe></div>
-<figcaption>ステータス画面</figcaption>
-</figure>
-
-<script src="https://player.vimeo.com/api/player.js"></script>
-
-<p>そこまで期待していなかったにも関わらず、戦闘や探索も、魔法の組み合わせでいろいろ試すのが思っていたより楽しい。ゼルダの伝説やSpell Breakをプレイしたときにも感じたことだけど、こういう、小さくてシンプルな要素を組み合わせて大きな力を発生させるタイプの仕組みは、賢く立ち回ることで健康的な達成感が得られて、非常に良い。UNIX哲学的な感じで、プログラミングにおける達成感に近いものがある。</p>
-
-<p>プレイ前はゼルダの伝説ライクな見た目だなと言う印象が強かったものの、プレイしてみると、数多のゲームの要素が取り入れられていることが分かる。洋ゲーとかにありがちなこの要素をこうデザインするのか…イケてる…といった感想が沢山出てくるので、そういう見方でプレイしていても非常に楽しい。</p>
-
-<p>これら盛り沢山な要素を、多少の綻びはあれど破綻無く上手くまとめられているバランス感覚の良さ、総じてアリと言わせるレベルの品質に持っていけている技術力の高さこそ褒められるべきところだと思う。</p>
-]]></content:encoded>
-      <guid>https://r7kamura.com/articles/2020-09-29-genshin-1st-impression</guid>
     </item>
     
   </channel>
