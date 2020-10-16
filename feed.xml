@@ -10,6 +10,37 @@
     <managingEditor>r7kamura@gmail.com (Ryo Nakamura)</managingEditor>
     
     <item>
+      <title><![CDATA[葬送のフリーレン]]></title>
+      <description><![CDATA[『葬送のフリーレン』2巻を読んだ。]]></description>
+      <link>https://r7kamura.com/articles/2020-10-17</link>
+      <pubDate>Sat, 17 Oct 2020 00:00:00 +0900</pubDate>
+      <content:encoded><![CDATA[<p>『葬送のフリーレン』2巻を読んだ。</p>
+
+<p>『葬送のフリーレン』は、2020年4月から週刊少年サンデーに掲載されている漫画。原作は山田鐘人さん、作画はアベツカサさん。2020年8月に<a href="https://www.amazon.co.jp/dp/B08FDH57JT/?tag=r7kamura07-22">単行本1巻</a>が、つい先日に<a href="https://www.amazon.co.jp/dp/B08KJ5LMNQ/?tag=r7kamura07-22">単行本2巻</a>が発売された。</p>
+
+<figure>
+  <blockquote>
+    <p>魔王を倒した勇者一行の魔法使い・フリーレン。彼女はエルフで長生き。勇者・ヒンメルの死に何故自分がこんなにも悲しむのかわからず、人を"知る"旅に出る。</p>
+  </blockquote>
+  <figcaption>
+    あらすじ・<cite><a href="https://websunday.net/rensai/frieren/">WEBサンデー</a></cite>より
+  <figcaption>
+</figcaption></figcaption></figure>
+
+<p>作画のアベツカサさんの<a href="https://twitter.com/abetsukasa/status/1295556824821665793">Twitterの投稿</a>や、あるいは<a href="https://www.sunday-webry.com/detail.php?title_id=1093">サンデーうぇぶり</a>から冒頭部分を試し読みできる。</p>
+
+<p>1巻・2巻と変わらず心の機微の描写が丁寧で、"間"を使ったその表現も技巧的で美しい。淡々と進んでいく展開の中にも作り込まれたリズムがあり、読んでいてどこか小気味よい気持ちになる。</p>
+
+<p>単行本1巻から入ってとても気に入っていたので、記憶が風化してしまわない内にすぐに2巻が出て喜んでいる。2巻では若い登場人物が増え、コミカルなやり取りと戦闘描写が少し増えた。「どうしようもなく折り合えない相手をどうするか？」という小さなテーマが提示されたまま、次巻に続いているような気がする。この作品がどこに向かうのか、今から楽しみ。</p>
+
+<hr>
+
+<p>大学でドイツ語を二単位分だけ取得したが、当時 "frieren" は学ばなかった。動詞の原形で、意味は「凍える」だそうだ。</p>
+]]></content:encoded>
+      <guid>https://r7kamura.com/articles/2020-10-17</guid>
+    </item>
+    
+    <item>
       <title><![CDATA[洗濯ジェルボール]]></title>
       <description><![CDATA[洗濯用洗剤を、液体洗剤からジェルボールに買い替えた。]]></description>
       <link>https://r7kamura.com/articles/2020-10-16-sentaku-gelball</link>
@@ -690,30 +721,6 @@ YAMLで設定を書いたら適用出来るというやつ。AnsibleのRuby版�
 <p>こだわりや熱量が無くなったわけではなくて、思考を妨げないクリーンな環境や、長く生き残れる単純で強い環境に、これまでと比べてより執着するようになってきているのだと思う。</p>
 ]]></content:encoded>
       <guid>https://r7kamura.com/articles/2020-09-30-dotfiles</guid>
-    </item>
-    
-    <item>
-      <title><![CDATA[原神、Windowsの思い出し]]></title>
-      <description><![CDATA[Winodowsで遊びながら、ゲームで癒やされる一日だった。]]></description>
-      <link>https://r7kamura.com/articles/2020-09-29-genshin-windows</link>
-      <pubDate>Tue, 29 Sep 2020 00:00:00 +0900</pubDate>
-      <content:encoded><![CDATA[<p>Winodowsで遊びながら、ゲームで癒やされる一日だった。</p>
-
-<h2>原神</h2>
-
-<p>楽しみにしていたゲーム『原神』のリリース日だったので、仕事終わりにしばらくプレイしていた。最初は日記としてこの記事に感想を書いていたのだけど、せっかくなので<a href="/articles/2020-09-29-genshin-1st-impression">『原神』第一印象</a>という記事にまとめることにした。</p>
-
-<p>ある程度の規模の話題になると、あとから言及したくなることが多い。1つのURLに1つの話題が割り当てられている方が、リンクで参照しやすく、チャットに貼って盛り上がったりしやすい。</p>
-
-<h2>Windowsの思い出し</h2>
-
-<p>メインで利用する環境をMacからWindowsに移して、ようやく慣れつつある。</p>
-
-<p>Windowsは1990年代から2010年頃までメインで使っていたが、ここ10年間ほどはMacを使うばかりで、Windowsはほぼゲームを起動するだけの用途でしか使ってこなかった。今日も<a href="https://r7kamura.com/articles/2020-09-28-power-toys">PowerToysで豪遊</a>してツールを入れたりぶっ壊したり復元したりしていたら、ようやく勘を取り戻してきた。</p>
-
-<p>MacのFinderもそうだったけど、エクスプローラの挙動にもなかなか癖があると思う。現代ではElectronみたいな手軽な実現方法もあることだし、お気に入りのファイラーを自作すべきなのかもしれない。</p>
-]]></content:encoded>
-      <guid>https://r7kamura.com/articles/2020-09-29-genshin-windows</guid>
     </item>
     
   </channel>
