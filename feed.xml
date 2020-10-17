@@ -10,6 +10,34 @@
     <managingEditor>r7kamura@gmail.com (Ryo Nakamura)</managingEditor>
     
     <item>
+      <title><![CDATA[鯛と刃]]></title>
+      <description><![CDATA[鯛が届いた。]]></description>
+      <link>https://r7kamura.com/articles/2020-10-18-tai</link>
+      <pubDate>Sun, 18 Oct 2020 00:00:00 +0900</pubDate>
+      <content:encoded><![CDATA[<figure><a href="/images/2020-10-18-tai-kashira.jpg" target="_blank"><img src="/images/2020-10-18-tai-kashira.jpg" alt=""></a><figcaption>ギョッとする見た目</figcaption></figure>
+
+<p>鯛が届いた。高知かわうそ市場の、<a href="https://kochi-kawauso.com/collections/covid19_free_shipping/products/susakimadai-1hiki">須崎舞鯛 1匹分お刺身用</a>というやつ。</p>
+
+<p>高知県須崎市の野見漁協が販売していた養殖の鯛で、昨今の情勢で飲食店などに出荷ができなくなり、たくさん売れ残ってしまって生産者が困っている、という背景の鯛。切るだけで食べられるようにいい具合に前処理が施され、一般的な消費者でも簡単に食べられるようになっている。知人が食べて激推ししていて、面白そうだったのでうっかり買ってしまった。</p>
+
+<figure><a href="/images/2020-10-18-tai-cut.jpg" target="_blank"><img src="/images/2020-10-18-tai-cut.jpg" alt=""></a><figcaption>三枚におろされているのを切るだけ</figcaption></figure>
+
+<p>5年前にステンレス鋼の包丁を手に入れて以来一度も手入れをしてなかったので、あまり上手く切れず歯がゆい気持ちになりつつも、どうにか刺身としてそれなりに食べられる程度には奮闘した。そういえばこの包丁は、シェアハウスをしていたときにほしいものリストから贈ってもらったものだった。こいつには思い入れがあるので、これからも真剣に付き合っていこうと思い、研ぎ石を買うことにした。</p>
+
+<p>研ぎ石とか実家に居た頃に少し触らせてもらっていただけで全く分からない。そういえば素人なりに包丁を研いでみると、毎回その日の夜は母が喜んでいたようなおぼろげな記憶がある。などと考えてインターネットを彷徨っていると、<a href="http://www015.upp.so-net.ne.jp/toishi-erabi/index.html">研石選び</a>という本物のサイトを見つけた。</p>
+
+<p>このサイトは素晴らしくて、2004年から長期にわたって砥石に関する情報が記述されており、またそれぞれの砥石についての情報も数年掛けて丁寧に更新されていっている様子が伺える。ここまでの情熱、只者ではあるまいと思い、何者なのか調べていったところ、どうやら埼玉で佐藤研磨店という店を営業されている方のようだった。最近では<a href="http://satokenmaten.cocolog-nifty.com/blog/">ブログ</a>も更新されているらしい。</p>
+
+<figure><a href="/images/2020-10-18-tai-table.jpg" target="_blank"><img src="/images/2020-10-18-tai-table.jpg" alt=""></a><figcaption>オクラの煮浸し、鯛の刺身、きのこソテー</figcaption></figure>
+
+<p>話が完全に逸れつつあるので、砥石についての結論だけ述べると、砥石と言えばシャプトンの『刃の黒幕』が安牌、それも家庭用で研石入門者の最初の一本ならまずは1000番（砥石の粒度を表す数字で、小さいほど荒い）が良いだろうという雰囲気だったので、<a href="https://www.amazon.co.jp/dp/B001TPFT0G/?tag=r7kamura07-22">刃の黒幕の1000番</a>を買ってみることにした。鯛無視して道具の改善に走ってる辺り、職業病なのかもしれない。</p>
+
+<p>鯛の刺身は当然のように美味しかった。この価格と、この手軽さで、これだけの鯛が食べられるなんて。<a href="/articles/2020-10-13-prime-day">プライムデー</a>にかこつけて買い替えた炊飯器が届いたので、明日は鯛の漬け丼にする予定。</p>
+]]></content:encoded>
+      <guid>https://r7kamura.com/articles/2020-10-18-tai</guid>
+    </item>
+    
+    <item>
       <title><![CDATA[葬送のフリーレン]]></title>
       <description><![CDATA[『葬送のフリーレン』2巻を読んだ。]]></description>
       <link>https://r7kamura.com/articles/2020-10-17</link>
@@ -692,33 +720,6 @@ export PS1='$(prompt)'
 <p>何が原因かよくわからない状態でとりあえず表示が崩れて困っている旨をTwitterに投稿したところ、丁寧に教えてくれたhirose31さんに感謝。</p>
 ]]></content:encoded>
       <guid>https://r7kamura.com/articles/2020-10-01-bash-prompt</guid>
-    </item>
-    
-    <item>
-      <title><![CDATA[dotfilesの整理]]></title>
-      <description><![CDATA[主な開発環境がUbuntuに移ったということもあり、dotfilesを整理していた。]]></description>
-      <link>https://r7kamura.com/articles/2020-09-30-dotfiles</link>
-      <pubDate>Wed, 30 Sep 2020 00:00:00 +0900</pubDate>
-      <content:encoded><![CDATA[<p>主な開発環境がUbuntuに移ったということもあり、<a href="https://github.com/r7kamura/dotfiles">dotfiles</a>を整理していた。</p>
-
-<figure><a href="https://raw.githubusercontent.com/serverkit/serverkit/master/images/server.png" target="_blank"><img src="https://raw.githubusercontent.com/serverkit/serverkit/master/images/server.png" alt=""></a><figcaption>serverkitの象徴 / 1041uuuさんに描いてもらった</figcaption></figure>
-
-<p>かなり放置気味のリポジトリだったので、4年ぶりに更新することになった。以前は豪華なインストーラを付けたりして、Xcodeインストール済みのMacをコマンド1発でセットアップできるというところに価値を置いていた。</p>
-
-<p>このために<a href="https://github.com/serverkit/serverkit">serverkit</a>というツールも自作していて、全面的にそれを利用するようなつくりになっていた。
-YAMLで設定を書いたら適用出来るというやつ。AnsibleのRuby版みたいなもの。内部がかなりプラグイン化されていて、自分の用途の都合上、Macの設定を変えるようなプラグインが多い。例えば、Dockの設定を変えたり、Homebrewの管理をしたり。</p>
-
-<p>当時サバにハマってて、Twitterで「サバッッッ」とか言ってたら1041uuuさんがサバの絵を上げてくれて、使っていいとのことだったので、ありがたくserverkitの絵として使わせてもらっている。正直サバの絵が嬉しかったので当時開発を続けていたようなところはある。</p>
-
-<hr>
-
-<p>当時の様子とは打って変わって、2020年のdotfilesにはほとんど中身が無くなってしまった。プロンプトの簡単な設定と、手癖になってしまっているalias群。それから、GitとTigの設定がおまけ程度にあるぐらい。</p>
-
-<figure><a href="/images/2020-09-30-dotfiles-terminal.png" target="_blank"><img src="/images/2020-09-30-dotfiles-terminal.png" alt=""></a><figcaption>現在の端末の様子</figcaption></figure>
-
-<p>こだわりや熱量が無くなったわけではなくて、思考を妨げないクリーンな環境や、長く生き残れる単純で強い環境に、これまでと比べてより執着するようになってきているのだと思う。</p>
-]]></content:encoded>
-      <guid>https://r7kamura.com/articles/2020-09-30-dotfiles</guid>
     </item>
     
   </channel>
