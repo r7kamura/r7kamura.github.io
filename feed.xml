@@ -10,6 +10,40 @@
     <managingEditor>r7kamura@gmail.com (Ryo Nakamura)</managingEditor>
     
     <item>
+      <title><![CDATA[OBSでトラックを分けて録音]]></title>
+      <description><![CDATA[OBSで音声を収録する際に、マイクの音声とデスクトップの音声を個別のトラックに分ける方法について。]]></description>
+      <link>https://r7kamura.com/articles/2020-10-19-podcast</link>
+      <pubDate>Mon, 19 Oct 2020 00:00:00 +0900</pubDate>
+      <content:encoded><![CDATA[<p>OBSで音声を収録する際に、マイクの音声とデスクトップの音声を個別のトラックに分ける方法について。</p>
+
+<h2>概要</h2>
+
+<p>ゲームのプレイ動画を録画するときや、通話しながらPodcast用の音源を録音するときなどに、自分のマイクの音とそれ以外の音とをそれぞれ個別の音声トラックに分けて録音しておくと、後から片方の音量だけ大きくしたり、片方の音源に特有のノイズを取り除いたりと、編集するときに非常に捗る。<a href="https://obsproject.com/ja">OBS</a>の音声トラックを適切に設定しながら録音することで、これは簡単に実現できる。</p>
+
+<h2>説明</h2>
+
+<p>話を単純にするために、ここではPodcast用の音源を録音するという用途を例に説明していく。もちろん、動画用の音声を用意したい場合にもこの方法は利用できる。</p>
+
+<figure><a href="/images/2020-10-19-obs.png" target="_blank"><img src="/images/2020-10-19-obs.png" alt=""></a><figcaption>シーン "Podcast" を追加</figcaption></figure>
+
+<p>OBSでは、シーンという単位で入力ソース群を管理する。今回はPodcast用の音源を録音したいので、例として "Podcast" というシーンを用意する。マイクとデスクトップ音声は、何もしなくても最初から音声の入力元として認識されている。録音だけ行う場合は、特に入力ソースを何も追加する必要はない。</p>
+
+<p>OBSでは、6つの音声トラックが用意されている。デフォルトでは、全ての音声が第1トラックから第6トラックと紐付く設定になっており、かつ第1トラックだけが実際に配信や録音される動画に出力されるようになっている。トラックを分けて録音したい場合は、これらの設定を変更することになる。</p>
+
+<p>配信には、これまで通りすべての音声が紐付いた第1トラックを出力したい。録音には、デスクトップ音声が紐付いた第2トラックと、マイクが紐付いた第3トラックを出力したい。このように設定を変更するには、OBSの出力の設定で、出力モードを "詳細" に変更し、録画タブから2と3の音声トラックが選択された状態にする。</p>
+
+<figure><a href="/images/2020-10-19-obs-settings.png" target="_blank"><img src="/images/2020-10-19-obs-settings.png" alt=""></a><figcaption>録画時の音声トラックを変更</figcaption></figure>
+
+<p>更に、シーン "Podcast" の音声ミキサーの設定から、オーディオの詳細プロパティを開き、デスクトップ音声を第1トラックと第2トラックに、マイクを第1トラックと第3トラックに紐付ける。デフォルトでは全てのトラックに紐付いているので、これを適当に外すことになる。</p>
+
+<figure><a href="/images/2020-10-19-obs-audio.png" target="_blank"><img src="/images/2020-10-19-obs-audio.png" alt=""></a><figcaption>紐付けるトラックをそれぞれ変更</figcaption></figure>
+
+<p>以上の設定で、録画された動画ファイルに含まれる音声データが、それぞれ個別のトラックに分かれるようになる。</p>
+]]></content:encoded>
+      <guid>https://r7kamura.com/articles/2020-10-19-podcast</guid>
+    </item>
+    
+    <item>
       <title><![CDATA[鯛と刃]]></title>
       <description><![CDATA[鯛が届いた。]]></description>
       <link>https://r7kamura.com/articles/2020-10-18-tai</link>
@@ -669,57 +703,6 @@ consumption_tax_rate = 1.1
 <p>ここ最近、<a href="https://www.amazon.co.jp/dp/B002XCT5FY/?tag=r7kamura07-22">明治屋のガムシロップ</a>を試してみている。少し良いガムシロップを入れるだけでかなり体験が良い、ということが分かった。瓶の見た目はかっこいいのたけど、この構造だと入れたあと口から液が垂れる可能性があるところが不満点。次の作戦として、<a href="https://www.amazon.co.jp/dp/B001HM3FFM/?tag=r7kamura07-22">モナンのバニラシロップ</a>を買って、<a href="https://www.amazon.co.jp/dp/B00DJ551LG/?tag=r7kamura07-22">専用のポンプ</a>を付けて使おうかなと考えてみている。</p>
 ]]></content:encoded>
       <guid>https://r7kamura.com/articles/2020-10-01-coffee</guid>
-    </item>
-    
-    <item>
-      <title><![CDATA[Bashのプロンプトと非印刷文字の幅計算]]></title>
-      <description><![CDATA[Bashでプロンプトをカスタマイズしようとしてはまったが解決した。]]></description>
-      <link>https://r7kamura.com/articles/2020-10-01-bash-prompt</link>
-      <pubDate>Thu, 01 Oct 2020 00:00:00 +0900</pubDate>
-      <content:encoded><![CDATA[<p>Bashでプロンプトをカスタマイズしようとしてはまったが解決した。</p>
-
-<h2>Bashのプロンプトで使える制御文字</h2>
-
-<p>Bashでプロンプトを指定する際には、<a href="https://www.gnu.org/savannah-checkouts/gnu/bash/manual/bash.html#Controlling-the-Prompt">Bashのマニュアルのプロンプト制御の項目</a>にも記載されているように、幾つかの制御文字が利用できるようになっている。この中で、例えばANSIエスケープシーケンスのような非印刷文字をプロンプトで利用するとき、プロンプトの幅を正しく計算させるために、<code>\[</code> と <code>\]</code> という制御文字が提供されている。</p>
-
-<blockquote>
-<p><code>\[</code>
-Begin a sequence of non-printing characters. This could be used to embed a terminal control sequence into the prompt.</p>
-
-<p><code>\]</code>
-End a sequence of non-printing characters.</p>
-</blockquote>
-
-<p>このように <code>\[</code> と <code>\]</code> で非印刷文字を囲ってあげることで、プロンプトを扱うBashが上手く幅を計算してくれるようになる。逆にこれをやらないと、例えば端末での折返し時や、カーソル位置を動かすような処理（例えばコマンド履歴のインクリメンタル検索など）で表示が崩れてしまうことになる。</p>
-
-<pre><code>export PS1='\[\033[01;33m$\033[00m\] '
-</code></pre>
-
-<h2>関数内での制御文字の利用</h2>
-
-<p>さて、ここで実装を分かりやすくするために処理を関数にまとめようとしたところ、<code>\[</code> と <code>\]</code> が制御文字として扱われてくれないというところで困った。関数の中で同じように文字列を出力しようとすると、<code>\[$\]</code> のような見た目のプロンプトになってしまう。</p>
-
-<pre><code>prompt() {
-  echo -e '\[\033[01;33m$\033[00m\] '
-}
-
-export PS1='$(prompt)'
-</code></pre>
-
-<p>解決策としては、<a href="https://stackoverflow.com/questions/24839271/bash-ps1-line-wrap-issue-with-non-printing-characters-from-an-external-command">同様の問題へのStackOverflowでの回答</a>を参考に、<code>\[</code> と <code>\]</code> の代わりに <code>\001</code> と <code>\002</code> を使うことで解決した。ちなみに、同回答で提案されていた <code>PROMPT_COMMAND</code> を使う方法でも同様に解決することは確認できたが、前者の解決策の方が分かりやすそうだったのでこちらを使うことに。</p>
-
-<pre><code>prompt() {
-  echo -e '\001\033[01;33m$\033[00m\002 '
-}
-
-export PS1='$(prompt)'
-</code></pre>
-
-<hr>
-
-<p>何が原因かよくわからない状態でとりあえず表示が崩れて困っている旨をTwitterに投稿したところ、丁寧に教えてくれたhirose31さんに感謝。</p>
-]]></content:encoded>
-      <guid>https://r7kamura.com/articles/2020-10-01-bash-prompt</guid>
     </item>
     
   </channel>

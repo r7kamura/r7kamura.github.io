@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width">
+  <title>OBSでトラックを分けて録音</title>
+  <link href="https://r7kamura.com/articles/2020-10-19-podcast" rel="canonical">
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="search" type="application/opensearchdescription+xml" title="r7kamura.com" href="/opensearch.xml">
+  <link rel="alternate" type="application/rss+xml" href="/feed.xml">
+  
+  <meta property="description" content="OBSで音声を収録する際に、マイクの音声とデスクトップの音声を個別のトラックに分ける方法について。">
+  <meta property="og:description" content="OBSで音声を収録する際に、マイクの音声とデスクトップの音声を個別のトラックに分ける方法について。">
+  
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="OBSでトラックを分けて録音">
+  <meta property="og:url" content="https://r7kamura.com/articles/2020-10-19-podcast">
+  
+  <meta property="og:image" content="https://r7kamura.com/images/2020-10-19-obs.png">
+  <meta property="twitter:card" content="summary_large_image">
+  
+</head>
+<body>
+  <header>
+    <nav>
+      <a href="/">r7kamura.com</a>
+      <ul>
+        <li>
+          <a href="/articles">一覧</a>
+        </li>
+        <li>
+          <a href="https://www.google.com/?as_sitesearch=r7kamura.com">検索</a>
+        </li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <article>
+  <header>
+    <time datetime="2020-10-19T00:00:00+09:00">2020年10月19日</time>
+    <h1>OBSでトラックを分けて録音</h1>
+  </header>
+  <div>
+    <p>OBSで音声を収録する際に、マイクの音声とデスクトップの音声を個別のトラックに分ける方法について。</p>
+
+<h2>概要</h2>
+
+<p>ゲームのプレイ動画を録画するときや、通話しながらPodcast用の音源を録音するときなどに、自分のマイクの音とそれ以外の音とをそれぞれ個別の音声トラックに分けて録音しておくと、後から片方の音量だけ大きくしたり、片方の音源に特有のノイズを取り除いたりと、編集するときに非常に捗る。<a href="https://obsproject.com/ja">OBS</a>の音声トラックを適切に設定しながら録音することで、これは簡単に実現できる。</p>
+
+<h2>説明</h2>
+
+<p>話を単純にするために、ここではPodcast用の音源を録音するという用途を例に説明していく。もちろん、動画用の音声を用意したい場合にもこの方法は利用できる。</p>
+
+<figure><a href="/images/2020-10-19-obs.png" target="_blank"><img src="/images/2020-10-19-obs.png" alt=""></a><figcaption>シーン "Podcast" を追加</figcaption></figure>
+
+<p>OBSでは、シーンという単位で入力ソース群を管理する。今回はPodcast用の音源を録音したいので、例として "Podcast" というシーンを用意する。マイクとデスクトップ音声は、何もしなくても最初から音声の入力元として認識されている。録音だけ行う場合は、特に入力ソースを何も追加する必要はない。</p>
+
+<p>OBSでは、6つの音声トラックが用意されている。デフォルトでは、全ての音声が第1トラックから第6トラックと紐付く設定になっており、かつ第1トラックだけが実際に配信や録音される動画に出力されるようになっている。トラックを分けて録音したい場合は、これらの設定を変更することになる。</p>
+
+<p>配信には、これまで通りすべての音声が紐付いた第1トラックを出力したい。録音には、デスクトップ音声が紐付いた第2トラックと、マイクが紐付いた第3トラックを出力したい。このように設定を変更するには、OBSの出力の設定で、出力モードを "詳細" に変更し、録画タブから2と3の音声トラックが選択された状態にする。</p>
+
+<figure><a href="/images/2020-10-19-obs-settings.png" target="_blank"><img src="/images/2020-10-19-obs-settings.png" alt=""></a><figcaption>録画時の音声トラックを変更</figcaption></figure>
+
+<p>更に、シーン "Podcast" の音声ミキサーの設定から、オーディオの詳細プロパティを開き、デスクトップ音声を第1トラックと第2トラックに、マイクを第1トラックと第3トラックに紐付ける。デフォルトでは全てのトラックに紐付いているので、これを適当に外すことになる。</p>
+
+<figure><a href="/images/2020-10-19-obs-audio.png" target="_blank"><img src="/images/2020-10-19-obs-audio.png" alt=""></a><figcaption>紐付けるトラックをそれぞれ変更</figcaption></figure>
+
+<p>以上の設定で、録画された動画ファイルに含まれる音声データが、それぞれ個別のトラックに分かれるようになる。</p>
+
+  </div>
+</article>
+
+  </main>
+</body>
+</html>
