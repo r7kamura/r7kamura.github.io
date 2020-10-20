@@ -10,6 +10,37 @@
     <managingEditor>r7kamura@gmail.com (Ryo Nakamura)</managingEditor>
     
     <item>
+      <title><![CDATA[キーボード G913-TKL]]></title>
+      <description><![CDATA[ロジクールのG913-TKLというキーボードを買った。]]></description>
+      <link>https://r7kamura.com/articles/2020-10-21-keyboard-g913-tkl</link>
+      <pubDate>Wed, 21 Oct 2020 00:00:00 +0900</pubDate>
+      <content:encoded><![CDATA[<figure><a href="/images/2020-10-21-keyboard-g913-tkl.jpg" target="_blank"><img src="/images/2020-10-21-keyboard-g913-tkl.jpg" alt=""></a><figcaption>G913-TKLとG903</figcaption></figure>
+
+<p>ロジクールの<a href="https://www.amazon.co.jp/dp/B088BN6JKQ/?tag=r7kamura07-22">G913-TKL</a>というキーボードを買った。</p>
+
+<p>LEDの発色がとても良く、ヘアライン加工の施された金属面には高級感があり、メディアキー類も使ってみると意外と悪くない。打鍵感もこの薄さにしてはそこそこに良く、リニア軸のおかげか打鍵音はいたって静か。個人的には薄いおかげでかなり疲れづらくなったと感じる。</p>
+
+<p>机で作業するときにキーボードを動かす機会も多いので、無線はとにかく快適。充電が大変になるかと思いきや、以前購入した<a href="/articles/2019-12-02-magnet-usb">マグネット式USBアダプタ</a>を使うとそこまで大変でも無かった。無線マウスにも同じアダプタを付けて、気が向いたときに給電してやっている。</p>
+
+<p>打鍵感や価格についてパフォーマンスを突き詰めるなら違う製品をおすすめするかもしれないが、色々な機能がほどよくまとまっており、見た目の高級感とゲーミングキーボードらしさを兼ね備えた良いキーボードだと思う。</p>
+
+<hr>
+
+<p>参考までに、自分が過去に利用してきたキーボードは次の通り。</p>
+
+<ul>
+<li>HHKB Professional</li>
+<li>Apple Wireless Keyboard</li>
+<li>Apple Magic Keyboard</li>
+<li>QWERKYWRITER</li>
+<li>G-PKB-001</li>
+<li>G-PKB-002</li>
+</ul>
+]]></content:encoded>
+      <guid>https://r7kamura.com/articles/2020-10-21-keyboard-g913-tkl</guid>
+    </item>
+    
+    <item>
       <title><![CDATA[Podcast収録環境 2020年版]]></title>
       <description><![CDATA[2020年時点での自分のPodcast収録環境について。]]></description>
       <link>https://r7kamura.com/articles/2020-10-20-podcast-setup-2020</link>
@@ -695,49 +726,6 @@ consumption_tax_rate = 1.1
 <p>実際のところ、ライブラリはProxyというクラスだけを提供していて、実質30行ぐらいしか実装が無い。ではこのライブラリが本質的に何を提供しているのかというと、connectionを他のモデルから借りてくるだけで上手くいくんじゃない？というアイデアを提供しているのだと思う。そして、実際のところはしっかりやろうとするとクエリキャッシュの管理で上手くいかないかったりする。</p>
 ]]></content:encoded>
       <guid>https://r7kamura.com/articles/2020-10-03-active-record-connection-proxy</guid>
-    </item>
-    
-    <item>
-      <title><![CDATA[日付の位置、ウェブページへの言及、原神]]></title>
-      <description><![CDATA[雑多な日記。]]></description>
-      <link>https://r7kamura.com/articles/2020-10-02-notes</link>
-      <pubDate>Fri, 02 Oct 2020 00:00:00 +0900</pubDate>
-      <content:encoded><![CDATA[<p>雑多な日記。</p>
-
-<h2>日付の位置</h2>
-
-<p>朝起きて自分のサイトを見たら急に発作が起き、気持ち悪くなって日付の位置を移動させた。日付を移動させると、いつの間にか発作は収まっていた。不思議なこともあるものだ。二度寝した後でコミットログを読むと、「ブログにおいてはそれがいつ書かれたかが特に重要であることに気付いた」とか調子のいいことが書かれていた。</p>
-
-<h2>ウェブページへの言及</h2>
-
-<p><a href="https://hail2u.net">hail2uさんのサイト</a>みたいに、その日見たウェブページに関する簡単なコメントをまとめておくための独立したページが欲しくなってきた。というのも、SNSなどで言及するには何か温度感が違いすぎるような感じがするし、かといって日記で細かく言及しようとすると下手に悪目立ちしそうで、何となく躊躇してしまっているため。現状零れ落ちてしまっている何かが、そこですくい取れるかもしれない。</p>
-
-<h2>原神</h2>
-
-<figure><a href="/images/2020-10-02-genshin.png" target="_blank"><img src="/images/2020-10-02-genshin.png" alt=""></a><figcaption>原神・モンド城下町</figcaption></figure>
-
-<p>『<a href="https://genshin.mihoyo.com/ja">原神</a>』をゆっくり進めている。攻略に目がない人達が落としてくれたお金で開発が進む、ものすごく高品質な箱庭ゲームだと捉えている節がある。世界を救う旅人というよりは、街で生活するカメラが好きな一般人として過ごしている。</p>
-
-<p>あまり切迫した状況になっておらず、適当に散策していても世界への申し訳無さを感じないところが良い。FF14で光の戦士をやっていた頃は、世界を救わなければならないという焦燥感みたいなものを、心のどこかで常に感じていた。</p>
-
-<hr>
-
-<p>Twitterカードで画像が展開されないなと思って詳しく調べたら、<a href="https://developer.twitter.com/en/docs/twitter-for-websites/cards/overview/summary-card-with-large-image">Twitterカードのドキュメント</a>に画像は最大5MBまでと書かれており、配信している画像を調べてみたら幾つかの画像がそれを超過していた。</p>
-
-<blockquote>
-<p>Images for this Card support an aspect ratio of 2:1 with minimum dimensions of 300x157 or maximum of 4096x4096 pixels. Images must be less than 5MB in size. JPG, PNG, WEBP and GIF formats are supported.</p>
-</blockquote>
-
-<p>サイズが上位20件以内の画像を見つけ、最大幅1920pxに変換することで、適当にやりすごすことにした。</p>
-
-<pre><code>du -k static/images/* \
-  | sort -rn \
-  | head -n 20 \
-  | cut -f 2 \
-  | xargs mogrify -resize 1920x
-</code></pre>
-]]></content:encoded>
-      <guid>https://r7kamura.com/articles/2020-10-02-notes</guid>
     </item>
     
   </channel>
