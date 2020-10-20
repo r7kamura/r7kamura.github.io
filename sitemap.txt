@@ -193,7 +193,7 @@ https://r7kamura.com/articles/2018-04-10-arel-9-0-0-afe5813d8eeb
 https://r7kamura.com/articles/2018-04-07-rails-4-2-8-37df96e43f80
 https://r7kamura.com/articles/2018-04-04-4d99f972b11
 https://r7kamura.com/articles/2018-04-02-alias-prepend-f376914c93fb
-https://r7kamura.com/articles/2018-03-17-6bd8bfd47839
+https://r7kamura.com/articles/2018-03-17-monitar-arm-ergotron-mx
 https://r7kamura.com/articles/2018-01-26-rack-html-json-gzip-bcad95bdabf3
 https://r7kamura.com/articles/2018-01-23-web-2018-3486f3f69424
 https://r7kamura.com/articles/2018-01-19-slay-the-spire-debaff0730f8
