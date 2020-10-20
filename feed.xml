@@ -10,11 +10,11 @@
     <managingEditor>r7kamura@gmail.com (Ryo Nakamura)</managingEditor>
     
     <item>
-      <title><![CDATA[Podcast環境 2020年版]]></title>
-      <description><![CDATA[2020年時点での自分のPodcast環境について。]]></description>
+      <title><![CDATA[Podcast収録環境 2020年版]]></title>
+      <description><![CDATA[2020年時点での自分のPodcast収録環境について。]]></description>
       <link>https://r7kamura.com/articles/2020-10-20-podcast-setup-2020</link>
       <pubDate>Tue, 20 Oct 2020 00:00:00 +0900</pubDate>
-      <content:encoded><![CDATA[<p>2020年時点での自分のPodcast環境について。</p>
+      <content:encoded><![CDATA[<p>2020年時点での自分のPodcast収録環境について。</p>
 
 <p>主に<a href="https://yatteiki.fm/">yatteiki.fm</a>の収録用。<a href="/articles/2017-05-25-podcast-setup-2017">2017年版</a>もある。</p>
 
@@ -30,7 +30,7 @@
 
 <p><a href="/images/2020-10-20-podcast-setup-2020-discord.png" target="_blank"><img src="/images/2020-10-20-podcast-setup-2020-discord.png" alt=""></a></p>
 
-<p>Discordで通話しながら、<a href="http://localhost:9292/articles/2020-10-19-podcast">OBSで音声トラックを分けて録音</a>している。</p>
+<p>Discordで通話しながら、<a href="/articles/2020-10-19-podcast">OBSで音声トラックを分けて録音</a>している。</p>
 
 <p>通話はYATTEIKIのDiscordサーバーかDMで行う。その後の編集時のやりとりにもDiscordを使う。60分ほど話すと、OBSから1GBほどの動画ファイルが出力される。</p>
 
