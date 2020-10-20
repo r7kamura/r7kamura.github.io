@@ -1,3 +1,4 @@
+https://r7kamura.com/articles/2020-10-20-podcast-setup-2020
 https://r7kamura.com/articles/2020-10-19-podcast
 https://r7kamura.com/articles/2020-10-18-tai
 https://r7kamura.com/articles/2020-10-17
@@ -224,8 +225,8 @@ https://r7kamura.com/articles/2017-06-16-amakan-ui-8817335324
 https://r7kamura.com/articles/2017-06-08-zero-bugs-c1fc233256a9
 https://r7kamura.com/articles/2017-06-06-increments-8ae656a2e2dd
 https://r7kamura.com/articles/2017-05-30-writing-an-interpreter-in-go-99c98d746d7c
-https://r7kamura.com/articles/2017-05-25-yatteiki-fm-podcast-2017-c3dbaaeea7d3
 https://r7kamura.com/articles/2017-05-25-ruboty-be95e56d2400
+https://r7kamura.com/articles/2017-05-25-podcast-setup-2017
 https://r7kamura.com/articles/2017-05-24-speee-cafe-meetup-07-1ac10067d22b
 https://r7kamura.com/articles/2017-05-21-901f82de7b10
 https://r7kamura.com/articles/2017-05-18-h
