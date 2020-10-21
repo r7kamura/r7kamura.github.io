@@ -10,6 +10,36 @@
     <managingEditor>r7kamura@gmail.com (Ryo Nakamura)</managingEditor>
     
     <item>
+      <title><![CDATA[ハンモック]]></title>
+      <description><![CDATA[VIVEREのハンモックを買った。]]></description>
+      <link>https://r7kamura.com/articles/2020-10-22-hammock</link>
+      <pubDate>Thu, 22 Oct 2020 00:00:00 +0900</pubDate>
+      <content:encoded><![CDATA[<figure><a href="/images/2020-10-22-hammock-setup-3.jpg" target="_blank"><img src="/images/2020-10-22-hammock-setup-3.jpg" alt=""></a><figcaption>完成形</figcaption></figure>
+
+<p><a href="https://www.amazon.co.jp/dp/B076R436RP/?tag=r7kamura07-22">VIVEREのハンモック</a>を買った。</p>
+
+<p>プロジェクターで映像を見るときにくつろいだり、人が来たときに簡易的に寝られるような用途でソファのようなものが欲しかったが、面白そうだったのでハンモックを買うことにした。</p>
+
+<figure><a href="/images/2020-10-22-hammock-setup-1.jpg" target="_blank"><img src="/images/2020-10-22-hammock-setup-1.jpg" alt=""></a><figcaption>梱包時点</figcaption></figure>
+
+<p>部品の状態ではかなり小さく収納できるような構成になっている。引っ越しのときにも便利だろう。アウトドアの場などに持っていくことも多いと聞くが、この大きさに梱包できるなら納得感もある。</p>
+
+<figure><a href="/images/2020-10-22-hammock-setup-2.jpg" target="_blank"><img src="/images/2020-10-22-hammock-setup-2.jpg" alt=""></a><figcaption>内容物</figcaption></figure>
+
+<p>金属の管が5本と、布が1枚と、ネジが7個入っている。管の結合部を繋いで、ネジを締めれば完成。部品は1つずつゆっくり組み立てられて、支えながら作業をしないといけないようなこともないので、1人でも簡単。</p>
+
+<figure><a href="/images/2020-10-22-hammock-finished.jpg" target="_blank"><img src="/images/2020-10-22-hammock-finished.jpg" alt=""></a><figcaption>設置した様子</figcaption></figure>
+
+<p>冬場は少し寒いかもしれないが、毛布と一緒に窓際に置いている。雨の日なんかに外を見ながら本を読むのは気持ちが良い。使わないときは、専らサメ置き場と化している。</p>
+
+<p>部屋にそれなりの空間が余っている場合にはおすすめだが、狭いところでは窮屈そうな印象になるのであまりおすすめしない。金属の黒い脚をわりと見失うので、たまに小指をぶつけて痛くなる。</p>
+
+<p>使ってみての感想だが、慣れたら快適で、かなりくつろげる。体勢を変えるのにコツが要るので、慣れるまではくつろぐのが難しいかもしれない。1日使うと慣れる。自分はハンモックで横になっていると不思議とそこまで眠くならないので、逆に眠りたくはないが本を読んだり動画を見たりしたいというときに重宝している。同じ値段でソファやラウンジチェアを買うよりは面白いので、正直かなり満足している。</p>
+]]></content:encoded>
+      <guid>https://r7kamura.com/articles/2020-10-22-hammock</guid>
+    </item>
+    
+    <item>
       <title><![CDATA[キーボード G913-TKL]]></title>
       <description><![CDATA[ロジクールのG913-TKLというキーボードを買った。]]></description>
       <link>https://r7kamura.com/articles/2020-10-21-keyboard-g913-tkl</link>
@@ -704,31 +734,6 @@ consumption_tax_rate = 1.1
 </ul>
 ]]></content:encoded>
       <guid>https://r7kamura.com/articles/2020-10-04-ikinari-hackathon</guid>
-    </item>
-    
-    <item>
-      <title><![CDATA[active_record-connection_proxy]]></title>
-      <description><![CDATA[ActiveRecordで複数DBというか複数の接続設定に対応するために、active_record-connection_proxyというライブラリをつくった。]]></description>
-      <link>https://r7kamura.com/articles/2020-10-03-active-record-connection-proxy</link>
-      <pubDate>Sat, 03 Oct 2020 00:00:00 +0900</pubDate>
-      <content:encoded><![CDATA[<p>ActiveRecordで複数DBというか複数の接続設定に対応するために、<a href="https://github.com/r7kamura/active_record-connection_proxy">active_record-connection_proxy</a>というライブラリをつくった。</p>
-
-<p>元々は、とあるアプリのRails 4.2から5.0へのアップグレードで必要になってつくった実装だったが、せっかくなのでライブラリ化して公開することにした。</p>
-
-<p>ちなみに、このライブラリは以下の問題意識を背景につくられた。</p>
-
-<ul>
-<li>Rails 6.0の複数DB用対応はRails 6.0からしか使えない</li>
-<li>巷のライブラリはreadとwriteの二択にしか対応していないものが多い</li>
-<li>コード量が多いライブラリだといざというときやめにくい</li>
-<li>ブロック形式だとメソッドチェーン方式の既存コードを移行しにくい</li>
-</ul>
-
-<p>かなり雑なつくりになっていて笑っちゃうんだけど、贔屓目にとらえると、パーツだけ提供して、組み立ては利用者にやってもらうという形式が面白いところだと思う。ライブラリを読み込むだけでいい感じに全部やってくれたりすることはないので、自分で組み立てる楽しさと安心感を利用者に感じてもらいたい。</p>
-
-<p>実際のところ、ライブラリはProxyというクラスだけを提供していて、実質30行ぐらいしか実装が無い。ではこのライブラリが本質的に何を提供しているのかというと、connectionを他のモデルから借りてくるだけで上手くいくんじゃない？というアイデアを提供しているのだと思う。そして、実際のところはしっかりやろうとするとクエリキャッシュの管理で上手くいかないかったりする。</p>
-]]></content:encoded>
-      <guid>https://r7kamura.com/articles/2020-10-03-active-record-connection-proxy</guid>
     </item>
     
   </channel>
