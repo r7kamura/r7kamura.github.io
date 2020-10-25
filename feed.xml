@@ -10,6 +10,86 @@
     <managingEditor>r7kamura@gmail.com (Ryo Nakamura)</managingEditor>
     
     <item>
+      <title><![CDATA[DiscordのWebhookとチャンネル設計]]></title>
+      <description><![CDATA[TwitterやGitHubからDiscordに自動で投稿させる方法と、この手の自動投稿を扱う際のより良いチャンネル設計について。]]></description>
+      <link>https://r7kamura.com/articles/2020-10-26-discord-webhooks-and-channels</link>
+      <pubDate>Mon, 26 Oct 2020 00:00:00 +0900</pubDate>
+      <content:encoded><![CDATA[<p>TwitterやGitHubからDiscordに自動で投稿させる方法と、この手の自動投稿を扱う際のより良いチャンネル設計について。</p>
+
+<h2>背景</h2>
+
+<p>DiscordのYATTEIKIサーバー (<a href="https://yatteiki.fm/">yatteiki.fm</a>の収録や管理に使っているサーバー) のWebhookの設定とチャンネルの設計を見直す機会があったので、ついでに設定方法をまとめておこうと思い、この記事を書くことにした。</p>
+
+<h2>GitHub</h2>
+
+<p>DiscordでWebhookの受信用URLを発行し、GitHubのリポジトリでWebhookの送信用設定を行うと、そのリポジトリでの様々な変更をDiscordに通知できる。</p>
+
+<p>DiscordはGitHubのWebhookへのサポートが手厚く、簡単に設定できるように特別な口を設けているので、設定も簡単だ。具体的には、Discordで発行したWebhookのURLの末尾に <code>/github</code> を足したものをGitHubに設定するだけで良い。どんなイベントを通知するかも、GitHub側で簡単に設定できる。</p>
+
+<p>具体的な設定方法は、<a href="https://support.discord.com/hc/en-us/articles/228383668-Intro-to-Webhooks">DiscordのWebhookのドキュメント</a>を見るのが良い。</p>
+
+<h2>Twitter</h2>
+
+<p>DiscordでWebhookの受信用URLを発行し、<a href="https://ifttt.com/">IFTTT</a>でTwitter検索用のアプレットを設定すると、Twitterでの定期的な検索結果をDiscordに通知できる。</p>
+
+<p>TwitterはWebhookを送信する機能を設けていないので、IFTTTが必要になる。IFTTTは無料アカウントだと3つまでアプレット（IFTTTにおける自動化の設定の単位）を設定できる。IFTTTからTwitterの機能を利用する場合は、検索だけの利用でも連携するためのTwitterアカウントが必要になるので注意。</p>
+
+<p>IFTTT側で以下のようにレスポンスボディを設定すると、検索条件に一致したツイートのURLが通知されるようになる。Discordが自動的にURLの内容を展開してくれるので、ツイートの中身はそこから読める。</p>
+
+<pre><code>{
+  "content": "{{LinkToTweet}}"
+}
+</code></pre>
+
+<hr>
+
+<p>DiscordやSlackなどでこういう自動投稿的なものを管理する上で、自分が気を付けたいと思っていることについて触れておく。</p>
+
+<h2>自動投稿専用チャンネル</h2>
+
+<p>人間の投稿するチャンネルにBotによる自動的な投稿が混ざると、盛り上がっているうちは良いが、そのうち居心地が悪くなったり、廃墟化したりしやすくなる。通知・未読・購読・権限・アーカイブなどはチャンネル単位で設定できるように設計されているので、この手の自動的な投稿にはそれぞれ専用のチャンネルを用意することを基本的にはおすすめしたい。</p>
+
+<h2>チャンネルとカテゴリの設計</h2>
+
+<p>更に踏み込んだ話をすると、カテゴリについても配慮しておいた方が良い。Discordではカテゴリごとミュートする機能がある。これは例えば「自動投稿の通知は受け取りたくないが未読管理はしたい」といったケースなどで活用できる。こういう事情があるので、できれば自動投稿系のチャンネルや死んだチャンネルをそれぞれカテゴリにまとめるなどしておくと、非常に取り回しやすくなる。</p>
+
+<p>例えばYATTEIKIサーバーでは、簡略化するとこういう感じでチャンネルが配置されている。</p>
+
+<ul>
+<li>VOICE
+
+<ul>
+<li>🔊スタジオ</li>
+</ul>
+</li>
+<li>TEXT
+
+<ul>
+<li>#general</li>
+</ul>
+</li>
+<li>BOT
+
+<ul>
+<li>#analytics</li>
+<li>#github</li>
+<li>#twitter</li>
+</ul>
+</li>
+<li>ARCHIVE
+
+<ul>
+<li>...</li>
+</ul>
+</li>
+</ul>
+
+<p>カテゴリの設計や未読の管理はキーボードや携帯端末での操作性にも関わってくる。この辺りに普段から気を配っておくと、より快適な人生を過ごせるようになるはず。</p>
+]]></content:encoded>
+      <guid>https://r7kamura.com/articles/2020-10-26-discord-webhooks-and-channels</guid>
+    </item>
+    
+    <item>
       <title><![CDATA[サメを支える技術 第2版]]></title>
       <description><![CDATA[大きなサメのぬいぐるみの購入方法について。]]></description>
       <link>https://r7kamura.com/articles/2020-10-25-shark</link>
@@ -733,24 +813,6 @@ consumption_tax_rate = 1.1
 <p>個人サイトの再興とWindowsへの回帰という二つのムーブメントが、ここにきてようやくの合流を果たし、自分の中で完全にRepublic of ウェブ縄文時代の流れがやってきてしまったようだ。</p>
 ]]></content:encoded>
       <guid>https://r7kamura.com/articles/2020-10-04-windows-revolution</guid>
-    </item>
-    
-    <item>
-      <title><![CDATA[Atom 1.0からRSS 2.0に移行]]></title>
-      <description><![CDATA[このサイトのフィードをAtom 1.0からRSS 2.0に移行した。]]></description>
-      <link>https://r7kamura.com/articles/2020-10-04-rss</link>
-      <pubDate>Sun, 04 Oct 2020 00:00:00 +0900</pubDate>
-      <content:encoded><![CDATA[<p><a href="/images/2020-10-04-rss.png" target="_blank"><img src="/images/2020-10-04-rss.png" alt=""></a></p>
-
-<p><a href="/feed.xml">このサイトのフィード</a>をAtom 1.0からRSS 2.0に移行した。</p>
-
-<p>既にフィードを購読中の方は、直近で最大20件の記事が未読状態に戻ってしまうかもしれません。ご不便おかけしますが、ご容赦ください。</p>
-
-<p>会話では俗語表現としてフィードのことをRSSと呼称しがちな一方で、Atomを使っているとそのように呼称しづらい、というわだかまりを抱えており、あと単に両方の仕様の癖を肌感として知っておきたいという気持ちもあったので、移行してみたという経緯。</p>
-
-<p>ただ、自分は記事公開後にも少しずつ内容を編集していくようなスタイルで文章を書いていたりするので、公開してすぐの初期状態を長期間キャッシュしてしまうフィードリーダーとは、なかなか相性が悪かったりする。なので、本当はサイトに直接訪れて読んでくれると嬉しいなという気持ちではいます。</p>
-]]></content:encoded>
-      <guid>https://r7kamura.com/articles/2020-10-04-rss</guid>
     </item>
     
   </channel>
