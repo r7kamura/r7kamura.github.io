@@ -71,7 +71,7 @@ end
 
 <p>controller-specs には RailsKwargsTesting::ControllerMethods を、request-specs には RailsKwargsTesting::RequestMethods を prepend しています。これで #get や #post などのメソッドがキーワード引数だけを取るように上書きされます。</p>
 
-<p>次にメソッドの引数を全てキーワード引数形式に変更し、全てのテストが成功することを確認すれば完了です。変更しなければ ArgumentError が発生します。~~コードの変更には rails5-spec-converter を利用するのが良いと思います。コンマの扱いなどに少し不具合はありますが、それを差し置いても非常に便利なツールです。~~今となっては、rubocop-railsのRails/HttpPositionalArguments copを利用してauto-correctするのが良いと思います。</p>
+<p>次にメソッドの引数を全てキーワード引数形式に変更し、全てのテストが成功することを確認すれば完了です。変更しなければ ArgumentError が発生します。<del>コードの変更には rails5-spec-converter を利用するのが良いと思います。コンマの扱いなどに少し不具合はありますが、それを差し置いても非常に便利なツールです。</del>今となっては、rubocop-railsのRails/HttpPositionalArguments copを利用してauto-correctするのが良いと思います。</p>
 
 <p>全てのテストが成功することを確認したら、主流の開発用ブランチへ変更を merge し、Rails 5 への残りの移行作業をがんばって進めましょう。</p>
 
