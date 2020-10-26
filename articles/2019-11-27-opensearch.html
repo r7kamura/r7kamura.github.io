@@ -9,8 +9,8 @@
   <link rel="search" type="application/opensearchdescription+xml" title="r7kamura.com" href="/opensearch.xml">
   <link rel="alternate" type="application/rss+xml" href="/feed.xml">
   
-  <meta property="description" content="OpenSearchに対応したので、ブラウザのロケーションバーで、">
-  <meta property="og:description" content="OpenSearchに対応したので、ブラウザのロケーションバーで、">
+  <meta property="description" content="このサイトをOpenSearchに対応させた。">
+  <meta property="og:description" content="このサイトをOpenSearchに対応させた。">
   
   <meta property="og:type" content="website">
   <meta property="og:title" content="OpenSearchに対応">
@@ -41,18 +41,13 @@
     <h1>OpenSearchに対応</h1>
   </header>
   <div>
-    <p>OpenSearchに対応したので、ブラウザのロケーションバーで、</p>
+    <p>このサイトを<a href="https://ja.wikipedia.org/wiki/OpenSearch">OpenSearch</a>に対応させた。</p>
 
-<ul>
-<li>r7kamura.com + 半角スペース、と入力する</li>
-<li>r7... で補完候補に r7kamura.com を選んだ状態でTabキーを押す</li>
-</ul>
+<p>Google Chromeなどの対応ブラウザだと、ロケーションバーでr7kamura.comのあと半角スペースを入力したり、補完候補にr7kamura.comが出ている状態でTabキーを押したりすると、ロケーションバーから検索語句を入力して検索結果に遷移できるようになる。</p>
 
-<p>のどちらかをやることで、ウェブサイト内を検索できるようになった。まあ実際はGoogle検索に飛ばしてるだけなんだけど。補完で検索できるのは結構便利。</p>
+<p>実装方法については、<a href="https://developer.mozilla.org/en-US/docs/Web/OpenSearch">MDNのドキュメント</a>を読むのが分かりやすい。自分なりに要約すると、トップページの <code>link[rel="search"]</code> 要素でXMLファイルへのリンクを張りつつ、そのXMLファイルでOpenSearch description formatに従った形式で適切な情報を与えると良い。</p>
 
-<p>変更内容は<a href="https://github.com/r7kamura/r7kamura.com/commit/2b0889d9e8b6427dc841d627cec52d800009ac91">このcommit</a>にまとまっている。実装方法の詳細については<a href="https://developer.mozilla.org/en-US/docs/Web/OpenSearch">ドキュメント</a>を読めば分かる。</p>
-
-<p>現状Googleがこのウェブサイトのほとんどのページをインデックスから除外してしまっているので、検索に一致するページが少なくて悲しい。</p>
+<p>Googleでsite:r7kamura.comを付けて検索させているだけではあるが、自分で入力するには難しい検索クエリなので、そこそこ役に立つはず。過去に書いた記事を探すのに自分でも重宝している。</p>
 
   </div>
 </article>
