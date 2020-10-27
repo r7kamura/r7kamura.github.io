@@ -10,6 +10,40 @@
     <managingEditor>r7kamura@gmail.com (Ryo Nakamura)</managingEditor>
     
     <item>
+      <title><![CDATA[Rackアプリの魚拓]]></title>
+      <description><![CDATA[RackアプリとURL群から静的ファイルを生成するrack-captureをつくった。]]></description>
+      <link>https://r7kamura.com/articles/2020-10-28-rack-capture</link>
+      <pubDate>Wed, 28 Oct 2020 00:00:00 +0900</pubDate>
+      <content:encoded><![CDATA[<p>RackアプリとURL群から静的ファイルを生成する<a href="https://github.com/r7kamura/rack-capture">rack-capture</a>をつくった。</p>
+
+<p><a href="http://localhost:9292/articles/2020-09-23-this-site-setup-2020">このサイトの実装 2020年版</a>でも書いたように、このサイトはRackアプリとして実装されていて、GitHubのリポジトリに変更が加わるたびに全ページのスナップショットが静的ファイルとして出力され、それが配信される仕組みになっている。その静的ファイル生成の仕組みを今回ライブラリとして切り出した。</p>
+
+<pre><code>%w[
+  https://r7kamura.com/
+  https://r7kamura.com/articles
+  https://r7kamura.com/articles/2020-10-30.html
+  https://r7kamura.com/articles/2020-10-29.html
+  https://r7kamura.com/articles/2020-10-28.html
+  https://r7kamura.com/feed.xml
+  https://r7kamura.com/sitemap.txt
+].each do |url|
+  Rack::Capture.call(
+    app: my_rack_application,
+    url: url
+  )
+end
+</code></pre>
+
+<p>このサイトの場合はこういう感じのものが呼び出されることになる。実際には、articlesディレクトリとstaticディレクトリの中身を見ながらもう少し動的にURL群を用意しているが、大体こんな感じ。</p>
+
+<hr>
+
+<p>今日のYak Shaving。これをつくっている最中で、Bundlerが生成するREADMEに無駄な空行が含まれているのが気になり、結局Bundlerに<a href="https://github.com/rubygems/rubygems/pull/4041">Pull Request</a>を出すことになった。</p>
+]]></content:encoded>
+      <guid>https://r7kamura.com/articles/2020-10-28-rack-capture</guid>
+    </item>
+    
+    <item>
       <title><![CDATA[OpenSearch、キーボード、title要素]]></title>
       <description><![CDATA[取り留めのない事柄が一定量溜まると、雑記として吐き出される。]]></description>
       <link>https://r7kamura.com/articles/2020-10-27-openearch-keyboard-title</link>
@@ -775,46 +809,6 @@ consumption_tax_rate = 1.1
 <p>吸盤にレバーかダイヤル的な装置が付いていることを必須条件として色々探した結果、<a href="https://www.amazon.co.jp/dp/B073J5NZK2/?tag=r7kamura07-22">レックのツールハンガー</a>か、<a href="https://www.amazon.co.jp/dp/B0768WLZNB/?tag=r7kamura07-22">MaxHoldのツールハンガー</a>が良さそうだと思って眺めてみている。特にレックのやつは長さや角度調節もできるので、これで吸着力にさえ問題が無ければとても良さそう。</p>
 ]]></content:encoded>
       <guid>https://r7kamura.com/articles/2020-10-05-gotoku</guid>
-    </item>
-    
-    <item>
-      <title><![CDATA[料理メモ]]></title>
-      <description><![CDATA[基本的に1.6L版のホットクックで自炊をしている。]]></description>
-      <link>https://r7kamura.com/articles/2020-10-05-cooking-memo</link>
-      <pubDate>Mon, 05 Oct 2020 00:00:00 +0900</pubDate>
-      <content:encoded><![CDATA[<figure><a href="/images/2020-10-05-cooking-memo.jpg" target="_blank"><img src="/images/2020-10-05-cooking-memo.jpg" alt=""></a><figcaption>冷凍の鍋用野菜と鶏肉をホットクックにぶち込んでいる</figcaption></figure>
-
-<p>基本的に<a href="https://www.amazon.co.jp/dp/B07TWPRHHJ/?tag=r7kamura07-22">1.6L版のホットクック</a>で自炊をしている。2020年9月に<a href="https://www.amazon.co.jp/dp/B08HMF4W7S/?tag=r7kamura07-22">新しいモデル</a>が出たので、今から買う人はこちらを買うのが良いと思う。</p>
-
-<ul>
-<li>それだけ食べていてもそこそこ健康を保てる</li>
-<li>やる気が無くてもつくれる</li>
-<li>材料の入手性が高い</li>
-<li>買い物を増やさない</li>
-<li>再現性がある</li>
-<li>腐りにくい</li>
-</ul>
-
-<p>というレシピを模索している。より美味しくより綺麗にを志向した料理の話はよく見る一方、より怠惰により健康にを志向した料理の話はあまり見ないので、もっとそういう情報が欲しいと思っている。</p>
-
-<p>料理のレシピには、調理だけでなく買い物に関するワークフローまで含まれていてほしい。どちらかと言うと、買い物側が料理の本体であるとすら感じる。例えば、自作PCをつくろうとすると、パーツを選ぶところが9割みたいな状態になる。あれに近い感覚。</p>
-
-<p>今年からAmazonフレッシュを利用するようになったが、自分的にはこれのおかげで料理が革命的に楽になった。Amazonでは、フレッシュの商品も含めると大体この辺りによくお世話になっている。</p>
-
-<ul>
-<li><a href="https://www.amazon.co.jp/dp/B009AO9U0I/?tag=r7kamura07-22">大冷 カレー用野菜ミックス</a></li>
-<li><a href="https://www.amazon.co.jp/dp/B06W54PTGF/?tag=r7kamura07-22">ハウス きわだちカレー</a></li>
-<li><a href="https://www.amazon.co.jp/dp/B00BHOJY3M/?tag=r7kamura07-22">ニッスイ シーフードミックス</a></li>
-<li><a href="https://www.amazon.co.jp/dp/B00FQCHFBY/?tag=r7kamura07-22">マ・マー 早ゆで3分スパゲティ</a></li>
-<li><a href="https://www.amazon.co.jp/dp/B07DDC3HTT/?tag=r7kamura07-22">冷凍若鶏もも肉切り身</a></li>
-<li><a href="https://www.amazon.co.jp/dp/B07L2ZP2XT/?tag=r7kamura07-22">鍋用野菜セット</a></li>
-<li><a href="https://www.amazon.co.jp/dp/B01LXZARKE/?tag=r7kamura07-22">タカナシ 牛乳</a></li>
-<li><a href="https://www.amazon.co.jp/dp/B003H577UG/?tag=r7kamura07-22">小岩井 プレーンヨーグルト</a></li>
-</ul>
-
-<p>再利用性を高めるために、できるだけAmazonで揃えようとしている節がある。最低限生活を維持できるように環境を整えておくことで、料理自体を嫌いにならず、いわゆる趣味の料理とも付き合いやすくしようとしている。</p>
-]]></content:encoded>
-      <guid>https://r7kamura.com/articles/2020-10-05-cooking-memo</guid>
     </item>
     
   </channel>
