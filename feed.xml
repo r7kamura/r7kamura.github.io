@@ -158,13 +158,19 @@
     </item>
     
     <item>
-      <title><![CDATA[Rackアプリの魚拓]]></title>
-      <description><![CDATA[RackアプリとURL群から静的ファイルを生成するrack-captureをつくった。]]></description>
+      <title><![CDATA[rack-capture]]></title>
+      <description><![CDATA[rack-captureというGemをつくった。]]></description>
       <link>https://r7kamura.com/articles/2020-10-28-rack-capture</link>
       <pubDate>Wed, 28 Oct 2020 00:00:00 +0900</pubDate>
-      <content:encoded><![CDATA[<p>RackアプリとURL群から静的ファイルを生成する<a href="https://github.com/r7kamura/rack-capture">rack-capture</a>をつくった。</p>
+      <content:encoded><![CDATA[<p><a href="https://github.com/r7kamura/rack-capture">rack-capture</a>というGemをつくった。</p>
 
-<p><a href="/articles/2020-09-23-this-site-setup-2020">このサイトの実装 2020年版</a>でも書いたように、このサイトはRackアプリとして実装されていて、GitHubのリポジトリに変更が加わるたびに全ページのスナップショットが静的ファイルとして出力され、それが配信される仕組みになっている。その静的ファイル生成の仕組みを今回ライブラリとして切り出した。</p>
+<h2>概要</h2>
+
+<p>RackアプリとURLを与えると、レスポンスボディを静的ファイルとして書き出してくれる、というもの。</p>
+
+<h2>背景</h2>
+
+<p><a href="/articles/2020-09-23-this-site-setup-2020">このサイトの実装 2020年版</a>でも書いたように、このサイトのベースはRackアプリとして実装されている。手元でプレビューするときも、rackupを使って動作確認している。GitHub Pagesでホスティングするために、その時点での全ページのスナップショットを静的ファイルとして書き出す必要がある訳だが、そのためにこの実装を用意していた。今回はその仕組みを整えて、Gemとして切り出した。</p>
 
 <pre><code>%w[
   https://r7kamura.com/
@@ -182,11 +188,13 @@
 end
 </code></pre>
 
-<p>このサイトの場合はこういう感じのものが呼び出されることになる。実際には、articlesディレクトリとstaticディレクトリの中身を見ながらもう少し動的にURL群を用意しているが、大体こんな感じ。</p>
+<p>このサイトの場合は、こういう感じのものが呼び出されることになる。実際には、articlesディレクトリとstaticディレクトリの中身を見ながらもう少し動的にURL群を用意しているが、大体こんな感じ。</p>
 
 <hr>
 
-<p>今日のYak Shaving。これをつくっている最中で、Bundlerが生成するREADMEに無駄な空行が含まれているのが気になり、結局Bundlerに<a href="https://github.com/rubygems/rubygems/pull/4041">Pull Request</a>を出すことになった。</p>
+<h2>後日譚</h2>
+
+<p>これをつくっている最中で、Bundlerが生成するREADMEに無駄な空行が含まれているのが気になり、結局Bundlerに<a href="https://github.com/rubygems/rubygems/pull/4041">Pull Request</a>を出すことになった。後日Mergeされたので、次バージョンのBundlerからは生成されるREADMEがより簡潔なものになるはず。</p>
 ]]></content:encoded>
       <guid>https://r7kamura.com/articles/2020-10-28-rack-capture</guid>
     </item>
