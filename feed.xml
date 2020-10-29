@@ -10,6 +10,128 @@
     <managingEditor>r7kamura@gmail.com (Ryo Nakamura)</managingEditor>
     
     <item>
+      <title><![CDATA[つくりおき]]></title>
+      <description><![CDATA[気が向いたときにホットクックで常備菜をつくっている。]]></description>
+      <link>https://r7kamura.com/articles/2020-10-29-tsukurioki</link>
+      <pubDate>Thu, 29 Oct 2020 00:00:00 +0900</pubDate>
+      <content:encoded><![CDATA[<p><a href="/images/2020-10-29-tsukurioki.jpg" target="_blank"><img src="/images/2020-10-29-tsukurioki.jpg" alt=""></a></p>
+
+<p>気が向いたときにホットクックで常備菜をつくっている。</p>
+
+<h2>おくら</h2>
+
+<ol>
+<li>塩ずりする
+
+<ul>
+<li>やらなくても良い</li>
+</ul>
+</li>
+<li>鍋に入れる</li>
+<li>水を入れる
+
+<ul>
+<li>少しでいい</li>
+<li>なくてもいける可能性があるが未検証</li>
+</ul>
+</li>
+<li>煮る
+
+<ul>
+<li>2分</li>
+<li>まぜない</li>
+</ul>
+</li>
+<li>保存する
+
+<ul>
+<li>薄めためんつゆベースの液に浸すと良い</li>
+</ul>
+</li>
+</ol>
+
+<p>薄めの味付けにしておくと味変できる。</p>
+
+<h2>なす</h2>
+
+<ol>
+<li>がくを落とす
+
+<ul>
+<li>やらなくても良い</li>
+<li>がくは食べると少し痛い</li>
+<li>包丁を当ててなすを回すと良い</li>
+</ul>
+</li>
+<li>鍋に入れる
+
+<ul>
+<li>切ったりする必要は無い</li>
+<li>切る方がまずくなるまである</li>
+</ul>
+</li>
+<li>めんつゆを入れる
+
+<ul>
+<li>適当でいい</li>
+<li>濃すぎは良くない</li>
+</ul>
+</li>
+<li>煮る
+
+<ul>
+<li>10分</li>
+<li>まぜない</li>
+</ul>
+</li>
+<li>保存する
+
+<ul>
+<li>煮汁にそのまま浸すと良い</li>
+</ul>
+</li>
+</ol>
+
+<p>生姜が合う。</p>
+
+<h2>きのこ</h2>
+
+<ol>
+<li>適当な大きさにする
+
+<ul>
+<li>切ってあるやつを買えると楽できる</li>
+</ul>
+</li>
+<li>鍋に入れる</li>
+<li>塩とオリーブオイルと輪切り唐辛子とにんにくを入れる
+
+<ul>
+<li>なくてもいい</li>
+<li>オリーブオイルは欲しい</li>
+<li>塩は材料の0.6%の重量ぐらいが目安だが適当でいい</li>
+</ul>
+</li>
+<li>煮る
+
+<ul>
+<li>2分</li>
+<li>まぜる</li>
+</ul>
+</li>
+<li>保存する</li>
+</ol>
+
+<p>冷製のアヒージョみたいなもの。</p>
+
+<hr>
+
+<p>その昔、インターネットは料理のレシピを共有するような牧歌的な用途で使われていた、みたいな記述を昔何かの本で読んだ気がするが、出典も何も思い出せないし夢だったかもしれない。</p>
+]]></content:encoded>
+      <guid>https://r7kamura.com/articles/2020-10-29-tsukurioki</guid>
+    </item>
+    
+    <item>
       <title><![CDATA[Rackアプリの魚拓]]></title>
       <description><![CDATA[RackアプリとURL群から静的ファイルを生成するrack-captureをつくった。]]></description>
       <link>https://r7kamura.com/articles/2020-10-28-rack-capture</link>
@@ -789,26 +911,6 @@ consumption_tax_rate = 1.1
 <p>wingetで入れられるかと思いきや、wingetだと古いバージョンを入れようとして失敗してしまうようだったので、今回は諦めて普通にインストールすることに。現在でも活発に開発されているようだったので、<a href="https://github.com/Belphemur/SoundSwitch/issues/512">新しいやつを登録してくれというIssue</a>を出してみておいた。</p>
 ]]></content:encoded>
       <guid>https://r7kamura.com/articles/2020-10-06-sound-switch</guid>
-    </item>
-    
-    <item>
-      <title><![CDATA[五徳は使うときだけ]]></title>
-      <description><![CDATA[とあるきっかけでマーチソンフュームのフードセーフスプレーを手に入れ、最近はキッチン周りの掃除が捗っている。]]></description>
-      <link>https://r7kamura.com/articles/2020-10-05-gotoku</link>
-      <pubDate>Mon, 05 Oct 2020 00:00:00 +0900</pubDate>
-      <content:encoded><![CDATA[<p><a href="/images/2020-10-05-gotoku.jpg" target="_blank"><img src="/images/2020-10-05-gotoku.jpg" alt=""></a></p>
-
-<p>とあるきっかけでマーチソンフュームの<a href="https://www.amazon.co.jp/dp/B00K0KYB28/?tag=r7kamura07-22">フードセーフスプレー</a>を手に入れ、最近はキッチン周りの掃除が捗っている。ボトルの見た目が良く、油汚れがそれなりに落ち、そしてボトルの見た目が良い。</p>
-
-<p>ついでに、ガスコンロの<a href="https://ja.wikipedia.org/wiki/%E4%BA%94%E5%BE%B3">五徳</a>は使うときだけ付ける運用に変更した。この器具に五徳という名前が付いていることも、この文章を書いていて初めて知った。中国古代の鼎（かなえ）という器に由来する名前らしい。</p>
-
-<p>更に五徳について調べていたら、<a href="https://roomclip.jp/tag/762071">五徳は使うときだけ界隈</a>が存在することも知った。最近、家事について調べものをしている関係でよく見かけるようになったのだけど、RoomClipは本当にすごい。和気あいあいとした雰囲気でたくさんの知見が共有されていて、自分のようなソフトウェアエンジニアにとっても見習うべきところが沢山あるだろう。</p>
-
-<p>あらためて写真を見ながら振り返っていると、吊っている物達が混雑しているので、適当なツールハンガーが欲しかったことを思い出した。うちのフードハンガーには、四隅の部分にしかものを引っ掛けられる部分が無い。そうなると、壁に吸盤で付けられるような強力なツールハンガーが必要になる。</p>
-
-<p>吸盤にレバーかダイヤル的な装置が付いていることを必須条件として色々探した結果、<a href="https://www.amazon.co.jp/dp/B073J5NZK2/?tag=r7kamura07-22">レックのツールハンガー</a>か、<a href="https://www.amazon.co.jp/dp/B0768WLZNB/?tag=r7kamura07-22">MaxHoldのツールハンガー</a>が良さそうだと思って眺めてみている。特にレックのやつは長さや角度調節もできるので、これで吸着力にさえ問題が無ければとても良さそう。</p>
-]]></content:encoded>
-      <guid>https://r7kamura.com/articles/2020-10-05-gotoku</guid>
     </item>
     
   </channel>
