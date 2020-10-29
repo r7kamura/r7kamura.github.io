@@ -1,3 +1,4 @@
+https://r7kamura.com/articles/2020-10-30-rack-ok
 https://r7kamura.com/articles/2020-10-29-tsukurioki
 https://r7kamura.com/articles/2020-10-28-rack-capture
 https://r7kamura.com/articles/2020-10-27-openearch-keyboard-title
@@ -603,6 +604,7 @@ https://r7kamura.com/articles/2014-02-26-h
 https://r7kamura.com/articles/2014-02-23-h
 https://r7kamura.com/articles/2014-02-22-h
 https://r7kamura.com/articles/2014-02-15-h
+https://r7kamura.com/articles/2014-02-13-includable-yaml
 https://r7kamura.com/articles/2014-02-13-h
 https://r7kamura.com/articles/2014-02-07-h
 https://r7kamura.com/articles/2014-02-03-h

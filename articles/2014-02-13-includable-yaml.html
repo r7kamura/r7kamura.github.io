@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Includable YAML</title>
+  <link href="https://r7kamura.com/articles/2014-02-13-includable-yaml" rel="canonical">
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="search" type="application/opensearchdescription+xml" title="r7kamura.com" href="/opensearch.xml">
+  <link rel="alternate" type="application/rss+xml" href="/feed.xml">
+  
+  <meta property="description" content="YAMLでは、各要素に任意のタグを埋め込むことができ、YAMLパーサーの実装によってはその振る舞いを定義出来る。">
+  <meta property="og:description" content="YAMLでは、各要素に任意のタグを埋め込むことができ、YAMLパーサーの実装によってはその振る舞いを定義出来る。">
+  
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Includable YAML">
+  <meta property="og:url" content="https://r7kamura.com/articles/2014-02-13-includable-yaml">
+  
+  <meta property="og:image" content="https://r7kamura.com/default_og_image.jpg">
+  <meta property="twitter:card" content="summary">
+  
+</head>
+<body>
+  <header>
+    <nav>
+      <a href="/">r7kamura.com</a>
+      <ul>
+        <li>
+          <a href="/articles">一覧</a>
+        </li>
+        <li>
+          <a href="https://www.google.com/?as_sitesearch=r7kamura.com">検索</a>
+        </li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <article>
+  <header>
+    <time datetime="2014-02-13T00:00:00+09:00">2014年02月13日</time>
+    <h1>Includable YAML</h1>
+  </header>
+  <div>
+    <p>YAMLでは、各要素に任意のタグを埋め込むことができ、YAMLパーサーの実装によってはその振る舞いを定義出来る。今回はその一例として、YAMLの定義内で別のファイルに書いたYAMLを参照出来るようにしてみた。</p>
+
+<h2>YAMLに加える変更</h2>
+
+<p>YAML.add_domainを使う。</p>
+
+<pre><code class="ruby"># test.rb
+require "yaml"
+
+YAML.add_domain_type(nil, "include") do |type, val|
+  YAML.load_file(val)
+end
+
+# 折角なので再度YAMLに加工して出力してみる
+puts YAML.load_file("api.yml").to_yaml
+</code></pre>
+
+<h2>Includeする側</h2>
+
+<p>例えば、レシピデータを返すREST APIの仕様をYAMLで定義するというユースケースを考える。 レシピのスキーマをrecipe.ymlに書いて、各APIから定義を使い回すことにする。</p>
+
+<pre><code class="yaml"># api.yml
+/recipes:
+  GET:
+    response:
+      array: !include recipe.yml
+
+/recipe/{id}:
+  GET:
+    response: !include recipe.yml
+</code></pre>
+
+<h2>Includeされる側</h2>
+
+<p>これがレシピのスキーマ定義。</p>
+
+<pre><code class="yaml"># recipe.yml
+id:
+  type: integer
+  minValue: 1
+  description: Unique ID of the Recipe
+name:
+  type: string
+  description: The human-readable name of the Recipe
+</code></pre>
+
+<h2>実行例</h2>
+
+<p>こんな感じで出力され、recipe.ymlがうまく埋め込まれていることが分かる。</p>
+
+<pre><code class="console">$ ruby test.rb
+---
+/recipes:
+  GET:
+    response:
+      array:
+        id:
+          type: integer
+          minValue: 1
+          description: Unique ID of the Recipe
+        name:
+          type: string
+          description: The human-readable name of the Recipe
+/recipe:
+  GET:
+    response:
+      id:
+        type: integer
+        minValue: 1
+        description: Unique ID of the Recipe
+      name:
+        type: string
+        description: The human-readable name of the Recipe
+</code></pre>
+
+  </div>
+</article>
+
+  </main>
+</body>
+</html>
