@@ -26,6 +26,8 @@
 
 <h2>rubygems.org</h2>
 
+<p>所有者管理ページにて、所有者として追加したいアカウントに紐付くメールアドレスかアカウント名を入力すると、そのアカウントのメールアドレスに承認用のメールが送信される。それを利用して48時間以内に承認してもらえれば、無事所有者として登録される。</p>
+
 <p>rubygems.orgのサイトで、そのやり方が説明されている。</p>
 
 <figure>
@@ -38,13 +40,9 @@
   <figcaption><a href="https://guides.rubygems.org/managing-owners-using-ui/">Managing Owners via UI - RubyGems Guides</a></figcaption>
 </figure>
 
-<p>所有者管理ページにて、所有者として追加したいアカウントに紐付くメールアドレスかアカウント名を入力すると、そのアカウントのメールアドレスに承認用のメールが送信される。それを利用して48時間以内に承認してもらえれば、無事所有者として登録される。</p>
-
 <h2>npmjs.com</h2>
 
-<p>npmjs.comのサイトでは、そのやり方は説明されていない。</p>
-
-<p>実際には、パッケージの設定ページで所有者として追加したいアカウントの名前を入力すれば、その時点で所有者として登録される。</p>
+<p>パッケージの設定ページで、所有者として追加したいアカウントの名前を入力すれば、その時点で所有者として登録される。</p>
 ]]></content:encoded>
       <guid>https://r7kamura.com/articles/2020-10-31-adding-owner-of-gem-and-npm</guid>
     </item>
