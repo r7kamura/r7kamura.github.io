@@ -10,6 +10,46 @@
     <managingEditor>r7kamura@gmail.com (Ryo Nakamura)</managingEditor>
     
     <item>
+      <title><![CDATA[gemやnpmの所有者追加]]></title>
+      <description><![CDATA[rubygems.orgやnpmjs.comに登録しているパッケージの所有者を追加する方法について。]]></description>
+      <link>https://r7kamura.com/articles/2020-10-31-adding-owner-of-gem-and-npm</link>
+      <pubDate>Sat, 31 Oct 2020 00:00:00 +0900</pubDate>
+      <content:encoded><![CDATA[<p>rubygems.orgやnpmjs.comに登録しているパッケージの所有者を追加する方法について。</p>
+
+<h2>概要</h2>
+
+<p>それぞれのサイトから追加できる。</p>
+
+<h2>背景</h2>
+
+<p>以前所属していた組織から、幾つかのgemやnpmパッケージにうちの組織用の所有者を追加してくれないかという依頼を受け、やり方をあらためて調べながら作業する機会があったので、書き記しておくことにした。</p>
+
+<h2>rubygems.org</h2>
+
+<p>rubygems.orgのサイトで、そのやり方が説明されている。</p>
+
+<figure>
+  <blockquote>
+    <p>Adding user as an owner to your gem</p>
+    <p>Step: 1 Enter the email or handle of the user in the text field labels Email/Handle and click Add Owner.</p>
+    <p>Step: 2 The user added as an owner will be sent an email with a link to confirm the ownership. The ownership will be confirmed after the user clicks on the confirmation link within 48 hours. On confirmation, all the existing owners will be notified about the owner addition.</p>
+    <p>Note that the user won’t have access to the gem until they confirm the ownership addition.</p>
+  </blockquote>
+  <figcaption><a href="https://guides.rubygems.org/managing-owners-using-ui/">Managing Owners via UI - RubyGems Guides</a></figcaption>
+</figure>
+
+<p>所有者管理ページにて、所有者として追加したいアカウントに紐付くメールアドレスかアカウント名を入力すると、そのアカウントのメールアドレスに承認用のメールが送信される。それを利用して48時間以内に承認してもらえれば、無事所有者として登録される。</p>
+
+<h2>npmjs.com</h2>
+
+<p>npmjs.comのサイトでは、そのやり方は説明されていない。</p>
+
+<p>実際には、パッケージの設定ページで所有者として追加したいアカウントの名前を入力すれば、その時点で所有者として登録される。</p>
+]]></content:encoded>
+      <guid>https://r7kamura.com/articles/2020-10-31-adding-owner-of-gem-and-npm</guid>
+    </item>
+    
+    <item>
       <title><![CDATA[rack-ok]]></title>
       <description><![CDATA[rack-okというGemをつくった。]]></description>
       <link>https://r7kamura.com/articles/2020-10-30-rack-ok</link>
@@ -881,54 +921,6 @@ consumption_tax_rate = 1.1
 <p>過去に使っていた机の情報は、<a href="/articles/2014-12-31-h">デスク遍歴</a>にもまとめてある。2014年にまとめたきりで、もう6年前の情報になってしまっているので、年末頃にまた一度まとめ直したい。</p>
 ]]></content:encoded>
       <guid>https://r7kamura.com/articles/2020-10-09-desk</guid>
-    </item>
-    
-    <item>
-      <title><![CDATA[キッチンツールハンガー]]></title>
-      <description><![CDATA[キッチン用品を吊りたいと思い、いろいろ調べてレックのステンレス製で伸縮式でレバー式吸盤のやつを買った。]]></description>
-      <link>https://r7kamura.com/articles/2020-10-08-kitchen-tool-hanger</link>
-      <pubDate>Thu, 08 Oct 2020 00:00:00 +0900</pubDate>
-      <content:encoded><![CDATA[<p><a href="/images/2020-10-08-kitchen-tool-hanger.jpg" target="_blank"><img src="/images/2020-10-08-kitchen-tool-hanger.jpg" alt=""></a></p>
-
-<p>キッチン用品を吊りたいと思い、いろいろ調べて<a href="https://www.amazon.co.jp/dp/B073J5NZK2/?tag=r7kamura07-22">レックのステンレス製で伸縮式でレバー式吸盤のやつ</a>を買った。</p>
-
-<p>うちのレンジフードにはあまり良い引っ掛けポイントが無いため、上手く道具を吊るには吸盤式の何かを壁面に付けるしかなかった。吸盤式と言うと、吸着力が低くすぐに落ちてしまうものが多いので、吸着力がより高いものを探すことに。</p>
-
-<p>吸盤の吸着力をより高めるギミックとして、</p>
-
-<ul>
-<li>レバー式</li>
-<li>ボタン式</li>
-<li>ダイヤル式</li>
-</ul>
-
-<p>などが存在しているらしい。また、うちの壁面はタイルっぽい加工でいささか難しいことになっているため、伸縮式・回転式でとにかく自由度の高いものをと探していたところ、レックからちょうど良さそうな製品が出ているのを見つけたので、使ってみることにした。</p>
-
-<p>耐荷重4kgとのことなので、鍋などを吊るには流石に不安があるが、これぐらいの軽い調理器具を吊る程度であれば十分な強度を備えていると思う。レバー式を選んだのはやはり正解で、本当にしっかりくっついている印象を受ける。とか言ってたら明日の朝落ちたりしてそうで怖い。</p>
-
-<hr>
-
-<p>ちなみにこのS字フックは、その昔シェアハウスをしていた時代、pokutunaさんに贈ってもらったものだ。なぜか6年経った今でも使い続けている。</p>
-
-<blockquote>
-<p>UNIXという考え方に則るとS字フックが現実世界における最高のツールの一つであることは自明</p>
-
-<p><a href="https://twitter.com/pokutuna/status/483630149372362752">2014年7月1日</a> <a href="https://twitter.com/pokutuna">@pokutuna</a></p>
-</blockquote>
-
-<figure><a href="/images/2020-10-08-kitchen-tool-hanger-tqhouse.jpg" target="_blank"><img src="/images/2020-10-08-kitchen-tool-hanger-tqhouse.jpg" alt=""></a><figcaption>2015年・シェアハウスにて</figcaption></figure>
-
-<p>思えばシェアハウスでも、S字フックは大活躍していた。生涯を終えた吸盤に代わり、タオルを支える技術としてキッチンで役に立っていたこともあった。</p>
-
-<figure><a href="/images/2020-10-08-kitchen-tool-hanger-kyoto.jpg" target="_blank"><img src="/images/2020-10-08-kitchen-tool-hanger-kyoto.jpg" alt=""></a><figcaption>2017年・京都時代の自宅にて</figcaption></figure>
-
-<p>京都に住んでいたときも、S字フックは共に在った。洗濯バサミと併用していたようだ。食器用の布巾などを引っ掛けるのに使っていた気がする。このレンジフードは形状が良く、S字フック達も心なしか喜んでいるように見える。</p>
-
-<figure><a href="/images/2020-10-08-kitchen-tool-hanger-now.jpg" target="_blank"><img src="/images/2020-10-08-kitchen-tool-hanger-now.jpg" alt=""></a><figcaption>2020年・都内の自宅にて</figcaption></figure>
-
-<p>枯れた技術を使うということは、何も古い技術だけに頼るという意味ではない。色々な技術を遠慮せず使っていくことに価値があるのだ――とかこの辺に数行程度書いておくと、良い具合に文章が引き締まり、気持ちよく記述を終われる気がする。</p>
-]]></content:encoded>
-      <guid>https://r7kamura.com/articles/2020-10-08-kitchen-tool-hanger</guid>
     </item>
     
   </channel>
