@@ -41,6 +41,7 @@ https://r7kamura.com/articles/2020-09-26-rails-architecture-strongest
 https://r7kamura.com/articles/2020-09-25-workspace-pictures
 https://r7kamura.com/articles/2020-09-25-notes
 https://r7kamura.com/articles/2020-09-24-site-minor-changes
+https://r7kamura.com/articles/2020-09-23-web-camera
 https://r7kamura.com/articles/2020-09-23-this-site-setup-2020
 https://r7kamura.com/articles/2020-09-23-notes
 https://r7kamura.com/articles/2020-09-22-markdown-summary
