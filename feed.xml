@@ -8,7 +8,67 @@
     <atom:link href="https://r7kamura.com/feed.xml" rel="self"/>
     <title>r7kamura.com</title>
     <managingEditor>r7kamura@gmail.com (Ryo Nakamura)</managingEditor>
-    <lastBuildDate>Wed, 04 Nov 2020 03:18:17 +0900</lastBuildDate>
+    <lastBuildDate>Thu, 05 Nov 2020 00:27:06 +0900</lastBuildDate>
+    
+    <item>
+      <title><![CDATA[Amazon URL Shortener]]></title>
+      <description><![CDATA[Amazon URL ShortenerというChrome拡張をつくった。]]></description>
+      <link>https://r7kamura.com/articles/2020-11-04-amazon-url-shortener</link>
+      <pubDate>Wed, 04 Nov 2020 00:00:00 +0900</pubDate>
+      <content:encoded><![CDATA[<p><a href="https://chrome.google.com/webstore/detail/amazon-url-shortener/bonkcfmjkpdnieejahndognlbogaikdg">Amazon URL Shortener</a>というChrome拡張をつくった。</p>
+
+<p>これを入れると、Amazonの商品ページにアクセスしたときに、ロケーションバーに表示されるURLを自動的に短いものに書き換えてくれる。商品のURLを共有するときに、長ったらしいURLにならずに済んで嬉しい。</p>
+
+<h2>開発の背景</h2>
+
+<p>実はこの拡張は2013年頃に開発された。今回ひさしぶりに見直して、不要な機能を取り除いて名前を変えたり、日本以外の18ヶ国用のAmazonのサイトにも対応したり、申請用の画像やテキストの管理体制を整えたりして、最終的にChromeウェブストアに公開するに至った。</p>
+
+<p>なぜ今になってこの改善に着手したのか。ハロウィンにかこつけてGitHubのプロフィールページがオレンジ色になったので、あらためて<a href="https://github.com/r7kamura">自分のプロフィールページ</a>や<a href="https://github.com/sponsors/r7kamura">スポンサー募集ページ</a>を眺めていて、過去につくったものを見直すことで何か価値を提供できるのではないか、という発想でこの活動に至った。このところ毎週土曜日に個人的なハッカソンをやっているので、そこでまとまった時間とモチベーションを確保できた。</p>
+
+<h2>いろいろなAmazon</h2>
+
+<p>対応も簡単そうだったので、今回を機にamazon.co.jp以外でもこの拡張を使えるようにした。<a href="https://www.amazon.co.jp/gp/navigation-country/">Amazonのサイト切り替え機能</a>で調べた限りでは、少なくとも現状これだけのドメインでAmazonのショッピングサイトが提供されている。</p>
+
+<ul>
+<li><a href="http://www.amazon.ae">www.amazon.ae</a></li>
+<li><a href="http://www.amazon.au">www.amazon.au</a></li>
+<li><a href="http://www.amazon.ca">www.amazon.ca</a></li>
+<li><a href="http://www.amazon.cn">www.amazon.cn</a></li>
+<li><a href="http://www.amazon.co.jp">www.amazon.co.jp</a></li>
+<li><a href="http://www.amazon.co.uk">www.amazon.co.uk</a></li>
+<li><a href="http://www.amazon.com">www.amazon.com</a></li>
+<li><a href="http://www.amazon.com.br">www.amazon.com.br</a></li>
+<li><a href="http://www.amazon.com.mx">www.amazon.com.mx</a></li>
+<li><a href="http://www.amazon.com.tr">www.amazon.com.tr</a></li>
+<li><a href="http://www.amazon.de">www.amazon.de</a></li>
+<li><a href="http://www.amazon.es">www.amazon.es</a></li>
+<li><a href="http://www.amazon.fr">www.amazon.fr</a></li>
+<li><a href="http://www.amazon.in">www.amazon.in</a></li>
+<li><a href="http://www.amazon.it">www.amazon.it</a></li>
+<li><a href="http://www.amazon.nl">www.amazon.nl</a></li>
+<li><a href="http://www.amazon.sa">www.amazon.sa</a></li>
+<li><a href="http://www.amazon.se">www.amazon.se</a></li>
+<li><a href="http://www.amazon.sg">www.amazon.sg</a></li>
+</ul>
+
+<p>いろいろあって楽しい。中国版 (.cn) なんかは見た目がわりと違って面白い。しかしURLやサイトの構造はほぼ変わらないらしく、対応自体は容易だった。</p>
+
+<h2>申請用リソースの管理</h2>
+
+<p>今回この拡張を申請するにあたり、画像やテキストなどのChromeウェブストアへの申請時に利用するリソース管理の透明性には少し気を配った。具体的には、申請時に利用したテキストは全てリポジトリ内にそのコピーを含めるようにした。またアイコンについても、そこまで凝ったものを用意したいとも思わなかったので、ImageMagickで機械的に生成し、その方法もスクリプトとしてリポジトリに残すようにした。</p>
+
+<h2>ブラウザ拡張の開発事情</h2>
+
+<p>昔と比べると、ブラウザ拡張の仕様も随分と落ち着いており、また拡張の設定画面やデバッグ用の機能、Chromeウェブストアのダッシュボードの機能なんかも充実しているので、コードを書く上での困りどころは随分減っている。</p>
+
+<p>どちらかと言うと、開発自体が非常に簡単になった分、Chromeウェブストアの審査に対応することの大変さが浮き彫りになっている印象がある。自分も何度かChrome拡張をストアから取り下げられたことがあるが、要領を得ない定型文的な回答に疲弊することも多く、<a href="https://blogja.gyazo.com/entry/2020/07/29/173000">Gyazo Chrome Extensionの再公開について</a>などを読んでもこの状況は今でも大きくは改善されていないようで、その辺りは少し残念に感じた。とはいえ、これでも数年前よりの状況よりは大きく改善されている。</p>
+
+<p>ちなみにこの拡張も、第一次申請時には「アイテムの説明に過剰かつ / または無関係なキーワードが含まれている」という理由で不承認になったが、説明文を改善して再審査を受けることで承認された。<a href="https://github.com/r7kamura/amazon_url_shortener/issues/4">GitHubのIssue</a>に詳しい経緯をまとめてある。</p>
+
+<p>何か状況をもっと良くしていくことはできると思うので、めげずにChrome拡張の開発を続けたりフィードバックを送り続けたりして改善に貢献したいと思う。</p>
+]]></content:encoded>
+      <guid>https://r7kamura.com/articles/2020-11-04-amazon-url-shortener</guid>
+    </item>
     
     <item>
       <title><![CDATA[炊飯器 象印NW-ES07-BZ]]></title>
@@ -761,43 +821,6 @@ alias tn='tmux_create_new_session_from_pwd'
 <p>掃除といえば、流石に古くなってきたルンバの買い替え、洗濯用洗剤の見直し、ガラクタ入れに入っている不燃物の廃棄、書類棚の拡張、1Passwordの整理など、後半掃除関係なくなってきてるけど色々とやりたいことがあったのを思い出した。TODOリストみたいなものを使っていないので、実質的にこの記事がTODOリストということになる。忘れたらこの排水口の汚い画像の記事に戻ってくることにする。掃除用品が届いて綺麗になったら画像を差し替えたい…</p>
 ]]></content:encoded>
       <guid>https://r7kamura.com/articles/2020-10-12-ember-restored</guid>
-    </item>
-    
-    <item>
-      <title><![CDATA[シャンプーとかを壁に吊る]]></title>
-      <description><![CDATA[浴室の掃除を楽にするために、シャンプーとかを壁に吊ることにした。]]></description>
-      <link>https://r7kamura.com/articles/2020-10-11-hanging-shampoo</link>
-      <pubDate>Sun, 11 Oct 2020 00:00:00 +0900</pubDate>
-      <content:encoded><![CDATA[<p>浴室の掃除を楽にするために、シャンプーとかを壁に吊ることにした。</p>
-
-<figure><a href="/images/2020-10-11-hanging-shampoo-main.jpg" target="_blank"><img src="/images/2020-10-11-hanging-shampoo-main.jpg" alt=""></a><figcaption>試行錯誤して吊っている様子</figcaption></figure>
-
-<p>この辺のものを使うことにした。</p>
-
-<ul>
-<li><a href="https://www.amazon.co.jp/dp/B07MCBSGDJ/?tag=r7kamura07-22">山崎実業のマグネット式のタオルハンガー</a></li>
-<li><a href="https://www.amazon.co.jp/dp/B0872TWRT2/?tag=r7kamura07-22">トスレのボトルハンギングフック</a></li>
-<li><a href="https://www.muji.com/jp/ja/store/cmdty/detail/4550002867928">無印良品のPET詰替ボトル</a></li>
-<li><a href="https://www.muji.com/jp/ja/store/cmdty/detail/4548076448341">無印良品の化粧水</a></li>
-</ul>
-
-<p>最近の浴室は、壁面に磁石を付けられるようになっていることが意外と多い。トスレのフックは、セリアに行ける人であればそこで買うほうが安く手に入れられるかも。無印良品は、最近になってAmazonでの販売もはじまったけど、まだまだレパートリーが少なかったり、値段設定が高かったりしてなかなか難しい。</p>
-
-<p>泡タイプの洗顔料だけボトルの口径が異なるので、あまり上手くいっていない。何か良い案があれば教えてほしい。スプレータイプの化粧水は、こういうところに雑に引っ掛けられるので便利。化粧水がなぜ洗面台ではなく風呂場にあるのかという謎は残るが、現状そういう運用になってしまっている。</p>
-
-<figure><a href="/images/2020-10-11-hanging-shampoo-items.jpg" target="_blank"><img src="/images/2020-10-11-hanging-shampoo-items.jpg" alt=""></a><figcaption>ついでに無印良品で色々買った</figcaption></figure>
-
-<p>掃除が上手く行かない理由として、</p>
-
-<ul>
-<li>性格が一致していない</li>
-<li>掃除が好きではない</li>
-<li>綺麗好きではない</li>
-</ul>
-
-<p>というところに原因を求めていた時期もあったが、どうやら掃除しやすい設計になっているかどうかが支配的な要因で、その手の知見を持っているかどうかが大事だということが分かってきた。その辺りの改善を楽しくやれるかどうかもまた、知識の有無に左右される。高等教育あたりですべてを教えてほしかった。</p>
-]]></content:encoded>
-      <guid>https://r7kamura.com/articles/2020-10-11-hanging-shampoo</guid>
     </item>
     
   </channel>
