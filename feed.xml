@@ -8,7 +8,7 @@
     <atom:link href="https://r7kamura.com/feed.xml" rel="self"/>
     <title>r7kamura.com</title>
     <managingEditor>r7kamura@gmail.com (Ryo Nakamura)</managingEditor>
-    <lastBuildDate>Thu, 05 Nov 2020 01:58:33 +0900</lastBuildDate>
+    <lastBuildDate>Thu, 05 Nov 2020 03:19:16 +0900</lastBuildDate>
     
     <item>
       <title><![CDATA[Amazon URL Shortener]]></title>
@@ -56,6 +56,8 @@
 <h2>申請用リソースの管理</h2>
 
 <p>今回この拡張を申請するにあたり、画像やテキストなどのChromeウェブストアへの申請時に利用するリソース管理の透明性には少し気を配った。具体的には、申請時に利用したテキストは全てリポジトリ内にそのコピーを含めるようにした。またアイコンについても、そこまで凝ったものを用意したいとも思わなかったので、ImageMagickで機械的に生成し、その方法もスクリプトとしてリポジトリに残すようにした。</p>
+
+<figure><a href="/images/2020-11-04-amazon-url-shortener.png" target="_blank"><img src="/images/2020-11-04-amazon-url-shortener.png" alt=""></a><figcaption>用意したアイコン</figcaption></figure>
 
 <h2>ブラウザ拡張の開発事情</h2>
 
