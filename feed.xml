@@ -8,7 +8,29 @@
     <atom:link href="https://r7kamura.com/feed.xml" rel="self"/>
     <title>r7kamura.com</title>
     <managingEditor>r7kamura@gmail.com (Ryo Nakamura)</managingEditor>
-    <lastBuildDate>Thu, 05 Nov 2020 03:19:16 +0900</lastBuildDate>
+    <lastBuildDate>Thu, 05 Nov 2020 03:48:54 +0900</lastBuildDate>
+    
+    <item>
+      <title><![CDATA[ウォッチパーティー]]></title>
+      <description><![CDATA[初めてウォッチパーティーを使った。]]></description>
+      <link>https://r7kamura.com/articles/2020-11-05-watch-party</link>
+      <pubDate>Thu, 05 Nov 2020 00:00:00 +0900</pubDate>
+      <content:encoded><![CDATA[<p>初めてウォッチパーティーを使った。</p>
+
+<p>Amazonプライムビデオで配信されている動画を、プライム会員同士で同期しながら観たりできるやつ。PC用のWebブラウザで、Amazonプライムビデオからぽちぽちやると簡単に使える。発行されたURLを伝えて、適当に再生するだけ。</p>
+
+<p>チャット欄もあるので、上映中に会話することに気が引ける人でも安心。Discordで友達と通話しながら観ていたのだけど、自分も気になる派なのでマイクはミュートしてテキストで反応していた。音声は基本的に1チャンネルしかないから、テキストでやりとりする方が無限に会話できて便利だ。</p>
+
+<h2>名探偵ピカチュウ</h2>
+
+<p>ウォッチパーティーで映画『名探偵ピカチュウ』を観た。もちろん良かった。色々な洋画へのオマージュがあって、盤外戦術でも盛り上がれる感じの映画だ。随所でカメラワークが良かった。</p>
+
+<h2>南極料理人</h2>
+
+<p>次の祝日に、今度はウォッチパーティーで映画『南極料理人』を観た。当然ながら良かった。若干ながら見る人を選ぶかもしれないが、やさしさを持って観ることをおすすめする。実体験からくるネタの豊富さと、日本の漫画のコマ割りに通じるようなテンポの良さが印象的だった。この日はごはんが進んだ。</p>
+]]></content:encoded>
+      <guid>https://r7kamura.com/articles/2020-11-05-watch-party</guid>
+    </item>
     
     <item>
       <title><![CDATA[Amazon URL Shortener]]></title>
@@ -805,24 +827,6 @@ alias tn='tmux_create_new_session_from_pwd'
 <p>漫画を読むときにディスプレイを手前に引き寄せて使ったりしているので、使い勝手を上げるためにキーボードを無線化したく、ロジクールから新しく発売されたG913-TKLが気になっている。タクタイルキーも少し気になったけど、多分静音性を優先するとリニアが正着っぽい。</p>
 ]]></content:encoded>
       <guid>https://r7kamura.com/articles/2020-10-13-prime-day</guid>
-    </item>
-    
-    <item>
-      <title><![CDATA[排水口の掃除]]></title>
-      <description><![CDATA[ひさしぶりに浴室の排水口を掃除した。]]></description>
-      <link>https://r7kamura.com/articles/2020-10-12-ember-restored</link>
-      <pubDate>Mon, 12 Oct 2020 00:00:00 +0900</pubDate>
-      <content:encoded><![CDATA[<p><a href="/images/2020-10-12-ember-restored.jpg" target="_blank"><img src="/images/2020-10-12-ember-restored.jpg" alt=""></a></p>
-
-<p>ひさしぶりに浴室の排水口を掃除した。</p>
-
-<p>先週末に頭痛で悩まされたので、生活習慣の悪化から来る体調不良かと思い、リングフィットアドベンチャーを再開。同時にシャワーだけで済ませていたのもやめて入浴も再開し、どれ久しぶりに排水溝の様子を見てみようと覗いてみたところ、ダークソウルの沼地みたいになっていたので慌てて掃除をしたという経緯。</p>
-
-<p>とりあえず応急処置的な掃除はしたものの、画像を見ていただければわかる通りまだ完全に倒しきれていない。そもそも適切な掃除用品が揃っていないことに気付いたので一旦中断している。無印良品で適当にブラシと洗剤を購入したので、今週から丁寧にやっていきたい。</p>
-
-<p>掃除といえば、流石に古くなってきたルンバの買い替え、洗濯用洗剤の見直し、ガラクタ入れに入っている不燃物の廃棄、書類棚の拡張、1Passwordの整理など、後半掃除関係なくなってきてるけど色々とやりたいことがあったのを思い出した。TODOリストみたいなものを使っていないので、実質的にこの記事がTODOリストということになる。忘れたらこの排水口の汚い画像の記事に戻ってくることにする。掃除用品が届いて綺麗になったら画像を差し替えたい…</p>
-]]></content:encoded>
-      <guid>https://r7kamura.com/articles/2020-10-12-ember-restored</guid>
     </item>
     
   </channel>
