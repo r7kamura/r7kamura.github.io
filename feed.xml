@@ -8,7 +8,7 @@
     <atom:link href="https://r7kamura.com/feed.xml" rel="self"/>
     <title>r7kamura.com</title>
     <managingEditor>r7kamura@gmail.com (Ryo Nakamura)</managingEditor>
-    <lastBuildDate>Sat, 07 Nov 2020 18:45:14 +0900</lastBuildDate>
+    <lastBuildDate>Sat, 07 Nov 2020 18:51:22 +0900</lastBuildDate>
     
     <item>
       <title><![CDATA[ウォッチパーティー]]></title>
@@ -79,7 +79,7 @@
 
 <p>今回この拡張を申請するにあたり、画像やテキストなどのChromeウェブストアへの申請時に利用するリソース管理の透明性には少し気を配った。具体的には、申請時に利用したテキストは全てリポジトリ内にそのコピーを含めるようにした。またアイコンについても、そこまで凝ったものを用意したいとも思わなかったので、ImageMagickで機械的に生成し、その方法もスクリプトとしてリポジトリに残すようにした。</p>
 
-<figure><a href="/images/2020-11-04-amazon-url-shortener.png" target="_blank"><img src="/images/2020-11-04-amazon-url-shortener.png" alt=""></a><figcaption>用意したアイコン</figcaption></figure>
+<figure><a href="/images/2020-11-04-amazon-url-shortener.png" target="_blank"><img src="/images/2020-11-04-amazon-url-shortener.png" alt="" title="用意したアイコン"></a><figcaption>用意したアイコン</figcaption></figure>
 
 <h2>ブラウザ拡張の開発事情</h2>
 
@@ -101,7 +101,7 @@
       <pubDate>Tue, 03 Nov 2020 00:00:00 +0900</pubDate>
       <content:encoded><![CDATA[<p>象印の<a href="https://www.amazon.co.jp/dp/B07TWC6C2D?tag=r7kamura07-22">NW-ES07-BZ</a>という炊飯器を買った。</p>
 
-<figure><a href="/images/2020-11-03-rice-cooker.jpg" target="_blank"><img src="/images/2020-11-03-rice-cooker.jpg" alt=""></a><figcaption>NW-ES07-BZ</figcaption></figure>
+<figure><a href="/images/2020-11-03-rice-cooker.jpg" target="_blank"><img src="/images/2020-11-03-rice-cooker.jpg" alt="" title="NW-ES07-BZ"></a><figcaption>NW-ES07-BZ</figcaption></figure>
 
 <p>炊飯器については門外漢すぎて特に選定基準が無く、象印かパナソニックの2019年から2020年あたりの機種で悩んでいたが、最終的に<a href="https://blog.sushi.money/entry/2020/07/20/205525">ひとでさんが使っている</a>という情報も加味してこれになった。しばらく使ったがかなり気に入っている。米がおいしくてすごい。炊きたての米だけ食べておかわりできる程度にはうまい。</p>
 
@@ -119,7 +119,7 @@
       <pubDate>Mon, 02 Nov 2020 00:00:00 +0900</pubDate>
       <content:encoded><![CDATA[<p><a href="https://www.amazon.co.jp/dp/B0851YMDNN?tag=r7kamura07-22">ルックプラス バスタブクレンジング 銀イオンプラス</a>を手に入れた。</p>
 
-<figure><a href="/images/2020-11-02-lookplus.jpg" target="_blank"><img src="/images/2020-11-02-lookplus.jpg" alt=""></a><figcaption>スプレーボトルと詰替え用のそれ</figcaption></figure>
+<figure><a href="/images/2020-11-02-lookplus.jpg" target="_blank"><img src="/images/2020-11-02-lookplus.jpg" alt="" title="スプレーボトルと詰替え用のそれ"></a><figcaption>スプレーボトルと詰替え用のそれ</figcaption></figure>
 
 <p>ルックプラス バスタブクレンジングは、浴槽にスプレーして1分後にシャワーで流すだけで汚れが簡単に落ちるというやつで、ここ2年ほど見聞している限りでもかなり人気の高いやつ。自分も使い続けていて、その性能にはかなり満足している。不満点と言えば、最近<a href="/articles/2020-10-11-hanging-shampoo">浴室に置くものを見直した</a>りしたこともあってパッケージの主張が強くなりすぎてしまうことと、わりとすぐに空になってしまうので何となく勿体無い気持ちになってしまうことが不満なぐらいだった。</p>
 
@@ -477,7 +477,7 @@ end
 
 <p>最近サメの人気が高まっているのか、サメのぬいぐるみについてよく質問されるようになった。たぶん<a href="https://twitter.com/gawrgura">@gawrgura</a>のせいだろう。つい先日質問してきた人は、サメ好きの友達にプレゼントするつもりらしい。いい友達だ。これまでこういう質問に対しては昔書いた<a href="/articles/2016-11-22-h">サメを支える技術</a>を紹介していたが、情報が古くなってきたので、この機会に新たに書き直すことにした。</p>
 
-<figure><a href="/images/2020-10-25-shark-gura.jpg" target="_blank"><img src="/images/2020-10-25-shark-gura.jpg" alt=""></a><figcaption>サメの配信を見るサメ</figcaption></figure>
+<figure><a href="/images/2020-10-25-shark-gura.jpg" target="_blank"><img src="/images/2020-10-25-shark-gura.jpg" alt="" title="サメの配信を見るサメ"></a><figcaption>サメの配信を見るサメ</figcaption></figure>
 
 <h2>購入方法</h2>
 
@@ -493,9 +493,9 @@ end
 
 <p>と色々懸念があったので、自分はわた無しの方を購入して、Amazonで<a href="https://www.amazon.co.jp/dp/B007RSKAZ8/?tag=r7kamura07-22">sofiaの手芸用わた</a>を6kg分購入した。これだけ大量に買うと結構な値段になるので、結局わた有りの方とそこまで合計金額は変わらない。</p>
 
-<figure><a href="/images/2020-10-25-shark-skin.jpg" target="_blank"><img src="/images/2020-10-25-shark-skin.jpg" alt=""></a><figcaption>わたを詰める前のショッキングなサメ</figcaption></figure>
+<figure><a href="/images/2020-10-25-shark-skin.jpg" target="_blank"><img src="/images/2020-10-25-shark-skin.jpg" alt="" title="わたを詰める前のショッキングなサメ"></a><figcaption>わたを詰める前のショッキングなサメ</figcaption></figure>
 
-<figure><a href="/images/2020-10-25-shark-wadding.jpg" target="_blank"><img src="/images/2020-10-25-shark-wadding.jpg" alt=""></a><figcaption>サメに入れられる前のわた</figcaption></figure>
+<figure><a href="/images/2020-10-25-shark-wadding.jpg" target="_blank"><img src="/images/2020-10-25-shark-wadding.jpg" alt="" title="サメに入れられる前のわた"></a><figcaption>サメに入れられる前のわた</figcaption></figure>
 
 <p>このわたは圧縮されていて、袋から取り出すとめちゃくちゃ大きくなる。数年間でへたってきてヒレがふにゃっとしてくるので、たまに買い足してあげるとヒレが立って元気になる。ちなみにこのサメには口から入れて、140cmぐらいの人間なら全身飲み込めるが、やると色々ヘタって目に見えて元気が無さそうな見た目になるので、長生きさせたいならあまり人を食べさせるべきではない。</p>
 
@@ -503,19 +503,19 @@ end
 
 <p>5年間引っ越しで転々としながら連れ回して、色々と写真が貯まってきたので、この機会に貼っておく。</p>
 
-<figure><a href="/images/2020-10-25-shark-tokyo.jpg" target="_blank"><img src="/images/2020-10-25-shark-tokyo.jpg" alt=""></a><figcaption>シェアハウスから引っ越す日のサメ</figcaption></figure>
+<figure><a href="/images/2020-10-25-shark-tokyo.jpg" target="_blank"><img src="/images/2020-10-25-shark-tokyo.jpg" alt="" title="シェアハウスから引っ越す日のサメ"></a><figcaption>シェアハウスから引っ越す日のサメ</figcaption></figure>
 
-<figure><a href="/images/2020-10-25-shark-roomba.jpg" target="_blank"><img src="/images/2020-10-25-shark-roomba.jpg" alt=""></a><figcaption>ルンバから退避するサメ</figcaption></figure>
+<figure><a href="/images/2020-10-25-shark-roomba.jpg" target="_blank"><img src="/images/2020-10-25-shark-roomba.jpg" alt="" title="ルンバから退避するサメ"></a><figcaption>ルンバから退避するサメ</figcaption></figure>
 
-<figure><a href="/images/2020-10-25-shark-kotatsu.jpg" target="_blank"><img src="/images/2020-10-25-shark-kotatsu.jpg" alt=""></a><figcaption>こたつに入っているサメ</figcaption></figure>
+<figure><a href="/images/2020-10-25-shark-kotatsu.jpg" target="_blank"><img src="/images/2020-10-25-shark-kotatsu.jpg" alt="" title="こたつに入っているサメ"></a><figcaption>こたつに入っているサメ</figcaption></figure>
 
-<figure><a href="/images/2020-10-25-shark-kyoto.jpg" target="_blank"><img src="/images/2020-10-25-shark-kyoto.jpg" alt=""></a><figcaption>京都から引っ越す日のサメ</figcaption></figure>
+<figure><a href="/images/2020-10-25-shark-kyoto.jpg" target="_blank"><img src="/images/2020-10-25-shark-kyoto.jpg" alt="" title="京都から引っ越す日のサメ"></a><figcaption>京都から引っ越す日のサメ</figcaption></figure>
 
-<figure><a href="/images/2020-10-25-shark-kyoto-2.jpg" target="_blank"><img src="/images/2020-10-25-shark-kyoto-2.jpg" alt=""></a><figcaption>新しい部屋でくつろぐサメ</figcaption></figure>
+<figure><a href="/images/2020-10-25-shark-kyoto-2.jpg" target="_blank"><img src="/images/2020-10-25-shark-kyoto-2.jpg" alt="" title="新しい部屋でくつろぐサメ"></a><figcaption>新しい部屋でくつろぐサメ</figcaption></figure>
 
-<figure><a href="/images/2020-10-25-shark-ringfit.jpg" target="_blank"><img src="/images/2020-10-25-shark-ringfit.jpg" alt=""></a><figcaption>リングフィットをやるとき少し邪魔になるサメ</figcaption></figure>
+<figure><a href="/images/2020-10-25-shark-ringfit.jpg" target="_blank"><img src="/images/2020-10-25-shark-ringfit.jpg" alt="" title="リングフィットをやるとき少し邪魔になるサメ"></a><figcaption>リングフィットをやるとき少し邪魔になるサメ</figcaption></figure>
 
-<figure><a href="/images/2020-10-25-shark-desk.jpg" target="_blank"><img src="/images/2020-10-25-shark-desk.jpg" alt=""></a><figcaption>新しい机と一緒に写るサメ</figcaption></figure>
+<figure><a href="/images/2020-10-25-shark-desk.jpg" target="_blank"><img src="/images/2020-10-25-shark-desk.jpg" alt="" title="新しい机と一緒に写るサメ"></a><figcaption>新しい机と一緒に写るサメ</figcaption></figure>
 
 <hr>
 
@@ -531,21 +531,21 @@ end
       <description><![CDATA[VIVEREのハンモックを買った。]]></description>
       <link>https://r7kamura.com/articles/2020-10-22-hammock</link>
       <pubDate>Thu, 22 Oct 2020 00:00:00 +0900</pubDate>
-      <content:encoded><![CDATA[<figure><a href="/images/2020-10-22-hammock-setup-3.jpg" target="_blank"><img src="/images/2020-10-22-hammock-setup-3.jpg" alt=""></a><figcaption>完成形</figcaption></figure>
+      <content:encoded><![CDATA[<figure><a href="/images/2020-10-22-hammock-setup-3.jpg" target="_blank"><img src="/images/2020-10-22-hammock-setup-3.jpg" alt="" title="完成形"></a><figcaption>完成形</figcaption></figure>
 
 <p><a href="https://www.amazon.co.jp/dp/B076R436RP/?tag=r7kamura07-22">VIVEREのハンモック</a>を買った。</p>
 
 <p>プロジェクターで映像を見るときにくつろいだり、人が来たときに簡易的に寝られるような用途でソファのようなものが欲しかったが、面白そうだったのでハンモックを買うことにした。</p>
 
-<figure><a href="/images/2020-10-22-hammock-setup-1.jpg" target="_blank"><img src="/images/2020-10-22-hammock-setup-1.jpg" alt=""></a><figcaption>梱包時点</figcaption></figure>
+<figure><a href="/images/2020-10-22-hammock-setup-1.jpg" target="_blank"><img src="/images/2020-10-22-hammock-setup-1.jpg" alt="" title="梱包時点"></a><figcaption>梱包時点</figcaption></figure>
 
 <p>部品の状態ではかなり小さく収納できるような構成になっている。引っ越しのときにも便利だろう。アウトドアの場などに持っていくことも多いと聞くが、この大きさに梱包できるなら納得感もある。</p>
 
-<figure><a href="/images/2020-10-22-hammock-setup-2.jpg" target="_blank"><img src="/images/2020-10-22-hammock-setup-2.jpg" alt=""></a><figcaption>内容物</figcaption></figure>
+<figure><a href="/images/2020-10-22-hammock-setup-2.jpg" target="_blank"><img src="/images/2020-10-22-hammock-setup-2.jpg" alt="" title="内容物"></a><figcaption>内容物</figcaption></figure>
 
 <p>金属の管が5本と、布が1枚と、ネジが7個入っている。管の結合部を繋いで、ネジを締めれば完成。部品は1つずつゆっくり組み立てられて、支えながら作業をしないといけないようなこともないので、1人でも簡単。</p>
 
-<figure><a href="/images/2020-10-22-hammock-finished.jpg" target="_blank"><img src="/images/2020-10-22-hammock-finished.jpg" alt=""></a><figcaption>設置した様子</figcaption></figure>
+<figure><a href="/images/2020-10-22-hammock-finished.jpg" target="_blank"><img src="/images/2020-10-22-hammock-finished.jpg" alt="" title="設置した様子"></a><figcaption>設置した様子</figcaption></figure>
 
 <p>冬場は少し寒いかもしれないが、毛布と一緒に窓際に置いている。雨の日なんかに外を見ながら本を読むのは気持ちが良い。使わないときは、専らサメ置き場と化している。</p>
 
@@ -561,7 +561,7 @@ end
       <description><![CDATA[ロジクールのG913-TKLというキーボードを買った。]]></description>
       <link>https://r7kamura.com/articles/2020-10-21-keyboard-g913-tkl</link>
       <pubDate>Wed, 21 Oct 2020 00:00:00 +0900</pubDate>
-      <content:encoded><![CDATA[<figure><a href="/images/2020-10-21-keyboard-g913-tkl.jpg" target="_blank"><img src="/images/2020-10-21-keyboard-g913-tkl.jpg" alt=""></a><figcaption>G913-TKLとG903</figcaption></figure>
+      <content:encoded><![CDATA[<figure><a href="/images/2020-10-21-keyboard-g913-tkl.jpg" target="_blank"><img src="/images/2020-10-21-keyboard-g913-tkl.jpg" alt="" title="G913-TKLとG903"></a><figcaption>G913-TKLとG903</figcaption></figure>
 
 <p>ロジクールの<a href="https://www.amazon.co.jp/dp/B088BN6JKQ/?tag=r7kamura07-22">G913-TKL</a>というキーボードを買った。</p>
 
@@ -656,7 +656,7 @@ end
 
 <p>話を単純にするために、ここではPodcast用の音源を録音するという用途を例に説明していく。もちろん、動画を録画したい場合にもこの方法は利用できる。</p>
 
-<figure><a href="/images/2020-10-19-obs.png" target="_blank"><img src="/images/2020-10-19-obs.png" alt=""></a><figcaption>シーン "Podcast" を追加</figcaption></figure>
+<figure><a href="/images/2020-10-19-obs.png" target="_blank"><img src="/images/2020-10-19-obs.png" alt="" title='シーン "Podcast" を追加'></a><figcaption>シーン "Podcast" を追加</figcaption></figure>
 
 <p>OBSでは、シーンという単位で入力ソース群を管理する。今回はPodcast用の音源を録音したいので、例として "Podcast" というシーンを用意する。マイクとデスクトップ音声は、何もしなくても最初から音声の入力元として認識されている。録音だけ行う場合は、特に入力ソースを何も追加する必要はない。</p>
 
@@ -664,11 +664,11 @@ end
 
 <p>配信には、これまで通りすべての音声が紐付いた第1トラックを出力したい。録音には、デスクトップ音声が紐付いた第2トラックと、マイクが紐付いた第3トラックを出力したい。このように設定を変更するには、OBSの出力の設定で、出力モードを "詳細" に変更し、録画タブから2と3の音声トラックが選択された状態にする。</p>
 
-<figure><a href="/images/2020-10-19-obs-settings.png" target="_blank"><img src="/images/2020-10-19-obs-settings.png" alt=""></a><figcaption>録画時の音声トラックを変更</figcaption></figure>
+<figure><a href="/images/2020-10-19-obs-settings.png" target="_blank"><img src="/images/2020-10-19-obs-settings.png" alt="" title="録画時の音声トラックを変更"></a><figcaption>録画時の音声トラックを変更</figcaption></figure>
 
 <p>更に、シーン "Podcast" の音声ミキサーの設定から、オーディオの詳細プロパティを開き、デスクトップ音声を第1トラックと第2トラックに、マイクを第1トラックと第3トラックに紐付ける。デフォルトでは全てのトラックに紐付いているので、これを適当に外すことになる。</p>
 
-<figure><a href="/images/2020-10-19-obs-audio.png" target="_blank"><img src="/images/2020-10-19-obs-audio.png" alt=""></a><figcaption>紐付けるトラックをそれぞれ変更</figcaption></figure>
+<figure><a href="/images/2020-10-19-obs-audio.png" target="_blank"><img src="/images/2020-10-19-obs-audio.png" alt="" title="紐付けるトラックをそれぞれ変更"></a><figcaption>紐付けるトラックをそれぞれ変更</figcaption></figure>
 
 <p>以上の設定で、録画された動画ファイルに含まれる音声データが、それぞれ個別のトラックに分かれるようになる。</p>
 ]]></content:encoded>
@@ -680,13 +680,13 @@ end
       <description><![CDATA[鯛が届いた。]]></description>
       <link>https://r7kamura.com/articles/2020-10-18-tai</link>
       <pubDate>Sun, 18 Oct 2020 00:00:00 +0900</pubDate>
-      <content:encoded><![CDATA[<figure><a href="/images/2020-10-18-tai-kashira.jpg" target="_blank"><img src="/images/2020-10-18-tai-kashira.jpg" alt=""></a><figcaption>ギョッとする見た目</figcaption></figure>
+      <content:encoded><![CDATA[<figure><a href="/images/2020-10-18-tai-kashira.jpg" target="_blank"><img src="/images/2020-10-18-tai-kashira.jpg" alt="" title="ギョッとする見た目"></a><figcaption>ギョッとする見た目</figcaption></figure>
 
 <p>鯛が届いた。高知かわうそ市場の、<a href="https://kochi-kawauso.com/collections/covid19_free_shipping/products/susakimadai-1hiki">須崎舞鯛 1匹分お刺身用</a>というやつ。</p>
 
 <p>高知県須崎市の野見漁協が販売していた養殖の鯛で、昨今の情勢で飲食店などに出荷ができなくなり、たくさん売れ残ってしまって生産者が困っている、という背景の鯛。切るだけで食べられるようにいい具合に前処理が施され、一般的な消費者でも簡単に食べられるようになっている。知人が食べて激推ししていて、面白そうだったのでうっかり買ってしまった。</p>
 
-<figure><a href="/images/2020-10-18-tai-cut.jpg" target="_blank"><img src="/images/2020-10-18-tai-cut.jpg" alt=""></a><figcaption>三枚におろされているのを切るだけ</figcaption></figure>
+<figure><a href="/images/2020-10-18-tai-cut.jpg" target="_blank"><img src="/images/2020-10-18-tai-cut.jpg" alt="" title="三枚におろされているのを切るだけ"></a><figcaption>三枚におろされているのを切るだけ</figcaption></figure>
 
 <p>5年前にステンレス鋼の包丁を手に入れて以来一度も手入れをしてなかったので、あまり上手く切れず歯がゆい気持ちになりつつも、どうにか刺身としてそれなりに食べられる程度には奮闘した。そういえばこの包丁は、シェアハウスをしていたときにほしいものリストから贈ってもらったものだった。こいつには思い入れがあるので、これからも真剣に付き合っていこうと思い、砥石を買うことにした。</p>
 
@@ -694,7 +694,7 @@ end
 
 <p>このサイトは素晴らしくて、2004年から長期にわたって砥石に関する情報が記述されており、またそれぞれの砥石についての情報も数年掛けて丁寧に更新されていっている様子が伺える。ここまでの情熱、只者ではあるまいと思い、何者なのか調べていったところ、どうやら埼玉で佐藤研磨店という店を営業されている方のようだった。最近ではブログも更新されているらしい。直接リンクを張りたかったが、サイトのポリシーとして直接のリンクを禁止されているようなので、気になる方は「砥石選び so-net」などで検索していただきたい。</p>
 
-<figure><a href="/images/2020-10-18-tai-table.jpg" target="_blank"><img src="/images/2020-10-18-tai-table.jpg" alt=""></a><figcaption>オクラの煮浸し、鯛の刺身、きのこソテー</figcaption></figure>
+<figure><a href="/images/2020-10-18-tai-table.jpg" target="_blank"><img src="/images/2020-10-18-tai-table.jpg" alt="" title="オクラの煮浸し、鯛の刺身、きのこソテー"></a><figcaption>オクラの煮浸し、鯛の刺身、きのこソテー</figcaption></figure>
 
 <p>話が完全に逸れつつあるので、砥石についての結論だけ述べると、砥石と言えばシャプトンの『刃の黒幕』が安牌、それも家庭用で研石入門者の最初の一本ならまずは1000番（砥石の粒度を表す数字で、小さいほど荒い）が良いだろうという雰囲気だったので、<a href="https://www.amazon.co.jp/dp/B001TPFT0G/?tag=r7kamura07-22">刃の黒幕の1000番</a>を買ってみることにした。鯛無視して道具の改善に走ってる辺り、職業病なのかもしれない。</p>
 

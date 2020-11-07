@@ -59,7 +59,7 @@
 
 <p>RailsのControllerでは、Controller内で発生した例外を捕捉するためにrescue_fromという機能が提供されている。しかしながら、rescue_fromを利用して捕捉できる例外はControllerの処理の中で発生した例外だけであり、その外側で発生する例外は捕捉できない。例えば、Railsに組み込まれているRack middlewareで発生した例外は捕捉できないし、またrescue_fromの中で発生した例外も捕捉できない。もし仮にデコードできない文字列がJSONとして送られてきたとしたら、これはRack middlewareで処理されるため、500エラーが返ることになってしまう。</p>
 
-<p><a href="https://qiita-image-store.s3.amazonaws.com/0/4365/fb04e1b7-2049-0be2-d81f-eefe4e29d6af.png" target="_blank"><img src="https://qiita-image-store.s3.amazonaws.com/0/4365/fb04e1b7-2049-0be2-d81f-eefe4e29d6af.png" alt="onion.png" title="onion.png"></a></p>
+<figure><a href="https://qiita-image-store.s3.amazonaws.com/0/4365/fb04e1b7-2049-0be2-d81f-eefe4e29d6af.png" target="_blank"><img src="https://qiita-image-store.s3.amazonaws.com/0/4365/fb04e1b7-2049-0be2-d81f-eefe4e29d6af.png" alt="onion.png" title="onion.png"></a><figcaption>onion.png</figcaption></figure>
 
 <h3>Rack middlewareで捕捉すると良い</h3>
 

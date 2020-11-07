@@ -58,13 +58,13 @@
 
 <h2>CIのビルドに時間が掛かるようになった</h2>
 
-<p><a href="https://cdn-ak.f.st-hatena.com/images/fotolife/r/r7kamura/20170102/20170102230018.png" target="_blank"><img src="https://cdn-ak.f.st-hatena.com/images/fotolife/r/r7kamura/20170102/20170102230018.png" alt="f:id:r7kamura:20170102230018p:plain" title="f:id:r7kamura:20170102230018p:plain"></a></p>
+<figure><a href="https://cdn-ak.f.st-hatena.com/images/fotolife/r/r7kamura/20170102/20170102230018.png" target="_blank"><img src="https://cdn-ak.f.st-hatena.com/images/fotolife/r/r7kamura/20170102/20170102230018.png" alt="f:id:r7kamura:20170102230018p:plain" title="f:id:r7kamura:20170102230018p:plain"></a><figcaption>f:id:r7kamura:20170102230018p:plain</figcaption></figure>
 
 <p>これはわりとしんどい。CircleCIのDockerのバージョンが古く、イメージのキャッシュをしづらいため、毎度新規にイメージをビルドしていることが原因。キャッシュが可能で、ビルド中にイメージを作成することができ、その作成したイメージでテストを実行でき、特定のブランチにおいてはそのままDockerレジストリにPushが可能で、環境変数の管理やチャットサービスとの連携が容易なサービスがあれば、それに乗り換えたい (Werckerとか?)。</p>
 
 <h2>デプロイしやすくなった</h2>
 
-<p><a href="https://cdn-ak.f.st-hatena.com/images/fotolife/r/r7kamura/20170102/20170102225931.png" target="_blank"><img src="https://cdn-ak.f.st-hatena.com/images/fotolife/r/r7kamura/20170102/20170102225931.png" alt="f:id:r7kamura:20170102225931p:plain" title="f:id:r7kamura:20170102225931p:plain"></a></p>
+<figure><a href="https://cdn-ak.f.st-hatena.com/images/fotolife/r/r7kamura/20170102/20170102225931.png" target="_blank"><img src="https://cdn-ak.f.st-hatena.com/images/fotolife/r/r7kamura/20170102/20170102225931.png" alt="f:id:r7kamura:20170102225931p:plain" title="f:id:r7kamura:20170102225931p:plain"></a><figcaption>f:id:r7kamura:20170102225931p:plain</figcaption></figure>
 
 <p>CircleCIでビルドされたイメージにそれぞれ番号 (タグ) が割り振られているので、その番号を指定すると、Amazon ECSが実行中のコンテナを数台ずつそのイメージに自動的に交換してくれる。なので、デプロイ時にやることとしてはDockerのタグを指定するだけとなった。わかりやすいので精神が楽になった。</p>
 
@@ -82,7 +82,7 @@
 
 <h2>マシン資源の管理がやりやすくなった</h2>
 
-<p><a href="https://cdn-ak.f.st-hatena.com/images/fotolife/r/r7kamura/20170102/20170102225902.png" target="_blank"><img src="https://cdn-ak.f.st-hatena.com/images/fotolife/r/r7kamura/20170102/20170102225902.png" alt="f:id:r7kamura:20170102225902p:plain" title="f:id:r7kamura:20170102225902p:plain"></a></p>
+<figure><a href="https://cdn-ak.f.st-hatena.com/images/fotolife/r/r7kamura/20170102/20170102225902.png" target="_blank"><img src="https://cdn-ak.f.st-hatena.com/images/fotolife/r/r7kamura/20170102/20170102225902.png" alt="f:id:r7kamura:20170102225902p:plain" title="f:id:r7kamura:20170102225902p:plain"></a><figcaption>f:id:r7kamura:20170102225902p:plain</figcaption></figure>
 
 <p>同じインスタンスで複数の (異なる種類の) コンテナを動かすことも容易になり、あまりお金をかけられない個人開発でも手軽に節約できるようになった (手軽ではない節約方法は沢山ある)。例えばRubyのバージョンを上げるときでも、SidekiqはRuby 2.3 、Pumaは Ruby 2.4という構成にすることもできる。SidekiqとPumaが1プロセスずつ動くと、それぞれ250MBずつで合計500MB。デプロイ時にイメージを交換するために1コンテナ余分に動かすことを考えて、メモリが1GBあるインスタンスを利用しよう、という具合でリソースを管理できる。結果的にちょっとサーバ代が浮いた。</p>
 
