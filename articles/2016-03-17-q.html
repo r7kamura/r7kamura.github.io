@@ -41,54 +41,7 @@
     <h1>ActiveRecordでカラムの値を偽装しながらPolymorphic associationとSTIを併用する</h1>
   </header>
   <div>
-    <ul>
-<li>Article (has-many notifications)</li>
-<li>Comment (has-many notifications)</li>
-<li>Mention (has-many notifications)</li>
-<li>Notification (belongs-to something)</li>
-</ul>
-
-<p>のようなモデルとそれらの関連性があるとき、notificationsテーブルに例えば以下のようなカラムがあれば、<code>Notification.belongs_to :source, polymorphic: true</code> のようなコードでPolymorphic associationが実現できるようになると思います。</p>
-
-<ul>
-<li>source_id</li>
-<li>source_type</li>
-</ul>
-
-<p>しかしNotificationの要件が大きくなるにつれ、関連するモデルの種類によって条件分岐が増えてくる可能性があります。例えば、Articleに関連するNotificationではこのValidationが必要だが、Commentに関連するNotificationでは不要、などです。そうした場合、Notificationクラス自体にtypeカラムがあれば、以下のようにSingle-Table-Inheritanceを利用しながら別々のクラスを用意することで、実装の定義場所を綺麗に分けられて便利です。</p>
-
-<ul>
-<li>Notification</li>
-<li>ArticleNotification &lt; Notification</li>
-<li>CommentNotification &lt; Notification</li>
-<li>MentionNotification &lt; Notification</li>
-</ul>
-
-<p>さて、こうなると source_type の内容と type の内容が重複してしまうことになるので、source_type カラムを削除することを考えます。ActiveRecordが source_type の値を参照しようとしたとき、以下のように2つのメソッドをOverrideすることで、動的に値を組み立てることができます。<code>#[]</code> の変更だけで良いように思われがちですが、<code>#_read_attribute</code> の値がActiveRecord内部で関連レコードのキャッシュ用に利用されているので、これも変更する必要があります。</p>
-
-<pre><code class="rb">class Notification &lt; ActiveRecord::Base
-  # @note Override
-  def [](attribute_name)
-    if attribute_name.to_s == "source_type"
-      type.gsub(/Notification\z/, "")
-    else
-      super
-    end
-  end
-
-  # @note Override
-  def _read_attribute(attribute_name)
-    if attribute_name == "source_type"
-      self[attribute_name]
-    else
-      super
-    end
-  end
-end
-</code></pre>
-
-<p>上記のコードで、notificationsテーブルにtypeカラムだけを用意しながら、STIとPolymorphic associationを併用できるようになりました。まあ子クラスごとに <code>belongs_to</code> を書けばPolymorphic associationとかやる必要なさそうですが、一応こういうやり方もあるよということでここはどうか…。上例の場合、受け取った通知一覧などでのN+1クエリが問題になることがあると思うので、良ければ <a href="http://qiita.com/r7kamura/items/7a31b79f855d7af581ec">ActiveRecordでPolymorphicにPreloadする - Qiita</a> も参考にどうぞ。</p>
-
+    <a href="http://qiita.com/r7kamura/items/7a31b79f855d7af581ec">ActiveRecordでPolymorphicにPreloadする - Qiita</a>
   </div>
 </article>
 

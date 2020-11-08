@@ -41,46 +41,7 @@
     <h1>Botにtwitterを監視してもらう</h1>
   </header>
   <div>
-    <p>デプロイ直後のサービスの監視など、twitter上で特定のキーワードに関する反応を監視しておけると便利なことがあると思います。チャットに常駐させたBotにtwitterを検索し続けてもらい、これを実現します。</p>
-
-<h2>準備</h2>
-
-<p><a href="https://github.com/r7kamura/ruboty">Ruboty</a>と以下のプラグインを組み合わせて使います。導入のための記事として<a href="http://qiita.com/r7kamura/items/8d1b98e28154de6030b9">Ruby製HubotクローンのRubotyをSlackで動かす - Qiita</a>というのも過去に書いたので、もしよければ参考にしてください。</p>
-
-<ul>
-<li><a href="https://github.com/r7kamura/ruboty-cron">https://github.com/r7kamura/ruboty-cron</a></li>
-<li><a href="https://github.com/r7kamura/ruboty-slack">https://github.com/r7kamura/ruboty-slack</a></li>
-<li><a href="https://github.com/r7kamura/ruboty-twitter_search">https://github.com/r7kamura/ruboty-twitter_search</a></li>
-</ul>
-
-<h3>ruboty-slack</h3>
-
-<p>BotをSlack上で動かすためのプラグインです。今回はSlackを使いますが、他にも以下のようなプラグインがあります。</p>
-
-<ul>
-<li><a href="https://github.com/hanachin/ruboty-idobata">https://github.com/hanachin/ruboty-idobata</a></li>
-<li><a href="https://github.com/r7kamura/ruboty-hipchat">https://github.com/r7kamura/ruboty-hipchat</a></li>
-<li><a href="https://github.com/r7kamura/ruboty-twitter">https://github.com/r7kamura/ruboty-twitter</a></li>
-</ul>
-
-<h3>ruboty-twitter_search</h3>
-
-<p>与えたクエリでtwitterを検索するためのプラグインです。<code>@ruboty search twitter by &lt;query&gt;</code> と発言すると、与えたクエリでtwitterを検索してtweetのURL一覧を返してくれます。SlackやHipChatではtwitterのURLが展開されるので、URLさえ発言してくれればそれでOKです。過去に使ったものと同じクエリで検索するときは、最後にヒットした結果より新しいものを検索してくれます。</p>
-
-<h3>ruboty-cron</h3>
-
-<p>指定した日時に指定した文字列をBotに与えるためのプラグインです。<a href="http://ja.wikipedia.org/wiki/Crontab">crontab</a>形式で日時を指定できます。これを利用して、定期的にtwitterを検索させます。余談ですが、内部では<a href="https://github.com/r7kamura/chrono">Chrono::Trigger</a>が動いています。</p>
-
-<h2>使い方</h2>
-
-<p>こんな感じで利用できます。これは登録したあと適当にtwitterで発言してみたら、検索にヒットして無事Botに発言してもらえたシーンです。</p>
-
-<p><a href="https://qiita-image-store.s3.amazonaws.com/0/4365/64031725-1eb2-cb97-39f1-2a6fafeac833.png" target="_blank"><img src="https://qiita-image-store.s3.amazonaws.com/0/4365/64031725-1eb2-cb97-39f1-2a6fafeac833.png" alt="image"></a></p>
-
-<h2>おわり</h2>
-
-<p>例えば<a href="http://qiita.com/r7kamura/items/5e7b9c27693bcc4a5a39">チャット経由でデプロイする</a>とか、プラグインの組み合わせ次第でtwitterの監視以外にもいろいろできると思うので、各位創意工夫でやっていきましょう。</p>
-
+    <a href="https://github.com/r7kamura/ruboty">Ruboty</a><a href="http://qiita.com/r7kamura/items/8d1b98e28154de6030b9">Ruby製HubotクローンのRubotyをSlackで動かす - Qiita</a><a href="https://github.com/r7kamura/ruboty-cron">https://github.com/r7kamura/ruboty-cron</a><a href="https://github.com/r7kamura/ruboty-slack">https://github.com/r7kamura/ruboty-slack</a><a href="https://github.com/r7kamura/ruboty-twitter_search">https://github.com/r7kamura/ruboty-twitter_search</a><a href="https://github.com/hanachin/ruboty-idobata">https://github.com/hanachin/ruboty-idobata</a><a href="https://github.com/r7kamura/ruboty-hipchat">https://github.com/r7kamura/ruboty-hipchat</a><a href="https://github.com/r7kamura/ruboty-twitter">https://github.com/r7kamura/ruboty-twitter</a><a href="http://ja.wikipedia.org/wiki/Crontab">crontab</a><a href="https://github.com/r7kamura/chrono">Chrono::Trigger</a><a href="https://qiita-image-store.s3.amazonaws.com/0/4365/64031725-1eb2-cb97-39f1-2a6fafeac833.png" target="_blank"><img src="https://qiita-image-store.s3.amazonaws.com/0/4365/64031725-1eb2-cb97-39f1-2a6fafeac833.png" alt="image"></a><a href="http://qiita.com/r7kamura/items/5e7b9c27693bcc4a5a39">チャット経由でデプロイする</a>
   </div>
 </article>
 

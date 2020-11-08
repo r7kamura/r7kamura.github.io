@@ -41,72 +41,7 @@
     <h1>amakanをRails 5に移行した</h1>
   </header>
   <div>
-    <p><a href="http://r7kamura.hatenablog.com/entry/2016/12/09/201115">amakanでRuby 2.3.3を使うようにした - ✘╹◡╹✘</a> に引き続き、amakan に改善を加えた。</p>
-
-<hr>
-
-<p>Rails 4.2.6 で動いていた <a href="https://amakan.net/">https://amakan.net/</a> を Rails 5.0.0.1 に移行した。前回 Ruby 2.3.3 に移行したという記事で、「Rails 5 にすれば Ruby 2.4.0-preview3 が使えるのにな」という話をしたのでその伏線回収。</p>
-
-<h2>4.2.6 → 4.2.7</h2>
-
-<p>とりあえず 4.x 系で最新の 4.2.7 にアップデートすることに。これは特に問題がなかった。</p>
-
-<h2>rails app:update</h2>
-
-<p>Rails 5.0.0.1 に変更すると、<code>rails app:update</code> が実行できるようになる。これを実行すると、幾つかのファイルが追加・上書きされる。そこまで変更量も多くないので、手作業で必要な変更だけ精査して取り入れた。</p>
-
-<h2>quiet_assets</h2>
-
-<p>開発環境での静的ファイル配信時のログを抑制するために quiet_assets という gem を利用していたものの、これは Rails 5 に同等の機能が含まれることになったので取り除いた。</p>
-
-<h2>rails_12factor</h2>
-
-<p>本番環境でのログの出力先を標準出力に変更するために rails_12factor (に含まれる rails_stdout_logging) という Gem を使っていたが、Rails 5 から必要なくなったので外した。</p>
-
-<h2>sass-rails</h2>
-
-<p>Rails 4 でつくった雛形の Gemfile では sass-rails のバージョンが <code>~&gt; 5.0</code> に固定されていたが、これだと Rails 5 の依存と噛み合わないのでこのバージョン指定を外すことにした。</p>
-
-<h2>sinatra</h2>
-
-<p>rack のバージョンが上がったことで <code>rack/showexceptions.rb</code> というファイルが <code>rack/show_exceptions.rb</code> というファイル名に変わっていることに起因して、それを利用している Sinatra のバージョンを 2.0.0.beta2 に変更した。</p>
-
-<h2>autoload</h2>
-
-<p>Rails 4 以前は <code>Rails.configuration.autoload_paths</code> 以下のディレクトリが本番環境で eager_load されるようになっていたが、Rails 5 からは何もしなければ eager_load も autoload もされないようになった。この挙動を戻すために、<code>Rails.configuration.enable_dependency_loading = true</code> を設定した。</p>
-
-<h2>ActiveRecord</h2>
-
-<p>Rails 5 での大きな変更点として、ActiveRecord の挙動の変更がある。デフォルトの挙動が変わっただけで、設定次第で前と同じ挙動にもできるが、この機会に実装側を変更した。その他にもいろいろあって、結果的に以下の変更に対応した。</p>
-
-<ol>
-<li>callback で false を返しても中断しなくなった</li>
-<li>基底クラスとして ApplicationRecord を利用する慣習になった</li>
-<li>uniq が非推奨になり、distinct が推奨されるようになった</li>
-<li>belongs_to の関連先がデフォルトでは必須になった</li>
-</ol>
-
-<p>また一見気付きづらい変更の1つに、ActiveRecord の enum の変更がある。</p>
-
-<pre><code>class Book \&lt; ApplicationRecord enum( category: %i( comic light\_novel business ... ) ) end
-</code></pre>
-
-<p>Rails 4 以前では、こういう挙動をしていた。</p>
-
-<pre><code>Book.first[:category] #=\&gt; 0
-</code></pre>
-
-<p>Rails 5 以降では、こういう挙動になる。</p>
-
-<pre><code>Book.first[:category] #=\&gt; "comic" Book.first.category\_before\_type\_cast #=\&gt; 0
-</code></pre>
-
-<h2>おわり</h2>
-
-<p>これでデプロイして一通り終了した。amakan はそこまでコードも無いので、Rails 5 への移行は全体を通して30分ぐらいで完了した。業務でも変更しているし、他のアプリでも何度も変更しているので、あまり高揚はないかも。しかしめでたいのでハーゲンダッツの1番いいやつを買いました。こういう、節目節目の出来事をきちんと喜ぶ気持ちを大切にな…。Rails アップデートしたいので手伝ってほしいという話があれば twitter などで雑に声をかけてください。Rails 2.0.2 以降からのバージョンアップであれば一応何度かやった経験がある。</p>
-
-<p>次回は Ruby 2.4.0-preview3 に移行するかも。</p>
-
+    <a href="http://r7kamura.hatenablog.com/entry/2016/12/09/201115">amakanでRuby 2.3.3を使うようにした - ✘╹◡╹✘</a><a href="https://amakan.net/">https://amakan.net/</a>
   </div>
 </article>
 

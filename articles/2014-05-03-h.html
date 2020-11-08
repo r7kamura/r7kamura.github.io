@@ -41,30 +41,7 @@
     <h1>チャットで今日放送されるアニメを尋ねる</h1>
   </header>
   <div>
-    <p>チャット経由で今日放送されるアニメを尋ねるために <a href="https://github.com/r7kamura/ellen-syoboi_calendar">Ellen::SyoboiCalendar</a> というのをつくった。list animeと発言すると、<a href="http://cal.syoboi.jp/">しょぼいカレンダー</a>を見てその日の28時までに放送される番組を教えてくれる。あらかじめ環境変数経由で自分の地域で見られる放送局のIDを指定しておくみたいなことも出来る。</p>
-
-<h3>様子</h3>
-
-<p><a href="http://dl.dropboxusercontent.com//u/5978869/image/20140503_201835.png" target="_blank"><img src="http://dl.dropboxusercontent.com//u/5978869/image/20140503_201835.png" alt=""></a></p>
-
-<p><a href="http://dl.dropboxusercontent.com//u/5978869/image/20140503_202421.png" target="_blank"><img src="http://dl.dropboxusercontent.com//u/5978869/image/20140503_202421.png" alt=""></a></p>
-
-<h3>式年遷宮</h3>
-
-<p>Ellen::SyoboiCalendarをつくるにあたって、しょぼいカレンダーをRubyから扱うために<a href="https://github.com/r7kamura/syoboi_calendar">syoboi_calendar</a>というGemを作り直している。2年ほど前につくっていたのを式年遷宮的に再度作り直した。 ちなみに<a href="https://github.com/r7kamura/sugoi">Golang版</a>もある。何をやっているかと言うと、SyoboiCalendar::Clientをつくって適当なメソッド (.channels, .programs, .titles) を呼び出すと、URLを組み立ててしょぼいカレンダーのAPIにHTTPリクエストを送る。上手くいくとXMLが返ってくるので、それを適当なオブジェクトに変換してメソッドの戻り値として返す、というのをやっている。</p>
-
-<h3>間接承認</h3>
-
-<p>ところで<a href="https://www.lita.io/">Lita</a>というRuby版のHubotクローンがあってEllenもわりとそれを参考にしたところがあるんだけど、さっきtwitter見てたらその作者に「Ellenマジで良くなってきてる」って言及されてた。間接承認よい。</p>
-
-<blockquote>
-<p>Ellen (<a href="https://t.co/UoLu5MNzmk">https://t.co/UoLu5MNzmk</a>) is coming along very nicely. I like the simplicity of the call-based interface in its handlers and actions.</p>
-
-<p>— Jimmy Cuadra (@jimmycuadra) <a href="https://twitter.com/jimmycuadra/statuses/462585606275489793">2014, 5月 3</a></p>
-</blockquote>
-
-<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
-
+    <a href="https://github.com/r7kamura/ellen-syoboi_calendar">Ellen::SyoboiCalendar</a><a href="http://cal.syoboi.jp/">しょぼいカレンダー</a><a href="http://dl.dropboxusercontent.com//u/5978869/image/20140503_201835.png" target="_blank"><img src="http://dl.dropboxusercontent.com//u/5978869/image/20140503_201835.png" alt=""></a><a href="http://dl.dropboxusercontent.com//u/5978869/image/20140503_202421.png" target="_blank"><img src="http://dl.dropboxusercontent.com//u/5978869/image/20140503_202421.png" alt=""></a><a href="https://github.com/r7kamura/syoboi_calendar">syoboi_calendar</a><a href="https://github.com/r7kamura/sugoi">Golang版</a><a href="https://www.lita.io/">Lita</a><a href="https://t.co/UoLu5MNzmk">https://t.co/UoLu5MNzmk</a><a href="https://twitter.com/jimmycuadra/statuses/462585606275489793">2014, 5月 3</a>
   </div>
 </article>
 

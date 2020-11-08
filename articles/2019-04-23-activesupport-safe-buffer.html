@@ -41,26 +41,7 @@
     <h1>ActiveSupport::SafeBuffer#* を改善した</h1>
   </header>
   <div>
-    <p><a href="https://github.com/rails/rails/pull/36012">https://github.com/rails/rails/pull/36012</a> の話です。</p>
-
-<h2>ActiveSupport::SafeBuffer</h2>
-
-<p>Rails では XSS 対策として String を継承した ActiveSupport::SafeBuffer というクラスが提供されています。これは内部でこの文字列が安全かどうか（出力時にエスケープすべきかどうか）という情報を保持しています。そして HTML テンプレートでこの文字列を展開するときに、この情報を見ながらエスケープするかどうかを判断しています。</p>
-
-<h2>String#*</h2>
-
-<p>最近開発に参加しているアプリケーションで <code>"&lt;br /&gt;&lt;br /&gt;"</code> という HTML を用意する機会があり、ActiveSupport::SafeBuffer を返す ActionView::Helpers::TagHelper#tag を利用して、<code>tag(:br) * 2</code> というコードでこれを実現しようとしました。しかし <code>String#*</code> を呼び出すと内部的に保持していた安全かどうかの情報を引き継がないようで、<code>tag(:br) * 2</code> は素の (安全ではない) String を返すようでした。</p>
-
-<p>余談ですが、どうして <code>"&lt;br /&gt;&lt;br /&gt;"</code> という HTML が必要になったかと言うと、元々 <code>"&lt;br /&gt;&lt;br /&gt;".html_safe</code> というコードで実現していたのを、RuboCop の Rails/OutputSafety を有効化したことにより、String#html_safe を使わない方法でこれを実現する必要が出てきたからなのでした。RuboCop の違反を元にして rails/rails に Pull Request を出す流れが最近多い気がしています。</p>
-
-<p><a href="https://www.rubydoc.info/gems/rubocop/RuboCop/Cop/Rails/OutputSafety">https://www.rubydoc.info/gems/rubocop/RuboCop/Cop/Rails/OutputSafety</a></p>
-
-<h2>ActiveSupport::SafeBuffer#*</h2>
-
-<p>上述した問題を解決するために、ActiveSupport::SafeBuffer#* で情報を引き継ぐように上書きする <a href="https://github.com/rails/rails/pull/36012">https://github.com/rails/rails/pull/36012</a> を出しました。先日 merge してもらえたので、恐らく Rails 6.0.0 には含まれるのではないかと思っています。</p>
-
-<p>String 由来の ActiveSupport::SafeBuffer のメソッドには、他にも同じ問題を持つメソッドが含まれているような気がしているので、今後も似た変更が加えられるかもしれません。</p>
-
+    <a href="https://github.com/rails/rails/pull/36012">https://github.com/rails/rails/pull/36012</a><a href="https://www.rubydoc.info/gems/rubocop/RuboCop/Cop/Rails/OutputSafety">https://www.rubydoc.info/gems/rubocop/RuboCop/Cop/Rails/OutputSafety</a><a href="https://github.com/rails/rails/pull/36012">https://github.com/rails/rails/pull/36012</a>
   </div>
 </article>
 

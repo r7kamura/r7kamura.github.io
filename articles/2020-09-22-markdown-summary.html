@@ -41,26 +41,7 @@
     <h1>記事の説明文</h1>
   </header>
   <div>
-    <figure><a href="/images/2020-09-22-summary-detection.jpg" target="_blank"><img src="/images/2020-09-22-summary-detection.jpg" alt="" title="何の関係も無いサメのぬいぐるみの画像"></a><figcaption>何の関係も無いサメのぬいぐるみの画像</figcaption></figure>
-
-<p>記事の説明文を抽出する方法を変更した。あまり目に触れる機会は無いが、SNSやフィードなどで利用される。</p>
-
-<p>これまでは「なるべく記事の先頭の方で要約を置きたい」という背景から「最初に表れるテキストの先頭の一文をその記事の説明文として扱う」という作戦でやっていた。しかし、<a href="/articles/2020-09-22-markdown-caption">画像にキャプションを付けられるようにした</a>おかげで、アイキャッチとして記事の先頭に画像を置き、そこにキャプションが書かれるというケースも今後出てくるはず。そうなるとこの作戦は上手くいかない。</p>
-
-<p>この記事でも、過去のやり方で失敗する例として、先頭にキャプション付きの画像を配置している。これまでの方法だと、この記事の説明文は以下のようになっていた。</p>
-
-<blockquote>
-<p>何の関係も無いサメのぬいぐるみの画像</p>
-</blockquote>
-
-<p>新しい作戦として用意したのは「最初の子がテキストである段落要素の最初の一文をその記事の説明文として扱う」というもの。この方法だと、説明文は以下のようになる。</p>
-
-<blockquote>
-<p>記事の説明文を抽出する方法を変更した。</p>
-</blockquote>
-
-<p>ソースコードの変更は <a href="https://github.com/r7kamura/r7kamura.com/commit/637bcc8f52db48ab7fd38cbe28ef55d75a2e1ad2">https://github.com/r7kamura/r7kamura.com/commit/637bcc8f52db48ab7fd38cbe28ef55d75a2e1ad2</a> のようになった。フィルタの仕組みは、変換だけでなく、メタデータの収集にも利用できる。この手法は、例えば <code>@r7kamura</code> のように文章内でmentionする機能をつくるときなんかに、mentionをリンクに変換しつつ通知先のアカウント名を収集する、といった感じでよく使われる。</p>
-
+    <a href="/images/2020-09-22-summary-detection.jpg" target="_blank"><img src="/images/2020-09-22-summary-detection.jpg" alt="" title="何の関係も無いサメのぬいぐるみの画像"></a><a href="/articles/2020-09-22-markdown-caption">画像にキャプションを付けられるようにした</a><a href="https://github.com/r7kamura/r7kamura.com/commit/637bcc8f52db48ab7fd38cbe28ef55d75a2e1ad2">https://github.com/r7kamura/r7kamura.com/commit/637bcc8f52db48ab7fd38cbe28ef55d75a2e1ad2</a>
   </div>
 </article>
 

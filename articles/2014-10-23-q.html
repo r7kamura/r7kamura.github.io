@@ -41,75 +41,7 @@
     <h1>Ruby製HubotクローンのRubotyをSlackで動かす</h1>
   </header>
   <div>
-    <p><a href="https://heroku.com/deploy?template=https://github.com/r7kamura/ruboty-template"><img src="https://www.herokucdn.com/deploy/button.png" alt="Deploy"></a> を押して、Ruby製Hubotクローンの<a href="https://github.com/r7kamura/ruboty">Ruboty</a>を動かす方法を説明します。</p>
-
-<h2>Slackを設定</h2>
-
-<p>まず、利用するSlackのチームでXMPP Gatewayを有効化しましょう。この設定はTeam Ownerが<a href="https://my.slack.com/admin/settings">設定画面</a>から有効化する必要があります。その後、Ruboty用のSlackアカウントを作成し、利用するSlackチームに招待しましょう。Slackの提供するHubot Integrationではアカウントをつくる必要はありませんでしたが、3rd Party製のBOTをまともに利用する場合にはアカウントが必要になります。Rubotyを管理しそうな人のGmailアドレスに +ruboty とか付けて登録すると良いんじゃないでしょうか。</p>
-
-<h2>Herokuにデプロイ</h2>
-
-<p>次に、RubotyをHerokuにデプロイしましょう。Herokuアカウントを持っていれば、記事先頭に載せたデプロイボタンを押せば設定画面に進めます。作成したRuboty用のアカウントの名前と、XMPP Gateway用パスワード (<a href="https://my.slack.com/account/settings">プロフィール画面</a>から自分のXMPP用のパスワードを閲覧できます)、Slackのチーム名をそれぞれ入力すれば、Herokuにデプロイできます。</p>
-
-<p><a href="https://raw.githubusercontent.com/r7kamura/ruboty-template/master/images/deploy.gif" target="_blank"><img src="https://raw.githubusercontent.com/r7kamura/ruboty-template/master/images/deploy.gif" alt=""></a></p>
-
-<h2>Dynoを追加</h2>
-
-<p>Herokuのデプロイボタンではプロセスを自動的に起動できないので、最後に<a href="https://dashboard-next.heroku.com/apps">ダッシュボード</a>からDynoを0個から1個に変更します。(ところで最近デフォルトで追加されるDynoがβ版のcedarに変わった影響でOpenSSLのエラーが出る場合があります。その場合は <code>heroku stack:set cedar</code> 等で非β版のcedarに戻した後で再度デプロイしましょう)</p>
-
-<p><a href="https://raw.githubusercontent.com/r7kamura/ruboty-template/master/images/add-dyno.gif" target="_blank"><img src="https://raw.githubusercontent.com/r7kamura/ruboty-template/master/images/add-dyno.gif" alt=""></a></p>
-
-<h2>Slackで確認</h2>
-
-<p>これでデプロイは完了です。Slackの #general チャンネルで <code>@ruboty ping</code> と入力して反応が返ってきたらデプロイ成功です (名前をqiitanにしてたら <code>@qiitan ping</code> です)。1vs1チャットでも試せます。</p>
-
-<p><a href="https://qiita-image-store.s3.amazonaws.com/0/4365/9fb6d5fc-42e0-e153-f4a2-db8a5242a7b8.gif" target="_blank"><img src="https://qiita-image-store.s3.amazonaws.com/0/4365/9fb6d5fc-42e0-e153-f4a2-db8a5242a7b8.gif" alt="ping.gif"></a></p>
-
-<h2>デバッグ</h2>
-
-<p>何か失敗していそうだったらログを見て確認しましょう。Web UIからはログが見られないので、herokuコマンドから確認します。herokuコマンドを入れていない場合は<a href="https://toolbelt.heroku.com/">ここ</a>から入れておきましょう。よくある間違いとして、パスワードやチーム名、ユーザ名を間違えていてエラーを出しているというものがあります。間違っていたらダッシュボードからアプリを削除してやり直すのが楽かもしれません。</p>
-
-<figure><pre><code class="sh">heroku logs --app your-app-name
-</code></pre>
-<figcaption>ログを確認</figcaption></figure>
-
-<h2>カスタマイズ</h2>
-
-<p>初期状態では最低限のプラグインしか含まれていませんが、<a href="https://github.com/r7kamura/ruboty-template">ruboty-template</a>をforkすれば自分の好きなプラグインを追加できます。いま住んでるシェアハウス用のSlackでは、<a href="https://github.com/r7kamura/ruboty-cron">ruboty-cron</a>と<a href="https://github.com/r7kamura/ruboty-syoboi_calendar">ruboty-syoboi_calendar</a>を組み合わせて、毎日21時に今日都内で放送予定のアニメを発言させたりしています。</p>
-
-<p><a href="https://qiita-image-store.s3.amazonaws.com/0/4365/517f488a-5508-f503-d365-7d414bc72d9c.png" target="_blank"><img src="https://qiita-image-store.s3.amazonaws.com/0/4365/517f488a-5508-f503-d365-7d414bc72d9c.png" alt="例"></a></p>
-
-<p>Forkする場合は、Fork後のレポジトリ内で <code>heroku git:remote</code> というコマンドを使うと簡単にpush先を追加できます。変更後の初回のgit-pushでは、恐らく--forceオプションが必要になります。</p>
-
-<pre><code>heroku git:remote --app your-app-name
-git push heroku master -f
-</code></pre>
-
-<h2>コラボレーション</h2>
-
-<p>Herokuを使っていると、他の開発者が変更を行うたびにデプロイを依頼する必要があって大変です。Travis CIを利用してmasterに変更がpushされたらHerokuにデプロイされるようにし、Pull Requestベースで変更を入れるようにしておくと便利です。</p>
-
-<pre><code>gem install travis
-travis init
-travis setup heroku
-git add .travis.yml
-git commit -m "Add .travis.yml"
-git push origin master
-</code></pre>
-
-<h2>おわりに :bow:</h2>
-
-<p>Ruby製HubotクローンのRubotyをSlackで動かす方法について紹介しました。ボタン1発でデプロイできるHerokuのデプロイボタンは革命的ですね。Herokuは1アカウントあたり100アプリまで作成できるので、1人100体までRubotyを従えることができます。Hubotと比べるとRubotyは酷い出来ですが、いやーでもプラグインとかRubyで書きたいしNodeよく分からんのだよねという人の助けになれば幸いです。</p>
-
-<h2>参考</h2>
-
-<ul>
-<li><a href="https://github.com/r7kamura/ruboty">r7kamura/ruboty</a></li>
-<li><a href="http://r7kamura.hatenablog.com/entry/2014/05/31/190240">Ruby + Bot = Ruboty</a></li>
-<li><a href="http://r7kamura.hatenablog.com/entry/2014/06/30/145617">自己言及野郎はSlackを使おう</a></li>
-<li><a href="http://r7kamura.hatenablog.com/entry/2014/05/14/041123">XMPP界</a></li>
-</ul>
-
+    <a href="https://heroku.com/deploy?template=https://github.com/r7kamura/ruboty-template"><img src="https://www.herokucdn.com/deploy/button.png" alt="Deploy"></a><a href="https://github.com/r7kamura/ruboty">Ruboty</a><a href="https://my.slack.com/admin/settings">設定画面</a><a href="https://my.slack.com/account/settings">プロフィール画面</a><a href="https://raw.githubusercontent.com/r7kamura/ruboty-template/master/images/deploy.gif" target="_blank"><img src="https://raw.githubusercontent.com/r7kamura/ruboty-template/master/images/deploy.gif" alt=""></a><a href="https://dashboard-next.heroku.com/apps">ダッシュボード</a><a href="https://raw.githubusercontent.com/r7kamura/ruboty-template/master/images/add-dyno.gif" target="_blank"><img src="https://raw.githubusercontent.com/r7kamura/ruboty-template/master/images/add-dyno.gif" alt=""></a><a href="https://qiita-image-store.s3.amazonaws.com/0/4365/9fb6d5fc-42e0-e153-f4a2-db8a5242a7b8.gif" target="_blank"><img src="https://qiita-image-store.s3.amazonaws.com/0/4365/9fb6d5fc-42e0-e153-f4a2-db8a5242a7b8.gif" alt="ping.gif"></a><a href="https://toolbelt.heroku.com/">ここ</a><a href="https://github.com/r7kamura/ruboty-template">ruboty-template</a><a href="https://github.com/r7kamura/ruboty-cron">ruboty-cron</a><a href="https://github.com/r7kamura/ruboty-syoboi_calendar">ruboty-syoboi_calendar</a><a href="https://qiita-image-store.s3.amazonaws.com/0/4365/517f488a-5508-f503-d365-7d414bc72d9c.png" target="_blank"><img src="https://qiita-image-store.s3.amazonaws.com/0/4365/517f488a-5508-f503-d365-7d414bc72d9c.png" alt="例"></a><a href="https://github.com/r7kamura/ruboty">r7kamura/ruboty</a><a href="http://r7kamura.hatenablog.com/entry/2014/05/31/190240">Ruby + Bot = Ruboty</a><a href="http://r7kamura.hatenablog.com/entry/2014/06/30/145617">自己言及野郎はSlackを使おう</a><a href="http://r7kamura.hatenablog.com/entry/2014/05/14/041123">XMPP界</a>
   </div>
 </article>
 

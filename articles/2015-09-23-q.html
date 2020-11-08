@@ -41,58 +41,7 @@
     <h1>React.jsのJSXで条件分岐・繰り返しを記述する</h1>
   </header>
   <div>
-    <p><a href="https://facebook.github.io/react/tips/if-else-in-JSX.html">If-Else in JSX | React</a> で述べられているように、<code>{...}</code> の中で即時関数を利用すれば、その中でJSXの記法を利用してコードを記述できる。</p>
-
-<h2>条件分岐</h2>
-
-<p>3ペインの画面を例にした条件分岐の例。</p>
-
-<pre><code>import PaneCenter from './pane-center'
-import PaneLeft from './pane-left'
-import PaneRight from './pane-right'
-import React from 'react'
-
-export default class Panes extends React.Component {
-  render() {
-    return(
-      &lt;div className="panes"&gt;
-        {(() =&gt; {
-          if (this.props.panesCount &gt;= 3) {
-            return &lt;PaneLeft /&gt;;
-          }
-        })()}
-        {(() =&gt; {
-          if (this.props.panesCount &gt;= 2) {
-            return &lt;PaneCenter /&gt;;
-          }
-        })()}
-        &lt;PaneRight /&gt;
-      &lt;/div&gt;
-    );
-  }
-}
-</code></pre>
-
-<h2>繰り返し</h2>
-
-<p>記事一覧を例にした繰り返しの例。</p>
-
-<pre><code>import Article from './article'
-import React from 'react'
-
-export default class Articles extends React.Component {
-  render() {
-    return(
-      &lt;div className="articles"&gt;
-        {this.props.articles.map((article) =&gt; {
-          return &lt;Article key={article.id} /&gt;;
-        })}
-      &lt;/div&gt;
-    );
-  }
-}
-</code></pre>
-
+    <a href="https://facebook.github.io/react/tips/if-else-in-JSX.html">If-Else in JSX | React</a>
   </div>
 </article>
 

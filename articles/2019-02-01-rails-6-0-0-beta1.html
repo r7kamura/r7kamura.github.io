@@ -41,38 +41,7 @@
     <h1>Rails 6.0.0.beta1を試した</h1>
   </header>
   <div>
-    <p>開発に携わっているアプリケーションを Rails 5.2.2 から 6.0.0.beta1 に移行する作業を加えたので、対応した諸問題について書きます。</p>
-
-<h2>bullet gem</h2>
-
-<p>ORM で非効率な SQL が組み立てられていることを検知してくれる bullet という gem ですが、まだ最新版でも Rails 5.2.2 で動かすと例外が出て動かない状態でした。これに対して、 <a href="https://github.com/flyerhzm/bullet/pull/439">https://github.com/flyerhzm/bullet/pull/439</a> のように Rails 6 に対応してみたという Pull Request が出ています。</p>
-
-<h2>newrelic_rpm gem</h2>
-
-<p>NewRelic の Ruby 用 Agent ですが、使っていたバージョン 5.x だと Rails 6 で動かしたときに例外が発生する状態でした。6.0.0 で Rails 6 に対応したようなので、これは最新版にアップグレードするだけで対応できます。</p>
-
-<h2>paranoia gem</h2>
-
-<p>ActiveRecord で論理削除を行うための paranoia gem ですが、現時点で最新版のものだと dependency が Rails 4.0 以上 5.3 未満に制限されている状態でした。Rails 6 に対応しようという Pull Request <a href="https://github.com/rubysherpas/paranoia/pull/456">https://github.com/rubysherpas/paranoia/pull/456</a> が出ています。</p>
-
-<h2>should-matchers gem</h2>
-
-<p>Rails に特化したテスト用の matcher などを提供してくれる shoulda-matchers gem を利用しているプロジェクトだったんですが、Rails 6 で動かすとこれが例外を発生させるようでした。<a href="https://github.com/thoughtbot/shoulda-matchers/pull/1117">https://github.com/thoughtbot/shoulda-matchers/pull/1117</a> に対応する Pull Request が出ています。</p>
-
-<h2>annotate gem</h2>
-
-<p>正規化された DB スキーマやルーティング情報をコメントとして自動で残してくれる annotate gem ですが、リリースされている最新版では Rails 6 未満でしか利用できなかったものの、<a href="https://github.com/ctran/annotate_models/pull/595">https://github.com/ctran/annotate_models/pull/595</a> が merge されて Rails 7 未満で使えるようになっていたので、新しいバージョンがリリースされれば上手くいくようになると思います。</p>
-
-<h2>redirect_to</h2>
-
-<p><a href="https://github.com/rails/rails/pull/34412">https://github.com/rails/rails/pull/34412</a> が merge され、redirect_to に外部ホストのものらしき URL を指定すると例外が発生するようになり、これが Rails 6.0.0.beta1 に入っているんですが、対応として少しまずかったということで <a href="https://github.com/rails/rails/pull/35018">https://github.com/rails/rails/pull/35018</a> で revert されています。</p>
-
-<h2>activerecord</h2>
-
-<p>has-many-through の関係性を持つレコードを validation するとき、5.2.2 と 6.0.0.beta1 で validation 順序か保存順序が変わったのか、上手くいかなくなるケースが出てきました。とりあえず再現するためのコードを <a href="https://gist.github.com/r7kamura/73633bd30ffc1647f61c97f3a4de8d67">https://gist.github.com/r7kamura/73633bd30ffc1647f61c97f3a4de8d67</a> に用意したんですが、直し方は分からず調査していたところ、kamipo さんが直してくれました。</p>
-
-<p><a href="https://github.com/rails/rails/pull/35116">https://github.com/rails/rails/pull/35116</a></p>
-
+    <a href="https://github.com/flyerhzm/bullet/pull/439">https://github.com/flyerhzm/bullet/pull/439</a><a href="https://github.com/rubysherpas/paranoia/pull/456">https://github.com/rubysherpas/paranoia/pull/456</a><a href="https://github.com/thoughtbot/shoulda-matchers/pull/1117">https://github.com/thoughtbot/shoulda-matchers/pull/1117</a><a href="https://github.com/ctran/annotate_models/pull/595">https://github.com/ctran/annotate_models/pull/595</a><a href="https://github.com/rails/rails/pull/34412">https://github.com/rails/rails/pull/34412</a><a href="https://github.com/rails/rails/pull/35018">https://github.com/rails/rails/pull/35018</a><a href="https://gist.github.com/r7kamura/73633bd30ffc1647f61c97f3a4de8d67">https://gist.github.com/r7kamura/73633bd30ffc1647f61c97f3a4de8d67</a><a href="https://github.com/rails/rails/pull/35116">https://github.com/rails/rails/pull/35116</a>
   </div>
 </article>
 

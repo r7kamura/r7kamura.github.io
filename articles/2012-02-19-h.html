@@ -38,42 +38,7 @@
     <h1>coffee-script導入したけど捨てた</h1>
   </header>
   <div>
-    <h3>node + npm + coffee 導入</h3>
-
-<pre><code>$ brew install node $ brew install npm Error: No available formula for npm npm can be installed thusly by following the instructions at http://npmjs.org/ To do it in one line, use this command: curl http://npmjs.org/install.sh | sh $ curl http://npmjs.org/install.sh | sh $ npm search coffee-script $ npm view !$ $ npm install -g !$ $ coffee -v
-</code></pre>
-
-<h3>coffee 練習</h3>
-
-<pre><code>$ coffee coffee\&gt; console.log "Hello, world" Hello, world undefined $ coffee -e "console.log 'Hello, World'" Hello, World $ echo "console.log 'Hello, World'" \&gt; hello.coffee $ coffee -c hello $ ls hello.coffee hello.js $ node hello Hello, World $ cat hello.js (function() { console.log("Hello, World!"); }).call(this);
-</code></pre>
-
-<h3>Vim向け</h3>
-
-<pre><code># シンタックスとか $ git clone git://github.com/kchmck/vim-coffee-script.git .vim/bundle/vim-coffee-script # \&lt;leader\&gt; + r でコンパイル結果を表示する設定 $ git clone git://github.com/thinca/vim-quickrun.git .vim/bundle/vim-quickrun $ vim .vimrc $ tail -n 3 .vimrc let g:quickrun\_config = {} let g:quickrun\_config['coffee'] = {'command' : 'coffee', 'exec' : ['%c -cbp %s']}
-</code></pre>
-
-<h3>Sinatra向け</h3>
-
-<pre><code>require "coffee-script" class App \&lt; ::Sinatra::Base get "/" do "Hello" end get "/js/\*.coffee" do |name| coffee name.to\_sym end end
-</code></pre>
-
-<h3>書き直し支援</h3>
-
-<ul>
-<li><a href="http://js2coffee.org/">Js2coffee convert JavaScript code to CoffeeScript</a></li>
-<li><a href="http://coffeescript.org/">CoffeeScript</a></li>
-</ul>
-
-<h3>感想</h3>
-
-<ul>
-<li>チョコ食べながらjsからcoffeeに書き直してる途中で吐きそうになった</li>
-<li>リテラルやりすぎ感ある</li>
-<li>Rubyでも$:とか書くより$LOAD_PATHって書いたほうが良いとかある</li>
-<li>適応できない自分が時代に淘汰されていく恐ろしさだけが残った</li>
-</ul>
-
+    <a href="http://js2coffee.org/">Js2coffee convert JavaScript code to CoffeeScript</a><a href="http://coffeescript.org/">CoffeeScript</a>
   </div>
 </article>
 

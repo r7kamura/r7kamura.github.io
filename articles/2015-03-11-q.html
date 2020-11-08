@@ -41,71 +41,7 @@
     <h1>Heroku上のアプリに自身のGemfileを書き換えさせる</h1>
   </header>
   <div>
-    <p>Heroku上で動作させているアプリケーションに、自身のレポジトリ上のGemfileを更新させる方法について書きます。この記事では、HerokuのGitHub Sync、Bundler::Dsl、GitHub API v3のContents APIなどを利用します。</p>
-
-<h2>どういう場合に必要になるか</h2>
-
-<p>自分は、<a href="https://github.com/r7kamura/ruboty-bundler">r7kamura/ruboty-bundler</a>という<a href="https://github.com/r7kamura/ruboty">Ruboty</a>のプラグインをつくる上でこの処理が必要になりました。普段Slackでいろいろな仕事をしてくれるBotをHerokuで動かしているのですが、RubotyのプラグインはGemfileで管理する形式になっているため、プラグインを追加するたびにGemfileを書き換えなければいけません。この作業が面倒だと思い、Botに命じれば勝手にプラグインを入れてくれるようにしようと考えました。</p>
-
-<h2>GitHub Contents API</h2>
-
-<p>GitHub API v3には、2013年頃に<a href="https://developer.github.com/v3/repos/contents/">Contents API</a>が追加されました。これは、レポジトリ上のファイルを取得したり、更新したりするためのAPIです。Contents APIの登場以前にファイルを更新するには、<a href="https://developer.github.com/v3/git/blobs/">Blobs API</a>や<a href="https://developer.github.com/v3/git/trees/">Trees API</a>などを組み合わせなければなりませんでした。Contents APIのおかげで、より簡単にファイル操作が行えるようになりました。</p>
-
-<p>今回はContents APIを利用して、masterブランチのGemfileおよびGemfile.lockというファイルを取得し、追加したいGemをGemfileに追記し、<code>bundle install</code> でGemfile.lockを更新したあと、再びContents APIを利用してレポジトリ上のファイルを更新します。Gemfileを取得する例を以下に示します。contentというプロパティに、Base64形式でエンコードされたデータが格納されています。また、shaプロパティにSHA1の値が入っていますが、ファイルを更新する場合はファイルの内容と一緒にこのSHA1の値を送る必要があるので大事な値です。</p>
-
-<pre><code class="bash">$ curl https://api.github.com/repos/increments/qiitan-rb/contents/Gemfile
-{
-  "name": "Gemfile",
-  "path": "Gemfile",
-  "sha": "88bf9ae8f760bfdb8e1f37ffdb70a9475cb76857",
-  "size": 389,
-  "url": "https://api.github.com/repos/increments/qiitan-rb/contents/Gemfile?ref=master",
-  "html_url": "https://github.com/increments/qiitan-rb/blob/master/Gemfile",
-  "git_url": "https://api.github.com/repos/increments/qiitan-rb/git/blobs/88bf9ae8f760bfdb8e1f37ffdb70a9475cb76857",
-  "download_url": "https://raw.githubusercontent.com/increments/qiitan-rb/master/Gemfile",
-  "type": "file",
-  "content": "c291cmNlICJodHRwczovL3J1YnlnZW1zLm9yZyIKCmdlbSAicmFrZSIKZ2Vt\nICJydWJvdHktcmVwbGFjZSIKZ2VtICJydWJvdHktYWxpYXMiCmdlbSAicnVi\nb3R5LWJ1bmRsZXIiCmdlbSAicnVib3R5LWNyb24iCmdlbSAicnVib3R5LWVj\naG8iCmdlbSAicnVib3R5LWdpdGh1YiIKZ2VtICJydWJvdHktZ29vZ2xlX2Nh\nbGVuZGFyIgpnZW0gInJ1Ym90eS1nb29nbGVfaW1hZ2UiCmdlbSAicnVib3R5\nLWxndG0iCmdlbSAicnVib3R5LXFpaXRhX3BvbGljZSIKZ2VtICJydWJvdHkt\ncmVkaXMiCmdlbSAicnVib3R5LXJ1YnlfZXZhbCIKZ2VtICJydWJvdHktc2Nv\ncmVrZWVwZXIiCmdlbSAicnVib3R5LXNsYWNrIgpnZW0gInJ1Ym90eS10YWxr\nIgpnZW0gInJ1Ym90eS10d2l0dGVyX3NlYXJjaCI=\n",
-  "encoding": "base64",
-  "_links": {
-    "self": "https://api.github.com/repos/increments/qiitan-rb/contents/Gemfile?ref=master",
-    "git": "https://api.github.com/repos/increments/qiitan-rb/git/blobs/88bf9ae8f760bfdb8e1f37ffdb70a9475cb76857",
-    "html": "https://github.com/increments/qiitan-rb/blob/master/Gemfile"
-  }
-}
-</code></pre>
-
-<h2>bundle install on Heroku</h2>
-
-<p>Herokuのプロセス上でもbundle installが実行できます。但しRubyで動作しているプロセス上から <code>Kernel.#system</code> などを利用して実行する場合、自身のプロセスにBundlerが参照する環境変数が幾つか与えられているため、これを外した状態で実行する必要があります。<code>Bundler.with_clean_env</code> というメソッドに与えたブロックの中で処理を実行すれば、そのように振る舞うことができます。</p>
-
-<p>また、<code>bundle install</code> を実行するとき、.bundle/config というファイルが存在すれば、そこに記述されている設定を読み込んだ上で処理が実行されます。このファイルは最初に <code>bundle install</code> が実行されたときに生成されます。この設定ファイルの存在により、初めて実行したときの設定が記憶され、二度目の実行時にも一度目の実行時と同じ設定で <code>bundle install</code> が実行されるという訳です。今回のケースではこの設定ファイルの存在が新規Gemの追加を妨げてしまうため、何らかの対策が必要です。単純に削除するのも良いでしょう。</p>
-
-<pre><code class="rb">File.delete(".bundle/config")
-Bundler.with_clean_env { `bundle install` }
-</code></pre>
-
-<h2>Gemfileをパースする</h2>
-
-<p>今回の目的の中では、Gemfileに任意のGemの定義を追加する必要があります。そのためには、Gemfileの内容を一旦解析し、データを追加し、有効なGemfileを再生成しなければなりません。このとき、<code>bundle install</code> が内部で利用している <code>Bundler::Dsl.evaluate</code> が利用できます。このメソッドにGemfileとGemfile.lockのファイルパスを与えると、それらの解析結果を表す <code>Bundler::Definition</code> のインスタンスが得られます。このインスタンスから、<code>Bundler::Definition#dependencies</code> を利用して <code>Bundler::Dependency</code> のインスタンスの配列を取り出せます。<code>Bundler::Dependency</code> は、それぞれが <code>gem "ruboty", "&gt;= 1.0.0"</code> のような1つのGemに対する定義を表現するオブジェクトです。</p>
-
-<p>以下のコードは、カレントディレクトリのGemfileとGemfile.lockを解析し、ruboty-kokodeikkuというGemを追加し、Gemfileの内容を再生成する簡単な例です。実際には <code>gem</code> メソッドにはバージョン情報やオプションなどを与えられたりするので、その辺りの面倒も見たほうが良いでしょう。</p>
-
-<pre><code class="rb">dependencies = Bundler::Dsl.evaluate("Gemfile", "Gemfile.lock", {}).dependencies
-dependencies &lt;&lt; Bundler::Dependency.new("ruboty-kokodeikku")
-gemfile = %&lt;source "https://rubygems.org"\n\n&gt;
-gemfile &lt;&lt; dependencies.map { |dependency| "gem #{dependency.to_s.inspect}\n" }.join
-</code></pre>
-
-<h2>Heroku GitHub Sync</h2>
-
-<p><a href="https://qiita-image-store.s3.amazonaws.com/0/4365/a13d8908-ebe3-6b66-0df3-24c7e48078f0.png" target="_blank"><img src="https://qiita-image-store.s3.amazonaws.com/0/4365/a13d8908-ebe3-6b66-0df3-24c7e48078f0.png" alt="image"></a></p>
-
-<p>Herokuの<a href="https://dashboard.heroku.com">管理画面</a>で設定を行うと、GitHubのmasterブランチにコードがPushされたときに、自動でHerokuに反映してくれるようになります。この設定が有効化されていると、Contents APIでGemfileとGemfile.lockを更新したときに自動で反映されてくれるということになります。Travis CIなどでもデプロイの自動化はできますが、特長を挙げるとすれば、こちらの方が反映完了までの時間がより短く済みます。</p>
-
-<h2>おしまい</h2>
-
-<p>以上の処理を組み合わせると、Heroku上のアプリに自身のGemfileを書き換えさせる処理が可能になります。特に注意すべき点についてのみ触れましたが、<a href="https://github.com/r7kamura/ruboty-bundler">ruboty-bundler</a> というGemでは同様の処理を実現しているので、参考になるかもしれません。</p>
-
+    <a href="https://github.com/r7kamura/ruboty-bundler">r7kamura/ruboty-bundler</a><a href="https://github.com/r7kamura/ruboty">Ruboty</a><a href="https://developer.github.com/v3/repos/contents/">Contents API</a><a href="https://developer.github.com/v3/git/blobs/">Blobs API</a><a href="https://developer.github.com/v3/git/trees/">Trees API</a><a href="https://qiita-image-store.s3.amazonaws.com/0/4365/a13d8908-ebe3-6b66-0df3-24c7e48078f0.png" target="_blank"><img src="https://qiita-image-store.s3.amazonaws.com/0/4365/a13d8908-ebe3-6b66-0df3-24c7e48078f0.png" alt="image"></a><a href="https://dashboard.heroku.com">管理画面</a><a href="https://github.com/r7kamura/ruboty-bundler">ruboty-bundler</a>
   </div>
 </article>
 

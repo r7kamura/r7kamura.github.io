@@ -41,69 +41,7 @@
     <h1>Railsでコンフリクトをvalidate</h1>
   </header>
   <div>
-    <p>Railsで同じデータを2人のユーザがほぼ同時に編集したとき、何も対処しないと片方のユーザがもう片方のユーザの変更を確認しないまま上書きしてしまうことになるので、更新時刻を元に一方が競合していることを判定する方法について説明します。</p>
-
-<h2>要点</h2>
-
-<ol>
-<li>サーバ側でHTMLに最終更新日時を埋め込む</li>
-<li>クライアント側で更新リクエスト時に最終更新日時も同時に送る</li>
-<li>サーバ側で送られてきた最終更新日時とDB上の最終更新日時を比較して検証する</li>
-<li>これらの実装に validate_confirmation の機能を使う</li>
-</ol>
-
-<h2>Viewに最終更新日時を埋め込む</h2>
-
-<p>日時をUnixtimeで表現して埋め込むならこんな感じになります。</p>
-
-<pre><code class="erb">&lt;%= form_for @model do |f| %&gt;
-  &lt;%= f.hidden_field :updated_at_confirmation_in_unixtime, value: @model.updated_at_confirmation_in_unixtime %&gt;
-  ...
-&lt;% end %&gt;
-</code></pre>
-
-<h2>ModelにValidationを定義する</h2>
-
-<p>View用にupdated_atのunixtime表現を提供するメソッドと、クライアントから送られてきたunixtimeを保持しておくプロパティ、それからupdated_at_confirmationがnil以外の値を返したときにupdated_atと等価かどうか比較するvalidationを定義します。confirmation: trueを利用すると等値比較のvalidationとエラーメッセージを定義してくれるので少し楽できます。</p>
-
-<pre><code class="rb"># Public: A concern module to validate conflict.
-# To validate conflict, set updated_at_confirmation_in_unixtime attribute to the model object.
-#
-# Example:
-#
-#   model.update(body: "foo", updated_at_confirmation_in_unixtime: time.to_i)
-#
-module ConflictValidatable
-  extend ActiveSupport::Concern
-
-  included do
-    attr_accessor :updated_at_confirmation_in_unixtime
-
-    validates :updated_at, confirmation: true, if: :has_updated_at_confirmation_in_unixtime?
-  end
-
-  def has_updated_at_confirmation_in_unixtime?
-    updated_at_confirmation_in_unixtime.present?
-  end
-
-  def updated_at_confirmation
-    Time.at(updated_at_confirmation_in_unixtime.to_i) if has_updated_at_confirmation_in_unixtime?
-  end
-
-  def updated_at_in_unixtime
-    updated_at.to_i unless updated_at.nil?
-  end
-end
-</code></pre>
-
-<h2>Ajaxで更新する場合の注意点</h2>
-
-<p>Ajaxで更新するようなフォームの場合は、更新成功後にサーバが最終更新日時を返すようにし、クライアント側でView内の最終更新日時を書き換える処理を入れる必要があるので注意が必要です。</p>
-
-<h2>おしまい</h2>
-
-<p>今回は更新時刻で判定しましたが、本文のハッシュ値などにも利用できると思います。</p>
-
+    
   </div>
 </article>
 

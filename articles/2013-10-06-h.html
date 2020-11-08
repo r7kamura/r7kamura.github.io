@@ -41,52 +41,7 @@
     <h1>Go言語のテスト用ライブラリとGospel</h1>
   </header>
   <div>
-    <p>先週初めてGo言語を触る機会があったので、テストの書き方を調べた。<br>
-要約すると、標準ライブラリのtestingが好きになれず他に調べても気に入ったものが見付からなかったので<a href="https://github.com/r7kamura/gospel">自分でつくった</a>。</p>
-
-<h3>testing</h3>
-
-<p>Go言語にはtestingという標準ライブラリが用意されていて、 「go test」コマンドを実行すると「*_test.go」という名前のテスト用ファイルがそれぞれ実行される。 具体的には、そのファイル内で定義されたTest*という名前のテスト用関数がそれぞれ実行されるようになっている。 公式サイトの例ではこういうコードが紹介されていた。</p>
-
-<pre><code>type doubleTest struct { in, out int}var doubleTests = []doubleTest{ doubleTest{1, 2}, doubleTest{2, 4}, doubleTest{-5, -10}, }func TestDouble(t \*testing.T) { for \_, dt := range doubleTests { v := Double(dt.in) if v != dt.out { t.Errorf("Double(%d) = %d, want %d.", dt.in, v, dt.out) } } }
-</code></pre>
-
-<h3>他のライブラリ</h3>
-
-<p>色々あるっぽい。</p>
-
-<ul>
-<li><a href="https://github.com/stretchr/testify/">testify</a></li>
-<li><a href="http://labix.org/gocheck">gocheck</a></li>
-<li><a href="https://github.com/remogatto/prettytest">prettytest</a></li>
-<li><a href="https://github.com/orfjackal/gospec">gospec</a></li>
-<li><a href="https://github.com/azer/mao">mao</a></li>
-<li><a href="https://github.com/pranavraja/zen">zen</a></li>
-<li><a href="https://github.com/smartystreets/goconvey">goconvey</a></li>
-</ul>
-
-<h3>Gospel</h3>
-
-<p><a href="https://github.com/r7kamura/gospel">https://github.com/r7kamura/gospel</a></p>
-
-<p>どれもあんまり使う気にならず、結局自分で適当に新しいのを書いて、<a href="http://www.karanokyoukai.com/miraifukuin/">その日見た映画</a>の名前を付けた。 RSpecっぽい記法になっていて、こういう風に書ける。</p>
-
-<pre><code>func TestDescribe(t \*testing.T) { Describe(t, "Expectation#To", func() { Context("with Equal", func() { It("evaluates actual == expected", func() { Expect(1).To(Equal, 1) }) }) Context("with NotEqual", func() { It("evaluates actual != expected", func() { Expect(1).To(NotEqual, 2) }) }) Context("with Exist", func() { It("evaluates actual != nil", func() { Expect(1).To(Exist) }) }) Context("with NotExist", func() { It("evaluates actual == nil", func() { Expect(nil).To(NotExist) }) }) }) }
-</code></pre>
-
-<p>Expectにテスト対象の値を渡して、Toに期待する状態を渡す。 EqualやExist等はただの関数なので、自分で好きなものを定義しても良い。 例えばEqualは次のように定義されている。 値を可変長引数で受け取って、エラーメッセージか空文字列を返せば良い。</p>
-
-<pre><code>// Checks if actual == expected.func Equal(values ...interface{}) (failureMessage string) { if values[0] != values[1] { failureMessage = fmt.Sprintf("Expected `%v` to equal `%v`", values[0], values[1]) } return}
-</code></pre>
-
-<p>「go test」でテストを実行できる。成功すると"."、失敗すると"F"が表示される。これは成功例。</p>
-
-<p><a href="http://dl.dropboxusercontent.com//u/5978869/image/20131003_083821.png" target="_blank"><img src="http://dl.dropboxusercontent.com//u/5978869/image/20131003_083821.png" alt=""></a></p>
-
-<p>「go test -v」で実行すると出力形式が変わる。失敗するとどこが違ったかが表示される。</p>
-
-<p><a href="http://dl.dropboxusercontent.com//u/5978869/image/20131006_224123.png" target="_blank"><img src="http://dl.dropboxusercontent.com//u/5978869/image/20131006_224123.png" alt=""></a></p>
-
+    <a href="https://github.com/r7kamura/gospel">自分でつくった</a><a href="https://github.com/stretchr/testify/">testify</a><a href="http://labix.org/gocheck">gocheck</a><a href="https://github.com/remogatto/prettytest">prettytest</a><a href="https://github.com/orfjackal/gospec">gospec</a><a href="https://github.com/azer/mao">mao</a><a href="https://github.com/pranavraja/zen">zen</a><a href="https://github.com/smartystreets/goconvey">goconvey</a><a href="https://github.com/r7kamura/gospel">https://github.com/r7kamura/gospel</a><a href="http://www.karanokyoukai.com/miraifukuin/">その日見た映画</a><a href="http://dl.dropboxusercontent.com//u/5978869/image/20131003_083821.png" target="_blank"><img src="http://dl.dropboxusercontent.com//u/5978869/image/20131003_083821.png" alt=""></a><a href="http://dl.dropboxusercontent.com//u/5978869/image/20131006_224123.png" target="_blank"><img src="http://dl.dropboxusercontent.com//u/5978869/image/20131006_224123.png" alt=""></a>
   </div>
 </article>
 

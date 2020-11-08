@@ -41,38 +41,7 @@
     <h1>RuboCopのStyle/Lambdaの改善を試みた話</h1>
   </header>
   <div>
-    <p><a href="https://github.com/rubocop-hq/rubocop/pull/6475">rubocop-hq/rubocop#6475</a> を書いたときの話。</p>
-
-<h2>Ruby の lambda</h2>
-
-<p>Ruby には Kernel.#lambda というメソッドがあって、これにブロックを渡すと Proc クラスのインスタンスをつくれる。手続きをオブジェクトとして渡したいときなんかに利用できる。lambda メソッドの代わりに、Ruby 1.9 からは -&gt; { ... } というリテラルも利用できる。</p>
-
-<h2>RuboCop の Style/Lambda</h2>
-
-<p>Proc のインスタンスをつくるときに lambda メソッドと -&gt; リテラルのどちらを使うかというスタイルを統一するために、RuboCop という Linter に Style/Lambda というルールがあって、現状以下の3つのうちからスタイルを選べるようになっている。</p>
-
-<ul>
-<li>必ず -&gt; を使う</li>
-<li>必ず lambda を使う</li>
-<li>複数行にまたがるときだけ lambda を使う (version 0.60.0 ではこれが default)</li>
-</ul>
-
-<h2>Style/Lambda の autocorrect の課題</h2>
-
-<p>RuboCop の Style/Lambda のための実装には自動修正機能が付いていて、設定したスタイルに応じてある程度は自動修正してくれるのだけど、括弧の省略されたメソッド呼び出しの引数として書かれた -&gt; は lambda に変換できないという課題がある。</p>
-
-<p>なぜ変換できないようになっているのか調べたところ、Ruby の文法上、-&gt; に比べて lambda は do ... end と結合しようとする優先度が低く、単純な置き換えではコードの意味が変わってしまうため、こういう対応状況になっているらしかった。例えば括弧を省略してメソッドの引数として -&gt; do ... end を渡していた場合、-&gt; を lambda に変換すると、do ... end の部分が lambda メにではなく括弧を省略したメソッドに対してブロックを渡したものとして解釈されてしまうという訳である。</p>
-
-<h2>autocurrect の改善案</h2>
-
-<p>lambda do ... end じゃなくて lambda { ... } に変換すれば、外側のメソッドより lambda と結合するようになるから解決するんじゃないのか、と思って今回は Pull Request を出してみた。</p>
-
-<p>rubocop-hq/rubocop#6475</p>
-
-<p>もしかして過去に試みた上で何らかの問題があって reject されたのかもしれないと思い、リポジトリ内を Style/Lambda などのキーワードで調べてみたものの、それらしい情報は見つけられなかった。</p>
-
-<p>以前 Style/RegexpLiteral に関する記事 を書いたときもそうだったんだけど、例によって今回もこの記事を書いているうちに「あれ、もしかして Hash のための { ... } と lambda のための { ... } が混在すると問題になりそうじゃない...？」という考えが浮かんでしまったので、もう少しテストケースを追加するべきかもしれないなと考えている。</p>
-
+    <a href="https://github.com/rubocop-hq/rubocop/pull/6475">rubocop-hq/rubocop#6475</a>
   </div>
 </article>
 

@@ -41,26 +41,7 @@
     <h1>画像とリンク</h1>
   </header>
   <div>
-    <p>記事内の画像にリンクを付けた。クリックして拡大できるように。</p>
-
-<figure><a href="/images/2020-09-18-link-image.jpg" target="_blank"><img src="/images/2020-09-18-link-image.jpg" alt="" title="特に脈絡の無いサメのぬいぐるみの画像"></a><figcaption>特に脈絡の無いサメのぬいぐるみの画像</figcaption></figure>
-
-<h2>仕組み</h2>
-
-<p>もともとこのウェブサイトの記事本文のHTMLは、Markdownで書かれた文字列をHTML形式の木構造に変換し、それをまた文字列に変換する、という方法で生成されていた。今回はこの処理の途中に少し手を加え、木構造に含まれるimg要素をa要素で囲む、という処理を加えることにした。</p>
-
-<p>具体的には、木構造に変換フィルター群を適用して別の木構造にしていく、というパターンで実装している。</p>
-
-<p><a href="https://github.com/r7kamura/r7kamura.com/pull/11">https://github.com/r7kamura/r7kamura.com/pull/11</a></p>
-
-<h2>思い出</h2>
-
-<p>こういうのは独自記法を実装するときの常套手段で、例えばQiitaやQiita:TeamのMarkdownパーサーなんかも同じ仕組みで実装されている。</p>
-
-<p>当時、emojiやmention、他の記事への言及、外部リンク、シンタックスハイライトやタスクリストなど、Markdownパーサの仕事は日に日に増えつつあり、この要求に耐え得るべく2014年頃に自分が実装し直したものがこれで、今でもまだ元気に動いているはず。</p>
-
-<p><a href="https://github.com/increments/qiita-markdown">https://github.com/increments/qiita-markdown</a></p>
-
+    <a href="/images/2020-09-18-link-image.jpg" target="_blank"><img src="/images/2020-09-18-link-image.jpg" alt="" title="特に脈絡の無いサメのぬいぐるみの画像"></a><a href="https://github.com/r7kamura/r7kamura.com/pull/11">https://github.com/r7kamura/r7kamura.com/pull/11</a><a href="https://github.com/increments/qiita-markdown">https://github.com/increments/qiita-markdown</a>
   </div>
 </article>
 

@@ -41,25 +41,7 @@
     <h1>APIクライアントを自動生成するやつ</h1>
   </header>
   <div>
-    <p><a href="https://github.com/interagent/heroics">Heroics</a>という、JSON Schemaを元にAPIクライアントのコードを自動生成するやつを見た。 Heroicsにはbin/heroics-generateというコマンドラインツールが付いていて、JSON Schemaを解析したあと、 client.erbというERBのテンプレートに解析結果のオブジェクトを渡した結果、client.rbという雑なファイルを生成する。</p>
-
-<pre><code>$ gem install heroics $ heroics-generate SuperAwesomeClient schema.json https://api.example.com \&gt; client.rb
-</code></pre>
-
-<h3>Heroicsから生成されるもの</h3>
-
-<p>JSON Schemaからこんな感じで使えるやつを生成してくれる。</p>
-
-<pre><code># client.rb client = SuperAwesomeClient.connect(api\_key) client.recipe.create("title") client.recipe.list #=\&gt; [...] client.recipe.show(123)
-</code></pre>
-
-<h3>JSON Schema</h3>
-
-<p>普通JSONで書くけど紙面の都合上ちょっと読みにくいのでYAML形式で記述しときます。</p>
-
-<pre><code>
-</code></pre>
-
+    <a href="https://github.com/interagent/heroics">Heroics</a>
   </div>
 </article>
 

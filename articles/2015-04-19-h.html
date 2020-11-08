@@ -41,72 +41,7 @@
     <h1>最近のServerkitの様子</h1>
   </header>
   <div>
-    <p>最近のServerkit界隈の変更についてまとめておきます。</p>
-
-<h2>vagrant-serverkit</h2>
-
-<p><a href="https://github.com/r7kamura/vagrant-serverkit">vagrant-serverkit</a> というのをつくりました。これでVagrantで仮想マシンを立ち上げるときに、自動的にServerkitでプロビジョニングを行えます。プラグインの管理をうまくやるためにVagrantのコードを追ったり、~/.ssh/config を書き換えなくても動作するように色々苦労しましたが、期待通り動くものができたと言えます。使い方はこういう感じ。プラグインをインストールするとserverkitという名前のprovisionerが定義されて、適切な設定を与えると動作します。</p>
-
-<pre><code># Vagrantfile Vagrant.configure("2") do |config| config.vm.box = "ubuntu/trusty64" config.vm.provision :serverkit do |serverkit\_config| serverkit\_config.recipe\_path = "recipe.yml.erb" serverkit\_config.variables\_path = "variables.yml" end end
-</code></pre>
-
-<pre><code>$ vagrant plugin install vagrant-serverkit $ vagrant up
-</code></pre>
-
-<h2>vagrant-multiplug</h2>
-
-<p>Serverkitで利用するプラグインをVagrantの環境上でも利用できるようにするため、<a href="https://github.com/r7kamura/vagrant-multiplug">vagrant-multiplug</a> というのもつくりました。Vagrantfileの中に利用するプラグイン (というか実体はGem) の名前を書いておくと、そのプラグインがまだVagrantに同梱されているRuby環境にインストールされていない場合に勝手にインストールしてくれるというものです。この辺りの話については、<a href="http://qiita.com/r7kamura/items/4221035fe23c549c288f">Vagrantfileで使うプラグインを定義する - Qiita</a> という記事にまとめました。使い方としてはこんな感じで、vagrant-serverkitやserverkit-rbenvなどのGemを利用するという旨をVagrantfileに書く感じです。</p>
-
-<pre><code># Vagrantfile Vagrant.configure("2") do |config| config.vm.box = "ubuntu/trusty64" config.plugin.add\_dependency "vagrant-serverkit" config.plugin.add\_dependency "serverkit-rbenv", "0.0.2" config.vm.provision :serverkit do |config| config.recipe\_path = "recipe.yml" end end
-</code></pre>
-
-<pre><code>$ vagrant plugin install vagrant-multiplug $ vagrant up
-</code></pre>
-
-<h2>dotfiles</h2>
-
-<p><a href="https://github.com/r7kamura/dotfiles">r7kamura/dotfiles</a> というMacの環境構築用に利用していた半手動のシェルスクリプトを、Serverkitベースのものに置き換えてみました。また、<a href="https://travis-ci.org/r7kamura/dotfiles">r7kamura/dotfiles - Travis CI</a> でOS Xの環境を用意してテストを走らせてみています。このCIは結構不具合が検出できるので重宝してます。ServerkitをMacの構成管理に使う方法については <a href="http://qiita.com/r7kamura/items/ebfe5809a41fa21b01e0">Serverkitを利用してVagrantの構成管理を行う - Qiita</a> にも書きました。</p>
-
-<p><a href="https://raw.githubusercontent.com/r7kamura/dotfiles/master/images/install.gif" target="_blank"><img src="https://raw.githubusercontent.com/r7kamura/dotfiles/master/images/install.gif" alt=""></a></p>
-
-<h2>serverkit-atom</h2>
-
-<p>Atom.appのプラグインを管理するために、<a href="https://github.com/r7kamura/serverkit-atom">serverkit-atom</a> というServerkit用のプラグインをつくってみました。 Atomに同梱されているapmを利用しています。こういう感じでレシピを書いて適用すると、そのプラグインが入った状態になります。</p>
-
-<pre><code># recipe.yml resources: - type: atom\_package name: sort-lines - type: atom\_package name: vim-mode version: 0.43.0
-</code></pre>
-
-<h2>serverkit-homebrew</h2>
-
-<p>homebrewやhomebrew cask関係のリソースを <a href="https://github.com/r7kamura/serverkit-homebrew">serverkit-homebrew</a> といプラグインに分けました。同じコマンド体系を使っているのでlinuxbrewなどでも動くようです。使い方はこういう感じ。</p>
-
-<pre><code>resources: - type: homebrew\_package name: zsh - type: homebrew\_package name: rbenv options: --HEAD
-</code></pre>
-
-<h2>--log-level</h2>
-
-<p>Serverkitの実行時にどの程度までログを表示するか選べるようにしました。Serverkitは標準では成功と失敗という簡単な出力しか表示しませんが、--log-level=DEBUG とやるとサーバ上で実行される全てのコマンドやその結果も表示されるようになります。エスケープシーケンスを利用した着色を標準的に利用していこうと思っているので、--no-color オプションも提供してます。</p>
-
-<p><a href="https://pbs.twimg.com/media/CC5slhVUsAEgqoN.png:large" target="_blank"><img src="https://pbs.twimg.com/media/CC5slhVUsAEgqoN.png:large" alt=""></a></p>
-
-<h2>リソース</h2>
-
-<p>その他、幾つかのリソースが追加されたり、リソースに色々な属性を持たせられるようになりました。</p>
-
-<ul>
-<li><a href="https://github.com/r7kamura/serverkit/blob/master/lib/serverkit/resources/command.rb">command</a></li>
-<li><a href="https://github.com/r7kamura/serverkit/blob/master/lib/serverkit/resources/directory.rb">directory</a></li>
-<li><a href="https://github.com/r7kamura/serverkit/blob/master/lib/serverkit/resources/file.rb">file</a></li>
-<li><a href="https://github.com/r7kamura/serverkit/blob/master/lib/serverkit/resources/git.rb">git</a></li>
-<li><a href="https://github.com/r7kamura/serverkit/blob/master/lib/serverkit/resources/nothing.rb">nothing</a></li>
-<li><a href="https://github.com/r7kamura/serverkit/blob/master/lib/serverkit/resources/package.rb">package</a></li>
-<li><a href="https://github.com/r7kamura/serverkit/blob/master/lib/serverkit/resources/recipe.rb">recipe</a></li>
-<li><a href="https://github.com/r7kamura/serverkit/blob/master/lib/serverkit/resources/remote_file.rb">remote_file</a></li>
-<li><a href="https://github.com/r7kamura/serverkit/blob/master/lib/serverkit/resources/service.rb">service</a></li>
-<li><a href="https://github.com/r7kamura/serverkit/blob/master/lib/serverkit/resources/symlink.rb">symlink</a></li>
-<li><a href="https://github.com/r7kamura/serverkit/blob/master/lib/serverkit/resources/user.rb">user</a></li>
-</ul>
-
+    <a href="https://github.com/r7kamura/vagrant-serverkit">vagrant-serverkit</a><a href="https://github.com/r7kamura/vagrant-multiplug">vagrant-multiplug</a><a href="http://qiita.com/r7kamura/items/4221035fe23c549c288f">Vagrantfileで使うプラグインを定義する - Qiita</a><a href="https://github.com/r7kamura/dotfiles">r7kamura/dotfiles</a><a href="https://travis-ci.org/r7kamura/dotfiles">r7kamura/dotfiles - Travis CI</a><a href="http://qiita.com/r7kamura/items/ebfe5809a41fa21b01e0">Serverkitを利用してVagrantの構成管理を行う - Qiita</a><a href="https://raw.githubusercontent.com/r7kamura/dotfiles/master/images/install.gif" target="_blank"><img src="https://raw.githubusercontent.com/r7kamura/dotfiles/master/images/install.gif" alt=""></a><a href="https://github.com/r7kamura/serverkit-atom">serverkit-atom</a><a href="https://github.com/r7kamura/serverkit-homebrew">serverkit-homebrew</a><a href="https://pbs.twimg.com/media/CC5slhVUsAEgqoN.png:large" target="_blank"><img src="https://pbs.twimg.com/media/CC5slhVUsAEgqoN.png:large" alt=""></a><a href="https://github.com/r7kamura/serverkit/blob/master/lib/serverkit/resources/command.rb">command</a><a href="https://github.com/r7kamura/serverkit/blob/master/lib/serverkit/resources/directory.rb">directory</a><a href="https://github.com/r7kamura/serverkit/blob/master/lib/serverkit/resources/file.rb">file</a><a href="https://github.com/r7kamura/serverkit/blob/master/lib/serverkit/resources/git.rb">git</a><a href="https://github.com/r7kamura/serverkit/blob/master/lib/serverkit/resources/nothing.rb">nothing</a><a href="https://github.com/r7kamura/serverkit/blob/master/lib/serverkit/resources/package.rb">package</a><a href="https://github.com/r7kamura/serverkit/blob/master/lib/serverkit/resources/recipe.rb">recipe</a><a href="https://github.com/r7kamura/serverkit/blob/master/lib/serverkit/resources/remote_file.rb">remote_file</a><a href="https://github.com/r7kamura/serverkit/blob/master/lib/serverkit/resources/service.rb">service</a><a href="https://github.com/r7kamura/serverkit/blob/master/lib/serverkit/resources/symlink.rb">symlink</a><a href="https://github.com/r7kamura/serverkit/blob/master/lib/serverkit/resources/user.rb">user</a>
   </div>
 </article>
 

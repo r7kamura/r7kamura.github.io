@@ -41,32 +41,7 @@
     <h1>テストのメッセージに入出力値を含めるかどうか</h1>
   </header>
   <div>
-    <p>入出力値が含まれるように書くいいところは、</p>
-
-<ul>
-<li>メッセージを省略しやすい。自然言語を書くのが冗長</li>
-<li>実際にコードがテストしていることだけがメッセージに出力される</li>
-<li>単純に想像しやすいパターンだと入出力値が書いてある方が分かりやすい場合がある</li>
-</ul>
-
-<p>入出力値が含まれないように書くいいところは、</p>
-
-<ul>
-<li>自然言語で読むことができる</li>
-<li>こういう類の値が来たときにこういう風になってほしいという意図が分かりやすい</li>
-</ul>
-
-<p>数列を表すときの書き方に似てる。<br>
-F(0) = 0, F(1) = 1, F(n+2) = F(n) + F(n+1) (n &gt;= 2)という実装をしたとき、{F(n)} = {0, 1, 1, 2, 3, 5, 8} と書くのか、{F(n)} = {最初の二項は0,1と定義され、以後どの項もその前の2つの項の和} と書くのか。</p>
-
-<p>入出力値が含まれるように書くとこういう感じになる。</p>
-
-<pre><code>module ApplicationHelper def current\_css\_classes %W[#{controller\_name}\_controller #{action\_name}\_action] end end describe ApplicationHelper do describe "#current\_css\_classes" do context "called at SearchController#show" do before do helper.stub(:controller\_name).and\_return("search") helper.stub(:action\_name).and\_return("show") end specify do helper.current\_css\_classes.should == %w[search\_controller show\_action] end end end end
-</code></pre>
-
-<pre><code>ApplicationHelper #current\_css\_classes called at SearchController#show should == ["search\_controller", "show\_action"]
-</code></pre>
-
+    
   </div>
 </article>
 

@@ -41,40 +41,7 @@
     <h1>FactoryBotのfactoryへの期待</h1>
   </header>
   <div>
-    <p><a href="https://github.com/thoughtbot/factory_bot">FactoryBot</a>のfactoryはこう書かれていてほしい、という期待をまとめておこうと思う。</p>
-
-<h2>第一段階</h2>
-
-<p>最低限の基準として、attributesを与えなくてもレコードの保存に成功するように定義されていてほしい。</p>
-
-<p>つまり、全ての（少なくともtraitを用いない場合の）factoryの定義について、以下のように呼び出せるように定義されていてほしい。</p>
-
-<pre><code class="ruby">FactoryBot.create(:user)
-</code></pre>
-
-<p>例えば、以下のように呼び出さ<strong>なければならない</strong>のであれば、使いづらく、良くない定義だと考えている。</p>
-
-<pre><code class="ruby">FactoryBot.create(:user, name: 'alice')
-</code></pre>
-
-<p>もちろん例外的な状況は存在するので、そういう場合には守らなくて良い。</p>
-
-<h2>第二段階</h2>
-
-<p>次の段階の基準として、2つ以上のレコードを作成してもエラーにならないように定義されていてほしい。</p>
-
-<p>つまり、以下のように呼び出せるように定義されていてほしい。</p>
-
-<pre><code class="ruby">FactoryBot.create(:user)
-FactoryBot.create(:user)
-</code></pre>
-
-<p>例えば、name属性にUniquenessValidatorが定義されていて、name属性の内容が決め打ちだったりすると、こういうコードは失敗する。factoryの定義で <code>sequence</code> 等の機能を利用して回避するのが望ましい。</p>
-
-<h2>その他</h2>
-
-<p>雛形で自動生成されるようなfactoryは、経験上、存在すらしていない方がましなことの方が多い。</p>
-
+    <a href="https://github.com/thoughtbot/factory_bot">FactoryBot</a>
   </div>
 </article>
 

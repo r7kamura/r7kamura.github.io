@@ -41,63 +41,7 @@
     <h1>Web アプリの JavaScript の初期化処理をどうまとめるか</h1>
   </header>
   <div>
-    <p>いわゆる JavaScript のエントリポイントを、どういうパターンで管理しているかについて。</p>
-
-<h2>ディレクトリ構成</h2>
-
-<p>自分の場合、次のようなディレクトリ構成でまとめていることが多い。</p>
-
-<ul>
-<li>client/javascripts/entryPoints/*.js</li>
-<li>client/javascripts/initializers/*.js</li>
-</ul>
-
-<p>実例を挙げると、現在携わっているプロジェクトでは以下のようなファイルが存在する。</p>
-
-<ul>
-<li>client/javascripts/entryPoints/client.js</li>
-<li>client/javascripts/entryPoints/server.js</li>
-<li>client/javascripts/initializers/googleAnalytics.js</li>
-<li>client/javascripts/initializers/helmet.js</li>
-<li>client/javascripts/initializers/moment.js</li>
-<li>client/javascripts/initializers/react.js</li>
-</ul>
-
-<p>即ち、以下のような規則に従ってファイルが配置されている。</p>
-
-<ol>
-<li> クライアントサイドで利用する JavaScript ファイルは client/javascripts というディレクトリに配置する</li>
-<li> Webpack などの module bundler にエントリポイントとして指定するファイルは client/javascripts/entryPoints というディレクトリに配置する</li>
-<li> 初期化時に実行したい処理を含むファイルは client/javascripts/initializers というディレクトリに配置する</li>
-</ol>
-
-<h2>Entry Points × Initializers</h2>
-
-<p>entryPoints ディレクトリに配置されたファイルでは、initializers ディレクトリに配置されたファイルを import することだけしか行わないことにしている。例えば、client/javascripts/entryPoints/client.js は、以下のような内容である。</p>
-
-<p>// Alphabetical order<br>
-import "../initializers/googleAnalytics";<br>
-import "../initializers/moment";<br>
-import "../initializers/react";</p>
-
-<p>もう一つ例を挙げておくと、client/javascripts/entryPoints/server.js は、以下のような内容である。</p>
-
-<p>// Fixed order<br>
-import "../initializers/polyfill";</p>
-
-<p>// Alphabetical order<br>
-import "../initializers/helmet";<br>
-import "../initializers/moment";<br>
-import "../initializers/react";</p>
-
-<p>client.js はクライアントサイド用のコードで、server.js は Server-Side Rendering を行うためのサーバサイド用のコードである。</p>
-
-<p>初期化時に行いたい処理には、クライアントサイドだけで利用したい処理、サーバサイドだけで利用したい処理、共通で利用したい処理の三種類が存在し、読み込む順序にもそれぞれ依存関係がある。entryPoints ではこれらの関係性を、どの initializer をどの順序で import するか、というコードで表現している。</p>
-
-<h2>あとがき</h2>
-
-<p>些細なことでもブログに書き残しておくことで、誰かの (大抵は未来の自分の) 役に立つかもしれない可能性が上がるし、次に記事を投稿するためのハードルが下がってハッピーだろうということで、普段やっている手癖みたいな事柄や、必ずしも正解とは言えないようなこと、言語化すると齟齬が発生しがちなことでも積極的に書いていこう、という気持ちでこの記事を書きました。</p>
-
+    
   </div>
 </article>
 

@@ -41,58 +41,7 @@
     <h1>Ruby + Bot = Ruboty</h1>
   </header>
   <div>
-    <p><a href="https://github.com/r7kamura/ruboty">https://github.com/r7kamura/ruboty</a><br>
-RubotyというRuby製のChatterbotをつくった。</p>
-
-<h3>Herokuで動かす</h3>
-
-<p>Herokuにデプロイすれば無料で動く。<br>
-Slackというチャットサービスで動かすならこういう感じ (部屋名とかは適宜変える):</p>
-
-<pre><code>$ mkdir mybot $ cd mybot $ echo 'source "https://rubygems.org"' \&gt;\&gt; Gemfile $ echo 'gem "ruboty"' \&gt;\&gt; Gemfile $ echo 'gem "ruboty-slack"' \&gt;\&gt; Gemfile $ echo 'bot: bundle exec ruboty' \&gt;\&gt; Procfile $ bundle install $ git init $ git add . $ git commit -m "Initial commit" $ heroku create $ git push heroku master $ heroku scale bot=1 $ heroku config:set ROBOT\_NAME=tqbot SLACK\_TEAM=tqhouse SLACK\_USERNAME=tqbot SLACK\_ROOM=general SLACK\_PASSWORD=XXX
-</code></pre>
-
-<h3>Gemで拡張する</h3>
-
-<p>ruboty-githubやruboty-google_imageなど、Gemを追加すれば新しい挙動を追加できる。</p>
-
-<pre><code># Gemfilegem "ruboty-alias"# Rubotyへの発言にaliasを設定できる (LGTMって言ったらLGTM画像を探してくれるとか)gem "ruboty-cron"# Cron形式で時刻を指定して定期的に発言させられるgem "ruboty-github"# GitHubを操作してPull Requestを出させたりできるgem "ruboty-google\_image"# Googleから画像を検索させられるgem "ruboty-redis"# 記憶をRedisに永続化させられるgem "ruboty-slack"# Slackで利用できるgem "ruboty-syoboi\_calendar" # その日放送されるアニメを教えてくれる
-</code></pre>
-
-<h3>環境変数で設定する</h3>
-
-<p>Botの名前や接続するチャットサービスなどの設定は環境変数で伝えるようになっている。 例えばHerokuだったら heroku config:add FOO=bar のように設定すればOK。 設定の環境変数での管理やプラグインのGem形式での分割は、<a href="http://12factor.net/">The Twelve-Factor App</a>の思想に合わせたもの。 BotもWebアプリと似た構成に近づいていく傾向にあると考えている。</p>
-
-<pre><code>ROBOT\_NAME="ruboty" GITHUB\_HOST="my-github-enterprise.example.com"
-</code></pre>
-
-<h3>アダプタを設定する</h3>
-
-<p>SlackやHipChatなどの各種チャットサービスとRubotyを接続するためのGemをアダプタと呼んでいる。 今のところHipChatとSlack用のアダプタがある。 需要があれば他のサービス用のアダプタもつくろうと考えてる。 余談だけど、アダプタをつくるためにRubyのIRC用ライブラリとXMPP用ライブラリをそれぞれ書き直したりした。(<a href="https://github.com/r7kamura/zircon">Zircon</a>と<a href="https://github.com/r7kamura/xrc">Xrc</a>)</p>
-
-<ul>
-<li><a href="https://github.com/r7kamura/ruboty-hipchat">ruboty-hipchat</a></li>
-<li><a href="https://github.com/r7kamura/ruboty-slack">ruboty-slack</a></li>
-</ul>
-
-<h3>プラグインを自作する</h3>
-
-<p>あるパターンに反応して何かを行うという機能を提供するクラスを、Rubotyの内部ではHandlerと呼んでいる。 Ruboty::Handlers::Baseを継承したクラスをつくれば良い。 例えば「@ruboty ping」に反応して「pong」と返すプラグインをつくるには下記のように書く。 プラグインはGemにして配布する必要があるけど、<a href="http://qiita.com/r7kamura/items/5e7d082d8e0d0471d71d">GemはGistでも公開できる</a>ので気軽に公開していけばいい。好きなGemを組み合わせて君だけの最強のBotをつくろう。</p>
-
-<pre><code>module Rubotymodule Handlersclass Ping \&lt; Base on( /ping\z/i, # "@ellen ping"に反応してname: "ping", # #pingメソッドが呼ばれるdescription: "Return PONG to PING" # これは"@ellen help"でhelpを表示したとき説明文として表示される ) def ping(message) message.reply("pong") endendendend
-</code></pre>
-
-<p>Rubotyは何もアダプタを追加していない状態だとシェルで起動するようになっているので、 開発中のプラグインのデバッグなどに使える。</p>
-
-<pre><code>$ bundle exec ruboty Type `exit` or `quit` to end the session. \&gt; ruboty help ruboty /help( me)?\z/i - Show this help message ruboty /ping\z/i - Return PONG to PING ruboty /who am i\?/i - Answer who you are \&gt; ruboty ping pong
-</code></pre>
-
-<p>ruboty起動時に --load foo.rb のようにオプションを渡せばそのRubyファイルを起動時に実行してくれる。 プラグインをいちいちGemにして書くのがだるかったら適当なファイルに書いても良い。</p>
-
-<h3>進捗</h3>
-
-<p>思い付いたときに名前が決まるまでモノをつくれないのが勿体無かったので、元々Ellenという仮名でつくっていたのが先月のこと。 最近ようやくまともに動くようになったので、今日名前をRubotyに変えてversion 1.0.0をリリースしたという。 昔開発されたellen-twitterやellen-idobataなど、最新のversionに追随できていないGemが幾つかあるのでまずはこれを修正したい。 他、Hubotに比べるとプラグインもまだまだ少なくて出来ることが少ないなという感じなので、必要に応じて追加していくつもり。 元々DevOpsのOpsの部分を任せる用途(=ChatOps)で開発をはじめたので、 その辺を便利にするプラグインをつくってBotと仲良くやっていきたいという気持ち。 こういうの欲しいとかこういうのつくったとかは大歓迎です。</p>
-
+    <a href="https://github.com/r7kamura/ruboty">https://github.com/r7kamura/ruboty</a><a href="http://12factor.net/">The Twelve-Factor App</a><a href="https://github.com/r7kamura/zircon">Zircon</a><a href="https://github.com/r7kamura/xrc">Xrc</a><a href="https://github.com/r7kamura/ruboty-hipchat">ruboty-hipchat</a><a href="https://github.com/r7kamura/ruboty-slack">ruboty-slack</a><a href="http://qiita.com/r7kamura/items/5e7d082d8e0d0471d71d">GemはGistでも公開できる</a>
   </div>
 </article>
 

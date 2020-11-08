@@ -41,32 +41,7 @@
     <h1>GistでGemを公開</h1>
   </header>
   <div>
-    <p><a href="https://gist.github.com/">Gist</a>にファイルを置くだけで、Gemとして公開できる。</p>
-
-<p>最小構成だと、gemspecとソースコードをGistに配置すれば良い。</p>
-
-<figure><pre><code class="rb">Gem::Specification.new do |spec|
- spec.name = 'my_gem'
- spec.version = '0.0.1'
- spec.authors = ['Your Name']
- spec.email = ['you@example.com']
- spec.summary = 'Summary of this gem'
- spec.files = ['my_gem.rb']
- spec.require_path = '.'
-end
-</code></pre>
-<figcaption>my_gem.gemspec</figcaption></figure>
-
-<figure><pre><code class="rb"># ここに好きなコードを書く
-</code></pre>
-<figcaption>my_gem.rb</figcaption></figure>
-
-<p>使う側では、gitプロトコルでGistのGitリポジトリとしてのURLを指定すれば良い。</p>
-
-<figure><pre><code class="rb">gem 'my_gem', git: 'https://gist.github.com/1234567890abcdef1234.git'
-</code></pre>
-<figcaption>Gemfile</figcaption></figure>
-
+    <a href="https://gist.github.com/">Gist</a>
   </div>
 </article>
 

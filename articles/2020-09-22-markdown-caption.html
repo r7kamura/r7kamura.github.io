@@ -41,61 +41,7 @@
     <h1>画像のキャプション テキストノード編</h1>
   </header>
   <div>
-    <p>FF14のスクリーンショットを久しぶりに見返していた。</p>
-
-<figure><a href="/images/2020-09-22-markdown-caption-back.png" target="_blank"><img src="/images/2020-09-22-markdown-caption-back.png" alt="" title="猫耳や尻尾があるミコッテという種族"></a><figcaption>猫耳や尻尾があるミコッテという種族</figcaption></figure>
-
-<figure><a href="/images/2020-09-22-markdown-caption-monster.png" target="_blank"><img src="/images/2020-09-22-markdown-caption-monster.png" alt="" title="山岳エリアに居るサボテンの敵"></a><figcaption>山岳エリアに居るサボテンの敵</figcaption></figure>
-
-<figure><a href="/images/2020-09-22-markdown-caption-whale.png" target="_blank"><img src="/images/2020-09-22-markdown-caption-whale.png" alt="" title="移動するときによく乗るクジラ"></a><figcaption>移動するときによく乗るクジラ</figcaption></figure>
-
-<figure><a href="/images/2020-09-22-markdown-caption-boss.png" target="_blank"><img src="/images/2020-09-22-markdown-caption-boss.png" alt="" title="めちゃくちゃ大きいボスから味方を守っている"></a><figcaption>めちゃくちゃ大きいボスから味方を守っている</figcaption></figure>
-
-<figure><a href="/images/2020-09-22-markdown-caption-namazuo.png" target="_blank"><img src="/images/2020-09-22-markdown-caption-namazuo.png" alt="" title="人語を話す変な生きもの"></a><figcaption>人語を話す変な生きもの</figcaption></figure>
-
-<figure><a href="/images/2020-09-22-markdown-caption-myroom.png" target="_blank"><img src="/images/2020-09-22-markdown-caption-myroom.png" alt="" title="ギルドハウス内につくった自室"></a><figcaption>ギルドハウス内につくった自室</figcaption></figure>
-
-<figure><a href="/images/2020-09-22-markdown-caption-myroom-2.png" target="_blank"><img src="/images/2020-09-22-markdown-caption-myroom-2.png" alt="" title="疲れて縁側で寝ている"></a><figcaption>疲れて縁側で寝ている</figcaption></figure>
-
-<hr>
-
-<p>この記事を書くにあたり、ソースをMarkdownで書きながらも画像にキャプションを付けられるようにしてみた。画像とテキストだけで構成される段落を見つけたら、テキストをその画像のキャプションとする――という作戦。</p>
-
-<p>次のような過程で変換されていく。</p>
-
-<pre><code>吾輩は猫である。名前はまだ無い。
-
-![](/images/cat.jpg "無名の猫")
-
-どこで生まれたかとんと見当がつかぬ。
-</code></pre>
-
-<pre><code>&lt;p&gt;吾輩は猫である。名前はまだ無い。&lt;/p&gt;
-
-&lt;p&gt;
-  &lt;a href="/images/cat.png" target="_blank"&gt;
-    &lt;img src="/images/cat.png" alt=""&gt;
-  &lt;/a&gt;
-  無名の猫
-&lt;/p&gt;
-
-&lt;p&gt;どこで生まれたかとんと見当がつかぬ。&lt;/p&gt;
-</code></pre>
-
-<pre><code>&lt;p&gt;吾輩は猫である。名前はまだ無い。&lt;/p&gt;
-
-&lt;figure&gt;
-  &lt;a href="/images/cat.png" target="_blank"&gt;
-    &lt;img src="/images/cat.png" alt=""&gt;
-  &lt;/a&gt;
-  &lt;figcaption&gt;無名の猫&lt;/figcaption&gt;
-&lt;/figure&gt;
-
-&lt;p&gt;どこで生まれたかとんと見当がつかぬ。&lt;/p&gt;
-</code></pre>
-
-<p>ちなみに、実際のソースコードの変更は <a href="https://github.com/r7kamura/r7kamura.com/commit/51bf5289add41852c3b393b192e47393fb969133">https://github.com/r7kamura/r7kamura.com/commit/51bf5289add41852c3b393b192e47393fb969133</a> のようになった。変換フィルタによる抽象化の仕組みを入れておいたおかげで、やりたいことが簡単に記述できるようになって嬉しい。</p>
-
+    <a href="/images/2020-09-22-markdown-caption-back.png" target="_blank"><img src="/images/2020-09-22-markdown-caption-back.png" alt="" title="猫耳や尻尾があるミコッテという種族"></a><a href="/images/2020-09-22-markdown-caption-monster.png" target="_blank"><img src="/images/2020-09-22-markdown-caption-monster.png" alt="" title="山岳エリアに居るサボテンの敵"></a><a href="/images/2020-09-22-markdown-caption-whale.png" target="_blank"><img src="/images/2020-09-22-markdown-caption-whale.png" alt="" title="移動するときによく乗るクジラ"></a><a href="/images/2020-09-22-markdown-caption-boss.png" target="_blank"><img src="/images/2020-09-22-markdown-caption-boss.png" alt="" title="めちゃくちゃ大きいボスから味方を守っている"></a><a href="/images/2020-09-22-markdown-caption-namazuo.png" target="_blank"><img src="/images/2020-09-22-markdown-caption-namazuo.png" alt="" title="人語を話す変な生きもの"></a><a href="/images/2020-09-22-markdown-caption-myroom.png" target="_blank"><img src="/images/2020-09-22-markdown-caption-myroom.png" alt="" title="ギルドハウス内につくった自室"></a><a href="/images/2020-09-22-markdown-caption-myroom-2.png" target="_blank"><img src="/images/2020-09-22-markdown-caption-myroom-2.png" alt="" title="疲れて縁側で寝ている"></a><a href="https://github.com/r7kamura/r7kamura.com/commit/51bf5289add41852c3b393b192e47393fb969133">https://github.com/r7kamura/r7kamura.com/commit/51bf5289add41852c3b393b192e47393fb969133</a>
   </div>
 </article>
 
