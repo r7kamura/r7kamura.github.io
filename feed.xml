@@ -8,7 +8,41 @@
     <atom:link href="https://r7kamura.com/feed.xml" rel="self"/>
     <title>r7kamura.com</title>
     <managingEditor>r7kamura@gmail.com (Ryo Nakamura)</managingEditor>
-    <lastBuildDate>Mon, 09 Nov 2020 06:07:10 +0900</lastBuildDate>
+    <lastBuildDate>Mon, 09 Nov 2020 06:53:34 +0900</lastBuildDate>
+    
+    <item>
+      <title><![CDATA[Imgurへの緩やかな移行]]></title>
+      <description><![CDATA[記事に画像を掲載するときに、Imgurを利用してみることにした。]]></description>
+      <link>https://r7kamura.com/articles/2020-11-09-imgur</link>
+      <pubDate>Mon, 09 Nov 2020 00:00:00 +0900</pubDate>
+      <content:encoded><![CDATA[<p>記事に画像を掲載するときに、<a href="https://imgur.com/">Imgur</a>を利用してみることにした。</p>
+
+<figure><a href="https://i.imgur.com/8kai7Rn.jpg" target="_blank"><img src="https://i.imgur.com/8kai7Rnh.jpg" alt="" title="特に脈絡の無いハンバーガー（Hungry Heaven目黒店にて）"></a><figcaption>特に脈絡の無いハンバーガー（Hungry Heaven目黒店にて）</figcaption></figure>
+
+<h2>変更点</h2>
+
+<p>これまでは、画像ファイルをGitリポジトリに含めてGitHub Pagesに配信してもらうという素朴な方式を採用していた。これを変更して、少なくとも今後掲載する画像についてはImgurに配信してもらう方式に変えてみることにした。</p>
+
+<p>オリジナルの画像をGoogle Photosで管理するという方式は変えず、ウェブサイトに掲載したい場合はImgurにアップロードして利用する。このときExif情報は勝手に取り除かれる。Imgurが用意してくれる幅1024px版の画像URLを参照し、大きなものを見たい人向けにImgur上のオリジナル画像のURLにリンクを張る。</p>
+
+<p>但し、主にタッチデバイスのUser-Agentで見ようとするとこのリンクはImgurのサービス上のページにリダイレクトされるようだ。また、幅1024px版の画像URLにimg要素からではなく直接ブラウザでアクセスすると404を返す場合があるようだったので、記事本文の変換機構に少し手を入れ、リンクはオリジナル画像のURLを指すようにして解決を図った。</p>
+
+<h2>背景</h2>
+
+<p>このウェブサイトには基本的にiPhoneで撮影した画像が掲載されることが多い。まずiPhoneで撮影したJPEG撮って出しの画像をiOSアプリ経由でGoogle Photosに同期させ、そこで色味などを若干変更したあとPCにダウンロードし、次にPC上でexiftoolを使ってExif情報を取り除き、ImageMagickを使ってウェブサイト用に適切なサイズに変換し、これをGitリポジトリに含め、記事の原稿からそのパスを適切に参照する、ということをやっていた。</p>
+
+<p>諸々の処理操作が面倒だし、画像を含めるとGitリポジトリのサイズも増えて操作にコストが面倒になるし、GitHubの容量上限も視野に入ってくるし、誤ってExif付きのものが混入したときにGitの履歴管理が面倒だし、良さげな画像管理サービスを模索してみたいし、ということで新しいものから移行してみることにした。既存の画像をどうするかについてはまだ決めておらず、しばらくImgurを利用してみてから考えようとしている。</p>
+
+<h2>Imgur</h2>
+
+<p>Imgur自体はそこそこ昔からアカウントを持っていて、自分ではあまり活用できていないものの、RedditやSteamなどの海外文化圏、近年の5chなどではよく使われているなという印象で居た。一時期個人で開発していたWebサービスでImgurのAPIを利用させてもらったことがあり、そのときの体験がかなり良かったので、今回改めて舞い戻ってきた。</p>
+
+<p>Imgurは、無料の画像管理サービスとコメント型ソーシャルコミュニティが一緒になったサービスで、寄付や資金調達、利用者による小額支援、そして広告などの収益で運営されている。画像管理をしたいという目的で初めて訪れた利用者からすると、初見ではその辺りの概念の獲得につまづきがちかもしれない。</p>
+
+<p>SNS機能の方もどんな感じなのか興味があるので、記事用に画像をアップロードするついでに投稿もしてみている。「どうやって食うんだよ」「めちゃくちゃでかいナイフとフォーク使ったんじゃね？」「ハンバーガーがよ」といったコメントが即付いていて非常に優しい世界。</p>
+]]></content:encoded>
+      <guid>https://r7kamura.com/articles/2020-11-09-imgur</guid>
+    </item>
     
     <item>
       <title><![CDATA[Amazonリンク見直し]]></title>
@@ -778,35 +812,6 @@ end
 <p>鯛の刺身は当然のように美味しかった。この価格と、この手軽さで、これだけの鯛が食べられるなんて。<a href="/articles/2020-10-13-prime-day">プライムデー</a>にかこつけて買い替えた炊飯器が届いたので、明日は鯛の漬け丼にする予定。</p>
 ]]></content:encoded>
       <guid>https://r7kamura.com/articles/2020-10-18-tai</guid>
-    </item>
-    
-    <item>
-      <title><![CDATA[葬送のフリーレン]]></title>
-      <description><![CDATA[『葬送のフリーレン』2巻を読んだ。]]></description>
-      <link>https://r7kamura.com/articles/2020-10-17</link>
-      <pubDate>Sat, 17 Oct 2020 00:00:00 +0900</pubDate>
-      <content:encoded><![CDATA[<p>『葬送のフリーレン』2巻を読んだ。</p>
-
-<p>『葬送のフリーレン』は、2020年4月から週刊少年サンデーに掲載されている漫画。原作は山田鐘人さん、作画はアベツカサさん。2020年8月に<a href="https://www.amazon.co.jp/dp/B08FDH57JT?tag=r7kamura07-22">単行本1巻</a>が、つい先日に<a href="https://www.amazon.co.jp/dp/B08KJ5LMNQ?tag=r7kamura07-22">単行本2巻</a>が発売された。</p>
-
-<figure>
-  <blockquote>
-    <p>魔王を倒した勇者一行の魔法使い・フリーレン。彼女はエルフで長生き。勇者・ヒンメルの死に何故自分がこんなにも悲しむのかわからず、人を"知る"旅に出る。</p>
-  </blockquote>
-  <figcaption>あらすじ・<cite><a href="https://websunday.net/rensai/frieren/">WEBサンデー</a></cite>より<figcaption>
-</figcaption></figcaption></figure>
-
-<p>作画のアベツカサさんの<a href="https://twitter.com/abetsukasa/status/1295556824821665793">Twitterの投稿</a>や、あるいは<a href="https://www.sunday-webry.com/detail.php?title_id=1093">サンデーうぇぶり</a>から冒頭部分を試し読みできる。</p>
-
-<p>1巻・2巻と変わらず心の機微の描写が丁寧で、"間"を使ったその表現も技巧的で美しい。淡々と進んでいく展開の中にも作り込まれたリズムがあり、読んでいてどこか小気味よい気持ちになる。</p>
-
-<p>単行本1巻から入ってとても気に入っていたので、記憶が風化してしまわない内にすぐに2巻が出て喜んでいる。2巻では若い登場人物が増え、コミカルなやり取りと戦闘描写が少し増えた。「どうしようもなく折り合えない相手をどうするか？」という小さなテーマが提示されたまま、次巻に続いているような気がする。この作品がどこに向かうのか、今から楽しみ。</p>
-
-<hr>
-
-<p>大学でドイツ語を二単位分だけ取得したが、当時 "frieren" は学ばなかった。動詞の原形で、意味は「凍える」だそうだ。</p>
-]]></content:encoded>
-      <guid>https://r7kamura.com/articles/2020-10-17</guid>
     </item>
     
   </channel>
