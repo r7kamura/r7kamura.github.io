@@ -41,7 +41,37 @@
     <h1>SprocketsやWebpackerを使っていないアプリケーションでreact-railsを使う</h1>
   </header>
   <div>
-    <a href="http://twitter.com/param" title="Twitter profile for @param">@param</a><a href="http://twitter.com/param" title="Twitter profile for @param">@param</a><a href="http://twitter.com/param" title="Twitter profile for @param">@param</a><a href="http://twitter.com/param" title="Twitter profile for @param">@param</a>
+    <p>Rails プロジェクトにおいて「React を利用して Server-Side Rendering (SSR) をやるぞ」となった場合には、ライブラリの選択肢として以下の二つが筆頭に挙がることかと思われる。</p>
+
+<ul>
+<li>react_on_rails</li>
+<li>react-rails</li>
+</ul>
+
+<p>react_on_rails では Browserify で bundle したコードを動作させるのには現時点では少し難があるため、現行のアプリケーションで Browserify を利用している場合、必然的に react-rails を選択することになるだろう。</p>
+
+<p>さて、SSR を行う場合、サーバサイドのアプリケーションに JavaScript のファイルを読み込んでもらう必要がある訳だが、react-rails では、そのファイルの探索に Webpacker あるいは Sprockets を利用することを前提とした機能が提供されている。</p>
+
+<p>そのため、それらの仕組みを使わずに自前で JavaScript のビルド方法を用意しているプロジェクトの場合、以下のようなクラスを用意し、Rails.configuration.react.server_renderer に設定する必要がある。</p>
+
+<p>Rails.configuration.react.server_renderer = Class.new(React::ServerRendering::ExecJSRenderer) do<br>
+  # <a href="http://twitter.com/param" title="Twitter profile for @param">@param</a> path [String]<br>
+  def initialize(path:)<br>
+    super(code: ::File.read(path))<br>
+  end</p>
+
+<p># <a href="http://twitter.com/param" title="Twitter profile for @param">@param</a> component_name [String]<br>
+  # <a href="http://twitter.com/param" title="Twitter profile for @param">@param</a> props [Hash]<br>
+  # <a href="http://twitter.com/param" title="Twitter profile for @param">@param</a> _prerender_options [Boolean]<br>
+  def render(component_name, props, _prerender_options)<br>
+    super(component_name, props.to_json, {})<br>
+  end<br>
+end</p>
+
+<p>react-rails は、SSR 用のコードが開発中に更新された場合に再読込するための仕組みとして、設定で指定されたファイルの編集日時が更新されていると server renderer のインスタンスを作り直すという仕組みを持っている。しかし、デフォルトで用意されているプレーンな (Sprockets や Webpacker に依存しない) server renderer である ExecJSRenderer では、コンストラクタの引数に JavaScript のコードの中身を直接渡す設計になっているため、この仕組みが上手く働かない。そのため、これを継承し、コンストラクタ内部でファイルを読み込むようなコードにする必要がある。</p>
+
+<p>また、Sprockets 環境用に用意されている BundleRenderer とは違い、素の ExecJSRenderer では props を JSON 形式でエンコードされた文字列として渡す必要があるため、この部分もケアするように #render の実装を変更している。</p>
+
   </div>
 </article>
 

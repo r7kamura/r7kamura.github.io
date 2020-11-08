@@ -41,7 +41,60 @@
     <h1>Chromeで「B」キーを押すとはてブとInstapaperに追加出来るようにしたよ</h1>
   </header>
   <div>
-    <a href="https://chrome.google.com/extensions/detail/okneonigbfnolfkmfgjmaeniipdjkgkl?hl=ja">ChromeKeyconfig</a><a href="#f1" title="正確にはQuickMarkという機能ですね">*1</a><a href="http://b.hatena.ne.jp/register">はてなブックマーク</a><a href="http://gyazo.com/1d4340f0d6277e219cd10dc26d5a81c6.png" target="_blank"><img src="http://gyazo.com/1d4340f0d6277e219cd10dc26d5a81c6.png" alt=""></a><a href="#fn1">*1</a>
+    <p>はてなブックマークを湯水のように使うようになってくると、いくらはてブ拡張入れてるとは言えいちいちマウスでブクマボタン押すのは面倒ですよね。今回はChromeKeyconfigというシンプルなChrome拡張でいい感じの設定が出来たので設定手順を紹介してみます。</p>
+
+<p><strong>2011-04-16追記: はてブと同時にInstapaperにも流すようにしてみました。湯水のようにエントリを浴びましょう！</strong></p>
+
+<h4>設定方法</h4>
+
+<p>まずは下記ページからChromeKeyconfigをインストール<br>
+<a href="https://chrome.google.com/extensions/detail/okneonigbfnolfkmfgjmaeniipdjkgkl?hl=ja">ChromeKeyconfig</a></p>
+
+<h5>機能紹介</h5>
+
+<p>拡張機能→ChromeKeyconfig→オプションから設定を行います。ChromeKeyconfigは1つまたは複数のキーに対して何らかのアクションを結び付けるChrome拡張で、以下のようなアクションが利用出来ます。CreateLinkと同等の機能を利用出来るなど、色々と便利な使い方が出来そうですね。</p>
+
+<ul>
+<li>タブ操作</li>
+<li>スクロール</li>
+<li>フォーカス</li>
+<li>ページ遷移</li>
+<li>ウィンドウ操作</li>
+<li>クリップボード</li>
+<li>ブックマーク追加/削除<a href="#f1" title="正確にはQuickMarkという機能ですね">*1</a>
+</li>
+</ul>
+
+<h5>ブックマークレット</h5>
+
+<p>ChromeKeyconfigではてブ追加機能を利用するには、はてブのブックマークレットをChromeKeyconfigのページ遷移アクション(go to...)に結び付けます。ブックマークレットと言えよく出来ているのではてブ拡張と遜色ありません。下記ページからブックマークレットのリンク(javascript:...の部分)を抜き出してきます。ブックマークレットを抜き出してくるのが面倒かもしれないのでコードを貼りつけておきます。HTMLのソースコードを見たり、一度ブックマークに登録して編集しようとするとブックマークレットのコードの中身が見えますね。</p>
+
+<p><a href="http://b.hatena.ne.jp/register">はてなブックマーク</a></p>
+
+<pre><code>javascript:(function(){var%20d=(new%20Date);var%20s=document.createElement('script');s.charset='UTF-8';s.src='http://b.hatena.ne.jp/js/Hatena/Bookmark/let.js?'+d.getFullYear()+d.getMonth()+d.getDate();(document.getElementsByTagName('head')[0]||document.body).appendChild(s);})();
+</code></pre>
+
+<h5>2011-04-16 Instapaperにも投稿する機能を追加</h5>
+
+<p>更に、Instapaperにも勝手にポストされるようにブックマークレットを追加してみました。後ろにInstapaperのブックマークレットを付け足しただけです。</p>
+
+<pre><code>javascript:(function(){var%20d=(new%20Date);var%20s=document.createElement('script');s.charset='UTF-8';s.src='http://b.hatena.ne.jp/js/Hatena/Bookmark/let.js?'+d.getFullYear()+d.getMonth()+d.getDate();(document.getElementsByTagName('head')[0]||document.body).appendChild(s);function iprl5(){var d=document,z=d.createElement('scr'+'ipt'),b=d.body,l=d.location;try{if(!b)throw(0);d.title='(Saving...) '+d.title;z.setAttribute('src',l.protocol+'//www.instapaper.com/j/O9ZRYrDIoUI3?u='+encodeURIComponent(l.href)+'&amp;t='+(new Date().getTime()));b.appendChild(z);}catch(e){alert('Please wait until the page has loaded.');}}iprl5();void(0)})();
+</code></pre>
+
+<h5>ChromeKeyconfig</h5>
+
+<p>こんな感じに設定しました。これで気に入ったページで「b」キーを押せばはてブ追加の画面が現れてタグやコメントをよしなに入力して追加できます。ちなみに画像内の下の設定では、本題とは関係ありませんが「link」と入力するとページタイトルとリンクをいい感じでクリップボードにコピーしてくれるという設定をしています。気に入ったページを決まったフォーマットでtwitterにつぶやく時とかに便利です。便利なブックマークレットを持っている人は色々便利になるんじゃないでしょうか。</p>
+
+<p><a href="http://gyazo.com/1d4340f0d6277e219cd10dc26d5a81c6.png" target="_blank"><img src="http://gyazo.com/1d4340f0d6277e219cd10dc26d5a81c6.png" alt=""></a></p>
+
+<h4>スクリーンキャスト</h4>
+
+<p>こんな感じで使えます。初めてスクリーンキャストを撮ってみました。HD版で観ると綺麗です。</p>
+
+<iframe width="420" height="315" src="http://www.youtube.com/embed/ZnhEdbcVz8c?wmode=transparent" frameborder="0" allowfullscreen></iframe>
+
+<p><a href="#fn1">*1</a>:正確にはQuickMarkという機能ですね</p>
+
   </div>
 </article>
 

@@ -41,7 +41,98 @@
     <h1>request specのパターン</h1>
   </header>
   <div>
-    <a href="https://github.com/r7kamura/rspec-request_describer">rspec-request_describer</a>
+    <p>request specを書くときに従っているパターンを言語化する。</p>
+
+<h2>ファイルパス</h2>
+
+<p>1つのエンドポイントに対して1つのテストファイルを用意する。</p>
+
+<pre><code>GET  /users
+GET  /users/:id
+GET  /users/:user_id/articles
+POST /users/:user_id/articles
+GET  /users/:user_id/articles/:id/edit
+</code></pre>
+
+<p>例えば、上記のエンドポイントに対して以下のファイルを用意する。</p>
+
+<ul>
+<li>spec/requests/users_index_spec.rb</li>
+<li>spec/requests/users_show_spec.rb</li>
+<li>spec/requests/user_articles_index_spec.rb</li>
+<li>spec/requests/user_articles_create_spec.rb</li>
+<li>spec/requests/user_articles_edit_spec.rb</li>
+</ul>
+
+<p>以下の背景でこうしている。</p>
+
+<ul>
+<li>関連度が近いファイルが辞書順で近いところに並んでほしい</li>
+<li>ほとんどの場合、エンドポイントとactionは1対1対応している</li>
+</ul>
+
+<h2>ファイルの内容</h2>
+
+<p>例えば、<code>GET /users/:id</code> に対するコードは以下のように書く。</p>
+
+<pre><code>RSpec.describe "GET /users/:id" do
+  subject do
+    get "/users/#{id}"
+  end
+
+  let(:id) do
+    user.id
+  end
+
+  let(:user) do
+    FactoryBot.create(:user)
+  end
+
+  # ...
+end
+</code></pre>
+
+<p><code>describe</code>の中では、以下の順でメソッド呼び出しを行う。</p>
+
+<ol>
+<li><code>subject</code></li>
+<li><code>around</code></li>
+<li><code>before</code></li>
+<li><code>after</code></li>
+<li>
+<code>let</code> / <code>let!</code>
+</li>
+<li><code>shared_context</code></li>
+<li><code>shared_examples</code></li>
+<li><code>context</code></li>
+</ol>
+
+<p><code>let</code>、<code>shared_context</code>、<code>shared_examples</code>は、第一引数の辞書順で定義する。このとき、<code>let</code>と<code>let!</code>は区別しない。</p>
+
+<p><code>description</code>と<code>subject</code>については、<a href="https://github.com/r7kamura/rspec-request_describer">rspec-request_describer</a>の作法に従った書き方でもある。</p>
+
+<h2>共通ファイル</h2>
+
+<p>例えば、ログインを済ませるコードを共通化したい場合、以下のようなmoduleを定義して利用する。</p>
+
+<pre><code># spec/support/my_app/spec_helpers/authenticatable.rb
+module MyApp
+  module SpecHelpers
+    module Authenticatable
+      extend ::ActiveSupport::Concern
+
+      included do
+        shared_context 'with current user' do
+          # ...
+        end
+      end
+    end
+  end
+end
+</code></pre>
+
+<p>トップレベルに奔放に定数を定義せず、そのアプリの名前空間に、ExampleGroupに<code>include</code>するmoduleを定義するための名前空間をつくり、そこに定義すること。</p>
+
   </div>
 </article>
 

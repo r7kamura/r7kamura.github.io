@@ -41,7 +41,68 @@
     <h1>さくらVPS設定その2 Apache+MySQL+WordPress</h1>
   </header>
   <div>
-    <a href="http://d.hatena.ne.jp/r7kamura/20110201/1296547847">さくらVPS設定まとめ</a>
+    <p><a href="http://d.hatena.ne.jp/r7kamura/20110201/1296547847">さくらVPS設定まとめ</a> の子エントリになります。</p>
+
+<p>目次</p>
+
+<ul>
+<li>Apache</li>
+<li>MySQL</li>
+<li><p>WordPress</p></li>
+<li>
+<h2>- </h2>
+
+<ul>
+<li>
+
+<ul>
+<li>
+
+<h2>- </h2>
+
+<ul>
+<li>
+
+<ul>
+<li>
+
+<h2>- </h2>
+
+<ul>
+<li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+<h4>Apache</h4>
+
+<p>ユーザ・SSH・ファイアウォールの最低限の設定を終えれば、次はWebサイト等を公開したいのでApacheを設定します。インストール作業と、セキュリティで不安な部分を除去する設定を行った後、Apache起動を起動します。</p>
+
+<pre><code>% yum install httpd -y # yumからhttpd(apache) インストール% yum info httpd # インストールしたhttpdの情報を確認% vi /etc/httpd/conf/httpd.conf # httpdの設定を編集 ServerTokens Prod # サーバー応答ヘッダの内容を制限 ServerName hostname.sakura.ne.jp:80 # サーバー名をとりあえず設定 # Indexes削除(ファイル一覧を非表示) Options Includes ExecCGI FollowSymLinks AllowOverride All # .htaccessによる上書き許可 ServerSignature Off # エラー出力時にフッター情報を非表示\&lt;Directory "/var/www/icons"\&gt; ... Options MultiViews ... # /var/www/icons/のIndexed削除\&lt;/Directory\&gt; # AddDefaultCharset UTF-8 # デフォルト文字コードを設定しない AddHandler cgi-script .cgi .pl # CGIで.cgiと.plを有効化% apachectl configtest # 設定に構文誤りがないかチェック% apachectl start # A p a c h e、始 動% chkconfig httpd on # httpdサービスを自動起動設定% chkconfig --list httpd # 設定反映を確認
+</code></pre>
+
+<h4>MySQL</h4>
+
+<p>次はMySQLの設定を行います。これは特別な設定を行わなくても、インストールして起動させるだけでも普通にOKですね。文字コードの設定で困ることが多いので、default-charaset-setを設定しておきます。後はブラウザでMySQLを操作出来るphpmyadminを導入します。</p>
+
+<pre><code>% yum -y install mysql-server # yumからMySQLインストール # MySQLの元の設定のバックアップをとります% cp /etc/my.cnf /etc/my.cnf.yyyymmdd\_default % vi /etc/my.cnf # MySQLの設定を編集[client] # ここから下を追加します default-character-set=utf8 [mysql] default-character-set=utf8 [mysqldump] default-character-set=utf8 % /etc/rc.d/init.d/mysqld start # MySQLサービスを開始% chkconfig mysqld on # MySQLサービスを自動起動設定% chkconfig --list mysqld # 設定反映を確認% mysql\_secure\_installation # パスワード等の設定をウィザード形式で行う # new passwordの設定以外はEnter連打でOK # phpmyadminを導入します # phpと、phpmyadminに必要なものを導入% yum install php php-mbstring php-mcrypt % cd /tmp # サイトからダウンロードしてきます% wget http://sourceforge.net/projects/phpmyadmin/files%2FphpMyAdmin%2F2.11.11.1%2FphpMyAdmin-2.11.11.1-all-languages.zip % unzip phpMyAdmin-2.11.11.1-all-languages.zip % mv phpMyAdmin-2.11.11.1-all-languages /var/www/phpmyadmin % rm -f phpMyAdmin-2.11.11.1-all-languages.zip % cd /var/www/phpmyadmin # /var/www/以下に置くことにします # サンプルを元に設定ファイルを作成% cp config.sample.inc.php config.inc.php # apacheグループのapacheユーザ所有に変更% chown -R apache.apache /var/www/phpmyadmin/ % chmod 660 config.inc.php # 所有者とグループに読み書き権限を付与% yum -y install expect # ランダム文字列自動作成ソフトを導入% mkpasswd -l 46 # 46文字のランダムな文字列を生成 hogefuga... % config.inc.php # 設定ファイルを編集 # 暗号生成用文字列にランダムな文字列を設定$cfg['blowfish\_secret'] = '...'; # これでログイン時にパスワードを聞かれます$cfg['Lang'] = 'ja-utf-8'; # 言語を日本語でUTF-8に設定% vi /etc/httpd/conf.d/phpmyadmin.conf# phpmyadmin向けのApacheの設定ファイルを作成 Alias /phpmyadmin /var/www/phpmyadmin # http://\&lt;servername\&gt;/phpmyadmin へのアクセスをphpmyadminの実体がある場所へ誘導% /etc/rc.d/init.d/httpd reload # Apache再始動 # http://\&lt;servername\&gt;/phpmyadmin へアクセスして確認してみましょう
+</code></pre>
+
+<h4>WordPress</h4>
+
+<p>WordPressを使う人は多いと思うので導入してみます。PHPは書けないので個人的にブログシステムはRailsで作られたLokkaとかを利用したいのですが、仕事の依頼が来たときにパパっとWordPressで構築できると素敵ですね。導入方法としては、ダウンロードして適切な場所に置いてDBを作成してあげるだけです。DBは普段rootユーザしか使ってなかったので、新規にwordpressユーザを作るあたりで少し調べました。サービスごとにユーザを作ってあげるのが運用的には良いのでしょうか。ここらへんもまだまだ学ばないといけないことは多いですね。</p>
+
+<pre><code>$ mysql -u root -p # MySQLにログインしてWordPress用DBを作成しますmysql\&gt; show databases; # まあ既存のDBでも確認しておきましょうmysql\&gt; create database wordpress; # wordpress というDBを作成 # パスワード付きのwordpressユーザを作成して上記DBに権限を与えますmysql\&gt; grant all privileges on wordpress.\* to wordpress@localhost identified by 'password';$ su - % yum -y install php-mysql # PHP用のMySQLドライバを導入% cd /tmp # WordPressを公式からダウンロード% wget http://ja.wordpress.org/wordpress-3.0.4-ja.zip % unzip wordpress-3.0.4-ja.zip % rm -f wordpress-3.0.4-ja.zip % mv wordpress /var/www # /var/www 以下に配置% cd /var/www # サンプルを元に設定ファイルを作成% cp wp-config-sample.php wp-config.php % vi /var/www/wordpress/wp-config.php # 設定ファイルを編集 DB\_NAME =\&gt; 'wordpress' # wordpress用DBの名前を入力 DB\_USER =\&gt; 'wordpress' # DB用ユーザ名を入力 DB\_PASSWORD =\&gt; 'password' # DB用パスワードを入力% vi /etc/httpd/conf.d/wordpress.conf # wordpress向けのApache設定ファイルを作成 Alias /blog /var/www/wordpress # phpmyadmin同様Aliasを張る% /etc/rc.d/init.d/httpd reload # Apache再始動 # /wordpressへアクセスして確認してみましょう
+</code></pre>
+
   </div>
 </article>
 

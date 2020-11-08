@@ -41,7 +41,43 @@
     <h1>config.assets.pathsの中に含まれる全てのapplication.{js,css}がprecompile対象に含まれてしまう問題に対処する</h1>
   </header>
   <div>
-    <a href="https://github.com/rails/sprockets-rails/issues/218">all application.(js,css) files pulled in · Issue #218 · rails/sprockets-rails</a><a href="https://github.com/rails/sprockets-rails/blob/93a45b1c463a063ec7cf4d160107b67aa3db7a1a/lib/sprockets/railtie.rb#L80">lib/sprockets/railtie.rb</a><a href="https://github.com/sstephenson/sprockets/blob/v2.12.3/lib/sprockets/asset_attributes.rb#L49">sprockets/asset_attributes.rb at v2.12.3 · sstephenson/sprockets</a>
+    <p>bowerやnpm経由で外部のパッケージに含まれるCSSやJavaScriptを利用したいときに、Rails.configuration.assets.pathsを変更し、Sprocketsを経由してこれを読み込むことがあります。</p>
+
+<pre><code class="rb">config.assets.paths &lt;&lt; "node_modules"
+</code></pre>
+
+<pre><code class="scss">@import "bootstrap-sass/assets/stylesheets/bootstrap";
+</code></pre>
+
+<h2>なにが困るか</h2>
+
+<p>このとき、node_modules内に <code>application.css.ejs.scss</code> のようなファイルが含まれると、rake assets:precompileの対象に含まれてしまう場合があります。bootstrap-sassの例で言えば、node_modules/bootstrap-sass/test/dummy_node_mincer/application.css.ejs.scss が存在するため、これをprecompileしようとして、Sass::SyntaxErrorが発生してしまいます。</p>
+
+<p>なお、この問題は <a href="https://github.com/rails/sprockets-rails/issues/218">all application.(js,css) files pulled in · Issue #218 · rails/sprockets-rails</a> で報告されていて、次のメジャーバージョンでは修正されるようです。</p>
+
+<h2>なぜ起こるか</h2>
+
+<p>sprockets-railsでは、<a href="https://github.com/rails/sprockets-rails/blob/93a45b1c463a063ec7cf4d160107b67aa3db7a1a/lib/sprockets/railtie.rb#L80">lib/sprockets/railtie.rb</a> で最初から <code>/(?:\/|\\|\A)application\.(css|js)$/</code> に一致するものをprecompile対象にしています。app/assets/javascripts/application.js や、他のGemに含まれるそういったファイルなどが対象ですね。</p>
+
+<p><code>application\.(css|js)$</code> なので application.css.ejs.scss には一致しないだろうと思いきや、<a href="https://github.com/sstephenson/sprockets/blob/v2.12.3/lib/sprockets/asset_attributes.rb#L49">sprockets/asset_attributes.rb at v2.12.3 · sstephenson/sprockets</a> を見ると分かるように、実際には <code>logical_path</code> という、engine_extensionsから取り出せる幾つかの拡張子を取り除いたパスに対してチェックを行います。</p>
+
+<pre><code class="rb">[1] pry(main)&gt; Sprockets::Environment.new.engine_extensions
+=&gt; [".coffee", ".jst", ".eco", ".ejs", ".less", ".sass", ".scss", ".erb", ".str"]
+</code></pre>
+
+<p>このように、.ejs や .scss が登録されているため、/path/to/application.css.ejs.scss のlogical_pathは /path/to/application.css となり、先述した <code>/(?:\/|\\|\A)application\.(css|js)$/</code> の正規表現に一致することになります。</p>
+
+<h2>回避策</h2>
+
+<p><code>/(?:\/|\\|\A)application\.(css|js)$/</code> を必要としていない場合は、これを取り除きます。::Sprockets::Railtie::LOOSE_APP_ASSETS を忘れるとapp/assets以下のフォントファイルなどがコンパイルされなくなってしまうので、必要な場合は忘れないようにしましょう。</p>
+
+<pre><code class="rb">config.assets.precompile = [
+  ::Sprockets::Railtie::LOOSE_APP_ASSETS,
+  'application.css',
+  'application.js',
+]
+</code></pre>
+
   </div>
 </article>
 

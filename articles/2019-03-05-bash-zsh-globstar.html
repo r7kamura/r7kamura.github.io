@@ -41,7 +41,29 @@
     <h1>bashとzshとglobstar</h1>
   </header>
   <div>
-    <a href="https://www.ea.com/ja-jp/games/apex-legends">https://www.ea.com/ja-jp/games/apex-legends</a>
+    <p>久方ぶりの投稿となります。2月初旬に Apex Legends というバトルロイヤル形式のゲームが公開されて以来、どっぷりはまって気付けば3月になっていました。ひさしぶりに見たら Patreon のフォントが若干大きめに変更されていますね。</p>
+
+<p><a href="https://www.ea.com/ja-jp/games/apex-legends">https://www.ea.com/ja-jp/games/apex-legends</a></p>
+
+<p>さて、あまり大した話ではないんですが、昨日 CircleCI でシェルの globstar を利用しようとしてはまったのでその件について。というのも、<code>erblint app/views/**/*.erb</code> というコマンドを CircleCI で実行していたのですが、手元の環境と展開結果が異なるという問題にはまっていました。</p>
+
+<h2>globstar</h2>
+
+<p><code>**</code> だと検索しづらく、"globstar" という単語を見出すのに "shell double asterisk" 等で検索して苦労しました。</p>
+
+<p>CircleCI では bash が利用されており、bash では明示的に shopt -s globstar が設定されていない限り、デフォルトでは <code>**</code> は <code>*</code> 相当に展開されます。一方自分の手元の環境では zsh が利用されており、デフォルトで <code>**</code> が0個以上のディレクトリに展開されます。結果、<code>app/views/**/*.erb</code> の展開結果に差異があり、erblint の対象にならないファイルが存在してしまっていた、という訳です。</p>
+
+<h2>circleci tests glob</h2>
+
+<p>幸い、CircleCI では便利なユーティリティが提供されており、前述のコマンドを <code>erblint $(circleci tests glob "app/views/**/*.erb")</code> というコマンドで置き換えることで対応できました。</p>
+
+<p>よく考えたら CircleCI のこのコマンドは、コンテナごとにテストを分割するときに使ったことがありました。</p>
+
+<pre><code>circleci tests glob "spec/**/*_spec.rb" | circleci tests split --split-by=timings
+</code></pre>
+
+<p>のように使っています。ここで circleci tests glob が必要になっている理由を考えると、そのままではシェルで <code>**</code> が動かないことはほぼ自明ですね…。</p>
+
   </div>
 </article>
 

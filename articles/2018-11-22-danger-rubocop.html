@@ -41,7 +41,25 @@
     <h1>danger-rubocopにオプションを追加した話</h1>
   </header>
   <div>
-    <a href="https://github.com/ashfurrow/danger-rubocop#27">https://github.com/ashfurrow/danger-rubocop#27</a><a href="https://www.patreon.com/posts/danger-22714545">https://www.patreon.com/posts/danger-22714545</a><a href="https://www.patreon.com/posts/dangerdeinrainko-22832118">https://www.patreon.com/posts/dangerdeinrainko-22832118</a><a href="https://github.com/ashfurrow/danger-rubocop/pull/27">https://github.com/ashfurrow/danger-rubocop/pull/27</a>
+    <p><a href="https://github.com/ashfurrow/danger-rubocop#27">https://github.com/ashfurrow/danger-rubocop#27</a> の話です。</p>
+
+<h2>danger-rubocop</h2>
+
+<p>以前 <a href="https://www.patreon.com/posts/danger-22714545">https://www.patreon.com/posts/danger-22714545</a> で danger-suggester の話をしましたが、これを記事の影響で仕事先のプロジェクトでも「danger-suggester を導入したいね」という話になり、「とりあえず現状動かしている RuboCop を danger-rubocop で代替してみよう」と話が進みました。</p>
+
+<h2>danger-rubocop の問題</h2>
+
+<p>しかし単純に RuboCop を danger (with danger-rubocop) で置き換えたところ、2つの問題が見つかりました。1つは <a href="https://www.patreon.com/posts/dangerdeinrainko-22832118">https://www.patreon.com/posts/dangerdeinrainko-22832118</a> で書いた、インラインコメントが動かないケースがあるという問題でした。この問題は Danger に Pull Request を取り込んでもらえたことで解決済みです。
+もう1つの問題（この記事で扱いたい問題）として、RuboCop で違反が見つかっても Danger 的には「違反」ではなく「警告」として扱うようになっているため、GitHub の CI status が failed にならないという問題がありました。</p>
+
+<h2>対応</h2>
+
+<p>CI をブロックしたくないユースケースと、自分のようにブロックしたいユースケースがあると思うので、fail_on_inline_comment というオプションを追加して、これを選択できるようにしてみた……というのが以下の Pull Request の内容です。</p>
+
+<p><a href="https://github.com/ashfurrow/danger-rubocop/pull/27">https://github.com/ashfurrow/danger-rubocop/pull/27</a></p>
+
+<p>最初サボってテストを書かずに Pull Request を出してたんですが（そもそもの案として反対されると労力が無駄になるので…）、案の定テストを書いてくれという感じになったので、書きました。その後めでたくリリースされたので、fail_on_inline_comment オプションが v0.6.1 から利用可能になっています。</p>
+
   </div>
 </article>
 

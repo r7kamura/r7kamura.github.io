@@ -41,7 +41,33 @@
     <h1>さくらVPS設定まとめ</h1>
   </header>
   <div>
-    <a href="http://d.hatena.ne.jp/r7kamura/20110210/1297266624">さくらVPS設定その1 User+SSH+Firewall</a><a href="http://d.hatena.ne.jp/r7kamura/20110210/1297275153">さくらVPS設定その2 Apache+MySQL+WordPress</a><a href="http://d.hatena.ne.jp/r7kamura/20110212/1297452845">さくらVPS設定その3 Git+Ruby+Gem+Rails</a><a href="http://curiosity-drives.me/linux/sakura-vps-1-ssh/">さくらVPSを申し込んでSSHを設定する – さくらVPS設定メモ１ | Curiosity Drives Me</a><a href="http://www.happytrap.jp/blogs/2010/11/03/4146/">さくらのVPSで最低限やっておきたい初期設定 | HAPPY*TRAP</a><a href="http://curiosity-drives.me/linux/sakura-vps-2-firewall/">さくらVPSのFireWallを設定して要塞化する – さくらVPS設定メモ２ | Curiosity Drives Me</a><a href="http://hideichi.com/archives/88">さくらVPSにLAMP環境を整えてみる。 « hideichi.com</a><a href="http://blog.mobf.net/archives/164">携帯CMS工房ブログ » Blog Archive » さくらVPS設定【６】phpMyAdmin　他</a><a href="http://temog.info/archives/wordpress/serversmanvps-wordpress-%E3%81%AE%E7%A7%BB%E8%A1%8C.html#omake1">ServersMan@VPS WordPress の移行</a><a href="http://havelog.ayumusato.com/develop/server/e137-sakura-vps-setup2.html">とあるさくらのVPS (2) Zsh, Apache, MySQLまで ハブろぐ</a><a href="http://www.ideaxidea.com/archives/2010/11/sakura_vps_settings.html">さくらの格安VPSを借りたらいつもやっている設定いろいろ - IDEA*IDEA 〜 百式管理人のライフハックブログ</a><a href="http://tanaka.sakura.ad.jp/archives/001065.html">CentOSをサーバーとして活用するための基本的な設定 (さくらインターネット創業日記)</a><a href="http://d.hatena.ne.jp/kopug/20070526/1180162629">CentOS5をインストールしてそれからのちょい設定をまとめてみた - 名古屋で働くWebプログラマの覚書</a><a href="http://akabeko.sakura.ne.jp/blog/2010/09/%E3%81%95%E3%81%8F%E3%82%89%E3%81%AEvps-%E3%82%92%E4%BD%BF%E3%81%84%E3%81%AF%E3%81%98%E3%82%81%E3%82%8B-2/">さくらのVPS を使いはじめる 2 – sudo と SSH ポート変更 | アカベコマイリ</a><a href="http://d.hatena.ne.jp/creaters/20101123/1290487257">さくらVPSでRuby on railsの開発環境を構築するまで（Apach, Passenger, Rails ,Redmine, Git） - 創作な日々</a><a href="http://akabeko.sakura.ne.jp/blog/2010/12/%E3%81%95%E3%81%8F%E3%82%89%E3%81%AEvps-%E3%82%92%E4%BD%BF%E3%81%84%E3%81%AF%E3%81%98%E3%82%81%E3%82%8B-9-phpmyadmin-%E5%B0%8E%E5%85%A5%E3%81%A8-redmine-%E6%9B%B4%E6%96%B0/">さくらのVPS を使いはじめる 9 – phpMyAdmin 導入と Redmine 更新 | アカベコマイリ</a><a href="http://randd.kwappa.net/2010/11/15/187">Tig(text-mode interface for git)を使う | Kwappa研究開発室</a>
+    <p>下記の個別エントリに設定をまとめたので、このエントリは設定全体のまとめページとします。</p>
+
+<ol>
+<li><a href="http://d.hatena.ne.jp/r7kamura/20110210/1297266624">さくらVPS設定その1 User+SSH+Firewall</a></li>
+<li><a href="http://d.hatena.ne.jp/r7kamura/20110210/1297275153">さくらVPS設定その2 Apache+MySQL+WordPress</a></li>
+<li><a href="http://d.hatena.ne.jp/r7kamura/20110212/1297452845">さくらVPS設定その3 Git+Ruby+Gem+Rails</a></li>
+</ol>
+
+<h4>ありがたい参考先</h4>
+
+<ul>
+<li><a href="http://curiosity-drives.me/linux/sakura-vps-1-ssh/">さくらVPSを申し込んでSSHを設定する – さくらVPS設定メモ１ | Curiosity Drives Me</a></li>
+<li><a href="http://www.happytrap.jp/blogs/2010/11/03/4146/">さくらのVPSで最低限やっておきたい初期設定 | HAPPY*TRAP</a></li>
+<li><a href="http://curiosity-drives.me/linux/sakura-vps-2-firewall/">さくらVPSのFireWallを設定して要塞化する – さくらVPS設定メモ２ | Curiosity Drives Me</a></li>
+<li><a href="http://hideichi.com/archives/88">さくらVPSにLAMP環境を整えてみる。 « hideichi.com</a></li>
+<li><a href="http://blog.mobf.net/archives/164">携帯CMS工房ブログ » Blog Archive » さくらVPS設定【６】phpMyAdmin　他</a></li>
+<li><a href="http://temog.info/archives/wordpress/serversmanvps-wordpress-%E3%81%AE%E7%A7%BB%E8%A1%8C.html#omake1">ServersMan@VPS WordPress の移行</a></li>
+<li><a href="http://havelog.ayumusato.com/develop/server/e137-sakura-vps-setup2.html">とあるさくらのVPS (2) Zsh, Apache, MySQLまで ハブろぐ</a></li>
+<li><a href="http://www.ideaxidea.com/archives/2010/11/sakura_vps_settings.html">さくらの格安VPSを借りたらいつもやっている設定いろいろ - IDEA*IDEA 〜 百式管理人のライフハックブログ</a></li>
+<li><a href="http://tanaka.sakura.ad.jp/archives/001065.html">CentOSをサーバーとして活用するための基本的な設定 (さくらインターネット創業日記)</a></li>
+<li><a href="http://d.hatena.ne.jp/kopug/20070526/1180162629">CentOS5をインストールしてそれからのちょい設定をまとめてみた - 名古屋で働くWebプログラマの覚書</a></li>
+<li><a href="http://akabeko.sakura.ne.jp/blog/2010/09/%E3%81%95%E3%81%8F%E3%82%89%E3%81%AEvps-%E3%82%92%E4%BD%BF%E3%81%84%E3%81%AF%E3%81%98%E3%82%81%E3%82%8B-2/">さくらのVPS を使いはじめる 2 – sudo と SSH ポート変更 | アカベコマイリ</a></li>
+<li><a href="http://d.hatena.ne.jp/creaters/20101123/1290487257">さくらVPSでRuby on railsの開発環境を構築するまで（Apach, Passenger, Rails ,Redmine, Git） - 創作な日々</a></li>
+<li><a href="http://akabeko.sakura.ne.jp/blog/2010/12/%E3%81%95%E3%81%8F%E3%82%89%E3%81%AEvps-%E3%82%92%E4%BD%BF%E3%81%84%E3%81%AF%E3%81%98%E3%82%81%E3%82%8B-9-phpmyadmin-%E5%B0%8E%E5%85%A5%E3%81%A8-redmine-%E6%9B%B4%E6%96%B0/">さくらのVPS を使いはじめる 9 – phpMyAdmin 導入と Redmine 更新 | アカベコマイリ</a></li>
+<li><a href="http://randd.kwappa.net/2010/11/15/187">Tig(text-mode interface for git)を使う | Kwappa研究開発室</a></li>
+</ul>
+
   </div>
 </article>
 

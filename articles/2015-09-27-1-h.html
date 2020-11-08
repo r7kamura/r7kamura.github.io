@@ -41,7 +41,11 @@
     <h1>Reactのバケツリレーに疲れたら</h1>
   </header>
   <div>
-    
+    <p>理性捨ててprops全部渡すぞ</p>
+
+<pre><code>import Footer from './footer' import Header from './header' import Main from './main' import React, { Component } from 'react' export default class Root extends Component { render() { return( \&lt;div className="root"\&gt; \&lt;Header {...this.props} /\&gt; \&lt;Main {...this.props} /\&gt; \&lt;Footer {...this.props} /\&gt; \&lt;/div\&gt; ); } }
+</code></pre>
+
   </div>
 </article>
 

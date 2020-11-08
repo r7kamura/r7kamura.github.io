@@ -41,7 +41,16 @@
     <h1>ルーティング定義時の変数名のアレ</h1>
   </header>
   <div>
-    
+    <pre><code>get "/users/:id" =\&gt; "users#show" get "/users/:user\_id/recipes" =\&gt; "user\_recipes#index"
+</code></pre>
+
+<p>というコードたまにあると思うんですが、「URLのパスを元にUserを取得する」という処理を共通化することを考えると、</p>
+
+<pre><code>get "/users/:user\_id" =\&gt; "users#show" get "/users/:user\_id/recipes" =\&gt; "user\_recipes#index"
+</code></pre>
+
+<p>のように「同種の変数に対しては同じ変数名を割り当てる」というルールを設けたほうが便利。</p>
+
   </div>
 </article>
 

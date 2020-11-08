@@ -41,7 +41,60 @@
     <h1>Amazon URL Shortener</h1>
   </header>
   <div>
-    <a href="https://chrome.google.com/webstore/detail/amazon-url-shortener/bonkcfmjkpdnieejahndognlbogaikdg">Amazon URL Shortener</a><a href="https://github.com/r7kamura">自分のプロフィールページ</a><a href="https://github.com/sponsors/r7kamura">スポンサー募集ページ</a><a href="https://www.amazon.co.jp/gp/navigation-country/">Amazonのサイト切り替え機能</a><a href="http://www.amazon.ae">www.amazon.ae</a><a href="http://www.amazon.au">www.amazon.au</a><a href="http://www.amazon.ca">www.amazon.ca</a><a href="http://www.amazon.cn">www.amazon.cn</a><a href="http://www.amazon.co.jp">www.amazon.co.jp</a><a href="http://www.amazon.co.uk">www.amazon.co.uk</a><a href="http://www.amazon.com">www.amazon.com</a><a href="http://www.amazon.com.br">www.amazon.com.br</a><a href="http://www.amazon.com.mx">www.amazon.com.mx</a><a href="http://www.amazon.com.tr">www.amazon.com.tr</a><a href="http://www.amazon.de">www.amazon.de</a><a href="http://www.amazon.es">www.amazon.es</a><a href="http://www.amazon.fr">www.amazon.fr</a><a href="http://www.amazon.in">www.amazon.in</a><a href="http://www.amazon.it">www.amazon.it</a><a href="http://www.amazon.nl">www.amazon.nl</a><a href="http://www.amazon.sa">www.amazon.sa</a><a href="http://www.amazon.se">www.amazon.se</a><a href="http://www.amazon.sg">www.amazon.sg</a><a href="/images/2020-11-04-amazon-url-shortener.png" target="_blank"><img src="/images/2020-11-04-amazon-url-shortener.png" alt="" title="用意したアイコン"></a><a href="https://blogja.gyazo.com/entry/2020/07/29/173000">Gyazo Chrome Extensionの再公開について</a><a href="https://github.com/r7kamura/amazon_url_shortener/issues/4">GitHubのIssue</a>
+    <p><a href="https://chrome.google.com/webstore/detail/amazon-url-shortener/bonkcfmjkpdnieejahndognlbogaikdg">Amazon URL Shortener</a>というChrome拡張をつくった。</p>
+
+<p>これを入れると、Amazonの商品ページにアクセスしたときに、ロケーションバーに表示されるURLを自動的に短いものに書き換えてくれる。商品のURLを共有するときに、長ったらしいURLにならずに済んで嬉しい。</p>
+
+<h2>開発の背景</h2>
+
+<p>実はこの拡張は2013年頃に開発された。今回ひさしぶりに見直して、不要な機能を取り除いて名前を変えたり、日本以外の18地域用のAmazonのサイトにも対応したり、申請用の画像やテキストの管理体制を整えたりして、最終的にChromeウェブストアに公開するに至った。</p>
+
+<p>なぜ今になってこの改善に着手したのか。ハロウィンにかこつけてGitHubのプロフィールページがオレンジ色になったので、あらためて<a href="https://github.com/r7kamura">自分のプロフィールページ</a>や<a href="https://github.com/sponsors/r7kamura">スポンサー募集ページ</a>を眺めていて、過去につくったものを見直すことで何か価値を提供できるのではないか、という発想でこの活動に至った。このところ毎週土曜日に個人的なハッカソンをやっているので、そこでまとまった時間とモチベーションを確保できた。</p>
+
+<h2>いろいろなAmazon</h2>
+
+<p>対応も簡単そうだったので、今回を機にamazon.co.jp以外でもこの拡張を使えるようにした。<a href="https://www.amazon.co.jp/gp/navigation-country/">Amazonのサイト切り替え機能</a>で調べた限りでは、少なくとも現状これだけのドメインでAmazonのショッピングサイトが提供されている。</p>
+
+<ul>
+<li><a href="http://www.amazon.ae">www.amazon.ae</a></li>
+<li><a href="http://www.amazon.au">www.amazon.au</a></li>
+<li><a href="http://www.amazon.ca">www.amazon.ca</a></li>
+<li><a href="http://www.amazon.cn">www.amazon.cn</a></li>
+<li><a href="http://www.amazon.co.jp">www.amazon.co.jp</a></li>
+<li><a href="http://www.amazon.co.uk">www.amazon.co.uk</a></li>
+<li><a href="http://www.amazon.com">www.amazon.com</a></li>
+<li><a href="http://www.amazon.com.br">www.amazon.com.br</a></li>
+<li><a href="http://www.amazon.com.mx">www.amazon.com.mx</a></li>
+<li><a href="http://www.amazon.com.tr">www.amazon.com.tr</a></li>
+<li><a href="http://www.amazon.de">www.amazon.de</a></li>
+<li><a href="http://www.amazon.es">www.amazon.es</a></li>
+<li><a href="http://www.amazon.fr">www.amazon.fr</a></li>
+<li><a href="http://www.amazon.in">www.amazon.in</a></li>
+<li><a href="http://www.amazon.it">www.amazon.it</a></li>
+<li><a href="http://www.amazon.nl">www.amazon.nl</a></li>
+<li><a href="http://www.amazon.sa">www.amazon.sa</a></li>
+<li><a href="http://www.amazon.se">www.amazon.se</a></li>
+<li><a href="http://www.amazon.sg">www.amazon.sg</a></li>
+</ul>
+
+<p>いろいろあって楽しい。中国版 (.cn) なんかは見た目がわりと違って面白い。しかしURLやサイトの構造はほぼ変わらないらしく、対応自体は容易だった。</p>
+
+<h2>申請用リソースの管理</h2>
+
+<p>今回この拡張を申請するにあたり、画像やテキストなどのChromeウェブストアへの申請時に利用するリソース管理の透明性には少し気を配った。具体的には、申請時に利用したテキストは全てリポジトリ内にそのコピーを含めるようにした。またアイコンについても、そこまで凝ったものを用意したいとも思わなかったので、ImageMagickで機械的に生成し、その方法もスクリプトとしてリポジトリに残すようにした。</p>
+
+<figure><a href="/images/2020-11-04-amazon-url-shortener.png" target="_blank"><img src="/images/2020-11-04-amazon-url-shortener.png" alt="" title="用意したアイコン"></a><figcaption>用意したアイコン</figcaption></figure>
+
+<h2>ブラウザ拡張の開発事情</h2>
+
+<p>昔と比べると、ブラウザ拡張の仕様も随分と落ち着いており、また拡張の設定画面やデバッグ用の機能、Chromeウェブストアのダッシュボードの機能なんかも充実しているので、コードを書く上での困りどころは随分減っている。</p>
+
+<p>どちらかと言うと、開発自体が非常に簡単になった分、Chromeウェブストアの審査に対応することの大変さが浮き彫りになっている印象がある。自分も何度かChrome拡張をストアから取り下げられたことがあるが、要領を得ない定型文的な回答に疲弊することも多く、<a href="https://blogja.gyazo.com/entry/2020/07/29/173000">Gyazo Chrome Extensionの再公開について</a>などを読んでもこの状況は今でも大きくは改善されていないようで、その辺りは少し残念に感じた。とはいえ、これでも数年前の状況よりは大きく改善されている。</p>
+
+<p>ちなみにこの拡張も、第一次申請時には「アイテムの説明に過剰かつ / または無関係なキーワードが含まれている」という理由で不承認になったが、説明文を改善して再審査を受けることで承認された。<a href="https://github.com/r7kamura/amazon_url_shortener/issues/4">GitHubのIssue</a>に詳しい経緯をまとめてある。</p>
+
+<p>何か状況をもっと良くしていくことはできると思うので、めげずにChrome拡張の開発を続けたりフィードバックを送り続けたりして改善に貢献したいと思う。</p>
+
   </div>
 </article>
 

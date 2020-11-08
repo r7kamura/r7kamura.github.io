@@ -41,7 +41,40 @@
     <h1>RubyのUnitテスト系フレームワーク用のテストファイル名のパターンには test/test*.rb を使うのが良さそう</h1>
   </header>
   <div>
-    <a href="https://github.com/ruby/rake/blob/af15762f972a3f8322a9b5904d56fe2ff3dd8352/lib/rake/testtask.rb">https://github.com/ruby/rake/blob/af15762f972a3f8322a9b5904d56fe2ff3dd8352/lib/rake/testtask.rb</a><a href="https://github.com/petitest/petitest">Petitest</a>
+    <h2>Rake::TestTask</h2>
+
+<p><code>Rake::TestTask</code> がデフォルトでこのパターンなので、これに則っておくことで設定を省略できて良さそう。今まで雰囲気で従っていた慣習に納得の行く理由が新しく発見できて良かった。「RubyのUnitテスト系フレームワーク」と呼んだけれど、正確には「Rubyのスクリプトとしてテストを実行するようなインターフェースを提供しているテストフレームワーク」と呼んだ方が良いかもしれない。</p>
+
+<p><a href="https://github.com/ruby/rake/blob/af15762f972a3f8322a9b5904d56fe2ff3dd8352/lib/rake/testtask.rb">https://github.com/ruby/rake/blob/af15762f972a3f8322a9b5904d56fe2ff3dd8352/lib/rake/testtask.rb</a></p>
+
+<p>例えば <a href="https://github.com/petitest/petitest">Petitest</a> で <code>Rake::TestTask</code> を使って <code>rake test</code> で全てのテストが実行されるようにするには、例えば Rakefile に以下のような定義を行う。</p>
+
+<pre><code>require "rake/testtask"Rake::TestTask.new
+</code></pre>
+
+<p>実行する。</p>
+
+<pre><code>rake test
+</code></pre>
+
+<p>標準出力の出力結果。</p>
+
+<pre><code>TestRunner #test\_description #test\_full\_description TestSimple #test\_one\_plus\_one\_to\_be\_two TestTest #test\_assertion\_with\_truthy\_block\_to\_pass #test\_assertion\_with\_truthy\_value\_to\_pass Counts: 5 tests 5 passes 0 failures 0 skips Times: Started: 2017-03-26T15:02:46.401250+09:00 Finished: 2017-03-26T15:02:46.404074+09:00 Total: 0.002824s
+</code></pre>
+
+<h2>テストのファイルパスとクラス名</h2>
+
+<p>RSpec is a testing DSL, Minitest is Ruby (seattlerb/minitestより) という言葉があるように 、こういうテスト用途で定義されるクラスも定数としてグローバルに参照できるように定義される訳なので、テストファイルも Ruby の他のプログラムと変わらないよという世界観の上では、当然クラス名の命名規則も普段 Ruby でコードを書くときと同じように統一しておくほうが良いと思う。上例では、以下のようなパターンの対応関係でテストのファイルパスとクラス名を割り当てることにしている。</p>
+
+<ul>
+<li>test/test_runner.rb -&gt; <code>::TestRunner</code>
+</li>
+<li>test/test_simple.rb -&gt; <code>::TestTest</code>
+</li>
+<li>test/test_test.rb -&gt; <code>::TestTest</code>
+</li>
+</ul>
+
   </div>
 </article>
 

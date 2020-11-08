@@ -41,7 +41,80 @@
     <h1>Markdownを拡張して独自記法をつくる</h1>
   </header>
   <div>
-    <a href="https://github.com/increments/qiita-markdown/">Qiita::Markdown</a><a href="http://blog.codinghorror.com/standard-markdown-is-now-common-markdown/">Standard Markdown is now Common Markdown</a><a href="http://commonmark.org/">CommonMark</a><a href="https://github.com/vmg/redcarpet">Redcarpet</a><a href="https://github.com/vmg/sundown">Sundown</a><a href="https://github.com/jch/html-pipeline">HTML::Pipeline</a><a href="https://github.com/increments/qiita-markdown">Qiita::Markdown</a><a href="https://github.com/increments/qiita-markdown">increments/qiita-markdown</a><a href="https://github.com/jch/html-pipeline">jch/html-pipeline</a><a href="https://github.com/vmg/redcarpet">vmg/redcarpet</a><a href="https://github.com/vmg/sundown">vmg/sundown</a><a href="http://rubygems.org/gems/github-markdown">github-markdown - RubyGems.org</a><a href="http://blog.codinghorror.com/standard-markdown-is-now-common-markdown/">Standard Markdown is now Common Markdown</a><a href="http://commonmark.org/">CommonMark</a><a href="http://rebuild.fm/61a/">Rebuild: Aftershow 61: Way Too Much Jargon (Naoya Ito)</a>
+    <p><a href="https://github.com/increments/qiita-markdown/">Qiita::Markdown</a>の解説記事です。<strong>Markdown拡張ならHTML::Pipeline</strong>という旨の投稿です。
+いま読んでいるこの投稿の描画にもQiita::Markdownが利用されています。</p>
+
+<h2>方言とライブラリ</h2>
+
+<p>Markdownには様々な種類・方言があり、最近では<a href="http://blog.codinghorror.com/standard-markdown-is-now-common-markdown/">Standard Markdown is now Common Markdown</a>が一部で話題になったりしました。かいつまんで言うと「Markdownの方言多すぎるしStandard Markdownって名前で共同プロジェクトつくろうとしたけど紆余曲折あって結局<a href="http://commonmark.org/">CommonMark</a>って名前になったわ」という感じです。</p>
+
+<p>MarkdownをHTMLに変換するためのライブラリを探すと、例えばRubyでは<a href="https://github.com/vmg/redcarpet">Redcarpet</a>、C言語では同作者の<a href="https://github.com/vmg/sundown">Sundown</a>等が有名なところです。GitHubが利用しているライブラリgithub-markdownは、RubyGemsでは公開されていてもGitHubでは公開されていないようです。Build software better, together.</p>
+
+<h2>独自記法</h2>
+
+<p>さて、Markdownを利用するWebサービスなどを開発していると、様々な理由のもとに独自記法を導入したくなることがあります。例を挙げるならば、GitHub風のチェックボックスを導入したり、@r7kamuraのようにmentionにリンクを貼ったりという具合です。文字列を置き換えるだけでなく、script要素を使えないようにしたり、通知を送るためにmention対象になったユーザ名一覧を抽出したり、という処理もあり得ます。</p>
+
+<h2>正規表現</h2>
+
+<p>正規表現を使って実装するなら、例えばこういう感じになるかもしれません。以下のコードは絵文字を実現するためのもので、<code>:pray:</code> のような絵文字のパターンの文字列を抽出し、img要素を表す文字列に変換しています。</p>
+
+<pre><code class="rb">def emoji(text)
+  text.gsub!(/:([a-z0-9\+\-_]+):/) do |match|
+    emoji = Regexp.last_match(1)
+    if Emoji.names.include?(emoji)
+      src = "/emoji/#{CGI.escape(emoji)}.png"
+      %[&lt;img class="emoji" alt=":#{emoji}:" title=":#{emoji}:" src="#{src}"/&gt;]
+    else
+      match
+    end
+  end
+end
+</code></pre>
+
+<p>もし <code>:pray:</code> がコードブロックの中に含まれていた場合にはどうしたら良いでしょうか？ まさにこの <code>:pray:</code> を記述している表現がその好例です。予めコードブロックを表現するパターンを正規表現で先読みして除外したり、行単位で変換していったりという策は、HTMLが直接記述される例などを考慮すると早々に破綻する気配が感じられます。</p>
+
+<h2>HTML::Pipeline</h2>
+
+<p>最終的な目的はMarkdownからHTML (とそれに付随する幾つかのメタデータ) を生成することです。ここでHTMLを木構造のデータとして捉え、木の変換を以って期待するHTMLを生成するというアイデアは、ごく自然な発想だと思います。これを実現するための実装例として、<a href="https://github.com/jch/html-pipeline">HTML::Pipeline</a>というライブラリが存在します。HTML::Pipelineの処理は、以下のような流れになります。</p>
+
+<ol>
+<li>Redcarpetを利用してMarkdownの文字列をHTML表現の文字列に変換する</li>
+<li>Nokogiriを利用してHTML表現の文字列を木構造のデータ表現に変換する</li>
+<li>Filterと呼ばれる単位の幾つかの操作を適用して木構造を変換する</li>
+<li>木構造をHTML表現の文字列に変換する</li>
+</ol>
+
+<p>HTML::Pipelineは、各種変換処理をFilterという単位で分割することで独立性を高め、これらをPipelineのように繋ぎ合わせ、そこを流れるデータを木構造として扱うことでデータの走査/操作を容易にしています。</p>
+
+<h2>Qiita::Markdown</h2>
+
+<p><a href="https://github.com/increments/qiita-markdown">Qiita::Markdown</a>は前述したHTML::Pipelineを利用して実装されており、其の実いくつかのFilterを用意してHTML::Pipelineの機能を呼び出しているいるだけに過ぎません。この幾つかのFilterが、Qiita上での独自拡張を実現し、QiitaにおけるMarkdownのポリシーを規定している訳です。</p>
+
+<p>例えばCodeフィルタではコードブロックに付けられたラベルからそのコードで利用されている言語を判定し、SyntaxHighlighterフィルタではコードの各部分に色付けするためのクラスを付与し、Mentionフィルタではmentionにユーザのプロフィールページへのリンクを付けています (余談ですが、このとき同時にmention先のユーザ名やコードもメタデータとして回収しておき、後に通知やGist連携で利用しています)。</p>
+
+<p>正規表現の節で前述した絵文字処理はEmojiフィルタで対応しており、コードブロックに含まれた絵文字表現は「親にpre要素やcode要素が含まれていないテキストノード」のみ変換対象とすることで対応しています。</p>
+
+<h2>終わりに</h2>
+
+<p>Qiita::Markdownを作るまでに至った背景、経緯、そして設計と実装について簡単に説明しました。Markdown拡張ならHTML::Pipelineがわりと良いという旨が伝われば幸いです。</p>
+
+<p>Qiita::Markdownは元々、機能拡張のために社内のMarkdownのコードを拝見した際に、これはもうダメかなと思って書き直したところから生まれたものです。もしかしたら他の場所でもこういう状況なのかもしれないなと思い、知見を共有すべくOSSとして公開するはこびとなりました。</p>
+
+<p>Markdown記法の拡張に興味がある人や、Markdownを使って最強の情報共有サービスをつくるぞという人、煩雑化して手の付けられなくなったコードが転がっているプロジェクト、あるいは転がっている開発者の助けになれば幸いです。</p>
+
+<h2>参考</h2>
+
+<ul>
+<li><a href="https://github.com/increments/qiita-markdown">increments/qiita-markdown</a></li>
+<li><a href="https://github.com/jch/html-pipeline">jch/html-pipeline</a></li>
+<li><a href="https://github.com/vmg/redcarpet">vmg/redcarpet</a></li>
+<li><a href="https://github.com/vmg/sundown">vmg/sundown</a></li>
+<li><a href="http://rubygems.org/gems/github-markdown">github-markdown - RubyGems.org</a></li>
+<li><a href="http://blog.codinghorror.com/standard-markdown-is-now-common-markdown/">Standard Markdown is now Common Markdown</a></li>
+<li><a href="http://commonmark.org/">CommonMark</a></li>
+<li><a href="http://rebuild.fm/61a/">Rebuild: Aftershow 61: Way Too Much Jargon (Naoya Ito)</a></li>
+</ul>
+
   </div>
 </article>
 

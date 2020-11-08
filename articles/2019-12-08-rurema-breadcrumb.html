@@ -41,7 +41,45 @@
     <h1>るりまのパンくずリスト</h1>
   </header>
   <div>
-    <a href="/images/2019-12-08-rurema-breadcrumb.png" target="_blank"><img src="/images/2019-12-08-rurema-breadcrumb.png" alt=""></a><a href="https://github.com/rurema/bitclust/pull/86">https://github.com/rurema/bitclust/pull/86</a><a href="https://docs.ruby-lang.org/ja/">https://docs.ruby-lang.org/ja/</a><a href="https://github.com/rurema/bitclust/pull/91">https://github.com/rurema/bitclust/pull/91</a><a href="https://github.com/rurema/bitclust/pull/90">https://github.com/rurema/bitclust/pull/90</a>
+    <p><a href="/images/2019-12-08-rurema-breadcrumb.png" target="_blank"><img src="/images/2019-12-08-rurema-breadcrumb.png" alt=""></a></p>
+
+<p>るりま (※) のパンくずリストのマークアップ方法について、これまでほぼプレーンテキストとして表現されていたのを、順序付きリストで表現するようにし、ついでにheader要素とnav要素で囲んでナビゲーションであることを表現するように変更した。</p>
+
+<p><a href="https://github.com/rurema/bitclust/pull/86">https://github.com/rurema/bitclust/pull/86</a></p>
+
+<p>※るりまとは、<a href="https://docs.ruby-lang.org/ja/">https://docs.ruby-lang.org/ja/</a> で配信されている、プログラミング言語Rubyの日本語のリファレンスマニュアルの通称である。</p>
+
+<pre><code>&lt;p&gt;A &amp;gt; B &amp;gt; C &amp;gt; D&lt;/p&gt;
+</code></pre>
+
+<p>これまで上記のような感じだったのが、下記のような感じになる。</p>
+
+<pre><code>&lt;header&gt;
+  &lt;nav&gt;
+    &lt;ol&gt;
+      &lt;li&gt;A&lt;/li&gt;
+      &lt;li&gt;B&lt;/li&gt;
+      &lt;li&gt;C&lt;/li&gt;
+      &lt;li&gt;D&lt;/li&gt;
+    &lt;/ol&gt;
+  &lt;/nav&gt;
+&lt;/header&gt;
+</code></pre>
+
+<p>CDNでキャッシュされているので、もしかしたらまだ変更が反映されていないページが取得されるかもしれないけれど、しばらくしたら全てのページに変更が反映されると思う。</p>
+
+<p>RubyのドキュメントをGoogleから検索したいときに、るりまが検索結果のより上位に表示されてくれると嬉しい。しかし、現状そうではないことがままある。そこで、マークアップ方法を改善してより良く構造化することで、利用者の利便性を向上するとともに、検索結果の上位に表示してもらうことを狙いたい。</p>
+
+<hr>
+
+<p>より機械に優しいHTMLにすべく、パンくずリストの情報をJSON-LDでもマークアップしてはどうか、という変更も提案している。</p>
+
+<p><a href="https://github.com/rurema/bitclust/pull/91">https://github.com/rurema/bitclust/pull/91</a></p>
+
+<p>他に、クラスのドキュメントページに記述する継承リストについても、パンくずリストで表現した方がより良くなるのではないか、というPull Requestも出している。</p>
+
+<p><a href="https://github.com/rurema/bitclust/pull/90">https://github.com/rurema/bitclust/pull/90</a></p>
+
   </div>
 </article>
 

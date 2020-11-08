@@ -41,7 +41,30 @@
     <h1>MacでTeX使う</h1>
   </header>
   <div>
-    <a href="http://ballrw.web.fc2.com/tex/install_lion_new.html">Ball-RW</a>
+    <p>3分ぐらいでできる。</p>
+
+<h3>GUI</h3>
+
+<ol>
+<li>
+<a href="http://ballrw.web.fc2.com/tex/install_lion_new.html">Ball-RW</a>を入れる<br>
+</li>
+<li>起動してTeXShop以外にチェックしてインストールする<br>
+</li>
+<li>UpTeXにtexファイルをD&amp;DすればPDFが生成される</li>
+</ol>
+
+<h3>CUI</h3>
+
+<ol>
+<li>/Applications/UpTeX.app/teTeX/bin にPATHを通す<br>
+</li>
+<li>適当に関数でも書いてショートカットつくる</li>
+</ol>
+
+<pre><code>$ vim .bashrc $ . .bashrc $ cat .bashrc export PATH="/Applications/UpTeX.app/teTeX/bin:$PATH" function tex(){ platex -kanji=utf8 $1.tex jbitex -kanji=utf8 $1 platex -kanji=utf8 $1.tex platex -kanji=utf8 $1.tex dvipdfmx $1.dvi open $1.pdf } $ tex fooooobaaaar.tex
+</code></pre>
+
   </div>
 </article>
 

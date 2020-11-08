@@ -41,7 +41,62 @@
     <h1>defaults(1) の出力内容をRubyで扱う</h1>
   </header>
   <div>
-    <a href="https://developer.apple.com/library/mac/documentation/Darwin/Reference/ManPages/man1/defaults.1.html">defaults(1)</a><a href="http://ja.wikipedia.org/wiki/%E3%83%97%E3%83%AD%E3%83%91%E3%83%86%E3%82%A3%E3%83%AA%E3%82%B9%E3%83%88">プロパティリスト</a><a href="https://github.com/bleything/plist">plist</a><a href="https://github.com/r7kamura/serverkit">serverkit</a><a href="https://github.com/r7kamura/serverkit-defaults">serverkit-defaults</a>
+    <p>Macのdefaults(1) の出力内容をRubyで扱う方法について説明します。</p>
+
+<h2>defaults(1)</h2>
+
+<p>Mac OS Xには標準で <a href="https://developer.apple.com/library/mac/documentation/Darwin/Reference/ManPages/man1/defaults.1.html">defaults(1)</a> というコマンドが用意されており、このコマンドを利用するとMac OS X上のアプリケーションの設定を読み書きすることができます。例えば、「Dockを自動的に隠す・隠さない」といった設定項目を、defaults(1) を利用して変更できます。</p>
+
+<h2>プロパティリスト</h2>
+
+<p>defaults(1) が読み書きするデータは、<a href="http://ja.wikipedia.org/wiki/%E3%83%97%E3%83%AD%E3%83%91%E3%83%86%E3%82%A3%E3%83%AA%E3%82%B9%E3%83%88">プロパティリスト</a> と呼ばれるファイルに保存されているものです。拡張子に .plist が利用されるファイル形式で、iOSなどの開発に携わっている場合には目にする機会があるでしょう。プロパティリストのデータは、大別するとXML形式またはNeXTSTEP形式 (NeXTSTEPが当初採用していた形式) として表現できます。defaults(1) は、後者のNeXTSTEP形式でデータを出力します。</p>
+
+<h2>plutil(1)</h2>
+
+<p>plutil(1) も defaults(1) と同様にMac OS Xに用意されているコマンドで、これを利用すると、特定のフォーマットで記述されたプロパティリストのファイルを別のフォーマットに変換できます。以下のコマンドを実行すると、NeXTSTEP形式で記述された example.plist というファイルの中身がXML形式に書き換えられます。</p>
+
+<pre><code>$ plutil -convert xml1 example.plist
+</code></pre>
+
+<h2>plist Gem</h2>
+
+<p>Rubyでプロパティリストを扱うには、 <a href="https://github.com/bleything/plist">plist</a> というGemが利用できます。このGemは、XML形式で記述されたプロパティリストのファイルを読み込み、Plain Old Ruby Object (HashやArray、Stringなどで構成された、いわゆる普通のRubyのオブジェクトのことです) として変換する機能を提供しています。defaults(1) の出力形式はXML形式ではなくNeXTSTEP形式ですが、前述した plutil(1) をすると任意のフォーマットに変換できます。</p>
+
+<h2>defaults(1) の出力内容をRubyで扱う</h2>
+
+<p>以下のコード例では、defaults(1) から最近利用したディレクトリ一覧が記述されたプロパティリストのデータを読み込み、Tempfileに書き込み、plutil(1) でNeXTSTEP形式からXML形式に変換し、<code>Plist.parse_xml</code> を利用してRubyのオブジェクトに変換しています。</p>
+
+<pre><code>$ defaults read -g NSNavRecentPlaces
+(
+    "~/Desktop",
+    "~/src/github.com/r7kamura/ruboty",
+    "~/src/github.com/r7kamura/serverkit",
+    "~/src/github.com/r7kamura/serverkit-defaults",
+    "/opt/homebrew-cask/Caskroom/atom/latest"
+)
+</code></pre>
+
+<pre><code class="rb">require "plist"
+require "tempfile"
+
+tempfile = Tempfile.new("")
+tempfile &lt;&lt; `defaults read -g NSNavRecentPlaces`
+tempfile.close
+`plutil -convert xml1 #{tempfile.path}`
+Plist.parse_xml(tempfile.path)
+# =&gt; [
+#   "~/Desktop",
+#   "~/src/github.com/r7kamura/ruboty",
+#   "~/src/github.com/r7kamura/serverkit",
+#   "~/src/github.com/r7kamura/serverkit-defaults",
+#   "/opt/homebrew-cask/Caskroom/atom/latest"
+# ]
+</code></pre>
+
+<h2>おわり</h2>
+
+<p>defaults(1) の出力内容をRubyで扱う方法について説明しました。この情報は元々、Macの環境構築を自動化するため、<a href="https://github.com/r7kamura/serverkit">serverkit</a> 用のプラグインとして <a href="https://github.com/r7kamura/serverkit-defaults">serverkit-defaults</a> をつくっている際に調べました。serverkit-defaultsでは、指定した値をdefaults(1) を利用して書き込む処理なども実装しているので、参考になればと思います。</p>
+
   </div>
 </article>
 

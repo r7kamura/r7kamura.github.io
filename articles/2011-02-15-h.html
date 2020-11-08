@@ -41,7 +41,83 @@
     <h1>初心者向けGitの使い方のおさらい</h1>
   </header>
   <div>
-    
+    <p>Git初心者向けに、Gitを使ったローカルでのVersion管理方法についての説明を書く。</p>
+
+<h3>Install</h3>
+
+<p>Gitをインストールするには、Gitが内部で利用しているライブラリを入れる必要がある。</p>
+
+<ul>
+<li>curl-devel</li>
+<li>expat-devel</li>
+<li>gettext-devel</li>
+<li>openssl-devel</li>
+<li>zlib-devel</li>
+</ul>
+
+<h4>Mac</h4>
+
+<pre><code># homebrewから入れる場合(推奨) $ brew install git # GUIから入れる場合(git-osx-installerを利用する) $ open http://git-scm.com/ # macportsから入れる場合 $ sudo port install curl expat gettext openssl zlib $ sudo port install git-core # インストール $ sudo port deactivate ImageMagick # もしImageMagickが邪魔している旨のエラーが出れば無効化する $ sudo port install git-core # インストール再挑戦 # ソースから入れる場合(公式サイトで最新版のURLを確認する) $ open http://git-scm.com/ $ curl -O http://kernel.org/pub/software/scm/git/git-1.7.4.1.tar.bz2 $ tar xjvf git-1.7.4.1.tar.bz2 $ ./configure $ make $ sudo make install
+</code></pre>
+
+<h4>CentOS</h4>
+
+<pre><code># ソースから入れる場合 # Macと同じ # yumから入れる場合 $ sudo yum install curl-devel expat-devel gettext-devel openssl-devel zlib-devel $ rpm -ivh http://repo.webtatic.com/yum/centos/5/`uname -i`/webtatic-release-5-1.noarch.rpm $ sudo yum install --enablerepo=webtatic git
+</code></pre>
+
+<h4>Windows</h4>
+
+<pre><code># msysGitを利用する http://code.google.com/p/msysgit
+</code></pre>
+
+<h3>用語</h3>
+
+<ul>
+<li>commit: バージョンを1つ進める</li>
+<li>index: 次回のcommitで適用されるファイル一覧</li>
+<li>stage: 特定の変更内容をindexに追加する</li>
+</ul>
+
+<h3>コマンド</h3>
+
+<ul>
+<li>git init - カレントディレクトリ以下をgit管理下に置く</li>
+<li>git add [filename] - [filename]をstage。[filename]に"."を指定すると変更分全てをstage</li>
+<li>git commit -m [message] - 1行メッセージ付きでcommit</li>
+<li>git status - 変更状態を確認する</li>
+<li>git reset [target] - [target]まで戻る。指定が無ければindexの分を全てunstageする</li>
+<li>git log - commitの履歴を見る</li>
+<li>git rm ファイルを削除してgitに削除したことを伝える</li>
+</ul>
+
+<h3>使用例</h3>
+
+<p>「foo.txtとbar.txtを作り、更にREADMEを作るがやっぱり要らないので消す。更にbar.txtも要らないのでbar.txtを作る前までバージョンを戻す」というシナリオで作業を進める。</p>
+
+<pre><code>$ cd /path/to/hoge # hogeディレクトリをバージョン管理します $ git init # gitで管理を始める宣言 $ git add . # stage all $ git commit -m "Initial commit" # commit all $ touch foo.txt # create foo.txt $ git add . # stage foo.txt $ git commit -m "Create foo" # commit foo.txt $ vi foo.txt # edit foo.txt $ git add . # stage foo.txt $ git commit -m "Modify foo" # commit foo.txt $ vi foo.txt # edit foo.txt $ touch bar.txt # create bar.txt $ git add foo.txt # stage foo.txt \&lt;= bar作成分のcommitと分けてる $ git commit -m "Modify foo" # commit foo.txt \&lt;= fooの分だけcommitされる $ git add bar.txt # stage bar.txt $ git commit -m "Create bar" # commit bar.txt \&lt;= barの分だけcommitされる $ touch README # create README $ git add . # stage README \&lt;= あ、やっぱREADMEいらないかも $ git status # show status \&lt;= indexの状態を確認 $ git reset # unstage README \&lt;= addをなかった事に $ git status # show status \&lt;= indexの状態を確認 $ git rm README # delete README \&lt;= git rmで捨てる方が安全 $ git log # show git-log \&lt;= コミット履歴を見る $ git log --format=oneline # show git-log \&lt;= コミット履歴の短い版を見る $ git reset 1239e3f # return to [taregt] \&lt;= \&lt;target\&gt;までバージョンを戻す
+</code></pre>
+
+<h3>git config</h3>
+
+<p>git configコマンドで、gitの環境設定ファイルを編集できる。</p>
+
+<pre><code>$ git config --global user.name "Kyoko Sakura" # ユーザ名(必須)$ git config --global user.email kyoko-sakura@example.com # メールアドレス(必須)$ git config --list # 全ての設定を一覧user.name=Kyoko Sakurauser.email=kyoko-sakura@example.com
+</code></pre>
+
+<h3>git commit --amend - commitのやり直し</h3>
+
+<p>addし忘れたファイルがあったり、commitメッセージを打ち間違えた場合等にcommitをやり直したくなることがある。commit時に--amend -C HEADオプションを利用すると、現在addされている変更を前回のcommitに追加することが出来る。--amendオプション単独だと、前回のcommitのメッセージも変更できる。</p>
+
+<pre><code>$ git commit -m "Modify Foo"$ git add bar.txt $ git commit --amend -C HEAD $ git commit --amend
+</code></pre>
+
+<h3>.gitignore - ファイルの無視</h3>
+
+<p>logや.DS_Storeファイル等Gitに無視してほしいファイルがある場合は、無視させたいファイルのパターンを並べた.gitignoreというファイルを作成する。.gitignoreの影響範囲は、それが置かれたディレクトリ以下全てのgit管理下のディレクトリ。filenameの指定には.gitignoreの例で示すようなglobパターン(*)やディレクトリ名の指定などが利用できる。.gitignoreに記述するパターンの規則はこういう感じ。</p>
+
+<pre><code>$ vi .gitignore .DS\_Store # .DS\_Storeファイルを無視(Macの一時ファイル)\*.log # .logで終わるファイルを無視(Rails等のログファイル)\*.sqlite # .sqliteで終わるファイルを無視(SQLite3のDBファイル)\*.swp # .swpで終わるファイルを無視(Vimの一時ファイル)\*~ # ~で終わるファイルを無視(Emacsの一時ファイル)\*.[oa] # oまたはaで終わるファイルを無視!lib.a # しかしlib.aファイルだけは無視しない/TODO # ルートディレクトリに置かれたTODOファイルを無視build/ # build/ディレクトリ以下の全てのファイルを無視doc/\*.txt # doc/ディレクトリ以下の.txtで終わるファイルを無視$ git rm --cached log/\*.log
+</code></pre>
+
   </div>
 </article>
 

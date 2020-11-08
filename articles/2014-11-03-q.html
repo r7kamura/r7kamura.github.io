@@ -41,7 +41,50 @@
     <h1>HTML5のValidationでsubmitボタンの状態を変更する</h1>
   </header>
   <div>
-    <a href="https://qiita-image-store.s3.amazonaws.com/0/4365/1bbeb393-aca7-e905-3b68-400e91abd9f9.gif" target="_blank"><img src="https://qiita-image-store.s3.amazonaws.com/0/4365/1bbeb393-aca7-e905-3b68-400e91abd9f9.gif" alt="demo.gif"></a><a href="https://developer.mozilla.org/en-US/docs/Web/Events/input">inputイベント</a><a href="https://developer.mozilla.org/en-US/docs/Web/Events/input">input - Event reference | MDN</a><a href="http://www.html5rocks.com/ja/tutorials/forms/html5forms/">HTML5 で優れたフォームを作成する - HTML5 Rocks</a>
+    <p>HTML5のvalidationを使い、<code>form.checkValidity()</code> の結果を見てsubmitボタンの状態を変更します。</p>
+
+<h2>サンプルコード</h2>
+
+<p>title用のinput要素にrequired属性を付けています。これでtitleが未入力の場合は <code>form.checkValidity()</code> がfalseを返すようになるため、入力があるたびにこの結果を確認し、未入力の場合はsubmitボタンを押せないようにします。</p>
+
+<pre><code class="html">&lt;form action="/posts" method="post" data-validate&gt;
+  &lt;input name="title" type="text" required&gt;
+  &lt;textarea name="body"&gt;&lt;/textarea&gt;
+  &lt;input name="commit" type="submit" value="OK" disabled&gt;
+&lt;/form&gt;
+
+&lt;script&gt;
+  jQuery(function ($) {
+    $('form[data-validate]').on('input', function () {
+      $(this).find(':submit').attr('disabled', !this.checkValidity());
+    });
+  });
+&lt;/script&gt;
+</code></pre>
+
+<h2>デモ</h2>
+
+<p>デモ用にGitHubっぽい見た目のやつを作ってみました。GIFにしたら減色処理が結構酷いですね…</p>
+
+<p><a href="https://qiita-image-store.s3.amazonaws.com/0/4365/1bbeb393-aca7-e905-3b68-400e91abd9f9.gif" target="_blank"><img src="https://qiita-image-store.s3.amazonaws.com/0/4365/1bbeb393-aca7-e905-3b68-400e91abd9f9.gif" alt="demo.gif"></a></p>
+
+<h2>説明</h2>
+
+<h3>checkValidity()</h3>
+
+<p>HTML5では、フォームの各要素に <code>required</code> などのvalidationが定義できるようになりました。同時に、form・input・textarea・selectの要素に <code>checkValidity()</code> というプロパティが定義されています。この関数は、input・textarea・selectではその要素がvalidかどうかによってtrue/falseを返し、formでは含まれる全ての要素がvalidかどうかによってtrue/falseを返します。</p>
+
+<h3>input event</h3>
+
+<p>input・textareaなどの要素に変更があった場合、HTML5では<a href="https://developer.mozilla.org/en-US/docs/Web/Events/input">inputイベント</a>が発生します。モバイルデバイスなどへの対応を考えると、今回の目的ではkeyupなどのイベントよりはinputイベントを利用する方が良いでしょう。</p>
+
+<h2>参考 :link:</h2>
+
+<ul>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/Events/input">input - Event reference | MDN</a></li>
+<li><a href="http://www.html5rocks.com/ja/tutorials/forms/html5forms/">HTML5 で優れたフォームを作成する - HTML5 Rocks</a></li>
+</ul>
+
   </div>
 </article>
 

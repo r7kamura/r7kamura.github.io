@@ -41,7 +41,16 @@
     <h1>JavaScript用の最高のドキュメント生成ツール</h1>
   </header>
   <div>
-    <a href="https://github.com/r7kamura/kamo.js/blob/master/doc/stream.md#new-kamostream">https://github.com/r7kamura/kamo.js/blob/master/doc/stream.md#new-kamostream</a>
+    <p>を探してるけど良いのが無くて今grepとsedで生成っていう最悪な感じになってる。</p>
+
+<pre><code>git grep -h "^\s\+// \?" src | sed -E 's; +// ?;;'
+</code></pre>
+
+<pre><code>(function (global) { var kamo = {}; kamo.Stream = (function () { // ### new kamo.Stream() -\&gt; Stream // kamo.Stream is a class for composable mediator, basically for Pub/Sub messaging model. // // ```js // var stream = new kamo.Stream(); // stream.subscribe(function (message) { // console.log(message); // }); // stream.publish(1); // stream.publish(2); // stream.publish(3); // ``` // var Constructor = function () { this.subscriptions = []; }; ...
+</code></pre>
+
+<p><a href="https://github.com/r7kamura/kamo.js/blob/master/doc/stream.md#new-kamostream">https://github.com/r7kamura/kamo.js/blob/master/doc/stream.md#new-kamostream</a></p>
+
   </div>
 </article>
 

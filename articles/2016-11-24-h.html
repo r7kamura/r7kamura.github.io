@@ -41,7 +41,86 @@
     <h1>katatema.js</h1>
   </header>
   <div>
-    <a href="https://github.com/r7kamura/katatema">katatema</a><a href="http://r7kamura.hatenablog.com/entry/2016/11/10/090029">キーボードショートカットをカスタマイズするブラウザ拡張 - ✘╹◡╹✘</a><a href="http://blog.hatena.ne.jp/moznion/">id:moznion</a><a href="https://github.com/zeit/next.js">next.js</a><a href="https://www.staticgen.com/">https://www.staticgen.com/</a><a href="http://localhost:3000/">http://localhost:3000/</a><a href="http://localhost:3000/foo.html">http://localhost:3000/foo.html</a><a href="https://raw.githubusercontent.com/r7kamura/katatema/master/images/demo.gif" target="_blank"><img src="https://raw.githubusercontent.com/r7kamura/katatema/master/images/demo.gif" alt="demo"></a><a href="https://r7kamura.com/yattecast/">Yattecast - Podcastサイトをつくるためのテンプレート</a>
+    <p>次のようなコードを書いて、</p>
+
+<pre><code>import React from "react" export default () =\&gt; \&lt;div\&gt;Hello!\&lt;/div\&gt;
+</code></pre>
+
+<p>次のようなコマンドを叩くと、</p>
+
+<pre><code>katatema build
+</code></pre>
+
+<p>次のようなファイルが生成されるという、<a href="https://github.com/r7kamura/katatema">katatema</a> というツールをつくった。</p>
+
+<pre><code>\&lt;!DOCTYPE html\&gt; \&lt;html\&gt; \&lt;head\&gt; \&lt;/head\&gt; \&lt;body\&gt; \&lt;div\&gt;Hello!\&lt;/div\&gt; \&lt;/body\&gt;
+</code></pre>
+
+<h2>最先端の消耗</h2>
+
+<p>前に <a href="http://r7kamura.hatenablog.com/entry/2016/11/10/090029">キーボードショートカットをカスタマイズするブラウザ拡張 - ✘╹◡╹✘</a> で、こういうことを書いた。</p>
+
+<blockquote>
+<p><a href="http://blog.hatena.ne.jp/moznion/">id:moznion</a> へ、寒い日が続きますがお元気ですか。ともあれChrome拡張を1つこさえれば、大の大人が寄ってたかってモダンと言い合う類のものが一通り学べるだろうと思います。</p>
+</blockquote>
+
+<p>最近のJavaScriptの周辺環境は大変で、何をやるにしても、本格的にコードを書きはじめるにはやれBrowserifyだWebpackだGulpだGruntだBabelだと色々なものを (そのときの最新の流行を察しながら) 導入していかなければならない。こういう調子では、本腰を入れてJavaScriptと向き合う機会に恵まれない職種の人達が簡単には参入できず、ReactやWebpackなどのプロダクトが例え良いものであったとしても、なかなか一般に普及しづらい状況にあると思う。</p>
+
+<p>そういう背景から、最近のJavaScript周辺技術に対する裾野を広げるためにも、JavaScriptのファイルをポンと置くだけでモダンなツールの恩恵を受けられて、しかも単純にHello worldを表示して終わるだけでなく、実利的に役立つようなツールが必要だと考えた。今風の感じで書いた <code>pages/index.js</code> を与えると、katatemaは内部でWebpackやBabelなどのモダンなツールを操り、<code>docs/index.html</code> を生成してくれる。まあ炊飯器みたいなものですね。</p>
+
+<p><a href="https://github.com/zeit/next.js">next.js</a> というツールがあり、これが似たようなことを実現していたんだけれども、CSSをJavaScriptのコードとして書かせたり、動的サイトとして動かしたりする必要は無かったので、自分の用途に合うものをつくることにした。</p>
+
+<h2>動きのある静的サイト</h2>
+
+<p>GitHub Pagesなどで静的サイトを公開したいとき、選択肢としてはJekyllやMiddleman、Octopress、Hexo、Hugoなど、色々なツールがある。<a href="https://www.staticgen.com/">https://www.staticgen.com/</a> を見れば全身の指でも数え切れないほどの沢山の静的サイトジェネレータが出てくる。中でもJekyllは特にGitHub Pagesで優遇されていて、ビルド作業 (ソースコードからHTMLファイルなどを生成する作業) をGitHubが勝手にやってくれるので、非常に便利。しかし、少しJavaScriptを加えて動きのあるサイトをつくろうと思うと、例えば以下のような選択肢を迫られることになる。</p>
+
+<ol>
+<li>昔ながらの片手間で書くJavaScriptで済ませる</li>
+<li>Webpackなどの一連の環境を整えてビルドする環境を用意する</li>
+</ol>
+
+<p>katatemaはこの問題に対して、他のツールに比べて強い優位性を持っている。まず前述したように、Webpackなどの設定は勝手にやってくれるので、面倒な設定作業を必要としない。そして、サーバサイドでもクライアントサイドでも同じソースコードで動作させられるため、動きを付けるのが非常に簡単である。Reactの機能を利用し、UIのコンポーネント化、状態管理、イベントハンドラ、ライフサイクルの利用など、少しのコードを付け足すだけで様々な機能を実装できる。</p>
+
+<h2>PHPの時代</h2>
+
+<p>PHP全盛期の時代、人々はサーバに置いたPHPファイルを単純なHTMLテンプレートとして利用し、穏やかで牧歌的な暮らしを送っていたように思う。PHPのこういう、とにかく置けば動く、ロジックはHTML中に埋め込む、みたいな分かりやすさ・取っ付きやすさみたいなところは好きだった。</p>
+
+<p>ReactやJSXも最初はそういう風にHTMLテンプレートとして使い始めればいいかなと思っている。勿論単純なHTMLテンプレートの代替策としては留まらなくて、コンポーネントに分けてそれぞれ名前を付けて再利用したり、テストしたりしやすいという利点もある。入力値の型宣言ができたり、Lintに掛けられたりと、HTMLテンプレートとして使うことだけ考えてもReactには色々と便利なところがあると思う。</p>
+
+<h2>FTPの時代</h2>
+
+<p>同様に、FTP全盛期の、HTMLファイルを置いたパスにアクセスすればコンテンツが見られるような単純さも好きだった。間に複雑なルーティングのロジックなどが入らず、ファイルシステムをAPIとして利用するというのも、やはり分かりやすくて良い。まあ静的サイトジェネレータつくると大体そういう感じに落ち着くんだけれども、katatemaでも <code>pages/xxx.js</code> を置けば <code>docs/xxx.html</code> が生成されるということになっていて、この辺りは単純で分かりやすくて良いなと思っている。</p>
+
+<pre><code>./pages/index.js ---converted---\&gt; ./docs/index.html ./pages/about.js ---converted---\&gt; ./docs/about.html ./pages/usage.js ---converted---\&gt; ./docs/usage.html
+</code></pre>
+
+<h2>画面の更新</h2>
+
+<p>HTMLファイルを生成する機能だけでなく、開発時に使うためのプレビュー用サーバも用意している。次のようなコマンドでプレビュー用サーバが起動し、<code>pages/index.js</code> から生成されたHTMLが <a href="http://localhost:3000/">http://localhost:3000/</a> で、<code>pages/foo.js</code> から生成されたHTMLが <a href="http://localhost:3000/foo.html">http://localhost:3000/foo.html</a> で閲覧できるようになっている。</p>
+
+<pre><code>katatema serve
+</code></pre>
+
+<p>katatemaでのプレビュー時には、ソースコードを書き換えるとページがリロードされることなく画面の一部がヌルリと書き換わるようになっている。勿論ページだけでなく、ページで利用しているCSSを書き換えたときも、同様に新しいスタイルが適用されるようになっている。めちゃくちゃ便利で、デザイン作業とかだとこれが無いと正直やってられない。</p>
+
+<p><a href="https://raw.githubusercontent.com/r7kamura/katatema/master/images/demo.gif" target="_blank"><img src="https://raw.githubusercontent.com/r7kamura/katatema/master/images/demo.gif" alt="demo"></a></p>
+
+<p>ちなみにWebpackとReactを使ってHot Module Replacementという機能が利用されていて、内部的にはソースコード変更時にWebSocketで差分のデータがサーバからクライアントに受け渡されており、Reactの差分更新で画面の一部が書き換わっている。これを自分で設定しようとすると、webpack-dev-serverやreact-hot-loaderなどの設定を自分で行わないといけないので、慣れていないとかなり面倒くさいことになる。</p>
+
+<h2>利用事例</h2>
+
+<p>このツールは元々 <a href="https://r7kamura.com/yattecast/">Yattecast - Podcastサイトをつくるためのテンプレート</a> というページをつくるときに、丁度いいツールが無かったので1週間ほどでこしらえたものである。画面の左側にプレビュー画面、右側にエディタを置いて、コードを保存するたびに徐々にページが出来上がっていく体験は非常に良いものだった。</p>
+
+<h2>おわり</h2>
+
+<p>Webpackの使い方に慣れていないところが多々あり、next.js のコードを参考にした結果、かなり似た感じのツールになってしまった感が否めない…。しかし恐らく対象としている主な利用者層が違っていて、自分としてはWebデザイナーぐらいの人に使ってもらえる、そんなに融通は効かないけれど簡単に使えるツールに出来ると良いなと思っている。</p>
+
+<p>すべての静的サイトはこれでつくるべきだとは到底思ってはいなくて、低コストで雑にページをつくりたいときの道具、あるいは昨今のJavaScript周辺技術の学習用途とかで使うと良いんじゃないかと。特設サイトみたいな小規模なページを手早くつくるために導入してもらえると嬉しい。</p>
+
+<h2>追記</h2>
+
+<p>最初、katatemaをつくった動機として「nowなどを使って動的サイトにホスティングする必要は無い云々」ということを書いていたんですが、nowは静的サイトもホスティングできるということを指摘していただいて、その辺りの文面を修正しました。誤解を招く文章で申し訳ないです！</p>
+
   </div>
 </article>
 

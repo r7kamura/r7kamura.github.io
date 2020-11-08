@@ -41,7 +41,31 @@
     <h1>今週よく使ったalias</h1>
   </header>
   <div>
-    <a href="http://cdn-ak.f.st-hatena.com/images/fotolife/r/r7kamura/20140628/20140628143851.gif" target="_blank"><img src="http://cdn-ak.f.st-hatena.com/images/fotolife/r/r7kamura/20140628/20140628143851.gif" alt=""></a><a href="http://r7kamura.com/images/2014-06-21/ghq.gif" target="_blank"><img src="http://r7kamura.com/images/2014-06-21/ghq.gif" alt=""></a><a href="http://r7kamura.com/2014/06/21/ghq.html">GHQ - r7km/s</a>
+    <h3>o</h3>
+
+<p><a href="http://cdn-ak.f.st-hatena.com/images/fotolife/r/r7kamura/20140628/20140628143851.gif" target="_blank"><img src="http://cdn-ak.f.st-hatena.com/images/fotolife/r/r7kamura/20140628/20140628143851.gif" alt=""></a></p>
+
+<p>Gitレポジトリ内のファイルを適当なアプリケーションで開く。雑なので分かりやすくて良い。</p>
+
+<pre><code>alias o='git ls-files | peco | xargs open'
+</code></pre>
+
+<h3>e</h3>
+
+<p><a href="http://r7kamura.com/images/2014-06-21/ghq.gif" target="_blank"><img src="http://r7kamura.com/images/2014-06-21/ghq.gif" alt=""></a></p>
+
+<p>あとこれもよく使った。手元のマシン内のレポジトリに移動する。</p>
+
+<pre><code>alias e='cd $(ghq list -p | peco)'
+</code></pre>
+
+<h3>p</h3>
+
+<p><a href="http://r7kamura.com/2014/06/21/ghq.html">GHQ - r7km/s</a>にも書いたけど、 o と e で「pecoを使って絞り込んだ結果を他のコマンドに渡す」という処理が被ってしまったので p を用意した。</p>
+
+<pre><code>p() { peco | while read LINE; do $@ $LINE; done }alias o='git ls-files | p open'alias e='ghq list -p | p cd'
+</code></pre>
+
   </div>
 </article>
 

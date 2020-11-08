@@ -41,7 +41,92 @@
     <h1>ActiveRecord::EnumのI18n</h1>
   </header>
   <div>
-    <a href="https://github.com/r7kamura/activerecord-enum_translation">https://github.com/r7kamura/activerecord-enum_translation</a><a href="https://github.com/zmbacker/enum_help">https://github.com/zmbacker/enum_help</a>
+    <p>ActiveRecordのenumにI18n用の機能を提供するgemをつくった。</p>
+
+<p><a href="https://github.com/r7kamura/activerecord-enum_translation">https://github.com/r7kamura/activerecord-enum_translation</a></p>
+
+<h2>どういうものか</h2>
+
+<p>Userがenumを利用したstatusというカラムを持っているとすると、I18n用の辞書としてこういう風なデータを用意しておけば…</p>
+
+<pre><code class="yaml">ja:
+  activerecord:
+    attributes:
+      user:
+        name: 名前
+        status:
+          active: 利用中
+          inactive: 停止中
+</code></pre>
+
+<p>次のようにメソッドを呼び出すことで、翻訳された辞書が利用できるようになる、というやつ。</p>
+
+<pre><code class="ruby">user.human_enum_name_for(:status) #=&gt; "利用中"
+</code></pre>
+
+<p>技術的な難題の解決とかは全く狙っていなくて、どちらかと言うと、この手の仕組みにルールが無くてアプリ内のいろんなところにこれ系のいろんな実装が書かれがちなので、決まりを用意して仕組み化しましょうというのだけを狙って書いてみたところが大きい。</p>
+
+<h2>ある程度コード量が増えても良いので明示的にやる</h2>
+
+<p>同じ問題を解決するためのgemとして、昔からenum_helpというものがあるので、これを使っても良い。あとここでは紹介しないけれど似たようなものが幾つかあります。</p>
+
+<p><a href="https://github.com/zmbacker/enum_help">https://github.com/zmbacker/enum_help</a></p>
+
+<p>解決策としてもちろん知ってはいたのだけれど、個人的にはあまり気に入らなくて、別のものを自作してしまった。せっかくだから、気に入らなかったところなどについて書いてみる。</p>
+
+<p>例えば、何もしなくても済むようにデフォルトでわりと色々な機能を用意してくれる結果、コード中に足掛かりが何も生まれないところとかは、長年さまざまなRailsアプリの面倒を見てきた結果、かなり嫌いな要素になっている。</p>
+
+<p>enum_helpも、Railtieを利用して、ActiveRecord::Baseに勝手にmoduleをincludeして、<code>enum</code> を上書きして、enum利用時に勝手に便利メソッドが追加で生える…という、まあRails用のプラグインとしてはよくある仕組みで実装されているのだけど、できる限りこういうのも明示的にやりたい。</p>
+
+<p>ライブラリ側はmoduleを提供するので、ユーザにはそれをincludeしてもらって、includeするということはインスタンスメソッドが提供されるということが想定できて、想定通り単純で素直なインスタンスメソッドが提供される。それも何かマジカルな仕組みで動的に定義されたメソッドとかではなく普通のものが提供される。そういう単純な感じであってほしい。</p>
+
+<p>とはいえ便利なメソッドが動的に定義される方が便利やん、という意見があり、例えば前述のコードは以下のように引数の不要な形で書けるともっと嬉しい。</p>
+
+<pre><code class="ruby">user.human_enum_name_for_status #=&gt; "利用中"
+</code></pre>
+
+<p>今回書いたやつでは、こういうのが欲しいときは <code>human_enum_reader_for</code> というメソッドでわざわざ宣言させるようにしている。まあこの特異メソッドが呼び出せるようにするために、結局include時に若干マジカルなことをしてはいるんだけども。</p>
+
+<pre><code class="ruby">class User &lt; ApplicationRecord
+  enum status: %i[active inactive]
+  human_enum_reader_for :status
+end
+</code></pre>
+
+<p>こういう風に明示的にしておくと何が良いかというと、例えばこの機能から撤退しようということになったときに、「アプリ内の全てのこの機能について使われてるかどうか調べなきゃいけないじゃん……ほぼ無理だろ……」と途方に暮れる可能性が少しだけ減って、使われてそうなところに当たりがつけられるようになるので、少し希望的になる。今回の例について言えばまだなんとかなったりする範疇なので、言いたいことの例としてあまり良いものではないんだけど、まあなんか言わんとしてることは伝わってほしいです。</p>
+
+<h2>既存の翻訳辞書との兼ね合い</h2>
+
+<p>他に気になるところとして、既存の翻訳辞書に新たにenum用の値を追加するときに、例えばこういう定義場所が離れるような感じにしたくないという気持ちが少しあった。</p>
+
+<pre><code class="yaml">ja:
+  activerecord:
+    attributes:
+      user:
+        name: 名前
+  enums:
+    user:
+      status:
+        active: 利用中
+        inactive: 停止中
+</code></pre>
+
+<p>これはかなり単純化された例なので、実際にはattributesのところに既存の項目が沢山並んでいて、実際にはenum用のデータはかなり遠く離れたところに置かれることになる感じ。</p>
+
+<p>まあそれでも賛否両論あると思っていて、既存の辞書内にenum用の値を上手く忍ばせているせいで、逆にこのgemを廃止してenum用のデータだけ取り除きたくなったときに「もはやenum用のものかどうか分からん状況になっとるやんけこいつセンスねえな」と思うケースもあるかも。</p>
+
+<p>普段Railsのコード読んでて勘の良い人なら実装読むと分かると思うけど、今回書いたやつはほぼActiveModel::Translationの仕様と実装に寄せて書いている。</p>
+
+<p>仕様についてどの辺が寄せられているかというと、(READMEには書いてないけど) 例えば全てのモデルについてのデフォルト値を書きたい場合は以下のように書けたりもするし、</p>
+
+<pre><code class="yaml">ja:
+  attributes:
+    status:
+      active: 利用中
+</code></pre>
+
+<p>直接のクラス名について該当する翻訳が無かった場合は親クラスに遡ったりもするし、何も無かった場合は <code>String#humanize</code> で代替の値が用意されたりするし、defaultオプションでその値を外から指定できたりもする。</p>
+
   </div>
 </article>
 

@@ -8,14 +8,35 @@
     <atom:link href="https://r7kamura.com/feed.xml" rel="self"/>
     <title>r7kamura.com</title>
     <managingEditor>r7kamura@gmail.com (Ryo Nakamura)</managingEditor>
-    <lastBuildDate>Mon, 09 Nov 2020 03:21:09 +0900</lastBuildDate>
+    <lastBuildDate>Mon, 09 Nov 2020 03:30:41 +0900</lastBuildDate>
     
     <item>
       <title><![CDATA[CHILL OUT]]></title>
       <description><![CDATA[リラクゼーションドリンクのCHILL OUTを飲んだ。]]></description>
       <link>https://r7kamura.com/articles/2020-11-08-chill-out</link>
       <pubDate>Sun, 08 Nov 2020 00:00:00 +0900</pubDate>
-      <content:encoded><![CDATA[<a href="https://butfirstchillout.com/">CHILL OUT</a><a href="https://i.imgur.com/3682F2Z.jpg" target="_blank"><img src="https://i.imgur.com/3682F2Zh.jpg" alt="" title="サメとCHILL OUT"></a><a href="https://www.amazon.co.jp/dp/B07Z8LNMFD?tag=r7kamura07-22">Amazonの6本入りのやつ</a><a href="https://i.imgur.com/ccarLxd.jpg" target="_blank"><img src="https://i.imgur.com/ccarLxdh.jpg" alt="" title="梱包箱"></a><a href="https://www.amazon.co.jp/dp/B005LA4C6C?tag=r7kamura07-22">ヘテの梨ジュース</a><a href="http://www.aje.to/">アジェ</a><a href="https://i.imgur.com/hzBVtg1.jpg" target="_blank"><img src="https://i.imgur.com/hzBVtg1h.jpg" alt="" title="パソコンとCHILL OUT"></a><a href="https://note.com/mefilas/n/n355602907ce2">「CHILL OUT」ブランドサイトのつくりかた</a><a href="https://butfirstchillout.com/news/12/">調査結果</a>]]></content:encoded>
+      <content:encoded><![CDATA[<p>リラクゼーションドリンクの<a href="https://butfirstchillout.com/">CHILL OUT</a>を飲んだ。</p>
+
+<figure><a href="https://i.imgur.com/3682F2Zh.jpg" target="_blank"><img src="https://i.imgur.com/3682F2Zh.jpg" alt="" title="サメとCHILL OUT"></a><figcaption>サメとCHILL OUT</figcaption></figure>
+
+<p>味は透明感のある微炭酸の梨ジュースという感じ。微かに薬効のありそうな味が混ざっている。風呂上がりに少し落ち着いたあたりで飲むと美味しい。185mlとそこまで量は無いので、喉を潤すためにがぶがぶ飲む感じではないかも。</p>
+
+<p>都内のコンビニや、自販機でも売られているらしい。温泉施設の自販機などにも置かれているとか。自分は<a href="https://www.amazon.co.jp/dp/B07Z8LNMFD?tag=r7kamura07-22">Amazonの6本入りのやつ</a>を手に入れた。</p>
+
+<figure><a href="https://i.imgur.com/ccarLxdh.jpg" target="_blank"><img src="https://i.imgur.com/ccarLxdh.jpg" alt="" title="梱包箱"></a><figcaption>梱包箱</figcaption></figure>
+
+<p>これまで日中は水出しコーヒー、夜は炭酸水という感じで飲み物サイクルを回していたけれど、新たに風呂上がりに飲むものができて少し体験が良くなった。実際に効いているかどうかは対照実験していないので不明だけど、落ち着いた時間を設けるためのきっかけとして良いと思う。</p>
+
+<p>ちなみに、純粋な梨ジュースを追い求めるなら<a href="https://www.amazon.co.jp/dp/B005LA4C6C?tag=r7kamura07-22">ヘテの梨ジュース</a>をおすすめしたい。これは京都を中心に展開している塩ホルモン屋『<a href="http://www.aje.to/">アジェ</a>』でも供される韓国の梨ジュースで、ホソを焼きながら酒の休憩にこれを飲むのがまた美味い。</p>
+
+<figure><a href="https://i.imgur.com/hzBVtg1h.jpg" target="_blank"><img src="https://i.imgur.com/hzBVtg1h.jpg" alt="" title="パソコンとCHILL OUT"></a><figcaption>パソコンとCHILL OUT</figcaption></figure>
+
+<p>元々は株式会社I-neがCHILL OUTをつくっていて、後に日本コカ･コーラ株式会社の出資を受けながら合同会社Endianがつくられ、今はそこがCHILL OUT業をやっている、という経緯らしい。</p>
+
+<p><a href="https://note.com/mefilas/n/n355602907ce2">「CHILL OUT」ブランドサイトのつくりかた</a>というnoteの記事が面白かった。魔法部などのブランドサイトも手掛けているMEFILASさんのところの記事。こういう風に裏側の様子が透けて見えるのは面白い。</p>
+
+<p>それから、近年のリラックス方法に関する<a href="https://butfirstchillout.com/news/12/">調査結果</a>がCHILL OUTのブランドサイトで公開されていて、これがなかなか丁寧にまとめられていて面白かった。本能型のストレス発散行動が減っているというのは、体験や見聞の様子と一致している感覚があり興味深い。</p>
+]]></content:encoded>
       <guid>https://r7kamura.com/articles/2020-11-08-chill-out</guid>
     </item>
     
@@ -24,7 +45,23 @@
       <description><![CDATA[画像にキャプションを付ける方法をまた変えた。]]></description>
       <link>https://r7kamura.com/articles/2020-11-07-image-caption-revised</link>
       <pubDate>Sat, 07 Nov 2020 00:00:00 +0900</pubDate>
-      <content:encoded><![CDATA[<a href="/articles/2020-09-22-markdown-caption">当時も記事を書いた</a><a href="/images/2020-11-07-image-caption.jpg" target="_blank"><img src="/images/2020-11-07-image-caption.jpg" alt="" title="今日の朝食"></a>]]></content:encoded>
+      <content:encoded><![CDATA[<p>画像にキャプションを付ける方法をまた変えた。画像にキャプションを付け始めたのは2020年9月のことで、<a href="/articles/2020-09-22-markdown-caption">当時も記事を書いた</a>。</p>
+
+<figure><a href="/images/2020-11-07-image-caption.jpg" target="_blank"><img src="/images/2020-11-07-image-caption.jpg" alt="" title="今日の朝食"></a><figcaption>今日の朝食</figcaption></figure>
+
+<p>以前までは、画像とテキストが並んだひとまとまりの段落があれば、つまりimg要素とテキストノードだけを含むp要素があれば、それをfigure要素に変換するということをしていた。</p>
+
+<pre><code>![](/images/2020-11-07-image-caption.jpg)
+今日の朝食
+</code></pre>
+
+<p>今回は、img要素のtitle属性を使うように変更した。</p>
+
+<pre><code>![](/images/2020-11-07-image-caption.jpg "今日の朝食")
+</code></pre>
+
+<p>この用途でのtitle属性の利用には議論の余地があるかもしれないが、title属性はCommonMarkなどのMarkdown仕様にも含められているので、少なくとも変換過程で使うにはレバレッジが効きやすくて良さそうだ。</p>
+]]></content:encoded>
       <guid>https://r7kamura.com/articles/2020-11-07-image-caption-revised</guid>
     </item>
     
@@ -33,7 +70,20 @@
       <description><![CDATA[初めてウォッチパーティーを使った。]]></description>
       <link>https://r7kamura.com/articles/2020-11-05-watch-party</link>
       <pubDate>Thu, 05 Nov 2020 00:00:00 +0900</pubDate>
-      <content:encoded><![CDATA[]]></content:encoded>
+      <content:encoded><![CDATA[<p>初めてウォッチパーティーを使った。</p>
+
+<p>Amazonプライムビデオで配信されている動画を、プライム会員同士で同期しながら観たりできるやつ。PC用のWebブラウザで、Amazonプライムビデオからぽちぽちやると簡単に使える。発行されたURLを伝えて、適当に再生するだけ。</p>
+
+<p>チャット欄もあるので、上映中に会話することに気が引ける人でも安心。Discordで友達と通話しながら観ていたのだけど、自分も気になる派なのでマイクはミュートしてテキストで反応していた。音声は基本的に1チャンネルしかないから、テキストでやりとりする方が無限に会話できて気楽だ。</p>
+
+<h2>名探偵ピカチュウ</h2>
+
+<p>ウォッチパーティーで映画『名探偵ピカチュウ』を観た。もちろん良かった。色々な洋画へのオマージュがあって、盤外戦術でも盛り上がれる感じの映画だ。随所でカメラワークが良かった。</p>
+
+<h2>南極料理人</h2>
+
+<p>次の祝日に、今度はウォッチパーティーで映画『南極料理人』を観た。当然ながら良かった。若干ながら見る人を選ぶかもしれないが、やさしさを持って観ることをおすすめする。実体験からくるネタの豊富さと、日本の漫画のコマ割りに通じるようなテンポの良さが印象的だった。この日はごはんが進んだ。</p>
+]]></content:encoded>
       <guid>https://r7kamura.com/articles/2020-11-05-watch-party</guid>
     </item>
     
@@ -42,7 +92,60 @@
       <description><![CDATA[Amazon URL ShortenerというChrome拡張をつくった。]]></description>
       <link>https://r7kamura.com/articles/2020-11-04-amazon-url-shortener</link>
       <pubDate>Wed, 04 Nov 2020 00:00:00 +0900</pubDate>
-      <content:encoded><![CDATA[<a href="https://chrome.google.com/webstore/detail/amazon-url-shortener/bonkcfmjkpdnieejahndognlbogaikdg">Amazon URL Shortener</a><a href="https://github.com/r7kamura">自分のプロフィールページ</a><a href="https://github.com/sponsors/r7kamura">スポンサー募集ページ</a><a href="https://www.amazon.co.jp/gp/navigation-country/">Amazonのサイト切り替え機能</a><a href="http://www.amazon.ae">www.amazon.ae</a><a href="http://www.amazon.au">www.amazon.au</a><a href="http://www.amazon.ca">www.amazon.ca</a><a href="http://www.amazon.cn">www.amazon.cn</a><a href="http://www.amazon.co.jp">www.amazon.co.jp</a><a href="http://www.amazon.co.uk">www.amazon.co.uk</a><a href="http://www.amazon.com">www.amazon.com</a><a href="http://www.amazon.com.br">www.amazon.com.br</a><a href="http://www.amazon.com.mx">www.amazon.com.mx</a><a href="http://www.amazon.com.tr">www.amazon.com.tr</a><a href="http://www.amazon.de">www.amazon.de</a><a href="http://www.amazon.es">www.amazon.es</a><a href="http://www.amazon.fr">www.amazon.fr</a><a href="http://www.amazon.in">www.amazon.in</a><a href="http://www.amazon.it">www.amazon.it</a><a href="http://www.amazon.nl">www.amazon.nl</a><a href="http://www.amazon.sa">www.amazon.sa</a><a href="http://www.amazon.se">www.amazon.se</a><a href="http://www.amazon.sg">www.amazon.sg</a><a href="/images/2020-11-04-amazon-url-shortener.png" target="_blank"><img src="/images/2020-11-04-amazon-url-shortener.png" alt="" title="用意したアイコン"></a><a href="https://blogja.gyazo.com/entry/2020/07/29/173000">Gyazo Chrome Extensionの再公開について</a><a href="https://github.com/r7kamura/amazon_url_shortener/issues/4">GitHubのIssue</a>]]></content:encoded>
+      <content:encoded><![CDATA[<p><a href="https://chrome.google.com/webstore/detail/amazon-url-shortener/bonkcfmjkpdnieejahndognlbogaikdg">Amazon URL Shortener</a>というChrome拡張をつくった。</p>
+
+<p>これを入れると、Amazonの商品ページにアクセスしたときに、ロケーションバーに表示されるURLを自動的に短いものに書き換えてくれる。商品のURLを共有するときに、長ったらしいURLにならずに済んで嬉しい。</p>
+
+<h2>開発の背景</h2>
+
+<p>実はこの拡張は2013年頃に開発された。今回ひさしぶりに見直して、不要な機能を取り除いて名前を変えたり、日本以外の18地域用のAmazonのサイトにも対応したり、申請用の画像やテキストの管理体制を整えたりして、最終的にChromeウェブストアに公開するに至った。</p>
+
+<p>なぜ今になってこの改善に着手したのか。ハロウィンにかこつけてGitHubのプロフィールページがオレンジ色になったので、あらためて<a href="https://github.com/r7kamura">自分のプロフィールページ</a>や<a href="https://github.com/sponsors/r7kamura">スポンサー募集ページ</a>を眺めていて、過去につくったものを見直すことで何か価値を提供できるのではないか、という発想でこの活動に至った。このところ毎週土曜日に個人的なハッカソンをやっているので、そこでまとまった時間とモチベーションを確保できた。</p>
+
+<h2>いろいろなAmazon</h2>
+
+<p>対応も簡単そうだったので、今回を機にamazon.co.jp以外でもこの拡張を使えるようにした。<a href="https://www.amazon.co.jp/gp/navigation-country/">Amazonのサイト切り替え機能</a>で調べた限りでは、少なくとも現状これだけのドメインでAmazonのショッピングサイトが提供されている。</p>
+
+<ul>
+<li><a href="http://www.amazon.ae">www.amazon.ae</a></li>
+<li><a href="http://www.amazon.au">www.amazon.au</a></li>
+<li><a href="http://www.amazon.ca">www.amazon.ca</a></li>
+<li><a href="http://www.amazon.cn">www.amazon.cn</a></li>
+<li><a href="http://www.amazon.co.jp">www.amazon.co.jp</a></li>
+<li><a href="http://www.amazon.co.uk">www.amazon.co.uk</a></li>
+<li><a href="http://www.amazon.com">www.amazon.com</a></li>
+<li><a href="http://www.amazon.com.br">www.amazon.com.br</a></li>
+<li><a href="http://www.amazon.com.mx">www.amazon.com.mx</a></li>
+<li><a href="http://www.amazon.com.tr">www.amazon.com.tr</a></li>
+<li><a href="http://www.amazon.de">www.amazon.de</a></li>
+<li><a href="http://www.amazon.es">www.amazon.es</a></li>
+<li><a href="http://www.amazon.fr">www.amazon.fr</a></li>
+<li><a href="http://www.amazon.in">www.amazon.in</a></li>
+<li><a href="http://www.amazon.it">www.amazon.it</a></li>
+<li><a href="http://www.amazon.nl">www.amazon.nl</a></li>
+<li><a href="http://www.amazon.sa">www.amazon.sa</a></li>
+<li><a href="http://www.amazon.se">www.amazon.se</a></li>
+<li><a href="http://www.amazon.sg">www.amazon.sg</a></li>
+</ul>
+
+<p>いろいろあって楽しい。中国版 (.cn) なんかは見た目がわりと違って面白い。しかしURLやサイトの構造はほぼ変わらないらしく、対応自体は容易だった。</p>
+
+<h2>申請用リソースの管理</h2>
+
+<p>今回この拡張を申請するにあたり、画像やテキストなどのChromeウェブストアへの申請時に利用するリソース管理の透明性には少し気を配った。具体的には、申請時に利用したテキストは全てリポジトリ内にそのコピーを含めるようにした。またアイコンについても、そこまで凝ったものを用意したいとも思わなかったので、ImageMagickで機械的に生成し、その方法もスクリプトとしてリポジトリに残すようにした。</p>
+
+<figure><a href="/images/2020-11-04-amazon-url-shortener.png" target="_blank"><img src="/images/2020-11-04-amazon-url-shortener.png" alt="" title="用意したアイコン"></a><figcaption>用意したアイコン</figcaption></figure>
+
+<h2>ブラウザ拡張の開発事情</h2>
+
+<p>昔と比べると、ブラウザ拡張の仕様も随分と落ち着いており、また拡張の設定画面やデバッグ用の機能、Chromeウェブストアのダッシュボードの機能なんかも充実しているので、コードを書く上での困りどころは随分減っている。</p>
+
+<p>どちらかと言うと、開発自体が非常に簡単になった分、Chromeウェブストアの審査に対応することの大変さが浮き彫りになっている印象がある。自分も何度かChrome拡張をストアから取り下げられたことがあるが、要領を得ない定型文的な回答に疲弊することも多く、<a href="https://blogja.gyazo.com/entry/2020/07/29/173000">Gyazo Chrome Extensionの再公開について</a>などを読んでもこの状況は今でも大きくは改善されていないようで、その辺りは少し残念に感じた。とはいえ、これでも数年前の状況よりは大きく改善されている。</p>
+
+<p>ちなみにこの拡張も、第一次申請時には「アイテムの説明に過剰かつ / または無関係なキーワードが含まれている」という理由で不承認になったが、説明文を改善して再審査を受けることで承認された。<a href="https://github.com/r7kamura/amazon_url_shortener/issues/4">GitHubのIssue</a>に詳しい経緯をまとめてある。</p>
+
+<p>何か状況をもっと良くしていくことはできると思うので、めげずにChrome拡張の開発を続けたりフィードバックを送り続けたりして改善に貢献したいと思う。</p>
+]]></content:encoded>
       <guid>https://r7kamura.com/articles/2020-11-04-amazon-url-shortener</guid>
     </item>
     
@@ -51,7 +154,16 @@
       <description><![CDATA[象印のNW-ES07-BZという炊飯器を買った。]]></description>
       <link>https://r7kamura.com/articles/2020-11-03-rice-cooker</link>
       <pubDate>Tue, 03 Nov 2020 00:00:00 +0900</pubDate>
-      <content:encoded><![CDATA[<a href="https://www.amazon.co.jp/dp/B07TWC6C2D?tag=r7kamura07-22">NW-ES07-BZ</a><a href="/images/2020-11-03-rice-cooker.jpg" target="_blank"><img src="/images/2020-11-03-rice-cooker.jpg" alt="" title="NW-ES07-BZ"></a><a href="https://blog.sushi.money/entry/2020/07/20/205525">ひとでさんが使っている</a>]]></content:encoded>
+      <content:encoded><![CDATA[<p>象印の<a href="https://www.amazon.co.jp/dp/B07TWC6C2D?tag=r7kamura07-22">NW-ES07-BZ</a>という炊飯器を買った。</p>
+
+<figure><a href="/images/2020-11-03-rice-cooker.jpg" target="_blank"><img src="/images/2020-11-03-rice-cooker.jpg" alt="" title="NW-ES07-BZ"></a><figcaption>NW-ES07-BZ</figcaption></figure>
+
+<p>炊飯器については門外漢すぎて特に選定基準が無く、象印かパナソニックの2019年から2020年あたりの機種で悩んでいたが、最終的に<a href="https://blog.sushi.money/entry/2020/07/20/205525">ひとでさんが使っている</a>という情報も加味してこれになった。しばらく使ったがかなり気に入っている。米がおいしくてすごい。炊きたての米だけ食べておかわりできる程度にはうまい。</p>
+
+<p>思い返せば今年の1月頃、Discordで所属しているサーバーの抱負2020というチャンネルに「炊飯器を買い換える」と書き残していた。たぶん年始から飲んで酔っていたのだろう。思いがけず特別定額給付金という後押しも加わり、遂にこの抱負を達成できた。</p>
+
+<p>5年ほど利用する計画で居る。過去5年間を振り返ると、1回あたり2合の米を年間150回ほど炊いている。そうすると、5年で750回炊飯することになる。Amazonでこの炊飯器が大体6万円で売られていたから、1回2合の米を炊くのに+80円という計算になる。自分はこのところ2合あたり176円の米を食べていたが、たとえばこれを令和2年産魚沼産コシヒカリのいいやつに変更しようとすると、2合あたり300円ほどになり、1回2合の米を炊くのに+124円という計算になる。つまり5年間米を良いものに変更するよりは安いぐらいの出費だ。</p>
+]]></content:encoded>
       <guid>https://r7kamura.com/articles/2020-11-03-rice-cooker</guid>
     </item>
     
@@ -60,7 +172,18 @@
       <description><![CDATA[ルックプラス バスタブクレンジング 銀イオンプラスを手に入れた。]]></description>
       <link>https://r7kamura.com/articles/2020-11-02-lookplus</link>
       <pubDate>Mon, 02 Nov 2020 00:00:00 +0900</pubDate>
-      <content:encoded><![CDATA[<a href="https://www.amazon.co.jp/dp/B0851YMDNN?tag=r7kamura07-22">ルックプラス バスタブクレンジング 銀イオンプラス</a><a href="/images/2020-11-02-lookplus.jpg" target="_blank"><img src="/images/2020-11-02-lookplus.jpg" alt="" title="スプレーボトルと詰替え用のそれ"></a><a href="/articles/2020-10-11-hanging-shampoo">浴室に置くものを見直した</a><a href="https://www.muji.com/jp/ja/store/cmdty/detail/4945247390261">ポリボトル スプレー付 500ml</a>]]></content:encoded>
+      <content:encoded><![CDATA[<p><a href="https://www.amazon.co.jp/dp/B0851YMDNN?tag=r7kamura07-22">ルックプラス バスタブクレンジング 銀イオンプラス</a>を手に入れた。</p>
+
+<figure><a href="/images/2020-11-02-lookplus.jpg" target="_blank"><img src="/images/2020-11-02-lookplus.jpg" alt="" title="スプレーボトルと詰替え用のそれ"></a><figcaption>スプレーボトルと詰替え用のそれ</figcaption></figure>
+
+<p>ルックプラス バスタブクレンジングは、浴槽にスプレーして1分後にシャワーで流すだけで汚れが簡単に落ちるというやつで、ここ2年ほど見聞している限りでもかなり人気の高いやつ。自分も使い続けていて、その性能にはかなり満足している。不満点と言えば、最近<a href="/articles/2020-10-11-hanging-shampoo">浴室に置くものを見直した</a>りしたこともあってパッケージの主張が強くなりすぎてしまうことと、わりとすぐに空になってしまうので何となく勿体無い気持ちになってしまうことが不満なぐらいだった。</p>
+
+<p>銀イオンプラスという新しいシリーズが販売されるようになっていたので、この機会に適当なスプレーボトルと一緒に詰め替えのものを買っておこう、ということでAmazonでそれぞれ見繕って購入した。ちなみに、こういった複数個でしか手に入れられない詰替え商品の余りや食品の備蓄みたいなものは収納場所に困りがちなので、自分はウォーキングクローゼットや玄関付近にそれぞれ格納することにしている。衣服や靴をほとんど持たないので、その辺の空間が余りがちだ。</p>
+
+<p>Amazonスプレーボトル探しあるあるなのだけど、こういうものを探すと海外製の似たような商品が無数に出てきて、なぜか大体2個セットで売られている。昨今の情勢もあって、アルコール散布剤として色々な商品が急激に増えたらしい。ルックプラス バスタブクレンジングの詰め替えサイズは最小でも450mlなので、500mlで安くてスプレーからしっかり霧状のものが散布されそうなものを適当に選んで購入した。</p>
+
+<p>いざ詰め替える段階になって思ったのだが、透明ではないボトルだと中が見えないので、溢れそうとか減ってきたとかが分からない。これから買う人には半透明のものをおすすめしたい。購入したものはしっかりその仕事を果たしてくれてこそいるが、正直販売元も製造元も性能もそこまで信頼ならず、他人に勧められるようなものではないので、共通規格としては無印良品の<a href="https://www.muji.com/jp/ja/store/cmdty/detail/4945247390261">ポリボトル スプレー付 500ml</a>あたりを買っておくのがおすすめだ。この辺もAmazonで販売されるようになってくれると嬉しいものだ。</p>
+]]></content:encoded>
       <guid>https://r7kamura.com/articles/2020-11-02-lookplus</guid>
     </item>
     
@@ -69,7 +192,36 @@
       <description><![CDATA[rubygems.orgやnpmjs.comに登録しているパッケージの所有者を追加する方法について。]]></description>
       <link>https://r7kamura.com/articles/2020-10-31-adding-owner-of-gem-and-npm</link>
       <pubDate>Sat, 31 Oct 2020 00:00:00 +0900</pubDate>
-      <content:encoded><![CDATA[<a href="https://guides.rubygems.org/managing-owners-using-ui/">Managing Owners via UI - RubyGems Guides</a>]]></content:encoded>
+      <content:encoded><![CDATA[<p>rubygems.orgやnpmjs.comに登録しているパッケージの所有者を追加する方法について。</p>
+
+<h2>概要</h2>
+
+<p>それぞれのサイトから追加できる。</p>
+
+<h2>背景</h2>
+
+<p>以前所属していた組織から、幾つかのgemやnpmパッケージにうちの組織用の所有者を追加してくれないかという依頼を受け、やり方をあらためて調べながら作業する機会があったので、書き記しておくことにした。</p>
+
+<h2>rubygems.org</h2>
+
+<p>所有者管理ページにて、所有者として追加したいアカウントに紐付くメールアドレスかアカウント名を入力すると、そのアカウントのメールアドレスに承認用のメールが送信される。それを利用して48時間以内に承認してもらえれば、無事所有者として登録される。</p>
+
+<p>rubygems.orgのサイトで、そのやり方が説明されている。</p>
+
+<figure>
+  <blockquote>
+    <p>Adding user as an owner to your gem</p>
+    <p>Step: 1 Enter the email or handle of the user in the text field labels Email/Handle and click Add Owner.</p>
+    <p>Step: 2 The user added as an owner will be sent an email with a link to confirm the ownership. The ownership will be confirmed after the user clicks on the confirmation link within 48 hours. On confirmation, all the existing owners will be notified about the owner addition.</p>
+    <p>Note that the user won’t have access to the gem until they confirm the ownership addition.</p>
+  </blockquote>
+  <figcaption><a href="https://guides.rubygems.org/managing-owners-using-ui/">Managing Owners via UI - RubyGems Guides</a></figcaption>
+</figure>
+
+<h2>npmjs.com</h2>
+
+<p>パッケージの設定ページで、所有者として追加したいアカウントの名前を入力すれば、その時点で所有者として登録される。</p>
+]]></content:encoded>
       <guid>https://r7kamura.com/articles/2020-10-31-adding-owner-of-gem-and-npm</guid>
     </item>
     
@@ -78,7 +230,24 @@
       <description><![CDATA[rack-okというGemをつくった。]]></description>
       <link>https://r7kamura.com/articles/2020-10-30-rack-ok</link>
       <pubDate>Fri, 30 Oct 2020 00:00:00 +0900</pubDate>
-      <content:encoded><![CDATA[<a href="https://github.com/r7kamura/rack-ok">rack-ok</a><a href="https://github.com/mirakui/rack-health">rack-health</a>]]></content:encoded>
+      <content:encoded><![CDATA[<p><a href="https://github.com/r7kamura/rack-ok">rack-ok</a>というGemをつくった。</p>
+
+<h2>概要</h2>
+
+<p>何かというと、GET /healthに対して200 OKを返すだけのRackミドルウェア。冗談みたいなプログラムだけど、今更Rackの世界に入門してハローワールドしたかった訳ではなくて、ロードバランサーからのヘルスチェックに応答させるために、こういう実装が必要になる機会がそれなりにある。</p>
+
+<h2>背景</h2>
+
+<p>Railsアプリとかだと、こういうのは（適切なという意味ではなく雑なという意味で）適当なコントローラで実装されたりするのだけど、機能てんこ盛りのコントローラで200を返すだけの処理をやるのはどうにも無駄が多い。それに、ヘルスチェックはHTTPでリクエストが飛んでくるので、SSL対応用の機能を有効化しようとするとヘルスチェック用のエンドポイントだけ確認対象から除外する必要が出てきたりする。Rackミドルウェアだと、その辺の問題が解決できる。</p>
+
+<p>ヘルスチェック用のRackミドルウェアとしては他に<a href="https://github.com/mirakui/rack-health">rack-health</a>というのがあり、自分も長らく愛用していた。色々と運用していると、動的にレスポンスを切り替えたりするような機能はこの層には不要だなと思うことも多く、200を返す機能さえあれば十分だろうということで、こういうものを自作するに至った。似たようなものが無数にあるだろうと思うので、その中の一つに過ぎない。</p>
+
+<p>各アプリで独自のパス (/healthや/health_check) と独自のレスポンスボディ (OKやhealthやIt works!) を現状利用しており、それらをいきなり変える訳にはいかないと思うので、一応パスとレスポンスボディはオプションで変更できるようにしてある。200を返すというところは変えられないので、それがrack-okのOKたるアイデンティティとなっている。</p>
+
+<h2>名前</h2>
+
+<p>最初はrack-health_checkという名前で開発を進めていたが、rack-healthcheckという名前のgemが存在するとrack-health_checkという名前のgemはリリースできないという事実がリリース時のエラーで発覚し、急遽再考してrack-okに変更した。今となってはrack-okの方が良かったと思う。</p>
+]]></content:encoded>
       <guid>https://r7kamura.com/articles/2020-10-30-rack-ok</guid>
     </item>
     
@@ -87,7 +256,120 @@
       <description><![CDATA[気が向いたときにホットクックで常備菜をつくっている。]]></description>
       <link>https://r7kamura.com/articles/2020-10-29-tsukurioki</link>
       <pubDate>Thu, 29 Oct 2020 00:00:00 +0900</pubDate>
-      <content:encoded><![CDATA[<a href="/images/2020-10-29-tsukurioki.jpg" target="_blank"><img src="/images/2020-10-29-tsukurioki.jpg" alt=""></a>]]></content:encoded>
+      <content:encoded><![CDATA[<p><a href="/images/2020-10-29-tsukurioki.jpg" target="_blank"><img src="/images/2020-10-29-tsukurioki.jpg" alt=""></a></p>
+
+<p>気が向いたときにホットクックで常備菜をつくっている。</p>
+
+<h2>おくら</h2>
+
+<ol>
+<li>塩ずりする
+
+<ul>
+<li>やらなくても良い</li>
+</ul>
+</li>
+<li>鍋に入れる</li>
+<li>水を入れる
+
+<ul>
+<li>少しでいい</li>
+<li>なくてもいける可能性があるが未検証</li>
+</ul>
+</li>
+<li>煮る
+
+<ul>
+<li>2分</li>
+<li>まぜない</li>
+</ul>
+</li>
+<li>保存する
+
+<ul>
+<li>薄めためんつゆベースの液に浸すと良い</li>
+</ul>
+</li>
+</ol>
+
+<p>薄めの味付けにしておくと味変できる。</p>
+
+<h2>なす</h2>
+
+<ol>
+<li>がくを落とす
+
+<ul>
+<li>やらなくても良い</li>
+<li>がくは食べると少し痛い</li>
+<li>包丁を当ててなすを回すと良い</li>
+</ul>
+</li>
+<li>鍋に入れる
+
+<ul>
+<li>切ったりする必要は無い</li>
+<li>切る方がまずくなるまである</li>
+</ul>
+</li>
+<li>めんつゆを入れる
+
+<ul>
+<li>適当でいい</li>
+<li>濃すぎは良くない</li>
+</ul>
+</li>
+<li>煮る
+
+<ul>
+<li>10分</li>
+<li>まぜない</li>
+</ul>
+</li>
+<li>保存する
+
+<ul>
+<li>煮汁にそのまま浸すと良い</li>
+</ul>
+</li>
+</ol>
+
+<p>生姜が合う。</p>
+
+<h2>きのこ</h2>
+
+<ol>
+<li>適当な大きさにする
+
+<ul>
+<li>切ってあるやつを買えると楽できる</li>
+</ul>
+</li>
+<li>鍋に入れる</li>
+<li>塩とオリーブオイルと輪切り唐辛子とにんにくを入れる
+
+<ul>
+<li>なくてもいい</li>
+<li>オリーブオイルは欲しい</li>
+<li>塩は材料の0.6%の重量ぐらいが目安だが適当でいい</li>
+</ul>
+</li>
+<li>煮る
+
+<ul>
+<li>2分</li>
+<li>まぜる</li>
+</ul>
+</li>
+<li>保存する</li>
+</ol>
+
+<p>冷製のアヒージョみたいなもの。</p>
+
+<hr>
+
+<p>その昔、インターネットは料理のレシピを共有するような牧歌的な用途で使われていた、みたいな記述を昔何かの本で読んだ気がするが、出典も何も思い出せないし夢だったかもしれない。</p>
+]]></content:encoded>
       <guid>https://r7kamura.com/articles/2020-10-29-tsukurioki</guid>
     </item>
     
@@ -96,7 +378,40 @@
       <description><![CDATA[rack-captureというGemをつくった。]]></description>
       <link>https://r7kamura.com/articles/2020-10-28-rack-capture</link>
       <pubDate>Wed, 28 Oct 2020 00:00:00 +0900</pubDate>
-      <content:encoded><![CDATA[<a href="https://github.com/r7kamura/rack-capture">rack-capture</a><a href="/articles/2020-09-23-this-site-setup-2020">このサイトの実装 2020年版</a><a href="https://github.com/rubygems/rubygems/pull/4041">Pull Request</a>]]></content:encoded>
+      <content:encoded><![CDATA[<p><a href="https://github.com/r7kamura/rack-capture">rack-capture</a>というGemをつくった。</p>
+
+<h2>概要</h2>
+
+<p>RackアプリとURLを与えると、レスポンスボディを静的ファイルとして書き出してくれる、というもの。</p>
+
+<h2>背景</h2>
+
+<p><a href="/articles/2020-09-23-this-site-setup-2020">このサイトの実装 2020年版</a>でも書いたように、このサイトのベースはRackアプリとして実装されている。手元でプレビューするときも、rackupを使って動作確認している。GitHub Pagesでホスティングするために、その時点での全ページのスナップショットを静的ファイルとして書き出す必要がある訳だが、そのためにこの実装を用意していた。今回はその仕組みを整えて、Gemとして切り出した。</p>
+
+<pre><code>%w[
+  https://r7kamura.com/
+  https://r7kamura.com/articles
+  https://r7kamura.com/articles/2020-10-30.html
+  https://r7kamura.com/articles/2020-10-29.html
+  https://r7kamura.com/articles/2020-10-28.html
+  https://r7kamura.com/feed.xml
+  https://r7kamura.com/sitemap.txt
+].each do |url|
+  Rack::Capture.call(
+    app: my_rack_application,
+    url: url
+  )
+end
+</code></pre>
+
+<p>このサイトの場合は、こういう感じのものが呼び出されることになる。実際には、articlesディレクトリとstaticディレクトリの中身を見ながらもう少し動的にURL群を用意しているが、大体こんな感じ。</p>
+
+<hr>
+
+<h2>後日譚</h2>
+
+<p>これをつくっている最中で、Bundlerが生成するREADMEに無駄な空行が含まれているのが気になり、結局Bundlerに<a href="https://github.com/rubygems/rubygems/pull/4041">Pull Request</a>を出すことになった。後日Mergeされたので、次バージョンのBundlerからは生成されるREADMEがより簡潔なものになるはず。</p>
+]]></content:encoded>
       <guid>https://r7kamura.com/articles/2020-10-28-rack-capture</guid>
     </item>
     
@@ -105,7 +420,24 @@
       <description><![CDATA[取り留めのない事柄が一定量溜まると、雑記として吐き出される。]]></description>
       <link>https://r7kamura.com/articles/2020-10-27-openearch-keyboard-title</link>
       <pubDate>Tue, 27 Oct 2020 00:00:00 +0900</pubDate>
-      <content:encoded><![CDATA[<a href="https://r7kamura.com/articles/2019-11-27-opensearch">OpenSearchに対応</a><a href="https://secon.dev/entry/2020/10/25/210000/">検索への導線を追加されていた</a><a href="/articles/2020-10-21-keyboard-g913-tkl">キーボード G913-TKL</a><a href="/articles/2020-09-16-gaming-mouse-pad">光るマウスパッド</a>]]></content:encoded>
+      <content:encoded><![CDATA[<p>取り留めのない事柄が一定量溜まると、雑記として吐き出される。</p>
+
+<h2>OpenSearch</h2>
+
+<p>過去に書いた<a href="https://r7kamura.com/articles/2019-11-27-opensearch">OpenSearchに対応</a>という記事を少し校正した。せこんさんが自身のサイトのナビゲーションに<a href="https://secon.dev/entry/2020/10/25/210000/">検索への導線を追加されていた</a>ので、もしかしたら因果が巡ってこのOpenSearchの記事が読まれることになるかもしれない。というかここで言及しちゃったら因果が逆転してしまうような気もする。</p>
+
+<p>ところで、OpenSearch description fileを吐いていないようなサイトでも、このロケーションバーから検索する機能が有効化されることがあるらしい、ということをGoogle Chromeを利用している上で学んだ。GET /searchなどの明らかに検索らしきURLへの導線が存在していると、Google Chromeが勝手に推測してくれるとかだろうか。詳しい人がいたら教えてほしい。</p>
+
+<h2>キーボード</h2>
+
+<p><a href="/articles/2020-10-21-keyboard-g913-tkl">キーボード G913-TKL</a>で新しいキーボードを使い始めた旨を書いたが、今のところ本当に良い。普段使う道具の見た目の重要性を改めて感じた。何気にマウスもロジクール製品を使っているので、光のパターンを同期できてこれも体験が良い。</p>
+
+<p>一方で<a href="/articles/2020-09-16-gaming-mouse-pad">光るマウスパッド</a>はRazer製品なので、これは同期できなくてかなり惜しい。デバイスが綺麗に光った方が嬉しいとかいうのは普遍的に存在する感情なのだから、共通仕様を模索するとかオープンなAPIを提供するとかして仲良くしてほしい。この辺の実装はなんというか時代遅れな雰囲気を感じる。</p>
+
+<h2>title要素</h2>
+
+<p>ページのtitle要素を「日記 - r7kamura.com」みたいなものに変えた方が良いのか逡巡することがあるが、修飾が無い方が文章中でより自然な表現としてリンクを差し込めるので、今はあえてこのように何も修飾しない形にしている。後にリンクが張られることを意識することによって、記事名の作成に制約というか一定のリズムや法則性が生まれることを期待したい。</p>
+]]></content:encoded>
       <guid>https://r7kamura.com/articles/2020-10-27-openearch-keyboard-title</guid>
     </item>
     
@@ -114,7 +446,78 @@
       <description><![CDATA[TwitterやGitHubからDiscordに自動で投稿させる方法と、この手の自動投稿を扱う際のより良いチャンネル設計について。]]></description>
       <link>https://r7kamura.com/articles/2020-10-26-discord-webhooks-and-channels</link>
       <pubDate>Mon, 26 Oct 2020 00:00:00 +0900</pubDate>
-      <content:encoded><![CDATA[<a href="https://yatteiki.fm/">yatteiki.fm</a><a href="https://support.discord.com/hc/en-us/articles/228383668-Intro-to-Webhooks">DiscordのWebhookのドキュメント</a><a href="https://ifttt.com/">IFTTT</a>]]></content:encoded>
+      <content:encoded><![CDATA[<p>TwitterやGitHubからDiscordに自動で投稿させる方法と、この手の自動投稿を扱う際のより良いチャンネル設計について。</p>
+
+<h2>背景</h2>
+
+<p>DiscordのYATTEIKIサーバー (<a href="https://yatteiki.fm/">yatteiki.fm</a>の収録や管理に使っているサーバー) のWebhookの設定とチャンネルの設計を見直す機会があったので、ついでに設定方法をまとめておこうと思い、この記事を書くことにした。</p>
+
+<h2>GitHub</h2>
+
+<p>DiscordでWebhookの受信用URLを発行し、GitHubのリポジトリでWebhookの送信用設定を行うと、そのリポジトリでの様々な変更をDiscordに通知できる。</p>
+
+<p>DiscordはGitHubのWebhookへのサポートが手厚く、簡単に設定できるように特別な口を設けているので、設定も簡単だ。具体的には、Discordで発行したWebhookのURLの末尾に <code>/github</code> を足したものをGitHubに設定するだけで良い。どんなイベントを通知するかも、GitHub側で簡単に設定できる。</p>
+
+<p>具体的な設定方法は、<a href="https://support.discord.com/hc/en-us/articles/228383668-Intro-to-Webhooks">DiscordのWebhookのドキュメント</a>を見るのが良い。</p>
+
+<h2>Twitter</h2>
+
+<p>DiscordでWebhookの受信用URLを発行し、<a href="https://ifttt.com/">IFTTT</a>でTwitter検索用のアプレット（IFTTTにおける自動化の設定の単位）を設定すると、Twitterでの定期的な検索結果をDiscordに通知できる。</p>
+
+<p>TwitterはWebhookを送信する機能を設けていないので、IFTTTが必要になる。IFTTTは無料アカウントだと3つまでアプレットを設定できる。IFTTTからTwitterの機能を利用する場合は、検索だけの利用でも連携するためのTwitterアカウントが必要になるので注意。</p>
+
+<p>IFTTT側で以下のようにレスポンスボディを設定すると、検索条件に一致したツイートのURLが通知されるようになる。Discordが自動的にURLの内容を展開してくれるので、ツイートの中身はそこから読める。</p>
+
+<pre><code>{
+  "content": "{{LinkToTweet}}"
+}
+</code></pre>
+
+<hr>
+
+<p>DiscordやSlackなどでこういう自動投稿的なものを管理する上で、自分が気を付けたいと思っていることについて触れておく。</p>
+
+<h2>自動投稿専用チャンネル</h2>
+
+<p>人間の投稿するチャンネルにBotによる自動的な投稿が混ざると、盛り上がっているうちは良いが、そのうち居心地が悪くなったり、廃墟化したりしやすくなる。通知・未読・購読・権限・アーカイブなどはチャンネル単位で設定できるように設計されているので、この手の自動的な投稿にはそれぞれ専用のチャンネルを用意することを基本的にはおすすめしたい。</p>
+
+<h2>チャンネルとカテゴリの設計</h2>
+
+<p>更に踏み込んだ話をすると、カテゴリについても配慮しておいた方が良い。Discordではカテゴリごとミュートする機能がある。これは例えば「自動投稿の通知は受け取りたくないが未読管理はしたい」といったケースなどで活用できる。こういう事情があるので、できれば自動投稿系のチャンネルや死んだチャンネルをそれぞれカテゴリにまとめるなどしておくと、取り回しやすくなる。</p>
+
+<p>例えばYATTEIKIサーバーでは、簡略化するとこういう感じでチャンネルが配置されている。</p>
+
+<ul>
+<li>VOICE
+
+<ul>
+<li>🔊スタジオ</li>
+</ul>
+</li>
+<li>TEXT
+
+<ul>
+<li>#general</li>
+</ul>
+</li>
+<li>BOT
+
+<ul>
+<li>#analytics</li>
+<li>#github</li>
+<li>#twitter</li>
+</ul>
+</li>
+<li>ARCHIVE
+
+<ul>
+<li>...</li>
+</ul>
+</li>
+</ul>
+
+<p>カテゴリの設計や未読の管理はキーボードや携帯端末での操作性にも関わってくる。この辺りに普段から気を配っておくと、より快適な人生を過ごせるようになるはず。</p>
+]]></content:encoded>
       <guid>https://r7kamura.com/articles/2020-10-26-discord-webhooks-and-channels</guid>
     </item>
     
@@ -123,7 +526,58 @@
       <description><![CDATA[大きなサメのぬいぐるみの購入方法について。]]></description>
       <link>https://r7kamura.com/articles/2020-10-25-shark</link>
       <pubDate>Sun, 25 Oct 2020 00:00:00 +0900</pubDate>
-      <content:encoded><![CDATA[<a href="https://twitter.com/gawrgura">@gawrgura</a><a href="/articles/2016-11-22-h">サメを支える技術</a><a href="/images/2020-10-25-shark-gura.jpg" target="_blank"><img src="/images/2020-10-25-shark-gura.jpg" alt="" title="サメの配信を見るサメ"></a><a href="https://www.chumbuddy.com/">chumbuddy.com</a><a href="https://www.amazon.com/gp/product/B00KDKTWZG/">amazon.com</a><a href="https://www.amazon.co.jp/dp/B007RSKAZ8?tag=r7kamura07-22">sofiaの手芸用わた</a><a href="/images/2020-10-25-shark-skin.jpg" target="_blank"><img src="/images/2020-10-25-shark-skin.jpg" alt="" title="わたを詰める前のショッキングなサメ"></a><a href="/images/2020-10-25-shark-wadding.jpg" target="_blank"><img src="/images/2020-10-25-shark-wadding.jpg" alt="" title="サメに入れられる前のわた"></a><a href="/images/2020-10-25-shark-tokyo.jpg" target="_blank"><img src="/images/2020-10-25-shark-tokyo.jpg" alt="" title="シェアハウスから引っ越す日のサメ"></a><a href="/images/2020-10-25-shark-roomba.jpg" target="_blank"><img src="/images/2020-10-25-shark-roomba.jpg" alt="" title="ルンバから退避するサメ"></a><a href="/images/2020-10-25-shark-kotatsu.jpg" target="_blank"><img src="/images/2020-10-25-shark-kotatsu.jpg" alt="" title="こたつに入っているサメ"></a><a href="/images/2020-10-25-shark-kyoto.jpg" target="_blank"><img src="/images/2020-10-25-shark-kyoto.jpg" alt="" title="京都から引っ越す日のサメ"></a><a href="/images/2020-10-25-shark-kyoto-2.jpg" target="_blank"><img src="/images/2020-10-25-shark-kyoto-2.jpg" alt="" title="新しい部屋でくつろぐサメ"></a><a href="/images/2020-10-25-shark-ringfit.jpg" target="_blank"><img src="/images/2020-10-25-shark-ringfit.jpg" alt="" title="リングフィットをやるとき少し邪魔になるサメ"></a><a href="/images/2020-10-25-shark-desk.jpg" target="_blank"><img src="/images/2020-10-25-shark-desk.jpg" alt="" title="新しい机と一緒に写るサメ"></a><a href="https://www.amazon.co.jp/dp/B00IC60G62?tag=r7kamura07-22">Amazonからも購入できる</a><a href="https://www.amazon.co.jp/dp/B00GRQ9X5Y?tag=r7kamura07-22">Amazonから購入できる</a>]]></content:encoded>
+      <content:encoded><![CDATA[<p>大きなサメのぬいぐるみの購入方法について。</p>
+
+<h2>背景</h2>
+
+<p>最近サメの人気が高まっているのか、サメのぬいぐるみについてよく質問されるようになった。たぶん<a href="https://twitter.com/gawrgura">@gawrgura</a>のせいだろう。つい先日質問してきた人は、サメ好きの友達にプレゼントするつもりらしい。いい友達だ。これまでこういう質問に対しては昔書いた<a href="/articles/2016-11-22-h">サメを支える技術</a>を紹介していたが、情報が古くなってきたので、この機会に新たに書き直すことにした。</p>
+
+<figure><a href="/images/2020-10-25-shark-gura.jpg" target="_blank"><img src="/images/2020-10-25-shark-gura.jpg" alt="" title="サメの配信を見るサメ"></a><figcaption>サメの配信を見るサメ</figcaption></figure>
+
+<h2>購入方法</h2>
+
+<p>2020年10月25日現在では、この大きなサメのぬいぐるみは<a href="https://www.chumbuddy.com/">chumbuddy.com</a>から購入できる。2015年には<a href="https://www.amazon.com/gp/product/B00KDKTWZG/">amazon.com</a>でも購入できたので、自分はここから購入したのだけど、今は取り扱っていないようだ。惜しいことだ。</p>
+
+<p>chumbuddy.comでは、わた入りザメとわた無しザメが売られている。</p>
+
+<ul>
+<li>体積が増えるので海外からの配送が大変そう</li>
+<li>出所不明のわたをなんとなく信用できない</li>
+<li>わたの調達方法を知っておきたい</li>
+</ul>
+
+<p>と色々懸念があったので、自分はわた無しの方を購入して、Amazonで<a href="https://www.amazon.co.jp/dp/B007RSKAZ8?tag=r7kamura07-22">sofiaの手芸用わた</a>を6kg分購入した。これだけ大量に買うと結構な値段になるので、結局わた有りの方とそこまで合計金額は変わらない。</p>
+
+<figure><a href="/images/2020-10-25-shark-skin.jpg" target="_blank"><img src="/images/2020-10-25-shark-skin.jpg" alt="" title="わたを詰める前のショッキングなサメ"></a><figcaption>わたを詰める前のショッキングなサメ</figcaption></figure>
+
+<figure><a href="/images/2020-10-25-shark-wadding.jpg" target="_blank"><img src="/images/2020-10-25-shark-wadding.jpg" alt="" title="サメに入れられる前のわた"></a><figcaption>サメに入れられる前のわた</figcaption></figure>
+
+<p>このわたは圧縮されていて、袋から取り出すとめちゃくちゃ大きくなる。数年間でへたってきてヒレがふにゃっとしてくるので、たまに買い足してあげるとヒレが立って元気になる。ちなみにこのサメには口から入れて、140cmぐらいの人間なら全身飲み込めるが、やると色々ヘタって目に見えて元気が無さそうな見た目になるので、長生きさせたいならあまり人を食べさせるべきではない。</p>
+
+<h2>サメアルバム</h2>
+
+<p>5年間引っ越しで転々としながら連れ回して、色々と写真が貯まってきたので、この機会に貼っておく。</p>
+
+<figure><a href="/images/2020-10-25-shark-tokyo.jpg" target="_blank"><img src="/images/2020-10-25-shark-tokyo.jpg" alt="" title="シェアハウスから引っ越す日のサメ"></a><figcaption>シェアハウスから引っ越す日のサメ</figcaption></figure>
+
+<figure><a href="/images/2020-10-25-shark-roomba.jpg" target="_blank"><img src="/images/2020-10-25-shark-roomba.jpg" alt="" title="ルンバから退避するサメ"></a><figcaption>ルンバから退避するサメ</figcaption></figure>
+
+<figure><a href="/images/2020-10-25-shark-kotatsu.jpg" target="_blank"><img src="/images/2020-10-25-shark-kotatsu.jpg" alt="" title="こたつに入っているサメ"></a><figcaption>こたつに入っているサメ</figcaption></figure>
+
+<figure><a href="/images/2020-10-25-shark-kyoto.jpg" target="_blank"><img src="/images/2020-10-25-shark-kyoto.jpg" alt="" title="京都から引っ越す日のサメ"></a><figcaption>京都から引っ越す日のサメ</figcaption></figure>
+
+<figure><a href="/images/2020-10-25-shark-kyoto-2.jpg" target="_blank"><img src="/images/2020-10-25-shark-kyoto-2.jpg" alt="" title="新しい部屋でくつろぐサメ"></a><figcaption>新しい部屋でくつろぐサメ</figcaption></figure>
+
+<figure><a href="/images/2020-10-25-shark-ringfit.jpg" target="_blank"><img src="/images/2020-10-25-shark-ringfit.jpg" alt="" title="リングフィットをやるとき少し邪魔になるサメ"></a><figcaption>リングフィットをやるとき少し邪魔になるサメ</figcaption></figure>
+
+<figure><a href="/images/2020-10-25-shark-desk.jpg" target="_blank"><img src="/images/2020-10-25-shark-desk.jpg" alt="" title="新しい机と一緒に写るサメ"></a><figcaption>新しい机と一緒に写るサメ</figcaption></figure>
+
+<hr>
+
+<p>更に質問があったので追記するが、たまにうつっている中ぐらいの大きさのサメはIKEAのブローハイというサメで、<a href="https://www.amazon.co.jp/dp/B00IC60G62?tag=r7kamura07-22">Amazonからも購入できる</a>。恐らくサメぬいぐるみ界でいま現在最も有名なやつだろう。最初の内は目が少し怖いが、慣れてくるとそうでもなくなる。</p>
+
+<p>最初の写真に密かにうつっている小さいグレーのサメはCOLORATAのサメで、これも<a href="https://www.amazon.co.jp/dp/B00GRQ9X5Y?tag=r7kamura07-22">Amazonから購入できる</a>。そこそこ高いだけあってつくりがしっかりしていて、侮っていると歯のギザギザがわりと痛い。</p>
+]]></content:encoded>
       <guid>https://r7kamura.com/articles/2020-10-25-shark</guid>
     </item>
     
@@ -132,7 +586,28 @@
       <description><![CDATA[VIVEREのハンモックを買った。]]></description>
       <link>https://r7kamura.com/articles/2020-10-22-hammock</link>
       <pubDate>Thu, 22 Oct 2020 00:00:00 +0900</pubDate>
-      <content:encoded><![CDATA[<a href="/images/2020-10-22-hammock-setup-3.jpg" target="_blank"><img src="/images/2020-10-22-hammock-setup-3.jpg" alt="" title="完成形"></a><a href="https://www.amazon.co.jp/dp/B076R436RP?tag=r7kamura07-22">VIVEREのハンモック</a><a href="/images/2020-10-22-hammock-setup-1.jpg" target="_blank"><img src="/images/2020-10-22-hammock-setup-1.jpg" alt="" title="梱包時点"></a><a href="/images/2020-10-22-hammock-setup-2.jpg" target="_blank"><img src="/images/2020-10-22-hammock-setup-2.jpg" alt="" title="内容物"></a><a href="/images/2020-10-22-hammock-finished.jpg" target="_blank"><img src="/images/2020-10-22-hammock-finished.jpg" alt="" title="設置した様子"></a>]]></content:encoded>
+      <content:encoded><![CDATA[<figure><a href="/images/2020-10-22-hammock-setup-3.jpg" target="_blank"><img src="/images/2020-10-22-hammock-setup-3.jpg" alt="" title="完成形"></a><figcaption>完成形</figcaption></figure>
+
+<p><a href="https://www.amazon.co.jp/dp/B076R436RP?tag=r7kamura07-22">VIVEREのハンモック</a>を買った。</p>
+
+<p>プロジェクターで映像を見るときにくつろいだり、人が来たときに簡易的に寝られるような用途でソファのようなものが欲しかったが、面白そうだったのでハンモックを買うことにした。</p>
+
+<figure><a href="/images/2020-10-22-hammock-setup-1.jpg" target="_blank"><img src="/images/2020-10-22-hammock-setup-1.jpg" alt="" title="梱包時点"></a><figcaption>梱包時点</figcaption></figure>
+
+<p>部品の状態ではかなり小さく収納できるような構成になっている。引っ越しのときにも便利だろう。アウトドアの場などに持っていくことも多いと聞くが、この大きさに梱包できるなら納得感もある。</p>
+
+<figure><a href="/images/2020-10-22-hammock-setup-2.jpg" target="_blank"><img src="/images/2020-10-22-hammock-setup-2.jpg" alt="" title="内容物"></a><figcaption>内容物</figcaption></figure>
+
+<p>金属の管が5本と、布が1枚と、ネジが7個入っている。管の結合部を繋いで、ネジを締めれば完成。部品は1つずつゆっくり組み立てられて、支えながら作業をしないといけないようなこともないので、1人でも簡単。</p>
+
+<figure><a href="/images/2020-10-22-hammock-finished.jpg" target="_blank"><img src="/images/2020-10-22-hammock-finished.jpg" alt="" title="設置した様子"></a><figcaption>設置した様子</figcaption></figure>
+
+<p>冬場は少し寒いかもしれないが、毛布と一緒に窓際に置いている。雨の日なんかに外を見ながら本を読むのは気持ちが良い。使わないときは、専らサメ置き場と化している。</p>
+
+<p>部屋にそれなりの空間が余っている場合にはおすすめだが、狭いところでは窮屈そうな印象になるのであまりおすすめしない。金属の黒い脚をわりと見失うので、たまに小指をぶつけて痛くなる。</p>
+
+<p>使ってみての感想だが、慣れたら快適で、かなりくつろげる。体勢を変えるのにコツが要るので、慣れるまではくつろぐのが難しいかもしれない。1日使うと慣れる。自分はハンモックで横になっていると不思議とそこまで眠くならないので、逆に眠りたくはないが本を読んだり動画を見たりしたいというときに重宝している。同じ値段でソファやラウンジチェアを買うよりは面白いので、正直かなり満足している。</p>
+]]></content:encoded>
       <guid>https://r7kamura.com/articles/2020-10-22-hammock</guid>
     </item>
     
@@ -141,7 +616,32 @@
       <description><![CDATA[ロジクールのG913-TKLというキーボードを買った。]]></description>
       <link>https://r7kamura.com/articles/2020-10-21-keyboard-g913-tkl</link>
       <pubDate>Wed, 21 Oct 2020 00:00:00 +0900</pubDate>
-      <content:encoded><![CDATA[<a href="/images/2020-10-21-keyboard-g913-tkl.jpg" target="_blank"><img src="/images/2020-10-21-keyboard-g913-tkl.jpg" alt="" title="G913-TKLとG903"></a><a href="https://www.amazon.co.jp/dp/B088BN6JKQ?tag=r7kamura07-22">G913-TKL</a><a href="/articles/2019-12-02-magnet-usb">マグネット式USBアダプタ</a>]]></content:encoded>
+      <content:encoded><![CDATA[<figure><a href="/images/2020-10-21-keyboard-g913-tkl.jpg" target="_blank"><img src="/images/2020-10-21-keyboard-g913-tkl.jpg" alt="" title="G913-TKLとG903"></a><figcaption>G913-TKLとG903</figcaption></figure>
+
+<p>ロジクールの<a href="https://www.amazon.co.jp/dp/B088BN6JKQ?tag=r7kamura07-22">G913-TKL</a>というキーボードを買った。</p>
+
+<p>LEDの発色がとても良く、ヘアライン加工の施された金属面には高級感があり、メディアキー類も使ってみると意外と悪くない。打鍵感もこの薄さにしてはそこそこに良く、リニア軸のおかげか打鍵音はいたって静か。個人的には薄いおかげでかなり疲れづらくなったと感じる。</p>
+
+<p>机で作業するときにキーボードを動かす機会も多いので、無線はとにかく快適。充電が大変になるかと思いきや、以前購入した<a href="/articles/2019-12-02-magnet-usb">マグネット式USBアダプタ</a>を使うとそこまで大変でも無かった。無線マウスにも同じアダプタを付けて、気が向いたときに給電してやっている。</p>
+
+<p>打鍵感や価格についてパフォーマンスを突き詰めるなら違う製品をおすすめするかもしれないが、色々な機能がほどよくまとまっており、見た目の高級感とゲーミングキーボードらしさを兼ね備えた良いキーボードだと思う。もし壊れても同じものを買い直すだろうなという程度には気に入っている。</p>
+
+<hr>
+
+<p>参考までに、自分が過去に利用してきた主なキーボードは次の通り。</p>
+
+<ul>
+<li>HHKB Professional</li>
+<li>Kinesis Advantage</li>
+<li>Apple Wireless Keyboard</li>
+<li>Apple Magic Keyboard</li>
+<li>QWERKYWRITER</li>
+<li>G-PKB-001</li>
+<li>G-PKB-002</li>
+</ul>
+
+<p>よく利用する配列はJIS配列。入力方式はかな入力。</p>
+]]></content:encoded>
       <guid>https://r7kamura.com/articles/2020-10-21-keyboard-g913-tkl</guid>
     </item>
     
@@ -150,7 +650,49 @@
       <description><![CDATA[2020年時点での自分のPodcast収録環境について。]]></description>
       <link>https://r7kamura.com/articles/2020-10-20-podcast-setup-2020</link>
       <pubDate>Tue, 20 Oct 2020 00:00:00 +0900</pubDate>
-      <content:encoded><![CDATA[<a href="https://yatteiki.fm/">yatteiki.fm</a><a href="/articles/2017-05-25-podcast-setup-2017">2017年版</a><a href="/images/2020-10-20-podcast-setup-2020-hardware.jpg" target="_blank"><img src="/images/2020-10-20-podcast-setup-2020-hardware.jpg" alt=""></a><a href="https://www.amazon.co.jp/dp/B0822PDJK5?tag=r7kamura07-22">Yeti</a><a href="/images/2020-10-20-podcast-setup-2020-discord.png" target="_blank"><img src="/images/2020-10-20-podcast-setup-2020-discord.png" alt=""></a><a href="/articles/2020-10-19-podcast">OBSで音声トラックを分けて録音</a><a href="/images/2020-10-20-podcast-setup-2020-audacity.png" target="_blank"><img src="/images/2020-10-20-podcast-setup-2020-audacity.png" alt=""></a><a href="https://www.audacityteam.org/">Audacity</a><a href="https://github.com/yatteikifm/yatteikifm.github.io">リポジトリ</a>]]></content:encoded>
+      <content:encoded><![CDATA[<p>2020年時点での自分のPodcast収録環境について。</p>
+
+<p>主に<a href="https://yatteiki.fm/">yatteiki.fm</a>の収録用。<a href="/articles/2017-05-25-podcast-setup-2017">2017年版</a>もある。</p>
+
+<h2>ハードウェア</h2>
+
+<p><a href="/images/2020-10-20-podcast-setup-2020-hardware.jpg" target="_blank"><img src="/images/2020-10-20-podcast-setup-2020-hardware.jpg" alt=""></a></p>
+
+<p>Blue Microphones製の<a href="https://www.amazon.co.jp/dp/B0822PDJK5?tag=r7kamura07-22">Yeti</a>というコンデンサマイク一式を使っている。</p>
+
+<p>マイクの適切な位置調整のためにマイクスタンドを、振動音の低減のためにショックマウントを利用している。</p>
+
+<h2>録音</h2>
+
+<p><a href="/images/2020-10-20-podcast-setup-2020-discord.png" target="_blank"><img src="/images/2020-10-20-podcast-setup-2020-discord.png" alt=""></a></p>
+
+<p>Discordで通話しながら、<a href="/articles/2020-10-19-podcast">OBSで音声トラックを分けて録音</a>している。</p>
+
+<p>通話はYATTEIKIのDiscordサーバーかDMで行う。その後の編集時のやりとりにもDiscordを使う。60分ほど話すと、OBSから1GBほどの動画ファイルが出力される。</p>
+
+<h2>編集</h2>
+
+<p><a href="/images/2020-10-20-podcast-setup-2020-audacity.png" target="_blank"><img src="/images/2020-10-20-podcast-setup-2020-audacity.png" alt=""></a></p>
+
+<p>出力された動画ファイルを、ffmpegを入れた<a href="https://www.audacityteam.org/">Audacity</a>で開いて編集している。</p>
+
+<p>編集作業が大変だと継続しづらい。音量の正規化とノイズ低減という、自動で適用できる処理だけ加える。60分ほど話すと、モノラル・96kbps前後の可変ビットレートで17MBほどのMP3ファイルが出力される。</p>
+
+<h2>公開</h2>
+
+<p>タイトルと説明文を決め、<a href="https://github.com/yatteikifm/yatteikifm.github.io">リポジトリ</a>を更新すると公開される。</p>
+
+<p>静的ファイルの生成にはJekyll、ホスティングにはGitHub PagesとCloudFlare、ドメインの登録と管理にはAmazon Route 53を使っている。</p>
+
+<h2>その他</h2>
+
+<p>他にも以下のサービスやツールを使っている。</p>
+
+<ul>
+<li>Google Analytics</li>
+<li>FeedBurner</li>
+</ul>
+]]></content:encoded>
       <guid>https://r7kamura.com/articles/2020-10-20-podcast-setup-2020</guid>
     </item>
     
@@ -159,7 +701,32 @@
       <description><![CDATA[OBSで音声を収録する際に、マイクの音声とデスクトップの音声を個別のトラックに分ける方法について。]]></description>
       <link>https://r7kamura.com/articles/2020-10-19-podcast</link>
       <pubDate>Mon, 19 Oct 2020 00:00:00 +0900</pubDate>
-      <content:encoded><![CDATA[<a href="https://obsproject.com/ja">OBS</a><a href="/images/2020-10-19-obs.png" target="_blank"><img src="/images/2020-10-19-obs.png" alt="" title='シーン "Podcast" を追加'></a><a href="/images/2020-10-19-obs-settings.png" target="_blank"><img src="/images/2020-10-19-obs-settings.png" alt="" title="録画時の音声トラックを変更"></a><a href="/images/2020-10-19-obs-audio.png" target="_blank"><img src="/images/2020-10-19-obs-audio.png" alt="" title="紐付けるトラックをそれぞれ変更"></a>]]></content:encoded>
+      <content:encoded><![CDATA[<p>OBSで音声を収録する際に、マイクの音声とデスクトップの音声を個別のトラックに分ける方法について。</p>
+
+<h2>概要</h2>
+
+<p>ゲームのプレイ動画を録画するときや、通話しながらPodcast用の音源を録音するときなどに、自分のマイクの音とそれ以外の音とをそれぞれ個別の音声トラックに分けて録音しておくと、後から片方の音量だけ大きくしたり、片方の音源に特有のノイズを取り除いたりと、編集するときに非常に捗る。<a href="https://obsproject.com/ja">OBS</a>の音声トラックを適切に設定しながら録音することで、これは簡単に実現できる。</p>
+
+<h2>説明</h2>
+
+<p>話を単純にするために、ここではPodcast用の音源を録音するという用途を例に説明していく。もちろん、動画を録画したい場合にもこの方法は利用できる。</p>
+
+<figure><a href="/images/2020-10-19-obs.png" target="_blank"><img src="/images/2020-10-19-obs.png" alt="" title='シーン "Podcast" を追加'></a><figcaption>シーン "Podcast" を追加</figcaption></figure>
+
+<p>OBSでは、シーンという単位で入力ソース群を管理する。今回はPodcast用の音源を録音したいので、例として "Podcast" というシーンを用意する。マイクとデスクトップ音声は、何もしなくても最初から音声の入力元として認識されている。録音だけ行う場合は、特に入力ソースを何も追加する必要はない。</p>
+
+<p>OBSでは、6つの音声トラックが用意されている。デフォルトでは、全ての音声が第1トラックから第6トラックと紐付く設定になっており、かつ第1トラックだけが実際に配信や録音される動画に出力されるようになっている。トラックを分けて録音したい場合は、これらの設定を変更することになる。</p>
+
+<p>配信には、これまで通りすべての音声が紐付いた第1トラックを出力したい。録音には、デスクトップ音声が紐付いた第2トラックと、マイクが紐付いた第3トラックを出力したい。このように設定を変更するには、OBSの出力の設定で、出力モードを "詳細" に変更し、録画タブから2と3の音声トラックが選択された状態にする。</p>
+
+<figure><a href="/images/2020-10-19-obs-settings.png" target="_blank"><img src="/images/2020-10-19-obs-settings.png" alt="" title="録画時の音声トラックを変更"></a><figcaption>録画時の音声トラックを変更</figcaption></figure>
+
+<p>更に、シーン "Podcast" の音声ミキサーの設定から、オーディオの詳細プロパティを開き、デスクトップ音声を第1トラックと第2トラックに、マイクを第1トラックと第3トラックに紐付ける。デフォルトでは全てのトラックに紐付いているので、これを適当に外すことになる。</p>
+
+<figure><a href="/images/2020-10-19-obs-audio.png" target="_blank"><img src="/images/2020-10-19-obs-audio.png" alt="" title="紐付けるトラックをそれぞれ変更"></a><figcaption>紐付けるトラックをそれぞれ変更</figcaption></figure>
+
+<p>以上の設定で、録画された動画ファイルに含まれる音声データが、それぞれ個別のトラックに分かれるようになる。</p>
+]]></content:encoded>
       <guid>https://r7kamura.com/articles/2020-10-19-podcast</guid>
     </item>
     
@@ -168,7 +735,26 @@
       <description><![CDATA[鯛が届いた。]]></description>
       <link>https://r7kamura.com/articles/2020-10-18-tai</link>
       <pubDate>Sun, 18 Oct 2020 00:00:00 +0900</pubDate>
-      <content:encoded><![CDATA[<a href="/images/2020-10-18-tai-kashira.jpg" target="_blank"><img src="/images/2020-10-18-tai-kashira.jpg" alt="" title="ギョッとする見た目"></a><a href="https://kochi-kawauso.com/collections/covid19_free_shipping/products/susakimadai-1hiki">須崎舞鯛 1匹分お刺身用</a><a href="/images/2020-10-18-tai-cut.jpg" target="_blank"><img src="/images/2020-10-18-tai-cut.jpg" alt="" title="三枚におろされているのを切るだけ"></a><a href="/images/2020-10-18-tai-table.jpg" target="_blank"><img src="/images/2020-10-18-tai-table.jpg" alt="" title="オクラの煮浸し、鯛の刺身、きのこソテー"></a><a href="https://www.amazon.co.jp/dp/B001TPFT0G?tag=r7kamura07-22">刃の黒幕の1000番</a><a href="/articles/2020-10-13-prime-day">プライムデー</a>]]></content:encoded>
+      <content:encoded><![CDATA[<figure><a href="/images/2020-10-18-tai-kashira.jpg" target="_blank"><img src="/images/2020-10-18-tai-kashira.jpg" alt="" title="ギョッとする見た目"></a><figcaption>ギョッとする見た目</figcaption></figure>
+
+<p>鯛が届いた。高知かわうそ市場の、<a href="https://kochi-kawauso.com/collections/covid19_free_shipping/products/susakimadai-1hiki">須崎舞鯛 1匹分お刺身用</a>というやつ。</p>
+
+<p>高知県須崎市の野見漁協が販売していた養殖の鯛で、昨今の情勢で飲食店などに出荷ができなくなり、たくさん売れ残ってしまって生産者が困っている、という背景の鯛。切るだけで食べられるようにいい具合に前処理が施され、一般的な消費者でも簡単に食べられるようになっている。知人が食べて激推ししていて、面白そうだったのでうっかり買ってしまった。</p>
+
+<figure><a href="/images/2020-10-18-tai-cut.jpg" target="_blank"><img src="/images/2020-10-18-tai-cut.jpg" alt="" title="三枚におろされているのを切るだけ"></a><figcaption>三枚におろされているのを切るだけ</figcaption></figure>
+
+<p>5年前にステンレス鋼の包丁を手に入れて以来一度も手入れをしてなかったので、あまり上手く切れず歯がゆい気持ちになりつつも、どうにか刺身としてそれなりに食べられる程度には奮闘した。そういえばこの包丁は、シェアハウスをしていたときにほしいものリストから贈ってもらったものだった。こいつには思い入れがあるので、これからも真剣に付き合っていこうと思い、砥石を買うことにした。</p>
+
+<p>砥石とか実家に居た頃に少し触らせてもらっていただけで全く分からない。そういえば素人なりに包丁を研いでみると、毎回その日の夜は母が喜んでいたようなおぼろげな記憶がある。などと考えてインターネットを彷徨っていると、『研石選び』という本物のサイトを見つけた。</p>
+
+<p>このサイトは素晴らしくて、2004年から長期にわたって砥石に関する情報が記述されており、またそれぞれの砥石についての情報も数年掛けて丁寧に更新されていっている様子が伺える。ここまでの情熱、只者ではあるまいと思い、何者なのか調べていったところ、どうやら埼玉で佐藤研磨店という店を営業されている方のようだった。最近ではブログも更新されているらしい。直接リンクを張りたかったが、サイトのポリシーとして直接のリンクを禁止されているようなので、気になる方は「砥石選び so-net」などで検索していただきたい。</p>
+
+<figure><a href="/images/2020-10-18-tai-table.jpg" target="_blank"><img src="/images/2020-10-18-tai-table.jpg" alt="" title="オクラの煮浸し、鯛の刺身、きのこソテー"></a><figcaption>オクラの煮浸し、鯛の刺身、きのこソテー</figcaption></figure>
+
+<p>話が完全に逸れつつあるので、砥石についての結論だけ述べると、砥石と言えばシャプトンの『刃の黒幕』が安牌、それも家庭用で研石入門者の最初の一本ならまずは1000番（砥石の粒度を表す数字で、小さいほど荒い）が良いだろうという雰囲気だったので、<a href="https://www.amazon.co.jp/dp/B001TPFT0G?tag=r7kamura07-22">刃の黒幕の1000番</a>を買ってみることにした。鯛無視して道具の改善に走ってる辺り、職業病なのかもしれない。</p>
+
+<p>鯛の刺身は当然のように美味しかった。この価格と、この手軽さで、これだけの鯛が食べられるなんて。<a href="/articles/2020-10-13-prime-day">プライムデー</a>にかこつけて買い替えた炊飯器が届いたので、明日は鯛の漬け丼にする予定。</p>
+]]></content:encoded>
       <guid>https://r7kamura.com/articles/2020-10-18-tai</guid>
     </item>
     
@@ -177,7 +763,27 @@
       <description><![CDATA[『葬送のフリーレン』2巻を読んだ。]]></description>
       <link>https://r7kamura.com/articles/2020-10-17</link>
       <pubDate>Sat, 17 Oct 2020 00:00:00 +0900</pubDate>
-      <content:encoded><![CDATA[<a href="https://www.amazon.co.jp/dp/B08FDH57JT?tag=r7kamura07-22">単行本1巻</a><a href="https://www.amazon.co.jp/dp/B08KJ5LMNQ?tag=r7kamura07-22">単行本2巻</a><a href="https://websunday.net/rensai/frieren/">WEBサンデー</a><a href="https://twitter.com/abetsukasa/status/1295556824821665793">Twitterの投稿</a><a href="https://www.sunday-webry.com/detail.php?title_id=1093">サンデーうぇぶり</a>]]></content:encoded>
+      <content:encoded><![CDATA[<p>『葬送のフリーレン』2巻を読んだ。</p>
+
+<p>『葬送のフリーレン』は、2020年4月から週刊少年サンデーに掲載されている漫画。原作は山田鐘人さん、作画はアベツカサさん。2020年8月に<a href="https://www.amazon.co.jp/dp/B08FDH57JT?tag=r7kamura07-22">単行本1巻</a>が、つい先日に<a href="https://www.amazon.co.jp/dp/B08KJ5LMNQ?tag=r7kamura07-22">単行本2巻</a>が発売された。</p>
+
+<figure>
+  <blockquote>
+    <p>魔王を倒した勇者一行の魔法使い・フリーレン。彼女はエルフで長生き。勇者・ヒンメルの死に何故自分がこんなにも悲しむのかわからず、人を"知る"旅に出る。</p>
+  </blockquote>
+  <figcaption>あらすじ・<cite><a href="https://websunday.net/rensai/frieren/">WEBサンデー</a></cite>より<figcaption>
+</figcaption></figcaption></figure>
+
+<p>作画のアベツカサさんの<a href="https://twitter.com/abetsukasa/status/1295556824821665793">Twitterの投稿</a>や、あるいは<a href="https://www.sunday-webry.com/detail.php?title_id=1093">サンデーうぇぶり</a>から冒頭部分を試し読みできる。</p>
+
+<p>1巻・2巻と変わらず心の機微の描写が丁寧で、"間"を使ったその表現も技巧的で美しい。淡々と進んでいく展開の中にも作り込まれたリズムがあり、読んでいてどこか小気味よい気持ちになる。</p>
+
+<p>単行本1巻から入ってとても気に入っていたので、記憶が風化してしまわない内にすぐに2巻が出て喜んでいる。2巻では若い登場人物が増え、コミカルなやり取りと戦闘描写が少し増えた。「どうしようもなく折り合えない相手をどうするか？」という小さなテーマが提示されたまま、次巻に続いているような気がする。この作品がどこに向かうのか、今から楽しみ。</p>
+
+<hr>
+
+<p>大学でドイツ語を二単位分だけ取得したが、当時 "frieren" は学ばなかった。動詞の原形で、意味は「凍える」だそうだ。</p>
+]]></content:encoded>
       <guid>https://r7kamura.com/articles/2020-10-17</guid>
     </item>
     
@@ -186,7 +792,18 @@
       <description><![CDATA[洗濯用洗剤を、液体洗剤からジェルボールに買い替えた。]]></description>
       <link>https://r7kamura.com/articles/2020-10-16-sentaku-gelball</link>
       <pubDate>Fri, 16 Oct 2020 00:00:00 +0900</pubDate>
-      <content:encoded><![CDATA[<a href="/images/2020-10-16-sentaku-gelball-bottle.jpg" target="_blank"><img src="/images/2020-10-16-sentaku-gelball-bottle.jpg" alt=""></a><a href="https://www.amazon.co.jp/dp/B08CH9F47P?tag=r7kamura07-22">微香タイプのジェルボール</a><a href="https://www.muji.com/jp/ja/store/cmdty/detail/4547315759514">ソーダガラス密閉瓶</a><a href="/images/2020-10-16-sentaku-gelball-shelf.jpg" target="_blank"><img src="/images/2020-10-16-sentaku-gelball-shelf.jpg" alt=""></a><a href="https://r7kamura.com/articles/2019-12-07-inner-clothes">インナー類の収納場所</a>]]></content:encoded>
+      <content:encoded><![CDATA[<p><a href="/images/2020-10-16-sentaku-gelball-bottle.jpg" target="_blank"><img src="/images/2020-10-16-sentaku-gelball-bottle.jpg" alt=""></a></p>
+
+<p>洗濯用洗剤を、液体洗剤からジェルボールに買い替えた。ジェルボールは基本的に香りが強めのものが多い。最近出たアリエールの<a href="https://www.amazon.co.jp/dp/B08CH9F47P?tag=r7kamura07-22">微香タイプのジェルボール</a>が良さそうだったので、これを使うことにした。</p>
+
+<p>無印良品の500mlの<a href="https://www.muji.com/jp/ja/store/cmdty/detail/4547315759514">ソーダガラス密閉瓶</a>に入れて使っている。意外と小さかった。750mlの方が良かったかもしれない。高いところに置くので、深くない方が取り出しやすそうという理由で500mlにした記憶がある。無印良品なのにイタリア製の瓶らしくちょっとした豪華さを感じる。</p>
+
+<p><a href="/images/2020-10-16-sentaku-gelball-shelf.jpg" target="_blank"><img src="/images/2020-10-16-sentaku-gelball-shelf.jpg" alt=""></a></p>
+
+<p>洗濯機の上の棚に置いて使っている。洗剤、タオル、下着類は全部ここに収納していることになる。どうせここで着替えるのだからと思ってそうしているけど、一人暮らしでしか成立させにくいワザップだろう。1年前にも、<a href="https://r7kamura.com/articles/2019-12-07-inner-clothes">インナー類の収納場所</a>について同じことを書いていた。大事なことは何度も書く。</p>
+
+<p>最近、入浴後に必ず洗濯機を回すことにした。つまり毎日洗濯することにした。一人暮らしだとある程度溜まるまで溜めがちなのだけど、いつ洗濯すべきかという判断が自分に委ねられるよりも、何も考えず毎日同じタイミングで回す方が色々上手くいくことに最近気づいた。たとえ量が少なくても、光熱費が余計に掛かっても、機器の寿命が縮まるとしても、毎日回すほうが良いと感じる。</p>
+]]></content:encoded>
       <guid>https://r7kamura.com/articles/2020-10-16-sentaku-gelball</guid>
     </item>
     

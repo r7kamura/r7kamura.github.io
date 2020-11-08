@@ -41,7 +41,66 @@
     <h1>RubyでOpenCLを試してみた</h1>
   </header>
   <div>
-    <a href="#f1" title="システムプロファイラ等で確認できます">*1</a><a href="#f2" title="OpenCLをRubyで記述できるようにしたもの">*2</a><a href="#f3" title="OpenCL-C言語で対応していない計算箇所がどこかにあるのかも。具体的にはTempering直前辺り">*3</a><a href="https://gist.github.com/953378">OpenCLのRubyラッパであるBarracudaを用いた適当なベンチマーク — Gist</a><a href="https://gist.github.com/972099">OpenCLでHello, World! — Gist</a><a href="https://gist.github.com/972177">OpenCLで配列の四則演算 — Gist</a><a href="https://gist.github.com/972249">OpenCLで配列要素の並び替え — Gist</a><a href="https://gist.github.com/972592">OpenCLでモンテカルロ法を用いたn次元球の体積計算 — Gist</a><a href="#fn1">*1</a><a href="#fn2">*2</a><a href="#fn3">*3</a>
+    <h4>OpenCL？</h4>
+
+<p>MacOSX10.6では、OpenCLというGPUを扱うための環境が標準で搭載されています。例えば私のMacbookPro(2009Midモデル)ではGeForce9400Mが付いていますが<a href="#f1" title="システムプロファイラ等で確認できます">*1</a>、OpenCLを使うことで並列計算処理にこのGPUを利用することが出来ます。GPUはCPUに比べ多くのコアを搭載しており、これを利用することで並列計算速度の大幅な向上が期待できます。同様のGPGPU技術としてNVIDIA向けのCUDAが存在しますが、OpenCLはNVIDIA製GPU以外のデバイス(ATI製GPUやCell/B.E.等)にも利用できるなど、異種混合な環境での動作を主眼に置いているようです。</p>
+
+<h4>RubyでOpenCL</h4>
+
+<p>本来OpenCLを利用するにはXCode開いてC言語で色々書いて…という処理が必要なのですが、今回はBarracudaというOpenCLのRubyBinding<a href="#f2" title="OpenCLをRubyで記述できるようにしたもの">*2</a>を利用することで、簡単にOpenCLを利用してみました。OpenCLでは、GPU等のデバイスに処理を依頼する『ホスト側』のコードと、依頼されたデバイスが行う処理である『デバイス側』のコードの記述が必要になります。Barracudaを使うことで、この『ホスト側』のコードは全てRubyで記述することができます。『デバイス側』のコードは文字列OpenCL-C言語のコードを書いて渡すような形式になります。</p>
+
+<h4>Install</h4>
+
+<p>BarracudaをMac OSX 10.6環境にインストールします。<br>
+自分の場合RVMでRubyを入れているため、インストールスクリプトに少し変更が必要でした。</p>
+
+<pre><code>git clone git://github.com/lsegal/barracuda.gitcd barracuda vim Rakefile # sudo権限で入れようとしてしまうので、SUDO = "" に書き換えるrake install
+</code></pre>
+
+<h4>HelloWorld</h4>
+
+<p>まずは並列計算とは全く関係なく、単純にGPUを利用してHello,world!を表示してみます。OpenCL-C言語には標準入出力が無いため、デバイス側で生成した文字列をホスト側で受け取って出力します。GPUを利用するための初期化処理等は全てBarracudaが行ってくれるため、実際の処理にのみ注力してコードを記述できます。</p>
+
+<pre><code># Barracudaの読込みrequire "rubygems"require "barracuda"include Barracuda# デバイス側プログラムをOpenCL-C言語で定義program = Program.new \&lt;\&lt;-"eof" \_\_kernel void hello(\_\_global char\* output) { output[0] = 'H'; output[1] = 'e'; output[2] = 'l'; output[3] = 'l'; output[4] = 'o'; output[5] = ','; output[6] = ' '; output[7] = 'W'; output[8] = 'o'; output[9] = 'r'; output[10] = 'l'; output[11] = 'd'; output[12] = '!'; }eof# 13個のChar型要素を持つ配列を用意output = Buffer.new(13).to\_type(:char)# 結果を格納するための配列を渡してGPUに処理させるprogram.hello(output)# ASCIIコードで返ってくるので、Stringクラスに変換後、連結してから出力する# [72, 101, 108, 108, 111, 44, 119, 111, 114, 108, 100, 33]# -\&gt; ['H', 'e', 'l', 'l', 'o', ',', 'w', 'o', 'r', 'l', 'd', '!']# -\&gt; "Hello, World!"puts output.map{|num| num.chr }.join
+</code></pre>
+
+<h4>並列処理</h4>
+
+<p>次は並列処理をCPUとGPUそれぞれに任せて、比較してみます。<br>
+モンテカルロ法を用いてn回の試行でdim次元球の体積を求めるというプログラムを作りました。</p>
+
+<pre><code>require "rubygems"require "barracuda"include Barracuda### これは何？# モンテカルロ法を用いたN次元球の体積計算をベンチマークに用いた、# CPUとGPUの実行時間の比較を出力するプログラムです# 乱数配列生成、半径内要素数計算、体積計算def cpu(n, dim, rad) points = (1..n).map{|i| Array.new(dim){ rand } } count = points.select{|point| point.map{|x| x\*\*2 }.inject{|sum,x| sum+=x } \*\* (0.5) \&lt; rad }.count volume(n, dim, rad, count)end# 実行時間を計測して出力するdef calc\_time(opt={}, &amp;block) opt[:times] ||= 1 opt[:format] ||= "%f" start = Time.now opt[:times].times{|i| yield } finish = Time.now opt[:format] % [(finish - start) / opt[:times]]enddef volume(n, dim, rad, count) count.to\_f / n \* (rad \*\* dim) \* 8end# 乱数配列生成、GPU処理、半径内要素数計算、体積計算def gpu(n, dim, rad, program) randoms = Array.new(n \* dim){ rand } output = Buffer.new(n) program.inner(dim, rad, randoms, output, :times =\&gt; n) count = output.select{|x| x == 1 }.count volume(n, dim, rad, count)end# 試行回数x次元個の乱数配列から、試行回数個の配列Aを返す# Aの中身は、ランダムに生成された1点が半径内にあれば1である要素program = Program.new \&lt;\&lt;-"eof" \_\_kernel void inner( \_\_global int dim, \_\_global float rad, \_\_global float\* randoms, \_\_global int \*out) { int id = get\_global\_id(0); int base = id \* dim; float sum = 0.0; for (int i=0; i\&lt;dim; i++) { sum += randoms[base+i] \* randoms[base+i]; } out[id] = isless(rootn(sum, 2), rad); }eofn = 1000times = 10rad = 1.0dims = (0..10).map{|x| 2\*\*x } puts "n:#{n}, times:#{times}"puts "%6s, %8s, %8s" % ["dim", "GPU", "CPU"] dims.each do |dim| puts "%6d, %8f, %8f" % [dim, calc\_time(:times =\&gt; 10){ gpu(n, dim, rad, program) }, calc\_time(:times =\&gt; 10){ cpu(n, dim, rad) },]end=beginn:1000, times:10 dim, GPU, CPU 1, 0.041787, 0.002888 2, 0.040524, 0.004046 4, 0.044142, 0.007514 8, 0.045412, 0.009012 16, 0.055316, 0.015790 32, 0.057869, 0.029709 64, 0.074391, 0.067222 128, 0.099503, 0.121594 256, 0.143888, 0.212903 512, 0.272613, 0.420411 1024, 0.439119, 0.838492n:10000, times:10 dim, GPU, CPU 1, 0.044383, 0.021451 2, 0.045894, 0.032384 4, 0.060762, 0.058683 8, 0.079788, 0.089311 16, 0.109284, 0.165430 32, 0.170022, 0.322847 64, 0.277251, 0.563807 128, 0.559522, 1.125359 256, 1.050201, 2.252186 512, 1.969891, 4.539807 1024, 3.854168, 8.958749=end
+</code></pre>
+
+<p>次元数dimが少ない状態ではCPUの方が高速ですが、dim=64辺りからGPUの方が高速になっています。試行回数をn=1000(立方体の中に1000個の点を置いて半径内外で判断)で試して更に10回の平均を取っていますが、nの数が増えるに従ってその差は顕著に現れると思われます(但しGPUのコア数や転送量の関係でどこかで頭打ちになる)。</p>
+
+<h5>注意点</h5>
+
+<p>なお、GPU内でOpenCL-C言語を用いて乱数を生成する方法が分からなかったので、乱数配列を渡しています。書籍『OpenCL入門』にMersenneTwisterで乱数を生成する実装が書いてあったのですが、上手く利用できませんでした。また本家MTのC言語実装であるmt19937ar.cも、そのままでは動かせず<a href="#f3" title="OpenCL-C言語で対応していない計算箇所がどこかにあるのかも。具体的にはTempering直前辺り">*3</a>、乱数を生成する種となる『状態』の並列化を考えないといけない等の問題があったため、利用できませんでした。</p>
+
+<h4>まとめ</h4>
+
+<p>以上、Barracudaを利用してOpenCLをRubyで扱う方法を簡単に説明しました。現状BarracudaはMacOSX10.6にしか対応していないのですが、今後Fedora等Linux系OSで動作するようになれば、AmazonEC2 GPU InstanceでRubyを利用して簡単にジョブオフロードを行うようなことも出来るのではないでしょうか。</p>
+
+<p>OpenCLの情報は日本語圏ではまだ乏しく、ましてRubyBindingの情報など恐らく皆無ですが、何かの参考になれば幸いです。<br>
+幸い最近のMacではOpenCL環境をOS標準機能としてサポートしているようなので、興味がある方は是非利用してみてブログ等でアウトプットして頂ければと思います。</p>
+
+<h4>コード</h4>
+
+<ul>
+<li><a href="https://gist.github.com/953378">OpenCLのRubyラッパであるBarracudaを用いた適当なベンチマーク — Gist</a></li>
+<li><a href="https://gist.github.com/972099">OpenCLでHello, World! — Gist</a></li>
+<li><a href="https://gist.github.com/972177">OpenCLで配列の四則演算 — Gist</a></li>
+<li><a href="https://gist.github.com/972249">OpenCLで配列要素の並び替え — Gist</a></li>
+<li><a href="https://gist.github.com/972592">OpenCLでモンテカルロ法を用いたn次元球の体積計算 — Gist</a></li>
+</ul>
+
+<p><a href="#fn1">*1</a>:システムプロファイラ等で確認できます</p>
+
+<p><a href="#fn2">*2</a>:OpenCLをRubyで記述できるようにしたもの</p>
+
+<p><a href="#fn3">*3</a>:OpenCL-C言語で対応していない計算箇所がどこかにあるのかも。具体的にはTempering直前辺り</p>
+
   </div>
 </article>
 

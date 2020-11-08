@@ -41,7 +41,56 @@
     <h1>Serverkitを利用してVagrantの構成管理を行う</h1>
   </header>
   <div>
-    <a href="https://github.com/r7kamura/serverkit">Serverkit</a><a href="https://github.com/r7kamura/vagrant-serverkit">vagrant-serverkit</a><a href="https://rubygems.org/gems/vagrant-serverkit">https://rubygems.org/gems/vagrant-serverkit</a>
+    <p>Vagrantで扱う環境の構成管理には、ChefやAnsibleが利用できます。この記事では、それに代わり <a href="https://github.com/r7kamura/serverkit">Serverkit</a> を利用して構成管理を行う方法について説明します。</p>
+
+<h2>プラグインをインストールする</h2>
+
+<p>標準の状態ではVagrantはServerkitのことを知りませんが、<a href="https://github.com/r7kamura/vagrant-serverkit">vagrant-serverkit</a> というプラグインをインストールすることで、Serverkitを利用して構成管理を行えるようになります。プラグインをインストールするには、<code>vagrant plugin install ${PLUGIN_NAME}</code> のようにコマンドを実行します。インストールされているプラグインを一覧するには、<code>vagrant plugin list</code> というコマンドを実行します。</p>
+
+<pre><code>$ vagrant plugin install vagrant-serverkit
+$ vagrant plugin list
+vagrant-serverkit (0.0.4)
+</code></pre>
+
+<h2>Vagrantfileを用意する</h2>
+
+<p>例として、ubuntu/trusty64 という名前で公開されている Ubuntu 14.04 のBoxを手元のVirtualBoxで起動し、recipe.yml に書かれたレシピ通りの状態をServerkitで構築する、という内容のVagrantfileを用意して実行してみます。</p>
+
+<figure><pre><code class="rb">Vagrant.configure("2") do |config|
+  config.vm.box = "ubuntu/trusty64"
+  config.vm.provision :serverkit do |serverkit_config|
+    serverkit_config.recipe_path = "recipe.yml"
+  end
+end
+</code></pre>
+<figcaption>Vagrantfile</figcaption></figure>
+
+<figure><pre><code class="yaml">resources:
+  - type: package
+    name: curl
+  - type: package
+    name: nginx
+</code></pre>
+<figcaption>recipe.yml</figcaption></figure>
+
+<h2>起動してみる</h2>
+
+<p>Vagrantでは、手元にVagrantfileがあればその内容を見て <code>vagrant up</code> で適切な環境が起動できます。その際、上記の例のように provision の設定が書かれていれば、初回起動時はその設定を見ながらProvisionが実行されます。これで環境構築は完了ですので、<code>vagrant ssh</code> などのコマンドを利用して構築した環境にログインしてみましょう。</p>
+
+<pre><code>$ vagrant up
+</code></pre>
+
+<h2>レシピを変更して再度適用する</h2>
+
+<p><code>vagrant up</code> では初回起動時しかProvisionが行われませんが、起動後にレシピの内容を変更して適用したい場合があるかもしれません。その場合、<code>vagrant provision</code> というコマンドが利用できます。</p>
+
+<pre><code>$ vagrant provision
+</code></pre>
+
+<h2>おまけ: プラグインはどこからくるの</h2>
+
+<p>先述した例では、vagrant-serverkit の version 0.0.4 がインストールされています。VagrantのプラグインはGem形式で記述され、rubygems.org で公開されています。vagrant-serverkitも、<a href="https://rubygems.org/gems/vagrant-serverkit">https://rubygems.org/gems/vagrant-serverkit</a> でGemとして公開されていることが確認できます。逆に言えば、Gem形式でコードを記述して rubygems.org で公開すれば、Vagrant用の独自のプラグインを公開できます。Vagrantのプラグインをつくる方法については公式でドキュメントも用意されているので、もしVagrantで利用できる仕組みを思い付いた場合は、プラグインを使ってみるのも良いと思います。</p>
+
   </div>
 </article>
 

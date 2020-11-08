@@ -41,7 +41,44 @@
     <h1>ActiveRecordを試すときに便利なやつ</h1>
   </header>
   <div>
-    <a href="https://www.sqlite.org/inmemorydb.html">In-Memory Databases</a><a href="https://github.com/rails/rails/pull/32576">Add missing `require "benchmark"` by r7kamura · Pull Request #32576 · rails/rails</a>
+    <p>手元で ActiveRecord を試したいときに、いちいちデータベースを用意したり、再現性のあるコード片に整えたりするのは、結構な手間に感じてしまうかもしれません。この記事では、そういったケースで利用できる知識を幾つかまとめておこうと思います。</p>
+
+<p>以下は今回題材に使うコード例で、これを上から順に説明していきます。</p>
+
+<p>ActiveRecord で .count の挙動を試す例</p>
+
+<h2>bundler/inline</h2>
+
+<p>bundler/inline は Bundler 1.10 から追加された機能です。これを利用すると、Gemfile を独立したファイルとして用意することなく、スクリプトの中にその定義を埋め込めるようになります。</p>
+
+<p>続くスクリプトがどのバージョンの Gem で動かせるのかということを明示でき、必要であればライブラリを実行時に自動的にインストールし、依存関係を調べて $LOAD_PATH を調整し、require まで実行してくれます。</p>
+
+<h2>ActiveRecord::Base.establish_connection</h2>
+
+<p>ActiveRecord::Base.establish_connection を利用することで、これからどのデータベースにどんな設定で接続しにいく予定なのかを指定できます。</p>
+
+<p>簡単に試すだけであれば、SQLite が便利に使えます。SQLite のデータベース名 (SQLite 的にはファイル名) として :memory: を指定すると、ファイルを用意することなく、メモリ上で動作するデータベースを用意できます。プロセス終了時にこのデータベースは揮発するため、簡単な実験では役に立ちます。</p>
+
+<p><a href="https://www.sqlite.org/inmemorydb.html">In-Memory Databases</a></p>
+
+<h2>ActiveRecord::Schema.define</h2>
+
+<p>ActiveRecord::Schema.define を利用すると、ActiveRecord の migration で使う DSL を利用してテーブルの定義を用意できます。このメソッドは、Rails の db/schema.rb で利用されているものです。</p>
+
+<h2>minitest/autorun</h2>
+
+<p>標準出力を利用することで挙動を確かめても良いのですが、スクリプト内でテストフレームワークを利用する方法を覚えておくと、再現性が高く、共有したときにより意図の伝わりやすいスクリプトを記述できる可能性が高まります。</p>
+
+<p>Ruby のテストフレームワークでは、それまでに定義されたテストケースをスクリプト終了直前に自動的に実行する機能を備えていることが多く、大抵その機能には autorun という名前が付けられています。例えば Rails のデフォルトのテストフレームワークである minitest であれば、minitest/autorun を require しておくことで、その機能が有効になります。</p>
+
+<h2>使用例</h2>
+
+<p>下記の例では、rails/rails への Pull Request において、期待する動作と実際の動作との違いを説明するために利用しています。</p>
+
+<p><a href="https://github.com/rails/rails/pull/32576">Add missing `require "benchmark"` by r7kamura · Pull Request #32576 · rails/rails</a></p>
+
+<p>「active_record/base.rb を読み込む前に ActiveRecord::Schema.define を使おうとしたら NameError が出るんだけど、本来ここは ActiveRecord::ConnectionNotEstablished が出るべき場所なんじゃないの？」というテストケースになっています。</p>
+
   </div>
 </article>
 

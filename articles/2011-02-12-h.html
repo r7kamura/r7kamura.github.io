@@ -41,7 +41,105 @@
     <h1>さくらVPS設定その3 Git+Ruby+Gem+Rails+Passenger</h1>
   </header>
   <div>
-    <a href="http://d.hatena.ne.jp/r7kamura/20110201/1296547847">さくらVPS設定まとめ</a><a href="http://jonas.nitro.dk/tig/releases/">ここ</a><a href="http://gyazo.com/85df9ff5d8d0126b8dc0641b9ce60eaf.png" target="_blank"><img src="http://gyazo.com/85df9ff5d8d0126b8dc0641b9ce60eaf.png" alt="tig"></a><a href="http://rvm.beginrescueend.com/">公式サイト</a>
+    <p><a href="http://d.hatena.ne.jp/r7kamura/20110201/1296547847">さくらVPS設定まとめ</a> の子エントリになります。</p>
+
+<p>目次</p>
+
+<ul>
+<li>Git</li>
+<li>Ruby</li>
+<li>Gem</li>
+<li>Rails
+
+<h2>- </h2>
+
+<ul>
+<li>
+
+<ul>
+<li>
+
+<h2>- </h2>
+
+<ul>
+<li>
+
+<ul>
+<li>
+
+<h2>- </h2>
+
+<ul>
+<li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+<p>RubyやRailsをバリバリ動かしたいので、それ関係のものを入れていきますよ。</p>
+
+<h4>Git</h4>
+
+<p>バージョン管理には基本的にGitを使っています。バージョン管理に使わない場合でも、ライブラリ等がGitで公開されていることは多いので入れておくに越したことはありません。yum標準のレポジトリにgitが含まれていないようなので、仕方無くレポジトリを追加します。私自身yumを使い始めてまだ間もないので、デフォルトの状態での理解が深まる前に追加でレポジトリを入れてしまうのはあまり好ましくないのですが、ソースから入れるのも同じくらい怖いのでレポジトリを追加します。</p>
+
+<pre><code># `uname -i`でx86\_64が出力されます$ rpm -ivh http://repo.webtatic.com/yum/centos/5/`uname -i`/webtatic-release-5-1.noarch.rpm$ sudo vi /etc/yum.repos.d/webtatic.repo # webtatic.repoが追加されていることを確認$ sudo yum install --enablerepo=webtatic git# enabled=0なのでyum install時に明示的な指定が必要
+</code></pre>
+
+<p>Gitを見るのに便利なTig(text-mode interface for git)を入れます。相当便利なので入れておくことを強くオススメします。最新版のtigのダウンロード先は<a href="http://jonas.nitro.dk/tig/releases/">ここ</a>で確認してください。またtigの動作には依存ライブラリncurses、iconv、git-coreが必要で、今回の場合であればncurses-develをyumから入れる必要があります。</p>
+
+<pre><code>$ su - % yum install ncurses-devel.`uname -i` -y # 依存ライブラリを入れます% cd /tmp # wgetします% wget http://jonas.nitro.dk/tig/releases/tig-0.16.2.tar.gz % tar -zxvf tig-0.16.2.tar.gz % cd tig-0.16.2/ % ./configure % make % make install% cd ../ % rm -rf tig-0.16.2.tar.gz # ゴミはしっかり捨てておきます% rm -rf tig-0.16.2
+</code></pre>
+
+<p>ちなみにtigを使うとこんな感じでコミット履歴が見られます。iine!!<br>
+ <a href="http://gyazo.com/85df9ff5d8d0126b8dc0641b9ce60eaf.png" target="_blank"><img src="http://gyazo.com/85df9ff5d8d0126b8dc0641b9ce60eaf.png" alt="tig"></a></p>
+
+<p>ローカル側にも入れておくと開発に便利でしょう。Macへの導入方法を説明しておきます。</p>
+
+<pre><code>$ sudo port install tig # ソースからではなくMacPortsから入れます ... error! ... # missing Java headersっぽいエラーが出る # エラーを見るとURLが提示されているので見にいく # Javaの開発者用パッケージが足りなかったんですね # AppleIDが必要。取ってて良かった。$ sudo port install tig # 再度挑戦すると成功
+</code></pre>
+
+<h4>Ruby</h4>
+
+<p>Rubyはrvm(ruby version manager)で入れます。丁度Ruby1.8から1.9への過渡期でもあるので、複数バージョンを管理できる方が都合が色々と都合が良いという理由や、調べると結構RVMで入れている人が多いという理由からです。インストール方法は、<a href="http://rvm.beginrescueend.com/">公式サイト</a>に従うだけです。(※日本人はreadlineのオプション指定をした方が良さそうなので後日追記しました 2011-02-20)</p>
+
+<pre><code># 簡単にインストール出来ます$ bash \&lt; \&lt;( curl http://rvm.beginrescueend.com/releases/rvm-install-head )$ vi .bashrc # .bashrcにrvmへのPATHを追加しろと言われます[[-s "$HOME/.rvm/scripts/rvm"]] &amp;&amp; source "$HOME/.rvm/scripts/rvm"$ rvm notes # Rubyのインストール方法を表示してくれます # その前に依存ライブラリが必要なようです$ sudo yum install -y gcc-c++ patch readline readline-devel zlib zlib-devel libyaml-devel libffi-devel openssl-devel $ rvm package install openssl $ rvm package install readline $ rvm package install iconv $ rvm package install zlib $ rvm install 1.9.2 \--with-openssl-dir=$HOME/.rvm/usr \--with-readline-dir=$HOME/.rvm/usr \--with-iconv-dir=$HOME/.rvm/usr \--with-zlib-dir=$rvm\_path/usr $ rvm use 1.9.2 --default # Ruby1.9.2を標準で使うように指定$ ruby list # 導入済みのRuby一覧を表示 rvm rubies =\&gt; ruby-1.9.2-p136 [x86\_64] # 入ってますね
+</code></pre>
+
+<h4>Gem</h4>
+
+<p>いつの間にか入ってるみたいです。rvmと一緒に入ったのでしょう。</p>
+
+<pre><code>$ which gem # gemがどこにあるか確認してみます~/.rvm/rubies/ruby-1.9.2-p136/bin/gem # .rvmっぽいですね$ gem install rubygems-update # gemのアップデータを入れます$ update\_rubygems # アップデートします
+</code></pre>
+
+<h4>Rails</h4>
+
+<p>Rubyが入ったらRailsですね！</p>
+
+<pre><code>$ gem install rails --no-ri --no-rdoc # railsを入れます$ gem install mysql2 --no-ri --no-rdoc # mysqlを使いたいのでドライバを入れますが怒られます$ sudo yum install mysql-devel -y # 環境に合わせてコードからビルドするため、開発用のmysql.hが必要です$ gem install mysql2 --no-ri --no-rdoc # 再挑戦すれば成功します
+</code></pre>
+
+<p>サンプルで何か作ってみますか。</p>
+
+<pre><code>$ mkdir ~/workspace $ cd !$ $ rails new demo -d mysql # demoアプリを作ります$ cd demo $ vi config/database.yml # DBパスワードを編集します$ bundle install # 必要なgemがまだ入ってないかもしれないので入れてもらいます$ rails g scaffold blog name:string body:string $ rake db:create # DBを作成$ rake db:migrate # テーブルを作成$ rake routes # ルーティングを確認してみます$ sudo vi /etc/sysconfig/iptables # テスト用に3000番ポートを開けます$ sudo /etc/rc.d/init.d/iptables restart # iptables再起動$ rails server # Railsのサーバー起動http://example.sakura.ne.jp:3000/blogs # ブラウザから確認
+</code></pre>
+
+<h4>Passenger</h4>
+
+<p>Railsを入れたら、恐らく公開用サーバーにはPassengerを通してApacheを使うことになるかと思うので、Passengerをインストールします。これはGemからインストール出来ます。Ruby関係のものはほとんどGemからいけますね。</p>
+
+<pre><code>$ gem install passenger # passenger導入$ passenger-install-apache2-module # apacheへの設定ウィザードを起動. 設定ファイルへの記述事項を出力してくれます$ sudo vi /etc/httpd/conf/httpd.conf # 3行ほど追加が必要みたいですね# Setting for PassengerLoadModule passenger\_module /home/r7kamura/.rvm/gems/ruby-1.9.2-p136/gems/passenger-3.0.2/ext/apache2/mod\_passenger.so PassengerRoot /home/r7kamura/.rvm/gems/ruby-1.9.2-p136/gems/passenger-3.0.2PassengerRuby /home/r7kamura/.rvm/wrappers/ruby-1.9.2-p136/ruby# 独自ドメインごとに設定するには以下のようにすれば良い…と思います。\&lt;VirtualHost \*:80\&gt; ServerName example.com DocumentRoot /path/to/my\_rails\_app/public \&lt;Directory /path/to/public\&gt; AllowOverride all Options -MultiViews\&lt;/Directory\&gt; ServerName hostname.sakura.ne.jp DocumentRoot /var/www/html\&lt;/VirtualHost\&gt;
+</code></pre>
+
+<p>これでアプリが自動的にProductionモードで公開されるようになります。この設定の瞬間から公開されるので気をつけてください。</p>
+
   </div>
 </article>
 

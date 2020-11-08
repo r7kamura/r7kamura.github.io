@@ -41,7 +41,79 @@
     <h1>Serverkitでrbenvを利用してRubyを入れる</h1>
   </header>
   <div>
-    <a href="https://github.com/serverkit/serverkit">Serverkit</a><a href="https://github.com/sstephenson/rbenv.git">https://github.com/sstephenson/rbenv.git</a><a href="https://github.com/sstephenson/ruby-build.git">https://github.com/sstephenson/ruby-build.git</a><a href="https://github.com/serverkit/serverkit-rbenv">serverkit-rbenv</a>
+    <p><a href="https://github.com/serverkit/serverkit">Serverkit</a> というプロビジョニングツールを利用して、ローカルあるいはSSHで接続できる任意のマシン上に、rbenv経由で任意のバージョンのRubyをインストールする方法について説明します。端的に言えば、以下のようなレシピとGemfileを用意し、<code>bundle exec serverkit apply recipe.yml</code> を実行するとインストールできます。</p>
+
+<figure><pre><code class="yaml">resources:
+  - type: rbenv_ruby
+    dependencies: true
+    global: true
+    user: foo
+    version: 2.2.0
+</code></pre>
+<figcaption>recipe.yml</figcaption></figure>
+
+<figure><pre><code class="rb">source "https://rubygems.org"
+
+gem "serverkit"
+gem "serverkit-rbenv"
+</code></pre>
+<figcaption>Gemfile</figcaption></figure>
+
+<h2>レシピ</h2>
+
+<p>Serverkitでは複数のリソースの配列まとめたものをレシピと呼んでいます。今回は「rbenv経由で特定のバージョンのRubyをインストールする」というリソースを1つだけ用意しています。1つのリソースは辞書形式で表現され、typeの値に応じてversionなどの幾つかの属性を持ちます。typeはどの種類のリソースか、versionはどのバージョンのRubyをインストールするか、userはどのユーザが対象か、globalはrbenvでそのversionのRubyをglobalに設定するかどうか、dependenciesはもしrbenvやruby-buildがインストールされていない場合に同時にインストールするかどうか、を表しています。</p>
+
+<h2>適用すると何が起こるか</h2>
+
+<p>ほぼ何も入っていない環境で、先述したレシピを適用すると何が起こるかについて説明します。</p>
+
+<h3>rbenv_dependent_packages</h3>
+
+<p>まず <code>dependencies: true</code> が指定されているため、rbenvに必要なパッケージがインストールされます。例えばyumを使うOSであれば以下のパッケージがyum経由でインストールされます。</p>
+
+<ul>
+<li>gcc</li>
+<li>gdbm-devel</li>
+<li>git</li>
+<li>libffi-devel</li>
+<li>libyaml-devel</li>
+<li>ncurses-devel</li>
+<li>openssl-devel</li>
+<li>readline-devel</li>
+<li>zlib-devel</li>
+</ul>
+
+<h3>rbenv_rbenv</h3>
+
+<p>次にrbenvのインストール。<code>user: foo</code> が指定されているので、<a href="https://github.com/sstephenson/rbenv.git">https://github.com/sstephenson/rbenv.git</a> がfooユーザのホームディレクトリ以下の <code>.rbenv</code> にgit-cloneされます。一般的には <code>/home/foo/.rbenv</code> になります。</p>
+
+<h3>rbenv_ruby_build</h3>
+
+<p>次に、ruby-buildがインストールされていない場合、これもインストールされます。これもrbenvと同じく、<a href="https://github.com/sstephenson/ruby-build.git">https://github.com/sstephenson/ruby-build.git</a> が <code>.rbenv/plugins/ruby-build</code> にgit-cloneされます。</p>
+
+<h3>rbenv_profile</h3>
+
+<p>そして、<code>export PATH="$HOME/.rbenv/bin/rbenv:$PATH"</code> と <code>eval "$(rbenv init -)"</code> がfooユーザの.bash_profileに追記されます。例えば別の種類のログインシェルを利用している場合であれば、profile_path属性を指定すれば追記先のファイルを変更できます。また、既に該当行が記述されている場合は追記されません。</p>
+
+<h3>rbenv_ruby</h3>
+
+<p>ここまでで <code>dependencies: true</code> によるrbenvとruby-buildのインストールが終わり、後は指定されたバージョンのRubyを <code>rbenv install 2.2.0</code> でインストールし、<code>rbenv global 2.2.0</code> を設定して、インストールは完了します。</p>
+
+<h2>serverkit-rbenv</h2>
+
+<p>rbenv_rubyというリソースは、serverkit本体ではなく<a href="https://github.com/serverkit/serverkit-rbenv">serverkit-rbenv</a>というプラグインで提供されいるため、これをGemfileに記述しておく必要があります。<code>bundle exec serverkit ...</code> と実行すれば、プラグインが読み込まれる仕組みになっています。</p>
+
+<figure><pre><code class="rb">source "https://rubygems.org"
+
+gem "serverkit"
+gem "serverkit-rbenv"
+</code></pre>
+<figcaption>Gemfile</figcaption></figure>
+
+<h2>運用</h2>
+
+<p>とりあえず雑にrbenvとRubyを入れたい場合は <code>dependencies: true</code> を使うと良いでしょう。serverkit-rbenvでは、個々の工程を、rbenv_ruby_build、rbenv_profile、rbenv_dependent_packages などのリソースとして提供しているので、インストール先などを細かく管理したい場合は <code>dependencies: true</code> を利用せず、これらのリソースを利用すると良いでしょう。一部の工程だけはserverkit-rbenvで提供されるリソースを利用せず、自前で用意する、という使い方も可能です。</p>
+
   </div>
 </article>
 

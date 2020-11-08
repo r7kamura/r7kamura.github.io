@@ -41,7 +41,81 @@
     <h1>今日の経験値</h1>
   </header>
   <div>
-    
+    <p>今日はバイト先で経験値とお金を稼ぎました。</p>
+
+<h3>経験値</h3>
+
+<ul>
+<li>CSS
+
+<ul>
+<li>media-queryを覚えた</li>
+<li>画面幅1400px以上のときだけサイドバーを表示とか</li>
+</ul>
+</li>
+<li>Perl
+
+<ul>
+<li>plack</li>
+<li>app.psgiからViewが描画されるまでの一通りの流れを覚えた</li>
+<li>Xslateが使えるようになった</li>
+<li>package定義を覚えた</li>
+<li>実は人生初package定義だった</li>
+<li>constantは関数だと知った</li>
+<li>use constant A =&gt; {};</li>
+<li>x : my %hash = %{A};</li>
+<li>o : my %hash = %{A()};</li>
+<li>CamelCaseとsnake_caseの相互変換を覚えた</li>
+<li>名前からクラスを動的にrequireする時に使った</li>
+<li>正規表現の便利なオプションを覚えた</li>
+<li>\l =&gt; 次の文字を小文字にする</li>
+<li>\u =&gt; 次の文字を大文字にする</li>
+<li>クラス名を文字列で用意して動的ロードできるようになった</li>
+<li>require $name; だと$nameがパスじゃないとダメ</li>
+<li>use UNIVERSAL::require; $name-&gt;require; する</li>
+<li>$name-&gt;require or die $@; の方がいい</li>
+<li>テストで一時的にメソッドの挙動変えられるようになった</li>
+<li>no warnings qw/redefine once/;</li>
+<li>local *Foo:bar = sub { 1 };</li>
+<li>Test::Mock::Guardも使ってみたら便利だった</li>
+</ul>
+</li>
+<li>HTML
+
+<ul>
+<li>autopagerize対応できるようになった</li>
+<li>a要素かlink要素にrel="next"を付けて次のURLを指定</li>
+<li>ここの前に挿入してほしいという要素にclass="autopagerize_insert_before"</li>
+<li>次のページとしてこの要素がほしいという要素にclass="autopagerize_page_element"</li>
+</ul>
+</li>
+<li>消費者
+
+<ul>
+<li>TVでトマトが痩せるとか言ったら全国からトマトが無くなった</li>
+<li>ブログを書けば痩せる</li>
+</ul>
+</li>
+</ul>
+
+<pre><code>// 画面幅が1400px以上の状態のときだけサイドバーを表示する @media screen and (min-width: 1400px) { .fragile-sidebar { position:fixed; top: 200px; right:0; } }
+</code></pre>
+
+<pre><code># CamelCaseとsnake\_caseを相互変換する my $str = "CamelCase"; $str =~ s/([A-Z])/\_\l$1/g; $str =~ s/^\_//; $str; #=\&gt; "camel\_case"; $str =~ s/(?:^|\_)(.)/\u$1/g; $str =~ s/\_//g; $str; #=\&gt; "CamelCase";
+</code></pre>
+
+<h3>頭の中</h3>
+
+<ul>
+<li>書きたいことがあると何も書けない
+
+<ul>
+<li>並列に物事を考えられない</li>
+<li>書きたいことがまとまるまで他のことが書けない</li>
+</ul>
+</li>
+</ul>
+
   </div>
 </article>
 

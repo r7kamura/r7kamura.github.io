@@ -41,7 +41,41 @@
     <h1>MacでUstream等のストリーム配信の再生音を録音する</h1>
   </header>
   <div>
-    <a href="http://code.google.com/p/soundflower/downloads/list">http://code.google.com/p/soundflower/downloads/list</a><a href="http://gyazo.com/684aa143d42ca1b77a6000592766954f.png" target="_blank"><img src="http://gyazo.com/684aa143d42ca1b77a6000592766954f.png" alt="SoundPreferencePane"></a><a href="http://gyazo.com/456406f92c2f43d8acf2aea48cc9338d.png" target="_blank"><img src="http://gyazo.com/456406f92c2f43d8acf2aea48cc9338d.png" alt="soundflower"></a><a href="http://audacity.sourceforge.net/download/beta_mac">Audacity Mac OS X</a><a href="http://lame.buanzo.com.ar/">Lame MP3 Encoder Binaries</a>
+    <p>この記事はUstremやニコニコ生放送等リアルタイムで再生されている音源を録音して後でも聴けるようにしようという主旨の話をするので、Ustreamは刹那的で一期一会な感じがいいんだよ的な人は読み飛ばしちゃってください。環境はMac OSX 10.6 SnowLeopardです。仮想オーディオデバイス『Soundflower』を導入して、内蔵出力をSoundflower(2ch)にループバックし、Soundflower(2ch)から内蔵出力と録音ソフトに出力を渡します。録音ソフトには録音から編集まで幅広くこなしMac/Linux/Winで動作するフリーソフト『Audacity』を利用します。</p>
+
+<p>▼イメージで言うとこんな感じ</p>
+
+<pre><code>Builtin-Output[1] --\&gt; Soundflower --┬--\&gt; [3]Audacity.app └--\&gt; [2]Bultin-Input
+</code></pre>
+
+<h4>Soundflower</h4>
+
+<p><a href="http://code.google.com/p/soundflower/downloads/list">http://code.google.com/p/soundflower/downloads/list</a><br>
+ここからインストール。</p>
+
+<p><a href="http://gyazo.com/684aa143d42ca1b77a6000592766954f.png" target="_blank"><img src="http://gyazo.com/684aa143d42ca1b77a6000592766954f.png" alt="SoundPreferencePane"></a><br>
+システム環境設定 &gt; サウンドで出力をSoundflowerに流す[1]</p>
+
+<p><a href="http://gyazo.com/456406f92c2f43d8acf2aea48cc9338d.png" target="_blank"><img src="http://gyazo.com/456406f92c2f43d8acf2aea48cc9338d.png" alt="soundflower"></a><br>
+Soundflowerはこんな感じで設定して内部出力にも出力する[2]</p>
+
+<h4>Audacity</h4>
+
+<p><a href="http://audacity.sourceforge.net/download/beta_mac">Audacity Mac OS X</a><br>
+ここからインストール。<br>
+Audacity.appのパッケージの内容を表示して、Contents &gt; MacOSの中に以下のファイルをコピー。</p>
+
+<ul>
+<li>Languages</li>
+<li>modules</li>
+<li>plug-ins</li>
+</ul>
+
+<p><a href="http://lame.buanzo.com.ar/">Lame MP3 Encoder Binaries</a><br>
+ここからAudacity用のLameプラグイン(waveファイルをmp3で出力するのに必要)をインストール<br>
+Audacityを開いて、Preferences &gt; オーディオI/O の「レコーディング」「デバイス」にSoundflower(2ch)を設定。<br>
+録音を開始。やたーUstream録音できたー！</p>
+
   </div>
 </article>
 

@@ -41,7 +41,63 @@
     <h1>Gemfile の書き方を見直した</h1>
   </header>
   <div>
-    <a href="https://rubygems.org">https://rubygems.org</a><a href="https://github.com/bbb/bbb/issues/123">https://github.com/bbb/bbb/issues/123</a>
+    <p>Gemfile を記述するときの自分のルールを見直したので言語化しておく。</p>
+
+<h2>ルール</h2>
+
+<ol>
+<li> 決まった順序で定義しなければいけない Gem は上部に書く</li>
+<li> 順序に依存しない Gem は名前の辞書順に書く</li>
+<li> コメントも含めて 1 つの Gem あたりに 1行使う</li>
+<li> group が必要なものは group メソッドを使って下部に書く</li>
+<li> group も辞書順に書く</li>
+</ol>
+
+<h2>サンプルコード</h2>
+
+<p>実際のアプリケーションでは、もう少し込みいったコードになるはず。</p>
+
+<p>source "<a href="https://rubygems.org">https://rubygems.org</a>"</p>
+
+<p># Fixed order<br>
+gem "rails", "5.1.4"</p>
+
+<p># Alphabetical order<br>
+gem "aaa"<br>
+gem "bbb", "1.2.3" # <a href="https://github.com/bbb/bbb/issues/123">https://github.com/bbb/bbb/issues/123</a><br>
+gem "ccc"</p>
+
+<p>group :xxx do<br>
+  gem "ddd"<br>
+  gem "eee"<br>
+  gem "fff"<br>
+end</p>
+
+<p>group :xxx, :yyy do<br>
+  gem "ggg"<br>
+  gem "hhh"<br>
+  gem "iii"<br>
+end</p>
+
+<p>group :yyy do<br>
+  gem "jjj"<br>
+  gem "kkk"<br>
+  gem "lll"<br>
+end</p>
+
+<h2>背景</h2>
+
+<p>以下のようなことを念頭に置いたルールになっている。</p>
+
+<ul>
+<li>誰が書いても同じようなコードになる</li>
+<li>編集するときにどう書けば良いか迷わない</li>
+</ul>
+
+<h2>順序に関する注釈</h2>
+
+<p>Bundler は Gemfile に書かれている順に require していくので、例えば if defined?(Rails) のようなコードが require したときに実行される Gem が存在する場合、それより前に Rails を読み込んでおく必要が出てくる。そのため、上例のように辞書順のルールを超えて先に読み込むべき Gem が存在するケースが出てくる。</p>
+
   </div>
 </article>
 
