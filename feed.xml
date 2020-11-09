@@ -8,13 +8,13 @@
     <atom:link href="https://r7kamura.com/feed.xml" rel="self"/>
     <title>r7kamura.com</title>
     <managingEditor>r7kamura@gmail.com (Ryo Nakamura)</managingEditor>
-    <lastBuildDate>Mon, 09 Nov 2020 09:19:59 +0900</lastBuildDate>
+    <lastBuildDate>Mon, 09 Nov 2020 15:02:35 +0000</lastBuildDate>
     
     <item>
       <title><![CDATA[Imgurへの緩やかな移行]]></title>
       <description><![CDATA[記事に画像を掲載するときに、Imgurを利用してみることにした。]]></description>
       <link>https://r7kamura.com/articles/2020-11-09-imgur</link>
-      <pubDate>Mon, 09 Nov 2020 00:00:00 +0900</pubDate>
+      <pubDate>Mon, 09 Nov 2020 00:00:00 +0000</pubDate>
       <content:encoded><![CDATA[<p>記事に画像を掲載するときに、<a href="https://imgur.com/">Imgur</a>を利用してみることにした。</p>
 
 <figure><a href="https://i.imgur.com/8kai7Rn.jpg" target="_blank"><img src="https://i.imgur.com/8kai7Rnh.jpg" alt="" title="特に脈絡の無いハンバーガー（Hungry Heaven目黒店にて）"></a><figcaption>特に脈絡の無いハンバーガー（Hungry Heaven目黒店にて）</figcaption></figure>
@@ -48,7 +48,7 @@
       <title><![CDATA[Amazonリンク見直し]]></title>
       <description><![CDATA[このウェブサイトのAmazonの商品ページへのリンク方法を見直した。]]></description>
       <link>https://r7kamura.com/articles/2020-11-09-amazon-link</link>
-      <pubDate>Mon, 09 Nov 2020 00:00:00 +0900</pubDate>
+      <pubDate>Mon, 09 Nov 2020 00:00:00 +0000</pubDate>
       <content:encoded><![CDATA[<p>このウェブサイトのAmazonの商品ページへのリンク方法を見直した。</p>
 
 <h2>具体的な変更点</h2>
@@ -70,7 +70,7 @@
       <title><![CDATA[CHILL OUT]]></title>
       <description><![CDATA[リラクゼーションドリンクのCHILL OUTを飲んだ。]]></description>
       <link>https://r7kamura.com/articles/2020-11-08-chill-out</link>
-      <pubDate>Sun, 08 Nov 2020 00:00:00 +0900</pubDate>
+      <pubDate>Sun, 08 Nov 2020 00:00:00 +0000</pubDate>
       <content:encoded><![CDATA[<p>リラクゼーションドリンクの<a href="https://butfirstchillout.com/">CHILL OUT</a>を飲んだ。</p>
 
 <figure><a href="https://i.imgur.com/3682F2Z.jpg" target="_blank"><img src="https://i.imgur.com/3682F2Zh.jpg" alt="" title="サメとCHILL OUT"></a><figcaption>サメとCHILL OUT</figcaption></figure>
@@ -100,7 +100,7 @@
       <title><![CDATA[画像のキャプション title属性編]]></title>
       <description><![CDATA[画像にキャプションを付ける方法をまた変えた。]]></description>
       <link>https://r7kamura.com/articles/2020-11-07-image-caption-revised</link>
-      <pubDate>Sat, 07 Nov 2020 00:00:00 +0900</pubDate>
+      <pubDate>Sat, 07 Nov 2020 00:00:00 +0000</pubDate>
       <content:encoded><![CDATA[<p>画像にキャプションを付ける方法をまた変えた。画像にキャプションを付け始めたのは2020年9月のことで、<a href="/articles/2020-09-22-markdown-caption">当時も記事を書いた</a>。</p>
 
 <figure><a href="/images/2020-11-07-image-caption.jpg" target="_blank"><img src="/images/2020-11-07-image-caption.jpg" alt="" title="今日の朝食"></a><figcaption>今日の朝食</figcaption></figure>
@@ -125,7 +125,7 @@
       <title><![CDATA[ウォッチパーティー]]></title>
       <description><![CDATA[初めてウォッチパーティーを使った。]]></description>
       <link>https://r7kamura.com/articles/2020-11-05-watch-party</link>
-      <pubDate>Thu, 05 Nov 2020 00:00:00 +0900</pubDate>
+      <pubDate>Thu, 05 Nov 2020 00:00:00 +0000</pubDate>
       <content:encoded><![CDATA[<p>初めてウォッチパーティーを使った。</p>
 
 <p>Amazonプライムビデオで配信されている動画を、プライム会員同士で同期しながら観たりできるやつ。PC用のWebブラウザで、Amazonプライムビデオからぽちぽちやると簡単に使える。発行されたURLを伝えて、適当に再生するだけ。</p>
@@ -147,7 +147,7 @@
       <title><![CDATA[Amazon URL Shortener]]></title>
       <description><![CDATA[Amazon URL ShortenerというChrome拡張をつくった。]]></description>
       <link>https://r7kamura.com/articles/2020-11-04-amazon-url-shortener</link>
-      <pubDate>Wed, 04 Nov 2020 00:00:00 +0900</pubDate>
+      <pubDate>Wed, 04 Nov 2020 00:00:00 +0000</pubDate>
       <content:encoded><![CDATA[<p><a href="https://chrome.google.com/webstore/detail/amazon-url-shortener/bonkcfmjkpdnieejahndognlbogaikdg">Amazon URL Shortener</a>というChrome拡張をつくった。</p>
 
 <p>これを入れると、Amazonの商品ページにアクセスしたときに、ロケーションバーに表示されるURLを自動的に短いものに書き換えてくれる。商品のURLを共有するときに、長ったらしいURLにならずに済んで嬉しい。</p>
@@ -209,7 +209,7 @@
       <title><![CDATA[炊飯器 象印NW-ES07-BZ]]></title>
       <description><![CDATA[象印のNW-ES07-BZという炊飯器を買った。]]></description>
       <link>https://r7kamura.com/articles/2020-11-03-rice-cooker</link>
-      <pubDate>Tue, 03 Nov 2020 00:00:00 +0900</pubDate>
+      <pubDate>Tue, 03 Nov 2020 00:00:00 +0000</pubDate>
       <content:encoded><![CDATA[<p>象印の<a href="https://www.amazon.co.jp/dp/B07TWC6C2D?tag=r7kamura07-22">NW-ES07-BZ</a>という炊飯器を買った。</p>
 
 <figure><a href="/images/2020-11-03-rice-cooker.jpg" target="_blank"><img src="/images/2020-11-03-rice-cooker.jpg" alt="" title="NW-ES07-BZ"></a><figcaption>NW-ES07-BZ</figcaption></figure>
@@ -227,7 +227,7 @@
       <title><![CDATA[ルックプラス バスタブクレンジング]]></title>
       <description><![CDATA[ルックプラス バスタブクレンジング 銀イオンプラスを手に入れた。]]></description>
       <link>https://r7kamura.com/articles/2020-11-02-lookplus</link>
-      <pubDate>Mon, 02 Nov 2020 00:00:00 +0900</pubDate>
+      <pubDate>Mon, 02 Nov 2020 00:00:00 +0000</pubDate>
       <content:encoded><![CDATA[<p><a href="https://www.amazon.co.jp/dp/B0851YMDNN?tag=r7kamura07-22">ルックプラス バスタブクレンジング 銀イオンプラス</a>を手に入れた。</p>
 
 <figure><a href="/images/2020-11-02-lookplus.jpg" target="_blank"><img src="/images/2020-11-02-lookplus.jpg" alt="" title="スプレーボトルと詰替え用のそれ"></a><figcaption>スプレーボトルと詰替え用のそれ</figcaption></figure>
@@ -247,7 +247,7 @@
       <title><![CDATA[gemやnpmの所有者追加]]></title>
       <description><![CDATA[rubygems.orgやnpmjs.comに登録しているパッケージの所有者を追加する方法について。]]></description>
       <link>https://r7kamura.com/articles/2020-10-31-adding-owner-of-gem-and-npm</link>
-      <pubDate>Sat, 31 Oct 2020 00:00:00 +0900</pubDate>
+      <pubDate>Sat, 31 Oct 2020 00:00:00 +0000</pubDate>
       <content:encoded><![CDATA[<p>rubygems.orgやnpmjs.comに登録しているパッケージの所有者を追加する方法について。</p>
 
 <h2>概要</h2>
@@ -285,7 +285,7 @@
       <title><![CDATA[rack-ok]]></title>
       <description><![CDATA[rack-okというGemをつくった。]]></description>
       <link>https://r7kamura.com/articles/2020-10-30-rack-ok</link>
-      <pubDate>Fri, 30 Oct 2020 00:00:00 +0900</pubDate>
+      <pubDate>Fri, 30 Oct 2020 00:00:00 +0000</pubDate>
       <content:encoded><![CDATA[<p><a href="https://github.com/r7kamura/rack-ok">rack-ok</a>というGemをつくった。</p>
 
 <h2>概要</h2>
@@ -311,7 +311,7 @@
       <title><![CDATA[つくりおき]]></title>
       <description><![CDATA[気が向いたときにホットクックで常備菜をつくっている。]]></description>
       <link>https://r7kamura.com/articles/2020-10-29-tsukurioki</link>
-      <pubDate>Thu, 29 Oct 2020 00:00:00 +0900</pubDate>
+      <pubDate>Thu, 29 Oct 2020 00:00:00 +0000</pubDate>
       <content:encoded><![CDATA[<p><a href="/images/2020-10-29-tsukurioki.jpg" target="_blank"><img src="/images/2020-10-29-tsukurioki.jpg" alt=""></a></p>
 
 <p>気が向いたときにホットクックで常備菜をつくっている。</p>
@@ -433,7 +433,7 @@
       <title><![CDATA[rack-capture]]></title>
       <description><![CDATA[rack-captureというGemをつくった。]]></description>
       <link>https://r7kamura.com/articles/2020-10-28-rack-capture</link>
-      <pubDate>Wed, 28 Oct 2020 00:00:00 +0900</pubDate>
+      <pubDate>Wed, 28 Oct 2020 00:00:00 +0000</pubDate>
       <content:encoded><![CDATA[<p><a href="https://github.com/r7kamura/rack-capture">rack-capture</a>というGemをつくった。</p>
 
 <h2>概要</h2>
@@ -475,7 +475,7 @@ end
       <title><![CDATA[OpenSearch、キーボード、title要素]]></title>
       <description><![CDATA[取り留めのない事柄が一定量溜まると、雑記として吐き出される。]]></description>
       <link>https://r7kamura.com/articles/2020-10-27-openearch-keyboard-title</link>
-      <pubDate>Tue, 27 Oct 2020 00:00:00 +0900</pubDate>
+      <pubDate>Tue, 27 Oct 2020 00:00:00 +0000</pubDate>
       <content:encoded><![CDATA[<p>取り留めのない事柄が一定量溜まると、雑記として吐き出される。</p>
 
 <h2>OpenSearch</h2>
@@ -501,7 +501,7 @@ end
       <title><![CDATA[DiscordのWebhookとチャンネル設計]]></title>
       <description><![CDATA[TwitterやGitHubからDiscordに自動で投稿させる方法と、この手の自動投稿を扱う際のより良いチャンネル設計について。]]></description>
       <link>https://r7kamura.com/articles/2020-10-26-discord-webhooks-and-channels</link>
-      <pubDate>Mon, 26 Oct 2020 00:00:00 +0900</pubDate>
+      <pubDate>Mon, 26 Oct 2020 00:00:00 +0000</pubDate>
       <content:encoded><![CDATA[<p>TwitterやGitHubからDiscordに自動で投稿させる方法と、この手の自動投稿を扱う際のより良いチャンネル設計について。</p>
 
 <h2>背景</h2>
@@ -581,7 +581,7 @@ end
       <title><![CDATA[サメを支える技術 第2版]]></title>
       <description><![CDATA[大きなサメのぬいぐるみの購入方法について。]]></description>
       <link>https://r7kamura.com/articles/2020-10-25-shark</link>
-      <pubDate>Sun, 25 Oct 2020 00:00:00 +0900</pubDate>
+      <pubDate>Sun, 25 Oct 2020 00:00:00 +0000</pubDate>
       <content:encoded><![CDATA[<p>大きなサメのぬいぐるみの購入方法について。</p>
 
 <h2>背景</h2>
@@ -641,7 +641,7 @@ end
       <title><![CDATA[ハンモック]]></title>
       <description><![CDATA[VIVEREのハンモックを買った。]]></description>
       <link>https://r7kamura.com/articles/2020-10-22-hammock</link>
-      <pubDate>Thu, 22 Oct 2020 00:00:00 +0900</pubDate>
+      <pubDate>Thu, 22 Oct 2020 00:00:00 +0000</pubDate>
       <content:encoded><![CDATA[<figure><a href="/images/2020-10-22-hammock-setup-3.jpg" target="_blank"><img src="/images/2020-10-22-hammock-setup-3.jpg" alt="" title="完成形"></a><figcaption>完成形</figcaption></figure>
 
 <p><a href="https://www.amazon.co.jp/dp/B076R436RP?tag=r7kamura07-22">VIVEREのハンモック</a>を買った。</p>
@@ -671,7 +671,7 @@ end
       <title><![CDATA[キーボード G913-TKL]]></title>
       <description><![CDATA[ロジクールのG913-TKLというキーボードを買った。]]></description>
       <link>https://r7kamura.com/articles/2020-10-21-keyboard-g913-tkl</link>
-      <pubDate>Wed, 21 Oct 2020 00:00:00 +0900</pubDate>
+      <pubDate>Wed, 21 Oct 2020 00:00:00 +0000</pubDate>
       <content:encoded><![CDATA[<figure><a href="/images/2020-10-21-keyboard-g913-tkl.jpg" target="_blank"><img src="/images/2020-10-21-keyboard-g913-tkl.jpg" alt="" title="G913-TKLとG903"></a><figcaption>G913-TKLとG903</figcaption></figure>
 
 <p>ロジクールの<a href="https://www.amazon.co.jp/dp/B088BN6JKQ?tag=r7kamura07-22">G913-TKL</a>というキーボードを買った。</p>
@@ -705,7 +705,7 @@ end
       <title><![CDATA[Podcast収録環境 2020年版]]></title>
       <description><![CDATA[2020年時点での自分のPodcast収録環境について。]]></description>
       <link>https://r7kamura.com/articles/2020-10-20-podcast-setup-2020</link>
-      <pubDate>Tue, 20 Oct 2020 00:00:00 +0900</pubDate>
+      <pubDate>Tue, 20 Oct 2020 00:00:00 +0000</pubDate>
       <content:encoded><![CDATA[<p>2020年時点での自分のPodcast収録環境について。</p>
 
 <p>主に<a href="https://yatteiki.fm/">yatteiki.fm</a>の収録用。<a href="/articles/2017-05-25-podcast-setup-2017">2017年版</a>もある。</p>
@@ -756,7 +756,7 @@ end
       <title><![CDATA[OBSで音声トラックを分けて録音]]></title>
       <description><![CDATA[OBSで音声を収録する際に、マイクの音声とデスクトップの音声を個別のトラックに分ける方法について。]]></description>
       <link>https://r7kamura.com/articles/2020-10-19-podcast</link>
-      <pubDate>Mon, 19 Oct 2020 00:00:00 +0900</pubDate>
+      <pubDate>Mon, 19 Oct 2020 00:00:00 +0000</pubDate>
       <content:encoded><![CDATA[<p>OBSで音声を収録する際に、マイクの音声とデスクトップの音声を個別のトラックに分ける方法について。</p>
 
 <h2>概要</h2>
@@ -790,7 +790,7 @@ end
       <title><![CDATA[鯛と刃]]></title>
       <description><![CDATA[鯛が届いた。]]></description>
       <link>https://r7kamura.com/articles/2020-10-18-tai</link>
-      <pubDate>Sun, 18 Oct 2020 00:00:00 +0900</pubDate>
+      <pubDate>Sun, 18 Oct 2020 00:00:00 +0000</pubDate>
       <content:encoded><![CDATA[<figure><a href="/images/2020-10-18-tai-kashira.jpg" target="_blank"><img src="/images/2020-10-18-tai-kashira.jpg" alt="" title="ギョッとする見た目"></a><figcaption>ギョッとする見た目</figcaption></figure>
 
 <p>鯛が届いた。高知かわうそ市場の、<a href="https://kochi-kawauso.com/collections/covid19_free_shipping/products/susakimadai-1hiki">須崎舞鯛 1匹分お刺身用</a>というやつ。</p>
