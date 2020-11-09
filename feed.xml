@@ -8,7 +8,7 @@
     <atom:link href="https://r7kamura.com/feed.xml" rel="self"/>
     <title>r7kamura.com</title>
     <managingEditor>r7kamura@gmail.com (Ryo Nakamura)</managingEditor>
-    <lastBuildDate>Mon, 09 Nov 2020 17:53:51 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 09 Nov 2020 17:56:21 +0000</lastBuildDate>
     
     <item>
       <title><![CDATA[RuboCop Problem Matchers]]></title>
@@ -17,7 +17,7 @@
       <pubDate>Tue, 10 Nov 2020 00:00:00 +0000</pubDate>
       <content:encoded><![CDATA[<p><a href="https://github.com/marketplace/actions/rubocop-problem-matchers">RuboCop Problem Matchers</a>というGitHub Actionをつくった。</p>
 
-<p>GitHub ActionsでRuboCopを実行する前にこれを呼び出しておくと、変更差分やGitHub Checksのところに違反内容が表示されるようになる。</p>
+<p>GitHub ActionsでRuboCopを実行する前にこれを呼び出しておくと、違反内容が変更差分に注釈として表示されるようになる。</p>
 
 <p>こういう感じで使う。</p>
 
