@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width">
+  <title>RuboCop 1.3.0、VSCodeのaddSelection</title>
+  <link href="https://r7kamura.com/articles/2020-11-12-rubocop-vscode-multi-cursor" rel="canonical">
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="search" type="application/opensearchdescription+xml" title="r7kamura.com" href="/opensearch.xml">
+  <link rel="alternate" type="application/rss+xml" href="/feed.xml">
+  
+  <meta property="description" content="雑記だ。">
+  <meta property="og:description" content="雑記だ。">
+  
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="RuboCop 1.3.0、VSCodeのaddSelection">
+  <meta property="og:url" content="https://r7kamura.com/articles/2020-11-12-rubocop-vscode-multi-cursor">
+  
+  <meta property="og:image" content="https://r7kamura.com/default_og_image.jpg">
+  <meta property="twitter:card" content="summary">
+  
+</head>
+<body>
+  <header>
+    <nav>
+      <a href="/">r7kamura.com</a>
+      <ul>
+        <li>
+          <a href="/articles">一覧</a>
+        </li>
+        <li>
+          <a href="https://www.google.com/search?q=site:r7kamura.com">検索</a>
+        </li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <article>
+  <header>
+    <time datetime="2020-11-12T00:00:00+00:00">2020年11月12日</time>
+    <h1>RuboCop 1.3.0、VSCodeのaddSelection</h1>
+  </header>
+  <div>
+    <p>雑記だ。</p>
+
+<h2>RuboCop 1.3.0</h2>
+
+<p>次のGem群を利用しているプロジェクトで、RuboCop関係のGemを全て最新版に上げた。</p>
+
+<ul>
+<li>guard-rubocop (1.3.0 to 1.4.0)</li>
+<li>rubocop (0.93.1 to 1.3.0)</li>
+<li>rubocop-rails (2.8.1 to 2.8.1)</li>
+<li>rubocop-rspec (1.44.1 to 2.0.0)</li>
+</ul>
+
+<p>rubocop 1.0.0が出たときに最新版にしようと試したことがあるが、当時はguard-rubocopとrubocop-rspecが対応しておらず、すぐに対応しようとすると効率が悪そうだったので後回しにしていた。今になってその問題が解決されていたので、改めて最新版に上げることにした。</p>
+
+<p>件のプロジェクトではrubocopは全く問題が無く、どちらかと言うとrubocop-rspec 1.44.1から2.0.0に上げたことによる非互換性への対処の方が面倒だったが、<a href="https://docs.rubocop.org/rubocop-rspec/2.0/upgrade_to_version_2.html">Upgrade to Version 2.x :: RuboCop Docs</a>というガイドもあり、実のところ大した変更でもなかった。</p>
+
+<h2>VSCodeのCtrl+D</h2>
+
+<p>現在カーソル下にある単語かあるいは現在選択中の単語を同ファイル内から検索し、順にその末尾にマルチカーソルを足していってくれるというeditor.action.addSelectionToNextFindMatchというコマンドがVSCodeにあり、Windows版ではCtrl+D、Mac版では確かCommand+Dのショートカットキーにこれが割り当てられている。</p>
+
+<p>マルチカーソルは本当によく使っており、このショートカットキーもほぼ必須な機能として毎日便利に使っている。便利だという気持ちをどこかに書いておきたかった。</p>
+
+  </div>
+</article>
+
+  </main>
+</body>
+</html>
