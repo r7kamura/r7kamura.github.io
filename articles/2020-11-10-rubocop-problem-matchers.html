@@ -57,6 +57,19 @@
 
 <p>GitHubの<a href="https://github.com/actions/toolkit/blob/1cc56db0ff126f4d65aeb83798852e02a2c180c3/docs/problem-matchers.md">Problem Matchers</a>という仕組みを利用している。</p>
 
+<hr>
+
+<p>このような目的でGitHub Actionsを利用するときの注意点に触れておく。</p>
+
+<p><code>pull_request</code> イベントを起点に動かす場合、<code>actions/checkout</code> はそのPull Requestが生成しようとしているmerge commitをチェックアウトする。これだとLinter等から報告されるコードの位置がPull Requestの差分で表示しているものとズレてしまう場合があるので、この用途で使う場合はPull RequestのHEADをチェックアウトするように設定した方が良い。</p>
+
+<pre><code class="yaml">- uses: actions/checkout@v2
+  with:
+    ref: ${{ github.event.pull_request.head.sha }}
+</code></pre>
+
+<p>ちなみに、このように指定しても <code>push</code> 契機での実行時にも特に問題無く動いてくれるので、その点は心配無い。</p>
+
   </div>
 </article>
 
