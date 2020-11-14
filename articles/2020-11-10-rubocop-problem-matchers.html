@@ -78,15 +78,15 @@
 
 <h2>エスケープシーケンス</h2>
 
-<p>GitHub ActionsではANSIエスケープシーケンスを利用した出力を行うと、ウェブブラウザ上で表示する際にもよしなに修飾されて表示される。このような太字や着色などの修飾付きの出力に対して正規表現を書く場合には、エスケープシーケンスを考慮したパターンを記述しないと上手くいかないので、注意が必要だ。</p>
+<p>GitHub ActionsでANSIエスケープシーケンスを利用した出力を行うと、ブラウザ上で閲覧する際にもよしなに修飾されて表示される。このような太字や着色などの修飾付きの出力に対して正規表現を書く場合には、エスケープシーケンスを考慮したパターンを記述しないと上手くいかないので、注意が必要だ。</p>
 
 <p>RuboCop Problem Matchersでは、対応も面倒そうなので色付きの出力 (<code>rubocop --color</code>) にはとりあえず未対応としている。</p>
 
 <h2>Severity</h2>
 
-<p>Problem Matchersではseverityという情報をキャプチャすることも出来るが、これは少なくともGitHub ChecksとGitHub Actionsの出力ログのところで黄色く表示されるか赤く表示されるかという違いに影響している。少なくとも <code>"warning"</code> のときに黄色くなり、それ以外の文字列に対しては基本的に <code>"error"</code> 相当で赤くなるということが分かった。</p>
+<p>Problem Matchersではseverityという情報をキャプチャすることも出来るようになっているが、これは少なくともGitHub ChecksとGitHub Actionsの出力ログのところで黄色く表示されるか赤く表示されるかという違いに影響している。少なくとも <code>"warning"</code> のときに黄色くなり、それ以外の文字列に対しては基本的に <code>"error"</code> 相当で赤くなるということが分かった。</p>
 
-<p>RuboCopの違反には出力で言うと <code>W</code> と <code>C</code> の2パターンがあるので、RuboCop Problem Matchersではそれぞれwarningとerrorに割り当てている。<a href="https://github.com/r7kamura/rubocop-problem-matchers-action/blob/b8ef1656b34a223cf80f04e6b45b5bb6722cef31/.github/matchers/rubocop.json">ソースコード</a>を見ると分かるが、このために2つのMatcherを用意している。それぞれのMatcherに異なる名前を割り当てており、名前を指定して特定のMatcherを無効化する機能もあるので、利用者側で警告だけ非表示にするなどの用途も考えられる。</p>
+<p>RuboCopの違反には出力で言うと <code>W</code> と <code>C</code> の2パターンがあるので、RuboCop Problem Matchersではそれぞれwarningとerrorに割り当てている。<a href="https://github.com/r7kamura/rubocop-problem-matchers-action/blob/b8ef1656b34a223cf80f04e6b45b5bb6722cef31/.github/matchers/rubocop.json">ソースコード</a>を見ると分かるが、このために2つのMatcherを用意している。それぞれのMatcherに異なる名前を割り当てており、名前を指定して特定のMatcherを無効化する機能も提供されているので、利用者側で警告だけ非表示にするなどの使い方も考えられる。</p>
 
   </div>
 </article>
