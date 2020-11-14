@@ -8,7 +8,29 @@
     <atom:link href="https://r7kamura.com/feed.xml" rel="self"/>
     <title>r7kamura.com</title>
     <managingEditor>r7kamura@gmail.com (Ryo Nakamura)</managingEditor>
-    <lastBuildDate>Sat, 14 Nov 2020 22:02:37 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 14 Nov 2020 22:54:42 +0000</lastBuildDate>
+    
+    <item>
+      <title><![CDATA[サイト構造変更]]></title>
+      <description><![CDATA[このウェブサイトのサイト構造を少し変更し、併せてスタイルにも手を加えた。]]></description>
+      <link>https://r7kamura.com/articles/2020-11-15-website-structure</link>
+      <pubDate>Sun, 15 Nov 2020 00:00:00 +0000</pubDate>
+      <content:encoded><![CDATA[<p>このウェブサイトのサイト構造を少し変更し、併せてスタイルにも手を加えた。全体的に無骨で、素っ気なく、実用性重視で、打ちっぱなしだ。</p>
+
+<h2>構造</h2>
+
+<p>トップページにすべての記事へのリンクを並べてみることにした。</p>
+
+<p>これまでは直近の5件の記事だけ表示していた。これまでトップページに置いていたRSSフィードや連絡先などに関する情報は、別途リンク集というページを用意し、そこに配置することにした。リンク集では個々のリンクについての簡単な説明を添えているが、このウェブサイトの輪郭を少し補足させるような役割もここに与えている。</p>
+
+<h2>スタイル</h2>
+
+<p>サイト構造の変更に合わせ、ヘッダーの見た目を少し変えた。</p>
+
+<p>これまではウェブサイト名とリンクが横に並んでいたが、要素間の主従関係を明確にするために、縦方向に並べることにした。順序無しリストのデフォルトスタイルはそのまま残すことにした。</p>
+]]></content:encoded>
+      <guid>https://r7kamura.com/articles/2020-11-15-website-structure</guid>
+    </item>
     
     <item>
       <title><![CDATA[RuboCop 1.3.0、VSCodeのaddSelection]]></title>
@@ -792,57 +814,6 @@ end
 <p>よく利用する配列はJIS配列。入力方式はかな入力。</p>
 ]]></content:encoded>
       <guid>https://r7kamura.com/articles/2020-10-21-keyboard-g913-tkl</guid>
-    </item>
-    
-    <item>
-      <title><![CDATA[Podcast収録環境 2020年版]]></title>
-      <description><![CDATA[2020年時点での自分のPodcast収録環境について。]]></description>
-      <link>https://r7kamura.com/articles/2020-10-20-podcast-setup-2020</link>
-      <pubDate>Tue, 20 Oct 2020 00:00:00 +0000</pubDate>
-      <content:encoded><![CDATA[<p>2020年時点での自分のPodcast収録環境について。</p>
-
-<p>主に<a href="https://yatteiki.fm/">yatteiki.fm</a>の収録用。<a href="/articles/2017-05-25-podcast-setup-2017">2017年版</a>もある。</p>
-
-<h2>ハードウェア</h2>
-
-<p><a href="/images/2020-10-20-podcast-setup-2020-hardware.jpg" target="_blank"><img src="/images/2020-10-20-podcast-setup-2020-hardware.jpg" alt=""></a></p>
-
-<p>Blue Microphones製の<a href="https://www.amazon.co.jp/dp/B0822PDJK5?tag=r7kamura07-22">Yeti</a>というコンデンサマイク一式を使っている。</p>
-
-<p>マイクの適切な位置調整のためにマイクスタンドを、振動音の低減のためにショックマウントを利用している。</p>
-
-<h2>録音</h2>
-
-<p><a href="/images/2020-10-20-podcast-setup-2020-discord.png" target="_blank"><img src="/images/2020-10-20-podcast-setup-2020-discord.png" alt=""></a></p>
-
-<p>Discordで通話しながら、<a href="/articles/2020-10-19-podcast">OBSで音声トラックを分けて録音</a>している。</p>
-
-<p>通話はYATTEIKIのDiscordサーバーかDMで行う。その後の編集時のやりとりにもDiscordを使う。60分ほど話すと、OBSから1GBほどの動画ファイルが出力される。</p>
-
-<h2>編集</h2>
-
-<p><a href="/images/2020-10-20-podcast-setup-2020-audacity.png" target="_blank"><img src="/images/2020-10-20-podcast-setup-2020-audacity.png" alt=""></a></p>
-
-<p>出力された動画ファイルを、ffmpegを入れた<a href="https://www.audacityteam.org/">Audacity</a>で開いて編集している。</p>
-
-<p>編集作業が大変だと継続しづらい。音量の正規化とノイズ低減という、自動で適用できる処理だけ加える。60分ほど話すと、モノラル・96kbps前後の可変ビットレートで17MBほどのMP3ファイルが出力される。</p>
-
-<h2>公開</h2>
-
-<p>タイトルと説明文を決め、<a href="https://github.com/yatteikifm/yatteikifm.github.io">リポジトリ</a>を更新すると公開される。</p>
-
-<p>静的ファイルの生成にはJekyll、ホスティングにはGitHub PagesとCloudFlare、ドメインの登録と管理にはAmazon Route 53を使っている。</p>
-
-<h2>その他</h2>
-
-<p>他にも以下のサービスやツールを使っている。</p>
-
-<ul>
-<li>Google Analytics</li>
-<li>FeedBurner</li>
-</ul>
-]]></content:encoded>
-      <guid>https://r7kamura.com/articles/2020-10-20-podcast-setup-2020</guid>
     </item>
     
   </channel>
