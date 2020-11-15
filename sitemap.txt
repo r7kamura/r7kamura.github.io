@@ -1,3 +1,4 @@
+https://r7kamura.com/articles/2020-11-15-weneedfeed
 https://r7kamura.com/articles/2020-11-15-website-structure
 https://r7kamura.com/articles/2020-11-12-rubocop-vscode-multi-cursor
 https://r7kamura.com/articles/2020-11-10-rubocop-problem-matchers
