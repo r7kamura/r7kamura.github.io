@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Rubyのメソッド名</title>
+  <link href="https://r7kamura.com/articles/2020-11-21-ruby-method-name" rel="canonical">
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="search" type="application/opensearchdescription+xml" title="r7kamura.com" href="/opensearch.xml">
+  <link rel="alternate" type="application/rss+xml" href="/feed.xml">
+  
+  <meta property="description" content="Rubyでメソッドを定義するときに使う def に与えられる識別子のパターンを考えてみることにした。">
+  <meta property="og:description" content="Rubyでメソッドを定義するときに使う def に与えられる識別子のパターンを考えてみることにした。">
+  
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Rubyのメソッド名">
+  <meta property="og:url" content="https://r7kamura.com/articles/2020-11-21-ruby-method-name">
+  
+  <meta property="og:image" content="https://r7kamura.com/default_og_image.jpg">
+  <meta property="twitter:card" content="summary">
+  
+</head>
+<body>
+  <header>
+    <nav>
+      <p>
+        <a href="/">r7kamura.com</a>
+      </p>
+      <ul>
+        <li>
+          <a href="/links">リンク集</a>
+        </li>
+        <li>
+          <a href="https://www.google.com/search?q=site:r7kamura.com">検索</a>
+        </li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <article>
+  <header>
+    <time datetime="2020-11-21T00:00:00+00:00">2020年11月21日</time>
+    <h1>Rubyのメソッド名</h1>
+  </header>
+  <div>
+    <p>Rubyでメソッドを定義するときに使う <code>def</code> に与えられる識別子のパターンを考えてみることにした。</p>
+
+<h2>パターン</h2>
+
+<p>自分が見聞したところによると、<code>def</code> に与えられる識別子には以下のパターンがあるらしい。</p>
+
+<ul>
+<li>曰く、識別子の先頭に <code>[0-9]</code> を置いてはならない</li>
+<li>曰く、識別子には <code>\w</code> を利用できる</li>
+<li>曰く、識別子にはマルチバイト文字を利用しても良い</li>
+<li>曰く、識別子の末尾には <code>!</code>, <code>?</code>, <code>=</code> を付随させても良い</li>
+</ul>
+
+<p>また上のパターンとは独立して、メソッドとして実装されている再定義可能な演算子のために以下の名前が許可されているらしい。</p>
+
+<ul>
+<li><code>-</code></li>
+<li><code>!</code></li>
+<li><code>!=</code></li>
+<li><code>!~</code></li>
+<li><code>*</code></li>
+<li><code>**</code></li>
+<li><code>/</code></li>
+<li><code>&amp;</code></li>
+<li><code>%</code></li>
+<li><code>^</code></li>
+<li><code>+</code></li>
+<li><code>+</code></li>
+<li><code>&lt;</code></li>
+<li><code>&lt;&lt;</code></li>
+<li><code>&lt;=</code></li>
+<li><code>&lt;=&gt;</code></li>
+<li><code>==</code></li>
+<li><code>===</code></li>
+<li><code>=&gt;</code></li>
+<li><code>=~</code></li>
+<li><code>&gt;</code></li>
+<li><code>&gt;&gt;</code></li>
+<li><code>|</code></li>
+<li><code>~</code></li>
+<li><code>[]</code></li>
+<li><code>[]=</code></li>
+</ul>
+
+<p>これらのパターンをRubyの正規表現で整理してみる。</p>
+
+<pre><code class="ruby">/
+  \A
+  (?:
+    (?!\d)(?:\w|[^[:ascii:]])+[!?=]?
+      | -
+      | !
+      | !=
+      | !~
+      | \*
+      | \*\*
+      | \/
+      | \+
+      | \|
+      | &amp;
+      | %
+      | ^
+      | &lt;
+      | &lt;&lt;
+      | &lt;=
+      | &lt;=&gt;
+      | ==
+      | ===
+      | =&gt;
+      | =~
+      | &gt;
+      | &gt;&gt;
+      ~
+  )
+  \z
+/x
+</code></pre>
+
+<p>とはいえ、見聞ベースの情報も参考にしながらも、本来はRubyのパーサーの実装 (parse.yなど) も見てみるべきだろう。</p>
+
+<h2>メソッド定義とメソッド呼び出し</h2>
+
+<p>今回は <code>def</code> にのみ着目したが、他にもメソッドを定義するための方法は他にも用意されている。</p>
+
+<ul>
+<li><code>define_method</code></li>
+</ul>
+
+<p>エイリアスをつくるという方法もあるので一応これも挙げておく。</p>
+
+<ul>
+<li><code>alias</code></li>
+<li><code>alias_method</code></li>
+</ul>
+
+<p>呼び出し方についても、通常の方法の他に幾つかの方法が用意されている。</p>
+
+<ul>
+<li><code>__send__</code></li>
+<li><code>public_send</code></li>
+<li><code>send</code></li>
+</ul>
+
+<p>これらに与えられる識別子のパターンは、<code>def</code> に与えられる識別子のパターンとは異なるので注意したい。</p>
+
+<h2>参考</h2>
+
+<ul>
+<li>
+<a href="https://docs.ruby-lang.org/ja/latest/doc/spec=2fdef.html">クラス／メソッドの定義 - Rubyリファレンスマニュアル</a>
+
+<ul>
+<li>メソッド名についての記述がある</li>
+</ul>
+</li>
+<li>
+<a href="https://docs.ruby-lang.org/ja/latest/doc/spec=2fregexp.html">正規表現 - Rubyリファレンスマニュアル</a>
+
+<ul>
+<li>正規表現を利用する上で参考にした</li>
+</ul>
+</li>
+<li>
+<a href="https://en.wikipedia.org/wiki/Unicode_character_property">Unicode character property - Wikipedia</a>
+
+<ul>
+<li>Unicodeプロパティについて説明されている</li>
+<li>Unicodeプロパティは今回利用しなかった</li>
+</ul>
+</li>
+<li>
+<a href="https://en.wikibooks.org/wiki/Regular_Expressions/POSIX_Basic_Regular_Expressions">Regular Expressions/POSIX Basic Regular Expressions - Wikibooks</a>
+
+<ul>
+<li>POSIX文字クラスについて説明されている</li>
+</ul>
+</li>
+<li>
+<a href="https://github.com/k-takata/Onigmo/">k-takata/Onigmo</a>
+
+<ul>
+<li>Rubyの利用している正規表現エンジン</li>
+</ul>
+</li>
+<li>
+<a href="https://github.com/ruby/ruby">ruby/ruby</a>
+
+<ul>
+<li>Rubyのソースコードのミラー</li>
+</ul>
+</li>
+</ul>
+
+  </div>
+</article>
+
+  </main>
+</body>
+</html>

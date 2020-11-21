@@ -8,7 +8,168 @@
     <atom:link href="https://r7kamura.com/feed.xml" rel="self"/>
     <title>r7kamura.com</title>
     <managingEditor>r7kamura@gmail.com (Ryo Nakamura)</managingEditor>
-    <lastBuildDate>Wed, 18 Nov 2020 14:15:41 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 21 Nov 2020 06:19:04 +0000</lastBuildDate>
+    
+    <item>
+      <title><![CDATA[Rubyのメソッド名]]></title>
+      <description><![CDATA[Rubyでメソッドを定義するときに使う def に与えられる識別子のパターンを考えてみることにした。]]></description>
+      <link>https://r7kamura.com/articles/2020-11-21-ruby-method-name</link>
+      <pubDate>Sat, 21 Nov 2020 00:00:00 +0000</pubDate>
+      <content:encoded><![CDATA[<p>Rubyでメソッドを定義するときに使う <code>def</code> に与えられる識別子のパターンを考えてみることにした。</p>
+
+<h2>パターン</h2>
+
+<p>自分が見聞したところによると、<code>def</code> に与えられる識別子には以下のパターンがあるらしい。</p>
+
+<ul>
+<li>曰く、識別子の先頭に <code>[0-9]</code> を置いてはならない</li>
+<li>曰く、識別子には <code>\w</code> を利用できる</li>
+<li>曰く、識別子にはマルチバイト文字を利用しても良い</li>
+<li>曰く、識別子の末尾には <code>!</code>, <code>?</code>, <code>=</code> を付随させても良い</li>
+</ul>
+
+<p>また上のパターンとは独立して、メソッドとして実装されている再定義可能な演算子のために以下の名前が許可されているらしい。</p>
+
+<ul>
+<li><code>-</code></li>
+<li><code>!</code></li>
+<li><code>!=</code></li>
+<li><code>!~</code></li>
+<li><code>*</code></li>
+<li><code>**</code></li>
+<li><code>/</code></li>
+<li><code>&amp;</code></li>
+<li><code>%</code></li>
+<li><code>^</code></li>
+<li><code>+</code></li>
+<li><code>+</code></li>
+<li><code>&lt;</code></li>
+<li><code>&lt;&lt;</code></li>
+<li><code>&lt;=</code></li>
+<li><code>&lt;=&gt;</code></li>
+<li><code>==</code></li>
+<li><code>===</code></li>
+<li><code>=&gt;</code></li>
+<li><code>=~</code></li>
+<li><code>&gt;</code></li>
+<li><code>&gt;&gt;</code></li>
+<li><code>|</code></li>
+<li><code>~</code></li>
+<li><code>[]</code></li>
+<li><code>[]=</code></li>
+</ul>
+
+<p>これらのパターンをRubyの正規表現で整理してみる。</p>
+
+<pre><code class="ruby">/
+  \A
+  (?:
+    (?!\d)(?:\w|[^[:ascii:]])+[!?=]?
+      | -
+      | !
+      | !=
+      | !~
+      | \*
+      | \*\*
+      | \/
+      | \+
+      | \|
+      | &amp;
+      | %
+      | ^
+      | &lt;
+      | &lt;&lt;
+      | &lt;=
+      | &lt;=&gt;
+      | ==
+      | ===
+      | =&gt;
+      | =~
+      | &gt;
+      | &gt;&gt;
+      ~
+  )
+  \z
+/x
+</code></pre>
+
+<p>とはいえ、見聞ベースの情報も参考にしながらも、本来はRubyのパーサーの実装 (parse.yなど) も見てみるべきだろう。</p>
+
+<h2>メソッド定義とメソッド呼び出し</h2>
+
+<p>今回は <code>def</code> にのみ着目したが、他にもメソッドを定義するための方法は他にも用意されている。</p>
+
+<ul>
+<li><code>define_method</code></li>
+</ul>
+
+<p>エイリアスをつくるという方法もあるので一応これも挙げておく。</p>
+
+<ul>
+<li><code>alias</code></li>
+<li><code>alias_method</code></li>
+</ul>
+
+<p>呼び出し方についても、通常の方法の他に幾つかの方法が用意されている。</p>
+
+<ul>
+<li><code>__send__</code></li>
+<li><code>public_send</code></li>
+<li><code>send</code></li>
+</ul>
+
+<p>これらに与えられる識別子のパターンは、<code>def</code> に与えられる識別子のパターンとは異なるので注意したい。</p>
+
+<h2>参考</h2>
+
+<ul>
+<li>
+<a href="https://docs.ruby-lang.org/ja/latest/doc/spec=2fdef.html">クラス／メソッドの定義 - Rubyリファレンスマニュアル</a>
+
+<ul>
+<li>メソッド名についての記述がある</li>
+</ul>
+</li>
+<li>
+<a href="https://docs.ruby-lang.org/ja/latest/doc/spec=2fregexp.html">正規表現 - Rubyリファレンスマニュアル</a>
+
+<ul>
+<li>正規表現を利用する上で参考にした</li>
+</ul>
+</li>
+<li>
+<a href="https://en.wikipedia.org/wiki/Unicode_character_property">Unicode character property - Wikipedia</a>
+
+<ul>
+<li>Unicodeプロパティについて説明されている</li>
+<li>Unicodeプロパティは今回利用しなかった</li>
+</ul>
+</li>
+<li>
+<a href="https://en.wikibooks.org/wiki/Regular_Expressions/POSIX_Basic_Regular_Expressions">Regular Expressions/POSIX Basic Regular Expressions - Wikibooks</a>
+
+<ul>
+<li>POSIX文字クラスについて説明されている</li>
+</ul>
+</li>
+<li>
+<a href="https://github.com/k-takata/Onigmo/">k-takata/Onigmo</a>
+
+<ul>
+<li>Rubyの利用している正規表現エンジン</li>
+</ul>
+</li>
+<li>
+<a href="https://github.com/ruby/ruby">ruby/ruby</a>
+
+<ul>
+<li>Rubyのソースコードのミラー</li>
+</ul>
+</li>
+</ul>
+]]></content:encoded>
+      <guid>https://r7kamura.com/articles/2020-11-21-ruby-method-name</guid>
+    </item>
     
     <item>
       <title><![CDATA[あっちこっちふきん]]></title>
@@ -724,86 +885,6 @@ end
 <p>ページのtitle要素を「日記 - r7kamura.com」みたいなものに変えた方が良いのか逡巡することがあるが、修飾が無い方が文章中でより自然な表現としてリンクを差し込めるので、今はあえてこのように何も修飾しない形にしている。後にリンクが張られることを意識することによって、記事名の作成に制約というか一定のリズムや法則性が生まれることを期待したい。</p>
 ]]></content:encoded>
       <guid>https://r7kamura.com/articles/2020-10-27-openearch-keyboard-title</guid>
-    </item>
-    
-    <item>
-      <title><![CDATA[DiscordのWebhookとチャンネル設計]]></title>
-      <description><![CDATA[TwitterやGitHubからDiscordに自動で投稿させる方法と、この手の自動投稿を扱う際のより良いチャンネル設計について。]]></description>
-      <link>https://r7kamura.com/articles/2020-10-26-discord-webhooks-and-channels</link>
-      <pubDate>Mon, 26 Oct 2020 00:00:00 +0000</pubDate>
-      <content:encoded><![CDATA[<p>TwitterやGitHubからDiscordに自動で投稿させる方法と、この手の自動投稿を扱う際のより良いチャンネル設計について。</p>
-
-<h2>背景</h2>
-
-<p>DiscordのYATTEIKIサーバー (<a href="https://yatteiki.fm/">yatteiki.fm</a>の収録や管理に使っているサーバー) のWebhookの設定とチャンネルの設計を見直す機会があったので、ついでに設定方法をまとめておこうと思い、この記事を書くことにした。</p>
-
-<h2>GitHub</h2>
-
-<p>DiscordでWebhookの受信用URLを発行し、GitHubのリポジトリでWebhookの送信用設定を行うと、そのリポジトリでの様々な変更をDiscordに通知できる。</p>
-
-<p>DiscordはGitHubのWebhookへのサポートが手厚く、簡単に設定できるように特別な口を設けているので、設定も簡単だ。具体的には、Discordで発行したWebhookのURLの末尾に <code>/github</code> を足したものをGitHubに設定するだけで良い。どんなイベントを通知するかも、GitHub側で簡単に設定できる。</p>
-
-<p>具体的な設定方法は、<a href="https://support.discord.com/hc/en-us/articles/228383668-Intro-to-Webhooks">DiscordのWebhookのドキュメント</a>を見るのが良い。</p>
-
-<h2>Twitter</h2>
-
-<p>DiscordでWebhookの受信用URLを発行し、<a href="https://ifttt.com/">IFTTT</a>でTwitter検索用のアプレット（IFTTTにおける自動化の設定の単位）を設定すると、Twitterでの定期的な検索結果をDiscordに通知できる。</p>
-
-<p>TwitterはWebhookを送信する機能を設けていないので、IFTTTが必要になる。IFTTTは無料アカウントだと3つまでアプレットを設定できる。IFTTTからTwitterの機能を利用する場合は、検索だけの利用でも連携するためのTwitterアカウントが必要になるので注意。</p>
-
-<p>IFTTT側で以下のようにレスポンスボディを設定すると、検索条件に一致したツイートのURLが通知されるようになる。Discordが自動的にURLの内容を展開してくれるので、ツイートの中身はそこから読める。</p>
-
-<pre><code>{
-  "content": "{{LinkToTweet}}"
-}
-</code></pre>
-
-<hr>
-
-<p>DiscordやSlackなどでこういう自動投稿的なものを管理する上で、自分が気を付けたいと思っていることについて触れておく。</p>
-
-<h2>自動投稿専用チャンネル</h2>
-
-<p>人間の投稿するチャンネルにBotによる自動的な投稿が混ざると、盛り上がっているうちは良いが、そのうち居心地が悪くなったり、廃墟化したりしやすくなる。通知・未読・購読・権限・アーカイブなどはチャンネル単位で設定できるように設計されているので、この手の自動的な投稿にはそれぞれ専用のチャンネルを用意することを基本的にはおすすめしたい。</p>
-
-<h2>チャンネルとカテゴリの設計</h2>
-
-<p>更に踏み込んだ話をすると、カテゴリについても配慮しておいた方が良い。Discordではカテゴリごとミュートする機能がある。これは例えば「自動投稿の通知は受け取りたくないが未読管理はしたい」といったケースなどで活用できる。こういう事情があるので、できれば自動投稿系のチャンネルや死んだチャンネルをそれぞれカテゴリにまとめるなどしておくと、取り回しやすくなる。</p>
-
-<p>例えばYATTEIKIサーバーでは、簡略化するとこういう感じでチャンネルが配置されている。</p>
-
-<ul>
-<li>VOICE
-
-<ul>
-<li>🔊スタジオ</li>
-</ul>
-</li>
-<li>TEXT
-
-<ul>
-<li>#general</li>
-</ul>
-</li>
-<li>BOT
-
-<ul>
-<li>#analytics</li>
-<li>#github</li>
-<li>#twitter</li>
-</ul>
-</li>
-<li>ARCHIVE
-
-<ul>
-<li>...</li>
-</ul>
-</li>
-</ul>
-
-<p>カテゴリの設計や未読の管理はキーボードや携帯端末での操作性にも関わってくる。この辺りに普段から気を配っておくと、より快適な人生を過ごせるようになるはず。</p>
-]]></content:encoded>
-      <guid>https://r7kamura.com/articles/2020-10-26-discord-webhooks-and-channels</guid>
     </item>
     
   </channel>
