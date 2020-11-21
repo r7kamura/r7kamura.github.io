@@ -8,7 +8,7 @@
     <atom:link href="https://r7kamura.com/feed.xml" rel="self"/>
     <title>r7kamura.com</title>
     <managingEditor>r7kamura@gmail.com (Ryo Nakamura)</managingEditor>
-    <lastBuildDate>Sat, 21 Nov 2020 06:19:04 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 21 Nov 2020 06:23:59 +0000</lastBuildDate>
     
     <item>
       <title><![CDATA[Rubyのメソッド名]]></title>
@@ -69,6 +69,8 @@
       | !
       | !=
       | !~
+      | \[\]
+      | \[\]=
       | \*
       | \*\*
       | \/
@@ -142,7 +144,6 @@
 
 <ul>
 <li>Unicodeプロパティについて説明されている</li>
-<li>Unicodeプロパティは今回利用しなかった</li>
 </ul>
 </li>
 <li>
