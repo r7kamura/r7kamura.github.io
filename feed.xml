@@ -8,7 +8,7 @@
     <atom:link href="https://r7kamura.com/feed.xml" rel="self"/>
     <title>r7kamura.com</title>
     <managingEditor>r7kamura@gmail.com (Ryo Nakamura)</managingEditor>
-    <lastBuildDate>Sun, 22 Nov 2020 02:42:30 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 22 Nov 2020 02:47:51 +0000</lastBuildDate>
     
     <item>
       <title><![CDATA[Rubyのメソッド名]]></title>
@@ -63,37 +63,42 @@
 
 <p>これらのパターンをRubyの正規表現で整理してみる。</p>
 
-<pre><code class="ruby">method_name_regexp = Regexp.union(
+<pre><code class="ruby">operators = %w[
+  -
+  -@
+  !
+  !=
+  !~
+  []
+  []=
+  *
+  **
+  /
+  &amp;
+  %
+  `
+  ^
+  +
+  +@
+  &lt;
+  &lt;&lt;
+  &lt;=
+  &lt;=&gt;
+  ==
+  ===
+  =~
+  &gt;
+  &gt;=
+  &gt;&gt;
+  |
+  ~
+]
+
+method_name_regexp = Regexp.union(
   /(?!\d)(?:\w|[^[:ascii:]])+[!?=]?/,
-  '-',
-  '-@',
-  '!',
-  '!=',
-  '!~',
-  '[]',
-  '[]=',
-  '*',
-  '**',
-  '/',
-  '&amp;',
-  '%',
-  '\`',
-  '^',
-  '+',
-  '+@',
-  '&lt;',
-  '&lt;&lt;',
-  '&lt;=',
-  '&lt;=&gt;',
-  '==',
-  '===',
-  '=~',
-  '&gt;',
-  '&gt;=',
-  '&gt;&gt;',
-  '|',
-  '~',
+  *operators
 )
+
 /\A#{method_name_regexp}\z/
 </code></pre>
 

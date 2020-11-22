@@ -91,37 +91,42 @@
 
 <p>これらのパターンをRubyの正規表現で整理してみる。</p>
 
-<pre><code class="ruby">method_name_regexp = Regexp.union(
+<pre><code class="ruby">operators = %w[
+  -
+  -@
+  !
+  !=
+  !~
+  []
+  []=
+  *
+  **
+  /
+  &amp;
+  %
+  `
+  ^
+  +
+  +@
+  &lt;
+  &lt;&lt;
+  &lt;=
+  &lt;=&gt;
+  ==
+  ===
+  =~
+  &gt;
+  &gt;=
+  &gt;&gt;
+  |
+  ~
+]
+
+method_name_regexp = Regexp.union(
   /(?!\d)(?:\w|[^[:ascii:]])+[!?=]?/,
-  '-',
-  '-@',
-  '!',
-  '!=',
-  '!~',
-  '[]',
-  '[]=',
-  '*',
-  '**',
-  '/',
-  '&amp;',
-  '%',
-  '\`',
-  '^',
-  '+',
-  '+@',
-  '&lt;',
-  '&lt;&lt;',
-  '&lt;=',
-  '&lt;=&gt;',
-  '==',
-  '===',
-  '=~',
-  '&gt;',
-  '&gt;=',
-  '&gt;&gt;',
-  '|',
-  '~',
+  *operators
 )
+
 /\A#{method_name_regexp}\z/
 </code></pre>
 
