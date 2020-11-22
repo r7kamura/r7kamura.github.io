@@ -8,7 +8,7 @@
     <atom:link href="https://r7kamura.com/feed.xml" rel="self"/>
     <title>r7kamura.com</title>
     <managingEditor>r7kamura@gmail.com (Ryo Nakamura)</managingEditor>
-    <lastBuildDate>Sun, 22 Nov 2020 02:47:51 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 22 Nov 2020 02:51:19 +0000</lastBuildDate>
     
     <item>
       <title><![CDATA[Rubyのメソッド名]]></title>
@@ -101,8 +101,6 @@ method_name_regexp = Regexp.union(
 
 /\A#{method_name_regexp}\z/
 </code></pre>
-
-<p>見聞ベースの情報を参考にしながらも、本来はRubyのパーサーの実装 (parse.yなど) を見てみるべきだろう。</p>
 
 <h2>メソッド定義とメソッド呼び出し</h2>
 
