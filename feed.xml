@@ -8,7 +8,7 @@
     <atom:link href="https://r7kamura.com/feed.xml" rel="self"/>
     <title>r7kamura.com</title>
     <managingEditor>r7kamura@gmail.com (Ryo Nakamura)</managingEditor>
-    <lastBuildDate>Sat, 21 Nov 2020 06:28:38 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 22 Nov 2020 02:33:14 +0000</lastBuildDate>
     
     <item>
       <title><![CDATA[Rubyのメソッド名]]></title>
@@ -32,40 +32,44 @@
 
 <ul>
 <li><code>-</code></li>
+<li><code>-@</code></li>
 <li><code>!</code></li>
 <li><code>!=</code></li>
 <li><code>!~</code></li>
+<li><code>[]</code></li>
+<li><code>[]=</code></li>
 <li><code>*</code></li>
 <li><code>**</code></li>
 <li><code>/</code></li>
 <li><code>&amp;</code></li>
 <li><code>%</code></li>
+<li>
+<code>\</code>`</li>
 <li><code>^</code></li>
 <li><code>+</code></li>
-<li><code>+</code></li>
+<li><code>+@</code></li>
 <li><code>&lt;</code></li>
 <li><code>&lt;&lt;</code></li>
 <li><code>&lt;=</code></li>
 <li><code>&lt;=&gt;</code></li>
 <li><code>==</code></li>
 <li><code>===</code></li>
-<li><code>=&gt;</code></li>
 <li><code>=~</code></li>
 <li><code>&gt;</code></li>
+<li><code>&gt;=</code></li>
 <li><code>&gt;&gt;</code></li>
 <li><code>|</code></li>
 <li><code>~</code></li>
-<li><code>[]</code></li>
-<li><code>[]=</code></li>
 </ul>
 
 <p>これらのパターンをRubyの正規表現で整理してみる。</p>
 
-<pre><code class="ruby">/
+<pre><code class="ruby">%r{
   \A
   (?:
     (?!\d)(?:\w|[^[:ascii:]])+[!?=]?
       | -
+      | -@
       | !
       | !=
       | !~
@@ -73,29 +77,31 @@
       | \[\]=
       | \*
       | \*\*
-      | \/
-      | \+
-      | \|
+      | /
       | &amp;
       | %
-      | ^
+      | `
+      | \^
+      | \+
+      | \+@
       | &lt;
       | &lt;&lt;
       | &lt;=
       | &lt;=&gt;
       | ==
       | ===
-      | =&gt;
       | =~
       | &gt;
+      | &gt;=
       | &gt;&gt;
+      | \|
       | ~
   )
   \z
-/x
+}
 </code></pre>
 
-<p>とはいえ、見聞ベースの情報も参考にしながらも、本来はRubyのパーサーの実装 (parse.yなど) も見てみるべきだろう。</p>
+<p>見聞ベースの情報を参考にしながらも、本来はRubyのパーサーの実装 (parse.yなど) を見てみるべきだろう。</p>
 
 <h2>メソッド定義とメソッド呼び出し</h2>
 
