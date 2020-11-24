@@ -8,7 +8,37 @@
     <atom:link href="https://r7kamura.com/feed.xml" rel="self"/>
     <title>r7kamura.com</title>
     <managingEditor>r7kamura@gmail.com (Ryo Nakamura)</managingEditor>
-    <lastBuildDate>Mon, 23 Nov 2020 06:06:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 24 Nov 2020 18:04:09 +0000</lastBuildDate>
+    
+    <item>
+      <title><![CDATA[稲作、納税、コーディング、Podcast]]></title>
+      <description><![CDATA[稲作のゲームをしたり、納税手続きをしたり、コードを書いたり、Podcastを録ったりして過ごした。]]></description>
+      <link>https://r7kamura.com/articles/2020-11-24-farm-tax-code-podcast</link>
+      <pubDate>Tue, 24 Nov 2020 00:00:00 +0000</pubDate>
+      <content:encoded><![CDATA[<p>稲作のゲームをしたり、納税手続きをしたり、コードを書いたり、Podcastを録ったりして過ごした。</p>
+
+<h2>稲作</h2>
+
+<p>『<a href="https://www.marv.jp/special/game/sakuna/">天穂のサクナヒメ</a>』という、稲作のゲームをやっている。リアルワールドの農法について調べながら進めることにしている。プレイ時間は6時間だが、稲作について調べながらインターネットを見ている時間もおよそ6時間ぐらいだ。</p>
+
+<h2>納税</h2>
+
+<p>所得税、の予定納税の窓口振込をした。米、納税。年貢だ。振替納税にしておけば良いのだが、2年で転居することを考えると、6回の窓口振込のために振替納税手続きをするのは果たしてコスパが良いのか。とはいえ、昨今の情勢を鑑みるに、外に出向かずとも良いというだけでも大きな利点かもしれない。振替納税の手続きをやってみようと思う。</p>
+
+<h2>Weneedfeed</h2>
+
+<p>フィードリーダーで使うためのツールの開発を粛々と進めている。読んでいるWebコミックの作品ごとのフィードを1日1回生成して、更新通知を受け取ったりしている。このツールについては、以前に<a href="https://r7kamura.com/articles/2020-11-15-weneedfeed">Weneedfeed</a>という記事にも書いた。最低限の機能は完成しているので、使い勝手を上げる改善がこれから入っていくだろう。</p>
+
+<h2>Rdown</h2>
+
+<p><a href="https://github.com/r7kamura/rdown">Rdown</a>というパーサーをつくってみている。Rubyのリファレンスマニュアルで使われている実装への理解を深めることが目的だ。まともなパーサーを書いたことがないので、雰囲気でやっている。</p>
+
+<h2>Podcast</h2>
+
+<p><a href="https://yatteiki.fm">yatteiki.fm</a>というPodcastで、2020年に買って良かったものについて話した。<a href="/articles/2020-11-23-good-buy-2020">買って良かったもの 2020年版</a>という記事にも、別途テキストでまとめた。いま思うと、衣類についての話も書けば良かったかもしれない。</p>
+]]></content:encoded>
+      <guid>https://r7kamura.com/articles/2020-11-24-farm-tax-code-podcast</guid>
+    </item>
     
     <item>
       <title><![CDATA[買って良かったもの 2020年版]]></title>
@@ -949,48 +979,6 @@ jobs:
 <p>その昔、インターネットは料理のレシピを共有するような牧歌的な用途で使われていた、みたいな記述を昔何かの本で読んだ気がするが、出典も何も思い出せないし夢だったかもしれない。</p>
 ]]></content:encoded>
       <guid>https://r7kamura.com/articles/2020-10-29-tsukurioki</guid>
-    </item>
-    
-    <item>
-      <title><![CDATA[rack-capture]]></title>
-      <description><![CDATA[rack-captureというGemをつくった。]]></description>
-      <link>https://r7kamura.com/articles/2020-10-28-rack-capture</link>
-      <pubDate>Wed, 28 Oct 2020 00:00:00 +0000</pubDate>
-      <content:encoded><![CDATA[<p><a href="https://github.com/r7kamura/rack-capture">rack-capture</a>というGemをつくった。</p>
-
-<h2>概要</h2>
-
-<p>RackアプリとURLを与えると、レスポンスボディを静的ファイルとして書き出してくれる、というもの。</p>
-
-<h2>背景</h2>
-
-<p><a href="/articles/2020-09-23-this-site-setup-2020">このサイトの実装 2020年版</a>でも書いたように、このサイトのベースはRackアプリとして実装されている。手元でプレビューするときも、rackupを使って動作確認している。GitHub Pagesでホスティングするために、その時点での全ページのスナップショットを静的ファイルとして書き出す必要がある訳だが、そのためにこの実装を用意していた。今回はその仕組みを整えて、Gemとして切り出した。</p>
-
-<pre><code>%w[
-  https://r7kamura.com/
-  https://r7kamura.com/articles
-  https://r7kamura.com/articles/2020-10-30.html
-  https://r7kamura.com/articles/2020-10-29.html
-  https://r7kamura.com/articles/2020-10-28.html
-  https://r7kamura.com/feed.xml
-  https://r7kamura.com/sitemap.txt
-].each do |url|
-  Rack::Capture.call(
-    app: my_rack_application,
-    url: url
-  )
-end
-</code></pre>
-
-<p>このサイトの場合は、こういう感じのものが呼び出されることになる。実際には、articlesディレクトリとstaticディレクトリの中身を見ながらもう少し動的にURL群を用意しているが、大体こんな感じ。</p>
-
-<hr>
-
-<h2>後日譚</h2>
-
-<p>これをつくっている最中で、Bundlerが生成するREADMEに無駄な空行が含まれているのが気になり、結局Bundlerに<a href="https://github.com/rubygems/rubygems/pull/4041">Pull Request</a>を出すことになった。後日Mergeされたので、次バージョンのBundlerからは生成されるREADMEがより簡潔なものになるはず。</p>
-]]></content:encoded>
-      <guid>https://r7kamura.com/articles/2020-10-28-rack-capture</guid>
     </item>
     
   </channel>
