@@ -8,7 +8,25 @@
     <atom:link href="https://r7kamura.com/feed.xml" rel="self"/>
     <title>r7kamura.com</title>
     <managingEditor>r7kamura@gmail.com (Ryo Nakamura)</managingEditor>
-    <lastBuildDate>Tue, 24 Nov 2020 18:04:09 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 27 Nov 2020 14:18:24 +0000</lastBuildDate>
+    
+    <item>
+      <title><![CDATA[分解して洗えるキッチンばさみ]]></title>
+      <description><![CDATA[無印良品の分解して洗えるキッチンばさみを気に入っている。]]></description>
+      <link>https://r7kamura.com/articles/2020-11-27-kitchen-scissor</link>
+      <pubDate>Fri, 27 Nov 2020 00:00:00 +0000</pubDate>
+      <content:encoded><![CDATA[<p>無印良品の<a href="https://www.amazon.co.jp/dp/B087RXPTWY?tag=r7kamura07-22">分解して洗えるキッチンばさみ</a>を気に入っている。</p>
+
+<p><a href="https://i.imgur.com/nxdCchB.jpg" target="_blank"><img src="https://i.imgur.com/nxdCchBh.jpg" alt=""></a></p>
+
+<p>頑丈かつほど良い大きさ。真空パックに入ったものとか肉とかをよく切るので、毎度分解して洗えるのがやはり良い。包丁を毎度洗うのと同じだ。</p>
+
+<p><a href="https://i.imgur.com/BTvFzq6.jpg" target="_blank"><img src="https://i.imgur.com/BTvFzq6h.jpg" alt=""></a></p>
+
+<p>切れ味もまずまず良い。さすがに蟹とか切ろうとしたら難しいのかもしれないが、蟹は高くて庶民には手が出ないので問題無い。</p>
+]]></content:encoded>
+      <guid>https://r7kamura.com/articles/2020-11-27-kitchen-scissor</guid>
+    </item>
     
     <item>
       <title><![CDATA[稲作、納税、コーディング、Podcast]]></title>
@@ -857,128 +875,6 @@ jobs:
 <p>最初はrack-health_checkという名前で開発を進めていたが、rack-healthcheckという名前のgemが存在するとrack-health_checkという名前のgemはリリースできないという事実がリリース時のエラーで発覚し、急遽再考してrack-okに変更した。今となってはrack-okの方が良かったと思う。</p>
 ]]></content:encoded>
       <guid>https://r7kamura.com/articles/2020-10-30-rack-ok</guid>
-    </item>
-    
-    <item>
-      <title><![CDATA[つくりおき]]></title>
-      <description><![CDATA[気が向いたときにホットクックで常備菜をつくっている。]]></description>
-      <link>https://r7kamura.com/articles/2020-10-29-tsukurioki</link>
-      <pubDate>Thu, 29 Oct 2020 00:00:00 +0000</pubDate>
-      <content:encoded><![CDATA[<p><a href="/images/2020-10-29-tsukurioki.jpg" target="_blank"><img src="/images/2020-10-29-tsukurioki.jpg" alt=""></a></p>
-
-<p>気が向いたときにホットクックで常備菜をつくっている。</p>
-
-<h2>おくら</h2>
-
-<ol>
-<li>塩ずりする
-
-<ul>
-<li>やらなくても良い</li>
-</ul>
-</li>
-<li>鍋に入れる</li>
-<li>水を入れる
-
-<ul>
-<li>少しでいい</li>
-<li>なくてもいける可能性があるが未検証</li>
-</ul>
-</li>
-<li>煮る
-
-<ul>
-<li>2分</li>
-<li>まぜない</li>
-</ul>
-</li>
-<li>保存する
-
-<ul>
-<li>薄めためんつゆベースの液に浸すと良い</li>
-</ul>
-</li>
-</ol>
-
-<p>薄めの味付けにしておくと味変できる。</p>
-
-<h2>なす</h2>
-
-<ol>
-<li>がくを落とす
-
-<ul>
-<li>やらなくても良い</li>
-<li>がくは食べると少し痛い</li>
-<li>包丁を当ててなすを回すと良い</li>
-</ul>
-</li>
-<li>鍋に入れる
-
-<ul>
-<li>切ったりする必要は無い</li>
-<li>切る方がまずくなるまである</li>
-</ul>
-</li>
-<li>めんつゆを入れる
-
-<ul>
-<li>適当でいい</li>
-<li>濃すぎは良くない</li>
-</ul>
-</li>
-<li>煮る
-
-<ul>
-<li>10分</li>
-<li>まぜない</li>
-</ul>
-</li>
-<li>保存する
-
-<ul>
-<li>煮汁にそのまま浸すと良い</li>
-</ul>
-</li>
-</ol>
-
-<p>生姜が合う。</p>
-
-<h2>きのこ</h2>
-
-<ol>
-<li>適当な大きさにする
-
-<ul>
-<li>切ってあるやつを買えると楽できる</li>
-</ul>
-</li>
-<li>鍋に入れる</li>
-<li>塩とオリーブオイルと輪切り唐辛子とにんにくを入れる
-
-<ul>
-<li>なくてもいい</li>
-<li>オリーブオイルは欲しい</li>
-<li>塩は材料の0.6%の重量ぐらいが目安だが適当でいい</li>
-</ul>
-</li>
-<li>煮る
-
-<ul>
-<li>2分</li>
-<li>まぜる</li>
-</ul>
-</li>
-<li>保存する</li>
-</ol>
-
-<p>冷製のアヒージョみたいなもの。</p>
-
-<hr>
-
-<p>その昔、インターネットは料理のレシピを共有するような牧歌的な用途で使われていた、みたいな記述を昔何かの本で読んだ気がするが、出典も何も思い出せないし夢だったかもしれない。</p>
-]]></content:encoded>
-      <guid>https://r7kamura.com/articles/2020-10-29-tsukurioki</guid>
     </item>
     
   </channel>
