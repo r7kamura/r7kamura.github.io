@@ -8,7 +8,21 @@
     <atom:link href="https://r7kamura.com/feed.xml" rel="self"/>
     <title>r7kamura.com</title>
     <managingEditor>r7kamura@gmail.com (Ryo Nakamura)</managingEditor>
-    <lastBuildDate>Fri, 27 Nov 2020 14:18:24 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 28 Nov 2020 17:37:42 +0000</lastBuildDate>
+    
+    <item>
+      <title><![CDATA[HDMIスプリッター]]></title>
+      <description><![CDATA[727円でHDMIスプリッターを買った。]]></description>
+      <link>https://r7kamura.com/articles/2020-11-28-hdmi-splitter</link>
+      <pubDate>Sat, 28 Nov 2020 00:00:00 +0000</pubDate>
+      <content:encoded><![CDATA[<p>727円で<a href="https://www.amazon.co.jp/dp/B00KNJ871C?tag=r7kamura07-22">HDMIスプリッター</a>を買った。</p>
+
+<p>自宅では、全ての機器の音声と映像は全てデスクトップPCに集約してから各種再生機器に流している。主な理由は、ディスプレイやプロジェクター、スピーカーやヘッドホンなど、複数の再生機器を用途や状況に応じて使い分けるためだ。このHDMIスプリッターは、そういう要件の中で必要になった。</p>
+
+<p>見るからに怪しい製品だが、安価で手に入った上、必要十分に動作している。購入したのは2020年10月頃だが、今は値段が変わっているようだ。恐らく上手く動かないだろうから何種類か、まずは安いものから試そうと思っていたが、1つ目に試したもので意外と上手く動いてしまった。</p>
+]]></content:encoded>
+      <guid>https://r7kamura.com/articles/2020-11-28-hdmi-splitter</guid>
+    </item>
     
     <item>
       <title><![CDATA[分解して洗えるキッチンばさみ]]></title>
@@ -849,32 +863,6 @@ jobs:
 <p>パッケージの設定ページで、所有者として追加したいアカウントの名前を入力すれば、その時点で所有者として登録される。</p>
 ]]></content:encoded>
       <guid>https://r7kamura.com/articles/2020-10-31-adding-owner-of-gem-and-npm</guid>
-    </item>
-    
-    <item>
-      <title><![CDATA[rack-ok]]></title>
-      <description><![CDATA[rack-okというGemをつくった。]]></description>
-      <link>https://r7kamura.com/articles/2020-10-30-rack-ok</link>
-      <pubDate>Fri, 30 Oct 2020 00:00:00 +0000</pubDate>
-      <content:encoded><![CDATA[<p><a href="https://github.com/r7kamura/rack-ok">rack-ok</a>というGemをつくった。</p>
-
-<h2>概要</h2>
-
-<p>何かというと、GET /healthに対して200 OKを返すだけのRackミドルウェア。冗談みたいなプログラムだけど、今更Rackの世界に入門してハローワールドしたかった訳ではなくて、ロードバランサーからのヘルスチェックに応答させるために、こういう実装が必要になる機会がそれなりにある。</p>
-
-<h2>背景</h2>
-
-<p>Railsアプリとかだと、こういうのは（適切なという意味ではなく雑なという意味で）適当なコントローラで実装されたりするのだけど、機能てんこ盛りのコントローラで200を返すだけの処理をやるのはどうにも無駄が多い。それに、ヘルスチェックはHTTPでリクエストが飛んでくるので、SSL対応用の機能を有効化しようとするとヘルスチェック用のエンドポイントだけ確認対象から除外する必要が出てきたりする。Rackミドルウェアだと、その辺の問題が解決できる。</p>
-
-<p>ヘルスチェック用のRackミドルウェアとしては他に<a href="https://github.com/mirakui/rack-health">rack-health</a>というのがあり、自分も長らく愛用していた。色々と運用していると、動的にレスポンスを切り替えたりするような機能はこの層には不要だなと思うことも多く、200を返す機能さえあれば十分だろうということで、こういうものを自作するに至った。似たようなものが無数にあるだろうと思うので、その中の一つに過ぎない。</p>
-
-<p>各アプリで独自のパス (/healthや/health_check) と独自のレスポンスボディ (OKやhealthやIt works!) を現状利用しており、それらをいきなり変える訳にはいかないと思うので、一応パスとレスポンスボディはオプションで変更できるようにしてある。200を返すというところは変えられないので、それがrack-okのOKたるアイデンティティとなっている。</p>
-
-<h2>名前</h2>
-
-<p>最初はrack-health_checkという名前で開発を進めていたが、rack-healthcheckという名前のgemが存在するとrack-health_checkという名前のgemはリリースできないという事実がリリース時のエラーで発覚し、急遽再考してrack-okに変更した。今となってはrack-okの方が良かったと思う。</p>
-]]></content:encoded>
-      <guid>https://r7kamura.com/articles/2020-10-30-rack-ok</guid>
     </item>
     
   </channel>
