@@ -8,7 +8,27 @@
     <atom:link href="https://r7kamura.com/feed.xml" rel="self"/>
     <title>r7kamura.com</title>
     <managingEditor>r7kamura@gmail.com (Ryo Nakamura)</managingEditor>
-    <lastBuildDate>Sun, 29 Nov 2020 03:57:15 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 29 Nov 2020 13:41:53 +0000</lastBuildDate>
+    
+    <item>
+      <title><![CDATA[Au オードリー・タン 天才IT相7つの顔]]></title>
+      <description><![CDATA[『Au オードリー・タン 天才IT相7つの顔』という本を読んだ。]]></description>
+      <link>https://r7kamura.com/articles/2020-11-29-audrey-tang</link>
+      <pubDate>Sun, 29 Nov 2020 00:00:00 +0000</pubDate>
+      <content:encoded><![CDATA[<p>『<a href="https://www.amazon.co.jp/dp/B08K8YDYV8?tag=r7kamura07-22">Au オードリー・タン 天才IT相7つの顔</a>』という本を読んだ。</p>
+
+<p>台湾のデジタル担当相のオードリー・タンさんの生い立ちや思想を追った話。こういうものを読むと、途端に英雄待望論を持ち出してしまいそうになる。そういった気持ちは抑え込みつつ、もし自分ならどうするかということを意識的に考えながら読んでいた。これはなかなかに凄まじい生き方だなと思う一方で、一つの平凡な人生の上にある物語なのだなという気持ちも同時に感じられるところが良かった。</p>
+
+<p>この本は前にDiscordでmasaさんに教えてもらって、入浴中気が向いたときに少しずつ読み進めていた。読んでいたら唐突にmiyagawaさんが出てきて面白かった。</p>
+
+<hr>
+
+<p>市民による政治への参加みたいなコンテキストとはほぼ関係の無い事なのだけど、最近諸事情で農林水産省のウェブサイトを毎日見ていて、良い内容を扱っているから、どうか私にマークアップを改善させてくれという気持ちになっている。最近そういう存在のものに出会うことが多い。</p>
+
+<p>そういえば最近、政府によって運用されている<a href="https://www.e-stat.go.jp/">e-Stat</a>について、『<a href="https://www.e-stat.go.jp/estat/html/topic20201125.pdf">統計表における機械判読可能なデータ作成に関する表記方法案</a>』というのが出されていた。2020年11月25日から2020年12月1日までこれについて意見を求めているとのことだったので、素人ながら目を通して回答しておいた。これは河野太郎さんのTwitterでの投稿経由で知った。</p>
+]]></content:encoded>
+      <guid>https://r7kamura.com/articles/2020-11-29-audrey-tang</guid>
+    </item>
     
     <item>
       <title><![CDATA[HDMIスプリッター]]></title>
@@ -829,44 +849,6 @@ jobs:
 <p>いざ詰め替える段階になって思ったのだが、透明ではないボトルだと中が見えないので、溢れそうとか減ってきたとかが分からない。これから買う人には半透明のものをおすすめしたい。購入したものはしっかりその仕事を果たしてくれてこそいるが、正直販売元も製造元も性能もそこまで信頼ならず、他人に勧められるようなものではないので、共通規格としては無印良品の<a href="https://www.muji.com/jp/ja/store/cmdty/detail/4945247390261">ポリボトル スプレー付 500ml</a>あたりを買っておくのがおすすめだ。この辺もAmazonで販売されるようになってくれると嬉しいものだ。</p>
 ]]></content:encoded>
       <guid>https://r7kamura.com/articles/2020-11-02-lookplus</guid>
-    </item>
-    
-    <item>
-      <title><![CDATA[gemやnpmの所有者追加]]></title>
-      <description><![CDATA[rubygems.orgやnpmjs.comに登録しているパッケージの所有者を追加する方法について。]]></description>
-      <link>https://r7kamura.com/articles/2020-10-31-adding-owner-of-gem-and-npm</link>
-      <pubDate>Sat, 31 Oct 2020 00:00:00 +0000</pubDate>
-      <content:encoded><![CDATA[<p>rubygems.orgやnpmjs.comに登録しているパッケージの所有者を追加する方法について。</p>
-
-<h2>概要</h2>
-
-<p>それぞれのサイトから追加できる。</p>
-
-<h2>背景</h2>
-
-<p>以前所属していた組織から、幾つかのgemやnpmパッケージにうちの組織用の所有者を追加してくれないかという依頼を受け、やり方をあらためて調べながら作業する機会があったので、書き記しておくことにした。</p>
-
-<h2>rubygems.org</h2>
-
-<p>所有者管理ページにて、所有者として追加したいアカウントに紐付くメールアドレスかアカウント名を入力すると、そのアカウントのメールアドレスに承認用のメールが送信される。それを利用して48時間以内に承認してもらえれば、無事所有者として登録される。</p>
-
-<p>rubygems.orgのサイトで、そのやり方が説明されている。</p>
-
-<figure>
-  <blockquote>
-    <p>Adding user as an owner to your gem</p>
-    <p>Step: 1 Enter the email or handle of the user in the text field labels Email/Handle and click Add Owner.</p>
-    <p>Step: 2 The user added as an owner will be sent an email with a link to confirm the ownership. The ownership will be confirmed after the user clicks on the confirmation link within 48 hours. On confirmation, all the existing owners will be notified about the owner addition.</p>
-    <p>Note that the user won’t have access to the gem until they confirm the ownership addition.</p>
-  </blockquote>
-  <figcaption><a href="https://guides.rubygems.org/managing-owners-using-ui/">Managing Owners via UI - RubyGems Guides</a></figcaption>
-</figure>
-
-<h2>npmjs.com</h2>
-
-<p>パッケージの設定ページで、所有者として追加したいアカウントの名前を入力すれば、その時点で所有者として登録される。</p>
-]]></content:encoded>
-      <guid>https://r7kamura.com/articles/2020-10-31-adding-owner-of-gem-and-npm</guid>
     </item>
     
   </channel>
