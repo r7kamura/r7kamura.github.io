@@ -8,7 +8,25 @@
     <atom:link href="https://r7kamura.com/feed.xml" rel="self"/>
     <title>r7kamura.com</title>
     <managingEditor>r7kamura@gmail.com (Ryo Nakamura)</managingEditor>
-    <lastBuildDate>Mon, 30 Nov 2020 17:45:45 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 02 Dec 2020 16:11:03 +0000</lastBuildDate>
+    
+    <item>
+      <title><![CDATA[象印の加湿器 EE-DB50]]></title>
+      <description><![CDATA[象印の加湿器 EE-DB50を買って以来、稼働させ続けている。]]></description>
+      <link>https://r7kamura.com/articles/2020-12-02-zojirushi-humidifier</link>
+      <pubDate>Wed, 02 Dec 2020 00:00:00 +0000</pubDate>
+      <content:encoded><![CDATA[<p><a href="https://www.amazon.co.jp/dp/B07VGCMF67?tag=r7kamura07-22">象印の加湿器 EE-DB50</a>を買って以来、稼働させ続けている。</p>
+
+<figure><a href="https://i.imgur.com/YZQBNyp.jpg" target="_blank"><img src="https://i.imgur.com/YZQBNyph.jpg" alt="" title="様子"></a><figcaption>様子</figcaption></figure>
+
+<p>象印の加湿器と言えば、強靭、無敵、最強、ダサいという印象だったのだが、2020年9月に発売されたモデルはかなり落ち着いた雰囲気で、部屋に馴染みやすくなった。</p>
+
+<p>これまでは日立のEP-LVG110-Tという加湿機能付き空気清浄機で加湿を試みていたが、空気清浄機に搭載されている加湿器というのは性能が低いことが多く、入れられる水の容量も少なく、手入れも大変という問題を抱えていた。</p>
+
+<p>象印の加湿器は、加湿効果も使い勝手も申し分ない。電気ポットと同じような構造になっているので、水も上からジャバジャバと継ぎ足すだけだし、ポット洗浄用の錠剤やクエン酸などを入れて洗浄ボタンを押すだけで綺麗にできる。</p>
+]]></content:encoded>
+      <guid>https://r7kamura.com/articles/2020-12-02-zojirushi-humidifier</guid>
+    </item>
     
     <item>
       <title><![CDATA[無印良品のアクリル冷水筒]]></title>
@@ -837,24 +855,6 @@ jobs:
 <p>何か状況をもっと良くしていくことはできると思うので、めげずにChrome拡張の開発を続けたりフィードバックを送り続けたりして改善に貢献したいと思う。</p>
 ]]></content:encoded>
       <guid>https://r7kamura.com/articles/2020-11-04-amazon-url-shortener</guid>
-    </item>
-    
-    <item>
-      <title><![CDATA[炊飯器 象印NW-ES07-BZ]]></title>
-      <description><![CDATA[象印のNW-ES07-BZという炊飯器を買った。]]></description>
-      <link>https://r7kamura.com/articles/2020-11-03-rice-cooker</link>
-      <pubDate>Tue, 03 Nov 2020 00:00:00 +0000</pubDate>
-      <content:encoded><![CDATA[<p>象印の<a href="https://www.amazon.co.jp/dp/B07TWC6C2D?tag=r7kamura07-22">NW-ES07-BZ</a>という炊飯器を買った。</p>
-
-<figure><a href="/images/2020-11-03-rice-cooker.jpg" target="_blank"><img src="/images/2020-11-03-rice-cooker.jpg" alt="" title="NW-ES07-BZ"></a><figcaption>NW-ES07-BZ</figcaption></figure>
-
-<p>炊飯器については門外漢すぎて特に選定基準が無く、象印かパナソニックの2019年から2020年あたりの機種で悩んでいたが、最終的に<a href="https://blog.sushi.money/entry/2020/07/20/205525">ひとでさんが使っている</a>という情報も加味してこれになった。しばらく使ったがかなり気に入っている。米がおいしくてすごい。炊きたての米だけ食べておかわりできる程度にはうまい。</p>
-
-<p>思い返せば今年の1月頃、Discordで所属しているサーバーの抱負2020というチャンネルに「炊飯器を買い換える」と書き残していた。たぶん年始から飲んで酔っていたのだろう。思いがけず特別定額給付金という後押しも加わり、遂にこの抱負を達成できた。</p>
-
-<p>5年ほど利用する計画で居る。過去5年間を振り返ると、1回あたり2合の米を年間150回ほど炊いている。そうすると、5年で750回炊飯することになる。Amazonでこの炊飯器が大体6万円で売られていたから、1回2合の米を炊くのに+80円という計算になる。自分はこのところ2合あたり176円の米を食べていたが、たとえばこれを令和2年産魚沼産コシヒカリのいいやつに変更しようとすると、2合あたり300円ほどになり、1回2合の米を炊くのに+124円という計算になる。つまり5年間米を良いものに変更するよりは安いぐらいの出費だ。</p>
-]]></content:encoded>
-      <guid>https://r7kamura.com/articles/2020-11-03-rice-cooker</guid>
     </item>
     
   </channel>
