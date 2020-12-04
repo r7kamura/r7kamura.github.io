@@ -8,14 +8,32 @@
     <atom:link href="https://r7kamura.com/feed.xml" rel="self"/>
     <title>r7kamura.com</title>
     <managingEditor>r7kamura@gmail.com (Ryo Nakamura)</managingEditor>
-    <lastBuildDate>Thu, 03 Dec 2020 18:23:01 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 04 Dec 2020 18:25:58 +0000</lastBuildDate>
+    
+    <item>
+      <title><![CDATA[山崎実業の戸棚下多機能ラック]]></title>
+      <description><![CDATA[山崎実業の戸棚下多機能ラックを設置した。]]></description>
+      <link>https://r7kamura.com/articles/2020-12-04-yamazaki-jitsugyo-rack</link>
+      <pubDate>Fri, 04 Dec 2020 00:00:00 +0000</pubDate>
+      <content:encoded><![CDATA[<p><a href="https://www.amazon.co.jp/dp/B01KXGTJRA?tag=r7kamura07-22">山崎実業の戸棚下多機能ラック</a>を設置した。</p>
+
+<figure><a href="https://i.imgur.com/n0rR4oR.jpg" target="_blank"><img src="https://i.imgur.com/n0rR4oRh.jpg" alt="" title="調理器具用の吊り棚"></a><figcaption>調理器具用の吊り棚</figcaption></figure>
+
+<p>利用頻度の高い、ラップ、使い捨てゴム手袋、キッチンペーパーを置いている。ゴム手袋やティッシュなどを置くと下から取り出せるところが便利。この手の家具はあまり導入してきていなかったが、自炊の頻度が増え、設置条件的にも引越しても使う可能性が高そうで、かつ山崎実業はわりと信頼できるということで、導入に至った。山崎実業には<a href="/articles/2020-10-11-hanging-shampoo">シャンプーとかを壁に吊る</a>ときからお世話になっている。</p>
+
+<figure><a href="https://i.imgur.com/FILFaco.jpg" target="_blank"><img src="https://i.imgur.com/FILFacoh.jpg" alt="" title="料理用の棚"></a><figcaption>料理用の棚</figcaption></figure>
+
+<p>ちなみに、この下は料理用の棚になっている。上段が調理器具とたまにお菓子が置かれるカフェコーナーで、中段が食器と酒と調味料と文具、下段が炭水化物、最下層が飲料水とルンバ。実は光回線用のモデムも棲んでいる。もともと配線と書類を仕舞うために使っていた<a href="/articles/2019-12-03-unit-shelf">無印良品のユニットシェルフ</a>だったが、色々と整理を進めたところ御役御免となったので、料理用の棚として利用している。</p>
+]]></content:encoded>
+      <guid>https://r7kamura.com/articles/2020-12-04-yamazaki-jitsugyo-rack</guid>
+    </item>
     
     <item>
       <title><![CDATA[リングフィットアドベンチャー 184日目]]></title>
       <description><![CDATA[リングフィットアドベンチャーを184回、およそ1年間やった。]]></description>
       <link>https://r7kamura.com/articles/2020-12-03-ring-fit-adventure</link>
       <pubDate>Thu, 03 Dec 2020 00:00:00 +0000</pubDate>
-      <content:encoded><![CDATA[<p>リングフィットアドベンチャーを184回、およそ1年間やった。</p>
+      <content:encoded><![CDATA[<p><a href="https://www.amazon.co.jp/dp/B07XV8VSZT?tag=r7kamura07-22">リングフィットアドベンチャー</a>を184回、およそ1年間やった。</p>
 
 <figure><a href="https://i.imgur.com/PTs89iv.jpg" target="_blank"><img src="https://i.imgur.com/PTs89ivh.jpg" alt="" title="184日目"></a><figcaption>184日目</figcaption></figure>
 
@@ -45,7 +63,7 @@
 
 <h2>今後</h2>
 
-<p>2020年12月3日にフィットボクシング2が発売されたので、しばらくはこれを続けてみるつもり。何をやるにせよ、効率良く生きていくために、今後も適切な運動を継続していく方が良いだろう。</p>
+<p>2020年12月3日に<a href="https://www.amazon.co.jp/dp/B08JH3K59H?tag=r7kamura07-22">フィットボクシング2</a>が発売されたので、しばらくはこれを続けてみるつもり。何をやるにせよ、効率良く生きていくために、今後も適切な運動を継続していく方が良いだろう。</p>
 ]]></content:encoded>
       <guid>https://r7kamura.com/articles/2020-12-03-ring-fit-adventure</guid>
     </item>
@@ -802,28 +820,6 @@ jobs:
 <p>この用途でのtitle属性の利用には議論の余地があるかもしれないが、title属性はCommonMarkなどのMarkdown仕様にも含められているので、少なくとも変換過程で使うにはレバレッジが効きやすくて良さそうだ。</p>
 ]]></content:encoded>
       <guid>https://r7kamura.com/articles/2020-11-07-image-caption-revised</guid>
-    </item>
-    
-    <item>
-      <title><![CDATA[ウォッチパーティー]]></title>
-      <description><![CDATA[初めてウォッチパーティーを使った。]]></description>
-      <link>https://r7kamura.com/articles/2020-11-05-watch-party</link>
-      <pubDate>Thu, 05 Nov 2020 00:00:00 +0000</pubDate>
-      <content:encoded><![CDATA[<p>初めてウォッチパーティーを使った。</p>
-
-<p>Amazonプライムビデオで配信されている動画を、プライム会員同士で同期しながら観たりできるやつ。PC用のWebブラウザで、Amazonプライムビデオからぽちぽちやると簡単に使える。発行されたURLを伝えて、適当に再生するだけ。</p>
-
-<p>チャット欄もあるので、上映中に会話することに気が引ける人でも安心。Discordで友達と通話しながら観ていたのだけど、自分も気になる派なのでマイクはミュートしてテキストで反応していた。音声は基本的に1チャンネルしかないから、テキストでやりとりする方が無限に会話できて気楽だ。</p>
-
-<h2>名探偵ピカチュウ</h2>
-
-<p>ウォッチパーティーで映画『名探偵ピカチュウ』を観た。もちろん良かった。色々な洋画へのオマージュがあって、盤外戦術でも盛り上がれる感じの映画だ。随所でカメラワークが良かった。</p>
-
-<h2>南極料理人</h2>
-
-<p>次の祝日に、今度はウォッチパーティーで映画『南極料理人』を観た。当然ながら良かった。若干ながら見る人を選ぶかもしれないが、やさしさを持って観ることをおすすめする。実体験からくるネタの豊富さと、日本の漫画のコマ割りに通じるようなテンポの良さが印象的だった。この日はごはんが進んだ。</p>
-]]></content:encoded>
-      <guid>https://r7kamura.com/articles/2020-11-05-watch-party</guid>
     </item>
     
   </channel>
