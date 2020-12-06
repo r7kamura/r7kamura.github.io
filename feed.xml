@@ -8,7 +8,36 @@
     <atom:link href="https://r7kamura.com/feed.xml" rel="self"/>
     <title>r7kamura.com</title>
     <managingEditor>r7kamura@gmail.com (Ryo Nakamura)</managingEditor>
-    <lastBuildDate>Fri, 04 Dec 2020 18:25:58 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 06 Dec 2020 18:56:20 +0000</lastBuildDate>
+    
+    <item>
+      <title><![CDATA[Google Discoverからの来訪]]></title>
+      <description><![CDATA[最近、Google Discoverからよくアクセスがある。]]></description>
+      <link>https://r7kamura.com/articles/2020-12-06-google-discover</link>
+      <pubDate>Sun, 06 Dec 2020 00:00:00 +0000</pubDate>
+      <content:encoded><![CDATA[<p>最近、Google Discoverからよくアクセスがある。</p>
+
+<figure><a href="https://i.imgur.com/uRR7r41h.png" target="_blank"><img src="https://i.imgur.com/uRR7r41h.png" alt="" title="Google Discoverからの表示回数とクリック数"></a><figcaption>Google Discoverからの表示回数とクリック数</figcaption></figure>
+
+<p>Google Chromeのトップページなどに表示されるおすすめの記事が、そのGoogle Discoverというやつ。行動履歴を元に利用者の好みそうな記事を持ってきてくるやつらしい。</p>
+
+<p>掲載条件は詳しくは言及されていないが、Googleの検索対象になっていて、かつ無価値だと判断されない程度に情報が上手く記載されていることが条件なのだろうか。もしかしたら、関心を引くかどうかに影響するため、適切な画像の有無なども判断基準になっているのかもしれない。いずれも勝手な推測だ。</p>
+
+<p>参考に、Google Discoverでよく見られているページを閲覧数順に掲載しておく。ちなみにこれは、Google Search Consoleで確認できる情報だ。ある程度Google Discoverからのアクセスがあると、Google Search Consoleにその手のデータが表示されるようになるらしい。</p>
+
+<ol>
+<li><a href="/2020-10-04-windows-revolution">Windowsへの回帰</a></li>
+<li><a href="/2020-11-30-muji-bottle">無印良品のアクリル冷水筒</a></li>
+<li><a href="/2020-10-19-podcast">OBSで音声トラックを分けて録音</a></li>
+<li><a href="/2020-11-18-acchikocchi-fukin">あっちこっちふきん</a></li>
+<li><a href="/2020-09-28-development-on-windows">Windowsで開発</a></li>
+<li><a href="/2020-11-04-amazon-url-shortener">Amazon URL Shortener</a></li>
+</ol>
+
+<p>普段このウェブサイトを見ている人達とGoogleからやってくる人達とではクラスタが異なり、そのままの表現では文脈や前提知識の共有が不足しており、上手く伝わらない内容になってしまっている可能性が高い。しかしそういった人達は本当に困っていることが多いので、できれば参考になる情報を提供したい。そういった理由で、Google Search Consoleでのアクセスの傾向はよく見ていて、頻繁にアクセスされる過去のページについては追記したり加筆修正したりということを定期的にやっている。</p>
+]]></content:encoded>
+      <guid>https://r7kamura.com/articles/2020-12-06-google-discover</guid>
+    </item>
     
     <item>
       <title><![CDATA[山崎実業の戸棚下多機能ラック]]></title>
@@ -795,31 +824,6 @@ jobs:
 <p>それから、近年のリラックス方法に関する<a href="https://butfirstchillout.com/news/12/">調査結果</a>がCHILL OUTのブランドサイトで公開されていて、これがなかなか丁寧にまとめられていて面白かった。本能型のストレス発散行動が減っているというのは、体験や見聞の様子と一致している感覚があり興味深い。</p>
 ]]></content:encoded>
       <guid>https://r7kamura.com/articles/2020-11-08-chill-out</guid>
-    </item>
-    
-    <item>
-      <title><![CDATA[画像のキャプション title属性編]]></title>
-      <description><![CDATA[画像にキャプションを付ける方法をまた変えた。]]></description>
-      <link>https://r7kamura.com/articles/2020-11-07-image-caption-revised</link>
-      <pubDate>Sat, 07 Nov 2020 00:00:00 +0000</pubDate>
-      <content:encoded><![CDATA[<p>画像にキャプションを付ける方法をまた変えた。画像にキャプションを付け始めたのは2020年9月のことで、<a href="/articles/2020-09-22-markdown-caption">当時も記事を書いた</a>。</p>
-
-<figure><a href="/images/2020-11-07-image-caption.jpg" target="_blank"><img src="/images/2020-11-07-image-caption.jpg" alt="" title="今日の朝食"></a><figcaption>今日の朝食</figcaption></figure>
-
-<p>以前までは、画像とテキストが並んだひとまとまりの段落があれば、つまりimg要素とテキストノードだけを含むp要素があれば、それをfigure要素に変換するということをしていた。</p>
-
-<pre><code>![](/images/2020-11-07-image-caption.jpg)
-今日の朝食
-</code></pre>
-
-<p>今回は、img要素のtitle属性を使うように変更した。</p>
-
-<pre><code>![](/images/2020-11-07-image-caption.jpg "今日の朝食")
-</code></pre>
-
-<p>この用途でのtitle属性の利用には議論の余地があるかもしれないが、title属性はCommonMarkなどのMarkdown仕様にも含められているので、少なくとも変換過程で使うにはレバレッジが効きやすくて良さそうだ。</p>
-]]></content:encoded>
-      <guid>https://r7kamura.com/articles/2020-11-07-image-caption-revised</guid>
     </item>
     
   </channel>
