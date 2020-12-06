@@ -8,7 +8,7 @@
     <atom:link href="https://r7kamura.com/feed.xml" rel="self"/>
     <title>r7kamura.com</title>
     <managingEditor>r7kamura@gmail.com (Ryo Nakamura)</managingEditor>
-    <lastBuildDate>Sun, 06 Dec 2020 18:56:20 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 06 Dec 2020 19:01:15 +0000</lastBuildDate>
     
     <item>
       <title><![CDATA[Google Discoverからの来訪]]></title>
@@ -26,12 +26,12 @@
 <p>参考に、Google Discoverでよく見られているページを閲覧数順に掲載しておく。ちなみにこれは、Google Search Consoleで確認できる情報だ。ある程度Google Discoverからのアクセスがあると、Google Search Consoleにその手のデータが表示されるようになるらしい。</p>
 
 <ol>
-<li><a href="/2020-10-04-windows-revolution">Windowsへの回帰</a></li>
-<li><a href="/2020-11-30-muji-bottle">無印良品のアクリル冷水筒</a></li>
-<li><a href="/2020-10-19-podcast">OBSで音声トラックを分けて録音</a></li>
-<li><a href="/2020-11-18-acchikocchi-fukin">あっちこっちふきん</a></li>
-<li><a href="/2020-09-28-development-on-windows">Windowsで開発</a></li>
-<li><a href="/2020-11-04-amazon-url-shortener">Amazon URL Shortener</a></li>
+<li><a href="/articles/2020-10-04-windows-revolution">Windowsへの回帰</a></li>
+<li><a href="/articles/2020-11-30-muji-bottle">無印良品のアクリル冷水筒</a></li>
+<li><a href="/articles/2020-10-19-podcast">OBSで音声トラックを分けて録音</a></li>
+<li><a href="/articles/2020-11-18-acchikocchi-fukin">あっちこっちふきん</a></li>
+<li><a href="/articles/2020-09-28-development-on-windows">Windowsで開発</a></li>
+<li><a href="/articles/2020-11-04-amazon-url-shortener">Amazon URL Shortener</a></li>
 </ol>
 
 <p>普段このウェブサイトを見ている人達とGoogleからやってくる人達とではクラスタが異なり、そのままの表現では文脈や前提知識の共有が不足しており、上手く伝わらない内容になってしまっている可能性が高い。しかしそういった人達は本当に困っていることが多いので、できれば参考になる情報を提供したい。そういった理由で、Google Search Consoleでのアクセスの傾向はよく見ていて、頻繁にアクセスされる過去のページについては追記したり加筆修正したりということを定期的にやっている。</p>
