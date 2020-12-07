@@ -59,33 +59,34 @@
 
 <p>実際のアプリケーションでは、もう少し込みいったコードになるはず。</p>
 
-<p>source "<a href="https://rubygems.org">https://rubygems.org</a>"</p>
+<pre><code class="ruby">source "https://rubygems.org"
 
-<p># Fixed order<br>
-gem "rails", "5.1.4"</p>
+# Fixed order
+gem "rails", "5.1.4"
 
-<p># Alphabetical order<br>
-gem "aaa"<br>
-gem "bbb", "1.2.3" # <a href="https://github.com/bbb/bbb/issues/123">https://github.com/bbb/bbb/issues/123</a><br>
-gem "ccc"</p>
+# Alphabetical order
+gem "aaa"
+gem "bbb", "1.2.3" # https://github.com/bbb/bbb/issues/123
+gem "ccc"
 
-<p>group :xxx do<br>
-  gem "ddd"<br>
-  gem "eee"<br>
-  gem "fff"<br>
-end</p>
+group :xxx do
+  gem "ddd"
+  gem "eee"
+  gem "fff"
+end
 
-<p>group :xxx, :yyy do<br>
-  gem "ggg"<br>
-  gem "hhh"<br>
-  gem "iii"<br>
-end</p>
+group :xxx, :yyy do
+  gem "ggg"
+  gem "hhh"
+  gem "iii"
+end
 
-<p>group :yyy do<br>
-  gem "jjj"<br>
-  gem "kkk"<br>
-  gem "lll"<br>
-end</p>
+group :yyy do
+  gem "jjj"
+  gem "kkk"
+  gem "lll"
+end
+</code></pre>
 
 <h2>背景</h2>
 
