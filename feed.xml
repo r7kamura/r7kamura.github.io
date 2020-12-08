@@ -8,7 +8,23 @@
     <atom:link href="https://r7kamura.com/feed.xml" rel="self"/>
     <title>r7kamura.com</title>
     <managingEditor>r7kamura@gmail.com (Ryo Nakamura)</managingEditor>
-    <lastBuildDate>Mon, 07 Dec 2020 00:44:18 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 08 Dec 2020 14:18:47 +0000</lastBuildDate>
+    
+    <item>
+      <title><![CDATA[Bluetoothレシーバー]]></title>
+      <description><![CDATA[Windowsで使うためにBluetoothレシーバーを買った。]]></description>
+      <link>https://r7kamura.com/articles/2020-12-08-bluetooth-receiver</link>
+      <pubDate>Tue, 08 Dec 2020 00:00:00 +0000</pubDate>
+      <content:encoded><![CDATA[<p>Windowsで使うために<a href="https://www.amazon.co.jp/dp/B08FD5TSNF?tag=r7kamura07-22">Bluetoothレシーバー</a>を買った。</p>
+
+<figure><a href="https://i.imgur.com/n95kVvz.jpg" target="_blank"><img src="https://i.imgur.com/n95kVvzh.jpg" alt="" title="筐体前面に刺している様子"></a><figcaption>筐体前面に刺している様子</figcaption></figure>
+
+<p>最近FixBoxing2をやっていて、無線イヤホン経由で音声を聴きたかったのでBluetoothレシーバーが必要になった。Amazonで探すとどれも怪しくて怖いが、この品揃えならどれ買っても一緒だろうし、駄目だったら当たりを引くまで買い直せば良いだろう、ということで上の方に居たこれに。</p>
+
+<p>接続するとBluetoothレシーバーとして認識され、Windows側でBluetoothの機能を有効化できるようになるが、この状態ではドライバーが上手くインストールされていないのでどのBluetooth機器も認識できない。付属のCDを入れてsetup.exeを実行すると、ドライバがインストールされ、説明に従って再起動すると、無事Bluetooth機器が認識されるようになった。</p>
+]]></content:encoded>
+      <guid>https://r7kamura.com/articles/2020-12-08-bluetooth-receiver</guid>
+    </item>
     
     <item>
       <title><![CDATA[Google Discoverからの来訪]]></title>
@@ -794,36 +810,6 @@ jobs:
 <p>このウェブサイトではGoogleアナリティクスなどの分析系ツールを利用していないので、Google Search Consoleの分析結果、Amazonアソシエイト・プログラムの成果、SNSでの言及され具合あたりで見られ具合を推し量っている。</p>
 ]]></content:encoded>
       <guid>https://r7kamura.com/articles/2020-11-09-amazon-link</guid>
-    </item>
-    
-    <item>
-      <title><![CDATA[CHILL OUT]]></title>
-      <description><![CDATA[リラクゼーションドリンクのCHILL OUTを飲んだ。]]></description>
-      <link>https://r7kamura.com/articles/2020-11-08-chill-out</link>
-      <pubDate>Sun, 08 Nov 2020 00:00:00 +0000</pubDate>
-      <content:encoded><![CDATA[<p>リラクゼーションドリンクの<a href="https://butfirstchillout.com/">CHILL OUT</a>を飲んだ。</p>
-
-<figure><a href="https://i.imgur.com/3682F2Z.jpg" target="_blank"><img src="https://i.imgur.com/3682F2Zh.jpg" alt="" title="サメとCHILL OUT"></a><figcaption>サメとCHILL OUT</figcaption></figure>
-
-<p>味は透明感のある微炭酸の梨ジュースという感じ。微かに薬効のありそうな味が混ざっている。風呂上がりに少し落ち着いたあたりで飲むと美味しい。185mlとそこまで量は無いので、喉を潤すためにがぶがぶ飲む感じではないかも。</p>
-
-<p>都内のコンビニや、自販機でも売られているらしい。温泉施設の自販機などにも置かれているとか。自分は<a href="https://www.amazon.co.jp/dp/B07Z8LNMFD?tag=r7kamura07-22">Amazonの6本入りのやつ</a>を手に入れた。</p>
-
-<figure><a href="https://i.imgur.com/ccarLxd.jpg" target="_blank"><img src="https://i.imgur.com/ccarLxdh.jpg" alt="" title="梱包箱"></a><figcaption>梱包箱</figcaption></figure>
-
-<p>これまで日中は水出しコーヒー、夜は炭酸水という感じで飲み物サイクルを回していたけれど、新たに風呂上がりに飲むものができて少し体験が良くなった。実際に効いているかどうかは対照実験していないので不明だけど、落ち着いた時間を設けるためのきっかけとして良いと思う。</p>
-
-<p>ちなみに、純粋な梨ジュースを追い求めるなら<a href="https://www.amazon.co.jp/dp/B005LA4C6C?tag=r7kamura07-22">ヘテの梨ジュース</a>をおすすめしたい。これは京都を中心に展開している塩ホルモン屋『<a href="http://www.aje.to/">アジェ</a>』でも供される韓国の梨ジュースで、ホソを焼きながら酒の休憩にこれを飲むのがまた美味い。</p>
-
-<figure><a href="https://i.imgur.com/hzBVtg1.jpg" target="_blank"><img src="https://i.imgur.com/hzBVtg1h.jpg" alt="" title="パソコンとCHILL OUT"></a><figcaption>パソコンとCHILL OUT</figcaption></figure>
-
-<p>元々は株式会社I-neがCHILL OUTをつくっていて、後に日本コカ･コーラ株式会社の出資を受けながら合同会社Endianがつくられ、今はそこがCHILL OUT業をやっている、という経緯らしい。</p>
-
-<p><a href="https://note.com/mefilas/n/n355602907ce2">「CHILL OUT」ブランドサイトのつくりかた</a>というnoteの記事が面白かった。魔法部などのブランドサイトも手掛けているMEFILASさんのところの記事。こういう風に裏側の様子が透けて見えるのは面白い。</p>
-
-<p>それから、近年のリラックス方法に関する<a href="https://butfirstchillout.com/news/12/">調査結果</a>がCHILL OUTのブランドサイトで公開されていて、これがなかなか丁寧にまとめられていて面白かった。本能型のストレス発散行動が減っているというのは、体験や見聞の様子と一致している感覚があり興味深い。</p>
-]]></content:encoded>
-      <guid>https://r7kamura.com/articles/2020-11-08-chill-out</guid>
     </item>
     
   </channel>
