@@ -8,7 +8,25 @@
     <atom:link href="https://r7kamura.com/feed.xml" rel="self"/>
     <title>r7kamura.com</title>
     <managingEditor>r7kamura@gmail.com (Ryo Nakamura)</managingEditor>
-    <lastBuildDate>Tue, 08 Dec 2020 15:54:24 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 11 Dec 2020 14:54:32 +0000</lastBuildDate>
+    
+    <item>
+      <title><![CDATA[サヴァ缶]]></title>
+      <description><![CDATA[サヴァ缶というサバのオリーブオイル漬けの缶詰を買った。]]></description>
+      <link>https://r7kamura.com/articles/2020-12-11-sava-can</link>
+      <pubDate>Fri, 11 Dec 2020 00:00:00 +0000</pubDate>
+      <content:encoded><![CDATA[<p><a href="https://www.amazon.co.jp/dp/B00KIARF78?tag=r7kamura07-22">サヴァ缶</a>というサバのオリーブオイル漬けの缶詰を買った。</p>
+
+<figure><a href="https://i.imgur.com/KRBzQKD.jpg" target="_blank"><img src="https://i.imgur.com/KRBzQKDh.jpg" alt="" title="サヴァ缶"></a><figcaption>サヴァ缶</figcaption></figure>
+
+<figure><a href="https://i.imgur.com/3A9hTFJ.jpg" target="_blank"><img src="https://i.imgur.com/3A9hTFJh.jpg" alt="" title="サヴァサンド"></a><figcaption>サヴァサンド</figcaption></figure>
+
+<p>青魚は良いぞ、サヴァ缶は良いぞ、と聞いたので買ってみた。高い。おいしい。サバのくさみが全く感じられなくて良かった。骨もほろほろだし、全体的に口当たりが良く、どこか甘い感じがする。</p>
+
+<p>ホットサンドで試してみたが、トーストに載せてマヨネーズをかけてオーブンで焼くのも良いかもしれない。もちろん、缶からそのまま食べても十分うまい。</p>
+]]></content:encoded>
+      <guid>https://r7kamura.com/articles/2020-12-11-sava-can</guid>
+    </item>
     
     <item>
       <title><![CDATA[Bluetoothアダプター]]></title>
@@ -788,28 +806,6 @@ jobs:
 <p>SNS機能の方もどんな感じなのか興味があるので、記事用に画像をアップロードするついでに<a href="https://imgur.com/user/r7kamura/posts">そちらも試してみている</a>。「どうやって食うんだ」「でかいナイフとフォーク？」「ハンバーガーがよ」といったコメントが即付いていて非常に優しい世界。</p>
 ]]></content:encoded>
       <guid>https://r7kamura.com/articles/2020-11-09-imgur</guid>
-    </item>
-    
-    <item>
-      <title><![CDATA[Amazonリンク見直し]]></title>
-      <description><![CDATA[このウェブサイトのAmazonの商品ページへのリンク方法を見直した。]]></description>
-      <link>https://r7kamura.com/articles/2020-11-09-amazon-link</link>
-      <pubDate>Mon, 09 Nov 2020 00:00:00 +0000</pubDate>
-      <content:encoded><![CDATA[<p>このウェブサイトのAmazonの商品ページへのリンク方法を見直した。</p>
-
-<h2>具体的な変更点</h2>
-
-<p>これまで様々な形式のURLでAmazonの商品ページへのリンクを載せていたが、このURLの形式を正規化した。更に、これまで半手作業で付けたり付けなかったりしていたアソシエイトIDについても、記事の原稿には含めず、プログラム側で自動的に付与させることにした。これは予め正規化したおかげで楽に付与できるようになった。</p>
-
-<h2>背景</h2>
-
-<p>前にも<a href="/articles/2020-11-04-amazon-url-shortener">記事</a>で触れたように、<a href="https://chrome.google.com/webstore/detail/amazon-url-shortener/bonkcfmjkpdnieejahndognlbogaikdg">Amazon URL Shortener</a>というブラウザ拡張をつくったことが影響している。正規化したURLが簡単に手に入るようになったので、正規化前提の環境にした。</p>
-
-<p>Amazon URL Shortenerにも、昔はアソシエイトIDを連携させる機能を付けようとしていたが、単一機能化を推奨するChromeウェブストアの文化や昨今の取締強化の風潮もあり、この機能は今となっては存在していない。そもそもアソシエイトID付きのURLはAmazonアソシエイト・プログラムに事前申請しておいたドメインでしか利用できないので、これを遵守する上では常にアソシエイトID付きのURLに書き換えたいようなケースはほぼ存在しない。</p>
-
-<p>このウェブサイトではGoogleアナリティクスなどの分析系ツールを利用していないので、Google Search Consoleの分析結果、Amazonアソシエイト・プログラムの成果、SNSでの言及され具合あたりで見られ具合を推し量っている。</p>
-]]></content:encoded>
-      <guid>https://r7kamura.com/articles/2020-11-09-amazon-link</guid>
     </item>
     
   </channel>
