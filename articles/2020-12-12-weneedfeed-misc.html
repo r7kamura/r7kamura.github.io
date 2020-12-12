@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Weneedfeedの運用小話</title>
+  <link href="https://r7kamura.com/articles/2020-12-12-weneedfeed-misc" rel="canonical">
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="search" type="application/opensearchdescription+xml" title="r7kamura.com" href="/opensearch.xml">
+  <link rel="alternate" type="application/rss+xml" href="/feed.xml">
+  
+  <meta property="description" content="Weneedfeedを運用している中で得られた情報を書き留めておく。">
+  <meta property="og:description" content="Weneedfeedを運用している中で得られた情報を書き留めておく。">
+  
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Weneedfeedの運用小話">
+  <meta property="og:url" content="https://r7kamura.com/articles/2020-12-12-weneedfeed-misc">
+  
+  <meta property="og:image" content="https://r7kamura.com/default_og_image.jpg">
+  <meta property="twitter:card" content="summary">
+  
+</head>
+<body>
+  <header>
+    <nav>
+      <p>
+        <a href="/">r7kamura.com</a>
+      </p>
+      <ul>
+        <li>
+          <a href="/links">リンク集</a>
+        </li>
+        <li>
+          <a href="https://www.google.com/search?q=site:r7kamura.com">検索</a>
+        </li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <article>
+  <header>
+    <time datetime="2020-12-12T00:00:00+00:00">2020年12月12日</time>
+    <h1>Weneedfeedの運用小話</h1>
+  </header>
+  <div>
+    <p><a href="https://github.com/r7kamura/weneedfeed">Weneedfeed</a>を運用している中で得られた情報を書き留めておく。</p>
+
+<p>主にGitHub Actionsや、RSSフィードに関する話が多く含まれる。Weneedfeedというのはウェブページからフィードを生成するツールで、これについては過去にも<a href="/articles/2020-11-15-weneedfeed">記事</a>に書いた。</p>
+
+<h2>GitHub Actions</h2>
+
+<p>「GitHubのリポジトリにYAMLファイルを置くだけでフィード群が用意される」という状態を実現するために、GitHub Actionsを使っている。具体的には、次の処理を定期的に実行している。</p>
+
+<ol>
+<li>YAMLに記載された情報を元にフィード群を生成する</li>
+<li>gh-pagesブランチにpushする</li>
+</ol>
+
+<p>この内、1の処理をやるために<a href="https://github.com/r7kamura/weneedfeed-action">weneedfeed-action</a>を用意している。2の処理は<a href="https://github.com/peaceiris/actions-gh-pages">actions-gh-pages</a>でやっている。GitHub Actionsにcrontab形式でスケジュールを指定する仕組みがあるので、定期実行にはこれを使っている。</p>
+
+<h2>Actionのバージョン管理</h2>
+
+<p>GitHub Actionsでは専用のリポジトリを持って管理することが推奨されているので、ライブラリとそれを使うactionのリポジトリは分けている。</p>
+
+<p>weneedfeedのバージョンを更新するたびに、それを参照するようにweneedfeed-actionも更新している。変更サイクルが異なる場合もあるので、それぞれのバージョンを同一にしたりはしていない。一方でパッチバージョンが上がれば、他方でもパッチバージョンを上げる、といった運用にはしている。</p>
+
+<p>GitHub Actionsでは、<code>uses: r7kamura/weneedfeed-action@v3</code> のようにメジャーバージョン由来のタグを指定して利用してもらう慣習がある。GitHub Actionsがバージョンの計算を賢くやってくれる訳ではないので、x.y.zを新しくリリースするたびに <code>git tag vx.y.z</code> と <code>git tag vx --force</code> でタグを新規作成・上書きし、<code>git tag --push --force</code> でリポジトリ側のタグを更新することになる。</p>
+
+<p>GitHubリポジトリのReleasesの機能を利用すると、GitHub Marketplaceでactionが自動的に公開される仕組みとなっている。新しくリリースするとGitHub Marketplace側で最新版として表示されるバージョンが更新されるため、actionのバージョンを更新するたびに新しいリリースを発行することも忘れてはいけない。</p>
+
+<h2>利用例</h2>
+
+<p>以下はWeneedfeedの利用例。<a href="https://mangacross.jp/">マンガクロス</a>、<a href="https://www.sunday-webry.com/">サンデーうぇぶり</a>、<a href="https://web-ace.jp/">webエース</a>で配信中の各作品単位でのRSSフィードをそれぞれ日本時間零時過ぎに更新している。</p>
+
+<ul>
+<li><a href="https://github.com/r7kamura/weneedfeed-mangacross">weneedfeed-mangacross</a></li>
+<li><a href="https://github.com/r7kamura/weneedfeed-sundaywebry">weneedfeed-sundaywebry</a></li>
+<li><a href="https://github.com/r7kamura/weneedfeed-webace">weneedfeed-webace</a></li>
+</ul>
+
+<p>利用例が無いとライブラリが育たないので、まともなユースケースとしてウェブ漫画の更新確認を利用例としてみている。</p>
+
+<h2>不正なHTML</h2>
+
+<p>NokogiriというライブラリでHTMLをパースした上でCSSセレクタやXPathを利用して要素を探索しているのだけど、不正なHTMLが返されたときに、意図通りで無い探索結果が得られることがある。この問題に対処するために、一見冗長なクエリを書くことがたまにある。そして不正なHTMLが返ってくることは現代でも案外多い。</p>
+
+<h2>JSON対応</h2>
+
+<p>WeneedfeedはHTMLではなくJSONを返すエンドポイントにも対応していて、この場合はJSONをXMLに変換した上で要素を探索している。JSON to XMLなライブラリは色々あるが、要素名の生成方法が異なることが多い。プロパティ名のsnake_caseが用いられたり、chain-caseが用いられたりする。配列の場合、子要素の名前は決め打ちでelementだったり、親要素の名前を単数形に変換したものを用いたりする。</p>
+
+<p>ところで、過去にJSON対応したときに不具合を入れてしまったことがある。JSON to XMLの変換をやるようになったときに、HTMLもXMLもどちらもXMLとしてパースするようにしてしまったのだが、後々「HTMLのパース結果から探索して得られるURLの内容が何かおかしい」という状況になるまでこれに気付かなかった。具体的には、画像のURLを取得したときに、URIクエリの <code>&amp;</code> 以降の文字列が無くなってしまう。そこで「<code>&amp;</code> のエスケープ周りの扱いが何かおかしいのではないか」ということに思い至り、パース時の不具合であることに気付いた。明らかなエラーが発生しない問題というのはなかなか気付きづらい。</p>
+
+<h2>フィードの画像</h2>
+
+<p><a href="https://feedly.com/">Feedly</a>や<a href="https://inoreader.com/">Inoreader</a>などのフィードリーダーでは、それぞれの記事のサムネイル画像を、そのリンク先から自動的に判別して取得してくれる機能がある。具体的には、OGPで示された画像のURLなどを参照しているように見える。</p>
+
+<p>フィードには記事の画像を示す方法もあり、RSS 2.0では配信物に添付されているメディアを示すenclosure要素が利用できる。enclosure要素では添付されているメディアのサイズを示すlength属性が必須だが、これは値を0にしても問題無く動いてくれるようだ。この値0の方法は<a href="https://shonenjumpplus.com/">少年ジャンプ＋</a>でも使われていた。少年ジャンプ＋は各作品ごとのRSSフィードを配信していて本当にえらい。</p>
+
+<p>enclosure属性で画像を示すことで、FeedlyとInoreaderでサムネイル画像が表示されるようになることは確認した。但し、例えばFeedlyではキャッシュが強く効いていて、過去に取得された記事のサムネイル画像を更新してくれたりはしない。</p>
+
+<p>上の話は記事単位でのサムネイル画像の話だったが、フィード単位での画像には、例えばRSS 2.0だとchannel要素のlink要素、つまり配信元ウェブページの画像が使われる。apple-touch-iconやfaviconが使われるらしい。Inoreaderではapple-touch-iconが優先されていた。Feedlyでは、<code>https://www.google.com/s2/favicons?domain=...</code> が利用されていた。</p>
+
+<h2>FeedlyとInoreader</h2>
+
+<p>フィードリーダーとしてFeedlyとInoreaderを利用しているので、比較用に個人的な感想を書いておく。</p>
+
+<p>Feedlyは見た目が小綺麗だが、こういったツールの検証用途としては色々と情報が覆い隠されている・透明性が無いと感じられる部分も多く、使いづらいことが多い。現在でも不具合が多い印象で、更にサポートとのやり取りの窓口が開かれておらず、新しく追加した全てのフィードのタイトルが空文字列になってしまうという不具合が前に起きた際は、最終的にTwitterの@feedlyアカウントにDMを送ってやりとりして解決することになった。</p>
+
+<p>Inoreaderは見た目が無骨だが、細かい情報まで表示してくれることが多く、また実装も丁寧な印象がある。サポートとの連絡もやりやすく、どちらかというと技術者フレンドリーな印象だ。少なくともこういったツールの検証用途ではInoreaderの方が分があるだろう。</p>
+
+  </div>
+</article>
+
+  </main>
+</body>
+</html>
