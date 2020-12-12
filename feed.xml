@@ -8,7 +8,36 @@
     <atom:link href="https://r7kamura.com/feed.xml" rel="self"/>
     <title>r7kamura.com</title>
     <managingEditor>r7kamura@gmail.com (Ryo Nakamura)</managingEditor>
-    <lastBuildDate>Sat, 12 Dec 2020 12:39:23 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 12 Dec 2020 17:45:57 +0000</lastBuildDate>
+    
+    <item>
+      <title><![CDATA[AirPods Pro]]></title>
+      <description><![CDATA[AirPods Proを手に入れた。]]></description>
+      <link>https://r7kamura.com/articles/2020-12-13-airpods-pro</link>
+      <pubDate>Sun, 13 Dec 2020 00:00:00 +0000</pubDate>
+      <content:encoded><![CDATA[<p><a href="https://www.amazon.co.jp/dp/B07ZPS4FSW?tag=r7kamura07-22">AirPods Pro</a>を手に入れた。</p>
+
+<figure><a href="https://i.imgur.com/Og4QYCd.jpg" target="_blank"><img src="https://i.imgur.com/Og4QYCdh.jpg" alt="" title="AirPods Proと充電用ケース"></a><figcaption>AirPods Proと充電用ケース</figcaption></figure>
+
+<p>これまでは通話しながら運動するときはSonyの無線ヘッドホンを使っていたが、フィットボクシングのような動きのある運動をしようと思うと少し使いづらく感じていた。運動が1年間続いたら無線イヤホンを買おうとしていたことを思い出し、<a href="/articles/2020-12-03-ring-fit-adventure">リングフィットアドベンチャー 184日目</a>で書いたように1年間続いたので、遂に買うことにした。</p>
+
+<p>Twitterで尋ねたところ以下の製品を勧められることが多かったが、最終的にAirPods Proを使うことに。理由は、色々なデバイスから使うことが多くペアリングが楽そうだったことと、耳に合わなかったときに売りやすそうだったことから。コスパで見ればJabraも良さそうに思う。</p>
+
+<ul>
+<li><a href="https://www.amazon.co.jp/dp/B07ZPS4FSW?tag=r7kamura07-22">AirPods Pro</a></li>
+<li><a href="https://www.amazon.co.jp/dp/B07DFM1KPB?tag=r7kamura07-22">Jabra Active 65t</a></li>
+<li><a href="https://www.amazon.co.jp/dp/B079L9WYP7?tag=r7kamura07-22">Jabra Elite 65t</a></li>
+<li><a href="https://www.amazon.co.jp/dp/B07PRX2XJB?tag=r7kamura07-22">Powerbeats Pro</a></li>
+</ul>
+
+<p>以前購入した<a href="/articles/2019-12-02-magnet-usb">TOPK Coのマグネット式USBアダプタ</a>のLightning用端子が丁度余っていたので、これを付けて充電している。これでキーボード、マウス、ヘッドホン、イヤホン、PS4コントローラが1本のケーブルで充電できるような状態になった。</p>
+
+<p>運動用途で使うことだけ考えて購入したものの、ノイズキャンセリングの効果も良くて付けてると集中できて案外良い買い物だった。作業机が窓際にあって、外の公園や道路からの音がよく聴こえるのだけど、ものすごく集中したいが音楽は聴きたくないというときに便利かもしれない。</p>
+
+<p>普段は無線ヘッドホンを使っているのだけど、それの充電が切れたときの予備としても便利だ。充電用ケースに入っているので、ほぼ確実に充電されていることも保証されている。Windowsでも使っていて、意外とシームレスに切り替えられる。この辺りの音声デバイス切替体験の良さは、<a href="/articles/2020-10-06-sound-switch">SoundSwitch</a>でキー1つで切り替えられるようにしていることや、<a href="/articles/2020-10-21-keyboard-g913-tkl">キーボード G913-TKL</a>に音量制御用のローラーが付いていることも寄与していそうではある。</p>
+]]></content:encoded>
+      <guid>https://r7kamura.com/articles/2020-12-13-airpods-pro</guid>
+    </item>
     
     <item>
       <title><![CDATA[Weneedfeedの運用小話]]></title>
@@ -790,61 +819,6 @@ jobs:
 <p>マルチカーソルは本当によく使っており、このショートカットキーもほぼ必須な機能として毎日便利に使っている。便利だという気持ちをどこかに書いておきたかった。</p>
 ]]></content:encoded>
       <guid>https://r7kamura.com/articles/2020-11-12-rubocop-vscode-multi-cursor</guid>
-    </item>
-    
-    <item>
-      <title><![CDATA[RuboCop Problem Matchers]]></title>
-      <description><![CDATA[RuboCop Problem MatchersというGitHub Actionをつくった。]]></description>
-      <link>https://r7kamura.com/articles/2020-11-10-rubocop-problem-matchers</link>
-      <pubDate>Tue, 10 Nov 2020 00:00:00 +0000</pubDate>
-      <content:encoded><![CDATA[<p><a href="https://github.com/marketplace/actions/rubocop-problem-matchers">RuboCop Problem Matchers</a>というGitHub Actionをつくった。</p>
-
-<h2>使い方</h2>
-
-<p>GitHub ActionsでRuboCopを実行する前にこれを呼び出しておくと、違反内容が変更差分に注釈として表示されるようになる。</p>
-
-<p>こういう感じで使う。</p>
-
-<pre><code class="yaml">- uses: r7kamura/rubocop-problem-matchers-action@v1
-- run: bundle exec rubocop
-</code></pre>
-
-<p>こういう感じで表示される。</p>
-
-<figure><a href="https://i.imgur.com/AAjpgpih.png" target="_blank"><img src="https://i.imgur.com/AAjpgpih.png" alt="" title="変更差分に違反内容が表示されている様子"></a><figcaption>変更差分に違反内容が表示されている様子</figcaption></figure>
-
-<p>GitHubの<a href="https://github.com/actions/toolkit/blob/1cc56db0ff126f4d65aeb83798852e02a2c180c3/docs/problem-matchers.md">Problem Matchers</a>という仕組みを利用している。</p>
-
-<h2>注意点</h2>
-
-<p>このような目的でGitHub Actionsを利用するときの注意点に触れておく。</p>
-
-<p><code>pull_request</code> イベントを起点に動かす場合、<code>actions/checkout</code> はそのPull Requestが生成しようとしているmerge commitをチェックアウトする。これだとLinter等から報告されるコードの位置がPull Requestの差分で表示しているものとズレてしまう場合があるので、この用途で使う場合はPull RequestのHEADをチェックアウトするように設定した方が良い。</p>
-
-<pre><code class="yaml">- uses: actions/checkout@v2
-  with:
-    ref: ${{ github.event.pull_request.head.sha }}
-</code></pre>
-
-<p>ちなみに、このように指定しても <code>push</code> 契機での実行時にも特に問題無く動いてくれるので、その点は心配無い。</p>
-
-<hr>
-
-<p>今回取り上げたRuboCop Problem Matchersのような、Problem Matchersを利用したものをつくる開発者向けに細かい情報を書いておく。</p>
-
-<h2>エスケープシーケンス</h2>
-
-<p>GitHub ActionsでANSIエスケープシーケンスを利用した出力を行うと、ブラウザ上で閲覧する際にもよしなに修飾されて表示される。このような太字や着色などの修飾付きの出力に対して正規表現を書く場合には、エスケープシーケンスを考慮したパターンを記述しないと上手くいかないので、注意が必要だ。</p>
-
-<p>RuboCop Problem Matchersでは、対応も面倒そうなので色付きの出力 (<code>rubocop --color</code>) にはとりあえず未対応としている。</p>
-
-<h2>Severity</h2>
-
-<p>Problem Matchersではseverityという情報をキャプチャすることも出来るようになっているが、これは少なくともGitHub ChecksとGitHub Actionsの出力ログのところで黄色く表示されるか赤く表示されるかという違いに影響している。少なくとも <code>"warning"</code> のときに黄色くなり、それ以外の文字列に対しては基本的に <code>"error"</code> 相当で赤くなるということが分かった。</p>
-
-<p>RuboCopの違反には出力で言うと <code>W</code> と <code>C</code> の2パターンがあるので、RuboCop Problem Matchersではそれぞれwarningとerrorに割り当てている。<a href="https://github.com/r7kamura/rubocop-problem-matchers-action/blob/b8ef1656b34a223cf80f04e6b45b5bb6722cef31/.github/matchers/rubocop.json">ソースコード</a>を見ると分かるが、このために2つのMatcherを用意している。それぞれのMatcherに異なる名前を割り当てており、名前を指定して特定のMatcherを無効化する機能も提供されているので、利用者側で警告だけ非表示にするなどの使い方も考えられる。</p>
-]]></content:encoded>
-      <guid>https://r7kamura.com/articles/2020-11-10-rubocop-problem-matchers</guid>
     </item>
     
   </channel>
