@@ -8,24 +8,30 @@
     <atom:link href="https://r7kamura.com/feed.xml" rel="self"/>
     <title>r7kamura.com</title>
     <managingEditor>r7kamura@gmail.com (Ryo Nakamura)</managingEditor>
-    <lastBuildDate>Sun, 13 Dec 2020 16:35:28 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 13 Dec 2020 16:43:00 +0000</lastBuildDate>
     
     <item>
-      <title><![CDATA[大きいエビ、漫画の購読]]></title>
-      <description><![CDATA[雑記だ。]]></description>
-      <link>https://r7kamura.com/articles/2020-12-14-comics</link>
+      <title><![CDATA[大きいエビ]]></title>
+      <description><![CDATA[冷凍の大きいエビを買った。]]></description>
+      <link>https://r7kamura.com/articles/2020-12-14-shrimp</link>
       <pubDate>Mon, 14 Dec 2020 00:00:00 +0000</pubDate>
-      <content:encoded><![CDATA[<p>雑記だ。</p>
-
-<h2>大きいエビ</h2>
+      <content:encoded><![CDATA[<p>冷凍の大きいエビを買った。</p>
 
 <figure><a href="https://i.imgur.com/EEN2M5W.jpg" target="_blank"><img src="https://i.imgur.com/EEN2M5Wh.jpg" alt="" title="エビ"></a><figcaption>エビ</figcaption></figure>
 
 <p>いつも使っているニッスイの<a href="https://www.amazon.co.jp/dp/B00BHOJY3M?tag=r7kamura07-22">シーフードミックス</a>が在庫切れだったので、趣向を変えて食の達人森源商店の<a href="https://www.amazon.co.jp/dp/B073TVTQ97?tag=r7kamura07-22">剥きエビ</a>を買ってみたところ、異様にでかい。冷凍のエビがこんなに大きいことあるんだ。これは巨大化技術でつくられたエビで、そのうち知能を持ち凶暴化したエビが世界を脅かす日が来るかもしれないな、と考えていた。主にパスタと一緒に茹でて賑やかしとして使っている。</p>
+]]></content:encoded>
+      <guid>https://r7kamura.com/articles/2020-12-14-shrimp</guid>
+    </item>
+    
+    <item>
+      <title><![CDATA[漫画の購読]]></title>
+      <description><![CDATA[漫画の新刊をあまり追いかけられなくなった。]]></description>
+      <link>https://r7kamura.com/articles/2020-12-14-comics</link>
+      <pubDate>Mon, 14 Dec 2020 00:00:00 +0000</pubDate>
+      <content:encoded><![CDATA[<p>漫画の新刊をあまり追いかけられなくなった。</p>
 
-<h2>漫画の購読</h2>
-
-<p>鬼滅の刃の最終巻である23巻が発売されたので、Kindle版を<a href="https://www.amazon.co.jp/dp/B08PPY8CFF?tag=r7kamura07-22">全23巻まとめ買い</a>して読んだ。</p>
+<p>最近は、鬼滅の刃の最終巻である23巻が発売されたので、Kindle版を<a href="https://www.amazon.co.jp/dp/B08PPY8CFF?tag=r7kamura07-22">全23巻まとめ買い</a>して読んだ。</p>
 
 <p>すべての漫画雑誌を購読するほどは手が回らず、特定の雑誌に愛着がある訳でもない。好きな漫画作品は、単行本が発売されたら読むことに決めている。気になっているけれど追いかけるほどではない気持ちの漫画作品は、最終巻が発売されたら一気に読むことにしている。しかし、過去に単行本をシリーズ単位で整理して発売日をカレンダーやフィードで通知してくれるamakanというサービスを運用していた頃と比べると、機会損失によって漫画をほとんど読まなくなってしまったと感じる。</p>
 
@@ -792,28 +798,6 @@ jobs:
 </code></pre>
 ]]></content:encoded>
       <guid>https://r7kamura.com/articles/2020-11-15-weneedfeed</guid>
-    </item>
-    
-    <item>
-      <title><![CDATA[サイト構造変更]]></title>
-      <description><![CDATA[このウェブサイトのサイト構造を少し変更し、併せてスタイルにも手を加えた。]]></description>
-      <link>https://r7kamura.com/articles/2020-11-15-website-structure</link>
-      <pubDate>Sun, 15 Nov 2020 00:00:00 +0000</pubDate>
-      <content:encoded><![CDATA[<p>このウェブサイトのサイト構造を少し変更し、併せてスタイルにも手を加えた。全体的に無骨で、素っ気なく、実用性重視で、打ちっぱなしだ。</p>
-
-<h2>構造</h2>
-
-<p>トップページにすべての記事へのリンクを並べてみることにした。</p>
-
-<p>これまでは直近の5件の記事だけ表示していた。これまでトップページに置いていたRSSフィードや連絡先などに関する情報は、別途リンク集というページを用意し、そこに配置することにした。リンク集では個々のリンクについての簡単な説明を添えているが、このウェブサイトの輪郭を少し補足させるような役割もここに与えている。</p>
-
-<h2>スタイル</h2>
-
-<p>サイト構造の変更に合わせ、ヘッダーの見た目を少し変えた。</p>
-
-<p>これまではウェブサイト名とリンクが横に並んでいたが、要素間の主従関係を明確にするために、縦方向に並べることにした。順序無しリストのデフォルトスタイルはそのまま残すことにした。</p>
-]]></content:encoded>
-      <guid>https://r7kamura.com/articles/2020-11-15-website-structure</guid>
     </item>
     
   </channel>
