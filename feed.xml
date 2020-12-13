@@ -8,7 +8,33 @@
     <atom:link href="https://r7kamura.com/feed.xml" rel="self"/>
     <title>r7kamura.com</title>
     <managingEditor>r7kamura@gmail.com (Ryo Nakamura)</managingEditor>
-    <lastBuildDate>Sat, 12 Dec 2020 17:45:57 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 13 Dec 2020 16:35:28 +0000</lastBuildDate>
+    
+    <item>
+      <title><![CDATA[大きいエビ、漫画の購読]]></title>
+      <description><![CDATA[雑記だ。]]></description>
+      <link>https://r7kamura.com/articles/2020-12-14-comics</link>
+      <pubDate>Mon, 14 Dec 2020 00:00:00 +0000</pubDate>
+      <content:encoded><![CDATA[<p>雑記だ。</p>
+
+<h2>大きいエビ</h2>
+
+<figure><a href="https://i.imgur.com/EEN2M5W.jpg" target="_blank"><img src="https://i.imgur.com/EEN2M5Wh.jpg" alt="" title="エビ"></a><figcaption>エビ</figcaption></figure>
+
+<p>いつも使っているニッスイの<a href="https://www.amazon.co.jp/dp/B00BHOJY3M?tag=r7kamura07-22">シーフードミックス</a>が在庫切れだったので、趣向を変えて食の達人森源商店の<a href="https://www.amazon.co.jp/dp/B073TVTQ97?tag=r7kamura07-22">剥きエビ</a>を買ってみたところ、異様にでかい。冷凍のエビがこんなに大きいことあるんだ。これは巨大化技術でつくられたエビで、そのうち知能を持ち凶暴化したエビが世界を脅かす日が来るかもしれないな、と考えていた。主にパスタと一緒に茹でて賑やかしとして使っている。</p>
+
+<h2>漫画の購読</h2>
+
+<p>鬼滅の刃の最終巻である23巻が発売されたので、Kindle版を<a href="https://www.amazon.co.jp/dp/B08PPY8CFF?tag=r7kamura07-22">全23巻まとめ買い</a>して読んだ。</p>
+
+<p>すべての漫画雑誌を購読するほどは手が回らず、特定の雑誌に愛着がある訳でもない。好きな漫画作品は、単行本が発売されたら読むことに決めている。気になっているけれど追いかけるほどではない気持ちの漫画作品は、最終巻が発売されたら一気に読むことにしている。しかし、過去に単行本をシリーズ単位で整理して発売日をカレンダーやフィードで通知してくれるamakanというサービスを運用していた頃と比べると、機会損失によって漫画をほとんど読まなくなってしまったと感じる。</p>
+
+<p>Amazonはシリーズ情報を内部的に持っているけれど特に活用させてはくれないし、読んでいた漫画の新刊は発売されているかもしれないけれど、もはや自分がどういうシリーズを追っていたのかほぼ分からなくなってしまっている。</p>
+
+<p><a href="/articles/2020-12-12-weneedfeed-misc">Weneedfeedの運用小話</a>でも少し触れたかもしれないけれど、最近はウェブ漫画を読むことが多い。最初の数話と最新の数話だけ公開されていて、他は単行本で読んでねという形式のやつだ。それを作品ごとにフィードで購読していて、その購読中のフィード一覧をもって自分の追っているシリーズとしている。作品自体の魅力に加え、配信媒体の利便性が、自分がその作品を読むかどうかに大きく影響していることをつくづく感じる。</p>
+]]></content:encoded>
+      <guid>https://r7kamura.com/articles/2020-12-14-comics</guid>
+    </item>
     
     <item>
       <title><![CDATA[AirPods Pro]]></title>
@@ -788,37 +814,6 @@ jobs:
 <p>これまではウェブサイト名とリンクが横に並んでいたが、要素間の主従関係を明確にするために、縦方向に並べることにした。順序無しリストのデフォルトスタイルはそのまま残すことにした。</p>
 ]]></content:encoded>
       <guid>https://r7kamura.com/articles/2020-11-15-website-structure</guid>
-    </item>
-    
-    <item>
-      <title><![CDATA[RuboCop 1.3.0、VSCodeのaddSelection]]></title>
-      <description><![CDATA[雑記だ。]]></description>
-      <link>https://r7kamura.com/articles/2020-11-12-rubocop-vscode-multi-cursor</link>
-      <pubDate>Thu, 12 Nov 2020 00:00:00 +0000</pubDate>
-      <content:encoded><![CDATA[<p>雑記だ。</p>
-
-<h2>RuboCop 1.3.0</h2>
-
-<p>次のGem群を利用しているプロジェクトで、RuboCop関係のGemを全て最新版に上げた。</p>
-
-<ul>
-<li>guard-rubocop (1.3.0 to 1.4.0)</li>
-<li>rubocop (0.93.1 to 1.3.0)</li>
-<li>rubocop-rails (2.8.1 to 2.8.1)</li>
-<li>rubocop-rspec (1.44.1 to 2.0.0)</li>
-</ul>
-
-<p>rubocop 1.0.0が出たときに最新版にしようと試したことがあるが、当時はguard-rubocopとrubocop-rspecが対応しておらず、すぐに対応しようとすると効率が悪そうだったので後回しにしていた。今になってその問題が解決されていたので、改めて最新版に上げることにした。</p>
-
-<p>件のプロジェクトではrubocopは全く問題が無く、どちらかと言うとrubocop-rspec 1.44.1から2.0.0に上げたことによる非互換性への対処の方が面倒だったが、<a href="https://docs.rubocop.org/rubocop-rspec/2.0/upgrade_to_version_2.html">Upgrade to Version 2.x :: RuboCop Docs</a>というガイドもあり、実のところ大した変更でもなかった。</p>
-
-<h2>VSCodeのCtrl+D</h2>
-
-<p>現在カーソル下にある単語かあるいは現在選択中の単語を同ファイル内から検索し、順にその末尾にマルチカーソルを足していってくれるというeditor.action.addSelectionToNextFindMatchというコマンドがVSCodeにあり、Windows版ではCtrl+D、Mac版では確かCommand+Dのショートカットキーにこれが割り当てられている。</p>
-
-<p>マルチカーソルは本当によく使っており、このショートカットキーもほぼ必須な機能として毎日便利に使っている。便利だという気持ちをどこかに書いておきたかった。</p>
-]]></content:encoded>
-      <guid>https://r7kamura.com/articles/2020-11-12-rubocop-vscode-multi-cursor</guid>
     </item>
     
   </channel>
