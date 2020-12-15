@@ -8,7 +8,25 @@
     <atom:link href="https://r7kamura.com/feed.xml" rel="self"/>
     <title>r7kamura.com</title>
     <managingEditor>r7kamura@gmail.com (Ryo Nakamura)</managingEditor>
-    <lastBuildDate>Sun, 13 Dec 2020 16:43:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 15 Dec 2020 21:51:40 +0000</lastBuildDate>
+    
+    <item>
+      <title><![CDATA[朝ジョギング]]></title>
+      <description><![CDATA[久しぶりに朝走った。]]></description>
+      <link>https://r7kamura.com/articles/2020-12-16-jogging</link>
+      <pubDate>Wed, 16 Dec 2020 00:00:00 +0000</pubDate>
+      <content:encoded><![CDATA[<p>久しぶりに朝走った。</p>
+
+<figure><a href="https://i.imgur.com/RRX2kcG.jpg" target="_blank"><img src="https://i.imgur.com/RRX2kcGh.jpg" alt="" title="こんな感じで道がだいたい黄色い"></a><figcaption>こんな感じで道がだいたい黄色い</figcaption></figure>
+
+<p>たまに朝走ってる人を見かけるけど、どういう気持ちなのだろう。偶然午前5時に起床したときにそういう疑問が湧いたので、実際に走ってみることにした。広い道に人が居なくて整理されている感覚になる、上手く自己管理をやれている感じがする、という点で気持ちが良かった。</p>
+
+<p>これまで寝起きにシャワーを浴び、夜に運動して風呂に入るというルーチンで生活していたので、朝にも運動すると、運動、入浴、運動、入浴、というパターンが構築できて収まりが良い。そして「入浴後は必ず洗濯乾燥機を回す」というパターンで動くことにしていたので、これも汗をかいた服を洗うという建前が出来て丁度よい。</p>
+
+<p>最近フィットボクシング2で力を入れすぎて腹筋を怪我したので、快復するまで違う運動でもするかと思って走ってみたのだけど、ジョギングも同様に腹筋を使し、庇おうとすると姿勢が悪くなるから、あまり効果的ではなかったかもしれない。段々治りつつある（と勝手に思っているけどそんなに痛みに変化が無いのが少し怖い）ので、早く完治させてフィットボクシング2の続きを全力でやれるようになりたい。</p>
+]]></content:encoded>
+      <guid>https://r7kamura.com/articles/2020-12-16-jogging</guid>
+    </item>
     
     <item>
       <title><![CDATA[大きいエビ]]></title>
@@ -728,76 +746,6 @@ method_name_regexp = Regexp.union(
 <p>とか言ってたらアインクラッド編の前日譚的な部分を描く『ソードアート・オンライン プログレッシブ』のアニメ化が決まったようで、その後しばらくしてその第1話『星なき夜のアリア』の劇場アニメ化が報じられ、いいぞあと100クールやってくれという気持ちになっている。</p>
 ]]></content:encoded>
       <guid>https://r7kamura.com/articles/2020-11-16-sao-alicization</guid>
-    </item>
-    
-    <item>
-      <title><![CDATA[Weneedfeed]]></title>
-      <description><![CDATA[ウェブページからフィードを生成するweneedfeedというツールをつくった。]]></description>
-      <link>https://r7kamura.com/articles/2020-11-15-weneedfeed</link>
-      <pubDate>Sun, 15 Nov 2020 00:00:00 +0000</pubDate>
-      <content:encoded><![CDATA[<p>ウェブページからフィードを生成する<a href="https://github.com/r7kamura/weneedfeed">weneedfeed</a>というツールをつくった。</p>
-
-<h2>使い方</h2>
-
-<p>このツールはRubygemとして実装されているので、Rubyがインストールされている環境が必要になる。ツール自体はgem installでインストールできる。</p>
-
-<pre><code>gem install weneedfeed
-</code></pre>
-
-<p>利用者には、URLとCSSセレクタをweneedfeed.ymlというYAML形式のファイルに書いてもらうことになる。例えばこのウェブサイト、r7kamura.comの新着記事のためのRSSフィードを生成しようとすると、こんな内容になる。</p>
-
-<pre><code class="yaml">pages:
-  id: r7kamuracom
-  title: r7kamura.com
-  url: https://r7kamura.com/
-  item_selector: li
-  item_description_selector: p:nth-child(3)
-  item_link_selector: a
-  item_time_selector: time
-  item_title_selector: p:nth-child(2)
-</code></pre>
-
-<p><code>weneedfeed build</code> コマンドを利用すると、適当なRSSフィードをXMLファイルとして <code>./output</code> ディレクトリに出力できる。このファイルをどこかにホスティングして使う訳だが、RSSフィードの中では (ホスト名などの含まれた) 完全な形式のURLを使う必要があるので、このURLの生成に使う情報も引数として与える必要がある。例えば、r7kamura/weneedfeed-r7kamuracomというリポジトリを利用してGitHub Pagesにプロジェクトサイトとしてホスティングしてもらう場合はこういう感じで使う。</p>
-
-<pre><code>weneedfeed build --base-url=https://r7kamura.github.io/weneedfeed-r7kamuracom
-</code></pre>
-
-<p>YAMLファイル記述時に手元で動作確認するために、<code>weneedfeed server</code> コマンドが用意されている。localhost:8080でHTTPサーバが立ち上がるので、ブラウザから生成物を確認できる。</p>
-
-<pre><code>weneedfeed server
-</code></pre>
-
-<h2>weneedfeed-action</h2>
-
-<p>YAMLファイルからweneedfeedで静的ファイルをつくってGitHub Pagesに配置するという定型的な作業を自動化するために、<a href="https://github.com/r7kamura/weneedfeed-action">weneedfeed-action</a>というGitHub Actionが用意されている。これを使うと、リポジトリにYAMLファイルを置くだけでフィードを用意できるようになる。</p>
-
-<p>例えばこういう感じでGitHub Actions用のworkflowを定義して使う。ファイルの生成にr7kamura/weneedfeed-actionを、ファイルのデプロイにpeaceiris/actions-gh-pagesを使っている。</p>
-
-<pre><code class="yaml"># .github/workflows/publish.yml
-name: publish
-
-on:
-  push:
-    branches:
-      - master
-  schedule:
-    - cron: "15 0 * * *"
-
-jobs:
-  publish:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - uses: r7kamura/weneedfeed-action@v3
-        with:
-          base_url: https://r7kamura.github.io/weneedfeed-r7kamuracom
-      - uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: output
-</code></pre>
-]]></content:encoded>
-      <guid>https://r7kamura.com/articles/2020-11-15-weneedfeed</guid>
     </item>
     
   </channel>
