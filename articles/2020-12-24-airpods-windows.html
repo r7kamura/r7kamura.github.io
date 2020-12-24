@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width">
+  <title>AirPodsをWindowsで使う</title>
+  <link href="https://r7kamura.com/articles/2020-12-24-airpods-windows" rel="canonical">
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="search" type="application/opensearchdescription+xml" title="r7kamura.com" href="/opensearch.xml">
+  <link rel="alternate" type="application/rss+xml" href="/feed.xml">
+  
+  <meta property="description" content="AirPodsをWindowsで使うときの設定のアレコレについて。">
+  <meta property="og:description" content="AirPodsをWindowsで使うときの設定のアレコレについて。">
+  
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="AirPodsをWindowsで使う">
+  <meta property="og:url" content="https://r7kamura.com/articles/2020-12-24-airpods-windows">
+  
+  <meta property="og:image" content="https://i.imgur.com/HbCYiDkh.png">
+  <meta property="twitter:card" content="summary_large_image">
+  
+</head>
+<body>
+  <header>
+    <nav>
+      <p>
+        <a href="/">r7kamura.com</a>
+      </p>
+      <ul>
+        <li>
+          <a href="/links">リンク集</a>
+        </li>
+        <li>
+          <a href="https://www.google.com/search?q=site:r7kamura.com">検索</a>
+        </li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <article>
+  <header>
+    <time datetime="2020-12-24T00:00:00+00:00">2020年12月24日</time>
+    <h1>AirPodsをWindowsで使う</h1>
+  </header>
+  <div>
+    <p>AirPodsをWindowsで使うときの設定のアレコレについて。前に<a href="/articles/2020-12-13-airpods-pro">AirPods Pro</a>という記事でも触れたように、少し前からWindowsでAirPods Proを利用している。そこで幾つかはまりがちな点があったので、誰かのためにまとめておく。</p>
+
+<h2>ペアリング</h2>
+
+<p>AirPodsの充電を済ませた状態で、AirPodsをペアリング可能な状態にし、Windows側で次のような手順を踏んでAirPodsを探す。</p>
+
+<ol>
+<li>Bluetooth とその他のデバイス</li>
+<li>Bluetooth またはその他のデバイスを追加する</li>
+<li>デバイスを追加する</li>
+<li>Bluetooth</li>
+</ol>
+
+<p>ここで本来であればAirPodsが検出されて、ペアリングできる。</p>
+
+<figure><a href="https://i.imgur.com/HbCYiDkh.png" target="_blank"><img src="https://i.imgur.com/HbCYiDkh.png" alt="" title="ペアリング成功例"></a><figcaption>ペアリング成功例</figcaption></figure>
+
+<p>但し、たまにペアリングしようとして検出できない状態に陥る場合があった。</p>
+
+<ul>
+<li>AirPodsの充電を待つ</li>
+<li>AirPodsをリセットする</li>
+</ul>
+
+<p>という手順でそのときは問題を解決できた。</p>
+
+<h2>サウンド設定</h2>
+
+<p>AirPodsをペアリングすると、2つの再生デバイスと1つの録音デバイスが追加される。</p>
+
+<ol>
+<li>再生デバイス ヘッドホン AirPods Pro Stereo</li>
+<li>再生デバイス ヘッドセット AirPods Pro Hands-Free AG Audio</li>
+<li>録音デバイス ヘッドセット AirPods Pro Hands-Free AG Audio</li>
+</ol>
+
+<p>このとき、録音デバイスとしてヘッドセットを利用していると、再生デバイスとしてのヘッドホンは機能しなくなる。具体的には、再生デバイスに選択していても音声が出力されなくなる。録音デバイスとして実際に利用されている場合だけ出力されなくなるので、例えばDiscordで通話しているまたは設定画面を開いているときだけ音声が再生されない、といった感じの事象が発生することになるだろう。</p>
+
+<p>AirPodsでは、ヘッドホンとして利用する場合はA2DP、ヘッドセットとして利用する場合はHFPというBluetoothのプロファイルが利用される。これらは併用できない。説明は省くが、要するに再生デバイスとしてヘッドセットを利用しようとすると音質がものすごく低くなるので、正直現状のWindowsとAirPodsの組み合わせでは、マイクは使い物にならないレベルと見做した方が良いと考えている。</p>
+
+<p>そういう訳なので、意図せず利用されてしまうことを防ぐために、自分は前述したうちの次のデバイスをサウンド設定から無効化している。</p>
+
+<ul>
+<li>再生デバイス ヘッドセット AirPods Pro Hands-Free AG Audio</li>
+<li>録音デバイス ヘッドセット AirPods Pro Hands-Free AG Audio</li>
+</ul>
+
+<p>ペアリングをやり直すとこの辺りの設定が初期化されたりするので、ペアリングするたびあるいは音声周りで問題を感じるたびにこの設定を見直すことにしている。</p>
+
+  </div>
+</article>
+
+  </main>
+</body>
+</html>
