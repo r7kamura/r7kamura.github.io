@@ -8,7 +8,29 @@
     <atom:link href="https://r7kamura.com/feed.xml" rel="self"/>
     <title>r7kamura.com</title>
     <managingEditor>r7kamura@gmail.com (Ryo Nakamura)</managingEditor>
-    <lastBuildDate>Wed, 30 Dec 2020 21:24:25 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 01 Jan 2021 20:56:28 +0000</lastBuildDate>
+    
+    <item>
+      <title><![CDATA[元日記]]></title>
+      <description><![CDATA[元日の日記。]]></description>
+      <link>https://r7kamura.com/articles/2021-01-01-diary</link>
+      <pubDate>Fri, 01 Jan 2021 00:00:00 +0000</pubDate>
+      <content:encoded><![CDATA[<p>元日の日記。</p>
+
+<h2>年末年始の過ごし方</h2>
+
+<p>去年まではDiscordで知り合った人々と毎年初詣に行っていたのだけど、今年は残念ながら中止だ。年末年始は通話したりゲームしたりで過ごしていた。おせちは食べなかったが雑煮ライクなものはつくって食べた。個人的に何度目かのダークソウルブームが来ていて、ダークソウル3と1を進め、終えたらブラッドボーンかSEKIROをやろうという気持ちになっている。</p>
+
+<h2>抱負</h2>
+
+<p>去年の抱負は、炊飯器を新調することだった。2020年10月頃に無事達成できた。<a href="/articles/2020-11-03-rice-cooker">炊飯器 象印NW-ES07-BZ</a>という記事にまとめてある。いい炊飯器を買えて満足だ。<a href="/articles/2020-12-22-sakuna-of-rice-and-ruin">『天穂のサクナヒメ』をやった</a>ことで米についての関心も高まり、2020年は米が捗る年だった。</p>
+
+<p>今年の抱負は、自作PCを組むこと、引っ越しを成功させることにした。要するに作業環境の改善だ。自作PCへ投資するために、去年の内にすべての開発環境をMacからWindowsへ、具体的にはMacBook ProからデスクトップPCに移行を済ませておいたので、満を持して組むことに。Ryzen 9 5900X、RTX 3080、ATXサイズで黒系の配色で統一したものを組もうと思っている。</p>
+
+<p>引っ越しは契約の都合今年11月頃までには必須なので (取り壊される予定の建物にそれまで安く住まわせてもらっている)、Amazonフレッシュ対応地域で静かで1ルームで広そうなところを探し当てたい。2020年以降、Amazonフレッシュに大きく依存した生活を続けているので、この条件はほぼ必須になってしまった。10月中に引っ越し終えてる状態がベターかな。8月頃から引越し先を探し始めるつもりだ。</p>
+]]></content:encoded>
+      <guid>https://r7kamura.com/articles/2021-01-01-diary</guid>
+    </item>
     
     <item>
       <title><![CDATA[2020年にやったゲーム]]></title>
@@ -825,32 +847,6 @@
 <p>象印の加湿器と言えば、強靭、無敵、最強、ダサいという印象だったのだが、最近のモデルはかなり落ち着いた雰囲気になっていて、意外と部屋に馴染みやすくなっている。購入して使ってみると、加湿性能も使い勝手も申し分ない。電気ポットと同じような構造になっているので、水も上からジャバジャバと継ぎ足すだけだし、ポット洗浄用の錠剤やクエン酸などを入れて洗浄ボタンを押すだけで綺麗にできる。</p>
 ]]></content:encoded>
       <guid>https://r7kamura.com/articles/2020-12-02-zojirushi-humidifier</guid>
-    </item>
-    
-    <item>
-      <title><![CDATA[無印良品のアクリル冷水筒]]></title>
-      <description><![CDATA[無印良品のアクリル冷水筒を手に入れた。]]></description>
-      <link>https://r7kamura.com/articles/2020-11-30-muji-bottle</link>
-      <pubDate>Mon, 30 Nov 2020 00:00:00 +0000</pubDate>
-      <content:encoded><![CDATA[<p><a href="https://www.amazon.co.jp/dp/B08C9VVH9P?tag=r7kamura07-22">無印良品のアクリル冷水筒</a>を手に入れた。</p>
-
-<p>最近は無印良品がAmazonでも幾つかの商品を販売してくれていて助かる。無印良品は品物は良いが、ネットストアは、いや、やめておこう。とにかく、Amazonで販売してくれていて助かった。</p>
-
-<p>水出しコーヒーを入れるのに使っている。</p>
-
-<figure><a href="https://i.imgur.com/eTIrL1b.jpg" target="_blank"><img src="https://i.imgur.com/eTIrL1bh.jpg" alt="" title="抽出開始"></a><figcaption>抽出開始</figcaption></figure>
-
-<figure><a href="https://i.imgur.com/g4hP44d.jpg" target="_blank"><img src="https://i.imgur.com/g4hP44dh.jpg" alt="" title="抽出完了"></a><figcaption>抽出完了</figcaption></figure>
-
-<p><a href="/articles/2020-10-01-coffee">前にも記事に書いた</a>が、これまではHARIOのガラスポットを試してみていた。HARIOのやつには、背が高すぎてドアポケットに入りづらい、蓋が頻繁に外れる、注いだあと液が垂れやすい、パックで入れるとはいえ注ぎ口に詰まりがち、密閉性が低い、横向けに置けないといった課題があり、無印のやつはその辺を解決できていて満足だ。</p>
-
-<p>取っ手が無いと使いづらいかもしれないと憂慮していたが、実際のところ手も大きいし握力もそこそこなので、自分が使う分には特に問題にはならなかった。円柱ではなく角丸の四角形なので持ちやすいというのもありそうだ。形状と容量的には牛乳パックみたいなものだ。</p>
-
-<hr>
-
-<p>水出しコーヒーは相変わらず<a href="https://www.amazon.co.jp/dp/B085D1F221?tag=r7kamura07-22">キーコーヒーのやつ</a>を使っている。めちゃくちゃ良い訳ではないが、悪い訳でもない。MONINのフレーバーシロップを試すのにはまっていて、バニラのやつを1本使い切ったので、次は<a href="https://www.amazon.co.jp/dp/B077MT8H57?tag=r7kamura07-22">ヘーゼルナッツのやつ</a>を試してみている。ポンプを付けると入れるのが意外と楽しい。</p>
-]]></content:encoded>
-      <guid>https://r7kamura.com/articles/2020-11-30-muji-bottle</guid>
     </item>
     
   </channel>
