@@ -8,7 +8,23 @@
     <atom:link href="https://r7kamura.com/feed.xml" rel="self"/>
     <title>r7kamura.com</title>
     <managingEditor>r7kamura@gmail.com (Ryo Nakamura)</managingEditor>
-    <lastBuildDate>Fri, 01 Jan 2021 20:56:28 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 03 Jan 2021 03:14:14 +0000</lastBuildDate>
+    
+    <item>
+      <title><![CDATA[『Nine Parchments』をやった]]></title>
+      <description><![CDATA[協力型魔法アクションゲーム、Nine Parchmentsをやった。]]></description>
+      <link>https://r7kamura.com/articles/2021-01-03-nine-parchments</link>
+      <pubDate>Sun, 03 Jan 2021 00:00:00 +0000</pubDate>
+      <content:encoded><![CDATA[<p>協力型魔法アクションゲーム、<a href="https://store.steampowered.com/app/471550/Nine_Parchments">Nine Parchments</a>をやった。</p>
+
+<p><a href="https://i.imgur.com/gEDFnU0.jpg" target="_blank"><img src="https://i.imgur.com/gEDFnU0h.jpg" alt=""></a></p>
+
+<p>見習い魔法使いを操作し、色々な魔法を使い分けながらワチャワチャとした魔法戦を楽しむ感じのゲーム。段々と使える魔法の数が増えていき、氷魔法や炎魔法や回復魔法など色々な魔法を使い分けながら敵を倒していく。4人でプレイして4時間ぐらいで一通りクリアした。</p>
+
+<p>フレンドリーファイア有りで魔法をぶっ放しながら味方に誤射したりされたりが楽しいた。とにかく複数の魔法を切り替えながら忙しく戦い続ける必要があり、戦闘中のスクリーンショットを撮り忘れてしまった。協力して魔法を重ね合わせるような要素があり、ファイナルファンタジー・クリスタルクロニクルのような楽しさがある。</p>
+]]></content:encoded>
+      <guid>https://r7kamura.com/articles/2021-01-03-nine-parchments</guid>
+    </item>
     
     <item>
       <title><![CDATA[元日記]]></title>
@@ -831,22 +847,6 @@
 <p>2020年12月3日に<a href="https://www.amazon.co.jp/dp/B08JH3K59H?tag=r7kamura07-22">フィットボクシング2</a>が発売されたので、しばらくはこれを続けてみるつもり。何をやるにせよ、効率良く生きていくために、今後も適切な運動を継続していく方が良いだろう。</p>
 ]]></content:encoded>
       <guid>https://r7kamura.com/articles/2020-12-03-ring-fit-adventure</guid>
-    </item>
-    
-    <item>
-      <title><![CDATA[象印の加湿器 EE-DB50]]></title>
-      <description><![CDATA[象印の加湿器 EE-DB50を買って以来、稼働させ続けている。]]></description>
-      <link>https://r7kamura.com/articles/2020-12-02-zojirushi-humidifier</link>
-      <pubDate>Wed, 02 Dec 2020 00:00:00 +0000</pubDate>
-      <content:encoded><![CDATA[<p><a href="https://www.zojirushi.co.jp/syohin/humidifier/eedb/">象印の加湿器 EE-DB50</a>を買って以来、稼働させ続けている。</p>
-
-<figure><a href="https://i.imgur.com/YZQBNyp.jpg" target="_blank"><img src="https://i.imgur.com/YZQBNyph.jpg" alt="" title="様子"></a><figcaption>様子</figcaption></figure>
-
-<p>前の冬までは日立のEP-LVG110-Tという加湿機能付き空気清浄機で加湿を試みていたが、加湿性能が低く、入れられる水の容量も少なく、手入れも大変という問題を抱えていた。</p>
-
-<p>象印の加湿器と言えば、強靭、無敵、最強、ダサいという印象だったのだが、最近のモデルはかなり落ち着いた雰囲気になっていて、意外と部屋に馴染みやすくなっている。購入して使ってみると、加湿性能も使い勝手も申し分ない。電気ポットと同じような構造になっているので、水も上からジャバジャバと継ぎ足すだけだし、ポット洗浄用の錠剤やクエン酸などを入れて洗浄ボタンを押すだけで綺麗にできる。</p>
-]]></content:encoded>
-      <guid>https://r7kamura.com/articles/2020-12-02-zojirushi-humidifier</guid>
     </item>
     
   </channel>
