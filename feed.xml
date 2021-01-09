@@ -8,7 +8,31 @@
     <atom:link href="https://r7kamura.com/feed.xml" rel="self"/>
     <title>r7kamura.com</title>
     <managingEditor>r7kamura@gmail.com (Ryo Nakamura)</managingEditor>
-    <lastBuildDate>Sat, 09 Jan 2021 10:38:41 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 09 Jan 2021 16:06:45 +0000</lastBuildDate>
+    
+    <item>
+      <title><![CDATA[『Hand Simulator: Horror』をやった]]></title>
+      <description><![CDATA[手の操作が難しい謎解きシミュレーターのホラー版、『Hand Simulator: Horror』をやった。]]></description>
+      <link>https://r7kamura.com/articles/2021-01-10-hand-simulator-horror</link>
+      <pubDate>Sun, 10 Jan 2021 00:00:00 +0000</pubDate>
+      <content:encoded><![CDATA[<p>手の操作が難しい謎解きシミュレーターのホラー版、『<a href="https://store.steampowered.com/app/1027820/Hand_Simulator_Horror/">Hand Simulator: Horror</a>』をやった。</p>
+
+<p>WASDで移動、左クリックで手の開閉、右クリックで手操作モードへの移行、マウスホイールで手の垂直方向の上下、マウスポインタで前後左右に手の移動、左Ctrlでしゃがみ、Rで起立だ。</p>
+
+<figure><a href="https://i.imgur.com/h3kbWiS.jpg" target="_blank"><img src="https://i.imgur.com/h3kbWiSh.jpg" alt="" title="スタート地点で動物をぺたぺた触る"></a><figcaption>スタート地点で動物をぺたぺた触る</figcaption></figure>
+
+<figure><a href="https://i.imgur.com/ihC9pgB.jpg" target="_blank"><img src="https://i.imgur.com/ihC9pgBh.jpg" alt="" title="動物を持つのが難しい"></a><figcaption>動物を持つのが難しい</figcaption></figure>
+
+<figure><a href="https://i.imgur.com/RuBvrm8.jpg" target="_blank"><img src="https://i.imgur.com/RuBvrm8h.jpg" alt="" title="カセットを入れてボタンを押すのが難しい"></a><figcaption>カセットを入れてボタンを押すのが難しい</figcaption></figure>
+
+<figure><a href="https://i.imgur.com/9uozhhg.jpg" target="_blank"><img src="https://i.imgur.com/9uozhhgh.jpg" alt="" title="ドアを開けるのが難しい"></a><figcaption>ドアを開けるのが難しい</figcaption></figure>
+
+<figure><a href="https://i.imgur.com/1mwC4Ru.jpg" target="_blank"><img src="https://i.imgur.com/1mwC4Ruh.jpg" alt="" title="10秒以内に解除コードを入力するのが難しい"></a><figcaption>10秒以内に解除コードを入力するのが難しい</figcaption></figure>
+
+<p>スクリーンショットでは何をやっているのか全く分からないと思うが、4時間ほど遊び倒せて良かった。とにかく操作が難しいゲームだったが、4人でクリアしたときの喜びはひとしお。進行できなくなる不具合が少しあるが、それを差し置いても原始的なゲーム体験のところで喜べる良い作品だ。</p>
+]]></content:encoded>
+      <guid>https://r7kamura.com/articles/2021-01-10-hand-simulator-horror</guid>
+    </item>
     
     <item>
       <title><![CDATA[PCを組んだ]]></title>
@@ -1042,22 +1066,6 @@
 <p>ホットサンドで試してみたが、トーストに載せてマヨネーズをかけてオーブンで焼くのも良いかもしれない。もちろん、缶からそのまま食べても十分うまい。</p>
 ]]></content:encoded>
       <guid>https://r7kamura.com/articles/2020-12-11-sava-can</guid>
-    </item>
-    
-    <item>
-      <title><![CDATA[Bluetoothアダプター]]></title>
-      <description><![CDATA[Windowsで使うためにBluetoothアダプターを買った。]]></description>
-      <link>https://r7kamura.com/articles/2020-12-08-bluetooth-adapter</link>
-      <pubDate>Tue, 08 Dec 2020 00:00:00 +0000</pubDate>
-      <content:encoded><![CDATA[<p>Windowsで使うために<a href="https://www.amazon.co.jp/dp/B08FD5TSNF?tag=r7kamura07-22">Bluetoothアダプター</a>を買った。</p>
-
-<figure><a href="https://i.imgur.com/n95kVvz.jpg" target="_blank"><img src="https://i.imgur.com/n95kVvzh.jpg" alt="" title="筐体前面に刺している様子"></a><figcaption>筐体前面に刺している様子</figcaption></figure>
-
-<p>最近FitBoxing2をやっていて、無線イヤホン経由で音声を聴きたかったのでBluetoothアダプターが必要になった。Amazonで探すとどれも怪しくて怖いが、この品揃えならどれ買っても一緒だろうし、駄目だったら当たりを引くまで買い直せば良いだろう、ということで上の方に居たこれに。</p>
-
-<p>接続するとBluetoothアダプターとして認識され、Windows側でBluetoothの機能を有効化できるようになるが、この状態ではドライバーが上手くインストールされていないのでどのBluetooth機器も認識できない。付属のCDを入れてsetup.exeを実行すると、ドライバがインストールされ、説明に従って再起動すると、無事Bluetooth機器が認識されるようになった。</p>
-]]></content:encoded>
-      <guid>https://r7kamura.com/articles/2020-12-08-bluetooth-adapter</guid>
     </item>
     
   </channel>
