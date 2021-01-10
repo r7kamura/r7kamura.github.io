@@ -8,7 +8,7 @@
     <atom:link href="https://r7kamura.com/feed.xml" rel="self"/>
     <title>r7kamura.com</title>
     <managingEditor>r7kamura@gmail.com (Ryo Nakamura)</managingEditor>
-    <lastBuildDate>Sat, 09 Jan 2021 16:06:45 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 10 Jan 2021 09:38:59 +0000</lastBuildDate>
     
     <item>
       <title><![CDATA[『Hand Simulator: Horror』をやった]]></title>
@@ -32,6 +32,24 @@
 <p>スクリーンショットでは何をやっているのか全く分からないと思うが、4時間ほど遊び倒せて良かった。とにかく操作が難しいゲームだったが、4人でクリアしたときの喜びはひとしお。進行できなくなる不具合が少しあるが、それを差し置いても原始的なゲーム体験のところで喜べる良い作品だ。</p>
 ]]></content:encoded>
       <guid>https://r7kamura.com/articles/2021-01-10-hand-simulator-horror</guid>
+    </item>
+    
+    <item>
+      <title><![CDATA[『Bloodborne』をやった]]></title>
+      <description><![CDATA[ここ数日ほど『Bloodborne』をプレイしてようやくクリアした。]]></description>
+      <link>https://r7kamura.com/articles/2021-01-10-bloodborne</link>
+      <pubDate>Sun, 10 Jan 2021 00:00:00 +0000</pubDate>
+      <content:encoded><![CDATA[<p>ここ数日ほど『Bloodborne』をプレイしてようやくクリアした。</p>
+
+<p><a href="https://i.imgur.com/IttQCyDh.png" target="_blank"><img src="https://i.imgur.com/IttQCyDh.png" alt=""></a></p>
+
+<p>DARK SOULSなどでお馴染みのフロムソフトウェアが開発するアクションRPGだ。去年にDARK SOULSシリーズを一通りプレイして、物足りなかったのでこの作品にも手を伸ばすことにした。DARK SOULSシリーズの古典的なダークファンタジー的世界観とは異なり、今作はクトゥルフ神話的コズミックホラーとでも言うべき異質な世界観で、そこまで話の流れを深く考察できていないものの、一通りストーリーをなぞるだけでも大変楽しく遊べた。</p>
+
+<p>操作感はほぼDARK SOULSシリーズと同じで、シリーズ既プレイ勢にはとっつきやすかった。ただ、序盤は回復手段不足に悩まされがちで、上手くいかないとお金稼ぎをやらないといけない場面も出てくるので、その辺りで辛さを感じることがあるかもしれない。DARK SOULSシリーズでは盾でパリィをするアクションが好きだったが、今作の銃でパリィする仕組みもなかなかに良かった。明らかに、どんどんパリィして最高の気持ちになっていきましょうという設計になっている。</p>
+
+<p>惜しむらくはこのゲームがPS4向けにしか発売されていないことだ。序盤のボス撃破のトロフィー取得率が50%を下回っているような難しさがあるようだが、やり甲斐と深みのあるアクションRPGなので、PS4を持っている人は是非やってみてほしい。</p>
+]]></content:encoded>
+      <guid>https://r7kamura.com/articles/2021-01-10-bloodborne</guid>
     </item>
     
     <item>
@@ -1048,24 +1066,6 @@
 <p>Inoreaderは見た目が無骨だが、細かい情報まで表示してくれることが多く、また実装も丁寧な印象がある。サポートとの連絡もやりやすく、どちらかというと技術者フレンドリーな印象だ。少なくともこういったツールの検証用途ではInoreaderの方が分があるだろう。</p>
 ]]></content:encoded>
       <guid>https://r7kamura.com/articles/2020-12-12-weneedfeed-misc</guid>
-    </item>
-    
-    <item>
-      <title><![CDATA[サヴァ缶]]></title>
-      <description><![CDATA[サヴァ缶という、サバのオリーブオイル漬けの缶詰を買った。]]></description>
-      <link>https://r7kamura.com/articles/2020-12-11-sava-can</link>
-      <pubDate>Fri, 11 Dec 2020 00:00:00 +0000</pubDate>
-      <content:encoded><![CDATA[<p><a href="https://www.amazon.co.jp/dp/B00KIARF78?tag=r7kamura07-22">サヴァ缶</a>という、サバのオリーブオイル漬けの缶詰を買った。</p>
-
-<figure><a href="https://i.imgur.com/KRBzQKD.jpg" target="_blank"><img src="https://i.imgur.com/KRBzQKDh.jpg" alt="" title="サヴァ缶"></a><figcaption>サヴァ缶</figcaption></figure>
-
-<figure><a href="https://i.imgur.com/3A9hTFJ.jpg" target="_blank"><img src="https://i.imgur.com/3A9hTFJh.jpg" alt="" title="サヴァサンド"></a><figcaption>サヴァサンド</figcaption></figure>
-
-<p>青魚は良いぞ、サヴァ缶は良いぞ、と聞いたので買ってみた。高い。おいしい。サバのくさみが全く感じられなくて良かった。骨もほろほろだし、全体的に口当たりが良く、どこか甘い感じがする。</p>
-
-<p>ホットサンドで試してみたが、トーストに載せてマヨネーズをかけてオーブンで焼くのも良いかもしれない。もちろん、缶からそのまま食べても十分うまい。</p>
-]]></content:encoded>
-      <guid>https://r7kamura.com/articles/2020-12-11-sava-can</guid>
     </item>
     
   </channel>
