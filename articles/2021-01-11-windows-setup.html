@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Windows開発環境構築メモ</title>
+  <link href="https://r7kamura.com/articles/2021-01-11-windows-setup" rel="canonical">
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="search" type="application/opensearchdescription+xml" title="r7kamura.com" href="/opensearch.xml">
+  <link rel="alternate" type="application/rss+xml" href="/feed.xml">
+  
+  <meta property="description" content="開発環境構築用のメモを自分用に書き残しておく。">
+  <meta property="og:description" content="開発環境構築用のメモを自分用に書き残しておく。">
+  
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Windows開発環境構築メモ">
+  <meta property="og:url" content="https://r7kamura.com/articles/2021-01-11-windows-setup">
+  
+  <meta property="og:image" content="https://r7kamura.com/default_og_image.jpg">
+  <meta property="twitter:card" content="summary">
+  
+</head>
+<body>
+  <header>
+    <nav>
+      <p>
+        <a href="/">r7kamura.com</a>
+      </p>
+      <ul>
+        <li>
+          <a href="/links">リンク集</a>
+        </li>
+        <li>
+          <a href="https://www.google.com/search?q=site:r7kamura.com">検索</a>
+        </li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <article>
+  <header>
+    <time datetime="2021-01-11T00:00:00+00:00">2021年01月11日</time>
+    <h1>Windows開発環境構築メモ</h1>
+  </header>
+  <div>
+    <p>開発環境構築用のメモを自分用に書き残しておく。</p>
+
+<h2>GUIアプリケーション</h2>
+
+<p>この辺りを入れる。</p>
+
+<ul>
+<li>Google Chrome</li>
+<li>Google日本語入力</li>
+<li>1Password 4</li>
+<li>Dropbox</li>
+<li>Docker Desktop for Windows</li>
+</ul>
+
+<p>未だに購読版に移行せず買い切り版の1Password 4を利用している。</p>
+
+<p>Windows + Vを利用するとクリップボード履歴を有効化できるので、済ませておく。</p>
+
+<h2>Google日本語入力の設定</h2>
+
+<ul>
+<li>HENKANキーでIMEを有効化</li>
+<li>MUHENKANキーでIMEを無効化</li>
+</ul>
+
+<p>というキー設定を普段利用しているのでそのように設定する。</p>
+
+<ul>
+<li>直接入力</li>
+<li>入力文字なし</li>
+<li>変換前入力中</li>
+<li>変換中</li>
+</ul>
+
+<p>以上の4つのモードについて、それぞれキー設定のエントリを追加する。</p>
+
+<h2>Windowsライセンス認証</h2>
+
+<p>Windows 10 Pro 64bit辺りをライセンスキー無しでインストールしていると思うので、アカウント設定からMicrosoft Storeに遷移して購入を済ませる。Microsoftアカウントで正しく認証していれば、購入を済ませるだけで勝手にライセンスの認証を済ませてくれる。</p>
+
+<h2>WSL2</h2>
+
+<p>WSL2とUbuntu 20.04を入れる。</p>
+
+<p><a href="https://docs.microsoft.com/ja-jp/windows/wsl/install-win10#manual-installation-steps">https://docs.microsoft.com/ja-jp/windows/wsl/install-win10#manual-installation-steps</a> のページを見ながら進めると良い。</p>
+
+<p>作業内容としては、まず以下のコマンドを管理者として開いたPowerShellで実行し、OSを再起動する。</p>
+
+<pre><code>dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /norestart
+dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /norestart
+</code></pre>
+
+<p>次に「x64 マシン用 WSL2 Linux カーネル更新プログラム パッケージ」をそのページのリンクからダウンロードして実行し、普通に起動したPowerShellで以下のコマンドを実行する。</p>
+
+<pre><code>wsl --set-default-version 2
+</code></pre>
+
+<p>その後、Microsoft Storeのアプリケーションを開き、Ubuntu 20.04 LTSをインストールする。Ubuntu初回起動時にユーザ名やパスワードを設定する。</p>
+
+<h2>Windows Package Manager</h2>
+
+<p>Windows Package Managerで入れられるものはこれで入れた方が楽なので、これを導入する。</p>
+
+<p><a href="https://github.com/microsoft/winget-cli/releases">https://github.com/microsoft/winget-cli/releases</a> でMicrosoft.DesktopAppInstaller_8wekyb3d8bbwe.appxbundleをダウンロードして実行すると入る。</p>
+
+<pre><code>winget install Discord
+winget install Slack
+winget install SoundSwitch
+winget install VSCode
+winget install WindowsTerminal
+</code></pre>
+
+<h2>Windows Terminal</h2>
+
+<p>Windows Terminalで次の設定をする。</p>
+
+<ol>
+<li>フォントサイズを変更する</li>
+<li>起動時にUbuntu-20.04をホームディレクトリで開く</li>
+</ol>
+
+<p>設定方法は <a href="https://docs.microsoft.com/ja-jp/windows/terminal/customize-settings/global-settings">https://docs.microsoft.com/ja-jp/windows/terminal/customize-settings/global-settings</a> を見ると良い。</p>
+
+<p>例えば、フォントサイズは以下のように変える。</p>
+
+<pre><code class="json">{
+  "profiles": {
+    "defaults": {
+      "fontSize": 18
+    }
+  }
+}
+</code></pre>
+
+<p>起動時の設定は、Ubuntuのプロファイルを以下のように設定した後、defaultProfileをUbuntuのものに変更する。</p>
+
+<pre><code class="json">"commandline": "wsl.exe ~ -d Ubuntu-20.04"
+// "source": "Windows.Terminal.Wsl"
+</code></pre>
+
+<h2>Ubuntu</h2>
+
+<p>Ubuntu側で開発用に必要な設定を加える。</p>
+
+<pre><code>sudo apt update
+sudo apt install ghq golang peco tig tmux --yes
+
+echo 'export PATH="~/go/bin:${PATH}"' &gt;&gt; ~/.bashrc
+
+git config --global user.email r7kamura@gmail.com
+git config --global user.name r7kamura
+ghq get -p r7kamura/dotfiles
+source ~/ghq/github.com/r7kamura/dotfiles/.bashrc
+</code></pre>
+
+<p>以上。</p>
+
+  </div>
+</article>
+
+  </main>
+</body>
+</html>

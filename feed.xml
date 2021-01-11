@@ -8,7 +8,132 @@
     <atom:link href="https://r7kamura.com/feed.xml" rel="self"/>
     <title>r7kamura.com</title>
     <managingEditor>r7kamura@gmail.com (Ryo Nakamura)</managingEditor>
-    <lastBuildDate>Sun, 10 Jan 2021 09:38:59 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 11 Jan 2021 05:47:50 +0000</lastBuildDate>
+    
+    <item>
+      <title><![CDATA[Windows開発環境構築メモ]]></title>
+      <description><![CDATA[開発環境構築用のメモを自分用に書き残しておく。]]></description>
+      <link>https://r7kamura.com/articles/2021-01-11-windows-setup</link>
+      <pubDate>Mon, 11 Jan 2021 00:00:00 +0000</pubDate>
+      <content:encoded><![CDATA[<p>開発環境構築用のメモを自分用に書き残しておく。</p>
+
+<h2>GUIアプリケーション</h2>
+
+<p>この辺りを入れる。</p>
+
+<ul>
+<li>Google Chrome</li>
+<li>Google日本語入力</li>
+<li>1Password 4</li>
+<li>Dropbox</li>
+<li>Docker Desktop for Windows</li>
+</ul>
+
+<p>未だに購読版に移行せず買い切り版の1Password 4を利用している。</p>
+
+<p>Windows + Vを利用するとクリップボード履歴を有効化できるので、済ませておく。</p>
+
+<h2>Google日本語入力の設定</h2>
+
+<ul>
+<li>HENKANキーでIMEを有効化</li>
+<li>MUHENKANキーでIMEを無効化</li>
+</ul>
+
+<p>というキー設定を普段利用しているのでそのように設定する。</p>
+
+<ul>
+<li>直接入力</li>
+<li>入力文字なし</li>
+<li>変換前入力中</li>
+<li>変換中</li>
+</ul>
+
+<p>以上の4つのモードについて、それぞれキー設定のエントリを追加する。</p>
+
+<h2>Windowsライセンス認証</h2>
+
+<p>Windows 10 Pro 64bit辺りをライセンスキー無しでインストールしていると思うので、アカウント設定からMicrosoft Storeに遷移して購入を済ませる。Microsoftアカウントで正しく認証していれば、購入を済ませるだけで勝手にライセンスの認証を済ませてくれる。</p>
+
+<h2>WSL2</h2>
+
+<p>WSL2とUbuntu 20.04を入れる。</p>
+
+<p><a href="https://docs.microsoft.com/ja-jp/windows/wsl/install-win10#manual-installation-steps">https://docs.microsoft.com/ja-jp/windows/wsl/install-win10#manual-installation-steps</a> のページを見ながら進めると良い。</p>
+
+<p>作業内容としては、まず以下のコマンドを管理者として開いたPowerShellで実行し、OSを再起動する。</p>
+
+<pre><code>dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /norestart
+dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /norestart
+</code></pre>
+
+<p>次に「x64 マシン用 WSL2 Linux カーネル更新プログラム パッケージ」をそのページのリンクからダウンロードして実行し、普通に起動したPowerShellで以下のコマンドを実行する。</p>
+
+<pre><code>wsl --set-default-version 2
+</code></pre>
+
+<p>その後、Microsoft Storeのアプリケーションを開き、Ubuntu 20.04 LTSをインストールする。Ubuntu初回起動時にユーザ名やパスワードを設定する。</p>
+
+<h2>Windows Package Manager</h2>
+
+<p>Windows Package Managerで入れられるものはこれで入れた方が楽なので、これを導入する。</p>
+
+<p><a href="https://github.com/microsoft/winget-cli/releases">https://github.com/microsoft/winget-cli/releases</a> でMicrosoft.DesktopAppInstaller_8wekyb3d8bbwe.appxbundleをダウンロードして実行すると入る。</p>
+
+<pre><code>winget install Discord
+winget install Slack
+winget install SoundSwitch
+winget install VSCode
+winget install WindowsTerminal
+</code></pre>
+
+<h2>Windows Terminal</h2>
+
+<p>Windows Terminalで次の設定をする。</p>
+
+<ol>
+<li>フォントサイズを変更する</li>
+<li>起動時にUbuntu-20.04をホームディレクトリで開く</li>
+</ol>
+
+<p>設定方法は <a href="https://docs.microsoft.com/ja-jp/windows/terminal/customize-settings/global-settings">https://docs.microsoft.com/ja-jp/windows/terminal/customize-settings/global-settings</a> を見ると良い。</p>
+
+<p>例えば、フォントサイズは以下のように変える。</p>
+
+<pre><code class="json">{
+  "profiles": {
+    "defaults": {
+      "fontSize": 18
+    }
+  }
+}
+</code></pre>
+
+<p>起動時の設定は、Ubuntuのプロファイルを以下のように設定した後、defaultProfileをUbuntuのものに変更する。</p>
+
+<pre><code class="json">"commandline": "wsl.exe ~ -d Ubuntu-20.04"
+// "source": "Windows.Terminal.Wsl"
+</code></pre>
+
+<h2>Ubuntu</h2>
+
+<p>Ubuntu側で開発用に必要な設定を加える。</p>
+
+<pre><code>sudo apt update
+sudo apt install ghq golang peco tig tmux --yes
+
+echo 'export PATH="~/go/bin:${PATH}"' &gt;&gt; ~/.bashrc
+
+git config --global user.email r7kamura@gmail.com
+git config --global user.name r7kamura
+ghq get -p r7kamura/dotfiles
+source ~/ghq/github.com/r7kamura/dotfiles/.bashrc
+</code></pre>
+
+<p>以上。</p>
+]]></content:encoded>
+      <guid>https://r7kamura.com/articles/2021-01-11-windows-setup</guid>
+    </item>
     
     <item>
       <title><![CDATA[『Hand Simulator: Horror』をやった]]></title>
@@ -993,79 +1118,6 @@
 <p>普段は無線ヘッドホンを使っているのだけど、それの充電が切れたときの予備としても便利だ。充電用ケースに入っているので、ほぼ確実に充電されていることも保証されている。Windowsでも使っていて、意外とシームレスに切り替えられる。この辺りの音声デバイス切替体験の良さは、<a href="/articles/2020-10-06-sound-switch">SoundSwitch</a>でキー1つで切り替えられるようにしていることや、<a href="/articles/2020-10-21-keyboard-g913-tkl">キーボード G913-TKL</a>に音量制御用のローラーが付いていることも寄与していそうではある。</p>
 ]]></content:encoded>
       <guid>https://r7kamura.com/articles/2020-12-13-airpods-pro</guid>
-    </item>
-    
-    <item>
-      <title><![CDATA[Weneedfeedの運用小話]]></title>
-      <description><![CDATA[Weneedfeedを運用している中で得られた情報を書き留めておく。]]></description>
-      <link>https://r7kamura.com/articles/2020-12-12-weneedfeed-misc</link>
-      <pubDate>Sat, 12 Dec 2020 00:00:00 +0000</pubDate>
-      <content:encoded><![CDATA[<p><a href="https://github.com/r7kamura/weneedfeed">Weneedfeed</a>を運用している中で得られた情報を書き留めておく。</p>
-
-<p>主にGitHub Actionsや、RSSフィードに関する話が多く含まれる。Weneedfeedというのはウェブページからフィードを生成するツールで、これについては過去にも<a href="/articles/2020-11-15-weneedfeed">記事</a>に書いた。</p>
-
-<h2>GitHub Actions</h2>
-
-<p>「GitHubのリポジトリにYAMLファイルを置くだけでフィード群が用意される」という状態を実現するために、GitHub Actionsを使っている。具体的には、次の処理を定期的に実行している。</p>
-
-<ol>
-<li>YAMLに記載された情報を元にフィード群を生成する</li>
-<li>gh-pagesブランチにpushする</li>
-</ol>
-
-<p>この内、1の処理をやるために<a href="https://github.com/r7kamura/weneedfeed-action">weneedfeed-action</a>を用意している。2の処理は<a href="https://github.com/peaceiris/actions-gh-pages">actions-gh-pages</a>でやっている。GitHub Actionsにcrontab形式でスケジュールを指定する仕組みがあるので、定期実行にはこれを使っている。</p>
-
-<h2>Actionのバージョン管理</h2>
-
-<p>GitHub Actionsでは専用のリポジトリを持って管理することが推奨されているので、ライブラリとそれを使うactionのリポジトリは分けている。</p>
-
-<p>weneedfeedのバージョンを更新するたびに、それを参照するようにweneedfeed-actionも更新している。変更サイクルが異なる場合もあるので、それぞれのバージョンを同一にしたりはしていない。一方でパッチバージョンが上がれば、他方でもパッチバージョンを上げる、といった運用にはしている。</p>
-
-<p>GitHub Actionsでは、<code>uses: r7kamura/weneedfeed-action@v3</code> のようにメジャーバージョン由来のタグを指定して利用してもらう慣習がある。GitHub Actionsがバージョンの計算を賢くやってくれる訳ではないので、x.y.zを新しくリリースするたびに <code>git tag vx.y.z</code> と <code>git tag vx --force</code> でタグを新規作成・上書きし、<code>git tag --push --force</code> でリポジトリ側のタグを更新することになる。</p>
-
-<p>GitHubリポジトリのReleasesの機能を利用すると、GitHub Marketplaceでactionが自動的に公開される仕組みとなっている。新しくリリースするとGitHub Marketplace側で最新版として表示されるバージョンが更新されるため、actionのバージョンを更新するたびに新しいリリースを発行することも忘れてはいけない。</p>
-
-<h2>利用例</h2>
-
-<p>以下はWeneedfeedの利用例。<a href="https://mangacross.jp/">マンガクロス</a>、<a href="https://www.sunday-webry.com/">サンデーうぇぶり</a>、<a href="https://web-ace.jp/">webエース</a>で配信中の各作品単位でのRSSフィードをそれぞれ日本時間零時過ぎに更新している。</p>
-
-<ul>
-<li><a href="https://github.com/r7kamura/weneedfeed-mangacross">weneedfeed-mangacross</a></li>
-<li><a href="https://github.com/r7kamura/weneedfeed-sundaywebry">weneedfeed-sundaywebry</a></li>
-<li><a href="https://github.com/r7kamura/weneedfeed-webace">weneedfeed-webace</a></li>
-</ul>
-
-<p>利用例が無いとライブラリが育たないので、まともなユースケースとしてウェブ漫画の更新確認を利用例としてみている。</p>
-
-<h2>不正なHTML</h2>
-
-<p>NokogiriというライブラリでHTMLをパースした上でCSSセレクタやXPathを利用して要素を探索しているのだけど、不正なHTMLが返されたときに、意図通りで無い探索結果が得られることがある。この問題に対処するために、一見冗長なクエリを書くことがたまにある。そして不正なHTMLが返ってくることは現代でも案外多い。</p>
-
-<h2>JSON対応</h2>
-
-<p>WeneedfeedはHTMLではなくJSONを返すエンドポイントにも対応していて、この場合はJSONをXMLに変換した上で要素を探索している。JSON to XMLなライブラリは色々あるが、要素名の生成方法が異なることが多い。プロパティ名のsnake_caseが用いられたり、chain-caseが用いられたりする。配列の場合、子要素の名前は決め打ちでelementだったり、親要素の名前を単数形に変換したものを用いたりする。</p>
-
-<p>ところで、過去にJSON対応したときに不具合を入れてしまったことがある。JSON to XMLの変換をやるようになったときに、HTMLもXMLもどちらもXMLとしてパースするようにしてしまったのだが、後々「HTMLのパース結果から探索して得られるURLの内容が何かおかしい」という状況になるまでこれに気付かなかった。具体的には、画像のURLを取得したときに、URIクエリの <code>&amp;</code> 以降の文字列が無くなってしまう。そこで「<code>&amp;</code> のエスケープ周りの扱いが何かおかしいのではないか」ということに思い至り、パース時の不具合であることに気付いた。明らかなエラーが発生しない問題というのはなかなか気付きづらい。</p>
-
-<h2>フィードの画像</h2>
-
-<p><a href="https://feedly.com/">Feedly</a>や<a href="https://inoreader.com/">Inoreader</a>などのフィードリーダーでは、それぞれの記事のサムネイル画像を、そのリンク先から自動的に判別して取得してくれる機能がある。具体的には、OGPで示された画像のURLなどを参照しているように見える。</p>
-
-<p>フィードには記事の画像を示す方法もあり、RSS 2.0では配信物に添付されているメディアを示すenclosure要素が利用できる。enclosure要素では添付されているメディアのサイズを示すlength属性が必須だが、これは値を0にしても問題無く動いてくれるようだ。この値0の方法は<a href="https://shonenjumpplus.com/">少年ジャンプ＋</a>でも使われていた。少年ジャンプ＋は各作品ごとのRSSフィードを配信していて本当にえらい。</p>
-
-<p>enclosure属性で画像を示すことで、FeedlyとInoreaderでサムネイル画像が表示されるようになることは確認した。但し、例えばFeedlyではキャッシュが強く効いていて、過去に取得された記事のサムネイル画像を更新してくれたりはしない。</p>
-
-<p>上の話は記事単位でのサムネイル画像の話だったが、フィード単位での画像には、例えばRSS 2.0だとchannel要素のlink要素、つまり配信元ウェブページの画像が使われる。apple-touch-iconやfaviconが使われるらしい。Inoreaderではapple-touch-iconが優先されていた。Feedlyでは、<code>https://www.google.com/s2/favicons?domain=...</code> が利用されていた。</p>
-
-<h2>FeedlyとInoreader</h2>
-
-<p>フィードリーダーとしてFeedlyとInoreaderを利用しているので、比較用に個人的な感想を書いておく。</p>
-
-<p>Feedlyは見た目が小綺麗だが、こういったツールの検証用途としては色々と情報が覆い隠されている・透明性が無いと感じられる部分も多く、使いづらいことが多い。現在でも不具合が多い印象で、更にサポートとのやり取りの窓口が開かれておらず、新しく追加した全てのフィードのタイトルが空文字列になってしまうという不具合が前に起きた際は、最終的にTwitterの@feedlyアカウントにDMを送ってやりとりして解決することになった。</p>
-
-<p>Inoreaderは見た目が無骨だが、細かい情報まで表示してくれることが多く、また実装も丁寧な印象がある。サポートとの連絡もやりやすく、どちらかというと技術者フレンドリーな印象だ。少なくともこういったツールの検証用途ではInoreaderの方が分があるだろう。</p>
-]]></content:encoded>
-      <guid>https://r7kamura.com/articles/2020-12-12-weneedfeed-misc</guid>
     </item>
     
   </channel>
