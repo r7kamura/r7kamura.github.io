@@ -120,17 +120,18 @@ winget install WindowsTerminal
 <p>Windows Terminalで次の設定をする。</p>
 
 <ol>
-<li>フォントサイズを変更する</li>
+<li>フォントを変更する</li>
 <li>起動時にUbuntu-20.04をホームディレクトリで開く</li>
 </ol>
 
 <p>設定方法は <a href="https://docs.microsoft.com/ja-jp/windows/terminal/customize-settings/global-settings">https://docs.microsoft.com/ja-jp/windows/terminal/customize-settings/global-settings</a> を見ると良い。</p>
 
-<p>例えば、フォントサイズは以下のように変える。</p>
+<p>例えば、フォントは以下のように変える。</p>
 
 <pre><code class="json">{
   "profiles": {
     "defaults": {
+      "fontFace": "ＭＳゴシック",
       "fontSize": 18
     }
   }
