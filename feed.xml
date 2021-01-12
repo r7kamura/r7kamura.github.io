@@ -8,7 +8,31 @@
     <atom:link href="https://r7kamura.com/feed.xml" rel="self"/>
     <title>r7kamura.com</title>
     <managingEditor>r7kamura@gmail.com (Ryo Nakamura)</managingEditor>
-    <lastBuildDate>Tue, 12 Jan 2021 04:46:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 12 Jan 2021 17:16:08 +0000</lastBuildDate>
+    
+    <item>
+      <title><![CDATA[ヘッドホン WH-1000XM4]]></title>
+      <description><![CDATA[SONYのノイズキャンセリング無線ヘッドホン、WH-1000XM4を手に入れた。]]></description>
+      <link>https://r7kamura.com/articles/2021-01-13-wh-1000xm4</link>
+      <pubDate>Wed, 13 Jan 2021 00:00:00 +0000</pubDate>
+      <content:encoded><![CDATA[<p>SONYのノイズキャンセリング無線ヘッドホン、WH-1000XM4を手に入れた。</p>
+
+<figure><a href="https://i.imgur.com/2DpBrDb.jpg" target="_blank"><img src="https://i.imgur.com/2DpBrDbh.jpg" alt="" title="WH-1000XM4 黒"></a><figcaption>WH-1000XM4 黒</figcaption></figure>
+
+<figure><a href="https://i.imgur.com/nUP3c8d.jpg" target="_blank"><img src="https://i.imgur.com/nUP3c8dh.jpg" alt="" title="ケース収納時"></a><figcaption>ケース収納時</figcaption></figure>
+
+<ul>
+<li><a href="https://www.amazon.co.jp/dp/B08F2866Q3?tag=r7kamura07-22">Amazon.co.jp - WH-1000XM4</a></li>
+</ul>
+
+<p>これまで使っていた同社の無線ヘッドホン MDR-HW700DSと比べてもかなり軽くなった。折り畳み可能ということで華奢な印象を受けるが、音質も良いし、意外と力強い。</p>
+
+<p>ノイズキャンセリング機能はこれまでAirPods Proでも体験していたが、これは密閉型ヘッドホンなこともあり、更に高い遮音効果を感じる。無線機器は接続周りでトラブルが起きがちだが、電源ON時やBluetooth接続時に音声ガイドで伝えてくれる機能が良く、地味だが役に立っている。</p>
+
+<p>今のところ文句の付けどころが無い。</p>
+]]></content:encoded>
+      <guid>https://r7kamura.com/articles/2021-01-13-wh-1000xm4</guid>
+    </item>
     
     <item>
       <title><![CDATA[Windows開発環境構築メモ]]></title>
@@ -1090,35 +1114,6 @@ source ~/ghq/github.com/r7kamura/dotfiles/.bashrc
 <p><a href="/articles/2020-12-12-weneedfeed-misc">Weneedfeedの運用小話</a>でも少し触れたかもしれないけれど、最近はウェブ漫画を読むことが多い。最初の数話と最新の数話だけ公開されていて、他は単行本で読んでねという形式のやつだ。それを作品ごとにフィードで購読していて、その購読中のフィード一覧をもって自分の追っているシリーズとしている。作品自体の魅力に加え、配信媒体の利便性が、自分がその作品を読むかどうかに大きく影響していることをつくづく感じる。</p>
 ]]></content:encoded>
       <guid>https://r7kamura.com/articles/2020-12-14-comics</guid>
-    </item>
-    
-    <item>
-      <title><![CDATA[AirPods Pro]]></title>
-      <description><![CDATA[AirPods Proを手に入れた。]]></description>
-      <link>https://r7kamura.com/articles/2020-12-13-airpods-pro</link>
-      <pubDate>Sun, 13 Dec 2020 00:00:00 +0000</pubDate>
-      <content:encoded><![CDATA[<p><a href="https://www.amazon.co.jp/dp/B07ZPS4FSW?tag=r7kamura07-22">AirPods Pro</a>を手に入れた。</p>
-
-<figure><a href="https://i.imgur.com/Og4QYCd.jpg" target="_blank"><img src="https://i.imgur.com/Og4QYCdh.jpg" alt="" title="AirPods Proと充電用ケース"></a><figcaption>AirPods Proと充電用ケース</figcaption></figure>
-
-<p>これまでは通話しながら運動するときはSonyの無線ヘッドホンを使っていたが、フィットボクシングのような動きのある運動をしようと思うと少し使いづらく感じていた。運動が1年間続いたら無線イヤホンを買おうとしていたことを思い出し、<a href="/articles/2020-12-03-ring-fit-adventure">リングフィットアドベンチャー 184日目</a>で書いたように1年間続いたので、遂に買うことにした。</p>
-
-<p>Twitterで尋ねたところ以下の製品を勧められることが多かったが、最終的にAirPods Proを使うことに。理由は、色々なデバイスから使うことが多くペアリングが楽そうだったことと、耳に合わなかったときに売りやすそうだったことから。コスパで見ればJabraも良さそうに思う。</p>
-
-<ul>
-<li><a href="https://www.amazon.co.jp/dp/B07ZPS4FSW?tag=r7kamura07-22">AirPods Pro</a></li>
-<li><a href="https://www.amazon.co.jp/dp/B07DFM1KPB?tag=r7kamura07-22">Jabra Active 65t</a></li>
-<li><a href="https://www.amazon.co.jp/dp/B079L9WYP7?tag=r7kamura07-22">Jabra Elite 65t</a></li>
-<li><a href="https://www.amazon.co.jp/dp/B07PRX2XJB?tag=r7kamura07-22">Powerbeats Pro</a></li>
-</ul>
-
-<p>以前購入した<a href="/articles/2019-12-02-magnet-usb">TOPK Coのマグネット式USBアダプタ</a>のLightning用端子が丁度余っていたので、これを付けて充電している。これでキーボード、マウス、ヘッドホン、イヤホン、PS4コントローラが1本のケーブルで充電できるような状態になった。</p>
-
-<p>運動用途で使うことだけ考えて購入したものの、ノイズキャンセリングの効果も良くて付けてると集中できて案外良い買い物だった。作業机が窓際にあって、外の公園や道路からの音がよく聴こえるのだけど、ものすごく集中したいが音楽は聴きたくないというときに便利かもしれない。</p>
-
-<p>普段は無線ヘッドホンを使っているのだけど、それの充電が切れたときの予備としても便利だ。充電用ケースに入っているので、ほぼ確実に充電されていることも保証されている。Windowsでも使っていて、意外とシームレスに切り替えられる。この辺りの音声デバイス切替体験の良さは、<a href="/articles/2020-10-06-sound-switch">SoundSwitch</a>でキー1つで切り替えられるようにしていることや、<a href="/articles/2020-10-21-keyboard-g913-tkl">キーボード G913-TKL</a>に音量制御用のローラーが付いていることも寄与していそうではある。</p>
-]]></content:encoded>
-      <guid>https://r7kamura.com/articles/2020-12-13-airpods-pro</guid>
     </item>
     
   </channel>
