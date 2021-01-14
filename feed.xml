@@ -8,7 +8,41 @@
     <atom:link href="https://r7kamura.com/feed.xml" rel="self"/>
     <title>r7kamura.com</title>
     <managingEditor>r7kamura@gmail.com (Ryo Nakamura)</managingEditor>
-    <lastBuildDate>Thu, 14 Jan 2021 06:42:35 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 14 Jan 2021 16:43:24 +0000</lastBuildDate>
+    
+    <item>
+      <title><![CDATA[デスクトップPCを譲渡]]></title>
+      <description><![CDATA[デスクトップPCを譲渡する機会が発生したので、手順などをメモしておく。]]></description>
+      <link>https://r7kamura.com/articles/2021-01-14-windows-transfer</link>
+      <pubDate>Thu, 14 Jan 2021 00:00:00 +0000</pubDate>
+      <content:encoded><![CDATA[<p>デスクトップPCを譲渡する機会が発生したので、手順などをメモしておく。</p>
+
+<h2>クリーンインストール</h2>
+
+<p>Microsoftの提供しているツールを利用し、全てのデータを削除しつつWindows 10をクリーンインストールした。</p>
+
+<ul>
+<li><a href="https://www.microsoft.com/ja-jp/software-download/windows10startfresh">https://www.microsoft.com/ja-jp/software-download/windows10startfresh</a></li>
+</ul>
+
+<p>このデスクトップPCで使われていたWindowsのライセンス認証方式はOEM OA3で、UEFIファームウェアにプロダクトキーが書き込まれているタイプなので、これでそのままライセンス認証が保持される。プリインストールされていたドライバは入れ直しになるので、インターネットに接続してWindows Updateの設定辺りからドライバを入れてもらう。</p>
+
+<p>OSが書き込まれているCドライブしか初期化してくれないので、Dドライブ以降が存在する場合は予め自分で初期化しておく。</p>
+
+<h2>配送</h2>
+
+<p>個人的に何度か利用経験のある、ヤマト運輸のパソコン宅急便を利用した。</p>
+
+<ul>
+<li><a href="https://www.kuronekoyamato.co.jp/ytc/customer/send/services/pasotaku/">https://www.kuronekoyamato.co.jp/ytc/customer/send/services/pasotaku/</a></li>
+</ul>
+
+<p>PCの大きさは510 × 450 × 210で、一辺が10mm超過しており一番大きいものに入るか少し不安だったが、問題無く梱包してくれた。以前の利用時にも少し超過しているときに上手くやってくれた記憶がある。</p>
+
+<p>関東から関東への配送で、税込みで3528円。内訳は、梱包資材1520円と配送料2008円だった。最近は現金を用意しておかなくても、配達員の持っている端末を介して電子マネーで決済できて便利だ。</p>
+]]></content:encoded>
+      <guid>https://r7kamura.com/articles/2021-01-14-windows-transfer</guid>
+    </item>
     
     <item>
       <title><![CDATA[ヘッドホン WH-1000XM4]]></title>
@@ -1098,24 +1132,6 @@ source ~/ghq/github.com/r7kamura/dotfiles/.bashrc
 <p>いつも使っているニッスイの<a href="https://www.amazon.co.jp/dp/B00BHOJY3M?tag=r7kamura07-22">シーフードミックス</a>が在庫切れだったので、趣向を変えて食の達人森源商店の<a href="https://www.amazon.co.jp/dp/B073TVTQ97?tag=r7kamura07-22">剥きエビ</a>を買ってみたところ、異様にでかい。冷凍のエビがこんなに大きいことあるんだ。これは巨大化技術でつくられたエビで、そのうち知能を持ち凶暴化したエビが世界を脅かす日が来るかもしれないな、と考えていた。主にパスタと一緒に茹でて賑やかしとして使っている。</p>
 ]]></content:encoded>
       <guid>https://r7kamura.com/articles/2020-12-14-shrimp</guid>
-    </item>
-    
-    <item>
-      <title><![CDATA[漫画の購読]]></title>
-      <description><![CDATA[漫画の新刊をあまり追いかけられなくなった。]]></description>
-      <link>https://r7kamura.com/articles/2020-12-14-comics</link>
-      <pubDate>Mon, 14 Dec 2020 00:00:00 +0000</pubDate>
-      <content:encoded><![CDATA[<p>漫画の新刊をあまり追いかけられなくなった。</p>
-
-<p>最近は、鬼滅の刃の最終巻である23巻が発売されたので、Kindle版を<a href="https://www.amazon.co.jp/dp/B08PPY8CFF?tag=r7kamura07-22">全23巻まとめ買い</a>して読んだ。</p>
-
-<p>すべての漫画雑誌を購読するほどは手が回らず、特定の雑誌に愛着がある訳でもない。好きな漫画作品は、単行本が発売されたら読むことに決めている。気になっているけれど追いかけるほどではない気持ちの漫画作品は、最終巻が発売されたら一気に読むことにしている。しかし、過去に単行本をシリーズ単位で整理して発売日をカレンダーやフィードで通知してくれるamakanというサービスを運用していた頃と比べると、機会損失によって漫画をほとんど読まなくなってしまったと感じる。</p>
-
-<p>Amazonはシリーズ情報を内部的に持っているけれど特に活用させてはくれないし、読んでいた漫画の新刊は発売されているかもしれないけれど、もはや自分がどういうシリーズを追っていたのかほぼ分からなくなってしまっている。</p>
-
-<p><a href="/articles/2020-12-12-weneedfeed-misc">Weneedfeedの運用小話</a>でも少し触れたかもしれないけれど、最近はウェブ漫画を読むことが多い。最初の数話と最新の数話だけ公開されていて、他は単行本で読んでねという形式のやつだ。それを作品ごとにフィードで購読していて、その購読中のフィード一覧をもって自分の追っているシリーズとしている。作品自体の魅力に加え、配信媒体の利便性が、自分がその作品を読むかどうかに大きく影響していることをつくづく感じる。</p>
-]]></content:encoded>
-      <guid>https://r7kamura.com/articles/2020-12-14-comics</guid>
     </item>
     
   </channel>
