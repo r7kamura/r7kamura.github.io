@@ -8,7 +8,7 @@
     <atom:link href="https://r7kamura.com/feed.xml" rel="self"/>
     <title>r7kamura.com</title>
     <managingEditor>r7kamura@gmail.com (Ryo Nakamura)</managingEditor>
-    <lastBuildDate>Thu, 14 Jan 2021 16:43:24 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 14 Jan 2021 17:03:29 +0000</lastBuildDate>
     
     <item>
       <title><![CDATA[デスクトップPCを譲渡]]></title>
@@ -25,7 +25,7 @@
 <li><a href="https://www.microsoft.com/ja-jp/software-download/windows10startfresh">https://www.microsoft.com/ja-jp/software-download/windows10startfresh</a></li>
 </ul>
 
-<p>このデスクトップPCで使われていたWindowsのライセンス認証方式はOEM OA3で、UEFIファームウェアにプロダクトキーが書き込まれているタイプなので、これでそのままライセンス認証が保持される。プリインストールされていたドライバは入れ直しになるので、インターネットに接続してWindows Updateの設定辺りからドライバを入れてもらう。</p>
+<p>このデスクトップPCで使われていたWindowsのライセンス認証方式はOEM OA3で、UEFIファームウェアにプロダクトキーが書き込まれているタイプなので、これでそのままライセンス認証が保持される。プリインストールされていたドライバは入れ直しになるので、インターネットに接続してWindows Updateの設定辺りからドライバを入れてもらう。GPUのドライバも別途必要になるはず。</p>
 
 <p>OSが書き込まれているCドライブしか初期化してくれないので、Dドライブ以降が存在する場合は予め自分で初期化しておく。</p>
 
