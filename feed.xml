@@ -8,7 +8,49 @@
     <atom:link href="https://r7kamura.com/feed.xml" rel="self"/>
     <title>r7kamura.com</title>
     <managingEditor>r7kamura@gmail.com (Ryo Nakamura)</managingEditor>
-    <lastBuildDate>Sun, 17 Jan 2021 11:08:52 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 17 Jan 2021 11:37:53 +0000</lastBuildDate>
+    
+    <item>
+      <title><![CDATA[『SEKIRO』をやった]]></title>
+      <description><![CDATA[この1週間で『SEKIRO: SHADOWS DIE TWICE』をやった。]]></description>
+      <link>https://r7kamura.com/articles/2021-01-18-sekiro</link>
+      <pubDate>Mon, 18 Jan 2021 00:00:00 +0000</pubDate>
+      <content:encoded><![CDATA[<p>この1週間で『SEKIRO: SHADOWS DIE TWICE』をやった。</p>
+
+<figure><a href="https://i.imgur.com/n0xrVF3.jpg" target="_blank"><img src="https://i.imgur.com/n0xrVF3h.jpg" alt="" title="ゲーム冒頭の一幕"></a><figcaption>ゲーム冒頭の一幕</figcaption></figure>
+
+<p>フロム・ソフトウェアとアクティビジョンとの共同開発でつくられた和風アクションアドベンチャーゲームで、DARK SOULSやBloodborneの開発スタッフも関わっている。</p>
+
+<p>この年末年始でフロム・ソフトウェアのゲームと改めて向き合おうと思い、次のゲームを一通りやったが、SEKIROは体験の設計という意味できわめて高品質な作品だと感じた。</p>
+
+<ul>
+<li>DARK SOULS 1</li>
+<li>DARK SOULS 2</li>
+<li>DARK SOULS 3</li>
+<li>Bloodborne</li>
+<li>SEKIRO</li>
+</ul>
+
+<figure><a href="https://i.imgur.com/Ab0CjcJ.jpg" target="_blank"><img src="https://i.imgur.com/Ab0CjcJh.jpg" alt="" title="序盤で苦戦したボス: まぼろしお蝶"></a><figcaption>序盤で苦戦したボス: まぼろしお蝶</figcaption></figure>
+
+<figure><a href="https://i.imgur.com/qC0PxKW.jpg" target="_blank"><img src="https://i.imgur.com/qC0PxKWh.jpg" alt="" title="でかい蛇から隠れて逃げ回る日々"></a><figcaption>でかい蛇から隠れて逃げ回る日々</figcaption></figure>
+
+<figure><a href="https://i.imgur.com/oaDJyL9.jpg" target="_blank"><img src="https://i.imgur.com/oaDJyL9h.jpg" alt="" title="ボス第一形態を初撃破して記念撮影 (このあと背後から殴られて死ぬ)"></a><figcaption>ボス第一形態を初撃破して記念撮影 (このあと背後から殴られて死ぬ)</figcaption></figure>
+
+<figure><a href="https://i.imgur.com/pF6pMnx.jpg" target="_blank"><img src="https://i.imgur.com/pF6pMnxh.jpg" alt="" title="マスターソードを抜いたシーン"></a><figcaption>マスターソードを抜いたシーン</figcaption></figure>
+
+<figure><a href="https://i.imgur.com/aJPHMwf.jpg" target="_blank"><img src="https://i.imgur.com/aJPHMwfh.jpg" alt="" title="物語の終わり"></a><figcaption>物語の終わり</figcaption></figure>
+
+<p>適度な説明がなされ、やり甲斐があり、上手くやる余地があり、自分のプレイヤースキルが成長している喜びを感じさせてくれる、良いゲームだ。上に挙げた他の作品と違い、SEKIROには主人公に名前や台詞があり、ストーリーに誘導してもらいやすく、初心者にもおすすめだ。決して易しくはないが、全体的に体験は優しい。</p>
+
+<hr>
+
+<p>ところで、この手のゲームに慣れてから久しぶりにFPSのゲームをやろうとすると、酔いやすく、疲れやすくなることを感じた。集中すればミクロな情報の解像度を上げられるようになった結果、画面から得られるあらゆる情報に対して集中してしまう。特にバトルロイヤル形式のゲームなんかは情報過多になりがちで、情報の枝切りが必要になってくるので、酔ったり疲れたりしてしまうのかも。</p>
+
+<p>次はCyberpunk 2077をやる予定。</p>
+]]></content:encoded>
+      <guid>https://r7kamura.com/articles/2021-01-18-sekiro</guid>
+    </item>
     
     <item>
       <title><![CDATA[Rubyをインストール]]></title>
@@ -1123,30 +1165,6 @@ source ~/ghq/github.com/r7kamura/dotfiles/.bashrc
 <p>ダクトレールに何かを頑張って設置するのは<a href="/articles/2016-12-12-h">ダクトレールにプロジェクターを設置</a>して以来だ。天井に取り付けられると掃除が楽だし、音声や電波も届きやすいし、色々と捗る。</p>
 ]]></content:encoded>
       <guid>https://r7kamura.com/articles/2020-12-19-google-home-mini-on-rails</guid>
-    </item>
-    
-    <item>
-      <title><![CDATA[鰤]]></title>
-      <description><![CDATA[鰤が届いたので、刺身、鰤しゃぶ、鰤の炊き込みご飯を食べた。]]></description>
-      <link>https://r7kamura.com/articles/2020-12-18-yellowtail</link>
-      <pubDate>Fri, 18 Dec 2020 00:00:00 +0000</pubDate>
-      <content:encoded><![CDATA[<p>鰤が届いたので、刺身、鰤しゃぶ、鰤の炊き込みご飯を食べた。</p>
-
-<figure><a href="https://i.imgur.com/4emKKm6.jpg" target="_blank"><img src="https://i.imgur.com/4emKKm6h.jpg" alt="" title="鰤の刺身"></a><figcaption>鰤の刺身</figcaption></figure>
-
-<figure><a href="https://i.imgur.com/DsXv83T.jpg" target="_blank"><img src="https://i.imgur.com/DsXv83Th.jpg" alt="" title="鰤しゃぶ"></a><figcaption>鰤しゃぶ</figcaption></figure>
-
-<p>鰤は高知かわうそ市場で半身で3310円で注文したもの。脂身の多い腹身は鰤しゃぶにして、背身は刺身と炊き込みご飯にした。腹身はとにかく脂が載っていて柔らかい。背身も脂が載っているが、どちらかと言うとしっかりした味。どちらも笑顔になる味だ。</p>
-
-<figure><a href="https://i.imgur.com/Frutzw1.jpg" target="_blank"><img src="https://i.imgur.com/Frutzw1h.jpg" alt="" title="重量計測"></a><figcaption>重量計測</figcaption></figure>
-
-<p>鰤半身1.2kg～1.6kgとのことで重量が不足しているような気がしたが、既知の問題で追送対応を受け付けているとのことだったので申請しておいた。正直満足しているのでもう1個買いたいぐらいだったが、せっかくなので申請しておいた。ウェブサイトの申告フォームは送信するとshopifyのcURLのエラーが発生したが、何度か試すと成功した。大変そうだ。</p>
-
-<figure><a href="https://i.imgur.com/EqNFK9P.jpg" target="_blank"><img src="https://i.imgur.com/EqNFK9Ph.jpg" alt="" title="刃の黒幕"></a><figcaption>刃の黒幕</figcaption></figure>
-
-<p>前回鯛を注文したときに包丁の切れ味が悪くて苦労したが、そのときに反省して砥石を買っておいて良かった。シャプトンの<a href="https://www.amazon.co.jp/dp/B001TPFT0G?tag=r7kamura07-22">刃の黒幕の1000番</a>を購入したのだけど、これがとても良くて、3000円程度の安価な包丁を素人が研いだだけでも十分な切れ味をしばらく維持できる。砥石とかよく分からんけどとりあえず1個買って使ってみるか、という条件ならこれ1本で機能すると思う。</p>
-]]></content:encoded>
-      <guid>https://r7kamura.com/articles/2020-12-18-yellowtail</guid>
     </item>
     
   </channel>
