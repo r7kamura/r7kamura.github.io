@@ -8,7 +8,7 @@
     <atom:link href="https://r7kamura.com/feed.xml" rel="self"/>
     <title>r7kamura.com</title>
     <managingEditor>r7kamura@gmail.com (Ryo Nakamura)</managingEditor>
-    <lastBuildDate>Sun, 17 Jan 2021 11:37:53 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 18 Jan 2021 07:54:32 +0000</lastBuildDate>
     
     <item>
       <title><![CDATA[『SEKIRO』をやった]]></title>
@@ -50,6 +50,37 @@
 <p>次はCyberpunk 2077をやる予定。</p>
 ]]></content:encoded>
       <guid>https://r7kamura.com/articles/2021-01-18-sekiro</guid>
+    </item>
+    
+    <item>
+      <title><![CDATA[ダクトレールにNature Remoを設置]]></title>
+      <description><![CDATA[ダクトレール（ライティングレール）にNature Remoを設置した。]]></description>
+      <link>https://r7kamura.com/articles/2021-01-18-nature-remo-on-rails</link>
+      <pubDate>Mon, 18 Jan 2021 00:00:00 +0000</pubDate>
+      <content:encoded><![CDATA[<p>ダクトレール（ライティングレール）にNature Remoを設置した。</p>
+
+<figure><a href="https://i.imgur.com/MAhbXNV.jpg" target="_blank"><img src="https://i.imgur.com/MAhbXNVh.jpg" alt="" title="設置した様子"></a><figcaption>設置した様子</figcaption></figure>
+
+<p>KIWI DesignのGoogle Home Mini用壁掛けホルダーがNature Remoの電源アダプターにも使えることが分かったので、<a href="/articles/2020-12-19-google-home-mini-on-rails">ダクトレールにGoogle Home Miniを設置</a>したときとやり方は同じ。</p>
+
+<p>次の製品を使って取り付けた。</p>
+
+<ul>
+<li><a href="https://www.amazon.co.jp/dp/B08BLSLWH4?tag=r7kamura07-22">Amazon.co.jp - Nature Remo 3 (1W3)</a></li>
+<li><a href="https://www.amazon.co.jp/dp/B01M7RME5D?tag=r7kamura07-22">Amazon.co.jp - 東芝ライテック 抜止コンセント</a></li>
+<li><a href="https://www.amazon.co.jp/dp/B086HJL73H?tag=r7kamura07-22">Amazon.co.jp - KIWI Design Google Nest Mini壁掛けホルダー</a></li>
+<li><a href="https://www.amazon.co.jp/dp/B00KID1QKC?tag=r7kamura07-22">Amazon.co.jp - コニシ 両面テープハイパワー</a></li>
+</ul>
+
+<figure><a href="https://i.imgur.com/6bRMY22.jpg" target="_blank"><img src="https://i.imgur.com/6bRMY22h.jpg" alt="" title="構成要素"></a><figcaption>構成要素</figcaption></figure>
+
+<figure><a href="https://i.imgur.com/vsB6zGc.jpg" target="_blank"><img src="https://i.imgur.com/vsB6zGch.jpg" alt="" title="アダプタを取り付けて不要なケーブルを巻く"></a><figcaption>アダプタを取り付けて不要なケーブルを巻く</figcaption></figure>
+
+<figure><a href="https://i.imgur.com/Mrq2MqV.jpg" target="_blank"><img src="https://i.imgur.com/Mrq2MqVh.jpg" alt="" title="Nature Remoに金属板を取り付ける"></a><figcaption>Nature Remoに金属板を取り付ける</figcaption></figure>
+
+<p>これを適当なところに設置すると完成。</p>
+]]></content:encoded>
+      <guid>https://r7kamura.com/articles/2021-01-18-nature-remo-on-rails</guid>
     </item>
     
     <item>
@@ -1133,38 +1164,6 @@ source ~/ghq/github.com/r7kamura/dotfiles/.bashrc
 <p>Amazonベーシックにも、同じくエルゴトロンがヒューレット・パッカード社に委託製造させている<a href="https://www.amazon.co.jp/dp/B00MIBN16O?tag=r7kamura07-22">LXに似たモニターアーム</a>が売られている。LXの黒色との違いは、つや消し加工がされていないところ、細かい意匠、保証の違いぐらいのものだと思う。現在はLXの価格がわりと下がってきているので、正規品を買うほうが良いかもしれない。</p>
 ]]></content:encoded>
       <guid>https://r7kamura.com/articles/2020-12-21-elgotron-lx</guid>
-    </item>
-    
-    <item>
-      <title><![CDATA[ダクトレールにGoogle Home Miniを設置]]></title>
-      <description><![CDATA[ダクトレールにGoogle Home Miniを設置した。]]></description>
-      <link>https://r7kamura.com/articles/2020-12-19-google-home-mini-on-rails</link>
-      <pubDate>Sat, 19 Dec 2020 00:00:00 +0000</pubDate>
-      <content:encoded><![CDATA[<p>ダクトレールにGoogle Home Miniを設置した。</p>
-
-<figure><a href="https://i.imgur.com/Eom5dM4.jpg" target="_blank"><img src="https://i.imgur.com/Eom5dM4h.jpg" alt="" title="設置した様子"></a><figcaption>設置した様子</figcaption></figure>
-
-<p>スマートホーム向けアクセサリーを造っているフィンランドの会社、Kiwi Designの<a href="https://www.amazon.co.jp/dp/B086HJL73H?tag=r7kamura07-22">壁掛けホルダー</a>を使う。</p>
-
-<figure><a href="https://i.imgur.com/bGPzQjD.jpg" target="_blank"><img src="https://i.imgur.com/bGPzQjDh.jpg" alt="" title="壁掛けホルダーを組み立てる"></a><figcaption>壁掛けホルダーを組み立てる</figcaption></figure>
-
-<p>このように電源アダプターとケーブルを磁石の埋め込まれたシリコン製の部品に収納し、金属板を壁掛け金具用の穴を介してGoogle Home Miniに取り付け、土台をコンセントで支えつつ磁力でGoogle Home Miniをくっつけておく構造になっている。</p>
-
-<figure><a href="https://i.imgur.com/hBYZaGC.jpg" target="_blank"><img src="https://i.imgur.com/hBYZaGCh.jpg" alt="" title="金属板に両面テープを貼り付ける"></a><figcaption>金属板に両面テープを貼り付ける</figcaption></figure>
-
-<p>今回のように天井に取り付ける場合、引っ掛け金具が意味をなさないので、代わりに両面テープを使う。金属にもプラスチックにも有効とのことで、近所の道具屋で100円で売っていたコニシの<a href="https://www.amazon.co.jp/dp/B00KID1QKC?tag=r7kamura07-22">両面テープ</a>を使った。コニシは木工用ボンドなどの"ボンド"の商標を持っている会社ですね。</p>
-
-<figure><a href="https://i.imgur.com/0NfUqWO.jpg" target="_blank"><img src="https://i.imgur.com/0NfUqWOh.jpg" alt="" title="組み立てた機器"></a><figcaption>組み立てた機器</figcaption></figure>
-
-<p>コンセント部分で機器を支えることになるので、東芝の<a href="https://www.amazon.co.jp/dp/B01M7RME5D?tag=r7kamura07-22">抜止コンセント</a>を取り付けることに。これで電源を供給しつつ機器を支える。</p>
-
-<figure><a href="https://i.imgur.com/ECy62e3.jpg" target="_blank"><img src="https://i.imgur.com/ECy62e3h.jpg" alt="" title="設置した様子"></a><figcaption>設置した様子</figcaption></figure>
-
-<p>これを適当なところに設置すると完成。</p>
-
-<p>ダクトレールに何かを頑張って設置するのは<a href="/articles/2016-12-12-h">ダクトレールにプロジェクターを設置</a>して以来だ。天井に取り付けられると掃除が楽だし、音声や電波も届きやすいし、色々と捗る。</p>
-]]></content:encoded>
-      <guid>https://r7kamura.com/articles/2020-12-19-google-home-mini-on-rails</guid>
     </item>
     
   </channel>
