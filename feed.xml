@@ -8,7 +8,33 @@
     <atom:link href="https://r7kamura.com/feed.xml" rel="self"/>
     <title>r7kamura.com</title>
     <managingEditor>r7kamura@gmail.com (Ryo Nakamura)</managingEditor>
-    <lastBuildDate>Wed, 20 Jan 2021 16:33:02 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 23 Jan 2021 01:07:27 +0000</lastBuildDate>
+    
+    <item>
+      <title><![CDATA[『Getting Over It』をやった]]></title>
+      <description><![CDATA[山登りアクションゲーム『Getting Over It with Bennett Foddy』をやった。]]></description>
+      <link>https://r7kamura.com/articles/2021-01-23-getting-over-it</link>
+      <pubDate>Sat, 23 Jan 2021 00:00:00 +0000</pubDate>
+      <content:encoded><![CDATA[<p>山登りアクションゲーム『Getting Over It with Bennett Foddy』をやった。</p>
+
+<ul>
+<li><a href="https://store.steampowered.com/app/240720">https://store.steampowered.com/app/240720</a></li>
+</ul>
+
+<p>つるはしを持って壺に入ったおじさんをマウスポインターで操作して、険しい山を登っていくゲームだ。山頂を目指す挑戦者を待ち受けるのは、偉大なる神秘と素晴らしきご褒美。</p>
+
+<figure><a href="https://i.imgur.com/MamLVEz.jpg" target="_blank"><img src="https://i.imgur.com/MamLVEzh.jpg" alt="" title="起動画面"></a><figcaption>起動画面</figcaption></figure>
+
+<figure><a href="https://i.imgur.com/ffmqonu.jpg" target="_blank"><img src="https://i.imgur.com/ffmqonuh.jpg" alt="" title="険しい道のり"></a><figcaption>険しい道のり</figcaption></figure>
+
+<figure><a href="https://i.imgur.com/tMotB8P.jpg" target="_blank"><img src="https://i.imgur.com/tMotB8Ph.jpg" alt="" title="恐ろしいギミック"></a><figcaption>恐ろしいギミック</figcaption></figure>
+
+<p>14時間ほどプレイしてようやくクリアした。終盤ではかつて無いほど集中した時間が続き、無事最後まで辿り着いたときには感動と開放感で泣きそうになった。</p>
+
+<p>難しいゲームだったが、困難に挑戦し、自己を見つめ直すきっかけを与えてくれる、やり甲斐のあるゲームだと感じた。Discordで見守ってくれた人達にも感謝したい。</p>
+]]></content:encoded>
+      <guid>https://r7kamura.com/articles/2021-01-23-getting-over-it</guid>
+    </item>
     
     <item>
       <title><![CDATA[『Hand Simulator』をやった]]></title>
@@ -1140,42 +1166,6 @@ source ~/ghq/github.com/r7kamura/dotfiles/.bashrc
 <p>但し、ペアリングをやり直すとこの辺りの設定が初期化されたりするので、ペアリングするたびあるいは音声周りで問題を感じるたびにこの設定を見直すことにしている。</p>
 ]]></content:encoded>
       <guid>https://r7kamura.com/articles/2020-12-24-airpods-windows</guid>
-    </item>
-    
-    <item>
-      <title><![CDATA[『天穂のサクナヒメ』をやった]]></title>
-      <description><![CDATA[『天穂のサクナヒメ』というゲームをやった。]]></description>
-      <link>https://r7kamura.com/articles/2020-12-22-sakuna-of-rice-and-ruin</link>
-      <pubDate>Tue, 22 Dec 2020 00:00:00 +0000</pubDate>
-      <content:encoded><![CDATA[<p>『<a href="https://www.marv.jp/special/game/sakuna/">天穂のサクナヒメ</a>』というゲームをやった。</p>
-
-<p><a href="https://i.imgur.com/5sEwiee.jpg" target="_blank"><img src="https://i.imgur.com/5sEwieeh.jpg" alt=""></a></p>
-
-<p>ジャンルは、一言で言うと、和風稲作シミュレーション&amp;アクションRPG。主人公は豊穣神と武神の娘という設定で、稲作パートと2Dアクションパートを並行して進めていくことになる。</p>
-
-<p>ネットの評判では稲作パートの話題をよく見かけるが、アクション要素もかなり楽しめた。一方を進めないと次第に他方も進めなくなってくるという調子で、上手いこと出来ている。若干格ゲーに近い操作感なのもシビアで良い印象だった。</p>
-
-<figure><a href="https://i.imgur.com/dSRj1aV.jpg" target="_blank"><img src="https://i.imgur.com/dSRj1aVh.jpg" alt="" title="初めての田植え"></a><figcaption>初めての田植え</figcaption></figure>
-
-<p>このゲームは、最初から正解を示すようなことはしてくれない。むしろ、まずは失敗を体験させてから、徐々に「これは本当はこうやると良かった」と身を持って味わわせるような設計になっていると思う。最初はその辺がフラストレーションに感じることもあるのだけど、慣れてくるとその試行錯誤のサイクルを回すのも気持ち良くなってくる。</p>
-
-<figure><a href="https://i.imgur.com/Bcm66WG.jpg" target="_blank"><img src="https://i.imgur.com/Bcm66WGh.jpg" alt="" title="幾度目かの田植え"></a><figcaption>幾度目かの田植え</figcaption></figure>
-
-<p>とはいえ失敗するのは嫌なので、攻略サイトは見ないが現実の稲作の資料は見ても良いということにして、具体的には農林水産省、農業協同組合、クボタ、ウィキペディアの稲作関係のウェブページや、各種自治体の資料、公開されている論文や研究資料などを読みながら進めていた。調べれば調べるほど、現実のモデルにかなり忠実に設計されていて驚かされる。日本の稲作や肥料、農薬の歴史や、稲の病気、地域や時代ごとの農法の違い、米の品種や測定法などについて詳しくなった。</p>
-
-<figure><a href="https://i.imgur.com/s3PCrCA.jpg" target="_blank"><img src="https://i.imgur.com/s3PCrCAh.jpg" alt="" title="犬や猫も抱ける"></a><figcaption>犬や猫も抱ける</figcaption></figure>
-
-<figure><a href="https://i.imgur.com/pLXakxy.jpg" target="_blank"><img src="https://i.imgur.com/pLXakxyh.jpg" alt="" title="合鴨も手伝ってくれる"></a><figcaption>合鴨も手伝ってくれる</figcaption></figure>
-
-<figure><a href="https://i.imgur.com/Fu8vEaF.jpg" target="_blank"><img src="https://i.imgur.com/Fu8vEaFh.jpg" alt="" title="休憩中"></a><figcaption>休憩中</figcaption></figure>
-
-<figure><a href="https://i.imgur.com/BagZPE4h.png" target="_blank"><img src="https://i.imgur.com/BagZPE4h.png" alt="" title="冬は稲作はお休み"></a><figcaption>冬は稲作はお休み</figcaption></figure>
-
-<p><a href="https://twitter.com/r7kamura/status/1326977303159533568">https://twitter.com/r7kamura/status/1326977303159533568</a> に、自分がプレイ中の感想などを記した長いスレッドがある。1日1時間ずつのプレイを1ヶ月ほど続けて、クリアまでの時間は30時間弱だったようだ。</p>
-
-<p>あらためて振り返るといいゲームだった。音楽は一貫して良いし (特に主題歌の使い方とそのアレンジの多さが良い)、稲作もアクションも進めれば進めるほど新要素が出てくるし、登場人物はみな個性的ながらも良いやつで、ストーリーは序盤から終盤まで全く飽きさせない展開だった。今年やったゲームの中で、人におすすめしたいゲームの一つだ。</p>
-]]></content:encoded>
-      <guid>https://r7kamura.com/articles/2020-12-22-sakuna-of-rice-and-ruin</guid>
     </item>
     
   </channel>
