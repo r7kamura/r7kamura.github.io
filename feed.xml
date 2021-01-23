@@ -8,7 +8,7 @@
     <atom:link href="https://r7kamura.com/feed.xml" rel="self"/>
     <title>r7kamura.com</title>
     <managingEditor>r7kamura@gmail.com (Ryo Nakamura)</managingEditor>
-    <lastBuildDate>Sat, 23 Jan 2021 16:31:13 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 23 Jan 2021 16:37:28 +0000</lastBuildDate>
     
     <item>
       <title><![CDATA[『Cyberpunk 2077』をやった]]></title>
@@ -476,6 +476,8 @@ source ~/ghq/github.com/r7kamura/dotfiles/.bashrc
 <p>2020年に開発環境をMacBook ProからWindowsのデスクトップPCに<a href="/articles/2020-09-28-development-on-windows">移行した</a>ので、開発に使うならもう少し投資することにしようということで、新しいPCを組むことにした。主にプログラミング、ゲーム、動画編集に使うことになる。</p>
 
 <p>利用した各部品について、取り付け順に紹介しておく。</p>
+
+<figure><a href="https://i.imgur.com/pM7ZSLL.jpg" target="_blank"><img src="https://i.imgur.com/pM7ZSLLh.jpg" alt="" title="組み立て前"></a><figcaption>組み立て前</figcaption></figure>
 
 <h2>ケース</h2>
 
