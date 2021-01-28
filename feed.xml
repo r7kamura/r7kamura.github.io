@@ -8,7 +8,83 @@
     <atom:link href="https://r7kamura.com/feed.xml" rel="self"/>
     <title>r7kamura.com</title>
     <managingEditor>r7kamura@gmail.com (Ryo Nakamura)</managingEditor>
-    <lastBuildDate>Tue, 26 Jan 2021 22:04:05 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 28 Jan 2021 08:46:47 +0000</lastBuildDate>
+    
+    <item>
+      <title><![CDATA[作業机の配線整理]]></title>
+      <description><![CDATA[作業机の配線を整理した。]]></description>
+      <link>https://r7kamura.com/articles/2021-01-28-desk-cable-management</link>
+      <pubDate>Thu, 28 Jan 2021 00:00:00 +0000</pubDate>
+      <content:encoded><![CDATA[<p>作業机の配線を整理した。</p>
+
+<figure><a href="https://i.imgur.com/wyJsZRG.jpg" target="_blank"><img src="https://i.imgur.com/wyJsZRGh.jpg" alt="" title="前の物件から引き継いだレースカーテンの尺が足りていない"></a><figcaption>前の物件から引き継いだレースカーテンの尺が足りていない</figcaption></figure>
+
+<h2>机までの配線</h2>
+
+<p>以下のような必要なケーブルを、ラグの下を経由して机の足元まで配線している。厚めのラグを作業机の下に敷いておくとこういう配線が楽になる。</p>
+
+<ul>
+<li>電源タップ用の電源ケーブル</li>
+<li>無線LANルーター用のLANケーブル</li>
+<li>プロジェクター用のHDMIケーブル</li>
+</ul>
+
+<h2>電源タップ</h2>
+
+<figure><a href="https://i.imgur.com/9hwp7MN.jpg" target="_blank"><img src="https://i.imgur.com/9hwp7MNh.jpg" alt="" title="ケーブルトレーに入れるより設置する方が色々取り回しやすい"></a><figcaption>ケーブルトレーに入れるより設置する方が色々取り回しやすい</figcaption></figure>
+
+<p>マグネットシートを使って電源タップを机に取り付ける。</p>
+
+<p>自分の作業机は脚が金属製なのでそこに取り付けたが、机の天板にマグネットシートを貼ってそこに取り付けても良いと思う。ACアダプタを沢山付けても動かない程度には強力にくっついてくれる。エレコムのこの電源タップはACアダプタを付けやすく、シンプルで使いやすい。</p>
+
+<ul>
+<li><a href="https://www.amazon.co.jp/dp/B01NH5C9I3?tag=r7kamura07-22">Amazon.co.jp - エレコム 電源タップ 6個口 2m</a></li>
+<li><a href="https://www.amazon.co.jp/dp/B0012R2OIQ?tag=r7kamura07-22">Amazon.co.jp - コクヨ マグネットシート</a></li>
+</ul>
+
+<h2>ケーブルトレー</h2>
+
+<p>残りの雑多な機器やケーブルをケーブルトレーに押し込む。</p>
+
+<p>すべての機器を天板裏に取り付けていくのは大変だし、将来の変更が大変になったり、ケーブルに余裕が無くなって使いづらくなったりするので、ケーブルトレーに雑にまとめる程度にしておく運用が自分には丁度良い。サンワサプライのメッシュタイプのケーブルトレーは、クランプでの取り付けや位置調整も楽だし、メッシュ部分が柔軟で物が出し入れしやすく、気に入っている。</p>
+
+<ul>
+<li><a href="https://www.amazon.co.jp/dp/B01N6B5ST9?tag=r7kamura07-22">Amazon.co.jp - サンワサプライ ケーブルトレー</a></li>
+</ul>
+
+<h2>PC背面</h2>
+
+<figure><a href="https://i.imgur.com/0VctOAw.jpg" target="_blank"><img src="https://i.imgur.com/0VctOAwh.jpg" alt="" title="面倒なのでケーブルをまとめたりはしていない"></a><figcaption>面倒なのでケーブルをまとめたりはしていない</figcaption></figure>
+
+<p>その他の雑多な機器はデスクトップPCの裏側に置いている。机上に置いている機器を羅列すると次のような感じで、結構な種類の機器がある。</p>
+
+<ul>
+<li>デスクトップPC</li>
+<li>PCモニター</li>
+<li>PlayStation 4</li>
+<li>Nintendo Switch</li>
+<li>HDMIセレクター</li>
+<li>HDMIキャプチャー</li>
+<li>HDMIスプリッター</li>
+<li>Hueブリッジ</li>
+<li>Webカメラ</li>
+<li>無線LANルーター</li>
+<li>無線イヤホン</li>
+<li>無線ヘッドホン</li>
+<li>無線キーボード</li>
+<li>無線マウス</li>
+</ul>
+
+<p>PS4やNintendo Switchをプロジェクターにも繋いでいる都合、機器の数が増えてしまっている。とはいえ、表側の機器は概ね無線のものを利用できていて、無線機器の充電もマグネット式のUSBケーブル1本で済ませられているので、見える部分の配線はかなり抑えられていると思う。</p>
+
+<p>デスクトップPCを床に置くか机に置くかについて、どちらも試したが個人的には机の上の方が使いやすかった。モニターや人との距離が短くて配線がやりやすくなるし、床の掃除もやりやすくなる。ファンの音がうるさいのではと懸念していたが、意外と聞き取れるほどの音量でも無かった。</p>
+
+<hr>
+
+<p>整理することについて。精神的に参ってくるにしたがって、散らかった部屋を見ると「自分はなんて駄目なんだろう」と自己嫌悪感が生まれ、片付ける気力が更に摩耗していくことがある。そういった状況を避けるためにも、気力や体力のあるときに防御的に整理しておく方が良いと考えている。</p>
+]]></content:encoded>
+      <guid>https://r7kamura.com/articles/2021-01-28-desk-cable-management</guid>
+    </item>
     
     <item>
       <title><![CDATA[iPhone 12 Pro Max]]></title>
@@ -1011,30 +1087,6 @@ source ~/ghq/github.com/r7kamura/dotfiles/.bashrc
 <p>今年は前年に比べて目新しいインディーズゲームをあまり掘れなかったものの、自分がやったことのないタイプのゲームを積極的に試した年だったと思う。メジャーどころの大きいゲームを真っ当に楽しめたのも非常に良かった。</p>
 ]]></content:encoded>
       <guid>https://r7kamura.com/articles/2020-12-31-games-2020</guid>
-    </item>
-    
-    <item>
-      <title><![CDATA[個包装の米]]></title>
-      <description><![CDATA[ここ半年ほど、個包装の無洗米を試してみている。]]></description>
-      <link>https://r7kamura.com/articles/2020-12-27-rice</link>
-      <pubDate>Sun, 27 Dec 2020 00:00:00 +0000</pubDate>
-      <content:encoded><![CDATA[<p>ここ半年ほど、個包装の無洗米を試してみている。</p>
-
-<figure><a href="https://i.imgur.com/v5g3TBa.jpg" target="_blank"><img src="https://i.imgur.com/v5g3TBah.jpg" alt="" title="米2合"></a><figcaption>米2合</figcaption></figure>
-
-<p>そこまで頑張らずにそこそこの味の米を食べたいというのが理由だ。うちは2合ずつ米を炊くので、個包装で2合入っているやつを買うと、釜に開けて水を入れて炊飯ボタンを押すだけで良くなる。計量や保存のことを考えなくて良いのがとにかく楽だ。</p>
-
-<figure><a href="https://i.imgur.com/FILFaco.jpg" target="_blank"><img src="https://i.imgur.com/FILFacoh.jpg" alt="" title="ユニットシェルフ"></a><figcaption>ユニットシェルフ</figcaption></figure>
-
-<p>購入時の箱ごとユニットシェルフの左下のほうに入れて保管している。食器の下にある箱がそうだ。ちなみにその下の箱には炭酸水が詰まっている。</p>
-
-<p>直近で試してみていたのは、お米のたかさかの<a href="https://www.amazon.co.jp/dp/B01B8ST3JQ?tag=r7kamura07-22">コシヒカリ 2合✕15袋</a>。袋に乾燥剤などが入っていないタイプなので、誤って乾燥剤ごと炊いてしまう心配も無い。アイリスオーヤマの個包装の米を試していたときに1度やったことがある。</p>
-
-<p>ハーベストシーズンの<a href="https://www.amazon.co.jp/dp/B0731DSDC6?tag=r7kamura07-22">ゆめぴりか 2合✕10袋</a>も試してみようとしている。ゆめぴりかは低アミロース米に分類される品種で、粘りが強めで、冷めていてもうまいとされている。これは<a href="/articles/2020-12-22-sakuna-of-rice-and-ruin">『天穂のサクナヒメ』をやった</a>ときに学んだ。良し悪しと言うよりは、もち米寄りかどうかみたいな話だ。</p>
-
-<p>個包装の米は総じて体験が良いので、今後も続けていく予定。</p>
-]]></content:encoded>
-      <guid>https://r7kamura.com/articles/2020-12-27-rice</guid>
     </item>
     
   </channel>
