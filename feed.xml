@@ -8,7 +8,35 @@
     <atom:link href="https://r7kamura.com/feed.xml" rel="self"/>
     <title>r7kamura.com</title>
     <managingEditor>r7kamura@gmail.com (Ryo Nakamura)</managingEditor>
-    <lastBuildDate>Sat, 30 Jan 2021 07:50:13 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 01 Feb 2021 08:04:39 +0000</lastBuildDate>
+    
+    <item>
+      <title><![CDATA[AppleのiPhone下取りプログラム]]></title>
+      <description><![CDATA[Appleの下取りプログラムを利用し、Apple StoreのウェブサイトでのiPhone 12 Pro Maxの購入時にiPhone XS Maxを下取りしてもらった。]]></description>
+      <link>https://r7kamura.com/articles/2021-02-01-apple-trade-in-iphone</link>
+      <pubDate>Mon, 01 Feb 2021 00:00:00 +0000</pubDate>
+      <content:encoded><![CDATA[<p>Appleの下取りプログラムを利用し、Apple StoreのウェブサイトでのiPhone 12 Pro Maxの購入時にiPhone XS Maxを下取りしてもらった。どういう手順で事が進むのか、利用してみるまでは分かりづらかったので、何が行われたのかをあらためて書き残しておくことにする。</p>
+
+<figure><a href="https://i.imgur.com/xBHh2IR.jpg" target="_blank"><img src="https://i.imgur.com/xBHh2IRh.jpg" alt="" title="これまで使っていたiPhone XS Max"></a><figcaption>これまで使っていたiPhone XS Max</figcaption></figure>
+
+<p>新規端末購入時に下取りプログラムを利用しようとすると、下取り対象の端末の機種とストレージ容量、シリアル番号を入力できる。ここで購入前におおよその下取り最大金額が表示される。自分の場合、最大48,000円で下取りをしてくれるらしかった。</p>
+
+<p>端末の購入を済ませると、締め切りまでに集荷予約をせよとのリマインダーメールが届き、Appleのウェブサイト経由で集荷予約をできるようになる。ヤマト運輸の下取り専用の集荷サービスが予約され、集荷に来た配達員にiPhoneの本体をそのまま渡せば下取り作業は完了。配達員が専用の梱包箱を持っているらしく、その辺も勝手にやってくれるらしい。</p>
+
+<p>自分の場合、集荷までの事前準備として次の作業を済ませておくことになった。</p>
+
+<ul>
+<li>新規端末へデータを移行する</li>
+<li>新規端末でLINEの認証を行う（旧端末が必要になる）</li>
+<li>「iPhoneを探す」を無効化する</li>
+<li>Apple IDからサインアウトする</li>
+<li>「すべてのコンテンツと設定を消去」を実行する</li>
+</ul>
+
+<p>旧端末は表面の保護フィルムに加えて側面だけ保護するバンパー型のケースだけで運用していたが、今回改めて見てみると、何の傷も無く新品と見分けが付かない状態に維持されていた。下取りや買取時の価格に大きく影響することを考えると、今後もやはり保護フィルムと最低限の保護ケースは付けていこうと思う。</p>
+]]></content:encoded>
+      <guid>https://r7kamura.com/articles/2021-02-01-apple-trade-in-iphone</guid>
+    </item>
     
     <item>
       <title><![CDATA[『ファイナルファンタジーXIII』をやった]]></title>
@@ -914,28 +942,6 @@ source ~/ghq/github.com/r7kamura/dotfiles/.bashrc
 <p>フレンドリーファイア有りで魔法をぶっ放しながら味方に誤射したりされたりが楽しい。とにかく複数の魔法を切り替えながら忙しく戦い続ける必要があり、戦闘中のスクリーンショットを撮り忘れてしまった。協力して魔法を重ね合わせるような要素があり、ファイナルファンタジー・クリスタルクロニクルのような楽しさがある。</p>
 ]]></content:encoded>
       <guid>https://r7kamura.com/articles/2021-01-03-nine-parchments</guid>
-    </item>
-    
-    <item>
-      <title><![CDATA[元日記]]></title>
-      <description><![CDATA[元日の日記。]]></description>
-      <link>https://r7kamura.com/articles/2021-01-01-diary</link>
-      <pubDate>Fri, 01 Jan 2021 00:00:00 +0000</pubDate>
-      <content:encoded><![CDATA[<p>元日の日記。</p>
-
-<h2>年末年始の過ごし方</h2>
-
-<p>去年まではDiscordで知り合った人々と毎年初詣に行っていたのだけど、今年は残念ながら中止だ。年末年始は通話したりゲームしたりで過ごしていた。おせちは食べなかったが雑煮ライクなものはつくって食べた。個人的に何度目かのダークソウルブームが来ていて、ダークソウル3と1を進め、終えたらブラッドボーンかSEKIROをやろうという気持ちになっている。</p>
-
-<h2>抱負</h2>
-
-<p>去年の抱負は、炊飯器を新調することだった。2020年10月頃に無事達成できた。<a href="/articles/2020-11-03-rice-cooker">炊飯器 象印NW-ES07-BZ</a>という記事にまとめてある。いい炊飯器を買えて満足だ。<a href="/articles/2020-12-22-sakuna-of-rice-and-ruin">『天穂のサクナヒメ』をやった</a>ことで米についての関心も高まり、2020年は米が捗る年だった。</p>
-
-<p>今年の抱負は、自作PCを組むこと、引っ越しを成功させることにした。要するに作業環境の改善だ。自作PCへ投資するために、去年の内にすべての開発環境をMacからWindowsへ、具体的にはMacBook ProからデスクトップPCに移行を済ませておいたので、満を持して組むことに。Ryzen 9 5900X、RTX 3080、ATXサイズで黒系の配色で統一したものを組もうと思っている。</p>
-
-<p>引っ越しは契約の都合今年11月頃までには必須なので (取り壊される予定の建物にそれまで安く住まわせてもらっている)、Amazonフレッシュ対応地域で静かで1ルームで広そうなところを探し当てたい。2020年以降、Amazonフレッシュに大きく依存した生活を続けているので、この条件はほぼ必須になってしまった。10月中に引っ越し終えてる状態がベターかな。8月頃から引越し先を探し始めるつもりだ。</p>
-]]></content:encoded>
-      <guid>https://r7kamura.com/articles/2021-01-01-diary</guid>
     </item>
     
   </channel>
