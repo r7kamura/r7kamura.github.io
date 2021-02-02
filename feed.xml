@@ -8,7 +8,37 @@
     <atom:link href="https://r7kamura.com/feed.xml" rel="self"/>
     <title>r7kamura.com</title>
     <managingEditor>r7kamura@gmail.com (Ryo Nakamura)</managingEditor>
-    <lastBuildDate>Mon, 01 Feb 2021 08:07:23 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 02 Feb 2021 07:55:04 +0000</lastBuildDate>
+    
+    <item>
+      <title><![CDATA[SwitchBot カーテン]]></title>
+      <description><![CDATA[カーテンを自動開閉するべく、SwitchBotカーテンを導入した。]]></description>
+      <link>https://r7kamura.com/articles/2021-02-02-switch-bot-curtain</link>
+      <pubDate>Tue, 02 Feb 2021 00:00:00 +0000</pubDate>
+      <content:encoded><![CDATA[<p>カーテンを自動開閉するべく、SwitchBotカーテンを導入した。</p>
+
+<p><a href="https://i.imgur.com/NKu3vHq.jpg" target="_blank"><img src="https://i.imgur.com/NKu3vHqh.jpg" alt=""></a></p>
+
+<p>Google Homeと連携させたいので、SwitchBotカーテン2機とSwitchBot Hub Miniが含まれているセットを購入した。</p>
+
+<ul>
+<li><a href="https://www.amazon.co.jp/dp/B08HR1GVDB?tag=r7kamura07-22">Amazon.co.jp - SwitchBot スイッチボット カーテン</a></li>
+</ul>
+
+<p>両開き用のカーテンを利用していたが、自動開閉させるなら片開きの方が効率が良いので、片開きで運用していくことにした。こういう運用方法は想定の範囲内らしく、付属のクリップで左右のカーテンを繋ぎ止めることで雑に対応できる。今まで気付いていなかったが、左右がカーテンで囲まれない分、片開きの方が開放感がある。</p>
+
+<p>取り付けてみると、全体的に動きは少しぎこちないが、やりたかったことはまずまず実現できているので良かった。環境によって動かないことも多そうなので、そんなにおすすめはしない。U字型の安いカーテンレールとカーテンランナー（カーテンレール側に取り付ける部品）では動きがぎこちなく、まあこんなものかもしれない。カーテンを開けるときは高い確率で上手くいくが、閉めるときに強めに引っ掛かるので、上手くいかないことが多い。賃貸物件に元から付いていたカーテンランナーを交換すると改善するかもしれないと思い、別のカーテンランナーを発注してみている。</p>
+
+<ul>
+<li><a href="https://www.amazon.co.jp/dp/B07VJ4GWJQ?tag=r7kamura07-22">Amazon.co.jp - RHINOCATS カーテンランナー</a></li>
+</ul>
+
+<p>日光はわりと生活の中で重要なものだと捉えるようにしていて、明るい内に何かをするとか、暗くなったから寝るとか、そういうルーチンで活動するようにしていると、何となく精神面での体調が良い。</p>
+
+<p>現状、起床時や就寝時にGoogle Homeに声を掛けると空調と照明を付けてくれるようになっているので、ここにカーテンの操作も加わることになる。ここ1年ほど音声操作で家電を運用してきていているが、運用してみる前の印象とは違って、音声操作はやってみると思った以上に使いやすく、体験が良い。最近はGoogleカレンダーの予定の追加と確認を音声でやるのが気に入っている。</p>
+]]></content:encoded>
+      <guid>https://r7kamura.com/articles/2021-02-02-switch-bot-curtain</guid>
+    </item>
     
     <item>
       <title><![CDATA[AppleのiPhone下取りプログラム]]></title>
@@ -926,22 +956,6 @@ source ~/ghq/github.com/r7kamura/dotfiles/.bashrc
 <p>最弱のボス。王のソウルを燃やすことで世界に炎の力を取り戻そうとしていた人だが、その過程で憔悴しきってしまったのだろう。</p>
 ]]></content:encoded>
       <guid>https://r7kamura.com/articles/2021-01-04-dark-souls-remastered</guid>
-    </item>
-    
-    <item>
-      <title><![CDATA[『Nine Parchments』をやった]]></title>
-      <description><![CDATA[協力型魔法アクションゲーム、Nine Parchmentsをやった。]]></description>
-      <link>https://r7kamura.com/articles/2021-01-03-nine-parchments</link>
-      <pubDate>Sun, 03 Jan 2021 00:00:00 +0000</pubDate>
-      <content:encoded><![CDATA[<p>協力型魔法アクションゲーム、<a href="https://store.steampowered.com/app/471550/Nine_Parchments">Nine Parchments</a>をやった。</p>
-
-<p><a href="https://i.imgur.com/gEDFnU0.jpg" target="_blank"><img src="https://i.imgur.com/gEDFnU0h.jpg" alt=""></a></p>
-
-<p>見習い魔法使いを操作し、色々な魔法を使い分けながらワチャワチャとした魔法戦を楽しむ感じのゲーム。段々と使える魔法の数が増えていき、氷魔法や炎魔法や回復魔法など色々な魔法を使い分けながら敵を倒していく。4人でプレイして4時間ぐらいで一通りクリアした。</p>
-
-<p>フレンドリーファイア有りで魔法をぶっ放しながら味方に誤射したりされたりが楽しい。とにかく複数の魔法を切り替えながら忙しく戦い続ける必要があり、戦闘中のスクリーンショットを撮り忘れてしまった。協力して魔法を重ね合わせるような要素があり、ファイナルファンタジー・クリスタルクロニクルのような楽しさがある。</p>
-]]></content:encoded>
-      <guid>https://r7kamura.com/articles/2021-01-03-nine-parchments</guid>
     </item>
     
   </channel>
