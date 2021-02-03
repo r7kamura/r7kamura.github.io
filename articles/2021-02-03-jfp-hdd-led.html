@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width">
+  <title>フロントパネル用コネクタのHDD LEDを無効化</title>
+  <link href="https://r7kamura.com/articles/2021-02-03-jfp-hdd-led" rel="canonical">
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="search" type="application/opensearchdescription+xml" title="r7kamura.com" href="/opensearch.xml">
+  <link rel="alternate" type="application/rss+xml" href="/feed.xml">
+  
+  <meta property="description" content="ストレージアクセスのたびにPCケースの電源ボタンのLEDが点滅して鬱陶しかったので、HDD LEDのジャンパーピンを抜いて無効化した。">
+  <meta property="og:description" content="ストレージアクセスのたびにPCケースの電源ボタンのLEDが点滅して鬱陶しかったので、HDD LEDのジャンパーピンを抜いて無効化した。">
+  
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="フロントパネル用コネクタのHDD LEDを無効化">
+  <meta property="og:url" content="https://r7kamura.com/articles/2021-02-03-jfp-hdd-led">
+  
+  <meta property="og:image" content="https://i.imgur.com/MuFEjlVh.png">
+  <meta property="twitter:card" content="summary_large_image">
+  
+</head>
+<body>
+  <header>
+    <nav>
+      <p>
+        <a href="/">r7kamura.com</a>
+      </p>
+      <ul>
+        <li>
+          <a href="/links">リンク集</a>
+        </li>
+        <li>
+          <a href="https://www.google.com/search?q=site:r7kamura.com">検索</a>
+        </li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <article>
+  <header>
+    <time datetime="2021-02-03T00:00:00+00:00">2021年02月03日</time>
+    <h1>フロントパネル用コネクタのHDD LEDを無効化</h1>
+  </header>
+  <div>
+    <p>ストレージアクセスのたびにPCケースの電源ボタンのLEDが点滅して鬱陶しかったので、HDD LEDのジャンパーピンを抜いて無効化した。</p>
+
+<p>利用しているPCケースはNZXTのH510 Elite、マザーボードはMSIのX570 UNIFY。このH510 Eliteに付いているフロントパネル用コネクタは、次の6つのピンが1個にまとまっている。リセットボタンは無いので、Reset Switchのピンは存在しない。</p>
+
+<ul>
+<li>Power LED +</li>
+<li>Power LED -</li>
+<li>Power Switch +</li>
+<li>Power Switch -</li>
+<li>HDD LED +</li>
+<li>HDD LED -</li>
+</ul>
+
+<p>これらを分割する変換コネクタが付属していたので、これを接続し、HDD LED +とHDD LED -以外の残りのピンだけ接続する。</p>
+
+<figure><a href="https://i.imgur.com/MuFEjlVh.png" target="_blank"><img src="https://i.imgur.com/MuFEjlVh.png" alt="" title="NZXT H510 Eliteのマニュアルより"></a><figcaption>NZXT H510 Eliteのマニュアルより</figcaption></figure>
+
+<p>配線方法は、マザーボードのマニュアルを見るのが分かりやすい。</p>
+
+<figure><a href="https://i.imgur.com/O7qK7UAh.png" target="_blank"><img src="https://i.imgur.com/O7qK7UAh.png" alt="" title="MSI X570 UNIFYのマニュアルより"></a><figcaption>MSI X570 UNIFYのマニュアルより</figcaption></figure>
+
+<p>電源ボタンのLEDが点滅しなくなり、平和な暮らしが訪れた。</p>
+
+  </div>
+</article>
+
+  </main>
+</body>
+</html>

@@ -8,7 +8,7 @@
     <atom:link href="https://r7kamura.com/feed.xml" rel="self"/>
     <title>r7kamura.com</title>
     <managingEditor>r7kamura@gmail.com (Ryo Nakamura)</managingEditor>
-    <lastBuildDate>Wed, 03 Feb 2021 06:09:51 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 03 Feb 2021 08:57:11 +0000</lastBuildDate>
     
     <item>
       <title><![CDATA[2020年分の確定申告をやった]]></title>
@@ -54,6 +54,37 @@
 <p>ところで、住民税の支払いも今まで口座振替への切り替えをさぼっていたが、港区の対応状況を見るとなんとウェブサイト上から申し込めるようだったので、ついでにこれも切り替えておいた。所得税や消費税も、出来ればこういう感じで申し込めるようになってくれていてほしい……と思ったが、どうやら2021年1月から、e-Taxで振替依頼書のオンライン提出が可能になったらしい。</p>
 ]]></content:encoded>
       <guid>https://r7kamura.com/articles/2021-02-03-kakutei</guid>
+    </item>
+    
+    <item>
+      <title><![CDATA[フロントパネル用コネクタのHDD LEDを無効化]]></title>
+      <description><![CDATA[ストレージアクセスのたびにPCケースの電源ボタンのLEDが点滅して鬱陶しかったので、HDD LEDのジャンパーピンを抜いて無効化した。]]></description>
+      <link>https://r7kamura.com/articles/2021-02-03-jfp-hdd-led</link>
+      <pubDate>Wed, 03 Feb 2021 00:00:00 +0000</pubDate>
+      <content:encoded><![CDATA[<p>ストレージアクセスのたびにPCケースの電源ボタンのLEDが点滅して鬱陶しかったので、HDD LEDのジャンパーピンを抜いて無効化した。</p>
+
+<p>利用しているPCケースはNZXTのH510 Elite、マザーボードはMSIのX570 UNIFY。このH510 Eliteに付いているフロントパネル用コネクタは、次の6つのピンが1個にまとまっている。リセットボタンは無いので、Reset Switchのピンは存在しない。</p>
+
+<ul>
+<li>Power LED +</li>
+<li>Power LED -</li>
+<li>Power Switch +</li>
+<li>Power Switch -</li>
+<li>HDD LED +</li>
+<li>HDD LED -</li>
+</ul>
+
+<p>これらを分割する変換コネクタが付属していたので、これを接続し、HDD LED +とHDD LED -以外の残りのピンだけ接続する。</p>
+
+<figure><a href="https://i.imgur.com/MuFEjlVh.png" target="_blank"><img src="https://i.imgur.com/MuFEjlVh.png" alt="" title="NZXT H510 Eliteのマニュアルより"></a><figcaption>NZXT H510 Eliteのマニュアルより</figcaption></figure>
+
+<p>配線方法は、マザーボードのマニュアルを見るのが分かりやすい。</p>
+
+<figure><a href="https://i.imgur.com/O7qK7UAh.png" target="_blank"><img src="https://i.imgur.com/O7qK7UAh.png" alt="" title="MSI X570 UNIFYのマニュアルより"></a><figcaption>MSI X570 UNIFYのマニュアルより</figcaption></figure>
+
+<p>電源ボタンのLEDが点滅しなくなり、平和な暮らしが訪れた。</p>
+]]></content:encoded>
+      <guid>https://r7kamura.com/articles/2021-02-03-jfp-hdd-led</guid>
     </item>
     
     <item>
@@ -870,22 +901,6 @@ source ~/ghq/github.com/r7kamura/dotfiles/.bashrc
 <p>ほぼ同様の構成で組み立てている動画 <a href="https://www.youtube.com/watch?v=zAbP6vfzhCM">https://www.youtube.com/watch?v=zAbP6vfzhCM</a> を予め見ておくと分かりやすかった。</p>
 ]]></content:encoded>
       <guid>https://r7kamura.com/articles/2021-01-08-pc-build-2021</guid>
-    </item>
-    
-    <item>
-      <title><![CDATA[iPadを脱衣所に置く]]></title>
-      <description><![CDATA[iPadを脱衣所に置くことにした。]]></description>
-      <link>https://r7kamura.com/articles/2021-01-04-ipad-bathroom</link>
-      <pubDate>Mon, 04 Jan 2021 00:00:00 +0000</pubDate>
-      <content:encoded><![CDATA[<p>iPadを脱衣所に置くことにした。</p>
-
-<figure><a href="https://i.imgur.com/thZHakW.jpg" target="_blank"><img src="https://i.imgur.com/thZHakWh.jpg" alt="" title="洗濯機の上のスペース"></a><figcaption>洗濯機の上のスペース</figcaption></figure>
-
-<p>2020年の自分のiPadの使い方を振り返ってみると、ほぼ入浴中にしか使っていない。であれば使う場所に置くのが良いと考え、脱衣所に置いて充電するように運用方法を変えた。</p>
-
-<p>充電には<a href="/articles/2019-12-07-manget-usb">iPad Pro (2018) 対応のマグネット式USBアダプタ</a>の記事でも言及したアダプタを利用していて、これも便利だ。こういった細かい改善が日々の暮らしやすさに効いてくる、気がしている。</p>
-]]></content:encoded>
-      <guid>https://r7kamura.com/articles/2021-01-04-ipad-bathroom</guid>
     </item>
     
   </channel>
