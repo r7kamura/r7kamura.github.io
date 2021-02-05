@@ -8,7 +8,39 @@
     <atom:link href="https://r7kamura.com/feed.xml" rel="self"/>
     <title>r7kamura.com</title>
     <managingEditor>r7kamura@gmail.com (Ryo Nakamura)</managingEditor>
-    <lastBuildDate>Thu, 04 Feb 2021 13:38:33 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 05 Feb 2021 17:12:56 +0000</lastBuildDate>
+    
+    <item>
+      <title><![CDATA[ダクトレールにSwitchBot Hub Miniを設置]]></title>
+      <description><![CDATA[ダクトレール（ライティングレール）にSwitchBot Hub Miniを設置した。]]></description>
+      <link>https://r7kamura.com/articles/2021-02-05-switchbot-hub-mini-on-rails</link>
+      <pubDate>Fri, 05 Feb 2021 00:00:00 +0000</pubDate>
+      <content:encoded><![CDATA[<p>ダクトレール（ライティングレール）にSwitchBot Hub Miniを設置した。携帯端末でSwitchBot製品を直接操作するだけであればハブは要らないが、Google Home経由で操作したかったのでハブを導入することに。</p>
+
+<figure><a href="https://i.imgur.com/7OlSm01.jpg" target="_blank"><img src="https://i.imgur.com/7OlSm01h.jpg" alt="" title="利用した道具"></a><figcaption>利用した道具</figcaption></figure>
+
+<p>ダクトレールから電源も取れるし、電波の感度も良いし、一度取り付ければ邪魔にならないので、これ系のものはやはりダクトレールに設置するのが楽だ。SwitchBot Hub MiniにはUSBケーブルしか同梱されていなかったので、今回はiPhoneに付属していた電源アダプタを使うことにした。ダクトレールへは、以前よりお世話になっていて信頼しているコニシの両面テープを使った。</p>
+
+<ul>
+<li><a href="https://www.amazon.co.jp/dp/B00KID1QKC?tag=r7kamura07-22">Amazon.co.jp - コニシ 両面テープ</a></li>
+</ul>
+
+<figure><a href="https://i.imgur.com/jAJwQfL.jpg" target="_blank"><img src="https://i.imgur.com/jAJwQfLh.jpg" alt="" title="取り付けた様子"></a><figcaption>取り付けた様子</figcaption></figure>
+
+<p>Google Home Miniを取り付けたときと違って雑な見栄えになってしまったが、まあこんなものだろう。通電中は常時光りっぱなしなのが少し鬱陶しかったので、後からテープを貼って塞いだ。</p>
+
+<hr>
+
+<p>過去のダクトレールに設置シリーズはこちら。</p>
+
+<ul>
+<li><a href="/articles/2021-01-18-nature-remo-on-rails">ダクトレールにNature Remoを設置</a></li>
+<li><a href="/articles/2020-12-19-google-home-mini-on-rails">ダクトレールにGoogle Home Miniを設置</a></li>
+<li><a href="/articles/2016-12-12-h">ダクトレールにプロジェクターを設置</a></li>
+</ul>
+]]></content:encoded>
+      <guid>https://r7kamura.com/articles/2021-02-05-switchbot-hub-mini-on-rails</guid>
+    </item>
     
     <item>
       <title><![CDATA[カーテンランナー]]></title>
@@ -733,24 +765,6 @@ source ~/ghq/github.com/r7kamura/dotfiles/.bashrc
 <p>スクリーンショットでは何をやっているのか全く分からないと思うが、4時間ほど遊び倒せて良かった。とにかく操作が難しいゲームだったが、4人でクリアしたときの喜びはひとしお。進行できなくなる不具合が少しあるが、それを差し置いても原始的なゲーム体験のところで喜べる良い作品だ。</p>
 ]]></content:encoded>
       <guid>https://r7kamura.com/articles/2021-01-10-hand-simulator-horror</guid>
-    </item>
-    
-    <item>
-      <title><![CDATA[『Bloodborne』をやった]]></title>
-      <description><![CDATA[ここ数日ほど『Bloodborne』をプレイしてようやくクリアした。]]></description>
-      <link>https://r7kamura.com/articles/2021-01-10-bloodborne</link>
-      <pubDate>Sun, 10 Jan 2021 00:00:00 +0000</pubDate>
-      <content:encoded><![CDATA[<p>ここ数日ほど『Bloodborne』をプレイしてようやくクリアした。</p>
-
-<p><a href="https://i.imgur.com/IttQCyDh.png" target="_blank"><img src="https://i.imgur.com/IttQCyDh.png" alt=""></a></p>
-
-<p>DARK SOULSなどでお馴染みのフロムソフトウェアが開発するアクションRPGだ。去年にDARK SOULSシリーズを一通りプレイして、物足りなかったのでこの作品にも手を伸ばすことにした。DARK SOULSシリーズの古典的なダークファンタジー的世界観とは異なり、今作はクトゥルフ神話的コズミックホラーとでも言うべき異質な世界観で、そこまで話の流れを深く考察できていないものの、一通りストーリーをなぞるだけでも大変楽しく遊べた。</p>
-
-<p>操作感はほぼDARK SOULSシリーズと同じで、シリーズ既プレイ勢にはとっつきやすかった。ただ、序盤は回復手段不足に悩まされがちで、上手くいかないとお金稼ぎをやらないといけない場面も出てくるので、その辺りで辛さを感じることがあるかもしれない。DARK SOULSシリーズでは盾でパリィをするアクションが好きだったが、今作の銃でパリィする仕組みもなかなかに良かった。明らかに、どんどんパリィして最高の気持ちになっていきましょうという設計になっている。</p>
-
-<p>惜しむらくはこのゲームがPS4向けにしか発売されていないことだ。序盤のボス撃破のトロフィー取得率が50%を下回っているような難しさがあるようだが、やり甲斐と深みのあるアクションRPGなので、PS4を持っている人は是非やってみてほしい。</p>
-]]></content:encoded>
-      <guid>https://r7kamura.com/articles/2021-01-10-bloodborne</guid>
     </item>
     
   </channel>
