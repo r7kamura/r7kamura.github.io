@@ -8,7 +8,25 @@
     <atom:link href="https://r7kamura.com/feed.xml" rel="self"/>
     <title>r7kamura.com</title>
     <managingEditor>r7kamura@gmail.com (Ryo Nakamura)</managingEditor>
-    <lastBuildDate>Fri, 05 Feb 2021 17:12:56 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 06 Feb 2021 09:35:53 +0000</lastBuildDate>
+    
+    <item>
+      <title><![CDATA[詫び鰤]]></title>
+      <description><![CDATA[高知かわうそ市場からまた鰤（ぶり）が届いた。]]></description>
+      <link>https://r7kamura.com/articles/2021-02-06-yellowtail-returns</link>
+      <pubDate>Sat, 06 Feb 2021 00:00:00 +0000</pubDate>
+      <content:encoded><![CDATA[<p>高知かわうそ市場からまた鰤（ぶり）が届いた。前回購入時に重量が明らかに足りていない問題があり、申請したところ追送されてきたという経緯。</p>
+
+<figure><a href="https://i.imgur.com/ofHlJnI.jpg" target="_blank"><img src="https://i.imgur.com/ofHlJnIh.jpg" alt="" title="梱包時"></a><figcaption>梱包時</figcaption></figure>
+
+<figure><a href="https://i.imgur.com/YRlAKjD.jpg" target="_blank"><img src="https://i.imgur.com/YRlAKjDh.jpg" alt="" title="鰤しゃぶ"></a><figcaption>鰤しゃぶ</figcaption></figure>
+
+<figure><a href="https://i.imgur.com/DsPzLuo.jpg" target="_blank"><img src="https://i.imgur.com/DsPzLuoh.jpg" alt="" title="鰤大根"></a><figcaption>鰤大根</figcaption></figure>
+
+<p>前回は2枚だったが今回は3枚、合計1500gほど入っていた。料金は全て向こう持ちで、大盤振る舞いすぎる。今回は鰤しゃぶ、鰤大根、刺身、漬け丼でいただいた。うますぎて申し訳ない。</p>
+]]></content:encoded>
+      <guid>https://r7kamura.com/articles/2021-02-06-yellowtail-returns</guid>
+    </item>
     
     <item>
       <title><![CDATA[ダクトレールにSwitchBot Hub Miniを設置]]></title>
@@ -19,7 +37,7 @@
 
 <figure><a href="https://i.imgur.com/7OlSm01.jpg" target="_blank"><img src="https://i.imgur.com/7OlSm01h.jpg" alt="" title="利用した道具"></a><figcaption>利用した道具</figcaption></figure>
 
-<p>ダクトレールから電源も取れるし、電波の感度も良いし、一度取り付ければ邪魔にならないので、これ系のものはやはりダクトレールに設置するのが楽だ。SwitchBot Hub MiniにはUSBケーブルしか同梱されていなかったので、今回はiPhoneに付属していた電源アダプタを使うことにした。ダクトレールへは、以前よりお世話になっていて信頼しているコニシの両面テープを使った。</p>
+<p>ダクトレールから電源も取れるし、天井に取り付けると電波の受信状況も良いし、一度取り付ければ邪魔にならないので、これ系のものはやはりダクトレールに設置するのが楽だ。SwitchBot Hub MiniにはUSBケーブルしか同梱されていなかったので、今回はiPhoneに付属していた電源アダプタを使うことにした。ダクトレールへは、以前よりお世話になっていて信頼しているコニシの両面テープを使った。</p>
 
 <ul>
 <li><a href="https://www.amazon.co.jp/dp/B00KID1QKC?tag=r7kamura07-22">Amazon.co.jp - コニシ 両面テープ</a></li>
@@ -741,30 +759,6 @@ source ~/ghq/github.com/r7kamura/dotfiles/.bashrc
 <p>以上。</p>
 ]]></content:encoded>
       <guid>https://r7kamura.com/articles/2021-01-11-windows-setup</guid>
-    </item>
-    
-    <item>
-      <title><![CDATA[『Hand Simulator: Horror』をやった]]></title>
-      <description><![CDATA[手の操作が難しい謎解きシミュレーターのホラー版、『Hand Simulator: Horror』をやった。]]></description>
-      <link>https://r7kamura.com/articles/2021-01-10-hand-simulator-horror</link>
-      <pubDate>Sun, 10 Jan 2021 00:00:00 +0000</pubDate>
-      <content:encoded><![CDATA[<p>手の操作が難しい謎解きシミュレーターのホラー版、『<a href="https://store.steampowered.com/app/1027820/Hand_Simulator_Horror/">Hand Simulator: Horror</a>』をやった。</p>
-
-<p>WASDで移動、左クリックで手の開閉、右クリックで手操作モードへの移行、マウスホイールで手の垂直方向の上下、マウスポインタで前後左右に手の移動、左Ctrlでしゃがみ、Rで起立だ。</p>
-
-<figure><a href="https://i.imgur.com/h3kbWiS.jpg" target="_blank"><img src="https://i.imgur.com/h3kbWiSh.jpg" alt="" title="スタート地点で動物をぺたぺた触る"></a><figcaption>スタート地点で動物をぺたぺた触る</figcaption></figure>
-
-<figure><a href="https://i.imgur.com/ihC9pgB.jpg" target="_blank"><img src="https://i.imgur.com/ihC9pgBh.jpg" alt="" title="動物を持つのが難しい"></a><figcaption>動物を持つのが難しい</figcaption></figure>
-
-<figure><a href="https://i.imgur.com/RuBvrm8.jpg" target="_blank"><img src="https://i.imgur.com/RuBvrm8h.jpg" alt="" title="カセットを入れてボタンを押すのが難しい"></a><figcaption>カセットを入れてボタンを押すのが難しい</figcaption></figure>
-
-<figure><a href="https://i.imgur.com/9uozhhg.jpg" target="_blank"><img src="https://i.imgur.com/9uozhhgh.jpg" alt="" title="ドアを開けるのが難しい"></a><figcaption>ドアを開けるのが難しい</figcaption></figure>
-
-<figure><a href="https://i.imgur.com/1mwC4Ru.jpg" target="_blank"><img src="https://i.imgur.com/1mwC4Ruh.jpg" alt="" title="10秒以内に解除コードを入力するのが難しい"></a><figcaption>10秒以内に解除コードを入力するのが難しい</figcaption></figure>
-
-<p>スクリーンショットでは何をやっているのか全く分からないと思うが、4時間ほど遊び倒せて良かった。とにかく操作が難しいゲームだったが、4人でクリアしたときの喜びはひとしお。進行できなくなる不具合が少しあるが、それを差し置いても原始的なゲーム体験のところで喜べる良い作品だ。</p>
-]]></content:encoded>
-      <guid>https://r7kamura.com/articles/2021-01-10-hand-simulator-horror</guid>
     </item>
     
   </channel>
