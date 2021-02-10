@@ -8,7 +8,65 @@
     <atom:link href="https://r7kamura.com/feed.xml" rel="self"/>
     <title>r7kamura.com</title>
     <managingEditor>r7kamura@gmail.com (Ryo Nakamura)</managingEditor>
-    <lastBuildDate>Sat, 06 Feb 2021 09:35:53 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 10 Feb 2021 21:23:59 +0000</lastBuildDate>
+    
+    <item>
+      <title><![CDATA[『Valheim』よいとこ一度はおいで]]></title>
+      <description><![CDATA[2021年2月2日にSteamで『Valheim』の早期アクセスが開始されて以来、ここ数日間プレイしている。]]></description>
+      <link>https://r7kamura.com/articles/2021-02-11-valheim</link>
+      <pubDate>Thu, 11 Feb 2021 00:00:00 +0000</pubDate>
+      <content:encoded><![CDATA[<p>2021年2月2日にSteamで『Valheim』の早期アクセスが開始されて以来、ここ数日間プレイしている。やってみるとなかなか面白いゲームなので、どういうゲームなのかこの記事でざっと紹介したい。</p>
+
+<ul>
+<li><a href="https://store.steampowered.com/app/892970/Valheim/">Steam - Valheim</a></li>
+</ul>
+
+<h2>ゲームの概観</h2>
+
+<p>ゲームジャンルは、複数人で遊べる3Dクラフト &amp; サバイバルゲーム。木や石を採取し、拠点をつくり、ダンジョンに潜り、鉱石や素材を採取し、装備を強化し、各地に眠るボスを討伐していく。ARKやマインクラフト、7 Days to DieやTerrariaに近い雰囲気の作品と言える。演出や物語自体にはDARK SOULSシリーズの要素が感じられる部分が多い。オープニングのちょっとした演出や、敵の造形、戦闘時のパリィ要素、初見のとっつきづらさなんかはその最たる例だと思う。</p>
+
+<figure><a href="https://i.imgur.com/f1H24Aa.jpg" target="_blank"><img src="https://i.imgur.com/f1H24Aah.jpg" alt="" title="最初の夜の様子。焚き火をつくると人々が集まってきた"></a><figcaption>最初の夜の様子。焚き火をつくると人々が集まってきた</figcaption></figure>
+
+<figure><a href="https://i.imgur.com/vmlqiHu.jpg" target="_blank"><img src="https://i.imgur.com/vmlqiHuh.jpg" alt="" title="初めての家づくり"></a><figcaption>初めての家づくり</figcaption></figure>
+
+<figure><a href="https://i.imgur.com/rXR3IZS.jpg" target="_blank"><img src="https://i.imgur.com/rXR3IZSh.jpg" alt="" title="皆思い思いに家をつくっている"></a><figcaption>皆思い思いに家をつくっている</figcaption></figure>
+
+<h2>スキルシステム</h2>
+
+<p>走ったりジャンプしたり剣を振ったりするだけで、それぞれの行動に応じたスキルLvが上昇していく。単調になりがちな素材集めなどの時間も、このスキルLvが上がっていく感覚のおかげで心地良いものになっている。ゲーム内で寝る前の暇な時間（全員が同時にベッドに入るまで夜が明けないので最後の1人がベッドに入るまで暇になる）に無心で連続ジャンプしてLv上げをしている人も多い。</p>
+
+<p>死ぬとスキルLvが減るので、おいそれと死ぬわけにはいかないが、建築中に屋根から落ちたり、ちょっと強いモンスターに殴られるとすぐ死ぬ。このデスペナルティの塩梅もかなり丁度良い。</p>
+
+<figure><a href="https://i.imgur.com/1r1XXGE.jpg" target="_blank"><img src="https://i.imgur.com/1r1XXGEh.jpg" alt="" title="MMORPGライクなスキルシステム"></a><figcaption>MMORPGライクなスキルシステム</figcaption></figure>
+
+<h2>大航海時代</h2>
+
+<p>鉱石を加工する技術を獲得したりして文明が進むと、船を建造できるようになり、新大陸へ漕ぎ出せるようになる。各地の金属資源を集めて回り、装備を強化し、雪山や荒野などの更に危険な地帯へと進んでいくのが当面の目的だ。ちなみに船の操作は慣れるまでかなり難しい。舵取りをしつつ、風向きを見つつ、マストを広げたり畳んだりし、座礁しないように適切な航路を取る必要がある。とはいえ慣れると夜でもTwitterを見ながら航海できるようになる。</p>
+
+<figure><a href="https://i.imgur.com/uEhlzyl.jpg" target="_blank"><img src="https://i.imgur.com/uEhlzylh.jpg" alt="" title="初めての航海"></a><figcaption>初めての航海</figcaption></figure>
+
+<figure><a href="https://i.imgur.com/UEwOb7W.jpg" target="_blank"><img src="https://i.imgur.com/UEwOb7Wh.jpg" alt="" title="新大陸への入植"></a><figcaption>新大陸への入植</figcaption></figure>
+
+<figure><a href="https://i.imgur.com/oIZ8Vy7.jpg" target="_blank"><img src="https://i.imgur.com/oIZ8Vy7h.jpg" alt="" title="食糧生産のための農作業"></a><figcaption>食糧生産のための農作業</figcaption></figure>
+
+<figure><a href="https://i.imgur.com/z8tIQ7k.jpg" target="_blank"><img src="https://i.imgur.com/z8tIQ7kh.jpg" alt="" title="鉱石の精錬待ち"></a><figcaption>鉱石の精錬待ち</figcaption></figure>
+
+<h2>建築技術</h2>
+
+<p>建築要素もなかなか面白い。百種類を超えるような建築可能な部品があり、それらを組み合わせて雨風や敵の攻撃を凌げる拠点をつくり、休息や料理、鍛冶や調合、農業や飼育などが出来るように徐々に発展させていくことになる。どこにでも物を設置できるわけではなく、柱や梁で補強しないとその上に物を設置できなかったり、屋根で塞がないと徐々に家具が壊れていったりする。一酸化炭素中毒</p>
+
+<p>最初の頃は勝手が分からずしょぼい家屋しかつくれていなかったが、理解が深まってくると、素材さえあれば快適な拠点を一瞬でつくれるようになる。各大陸ごとに取れる資源の量に限りがあるため、船旅と入植が多くなり、意外と何度も拠点を作成する必要がある。この辺のエコシステムもなかなか良くできている。</p>
+
+<figure><a href="https://i.imgur.com/0wU0y5y.jpg" target="_blank"><img src="https://i.imgur.com/0wU0y5yh.jpg" alt="" title="木材300個ほどでサクッとつくれる簡易拠点"></a><figcaption>木材300個ほどでサクッとつくれる簡易拠点</figcaption></figure>
+
+<figure><a href="https://i.imgur.com/OymKkGk.jpg" target="_blank"><img src="https://i.imgur.com/OymKkGkh.jpg" alt="" title="資材運搬中に襲われる日々"></a><figcaption>資材運搬中に襲われる日々</figcaption></figure>
+
+<hr>
+
+<p>ここでは紹介しきれなかったが、他にも装備や食事、買い物、ダンジョン、ボス戦など様々な要素が予想外なほど適切なバランスで詰まっている。そこまで画質が良いとも言えない作品だが、ゲームの容量は現代の3Dゲームにしては珍しく1GB未満という小ささで、押さえるべきところはきちんと押さえられており、今ではむしろこのミニマルさが良いとさえ感じている。一見無骨で取っつきづらい印象の作品なのに、やってみるとゲームづくりが上手いなと何度も感心させられる、奥深い作品だと思う。</p>
+]]></content:encoded>
+      <guid>https://r7kamura.com/articles/2021-02-11-valheim</guid>
+    </item>
     
     <item>
       <title><![CDATA[詫び鰤]]></title>
@@ -633,132 +691,6 @@ rbenv global 2.7.2
 <p>今のところ文句の付けどころが無い。</p>
 ]]></content:encoded>
       <guid>https://r7kamura.com/articles/2021-01-13-wh-1000xm4</guid>
-    </item>
-    
-    <item>
-      <title><![CDATA[Windows開発環境構築メモ]]></title>
-      <description><![CDATA[開発環境構築用のメモを自分用に書き残しておく。]]></description>
-      <link>https://r7kamura.com/articles/2021-01-11-windows-setup</link>
-      <pubDate>Mon, 11 Jan 2021 00:00:00 +0000</pubDate>
-      <content:encoded><![CDATA[<p>開発環境構築用のメモを自分用に書き残しておく。</p>
-
-<h2>GUIアプリケーション</h2>
-
-<p>この辺りを入れる。</p>
-
-<ul>
-<li>Google Chrome</li>
-<li>Google日本語入力</li>
-<li>1Password 4</li>
-<li>Dropbox</li>
-<li>Docker Desktop for Windows</li>
-</ul>
-
-<p>未だに購読版に移行せず買い切り版の1Password 4を利用している。</p>
-
-<p>Windows + Vを利用するとクリップボード履歴を有効化できるので、済ませておく。</p>
-
-<h2>Google日本語入力の設定</h2>
-
-<ul>
-<li>HENKANキーでIMEを有効化</li>
-<li>MUHENKANキーでIMEを無効化</li>
-</ul>
-
-<p>というキー設定を普段利用しているのでそのように設定する。</p>
-
-<ul>
-<li>直接入力</li>
-<li>入力文字なし</li>
-<li>変換前入力中</li>
-<li>変換中</li>
-</ul>
-
-<p>以上の4つのモードについて、それぞれキー設定のエントリを追加する。</p>
-
-<h2>Windowsライセンス認証</h2>
-
-<p>Windows 10 Pro 64bit辺りをライセンスキー無しでインストールしていると思うので、アカウント設定からMicrosoft Storeに遷移して購入を済ませる。Microsoftアカウントで正しく認証していれば、購入を済ませるだけで勝手にライセンスの認証を済ませてくれる。</p>
-
-<h2>WSL2</h2>
-
-<p>WSL2とUbuntu 20.04を入れる。</p>
-
-<p><a href="https://docs.microsoft.com/ja-jp/windows/wsl/install-win10#manual-installation-steps">https://docs.microsoft.com/ja-jp/windows/wsl/install-win10#manual-installation-steps</a> のページを見ながら進めると良い。</p>
-
-<p>作業内容としては、まず以下のコマンドを管理者として開いたPowerShellで実行し、OSを再起動する。</p>
-
-<pre><code>dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /norestart
-dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /norestart
-</code></pre>
-
-<p>次に「x64 マシン用 WSL2 Linux カーネル更新プログラム パッケージ」をそのページのリンクからダウンロードして実行し、普通に起動したPowerShellで以下のコマンドを実行する。</p>
-
-<pre><code>wsl --set-default-version 2
-</code></pre>
-
-<p>その後、Microsoft Storeのアプリケーションを開き、Ubuntu 20.04 LTSをインストールする。Ubuntu初回起動時にユーザ名やパスワードを設定する。</p>
-
-<h2>Windows Package Manager</h2>
-
-<p>Windows Package Managerで入れられるものはこれで入れた方が楽なので、これを導入する。</p>
-
-<p><a href="https://github.com/microsoft/winget-cli/releases">https://github.com/microsoft/winget-cli/releases</a> でMicrosoft.DesktopAppInstaller_8wekyb3d8bbwe.appxbundleをダウンロードして実行すると入る。</p>
-
-<pre><code>winget install Discord
-winget install Slack
-winget install SoundSwitch
-winget install VSCode
-winget install WindowsTerminal
-</code></pre>
-
-<h2>Windows Terminal</h2>
-
-<p>Windows Terminalで次の設定をする。</p>
-
-<ol>
-<li>フォントを変更する</li>
-<li>起動時にUbuntu-20.04をホームディレクトリで開く</li>
-</ol>
-
-<p>設定方法は <a href="https://docs.microsoft.com/ja-jp/windows/terminal/customize-settings/global-settings">https://docs.microsoft.com/ja-jp/windows/terminal/customize-settings/global-settings</a> を見ると良い。</p>
-
-<p>例えば、フォントは以下のように変える。</p>
-
-<pre><code class="json">{
-  "profiles": {
-    "defaults": {
-      "fontFace": "ＭＳゴシック",
-      "fontSize": 18
-    }
-  }
-}
-</code></pre>
-
-<p>起動時の設定は、Ubuntuのプロファイルを以下のように設定した後、defaultProfileをUbuntuのものに変更する。</p>
-
-<pre><code class="json">"commandline": "wsl.exe ~ -d Ubuntu-20.04"
-// "source": "Windows.Terminal.Wsl"
-</code></pre>
-
-<h2>Ubuntu</h2>
-
-<p>Ubuntu側で開発用に必要な設定を加える。</p>
-
-<pre><code>sudo apt update
-sudo apt install ghq golang peco tig tmux --yes
-
-echo 'export PATH="~/go/bin:${PATH}"' &gt;&gt; ~/.bashrc
-
-git config --global user.email r7kamura@gmail.com
-git config --global user.name r7kamura
-ghq get -p r7kamura/dotfiles
-source ~/ghq/github.com/r7kamura/dotfiles/.bashrc
-</code></pre>
-
-<p>以上。</p>
-]]></content:encoded>
-      <guid>https://r7kamura.com/articles/2021-01-11-windows-setup</guid>
     </item>
     
   </channel>
