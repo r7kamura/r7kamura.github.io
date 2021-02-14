@@ -8,7 +8,33 @@
     <atom:link href="https://r7kamura.com/feed.xml" rel="self"/>
     <title>r7kamura.com</title>
     <managingEditor>r7kamura@gmail.com (Ryo Nakamura)</managingEditor>
-    <lastBuildDate>Sat, 13 Feb 2021 11:06:25 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 14 Feb 2021 13:13:50 +0000</lastBuildDate>
+    
+    <item>
+      <title><![CDATA[Alianwareのディスプレイ AW3821DW]]></title>
+      <description><![CDATA[Dellの子会社Alianwareの曲面37.5型ディスプレイ、AW3821DWを設置した。]]></description>
+      <link>https://r7kamura.com/articles/2021-02-14-alianware-minitor</link>
+      <pubDate>Sun, 14 Feb 2021 00:00:00 +0000</pubDate>
+      <content:encoded><![CDATA[<p>Dellの子会社Alianwareの曲面37.5型ディスプレイ、AW3821DWを設置した。</p>
+
+<ul>
+<li><a href="https://www.amazon.co.jp/dp/B08P49Z6BX?tag=r7kamura07-22">Amazon.co.jp - AW3821DW</a></li>
+</ul>
+
+<p><a href="https://i.imgur.com/QhDiX4K.jpg" target="_blank"><img src="https://i.imgur.com/QhDiX4Kh.jpg" alt=""></a></p>
+
+<p>この大きさの曲面ディスプレイには珍しく、最大リフレッシュレートは144Hz、解像度は3840✕1600まで出せる。パネルのみの重量は7.9kgと軽めで、モニターアームで取り付けやすい軽さ。</p>
+
+<p>PowerToysの機能を利用し、Windowsのスナップ機能を上書きして左右に1:2:1の比率でウィンドウを配置する使い方が気に入っている。</p>
+
+<ul>
+<li><a href="https://github.com/microsoft/PowerToys">https://github.com/microsoft/PowerToys</a></li>
+</ul>
+
+<p>これまで使っていた曲面ディスプレイよりも更に湾曲度が大きく、画面端がより見やすくなった。現在は新しいモニターアームを注文中で、それが届いたら曲面ディスプレイを縦に2枚並べようとしている。</p>
+]]></content:encoded>
+      <guid>https://r7kamura.com/articles/2021-02-14-alianware-minitor</guid>
+    </item>
     
     <item>
       <title><![CDATA[『ライザのアトリエ2 ～失われた伝承と秘密の妖精～』をやった]]></title>
@@ -666,40 +692,6 @@ rbenv global 2.7.2
 <p>このグラフィックボードは1.3kg近い重量で不安だったが、これで安心。</p>
 ]]></content:encoded>
       <guid>https://r7kamura.com/articles/2021-01-17-gpu-support-stay</guid>
-    </item>
-    
-    <item>
-      <title><![CDATA[デスクトップPCを譲渡]]></title>
-      <description><![CDATA[デスクトップPCを譲渡する機会が発生したので、手順などをメモしておく。]]></description>
-      <link>https://r7kamura.com/articles/2021-01-14-windows-transfer</link>
-      <pubDate>Thu, 14 Jan 2021 00:00:00 +0000</pubDate>
-      <content:encoded><![CDATA[<p>デスクトップPCを譲渡する機会が発生したので、手順などをメモしておく。</p>
-
-<h2>クリーンインストール</h2>
-
-<p>Microsoftの提供しているツールを利用し、全てのデータを削除しつつWindows 10をクリーンインストールした。</p>
-
-<ul>
-<li><a href="https://www.microsoft.com/ja-jp/software-download/windows10startfresh">https://www.microsoft.com/ja-jp/software-download/windows10startfresh</a></li>
-</ul>
-
-<p>このデスクトップPCで使われていたWindowsのライセンス認証方式はOEM OA3で、UEFIファームウェアにプロダクトキーが書き込まれているタイプなので、これでそのままライセンス認証が保持される。プリインストールされていたドライバは入れ直しになるので、インターネットに接続してWindows Updateの設定辺りからドライバを入れてもらう。GPUのドライバも別途必要になるはず。</p>
-
-<p>OSが書き込まれているCドライブしか初期化してくれないので、Dドライブ以降が存在する場合は予め自分で初期化しておく。</p>
-
-<h2>配送</h2>
-
-<p>個人的に何度か利用経験のある、ヤマト運輸のパソコン宅急便を利用した。</p>
-
-<ul>
-<li><a href="https://www.kuronekoyamato.co.jp/ytc/customer/send/services/pasotaku/">https://www.kuronekoyamato.co.jp/ytc/customer/send/services/pasotaku/</a></li>
-</ul>
-
-<p>PCの大きさは510 × 450 × 210で、一辺が10mm超過しており一番大きいものに入るか少し不安だったが、問題無く梱包してくれた。以前の利用時にも少し超過しているときに上手くやってくれた記憶がある。</p>
-
-<p>関東から関東への配送で、税込みで3528円。内訳は、梱包資材1520円と配送料2008円だった。最近は現金を用意しておかなくても、配達員の持っている端末を介して電子マネーで決済できて便利だ。</p>
-]]></content:encoded>
-      <guid>https://r7kamura.com/articles/2021-01-14-windows-transfer</guid>
     </item>
     
   </channel>
