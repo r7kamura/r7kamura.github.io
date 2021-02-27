@@ -8,7 +8,27 @@
     <atom:link href="https://r7kamura.com/feed.xml" rel="self"/>
     <title>r7kamura.com</title>
     <managingEditor>r7kamura@gmail.com (Ryo Nakamura)</managingEditor>
-    <lastBuildDate>Thu, 18 Feb 2021 22:28:51 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 27 Feb 2021 08:59:58 +0000</lastBuildDate>
+    
+    <item>
+      <title><![CDATA[エルゴトロン LX デュアル]]></title>
+      <description><![CDATA[横長の画面を上下に2枚配置することにした。]]></description>
+      <link>https://r7kamura.com/articles/2021-02-27-ergotron-lx-dual</link>
+      <pubDate>Sat, 27 Feb 2021 00:00:00 +0000</pubDate>
+      <content:encoded><![CDATA[<p>横長の画面を上下に2枚配置することにした。</p>
+
+<p><a href="https://i.imgur.com/z6cN9uY.jpg" target="_blank"><img src="https://i.imgur.com/z6cN9uYh.jpg" alt=""></a></p>
+
+<p>エルゴトロン社のLXというモニターアームシリーズの、モニターを上下に2つ取り付けられるタイプのものを使っている。</p>
+
+<ul>
+<li><a href="https://www.amazon.co.jp/dp/B07514G4ZL?tag=r7kamura07-22">Amazon.co.jp - エルゴトロン LX デスクマウント デュアル モニターアーム</a></li>
+</ul>
+
+<p>利用しているモニターは、上がASUSのPG348Q (34型・曲面・100Hz)、下がDellのAW3821DW (38型・曲面・144Hz)。上の画面を見ても、意外と首が疲れるということが無くて良かった。上下のどちらの画面も、手前の方に引っ張ったり回転させたりという自由度があり、特に縦画面にして使いたい機会があるので重宝している。</p>
+]]></content:encoded>
+      <guid>https://r7kamura.com/articles/2021-02-27-ergotron-lx-dual</guid>
+    </item>
     
     <item>
       <title><![CDATA[脱衣所と浴室の掃除]]></title>
@@ -685,31 +705,6 @@
 <p>これを適当なところに設置すると完成。</p>
 ]]></content:encoded>
       <guid>https://r7kamura.com/articles/2021-01-18-nature-remo-on-rails</guid>
-    </item>
-    
-    <item>
-      <title><![CDATA[Rubyをインストール]]></title>
-      <description><![CDATA[自分の開発環境にRubyを入れたので手順をメモしておく。]]></description>
-      <link>https://r7kamura.com/articles/2021-01-17-installing-ruby</link>
-      <pubDate>Sun, 17 Jan 2021 00:00:00 +0000</pubDate>
-      <content:encoded><![CDATA[<p>自分の開発環境にRubyを入れたので手順をメモしておく。</p>
-
-<p>最近はほぼ全てのプログラミング言語の実行環境をDocker経由で動かすようにしていたのだけど、とはいえ日々OSSのメンテナンスや不具合検証などで曳光弾的なコードを書こうとすると、いちいちDockerfileやdocker-compose.ymlを用意するのが煩わしく、手元の環境に直接入れてしまっておく方が楽に感じることも多い。</p>
-
-<p>そういう訳で、今回もまた先日作り直したWSL2環境のUbuntuにRubyをインストールするのであった。rbenvとruby-buildをgit-cloneで持ってくる。最近はRuby 2.7.2を普段使いしている。</p>
-
-<pre><code>git clone git@github.com:rbenv/rbenv.git ~/.rbenv
-git clone git@github.com:rbenv/ruby-build.git ~/.rbenv/plugins/ruby-build
-echo 'export PATH="${HOME}/.rbenv/bin:${PATH}"' &gt;&gt; ~/.bashrc
-echo 'eval "$(rbenv init -)"' &gt;&gt; ~/.bashrc
-source ~/.bashrc
-rbenv install 2.7.2
-rbenv global 2.7.2
-</code></pre>
-
-<p>ちなみに今回は、<a href="https://github.com/rubocop-hq/rubocop-rails/issues/421">https://github.com/rubocop-hq/rubocop-rails/issues/421</a> を報告するのに検証用のコードを書く機会が発生したので入れた。こういうものに遭遇したときに、面倒だし報告しなくても良いか、と思ってしまう閾値はわりと低いところにあるように感じる。簡単に動かせる環境があるかどうかというのは、手を伸ばしたら届くところにあるか、それとも立ち上がって取りに行かなければならないか、みたいな違いがあると思う。</p>
-]]></content:encoded>
-      <guid>https://r7kamura.com/articles/2021-01-17-installing-ruby</guid>
     </item>
     
   </channel>
