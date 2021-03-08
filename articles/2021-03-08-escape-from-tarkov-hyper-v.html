@@ -60,7 +60,7 @@
 
 <p>最終的には、Redditで紹介されている方法で解決できた。</p>
 
-<p>次のようにPowershellで次のコマンドを実行すると、表示名にHyper-VまたはDockerを含むサービスを一覧できる。</p>
+<p>次のようにPowershellでコマンドを実行すると、表示名にHyper-VまたはDockerを含むサービスを一覧できる。</p>
 
 <pre><code>PS C:\Windows\system32&gt; Get-Service | where { $_.DisplayName -like "Hyper-V*" -or $_.DisplayName -like "Docker*" }
 
@@ -85,7 +85,7 @@ Stopped  vmicvss            Hyper-V ボリューム シャドウ コピー ...
 <pre><code>PS C:\Windows\system32&gt; Get-Service | where { $_.DisplayName -like "Hyper-V*" -or $_.DisplayName -like "Docker*" } | % { Stop-Service $_ }
 </code></pre>
 
-<p>結果的に、Escape from Tarkovの起動前に毎度これを実行することにした。また、Windows TerminalとVisual Studio Codeを起動したままの状態で放置していると、停止させたはずのvmcomputeが再度Runningに戻っているという事象が確認できたので、あわせてこれらのプログラムも終了させることにしている。</p>
+<p>結果的に、Escape from Tarkovの起動前に毎度これを実行することにした。また、WSL2で実行しているUbuntuに繋いだターミナルを起動したままの状態で放置していると、停止させたはずのvmcomputeが再度Runningに戻っているという事象が確認できたので、あわせてこれも終了させることにしている。</p>
 
   </div>
 </article>

@@ -8,7 +8,7 @@
     <atom:link href="https://r7kamura.com/feed.xml" rel="self"/>
     <title>r7kamura.com</title>
     <managingEditor>r7kamura@gmail.com (Ryo Nakamura)</managingEditor>
-    <lastBuildDate>Mon, 08 Mar 2021 13:09:10 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 08 Mar 2021 13:24:30 +0000</lastBuildDate>
     
     <item>
       <title><![CDATA[『Escape from Tarkov』とHyper-V]]></title>
@@ -32,7 +32,7 @@
 
 <p>最終的には、Redditで紹介されている方法で解決できた。</p>
 
-<p>次のようにPowershellで次のコマンドを実行すると、表示名にHyper-VまたはDockerを含むサービスを一覧できる。</p>
+<p>次のようにPowershellでコマンドを実行すると、表示名にHyper-VまたはDockerを含むサービスを一覧できる。</p>
 
 <pre><code>PS C:\Windows\system32&gt; Get-Service | where { $_.DisplayName -like "Hyper-V*" -or $_.DisplayName -like "Docker*" }
 
@@ -57,7 +57,7 @@ Stopped  vmicvss            Hyper-V ボリューム シャドウ コピー ...
 <pre><code>PS C:\Windows\system32&gt; Get-Service | where { $_.DisplayName -like "Hyper-V*" -or $_.DisplayName -like "Docker*" } | % { Stop-Service $_ }
 </code></pre>
 
-<p>結果的に、Escape from Tarkovの起動前に毎度これを実行することにした。また、Windows TerminalとVisual Studio Codeを起動したままの状態で放置していると、停止させたはずのvmcomputeが再度Runningに戻っているという事象が確認できたので、あわせてこれらのプログラムも終了させることにしている。</p>
+<p>結果的に、Escape from Tarkovの起動前に毎度これを実行することにした。また、WSL2で実行しているUbuntuに繋いだターミナルを起動したままの状態で放置していると、停止させたはずのvmcomputeが再度Runningに戻っているという事象が確認できたので、あわせてこれも終了させることにしている。</p>
 ]]></content:encoded>
       <guid>https://r7kamura.com/articles/2021-03-08-escape-from-tarkov-hyper-v</guid>
     </item>
