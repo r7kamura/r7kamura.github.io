@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width">
+  <title>『Escape from Tarkov』とHyper-V</title>
+  <link href="https://r7kamura.com/articles/2021-03-08-escape-from-tarkov-hyper-v" rel="canonical">
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="search" type="application/opensearchdescription+xml" title="r7kamura.com" href="/opensearch.xml">
+  <link rel="alternate" type="application/rss+xml" href="/feed.xml">
+  
+  <meta property="description" content="最近やり始めた『Escape from Tarkov』で、チート対策のプログラムにHyper-Vが誤検知されるという問題が起きたので、自分の行った対策を書いておく。">
+  <meta property="og:description" content="最近やり始めた『Escape from Tarkov』で、チート対策のプログラムにHyper-Vが誤検知されるという問題が起きたので、自分の行った対策を書いておく。">
+  
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="『Escape from Tarkov』とHyper-V">
+  <meta property="og:url" content="https://r7kamura.com/articles/2021-03-08-escape-from-tarkov-hyper-v">
+  
+  <meta property="og:image" content="https://r7kamura.com/default_og_image.jpg">
+  <meta property="twitter:card" content="summary">
+  
+</head>
+<body>
+  <header>
+    <nav>
+      <p>
+        <a href="/">r7kamura.com</a>
+      </p>
+      <ul>
+        <li>
+          <a href="/links">リンク集</a>
+        </li>
+        <li>
+          <a href="https://www.google.com/search?q=site:r7kamura.com">検索</a>
+        </li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <article>
+  <header>
+    <time datetime="2021-03-08T00:00:00+00:00">2021年03月08日</time>
+    <h1>『Escape from Tarkov』とHyper-V</h1>
+  </header>
+  <div>
+    <p>最近やり始めた『Escape from Tarkov』で、チート対策のプログラムにHyper-Vが誤検知されるという問題が起きたので、自分の行った対策を書いておく。</p>
+
+<ul>
+<li><a href="https://www.escapefromtarkov.com/">https://www.escapefromtarkov.com/</a></li>
+</ul>
+
+<p>前提として、自分はWSL2とDocker Desktop for Windowsを利用している。このWindows PCでEsacpe from Tarkovを実行し、レイドに入って8分程度経過すると、Hyper-Vが云々というメッセージが表示され、退出させられる。Docker Desktop for Windowsを終了させて再試行しても、同様に退出させられる。</p>
+
+<p>「escape from tarkov hyper-v」で検索すると、同様の問題が公式フォーラムやRedditで報告されていることが分かる。</p>
+
+<ul>
+<li><a href="https://forum.escapefromtarkov.com/topic/147299-ejected-from-game-because-hyper-v-is-running/">https://forum.escapefromtarkov.com/topic/147299-ejected-from-game-because-hyper-v-is-running/</a></li>
+<li><a href="https://www.reddit.com/r/EscapefromTarkov/comments/l8vx5k/disallowed_program_hyperv/">https://www.reddit.com/r/EscapefromTarkov/comments/l8vx5k/disallowed_program_hyperv/</a></li>
+</ul>
+
+<p>最終的には、Redditで紹介されている方法で解決できた。</p>
+
+<p>次のようにPowershellで次のコマンドを実行すると、表示名にHyper-VまたはDockerを含むサービスを一覧できる。</p>
+
+<pre><code>PS C:\Windows\system32&gt; Get-Service | where { $_.DisplayName -like "Hyper-V*" -or $_.DisplayName -like "Docker*" }
+
+Status   Name               DisplayName
+------   ----               -----------
+Stopped  com.docker.service Docker Desktop Service
+Running  vmcompute          Hyper-V ホスト コンピューティング ...
+Stopped  vmicguestinterface Hyper-V Guest Service Interface
+Stopped  vmicheartbeat      Hyper-V Heartbeat Service
+Stopped  vmickvpexchange    Hyper-V Data Exchange Service
+Stopped  vmicrdv            Hyper-V リモート デスクトップ仮想化...
+Stopped  vmicshutdown       Hyper-V Guest Shutdown Service
+Stopped  vmictimesync       Hyper-V Time Synchronization Service
+Stopped  vmicvmsession      Hyper-V PowerShell Direct Service
+Stopped  vmicvss            Hyper-V ボリューム シャドウ コピー ...
+</code></pre>
+
+<p>Docker Desktop for Windowsを終了させた状態では、上のような状態になっている。具体的には、vmcomputeがRunningになっていることが分かる。</p>
+
+<p>管理者権限で起動したPowershellで次のようにコマンドを実行すると、これらの全てのサービスを一括して停止できる。</p>
+
+<pre><code>PS C:\Windows\system32&gt; Get-Service | where { $_.DisplayName -like "Hyper-V*" -or $_.DisplayName -like "Docker*" } | % { Stop-Service $_ }
+</code></pre>
+
+<p>結果的に、Escape from Tarkovの起動前に毎度これを実行することにした。また、Windows TerminalとVisual Studio Codeを起動したままの状態で放置していると、停止させたはずのvmcomputeが再度Runningに戻っているという事象が確認できたので、あわせてこれらのプログラムも終了させることにしている。</p>
+
+  </div>
+</article>
+
+  </main>
+</body>
+</html>

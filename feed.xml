@@ -8,7 +8,59 @@
     <atom:link href="https://r7kamura.com/feed.xml" rel="self"/>
     <title>r7kamura.com</title>
     <managingEditor>r7kamura@gmail.com (Ryo Nakamura)</managingEditor>
-    <lastBuildDate>Sat, 27 Feb 2021 08:59:58 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 08 Mar 2021 13:09:10 +0000</lastBuildDate>
+    
+    <item>
+      <title><![CDATA[『Escape from Tarkov』とHyper-V]]></title>
+      <description><![CDATA[最近やり始めた『Escape from Tarkov』で、チート対策のプログラムにHyper-Vが誤検知されるという問題が起きたので、自分の行った対策を書いておく。]]></description>
+      <link>https://r7kamura.com/articles/2021-03-08-escape-from-tarkov-hyper-v</link>
+      <pubDate>Mon, 08 Mar 2021 00:00:00 +0000</pubDate>
+      <content:encoded><![CDATA[<p>最近やり始めた『Escape from Tarkov』で、チート対策のプログラムにHyper-Vが誤検知されるという問題が起きたので、自分の行った対策を書いておく。</p>
+
+<ul>
+<li><a href="https://www.escapefromtarkov.com/">https://www.escapefromtarkov.com/</a></li>
+</ul>
+
+<p>前提として、自分はWSL2とDocker Desktop for Windowsを利用している。このWindows PCでEsacpe from Tarkovを実行し、レイドに入って8分程度経過すると、Hyper-Vが云々というメッセージが表示され、退出させられる。Docker Desktop for Windowsを終了させて再試行しても、同様に退出させられる。</p>
+
+<p>「escape from tarkov hyper-v」で検索すると、同様の問題が公式フォーラムやRedditで報告されていることが分かる。</p>
+
+<ul>
+<li><a href="https://forum.escapefromtarkov.com/topic/147299-ejected-from-game-because-hyper-v-is-running/">https://forum.escapefromtarkov.com/topic/147299-ejected-from-game-because-hyper-v-is-running/</a></li>
+<li><a href="https://www.reddit.com/r/EscapefromTarkov/comments/l8vx5k/disallowed_program_hyperv/">https://www.reddit.com/r/EscapefromTarkov/comments/l8vx5k/disallowed_program_hyperv/</a></li>
+</ul>
+
+<p>最終的には、Redditで紹介されている方法で解決できた。</p>
+
+<p>次のようにPowershellで次のコマンドを実行すると、表示名にHyper-VまたはDockerを含むサービスを一覧できる。</p>
+
+<pre><code>PS C:\Windows\system32&gt; Get-Service | where { $_.DisplayName -like "Hyper-V*" -or $_.DisplayName -like "Docker*" }
+
+Status   Name               DisplayName
+------   ----               -----------
+Stopped  com.docker.service Docker Desktop Service
+Running  vmcompute          Hyper-V ホスト コンピューティング ...
+Stopped  vmicguestinterface Hyper-V Guest Service Interface
+Stopped  vmicheartbeat      Hyper-V Heartbeat Service
+Stopped  vmickvpexchange    Hyper-V Data Exchange Service
+Stopped  vmicrdv            Hyper-V リモート デスクトップ仮想化...
+Stopped  vmicshutdown       Hyper-V Guest Shutdown Service
+Stopped  vmictimesync       Hyper-V Time Synchronization Service
+Stopped  vmicvmsession      Hyper-V PowerShell Direct Service
+Stopped  vmicvss            Hyper-V ボリューム シャドウ コピー ...
+</code></pre>
+
+<p>Docker Desktop for Windowsを終了させた状態では、上のような状態になっている。具体的には、vmcomputeがRunningになっていることが分かる。</p>
+
+<p>管理者権限で起動したPowershellで次のようにコマンドを実行すると、これらの全てのサービスを一括して停止できる。</p>
+
+<pre><code>PS C:\Windows\system32&gt; Get-Service | where { $_.DisplayName -like "Hyper-V*" -or $_.DisplayName -like "Docker*" } | % { Stop-Service $_ }
+</code></pre>
+
+<p>結果的に、Escape from Tarkovの起動前に毎度これを実行することにした。また、Windows TerminalとVisual Studio Codeを起動したままの状態で放置していると、停止させたはずのvmcomputeが再度Runningに戻っているという事象が確認できたので、あわせてこれらのプログラムも終了させることにしている。</p>
+]]></content:encoded>
+      <guid>https://r7kamura.com/articles/2021-03-08-escape-from-tarkov-hyper-v</guid>
+    </item>
     
     <item>
       <title><![CDATA[エルゴトロン LX デュアル]]></title>
@@ -674,37 +726,6 @@
 <p>次はCyberpunk 2077をやる予定。</p>
 ]]></content:encoded>
       <guid>https://r7kamura.com/articles/2021-01-18-sekiro</guid>
-    </item>
-    
-    <item>
-      <title><![CDATA[ダクトレールにNature Remoを設置]]></title>
-      <description><![CDATA[ダクトレール（ライティングレール）にNature Remoを設置した。]]></description>
-      <link>https://r7kamura.com/articles/2021-01-18-nature-remo-on-rails</link>
-      <pubDate>Mon, 18 Jan 2021 00:00:00 +0000</pubDate>
-      <content:encoded><![CDATA[<p>ダクトレール（ライティングレール）にNature Remoを設置した。</p>
-
-<figure><a href="https://i.imgur.com/MAhbXNV.jpg" target="_blank"><img src="https://i.imgur.com/MAhbXNVh.jpg" alt="" title="設置した様子"></a><figcaption>設置した様子</figcaption></figure>
-
-<p>KIWI DesignのGoogle Home Mini用壁掛けホルダーがNature Remoの電源アダプターにも使えることが分かったので、<a href="/articles/2020-12-19-google-home-mini-on-rails">ダクトレールにGoogle Home Miniを設置</a>したときとやり方は同じ。</p>
-
-<p>次の製品を使って取り付けた。</p>
-
-<ul>
-<li><a href="https://www.amazon.co.jp/dp/B08BLSLWH4?tag=r7kamura07-22">Amazon.co.jp - Nature Remo 3 (1W3)</a></li>
-<li><a href="https://www.amazon.co.jp/dp/B01M7RME5D?tag=r7kamura07-22">Amazon.co.jp - 東芝ライテック 抜止コンセント</a></li>
-<li><a href="https://www.amazon.co.jp/dp/B086HJL73H?tag=r7kamura07-22">Amazon.co.jp - KIWI Design Google Nest Mini壁掛けホルダー</a></li>
-<li><a href="https://www.amazon.co.jp/dp/B00KID1QKC?tag=r7kamura07-22">Amazon.co.jp - コニシ 両面テープハイパワー</a></li>
-</ul>
-
-<figure><a href="https://i.imgur.com/6bRMY22.jpg" target="_blank"><img src="https://i.imgur.com/6bRMY22h.jpg" alt="" title="構成要素"></a><figcaption>構成要素</figcaption></figure>
-
-<figure><a href="https://i.imgur.com/vsB6zGc.jpg" target="_blank"><img src="https://i.imgur.com/vsB6zGch.jpg" alt="" title="アダプタを取り付けて不要なケーブルを巻く"></a><figcaption>アダプタを取り付けて不要なケーブルを巻く</figcaption></figure>
-
-<figure><a href="https://i.imgur.com/Mrq2MqV.jpg" target="_blank"><img src="https://i.imgur.com/Mrq2MqVh.jpg" alt="" title="Nature Remoに金属板を取り付ける"></a><figcaption>Nature Remoに金属板を取り付ける</figcaption></figure>
-
-<p>これを適当なところに設置すると完成。</p>
-]]></content:encoded>
-      <guid>https://r7kamura.com/articles/2021-01-18-nature-remo-on-rails</guid>
     </item>
     
   </channel>
