@@ -8,7 +8,21 @@
     <atom:link href="https://r7kamura.com/feed.xml" rel="self"/>
     <title>r7kamura.com</title>
     <managingEditor>r7kamura@gmail.com (Ryo Nakamura)</managingEditor>
-    <lastBuildDate>Mon, 08 Mar 2021 13:24:30 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 17 Apr 2021 13:54:42 +0000</lastBuildDate>
+    
+    <item>
+      <title><![CDATA[ゲーム中に入力言語が切り替わるのを防ぐ]]></title>
+      <description><![CDATA[Windowsでは左Alt + Shiftキーで入力言語が切り替わるように設定されており、同じキーをよく使うゲーム中などに意図せず切り替わってしまうことがある。]]></description>
+      <link>https://r7kamura.com/articles/2021-04-17-apex-legends-ime-switch</link>
+      <pubDate>Sat, 17 Apr 2021 00:00:00 +0000</pubDate>
+      <content:encoded><![CDATA[<p>Windowsでは左Alt + Shiftキーで入力言語が切り替わるように設定されており、同じキーをよく使うゲーム中などに意図せず切り替わってしまうことがある。自分の場合、Apex Legendsをプレイ中によくこの誤操作が起きていた。</p>
+
+<p><a href="https://i.imgur.com/wWZPIcUh.png" target="_blank"><img src="https://i.imgur.com/wWZPIcUh.png" alt=""></a></p>
+
+<p>「キーボードの詳細設定」から「入力言語のホットキー」を選択すると、これを無効化できる。「キーボードの詳細設定」へはWindowsの検索機能で辿り着くのが楽だろう。</p>
+]]></content:encoded>
+      <guid>https://r7kamura.com/articles/2021-04-17-apex-legends-ime-switch</guid>
+    </item>
     
     <item>
       <title><![CDATA[『Escape from Tarkov』とHyper-V]]></title>
@@ -684,48 +698,6 @@ Stopped  vmicvss            Hyper-V ボリューム シャドウ コピー ...
 <p>遊び尽くせないほど沢山ミニゲームが入っているのでまだまだ遊べる。</p>
 ]]></content:encoded>
       <guid>https://r7kamura.com/articles/2021-01-21-hand-simulator</guid>
-    </item>
-    
-    <item>
-      <title><![CDATA[『SEKIRO』をやった]]></title>
-      <description><![CDATA[この1週間で『SEKIRO: SHADOWS DIE TWICE』をやった。]]></description>
-      <link>https://r7kamura.com/articles/2021-01-18-sekiro</link>
-      <pubDate>Mon, 18 Jan 2021 00:00:00 +0000</pubDate>
-      <content:encoded><![CDATA[<p>この1週間で『SEKIRO: SHADOWS DIE TWICE』をやった。</p>
-
-<figure><a href="https://i.imgur.com/n0xrVF3.jpg" target="_blank"><img src="https://i.imgur.com/n0xrVF3h.jpg" alt="" title="ゲーム冒頭の一幕"></a><figcaption>ゲーム冒頭の一幕</figcaption></figure>
-
-<p>フロム・ソフトウェアとアクティビジョンとの共同開発でつくられた和風アクションアドベンチャーゲームで、DARK SOULSやBloodborneの開発スタッフも関わっている。</p>
-
-<p>この年末年始でフロム・ソフトウェアのゲームと改めて向き合おうと思い、次のゲームを一通りやったが、SEKIROは体験の設計という意味できわめて高品質な作品だと感じた。</p>
-
-<ul>
-<li>DARK SOULS 1</li>
-<li>DARK SOULS 2</li>
-<li>DARK SOULS 3</li>
-<li>Bloodborne</li>
-<li>SEKIRO</li>
-</ul>
-
-<figure><a href="https://i.imgur.com/Ab0CjcJ.jpg" target="_blank"><img src="https://i.imgur.com/Ab0CjcJh.jpg" alt="" title="序盤で苦戦したボス: まぼろしお蝶"></a><figcaption>序盤で苦戦したボス: まぼろしお蝶</figcaption></figure>
-
-<figure><a href="https://i.imgur.com/qC0PxKW.jpg" target="_blank"><img src="https://i.imgur.com/qC0PxKWh.jpg" alt="" title="でかい蛇から隠れて逃げ回る日々"></a><figcaption>でかい蛇から隠れて逃げ回る日々</figcaption></figure>
-
-<figure><a href="https://i.imgur.com/oaDJyL9.jpg" target="_blank"><img src="https://i.imgur.com/oaDJyL9h.jpg" alt="" title="ボス第一形態を初撃破して記念撮影 (このあと背後から殴られて死ぬ)"></a><figcaption>ボス第一形態を初撃破して記念撮影 (このあと背後から殴られて死ぬ)</figcaption></figure>
-
-<figure><a href="https://i.imgur.com/pF6pMnx.jpg" target="_blank"><img src="https://i.imgur.com/pF6pMnxh.jpg" alt="" title="マスターソードを抜いたシーン"></a><figcaption>マスターソードを抜いたシーン</figcaption></figure>
-
-<figure><a href="https://i.imgur.com/aJPHMwf.jpg" target="_blank"><img src="https://i.imgur.com/aJPHMwfh.jpg" alt="" title="物語の終わり"></a><figcaption>物語の終わり</figcaption></figure>
-
-<p>適度な説明がなされ、やり甲斐があり、上手くやる余地があり、自分のプレイヤースキルが成長している喜びを感じさせてくれる、良いゲームだ。上に挙げた他の作品と違い、SEKIROには主人公に名前や台詞があり、ストーリーに誘導してもらいやすく、初心者にもおすすめだ。決して易しくはないが、全体的に体験は優しい。</p>
-
-<hr>
-
-<p>ところで、この手のゲームに慣れてから久しぶりにFPSのゲームをやろうとすると、酔いやすく、疲れやすくなることを感じた。集中すればミクロな情報の解像度を上げられるようになった結果、画面から得られるあらゆる情報に対して集中してしまう。特にバトルロイヤル形式のゲームなんかは情報過多になりがちで、情報の枝切りが必要になってくるので、酔ったり疲れたりしてしまうのかも。</p>
-
-<p>次はCyberpunk 2077をやる予定。</p>
-]]></content:encoded>
-      <guid>https://r7kamura.com/articles/2021-01-18-sekiro</guid>
     </item>
     
   </channel>
