@@ -59,10 +59,10 @@
 <p>こういう形の、素朴なルーティングがひたすらに羅列されていくコードになる。実際のコードでは数百行以上に及ぶ。基本的に1行に1つのルーティングが定義される。</p>
 
 <pre><code>MyApp::Application.routes.draw do
-  get    '/' =&gt; 'top_pages#show', as: :top_page
-  delete '/api/applications/:application_id' =&gt; 'api_applications#destroy', as: :api_application
-  get    '/api/applications/:application_id' =&gt; 'api_applications#show'
-  patch '/api/applications/:application_id' =&gt; 'api_applications#update'
+  get    '/', to: 'top_pages#show', as: :top_page
+  delete '/api/applications/:application_id', to: 'api_applications#destroy', as: :api_application
+  get    '/api/applications/:application_id', to: 'api_applications#show'
+  patch  '/api/applications/:application_id', to: 'api_applications#update'
   ...
 end
 </code></pre>
