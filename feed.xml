@@ -8,7 +8,27 @@
     <atom:link href="https://r7kamura.com/feed.xml" rel="self"/>
     <title>r7kamura.com</title>
     <managingEditor>r7kamura@gmail.com (Ryo Nakamura)</managingEditor>
-    <lastBuildDate>Mon, 24 May 2021 00:21:28 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 02 Jul 2021 05:32:36 +0000</lastBuildDate>
+    
+    <item>
+      <title><![CDATA[マウスのチャタリングを接点復活剤で解消]]></title>
+      <description><![CDATA[LogicoolのG903というマウスを利用していて、最近チャタリングが起こるようになってきたので困っていた。]]></description>
+      <link>https://r7kamura.com/articles/2021-07-02-mouse-chattering</link>
+      <pubDate>Fri, 02 Jul 2021 00:00:00 +0000</pubDate>
+      <content:encoded><![CDATA[<p><a href="https://i.imgur.com/w09hgHx.jpg" target="_blank"><img src="https://i.imgur.com/w09hgHxh.jpg" alt=""></a></p>
+
+<p>LogicoolのG903というマウスを利用していて、最近チャタリングが起こるようになってきたので困っていた。具体的には、シングルクリックがダブルクリックとして認識されてしまったり、クリックし続けているのにたまにドラッグ状態が解消されてしまうような現象が頻繁に起きていた。</p>
+
+<p>保証期限もとっくに切れているし買い替えを検討したのだが、マウスのチャタリングには接点復活剤が有効らしいということを聞きつけ、試しにシュッと吹き込んでみたところ、無事に解決した。G903はスイッチ部が外部に露出しており、接点復活のためにつくられたかのようなデザインで本当に助かった。</p>
+
+<p>ちなみにうちには接点復活剤が無かったので代わりにKREの5-56を使ったが、樹脂部が溶けたりしそうなので、本当は接点復活剤を使った方が良いと思う。</p>
+
+<ul>
+<li><a href="https://www.amazon.co.jp/dp/B000TGO0ME?tag=r7kamura07-22">https://www.amazon.co.jp/dp/B000TGO0ME</a></li>
+</ul>
+]]></content:encoded>
+      <guid>https://r7kamura.com/articles/2021-07-02-mouse-chattering</guid>
+    </item>
     
     <item>
       <title><![CDATA[『Narita Boy』をやった]]></title>
@@ -646,32 +666,6 @@ Stopped  vmicvss            Hyper-V ボリューム シャドウ コピー ...
 <p>スクリーンショットを振り返ってみると、終始最高そうに見えて不思議だ。実際には、9割ほどの時間を微弱な快感の中で過ごし、1割ほどの時間で大いに盛り上がりを感じるという、全体的にちぐはぐな体験をしたと思う。微妙な印象とは書いたものの、得難い体験をしたという感覚もあり、このタイミングでとりあえず勢いでやっておいて良かった作品だと思っている。</p>
 ]]></content:encoded>
       <guid>https://r7kamura.com/articles/2021-01-24-cyberpunk-2077</guid>
-    </item>
-    
-    <item>
-      <title><![CDATA[『Getting Over It』をやった]]></title>
-      <description><![CDATA[山登りアクションゲーム『Getting Over It with Bennett Foddy』をやった。]]></description>
-      <link>https://r7kamura.com/articles/2021-01-23-getting-over-it</link>
-      <pubDate>Sat, 23 Jan 2021 00:00:00 +0000</pubDate>
-      <content:encoded><![CDATA[<p>山登りアクションゲーム『Getting Over It with Bennett Foddy』をやった。</p>
-
-<ul>
-<li><a href="https://store.steampowered.com/app/240720">https://store.steampowered.com/app/240720</a></li>
-</ul>
-
-<p>壺に入ったおじさんをマウスポインターで操作して、険しい山を登っていくゲームだ。山頂を目指す挑戦者を待ち受けるのは、偉大なる神秘と素晴らしきご褒美。</p>
-
-<figure><a href="https://i.imgur.com/MamLVEz.jpg" target="_blank"><img src="https://i.imgur.com/MamLVEzh.jpg" alt="" title="起動画面"></a><figcaption>起動画面</figcaption></figure>
-
-<figure><a href="https://i.imgur.com/ffmqonu.jpg" target="_blank"><img src="https://i.imgur.com/ffmqonuh.jpg" alt="" title="険しい道のり"></a><figcaption>険しい道のり</figcaption></figure>
-
-<figure><a href="https://i.imgur.com/tMotB8P.jpg" target="_blank"><img src="https://i.imgur.com/tMotB8Ph.jpg" alt="" title="恐ろしいギミック"></a><figcaption>恐ろしいギミック</figcaption></figure>
-
-<p>14時間ほどプレイしてようやくクリアした。終盤ではかつて無いほど集中した時間が続き、無事最後まで辿り着いたときには感動と開放感で泣きそうになった。</p>
-
-<p>難しいゲームだったが、困難に挑戦し、自己を見つめ直すきっかけを与えてくれる、やり甲斐のあるゲームだと感じた。Discordで見守ってくれた人達にも感謝したい。</p>
-]]></content:encoded>
-      <guid>https://r7kamura.com/articles/2021-01-23-getting-over-it</guid>
     </item>
     
   </channel>
